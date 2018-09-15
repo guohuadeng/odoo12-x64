@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: wandex
+Version: 0.4.5
+Summary: Ctypes-based simple MagickWand API binding for Python
+Home-page: https://github.com/sayoun/wandex
+Author: sayoun
+License: MIT License
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Programming Language :: Python :: Implementation :: Stackless
+Classifier: Topic :: Multimedia :: Graphics
+Provides-Extra: doc
+Provides-Extra: doc
+Requires-Dist: Sphinx (>=1.0); extra == 'doc'
+
+wandex
+======
+
+wandex is a fork of Wand_ project, with added MagickWand API
+methods, like blur, sharpen and resample.
+
+Beware that this code is not tested, so use it at your own risks.
+
+You can install the package from PyPI_ by using ``pip``:
+
+.. code-block:: console
+
+   $ pip install wandex
+
+.. _Wand: http://wand-py.org/
+.. _PyPI: https://pypi.python.org/pypi/Wand
+
+

@@ -1,0 +1,4 @@
+"""Auto-generated file, do not edit by hand. 91 metadata"""
+from ..phonemetadata import NumberFormat
+
+PHONE_ALT_FORMAT_91 = [NumberFormat(pattern='(\\d{2})(\\d{2})(\\d{6})', format='\\1 \\2 \\3', leading_digits_pattern=['7(?:[02-8]|19|9[07-9])|8(?:0[015-9]|[13-69]|2[02-9]|7[01-69]|8[0-24-9])|9']), NumberFormat(pattern='(\\d{2})(\\d{2})(\\d{2})(\\d{2})(\\d{2})', format='\\1 \\2 \\3 \\4 \\5', leading_digits_pattern=['7(?:[02-8]|19|9[07-9])|8(?:0[015-9]|[13-69]|2[02-9]|7[01-69]|8[0-24-9])|9']), NumberFormat(pattern='(\\d{2})(\\d{4})(\\d{4})', format='\\1 \\2 \\3', leading_digits_pattern=['79[1-9]|80[2-46]']), NumberFormat(pattern='(\\d{3})(\\d{3})(\\d{4})', format='\\1 \\2 \\3', leading_digits_pattern=['7(?:12|2[14]|3[134]|4[47]|5[15]|[67]1|88)|8(?:16|2[014]|3[126]|6[136]|7[078]|8[34]|91)']), NumberFormat(pattern='(\\d{4})(\\d{3})(\\d{3})', format='\\1 \\2 \\3', leading_digits_pattern=['7(?:[02-8]|19|9[07-9])|8(?:0[015-9]|[13-69]|2[02-9]|7[01-69]|8[0-24-9])'])]

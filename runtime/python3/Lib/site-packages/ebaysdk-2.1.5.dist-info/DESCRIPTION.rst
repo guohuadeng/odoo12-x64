@@ -1,0 +1,5 @@
+This SDK is a programatic inteface into the eBay
+APIs. It simplifies development and cuts development time by standerizing
+calls, response processing, error handling, debugging across the Finding,
+Shopping, Merchandising, & Trading APIs. 
+
