@@ -1,3 +1,15 @@
+#个人文件目录，不传到git，每个人将个人文件放到 _s 目录下
+/_s
+/source/.github
+/source/.tx
+.idea
+.git
+.tx
+~*.*
+.pyc
+.DS_Store
+/ref
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -5,25 +17,6 @@ __pycache__/
 
 # C extensions
 *.so
-
-# Distribution / packaging
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-MANIFEST
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
