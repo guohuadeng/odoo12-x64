@@ -1,9 +1,6 @@
 Green Odoo 12 x64， http://www.Sunpop.cn
-----
-## odoo12 预览学习
-http://368760-master-8a7b0b.runbot11.odoo.com/web?debug=1
-
-## 最新文档
+---------------------------------------
+## 概述
 64位版本性能会比32位高很多，包括高效指令及大内存更快巡址。对高资源消耗的odoo，使用64位是十分有必要的。
 本版本在使用64位的基础上，对postgresql进行了优化，并使用nginx进行反向代理，实现了longpolling，可以使用odoo的桌面消息通知，也不会经常报错了。
 在windows上搭建了一个完整的高性能 Odoo 环境。
@@ -13,6 +10,17 @@ http://368760-master-8a7b0b.runbot11.odoo.com/web?debug=1
 2. postgresql 9.6.4 ,64位
 3. Nginx 1.12.1， 32位
 4. Odoo 12，20180914版本。
+
+## 全新功能，更快速度
+Odoo 12 Features, enhance and boost from 11。 新特性，功能更多，性能更好 - 广州尚鹏 | odoo专业实施开发
+http://www.sunpop.cn/odoo-12-features-enhance-boost-from-11/
+
+## 开发
+使用pycharm搭建odoo 12, 11,10 开发调试环境
+http://www.sunpop.cn/odoo_12_11_10_dev_with_pycharm_setup/
+
+## odoo12 预览学习
+http://368760-master-8a7b0b.runbot11.odoo.com/web?debug=1
 
 ## 操作说明
 - 执行 r.bat后，访问 http://localhost:8012  或者  http://localhost
@@ -83,11 +91,7 @@ pip3 install .\extra\wandex-0.4.5-py3-none-any.whl
 pip3 install .\extra\imageio-2.3.0-py2.py3-none-any.whl
 pip3 install .\extra\moviepy-0.2.3.5-py2.py3-none-any.whl
 ```
-## 安装npm相关
-```
-cd runtime/win32/nodejs
-npm install -g less less-plugin-clean-css
-```
+
 ## Nginx配置相关
 ```
 runtime/nginx/nginx.conf
