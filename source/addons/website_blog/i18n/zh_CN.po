@@ -1,0 +1,1096 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * website_blog
+# 
+# Translators:
+# e2f <projects@e2f.com>, 2018
+# Martin Trigaux, 2018
+# Jeffery CHEN Fan <jeffery9@gmail.com>, 2018
+# liAnGjiA <liangjia@qq.com>, 2018
+# THL <wt39181819@gmail.com>, 2018
+# Talway <9010446@qq.com>, 2018
+# 苏州远鼎 <tiexinliu@126.com>, 2018
+# waveyeung <waveyeung@qq.com>, 2018
+# fausthuang, 2018
+# 菜小蛇 <lttlsnk@gmail.com>, 2018
+# 山西清水欧度(QQ:54773801) <54773801@qq.com>, 2018
+# e2f_cn c5 <jarvisn@ecinnovations.com>, 2018
+# n37r06u3 <n37r06u3@gmail.com>, 2018
+# 老窦 北京 <2662059195@qq.com>, 2018
+# e2f_cn c7 <e2f_cn_c7@outlook.com>, 2018
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server saas~11.5\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-08-24 09:05+0000\n"
+"PO-Revision-Date: 2018-08-24 09:05+0000\n"
+"Last-Translator: e2f_cn c7 <e2f_cn_c7@outlook.com>, 2018\n"
+"Language-Team: Chinese (China) (https://www.transifex.com/odoo/teams/41243/zh_CN/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: zh_CN\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.blog_post_short
+msgid "&amp;mdash;"
+msgstr "&amp;mdash; "
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.latest_blogs
+msgid "&amp;times;"
+msgstr "&amp;次数;"
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.blog_feed
+msgid "&lt;?xml version=\"1.0\" encoding=\"utf-8\"?&gt;"
+msgstr "&lt;?xml version=\"1.0\" encoding=\"utf-8\"?&gt;"
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.view_blog_blog_form
+msgid ""
+"(Un)archiving a blog automatically (un)archives its posts. Do you want to "
+"proceed?"
+msgstr "（取消）归档博客将自动（取消）归档其中的博客文章。是否继续？"
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.s_latest_posts_options
+msgid "1 post"
+msgstr ""
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.s_latest_posts_options
+msgid "10 posts"
+msgstr ""
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.s_latest_posts_options
+msgid "2 posts"
+msgstr ""
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.s_latest_posts_options
+msgid "3 posts"
+msgstr ""
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.s_latest_posts_options
+msgid "4 posts"
+msgstr ""
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.s_latest_posts_options
+msgid "5 posts"
+msgstr ""
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.s_latest_posts_options
+msgid "6 posts"
+msgstr ""
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.s_latest_posts_options
+msgid "7 posts"
+msgstr ""
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.s_latest_posts_options
+msgid "8 posts"
+msgstr ""
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.s_latest_posts_options
+msgid "9 posts"
+msgstr ""
+
+#. module: website_blog
+#. openerp-web
+#: code:addons/website_blog/static/src/js/website.tour.blog.js:53
+#, python-format
+msgid "<b>Click on Save</b> to record your changes."
+msgstr "<b>单击“保存</b>”以记录您的更改。"
+
+#. module: website_blog
+#. openerp-web
+#: code:addons/website_blog/static/src/js/website.tour.blog.js:69
+#, python-format
+msgid "<b>Publish your blog post</b> to make it visible to your visitors."
+msgstr "<b>发布你的博客文章</b>，使其让您的访客可见。"
+
+#. module: website_blog
+#. openerp-web
+#: code:addons/website_blog/static/src/js/website.tour.blog.js:73
+#, python-format
+msgid ""
+"<b>That's it, your blog post is published!</b> Discover more features "
+"through the <i>Customize</i> menu."
+msgstr "<b>就是这样，您的博客文章已发布！</b>通过<i>自定义</i>菜单发现更多功能。"
+
+#. module: website_blog
+#. openerp-web
+#: code:addons/website_blog/static/src/js/website.tour.blog.js:44
+#, python-format
+msgid ""
+"<b>Write your story here.</b> Use the top toolbar to style your text: add an"
+" image or table, set bold or italic, etc. Drag and drop building blocks for "
+"more graphical blogs."
+msgstr "在<b>这里写下您的故事。</b>使用顶部的工具栏来设计文本：添加图像或表格、设置粗体或斜体等。拖放构建块来得到更加图像化的博客。"
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.latest_blogs
+msgid "<span class=\"fa fa-folder-open\"/> In"
+msgstr ""
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.blog_post_template_new_post
+msgid "A new post"
+msgstr "新帖"
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.opt_blog_rc_about_us
+msgid "About us"
+msgstr "关于我们"
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.blog_post_template_new_post
+msgid "Access post"
+msgstr "访问帖子"
+
+#. module: website_blog
+#: model:ir.model.fields,field_description:website_blog.field_blog_blog__message_needaction
+#: model:ir.model.fields,field_description:website_blog.field_blog_post__message_needaction
+msgid "Action Needed"
+msgstr "需要采取行动"
+
+#. module: website_blog
+#: model:ir.model.fields,field_description:website_blog.field_blog_blog__active
+#: model:ir.model.fields,field_description:website_blog.field_blog_post__active
+msgid "Active"
+msgstr "有效"
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.s_latest_posts_options
+msgid "All blogs"
+msgstr ""
+
+#. module: website_blog
+#. openerp-web
+#: code:addons/website_blog/static/src/js/s_latest_posts_frontend.js:59
+#, python-format
+msgid ""
+"An error occured with this latest posts block. If the problem persists, "
+"please consider deleting it and adding a new one"
+msgstr ""
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.blog_blog_view_search
+#: model:ir.ui.view,arch_db:website_blog.view_blog_post_search
+msgid "Archived"
+msgstr "已归档"
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.opt_blog_rc_history
+msgid "Archives"
+msgstr "归档"
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.blog_post_short
+msgid "Atom Feed"
+msgstr "Atom 供稿"
+
+#. module: website_blog
+#: model:ir.model.fields,field_description:website_blog.field_blog_post__author_id
+#: model:ir.ui.view,arch_db:website_blog.view_blog_post_search
+msgid "Author"
+msgstr "作者"
+
+#. module: website_blog
+#: model:ir.model.fields,field_description:website_blog.field_blog_post__author_avatar
+msgid "Avatar"
+msgstr "头像"
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.website_blog
+msgid "Black"
+msgstr "黑色"
+
+#. module: website_blog
+#: model:ir.model.fields,field_description:website_blog.field_blog_post__blog_id
+#: model:ir.ui.view,arch_db:website_blog.blog_blog_view_search
+#: model:ir.ui.view,arch_db:website_blog.view_blog_blog_form
+#: model:ir.ui.view,arch_db:website_blog.view_blog_post_search
+#: model:website.menu,name:website_blog.menu_news
+msgid "Blog"
+msgstr "博客"
+
+#. module: website_blog
+#: model:ir.model.fields,field_description:website_blog.field_blog_blog__name
+msgid "Blog Name"
+msgstr "博客名称"
+
+#. module: website_blog
+#: code:addons/website_blog/models/website.py:22
+#: code:addons/website_blog/models/website.py:47
+#: model:ir.model,name:website_blog.model_blog_post
+#: model:ir.ui.view,arch_db:website_blog.view_blog_post_form
+#: model:ir.ui.view,arch_db:website_blog.view_blog_post_search
+#, python-format
+msgid "Blog Post"
+msgstr "博客文章"
+
+#. module: website_blog
+#: code:addons/website_blog/models/website.py:53
+#, python-format
+msgid "Blog Post <b>%s</b> seems to be calling this file !"
+msgstr "博客文章 <b>%s</b> 似乎调用了此文件！"
+
+#. module: website_blog
+#: code:addons/website_blog/models/website.py:28
+#, python-format
+msgid "Blog Post <b>%s</b> seems to have a link to this page !"
+msgstr "博客文章 <b>%s</b> 似乎有一个链接到这个网页！"
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.blog_post_complete
+#: model:ir.ui.view,arch_db:website_blog.opt_blog_post_complete_read_next
+#: model:ir.ui.view,arch_db:website_blog.view_blog_post_form
+msgid "Blog Post Title"
+msgstr "博文标题"
+
+#. module: website_blog
+#: code:addons/website_blog/models/website.py:24
+#: code:addons/website_blog/models/website.py:49
+#: model:ir.actions.act_window,name:website_blog.action_blog_post
+#: model:ir.ui.view,arch_db:website_blog.view_blog_post_list
+#, python-format
+msgid "Blog Posts"
+msgstr "博文"
+
+#. module: website_blog
+#: model:ir.model.fields,field_description:website_blog.field_blog_blog__subtitle
+#: model:ir.ui.view,arch_db:website_blog.view_blog_post_form
+msgid "Blog Subtitle"
+msgstr "博文副标题"
+
+#. module: website_blog
+#: model:ir.model,name:website_blog.model_blog_tag
+msgid "Blog Tag"
+msgstr "博客标签"
+
+#. module: website_blog
+#: model:ir.model,name:website_blog.model_blog_tag_category
+msgid "Blog Tag Category"
+msgstr ""
+
+#. module: website_blog
+#: model:ir.actions.act_window,name:website_blog.action_tags
+msgid "Blog Tags"
+msgstr "博客标签"
+
+#. module: website_blog
+#: model:ir.actions.act_window,name:website_blog.action_blog_blog
+#: model:ir.model,name:website_blog.model_blog_blog
+#: model:ir.ui.menu,name:website_blog.menu_blog_global
+#: model:ir.ui.menu,name:website_blog.menu_website_blog_root
+#: model:ir.ui.menu,name:website_blog.menu_website_blog_root_global
+#: model:ir.ui.view,arch_db:website_blog.view_blog_blog_list
+msgid "Blogs"
+msgstr "博客"
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.website_blog
+msgid "Blue"
+msgstr "蓝色"
+
+#. module: website_blog
+#: model:ir.model.fields,field_description:website_blog.field_blog_tag__category_id
+msgid "Category"
+msgstr "类别"
+
+#. module: website_blog
+#. openerp-web
+#: code:addons/website_blog/static/src/js/website.tour.blog.js:29
+#: model:ir.ui.view,arch_db:website_blog.website_blog
+#, python-format
+msgid "Change Cover"
+msgstr "修改封面"
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.s_latest_posts_options
+msgid "Choose a blog"
+msgstr ""
+
+#. module: website_blog
+#. openerp-web
+#: code:addons/website_blog/static/src/js/website.tour.blog.js:35
+#, python-format
+msgid "Choose an image from the library."
+msgstr "从库中选择图像。"
+
+#. module: website_blog
+#. openerp-web
+#: code:addons/website_blog/static/src/js/website.tour.blog.js:30
+#, python-format
+msgid "Click here to change your post cover."
+msgstr "单击此处更改您的文章封面。"
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.blog_post_short
+msgid ""
+"Click on \"New Page\" in the top-right corner to write your first blog post."
+msgstr "点击右上角的“新建页面”来写下您的第一篇博客文章。"
+
+#. module: website_blog
+#. openerp-web
+#: code:addons/website_blog/static/src/js/website.tour.blog.js:40
+#, python-format
+msgid "Click on <b>Save</b> to set the picture as cover."
+msgstr "点击<b>保存</b>将图片设为封面。"
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.latest_blogs
+msgid "Close"
+msgstr "关闭"
+
+#. module: website_blog
+#: model:ir.model.fields,field_description:website_blog.field_blog_post__content
+#: model:ir.ui.view,arch_db:website_blog.view_blog_post_search
+msgid "Content"
+msgstr "内容"
+
+#. module: website_blog
+#: model:ir.model.fields,field_description:website_blog.field_blog_post__cover_properties
+msgid "Cover Properties"
+msgstr "封面属性"
+
+#. module: website_blog
+#: model:ir.actions.act_window,help:website_blog.action_blog_post
+msgid "Create a new blog post"
+msgstr ""
+
+#. module: website_blog
+#: model:ir.model.fields,field_description:website_blog.field_blog_blog__create_uid
+#: model:ir.model.fields,field_description:website_blog.field_blog_post__create_uid
+#: model:ir.model.fields,field_description:website_blog.field_blog_tag__create_uid
+#: model:ir.model.fields,field_description:website_blog.field_blog_tag_category__create_uid
+msgid "Created by"
+msgstr "创建人"
+
+#. module: website_blog
+#: model:ir.model.fields,field_description:website_blog.field_blog_blog__create_date
+#: model:ir.model.fields,field_description:website_blog.field_blog_post__create_date
+#: model:ir.model.fields,field_description:website_blog.field_blog_tag__create_date
+#: model:ir.model.fields,field_description:website_blog.field_blog_tag_category__create_date
+msgid "Created on"
+msgstr "创建时间"
+
+#. module: website_blog
+#: model:ir.model.fields,field_description:website_blog.field_blog_blog__display_name
+#: model:ir.model.fields,field_description:website_blog.field_blog_post__display_name
+#: model:ir.model.fields,field_description:website_blog.field_blog_tag__display_name
+#: model:ir.model.fields,field_description:website_blog.field_blog_tag_category__display_name
+msgid "Display Name"
+msgstr "显示名称"
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.blog_edit_options
+msgid "Duplicate"
+msgstr "复制"
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.blog_post_complete
+#: model:ir.ui.view,arch_db:website_blog.blog_post_short
+#: model:ir.ui.view,arch_db:website_blog.opt_blog_rc_follow_us
+msgid "Facebook"
+msgstr "脸书"
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.website_blog
+msgid "Filter Color"
+msgstr "过滤颜色"
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.website_blog
+msgid "Filter Intensity"
+msgstr "筛选强度"
+
+#. module: website_blog
+#: model:ir.model.fields,field_description:website_blog.field_blog_blog__message_follower_ids
+#: model:ir.model.fields,field_description:website_blog.field_blog_post__message_follower_ids
+msgid "Followers"
+msgstr "关注者"
+
+#. module: website_blog
+#: model:ir.model.fields,field_description:website_blog.field_blog_blog__message_channel_ids
+#: model:ir.model.fields,field_description:website_blog.field_blog_post__message_channel_ids
+msgid "Followers (Channels)"
+msgstr "关注者(渠道)"
+
+#. module: website_blog
+#: model:ir.model.fields,field_description:website_blog.field_blog_blog__message_partner_ids
+#: model:ir.model.fields,field_description:website_blog.field_blog_post__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "关注者(业务伙伴)"
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.website_blog
+msgid "Full Screen"
+msgstr "全屏"
+
+#. module: website_blog
+#: model:blog.blog,subtitle:website_blog.blog_blog_1
+msgid "Get in touch with us"
+msgstr "请与我们联系"
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.opt_blog_rc_follow_us
+msgid "Github"
+msgstr "Github"
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.blog_post_complete
+#: model:ir.ui.view,arch_db:website_blog.blog_post_short
+#: model:ir.ui.view,arch_db:website_blog.opt_blog_rc_follow_us
+msgid "Google Plus"
+msgstr ""
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.website_blog
+msgid "Green"
+msgstr "绿色"
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.view_blog_post_search
+msgid "Group By"
+msgstr "分组"
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.website_blog
+msgid "High"
+msgstr "高"
+
+#. module: website_blog
+#: model:ir.model.fields,field_description:website_blog.field_blog_blog__id
+#: model:ir.model.fields,field_description:website_blog.field_blog_post__id
+#: model:ir.model.fields,field_description:website_blog.field_blog_tag__id
+#: model:ir.model.fields,field_description:website_blog.field_blog_tag_category__id
+msgid "ID"
+msgstr "ID"
+
+#. module: website_blog
+#: model:ir.model.fields,help:website_blog.field_blog_blog__message_unread
+#: model:ir.model.fields,help:website_blog.field_blog_post__message_unread
+msgid "If checked new messages require your attention."
+msgstr "查看是否有需要你留意的新信息。"
+
+#. module: website_blog
+#: model:ir.model.fields,help:website_blog.field_blog_blog__message_needaction
+#: model:ir.model.fields,help:website_blog.field_blog_post__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "如果勾选此项，有新消息会提醒你。"
+
+#. module: website_blog
+#: model:ir.model.fields,help:website_blog.field_blog_blog__message_has_error
+#: model:ir.model.fields,help:website_blog.field_blog_post__message_has_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: website_blog
+#: model:ir.model.fields,field_description:website_blog.field_blog_blog__message_is_follower
+#: model:ir.model.fields,field_description:website_blog.field_blog_post__message_is_follower
+msgid "Is Follower"
+msgstr "是关注者"
+
+#. module: website_blog
+#: model:ir.model.fields,field_description:website_blog.field_blog_post__is_published
+msgid "Is published"
+msgstr ""
+
+#. module: website_blog
+#: model:ir.model.fields,field_description:website_blog.field_blog_post__write_uid
+#: model:ir.ui.view,arch_db:website_blog.view_blog_post_search
+msgid "Last Contributor"
+msgstr "最近的贡献者"
+
+#. module: website_blog
+#: model:ir.model.fields,field_description:website_blog.field_blog_blog____last_update
+#: model:ir.model.fields,field_description:website_blog.field_blog_post____last_update
+#: model:ir.model.fields,field_description:website_blog.field_blog_tag____last_update
+#: model:ir.model.fields,field_description:website_blog.field_blog_tag_category____last_update
+msgid "Last Modified on"
+msgstr "最后修改日"
+
+#. module: website_blog
+#: model:ir.model.fields,field_description:website_blog.field_blog_blog__write_uid
+#: model:ir.model.fields,field_description:website_blog.field_blog_tag__write_uid
+#: model:ir.model.fields,field_description:website_blog.field_blog_tag_category__write_uid
+msgid "Last Updated by"
+msgstr "最后更新者"
+
+#. module: website_blog
+#: model:ir.model.fields,field_description:website_blog.field_blog_blog__write_date
+#: model:ir.model.fields,field_description:website_blog.field_blog_post__write_date
+#: model:ir.model.fields,field_description:website_blog.field_blog_tag__write_date
+#: model:ir.model.fields,field_description:website_blog.field_blog_tag_category__write_date
+msgid "Last Updated on"
+msgstr "最后更新时间"
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.latest_blogs
+#: model:ir.ui.view,arch_db:website_blog.s_latest_posts
+#: model:ir.ui.view,arch_db:website_blog.s_latest_posts_big_picture
+msgid "Latest Posts"
+msgstr "最新发布"
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.blog_post_complete
+#: model:ir.ui.view,arch_db:website_blog.blog_post_short
+#: model:ir.ui.view,arch_db:website_blog.opt_blog_rc_follow_us
+msgid "LinkedIn"
+msgstr "LinkedIn"
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.website_blog
+msgid "Low"
+msgstr "低"
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.website_blog
+msgid "Medium"
+msgstr "媒体"
+
+#. module: website_blog
+#: model:ir.model.fields,field_description:website_blog.field_blog_blog__message_has_error
+#: model:ir.model.fields,field_description:website_blog.field_blog_post__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: website_blog
+#: model:ir.model.fields,field_description:website_blog.field_blog_blog__message_ids
+#: model:ir.model.fields,field_description:website_blog.field_blog_post__message_ids
+msgid "Messages"
+msgstr "消息"
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.website_blog
+msgid "Mid screen"
+msgstr "中屏"
+
+#. module: website_blog
+#: model:ir.model.fields,field_description:website_blog.field_blog_tag__name
+#: model:ir.model.fields,field_description:website_blog.field_blog_tag_category__name
+msgid "Name"
+msgstr "名称"
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.website_blog
+msgid "Narrow"
+msgstr "变窄"
+
+#. module: website_blog
+#. openerp-web
+#: code:addons/website_blog/static/src/js/website_blog.editor.js:37
+#: model:ir.ui.view,arch_db:website_blog.content_new_blogpost
+#, python-format
+msgid "New Blog Post"
+msgstr "发布新博文"
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.opt_blog_rc_history
+msgid "Next year"
+msgstr ""
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.website_blog
+msgid "No Cover"
+msgstr "没有封面"
+
+#. module: website_blog
+#. openerp-web
+#: code:addons/website_blog/static/src/js/s_latest_posts_frontend.js:44
+#, python-format
+msgid "No blog post was found. Make sure your posts are published."
+msgstr ""
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.blog_post_short
+msgid "No blog post yet."
+msgstr "尚未发布博文。"
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.latest_blogs
+msgid "No keywords defined!"
+msgstr "没有关键字定义!"
+
+#. module: website_blog
+#: model:ir.model.fields,field_description:website_blog.field_blog_post__visits
+msgid "No of Views"
+msgstr "浏览数量"
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.website_blog
+msgid "None"
+msgstr "无"
+
+#. module: website_blog
+#: model:ir.model.fields,field_description:website_blog.field_blog_blog__message_needaction_counter
+#: model:ir.model.fields,field_description:website_blog.field_blog_post__message_needaction_counter
+msgid "Number of Actions"
+msgstr "行动数量"
+
+#. module: website_blog
+#: model:ir.model.fields,field_description:website_blog.field_blog_blog__message_has_error_counter
+#: model:ir.model.fields,field_description:website_blog.field_blog_post__message_has_error_counter
+msgid "Number of error"
+msgstr ""
+
+#. module: website_blog
+#: model:ir.model.fields,help:website_blog.field_blog_blog__message_needaction_counter
+#: model:ir.model.fields,help:website_blog.field_blog_post__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "需要行动消息的数量"
+
+#. module: website_blog
+#: model:ir.model.fields,help:website_blog.field_blog_blog__message_has_error_counter
+#: model:ir.model.fields,help:website_blog.field_blog_post__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.s_latest_posts_options
+msgid "Number of posts"
+msgstr ""
+
+#. module: website_blog
+#: model:ir.model.fields,help:website_blog.field_blog_blog__message_unread_counter
+#: model:ir.model.fields,help:website_blog.field_blog_post__message_unread_counter
+msgid "Number of unread messages"
+msgstr "未读消息的数量"
+
+#. module: website_blog
+#. openerp-web
+#: code:addons/website_blog/static/src/js/website.tour.blog.js:63
+#, python-format
+msgid "Once you have reviewed the content on mobile, close the preview."
+msgstr "当您在手机上查看过内容后，请关闭预览。"
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.opt_blog_rc_tags
+msgid "Others"
+msgstr "其它"
+
+#. module: website_blog
+#: model:blog.blog,name:website_blog.blog_blog_1
+msgid "Our Blog"
+msgstr "我们的博客"
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.opt_blog_rc_blogs
+msgid "Our Blogs"
+msgstr "我们的博客"
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.opt_blog_rc_follow_us
+msgid "Participate on our social stream."
+msgstr "参与我们的社会活动。"
+
+#. module: website_blog
+#: model:ir.model.fields,field_description:website_blog.field_blog_tag__post_ids
+msgid "Posts"
+msgstr "帖子"
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.opt_blog_rc_status
+msgid "Published"
+msgstr "已发布"
+
+#. module: website_blog
+#: model:ir.model.fields,field_description:website_blog.field_blog_post__published_date
+msgid "Published Date"
+msgstr "发布日期"
+
+#. module: website_blog
+#: model:mail.message.subtype,description:website_blog.mt_blog_blog_published
+#: model:mail.message.subtype,name:website_blog.mt_blog_blog_published
+msgid "Published Post"
+msgstr "已发布的帖子"
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.view_blog_post_form
+msgid "Publishing Options"
+msgstr "发布选项"
+
+#. module: website_blog
+#: model:ir.model.fields,field_description:website_blog.field_blog_post__post_date
+msgid "Publishing date"
+msgstr "发布日期"
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.website_blog
+msgid "Purple"
+msgstr "紫色"
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.opt_blog_rc_follow_us
+msgid "RSS"
+msgstr ""
+
+#. module: website_blog
+#: model:ir.model.fields,field_description:website_blog.field_blog_post__ranking
+msgid "Ranking"
+msgstr "等级"
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.s_latest_posts_big_picture_template
+#: model:ir.ui.view,arch_db:website_blog.s_latest_posts_list_template
+msgid "Read More"
+msgstr "阅读更多"
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.opt_blog_post_complete_read_next
+msgid "Read Next <span class=\"fa fa-long-arrow-right\"/>"
+msgstr "阅读下一个<span class=\"fa fa-long-arrow-right\"/>"
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.website_blog
+msgid "Red"
+msgstr "红色"
+
+#. module: website_blog
+#: model:ir.model.fields,help:website_blog.field_blog_blog__website_id
+#: model:ir.model.fields,help:website_blog.field_blog_post__website_id
+msgid "Restrict publishing to this website."
+msgstr ""
+
+#. module: website_blog
+#. openerp-web
+#: code:addons/website_blog/static/src/js/website.tour.blog.js:15
+#, python-format
+msgid "Select this menu item to create a new blog post."
+msgstr "选择此菜单项新建一篇博文。"
+
+#. module: website_blog
+#. openerp-web
+#: code:addons/website_blog/static/src/js/website.tour.blog.js:26
+#, python-format
+msgid "Set a blog post <b>cover</b>."
+msgstr "设置博客文章<b>封面</b>。"
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.website_blog
+msgid "Size"
+msgstr "尺寸"
+
+#. module: website_blog
+#: model:ir.model.fields,help:website_blog.field_blog_post__author_avatar
+msgid ""
+"Small-sized image of this contact. It is automatically resized as a 64x64px "
+"image, with aspect ratio preserved. Use this field anywhere a small image is"
+" required."
+msgstr "联系人小尺寸图像。自动缩放为64x64px ，保留纵横比。此字段用于任何需要小图像的场合"
+
+#. module: website_blog
+#. openerp-web
+#: code:addons/website_blog/models/website_blog.py:138
+#: code:addons/website_blog/static/src/js/website.tour.blog.js:52
+#, python-format
+msgid "Start writing here..."
+msgstr "在这里开始写入"
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.opt_blog_rc_status
+msgid "Status"
+msgstr "状态"
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.opt_blog_rc_follow_us
+msgid "Stay updated :"
+msgstr "保持最新："
+
+#. module: website_blog
+#: model:ir.model.fields,field_description:website_blog.field_blog_post__subtitle
+msgid "Sub Title"
+msgstr "副标题"
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.blog_post_complete
+#: model:ir.ui.view,arch_db:website_blog.opt_blog_post_complete_read_next
+msgid "Subtitle"
+msgstr "小标题"
+
+#. module: website_blog
+#: model:ir.ui.menu,name:website_blog.menu_website_blog_tag_category_global
+#: model:ir.ui.view,arch_db:website_blog.blog_tag_category_tree
+msgid "Tag Categories"
+msgstr ""
+
+#. module: website_blog
+#: model:ir.actions.act_window,name:website_blog.action_tag_category
+msgid "Tag Category"
+msgstr ""
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.blog_tag_category_form
+msgid "Tag Category Form"
+msgstr ""
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.blog_tag_form
+msgid "Tag Form"
+msgstr "标签表格"
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.blog_tag_tree
+msgid "Tag List"
+msgstr "标签列表"
+
+#. module: website_blog
+#: sql_constraint:blog.tag.category:0
+msgid "Tag category already exists !"
+msgstr ""
+
+#. module: website_blog
+#: sql_constraint:blog.tag:0
+msgid "Tag name already exists !"
+msgstr "标签名已存在!"
+
+#. module: website_blog
+#: model:ir.model.fields,field_description:website_blog.field_blog_post__tag_ids
+#: model:ir.model.fields,field_description:website_blog.field_blog_tag_category__tag_ids
+#: model:ir.ui.menu,name:website_blog.menu_blog_tag_global
+#: model:ir.ui.view,arch_db:website_blog.opt_blog_rc_tags
+msgid "Tags"
+msgstr "标签"
+
+#. module: website_blog
+#: model:ir.model.fields,field_description:website_blog.field_blog_post__teaser
+msgid "Teaser"
+msgstr "预告"
+
+#. module: website_blog
+#: model:ir.model.fields,field_description:website_blog.field_blog_post__teaser_manual
+msgid "Teaser Content"
+msgstr "预告内容"
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.view_blog_post_form
+msgid "Technical"
+msgstr "技术"
+
+#. module: website_blog
+#: model:ir.model.fields,help:website_blog.field_blog_post__post_date
+msgid ""
+"The blog post will be visible for your visitors as of this date on the "
+"website if it is set as published."
+msgstr "如果博客文章设为已发布，则网站的访客从即日起能够看到此博客文章。"
+
+#. module: website_blog
+#: model:ir.model.fields,help:website_blog.field_blog_post__website_url
+msgid "The full URL to access the document through the website."
+msgstr "通过网站访问单据的完整URL。"
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.latest_blogs
+msgid ""
+"This page is great to improve your <strong>Search Engine Optimization</strong>;\n"
+"                   You can review titles, keywords and descriptions of all blogs at once."
+msgstr ""
+"这个页面可以很好的提高你的<strong>搜索引擎优化</strong>；\n"
+"你可以一次查看标题、关键字和所有博客描述。"
+
+#. module: website_blog
+#: model:ir.model.fields,field_description:website_blog.field_blog_post__name
+msgid "Title"
+msgstr "称谓"
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.blog_post_complete
+msgid "To blog content"
+msgstr ""
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.blog_post_complete
+#: model:ir.ui.view,arch_db:website_blog.blog_post_short
+#: model:ir.ui.view,arch_db:website_blog.opt_blog_rc_follow_us
+msgid "Twitter"
+msgstr "Twitter"
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.opt_blog_rc_status
+msgid "Unpublished"
+msgstr "未发布"
+
+#. module: website_blog
+#: model:ir.model.fields,field_description:website_blog.field_blog_blog__message_unread
+#: model:ir.model.fields,field_description:website_blog.field_blog_post__message_unread
+msgid "Unread Messages"
+msgstr "未读消息"
+
+#. module: website_blog
+#: model:ir.model.fields,field_description:website_blog.field_blog_blog__message_unread_counter
+#: model:ir.model.fields,field_description:website_blog.field_blog_post__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr "未读消息计数器"
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.blog_post_short
+msgid "Untitled Post"
+msgstr "无标题帖文"
+
+#. module: website_blog
+#. openerp-web
+#: code:addons/website_blog/static/src/js/website.tour.blog.js:58
+#, python-format
+msgid "Use this icon to preview your blog post on <b>mobile devices</b>."
+msgstr "使用此图标，在<b>移动设备</b>上预览您的博客文章。"
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.blog_tag_form
+msgid "Used in:"
+msgstr "使用在："
+
+#. module: website_blog
+#: model:ir.model.fields,field_description:website_blog.field_blog_post__website_published
+msgid "Visible on current website"
+msgstr ""
+
+#. module: website_blog
+#: model:ir.model,name:website_blog.model_website
+#: model:ir.model.fields,field_description:website_blog.field_blog_blog__website_id
+#: model:ir.model.fields,field_description:website_blog.field_blog_post__website_id
+msgid "Website"
+msgstr "网站"
+
+#. module: website_blog
+#: model:ir.actions.act_url,name:website_blog.action_open_website
+msgid "Website Blogs"
+msgstr "网站博客"
+
+#. module: website_blog
+#: model:ir.model.fields,field_description:website_blog.field_blog_blog__website_message_ids
+#: model:ir.model.fields,field_description:website_blog.field_blog_post__website_message_ids
+msgid "Website Messages"
+msgstr "网站信息"
+
+#. module: website_blog
+#: model:ir.model.fields,field_description:website_blog.field_blog_post__website_url
+msgid "Website URL"
+msgstr "网站网址"
+
+#. module: website_blog
+#: model:ir.model.fields,help:website_blog.field_blog_blog__website_message_ids
+#: model:ir.model.fields,help:website_blog.field_blog_post__website_message_ids
+msgid "Website communication history"
+msgstr "网站沟通记录"
+
+#. module: website_blog
+#: model:ir.model.fields,field_description:website_blog.field_blog_blog__website_meta_description
+#: model:ir.model.fields,field_description:website_blog.field_blog_post__website_meta_description
+#: model:ir.model.fields,field_description:website_blog.field_blog_tag__website_meta_description
+msgid "Website meta description"
+msgstr "网站元说明"
+
+#. module: website_blog
+#: model:ir.model.fields,field_description:website_blog.field_blog_blog__website_meta_keywords
+#: model:ir.model.fields,field_description:website_blog.field_blog_post__website_meta_keywords
+#: model:ir.model.fields,field_description:website_blog.field_blog_tag__website_meta_keywords
+msgid "Website meta keywords"
+msgstr "网站meta关键词"
+
+#. module: website_blog
+#: model:ir.model.fields,field_description:website_blog.field_blog_blog__website_meta_title
+#: model:ir.model.fields,field_description:website_blog.field_blog_post__website_meta_title
+#: model:ir.model.fields,field_description:website_blog.field_blog_tag__website_meta_title
+msgid "Website meta title"
+msgstr "网站meta标题"
+
+#. module: website_blog
+#: model:ir.model.fields,field_description:website_blog.field_blog_blog__website_meta_og_img
+#: model:ir.model.fields,field_description:website_blog.field_blog_post__website_meta_og_img
+#: model:ir.model.fields,field_description:website_blog.field_blog_tag__website_meta_og_img
+msgid "Website opengraph image"
+msgstr ""
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.website_blog
+msgid "White"
+msgstr "白"
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.opt_blog_rc_about_us
+msgid ""
+"Write a small text here for when <b>new visitors</b> find your website\n"
+"            through your <b>blog entries</b>, referenced in Google."
+msgstr ""
+"当<b>新的访客</b>通过你的<b>博客文章</b>、在谷歌引用找到你的网站\n"
+"在这里写下小段文字。"
+
+#. module: website_blog
+#. openerp-web
+#: code:addons/website_blog/static/src/js/website.tour.blog.js:20
+#, python-format
+msgid "Write a title, the subtitle is optional."
+msgstr "写一个标题，副标题是可选的。"
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.website_blog
+msgid "Yellow"
+msgstr "黄色"
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.latest_blogs
+msgid ""
+"You should <strong>add a banner on the top</strong> as it is a frequent landing page for new visitors.\n"
+"                   <span class=\"text-muted\">This box will not be visible to your visitors.</span>"
+msgstr ""
+"你应该<strong>添加一个横幅在顶部</strong>，因为它是新访客常见的登陆页面。\n"
+"<span class=\"text-muted\">此框对你访问者是不可见的。</span>"
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.opt_blog_rc_follow_us
+msgid "Youtube"
+msgstr "Youtube"
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.blog_post_template_new_post
+msgid "blog. Click here to access the blog :"
+msgstr "已在博客上发布新帖子。单击此处访问博客："
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.blog_post_short
+#: model:ir.ui.view,arch_db:website_blog.latest_blogs
+msgid "comment"
+msgstr "评论"
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.blog_post_short
+#: model:ir.ui.view,arch_db:website_blog.latest_blogs
+msgid "comments"
+msgstr "备注"
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.blog_post_short
+#: model:ir.ui.view,arch_db:website_blog.latest_blogs
+msgid "float-right"
+msgstr ""
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.blog_post_template_new_post
+msgid "has been published on the"
+msgstr "已在博客上发布新帖子"
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.blog_post_short
+msgid "unpublished"
+msgstr "未发布"
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.blog_post_short
+msgid "view"
+msgstr "视图"
+
+#. module: website_blog
+#: model:ir.ui.view,arch_db:website_blog.blog_post_short
+msgid "views"
+msgstr "浏览"

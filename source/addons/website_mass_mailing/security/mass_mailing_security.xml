@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="group_website_popup_on_exit" model="res.groups">
+        <field name="name">Use subscription pop up on the website</field>
+    </record>
+</odoo>

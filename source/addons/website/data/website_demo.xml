@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="website2" model="website">
+            <field name="name">My Website 2</field>
+            <field name="domain">0.0.0.0</field>
+        </record>
+
+        <record id="menu_contactus2" model="website.menu">
+            <field name="name">Contact us</field>
+            <field name="url">/contactus</field>
+            <field name="parent_id" search="[('website_id', '=', ref('website2')), ('parent_id', '=', False)]"/>
+            <field name="sequence" type="int">60</field>
+            <field name="page_id" ref="contactus_page"/>
+            <field name="website_id" ref="website2"/>
+        </record>
+    </data>
+</odoo>
