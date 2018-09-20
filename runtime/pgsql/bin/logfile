@@ -321,3 +321,31 @@
 日志:  正在关闭autovacuum启动进程
 日志:  正在关闭
 日志:  数据库系统已关闭
+日志:  无法绑定 IPv6 套接字: Only one usage of each socket address (protocol/network address/port) is normally permitted.
+	
+提示:  是否有其它 postmaster 已经在端口 5432 上运行了? 如果没有, 请等待几秒钟后然后再重试.
+日志:  无法绑定 IPv4 套接字: Only one usage of each socket address (protocol/network address/port) is normally permitted.
+	
+提示:  是否有其它 postmaster 已经在端口 5432 上运行了? 如果没有, 请等待几秒钟后然后再重试.
+警告:  无法为 "localhost" 创建监听套接字
+致命错误:  无法创建TCP/IP套接字
+日志:  数据库系统已关闭
+日志:  无法绑定 IPv6 套接字: Only one usage of each socket address (protocol/network address/port) is normally permitted.
+	
+提示:  是否有其它 postmaster 已经在端口 5432 上运行了? 如果没有, 请等待几秒钟后然后再重试.
+日志:  无法绑定 IPv4 套接字: Only one usage of each socket address (protocol/network address/port) is normally permitted.
+	
+提示:  是否有其它 postmaster 已经在端口 5432 上运行了? 如果没有, 请等待几秒钟后然后再重试.
+警告:  无法为 "localhost" 创建监听套接字
+致命错误:  无法创建TCP/IP套接字
+日志:  数据库系统已关闭
+日志:  数据库上次关闭时间为 2018-09-21 05:03:47 HKT
+日志:  多事务成员回卷保护现在被启用。
+日志:  数据库系统准备接受连接
+日志:  已启动autovacuum
+日志:  统计收集器进程 (PID 8856) 被异常 0xC000013A 终止
+提示:  关于对16进制值的描述， 参见C语言的引用文件 "ntstatus.h" 
+日志:  autovacuum启动进程 (PID 4688) 被异常 0xC000013A 终止
+提示:  关于对16进制值的描述， 参见C语言的引用文件 "ntstatus.h" 
+日志:  中断任何其它已激活的服务器进程
+^C
