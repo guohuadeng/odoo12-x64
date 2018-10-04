@@ -2,12 +2,19 @@
 # This file contains the translation of the following modules:
 # * payment_stripe
 # 
+# Translators:
+# Mustafa Rawi <mustafa@cubexco.com>, 2018
+# hoxhe Aits <hoxhe0@gmail.com>, 2018
+# Osama Ahmaro <osamaahmaro@gmail.com>, 2018
+# Shaima Safar <shaima.safar@open-inside.com>, 2018
+# Yihya Hugirat <hugirat@gmail.com>, 2018
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server saas~11.4\n"
+"Project-Id-Version: Odoo Server saas~11.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-02 09:56+0000\n"
-"PO-Revision-Date: 2018-08-02 09:56+0000\n"
+"POT-Creation-Date: 2018-09-21 13:17+0000\n"
+"PO-Revision-Date: 2018-09-21 13:17+0000\n"
+"Last-Translator: Yihya Hugirat <hugirat@gmail.com>, 2018\n"
 "Language-Team: Arabic (https://www.transifex.com/odoo/teams/41243/ar/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -17,10 +24,10 @@ msgstr ""
 
 #. module: payment_stripe
 #. openerp-web
-#: code:addons/payment_stripe/static/src/xml/stripe_templates.xml:8
+#: code:addons/payment_stripe/static/src/xml/stripe_templates.xml:9
 #, python-format
 msgid "&times;"
-msgstr ""
+msgstr "&times;"
 
 #. module: payment_stripe
 #: model:ir.model.fields,help:payment_stripe.field_payment_acquirer__stripe_image_url
@@ -46,17 +53,17 @@ msgid "Buckaroo"
 msgstr ""
 
 #. module: payment_stripe
-#: model:ir.ui.view,arch_db:payment_stripe.stripe_s2s_form
+#: model_terms:ir.ui.view,arch_db:payment_stripe.stripe_s2s_form
 msgid "CVC"
 msgstr ""
 
 #. module: payment_stripe
-#: model:ir.ui.view,arch_db:payment_stripe.stripe_s2s_form
+#: model_terms:ir.ui.view,arch_db:payment_stripe.stripe_s2s_form
 msgid "Card number"
-msgstr ""
+msgstr "رقم البطاقة"
 
 #. module: payment_stripe
-#: model:ir.ui.view,arch_db:payment_stripe.stripe_s2s_form
+#: model_terms:ir.ui.view,arch_db:payment_stripe.stripe_s2s_form
 msgid "Cardholder name"
 msgstr ""
 
@@ -70,17 +77,17 @@ msgstr ""
 #: code:addons/payment_stripe/static/src/xml/stripe_templates.xml:15
 #, python-format
 msgid "Close"
-msgstr ""
+msgstr "إقفال"
 
 #. module: payment_stripe
 #. openerp-web
-#: code:addons/payment_stripe/static/src/xml/stripe_templates.xml:9
+#: code:addons/payment_stripe/static/src/xml/stripe_templates.xml:8
 #, python-format
 msgid "Error"
-msgstr ""
+msgstr "خطأ"
 
 #. module: payment_stripe
-#: model:ir.ui.view,arch_db:payment_stripe.stripe_s2s_form
+#: model_terms:ir.ui.view,arch_db:payment_stripe.stripe_s2s_form
 msgid "Expires (MM / YY)"
 msgstr ""
 
@@ -109,12 +116,17 @@ msgstr ""
 #. module: payment_stripe
 #: model:ir.model,name:payment_stripe.model_payment_acquirer
 msgid "Payment Acquirer"
+msgstr "طريقة السداد الإلكتروني"
+
+#. module: payment_stripe
+#: model:ir.model,name:payment_stripe.model_payment_token
+msgid "Payment Token"
 msgstr ""
 
 #. module: payment_stripe
 #: model:ir.model,name:payment_stripe.model_payment_transaction
 msgid "Payment Transaction"
-msgstr ""
+msgstr "معاملة السداد"
 
 #. module: payment_stripe
 #. openerp-web
@@ -126,10 +138,10 @@ msgstr ""
 #. module: payment_stripe
 #: selection:payment.acquirer,provider:0
 msgid "Paypal"
-msgstr ""
+msgstr "المستحق"
 
 #. module: payment_stripe
-#: code:addons/payment_stripe/models/payment.py:175
+#: code:addons/payment_stripe/models/payment.py:174
 #, python-format
 msgid ""
 "Perhaps the problem can be solved by double-checking your credit card "
@@ -139,7 +151,7 @@ msgstr ""
 #. module: payment_stripe
 #: model:ir.model.fields,field_description:payment_stripe.field_payment_acquirer__provider
 msgid "Provider"
-msgstr ""
+msgstr "المزود"
 
 #. module: payment_stripe
 #: selection:payment.acquirer,provider:0
@@ -162,25 +174,25 @@ msgid "Stripe Secret Key"
 msgstr ""
 
 #. module: payment_stripe
-#: code:addons/payment_stripe/models/payment.py:173
+#: code:addons/payment_stripe/models/payment.py:172
 #, python-format
 msgid "Stripe gave us the following info about the problem: '%s'"
 msgstr ""
 
 #. module: payment_stripe
-#: code:addons/payment_stripe/models/payment.py:185
+#: code:addons/payment_stripe/models/payment.py:184
 #, python-format
 msgid "Stripe: %s orders found for reference %s"
 msgstr ""
 
 #. module: payment_stripe
-#: code:addons/payment_stripe/models/payment.py:181
+#: code:addons/payment_stripe/models/payment.py:180
 #, python-format
 msgid "Stripe: no order found for reference %s"
 msgstr ""
 
 #. module: payment_stripe
-#: code:addons/payment_stripe/models/payment.py:171
+#: code:addons/payment_stripe/models/payment.py:170
 #, python-format
 msgid "We're sorry to report that the transaction has failed."
 msgstr ""
@@ -188,9 +200,4 @@ msgstr ""
 #. module: payment_stripe
 #: selection:payment.acquirer,provider:0
 msgid "Wire Transfer"
-msgstr ""
-
-#. module: payment_stripe
-#: model:ir.model,name:payment_stripe.model_payment_token
-msgid "payment.token"
 msgstr ""

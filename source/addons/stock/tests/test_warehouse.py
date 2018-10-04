@@ -62,7 +62,7 @@ class TestWarehouse(TestStockCommon):
         # Check inventory obj details (1 inventory with 1 line, because 1 product change)
         inventory = self.env['stock.inventory'].search([('id', 'not in', self.existing_inventories.ids)])
         self.assertEqual(len(inventory), 1)
-        self.assertIn('INV: %s' % self.product_1.name, inventory.name)
+        self.assertIn('INV: %s' % self.product_1.display_name, inventory.name)
         self.assertEqual(len(inventory.line_ids), 1)
         self.assertEqual(inventory.line_ids.product_id, self.product_1)
         self.assertEqual(inventory.line_ids.product_qty, 50.0)
@@ -169,7 +169,7 @@ class TestWarehouse(TestStockCommon):
         return_pick.action_done()
 
         quant = self.env['stock.quant'].search([('product_id', '=', productA.id), ('location_id', '=', stock_location.id)])
-        self.assertEqual(len(quant), 0)
+        self.assertEqual(sum(quant.mapped('quantity')), 0)
 
     def test_inventory_adjustment_and_negative_quants_2(self):
         """Make sure negative quants get wiped out with an inventory adjustment"""
@@ -220,7 +220,7 @@ class TestWarehouse(TestStockCommon):
 
         # There should be no quant in the stock location
         quants = self.env['stock.quant'].search([('product_id', '=', productA.id), ('location_id', '=', stock_location.id)])
-        self.assertEqual(len(quants), 0)
+        self.assertEqual(sum(quants.mapped('quantity')), 0)
 
         # There should be one quant in the inventory loss location
         quant = self.env['stock.quant'].search([('product_id', '=', productA.id), ('location_id', '=', location_loss.id)])
@@ -385,7 +385,7 @@ class TestWarehouse(TestStockCommon):
         # Check that the correct quantity has been provided to customer
         self.assertEqual(self.env['stock.quant']._gather(product, customer_location).quantity, 1)
         # Ensure there still no quants in distribution warehouse
-        self.assertEqual(len(self.env['stock.quant']._gather(product, warehouse_distribution_namur.lot_stock_id)), 0)
+        self.assertEqual(sum(self.env['stock.quant']._gather(product, warehouse_distribution_namur.lot_stock_id).mapped('quantity')), 0)
 
         # Create the move for the shop Wavre. Should create a resupply from
         # distribution warehouse Wavre.
@@ -429,7 +429,7 @@ class TestWarehouse(TestStockCommon):
         # Check that the correct quantity has been provided to customer
         self.assertEqual(self.env['stock.quant']._gather(product, customer_location).quantity, 2)
         # Ensure there still no quants in distribution warehouse
-        self.assertEqual(len(self.env['stock.quant']._gather(product, warehouse_distribution_wavre.lot_stock_id)), 0)
+        self.assertEqual(sum(self.env['stock.quant']._gather(product, warehouse_distribution_wavre.lot_stock_id).mapped('quantity')), 0)
 
 class TestResupply(TestStockCommon):
     def setUp(self):

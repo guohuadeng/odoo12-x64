@@ -4,15 +4,17 @@
 # 
 # Translators:
 # Martin Trigaux, 2018
+# 珠海-杜哥 <liangjia@qq.com>, 2018
 # Talway <9010446@qq.com>, 2018
 # fausthuang, 2018
+# Felix Yuen <fyu@odoo.com>, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server saas~11.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-24 09:03+0000\n"
-"PO-Revision-Date: 2018-08-24 09:03+0000\n"
-"Last-Translator: fausthuang, 2018\n"
+"POT-Creation-Date: 2018-09-21 13:16+0000\n"
+"PO-Revision-Date: 2018-09-21 13:16+0000\n"
+"Last-Translator: Felix Yuen <fyu@odoo.com>, 2018\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/odoo/teams/41243/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,12 +23,12 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #. module: pos_restaurant
-#: model:ir.ui.view,arch_db:pos_restaurant.view_restaurant_floor_kanban
+#: model_terms:ir.ui.view,arch_db:pos_restaurant.view_restaurant_floor_kanban
 msgid "<strong>Floor Name: </strong>"
 msgstr "<strong>楼层名称: </strong>"
 
 #. module: pos_restaurant
-#: model:ir.ui.view,arch_db:pos_restaurant.view_restaurant_floor_kanban
+#: model_terms:ir.ui.view,arch_db:pos_restaurant.view_restaurant_floor_kanban
 msgid "<strong>Point of Sale: </strong>"
 msgstr "<strong>POS：</strong>"
 
@@ -38,7 +40,7 @@ msgid ""
 msgstr "背景图像，用于在销售点界面显示楼层规划"
 
 #. module: pos_restaurant
-#: model:ir.actions.act_window,help:pos_restaurant.action_restaurant_floor_form
+#: model_terms:ir.actions.act_window,help:pos_restaurant.action_restaurant_floor_form
 msgid ""
 "A restaurant floor represents the place where customers are served, this is where you can\n"
 "                define and position the tables."
@@ -47,7 +49,7 @@ msgstr ""
 "                定义和布置桌椅。"
 
 #. module: pos_restaurant
-#: model:ir.ui.view,arch_db:pos_restaurant.pos_config_view_form_inherit_restaurant
+#: model_terms:ir.ui.view,arch_db:pos_restaurant.pos_config_view_form_inherit_restaurant
 msgid "Accept customer tips or convert their change to a tip"
 msgstr "接受客户提示，或将其更改转换为提示"
 
@@ -71,12 +73,12 @@ msgid "Add Note"
 msgstr "增加备注"
 
 #. module: pos_restaurant
-#: model:ir.actions.act_window,help:pos_restaurant.action_restaurant_floor_form
+#: model_terms:ir.actions.act_window,help:pos_restaurant.action_restaurant_floor_form
 msgid "Add a new restaurant floor"
 msgstr ""
 
 #. module: pos_restaurant
-#: model:ir.actions.act_window,help:pos_restaurant.action_restaurant_printer_form
+#: model_terms:ir.actions.act_window,help:pos_restaurant.action_restaurant_printer_form
 msgid "Add a new restaurant order printer"
 msgstr ""
 
@@ -88,7 +90,7 @@ msgid "Add button"
 msgstr ""
 
 #. module: pos_restaurant
-#: model:ir.ui.view,arch_db:pos_restaurant.pos_config_view_form_inherit_restaurant
+#: model_terms:ir.ui.view,arch_db:pos_restaurant.pos_config_view_form_inherit_restaurant
 msgid "Add notes to orderlines"
 msgstr "添加备注到订单行"
 
@@ -98,7 +100,7 @@ msgid "Allow custom notes on Orderlines."
 msgstr "允许在 Orderlines 上进行自定义注释。"
 
 #. module: pos_restaurant
-#: model:ir.ui.view,arch_db:pos_restaurant.pos_config_view_form_inherit_restaurant
+#: model_terms:ir.ui.view,arch_db:pos_restaurant.pos_config_view_form_inherit_restaurant
 msgid "Allow to print bill before payment"
 msgstr "允许在付款前打印账单"
 
@@ -123,7 +125,7 @@ msgid "An internal identification of the restaurant floor"
 msgstr "餐馆楼层的内部识别"
 
 #. module: pos_restaurant
-#: model:ir.ui.view,arch_db:pos_restaurant.view_restaurant_table_form
+#: model_terms:ir.ui.view,arch_db:pos_restaurant.view_restaurant_table_form
 msgid "Appearance"
 msgstr "外观"
 
@@ -269,7 +271,7 @@ msgid "Duplicate"
 msgstr "复制"
 
 #. module: pos_restaurant
-#: model:ir.actions.act_window,help:pos_restaurant.action_restaurant_printer_form
+#: model_terms:ir.actions.act_window,help:pos_restaurant.action_restaurant_printer_form
 msgid ""
 "Each Order Printer has an IP Address that defines the PosBox/Hardware\n"
 "                Proxy where the printer can be found, and a list of product categories.\n"
@@ -310,7 +312,7 @@ msgid "Floor Plans"
 msgstr "楼层示意图"
 
 #. module: pos_restaurant
-#: model:ir.ui.view,arch_db:pos_restaurant.pos_config_view_form_inherit_restaurant
+#: model_terms:ir.ui.view,arch_db:pos_restaurant.pos_config_view_form_inherit_restaurant
 msgid "Floors"
 msgstr "最低标准"
 
@@ -380,7 +382,7 @@ msgstr "如果失败，表单将会在POS失效"
 #. module: pos_restaurant
 #: model:ir.model.fields,field_description:pos_restaurant.field_pos_config__module_pos_restaurant
 msgid "Is a Bar/Restaurant"
-msgstr "为酒吧/餐厅"
+msgstr "酒吧/餐馆"
 
 #. module: pos_restaurant
 #: model:ir.model.fields,field_description:pos_restaurant.field_restaurant_floor____last_update
@@ -419,7 +421,7 @@ msgid "Logo"
 msgstr "徽标"
 
 #. module: pos_restaurant
-#: model:ir.ui.view,arch_db:pos_restaurant.pos_config_view_form_inherit_restaurant
+#: model_terms:ir.ui.view,arch_db:pos_restaurant.pos_config_view_form_inherit_restaurant
 msgid "Manage table orders"
 msgstr "管理表订单"
 
@@ -466,7 +468,7 @@ msgstr "确定"
 #: code:addons/pos_restaurant/static/src/xml/floors.xml:151
 #, python-format
 msgid "Orange"
-msgstr ""
+msgstr "橘色"
 
 #. module: pos_restaurant
 #. openerp-web
@@ -488,7 +490,7 @@ msgid "Order Printers"
 msgstr "订单打印机"
 
 #. module: pos_restaurant
-#: model:ir.actions.act_window,help:pos_restaurant.action_restaurant_printer_form
+#: model_terms:ir.actions.act_window,help:pos_restaurant.action_restaurant_printer_form
 msgid ""
 "Order Printers are used by restaurants and bars to print the\n"
 "                order updates in the kitchen/bar when the waiter updates the order."
@@ -502,7 +504,7 @@ msgid "Orderline Notes"
 msgstr "订单行批注"
 
 #. module: pos_restaurant
-#: model:ir.ui.view,arch_db:pos_restaurant.view_restaurant_printer_form
+#: model_terms:ir.ui.view,arch_db:pos_restaurant.view_restaurant_printer_form
 msgid "POS Printer"
 msgstr "POS 打印机"
 
@@ -519,6 +521,11 @@ msgid "Point of Sale"
 msgstr "POS"
 
 #. module: pos_restaurant
+#: model:ir.model,name:pos_restaurant.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr "POS配置"
+
+#. module: pos_restaurant
 #: model:ir.model,name:pos_restaurant.model_pos_order
 msgid "Point of Sale Orders"
 msgstr "POS订单"
@@ -531,7 +538,7 @@ msgid "Print"
 msgstr "打印"
 
 #. module: pos_restaurant
-#: model:ir.ui.view,arch_db:pos_restaurant.pos_config_view_form_inherit_restaurant
+#: model_terms:ir.ui.view,arch_db:pos_restaurant.pos_config_view_form_inherit_restaurant
 msgid "Print orders at the kitchen, at the bar, etc."
 msgstr "打印厨房、酒吧等的订单"
 
@@ -546,7 +553,7 @@ msgid "Printer Name"
 msgstr "打印机名称"
 
 #. module: pos_restaurant
-#: model:ir.ui.view,arch_db:pos_restaurant.pos_config_view_form_inherit_restaurant
+#: model_terms:ir.ui.view,arch_db:pos_restaurant.pos_config_view_form_inherit_restaurant
 msgid "Printers"
 msgstr "打印机"
 
@@ -586,23 +593,30 @@ msgid "Rename"
 msgstr ""
 
 #. module: pos_restaurant
-#: model:ir.ui.view,arch_db:pos_restaurant.view_restaurant_floor_form
+#: model:ir.model,name:pos_restaurant.model_restaurant_floor
+#: model_terms:ir.ui.view,arch_db:pos_restaurant.view_restaurant_floor_form
 msgid "Restaurant Floor"
 msgstr "餐馆楼层"
 
 #. module: pos_restaurant
 #: model:ir.model.fields,field_description:pos_restaurant.field_pos_config__floor_ids
-#: model:ir.ui.view,arch_db:pos_restaurant.view_restaurant_floor_tree
+#: model_terms:ir.ui.view,arch_db:pos_restaurant.view_restaurant_floor_tree
 msgid "Restaurant Floors"
 msgstr "餐馆楼层"
 
 #. module: pos_restaurant
-#: model:ir.ui.view,arch_db:pos_restaurant.view_restaurant_printer
+#: model_terms:ir.ui.view,arch_db:pos_restaurant.view_restaurant_printer
 msgid "Restaurant Order Printers"
 msgstr "餐馆小票打印机"
 
 #. module: pos_restaurant
-#: model:ir.ui.view,arch_db:pos_restaurant.view_restaurant_table_form
+#: model:ir.model,name:pos_restaurant.model_restaurant_printer
+msgid "Restaurant Printer"
+msgstr ""
+
+#. module: pos_restaurant
+#: model:ir.model,name:pos_restaurant.model_restaurant_table
+#: model_terms:ir.ui.view,arch_db:pos_restaurant.view_restaurant_table_form
 msgid "Restaurant Table"
 msgstr "餐桌"
 
@@ -651,7 +665,7 @@ msgid "Split"
 msgstr "拆分"
 
 #. module: pos_restaurant
-#: model:ir.ui.view,arch_db:pos_restaurant.pos_config_view_form_inherit_restaurant
+#: model_terms:ir.ui.view,arch_db:pos_restaurant.pos_config_view_form_inherit_restaurant
 msgid "Split total or order lines"
 msgstr "拆分总计或订单明细"
 
@@ -705,7 +719,7 @@ msgstr "桌台名称？"
 
 #. module: pos_restaurant
 #: model:ir.model.fields,field_description:pos_restaurant.field_restaurant_floor__table_ids
-#: model:ir.ui.view,arch_db:pos_restaurant.view_restaurant_floor_form
+#: model_terms:ir.ui.view,arch_db:pos_restaurant.view_restaurant_floor_form
 msgid "Tables"
 msgstr "桌台"
 
@@ -790,7 +804,7 @@ msgid "This floor has no tables yet, use the"
 msgstr "这个楼层没有多余的桌子，请使用"
 
 #. module: pos_restaurant
-#: model:ir.ui.view,arch_db:pos_restaurant.pos_config_view_form_inherit_restaurant
+#: model_terms:ir.ui.view,arch_db:pos_restaurant.pos_config_view_form_inherit_restaurant
 msgid "This product is used as reference on customer receipts."
 msgstr "本产品用作客户收据的参考。"
 
@@ -799,15 +813,15 @@ msgstr "本产品用作客户收据的参考。"
 #: code:addons/pos_restaurant/static/src/xml/floors.xml:129
 #, python-format
 msgid "Tint"
-msgstr ""
+msgstr "色调"
 
 #. module: pos_restaurant
-#: model:ir.ui.view,arch_db:pos_restaurant.pos_config_view_form_inherit_restaurant
+#: model_terms:ir.ui.view,arch_db:pos_restaurant.pos_config_view_form_inherit_restaurant
 msgid "Tip Product"
 msgstr "提示产品"
 
 #. module: pos_restaurant
-#: model:ir.ui.view,arch_db:pos_restaurant.pos_config_view_form_inherit_restaurant
+#: model_terms:ir.ui.view,arch_db:pos_restaurant.pos_config_view_form_inherit_restaurant
 msgid "Tips"
 msgstr "提示"
 
@@ -893,23 +907,3 @@ msgstr "编辑工具栏的按钮来创建新表。"
 #, python-format
 msgid "discount"
 msgstr "折扣"
-
-#. module: pos_restaurant
-#: model:ir.model,name:pos_restaurant.model_pos_config
-msgid "pos.config"
-msgstr "pos.config"
-
-#. module: pos_restaurant
-#: model:ir.model,name:pos_restaurant.model_restaurant_floor
-msgid "restaurant.floor"
-msgstr "restaurant.floor"
-
-#. module: pos_restaurant
-#: model:ir.model,name:pos_restaurant.model_restaurant_printer
-msgid "restaurant.printer"
-msgstr "restaurant.printer"
-
-#. module: pos_restaurant
-#: model:ir.model,name:pos_restaurant.model_restaurant_table
-msgid "restaurant.table"
-msgstr "restaurant.table"

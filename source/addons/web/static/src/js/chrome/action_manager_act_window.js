@@ -340,7 +340,9 @@ ActionManager.include({
                 action.controllerID = controller.jsID;
                 return self._executeAction(action, options).done(function () {
                     if (lazyLoadedController) {
-                        self.controllerStack.unshift(lazyLoadedController.jsID);
+                        // controller should be placed just before the current one
+                        var index = self.controllerStack.length - 1;
+                        self.controllerStack.splice(index, 0, lazyLoadedController.jsID);
                         self.controlPanel.update({
                             breadcrumbs: self._getBreadcrumbs(),
                         }, {clear: false});
@@ -429,6 +431,7 @@ ActionManager.include({
             if (View) {
                 views.push({
                     accessKey: View.prototype.accessKey || View.prototype.accesskey,
+                    displayName: View.prototype.display_name,
                     fieldsView: fieldsView,
                     icon: View.prototype.icon,
                     isMobileFriendly: View.prototype.mobile_friendly,

@@ -5,13 +5,19 @@
 # Translators:
 # Martin Trigaux, 2018
 # Jeffery CHEN Fan <jeffery9@gmail.com>, 2018
+# ChinaMaker <liuct@chinamaker.net>, 2018
+# 老窦 北京 <2662059195@qq.com>, 2018
+# Jackie Zhang <jzh@odoo.com>, 2018
+# bower Guo <124358678@qq.com>, 2018
+# roye w <159820@qq.com>, 2018
+# 珠海-杜哥 <liangjia@qq.com>, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server saas~11.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-24 09:04+0000\n"
-"PO-Revision-Date: 2018-08-24 09:04+0000\n"
-"Last-Translator: Jeffery CHEN Fan <jeffery9@gmail.com>, 2018\n"
+"POT-Creation-Date: 2018-09-21 13:17+0000\n"
+"PO-Revision-Date: 2018-09-21 13:17+0000\n"
+"Last-Translator: 珠海-杜哥 <liangjia@qq.com>, 2018\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/odoo/teams/41243/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -31,19 +37,19 @@ msgid "Active"
 msgstr "有效"
 
 #. module: analytic
-#: model:ir.actions.act_window,help:analytic.action_account_analytic_account_form
-#: model:ir.actions.act_window,help:analytic.action_analytic_account_form
+#: model_terms:ir.actions.act_window,help:analytic.action_account_analytic_account_form
+#: model_terms:ir.actions.act_window,help:analytic.action_analytic_account_form
 msgid "Add a new analytic account"
-msgstr ""
+msgstr "添加一个新的分析账户"
 
 #. module: analytic
-#: model:ir.actions.act_window,help:analytic.account_analytic_tag_action
+#: model_terms:ir.actions.act_window,help:analytic.account_analytic_tag_action
 msgid "Add a new tag"
 msgstr "添加一个新标签"
 
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_line__amount
-#: model:ir.ui.view,arch_db:analytic.view_account_analytic_line_form
+#: model_terms:ir.ui.view,arch_db:analytic.view_account_analytic_line_form
 msgid "Amount"
 msgstr "总额"
 
@@ -52,58 +58,61 @@ msgstr "总额"
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_account__name
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_distribution__account_id
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_line__account_id
-#: model:ir.ui.view,arch_db:analytic.view_account_analytic_account_form
-#: model:ir.ui.view,arch_db:analytic.view_account_analytic_account_search
-#: model:ir.ui.view,arch_db:analytic.view_account_analytic_line_filter
+#: model_terms:ir.ui.view,arch_db:analytic.view_account_analytic_account_form
+#: model_terms:ir.ui.view,arch_db:analytic.view_account_analytic_account_search
+#: model_terms:ir.ui.view,arch_db:analytic.view_account_analytic_line_filter
 msgid "Analytic Account"
 msgstr "分析账户"
 
 #. module: analytic
-#: model:ir.actions.act_window,name:analytic.account_analytic_group_action
-#: model:ir.ui.view,arch_db:analytic.account_analytic_group_form_view
-#: model:ir.ui.view,arch_db:analytic.account_analytic_group_tree_view
-msgid "Analytic Account Groups"
-msgstr ""
+#: model:ir.model,name:analytic.model_account_analytic_distribution
+msgid "Analytic Account Distribution"
+msgstr "分析账户分配"
 
 #. module: analytic
-#: model:ir.model.fields,field_description:analytic.field_res_users__has_group_analytic_accounting
+#: model:ir.actions.act_window,name:analytic.account_analytic_group_action
+#: model_terms:ir.ui.view,arch_db:analytic.account_analytic_group_form_view
+#: model_terms:ir.ui.view,arch_db:analytic.account_analytic_group_tree_view
+msgid "Analytic Account Groups"
+msgstr "分析账户组"
+
+#. module: analytic
 #: model:res.groups,name:analytic.group_analytic_accounting
 msgid "Analytic Accounting"
 msgstr "分析会计"
 
 #. module: analytic
-#: model:ir.model.fields,field_description:analytic.field_res_users__has_group_analytic_tags
 #: model:res.groups,name:analytic.group_analytic_tags
 msgid "Analytic Accounting Tags"
-msgstr ""
+msgstr "分析会计标签"
 
 #. module: analytic
 #: model:ir.actions.act_window,name:analytic.action_account_analytic_account_form
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_tag__analytic_distribution_ids
-#: model:ir.ui.view,arch_db:analytic.view_account_analytic_account_list
+#: model_terms:ir.ui.view,arch_db:analytic.view_account_analytic_account_list
 msgid "Analytic Accounts"
 msgstr "分析账户"
 
 #. module: analytic
 #: model:ir.model,name:analytic.model_account_analytic_group
 msgid "Analytic Categories"
-msgstr ""
+msgstr "分析类别"
 
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_tag__active_analytic_distribution
-#: model:ir.ui.view,arch_db:analytic.account_analytic_tag_form_view
+#: model_terms:ir.ui.view,arch_db:analytic.account_analytic_tag_form_view
 msgid "Analytic Distribution"
-msgstr "分析分摊"
+msgstr "分析分配"
 
 #. module: analytic
-#: model:ir.ui.view,arch_db:analytic.view_account_analytic_line_graph
-#: model:ir.ui.view,arch_db:analytic.view_account_analytic_line_pivot
-#: model:ir.ui.view,arch_db:analytic.view_account_analytic_line_tree
+#: model_terms:ir.ui.view,arch_db:analytic.view_account_analytic_line_graph
+#: model_terms:ir.ui.view,arch_db:analytic.view_account_analytic_line_pivot
+#: model_terms:ir.ui.view,arch_db:analytic.view_account_analytic_line_tree
 msgid "Analytic Entries"
 msgstr "分析分录"
 
 #. module: analytic
-#: model:ir.ui.view,arch_db:analytic.view_account_analytic_line_form
+#: model_terms:ir.ui.view,arch_db:analytic.view_account_analytic_line_form
 msgid "Analytic Entry"
 msgstr "分析分录"
 
@@ -130,29 +139,34 @@ msgstr "分析标签"
 #. module: analytic
 #: model:ir.actions.act_window,name:analytic.account_analytic_tag_action
 #: model:ir.model,name:analytic.model_account_analytic_tag
-#: model:ir.ui.view,arch_db:analytic.account_analytic_tag_form_view
-#: model:ir.ui.view,arch_db:analytic.account_analytic_tag_tree_view
+#: model_terms:ir.ui.view,arch_db:analytic.account_analytic_tag_form_view
+#: model_terms:ir.ui.view,arch_db:analytic.account_analytic_tag_tree_view
 msgid "Analytic Tags"
 msgstr "分析标签"
 
 #. module: analytic
-#: model:ir.ui.view,arch_db:analytic.view_account_analytic_account_search
+#: model_terms:ir.ui.view,arch_db:analytic.view_account_analytic_account_search
 msgid "Archived"
 msgstr "已归档"
 
 #. module: analytic
-#: model:ir.ui.view,arch_db:analytic.view_account_analytic_account_search
+#: model_terms:ir.ui.view,arch_db:analytic.view_account_analytic_account_search
 msgid "Associated Partner"
 msgstr "关联的业务伙伴"
 
 #. module: analytic
+#: model:ir.model.fields,field_description:analytic.field_account_analytic_account__message_attachment_count
+msgid "Attachment Count"
+msgstr "附件数量"
+
+#. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_account__balance
-#: model:ir.ui.view,arch_db:analytic.view_account_analytic_account_list
+#: model_terms:ir.ui.view,arch_db:analytic.view_account_analytic_account_list
 msgid "Balance"
 msgstr "余额"
 
 #. module: analytic
-#: model:ir.ui.view,arch_db:analytic.view_account_analytic_account_kanban
+#: model_terms:ir.ui.view,arch_db:analytic.view_account_analytic_account_kanban
 msgid "Balance:"
 msgstr "余额:"
 
@@ -164,10 +178,10 @@ msgstr "分析账户表"
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_group__children_ids
 msgid "Childrens"
-msgstr ""
+msgstr "下级"
 
 #. module: analytic
-#: model:ir.actions.act_window,help:analytic.account_analytic_group_action
+#: model_terms:ir.actions.act_window,help:analytic.account_analytic_group_action
 msgid "Click to add a new analytic account group."
 msgstr ""
 
@@ -190,7 +204,7 @@ msgid "Complete Name"
 msgstr "完整名称"
 
 #. module: analytic
-#: model:ir.ui.view,arch_db:analytic.view_account_analytic_account_form
+#: model_terms:ir.ui.view,arch_db:analytic.view_account_analytic_account_form
 msgid "Cost/Revenue"
 msgstr "成本/收入"
 
@@ -200,8 +214,8 @@ msgid "Costs & Revenues"
 msgstr "成本与收入"
 
 #. module: analytic
-#: model:ir.actions.act_window,help:analytic.account_analytic_line_action
-#: model:ir.actions.act_window,help:analytic.account_analytic_line_action_entries
+#: model_terms:ir.actions.act_window,help:analytic.account_analytic_line_action
+#: model_terms:ir.actions.act_window,help:analytic.account_analytic_line_action_entries
 msgid ""
 "Costs will be created automatically when you register supplier\n"
 "                invoices, expenses or timesheets."
@@ -227,7 +241,7 @@ msgstr "创建时间"
 
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_account__credit
-#: model:ir.ui.view,arch_db:analytic.view_account_analytic_account_list
+#: model_terms:ir.ui.view,arch_db:analytic.view_account_analytic_account_list
 msgid "Credit"
 msgstr "贷方"
 
@@ -249,7 +263,7 @@ msgstr "日期"
 
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_account__debit
-#: model:ir.ui.view,arch_db:analytic.view_account_analytic_account_list
+#: model_terms:ir.ui.view,arch_db:analytic.view_account_analytic_account_list
 msgid "Debit"
 msgstr "借方"
 
@@ -290,8 +304,8 @@ msgid "Group"
 msgstr "组"
 
 #. module: analytic
-#: model:ir.ui.view,arch_db:analytic.view_account_analytic_account_search
-#: model:ir.ui.view,arch_db:analytic.view_account_analytic_line_filter
+#: model_terms:ir.ui.view,arch_db:analytic.view_account_analytic_account_search
+#: model_terms:ir.ui.view,arch_db:analytic.view_account_analytic_line_filter
 msgid "Group By..."
 msgstr "分组..."
 
@@ -317,7 +331,7 @@ msgstr "如果勾选此项，有新消息会提醒你。"
 #. module: analytic
 #: model:ir.model.fields,help:analytic.field_account_analytic_account__message_has_error
 msgid "If checked, some messages have a delivery error."
-msgstr ""
+msgstr "如果勾选此项， 某些信息将会产生传递错误。"
 
 #. module: analytic
 #: model:ir.model.fields,help:analytic.field_account_analytic_account__active
@@ -327,8 +341,8 @@ msgid ""
 msgstr "如果活动字段配置为False，您将可以隐藏它而不在科目删除它。"
 
 #. module: analytic
-#: model:ir.actions.act_window,help:analytic.account_analytic_line_action
-#: model:ir.actions.act_window,help:analytic.account_analytic_line_action_entries
+#: model_terms:ir.actions.act_window,help:analytic.account_analytic_line_action
+#: model_terms:ir.actions.act_window,help:analytic.account_analytic_line_action_entries
 msgid ""
 "In Odoo, sales orders and projects are implemented using\n"
 "                analytic accounts. You can track costs and revenues to analyse\n"
@@ -371,9 +385,14 @@ msgid "Last Updated on"
 msgstr "最后更新时间"
 
 #. module: analytic
+#: model:ir.model.fields,field_description:analytic.field_account_analytic_account__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "附件"
+
+#. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_account__message_has_error
 msgid "Message Delivery error"
-msgstr ""
+msgstr "消息递送错误"
 
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_account__message_ids
@@ -383,17 +402,17 @@ msgstr "消息"
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_distribution__name
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_group__name
-#: model:ir.ui.view,arch_db:analytic.view_account_analytic_account_list
+#: model_terms:ir.ui.view,arch_db:analytic.view_account_analytic_account_list
 msgid "Name"
 msgstr "名称"
 
 #. module: analytic
-#: model:ir.actions.act_window,help:analytic.account_analytic_line_action_entries
+#: model_terms:ir.actions.act_window,help:analytic.account_analytic_line_action_entries
 msgid "No activity yet"
 msgstr ""
 
 #. module: analytic
-#: model:ir.actions.act_window,help:analytic.account_analytic_line_action
+#: model_terms:ir.actions.act_window,help:analytic.account_analytic_line_action
 msgid "No activity yet on this account"
 msgstr ""
 
@@ -405,7 +424,7 @@ msgstr "行动数量"
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_account__message_has_error_counter
 msgid "Number of error"
-msgstr ""
+msgstr "错误数"
 
 #. module: analytic
 #: model:ir.model.fields,help:analytic.field_account_analytic_account__message_needaction_counter
@@ -415,7 +434,7 @@ msgstr "需要行动消息的数量"
 #. module: analytic
 #: model:ir.model.fields,help:analytic.field_account_analytic_account__message_has_error_counter
 msgid "Number of messages with delivery error"
-msgstr ""
+msgstr "递送错误的消息数量"
 
 #. module: analytic
 #: model:ir.model.fields,help:analytic.field_account_analytic_account__message_unread_counter
@@ -430,12 +449,12 @@ msgstr "上级"
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_group__parent_path
 msgid "Parent Path"
-msgstr ""
+msgstr "父级路径"
 
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_distribution__tag_id
 msgid "Parent tag"
-msgstr ""
+msgstr "上级标签"
 
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_line__partner_id
@@ -449,7 +468,7 @@ msgstr "百分比"
 
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_line__unit_amount
-#: model:ir.ui.view,arch_db:analytic.view_account_analytic_line_tree
+#: model_terms:ir.ui.view,arch_db:analytic.view_account_analytic_line_tree
 msgid "Quantity"
 msgstr "数量"
 
@@ -459,8 +478,8 @@ msgid "Reference"
 msgstr "参考"
 
 #. module: analytic
-#: model:ir.actions.act_window,help:analytic.account_analytic_line_action
-#: model:ir.actions.act_window,help:analytic.account_analytic_line_action_entries
+#: model_terms:ir.actions.act_window,help:analytic.account_analytic_line_action
+#: model_terms:ir.actions.act_window,help:analytic.account_analytic_line_action_entries
 msgid ""
 "Revenues will be created automatically when you create customer\n"
 "                invoices. Customer invoices can be created based on sales orders\n"
@@ -473,9 +492,9 @@ msgstr ""
 " 费用（例如差旅费的再开票）创建客户发票。"
 
 #. module: analytic
-#: model:ir.ui.view,arch_db:analytic.view_account_analytic_line_filter
+#: model_terms:ir.ui.view,arch_db:analytic.view_account_analytic_line_filter
 msgid "Search Analytic Lines"
-msgstr "搜索分析行"
+msgstr "搜索分析明细行"
 
 #. module: analytic
 #: model:ir.model.fields,help:analytic.field_account_analytic_tag__active
@@ -488,18 +507,18 @@ msgid "Tags"
 msgstr "标签"
 
 #. module: analytic
-#: model:ir.ui.view,arch_db:analytic.view_account_analytic_line_filter
+#: model_terms:ir.ui.view,arch_db:analytic.view_account_analytic_line_filter
 msgid "Tasks Date"
-msgstr ""
+msgstr "任务日期"
 
 #. module: analytic
 #: sql_constraint:account.analytic.distribution:0
 msgid ""
 "The percentage of an analytic distribution should be between 0 and 100."
-msgstr ""
+msgstr "分析分配的百分比应该在0 与 100 之间."
 
 #. module: analytic
-#: code:addons/analytic/models/analytic_account.py:194
+#: code:addons/analytic/models/analytic_account.py:195
 #, python-format
 msgid ""
 "The selected account belongs to another company that the one you're trying "
@@ -507,12 +526,12 @@ msgid ""
 msgstr ""
 
 #. module: analytic
-#: model:ir.actions.act_window,help:analytic.account_analytic_group_action
+#: model_terms:ir.actions.act_window,help:analytic.account_analytic_group_action
 msgid "This allows to classify your analytic accounts."
 msgstr ""
 
 #. module: analytic
-#: model:ir.ui.view,arch_db:analytic.view_account_analytic_line_tree
+#: model_terms:ir.ui.view,arch_db:analytic.view_account_analytic_line_tree
 msgid "Total"
 msgstr "总计"
 
@@ -537,16 +556,6 @@ msgid "User"
 msgstr "用户"
 
 #. module: analytic
-#: model:ir.model,name:analytic.model_res_users
-msgid "Users"
-msgstr "用户"
-
-#. module: analytic
-#: model:ir.model,name:analytic.model_account_analytic_distribution
-msgid "account.analytic.distribution"
-msgstr ""
-
-#. module: analytic
-#: model:ir.ui.view,arch_db:analytic.view_account_analytic_account_form
+#: model_terms:ir.ui.view,arch_db:analytic.view_account_analytic_account_form
 msgid "e.g. Project XYZ"
 msgstr "例如：项目 XYZ"

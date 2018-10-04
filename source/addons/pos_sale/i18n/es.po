@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server saas~11.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-24 09:03+0000\n"
-"PO-Revision-Date: 2018-08-24 09:03+0000\n"
+"POT-Creation-Date: 2018-09-21 13:16+0000\n"
+"PO-Revision-Date: 2018-09-21 13:16+0000\n"
 "Last-Translator: José Vicente <txusev@gmail.com>, 2018\n"
 "Language-Team: Spanish (https://www.transifex.com/odoo/teams/41243/es/)\n"
 "MIME-Version: 1.0\n"
@@ -46,7 +46,7 @@ msgid "Draft Quotation"
 msgstr "Presupuesto borrador"
 
 #. module: pos_sale
-#: model:ir.ui.view,arch_db:pos_sale.crm_team_view_form_inherit_pos_sale
+#: model_terms:ir.ui.view,arch_db:pos_sale.crm_team_view_form_inherit_pos_sale
 msgid "Group by"
 msgstr "Agrupar por"
 
@@ -97,9 +97,19 @@ msgid "Point of Sale"
 msgstr "Punto de Venta"
 
 #. module: pos_sale
+#: model:ir.model,name:pos_sale.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr "Configuración del TPV"
+
+#. module: pos_sale
 #: model:ir.model,name:pos_sale.model_pos_order
 msgid "Point of Sale Orders"
 msgstr "Pedidos del TPV"
+
+#. module: pos_sale
+#: model:ir.model,name:pos_sale.model_pos_session
+msgid "Point of Sale Session"
+msgstr "Sesión TPV"
 
 #. module: pos_sale
 #: model:ir.model.fields,field_description:pos_sale.field_crm_team__pos_config_ids
@@ -118,9 +128,19 @@ msgstr "Presupuesto enviado"
 
 #. module: pos_sale
 #: selection:crm.team,team_type:0
-#: model:ir.ui.view,arch_db:pos_sale.crm_team_salesteams_view_kanban_inherit_pos_sale
+#: model_terms:ir.ui.view,arch_db:pos_sale.crm_team_salesteams_view_kanban_inherit_pos_sale
 msgid "Sales"
 msgstr "Ventas"
+
+#. module: pos_sale
+#: model:ir.model,name:pos_sale.model_sale_report
+msgid "Sales Analysis Report"
+msgstr ""
+
+#. module: pos_sale
+#: model:ir.model,name:pos_sale.model_crm_team
+msgid "Sales Channels"
+msgstr "Canales de Ventas"
 
 #. module: pos_sale
 #: selection:sale.report,state:0
@@ -133,12 +153,6 @@ msgid "Sales Order"
 msgstr "Pedido de venta"
 
 #. module: pos_sale
-#: model:ir.model,name:pos_sale.model_sale_report
-msgid "Sales Orders Statistics"
-msgstr "Estadísticas de pedidos de ventas"
-
-#. module: pos_sale
-#: model:ir.model,name:pos_sale.model_crm_team
 #: model:ir.model.fields,field_description:pos_sale.field_pos_config__crm_team_id
 #: model:ir.model.fields,field_description:pos_sale.field_pos_session__crm_team_id
 msgid "Sales Team"
@@ -156,7 +170,7 @@ msgid "Salesperson"
 msgstr "Comercial"
 
 #. module: pos_sale
-#: model:ir.ui.view,arch_db:pos_sale.crm_team_salesteams_view_kanban_inherit_pos_sale
+#: model_terms:ir.ui.view,arch_db:pos_sale.crm_team_salesteams_view_kanban_inherit_pos_sale
 msgid "Session Running"
 msgstr "Sesión en ejecución"
 
@@ -166,7 +180,7 @@ msgid "Session Sale Amount"
 msgstr "Cantidad de venta de la sesión"
 
 #. module: pos_sale
-#: model:ir.ui.view,arch_db:pos_sale.crm_team_salesteams_view_kanban_inherit_pos_sale
+#: model_terms:ir.ui.view,arch_db:pos_sale.crm_team_salesteams_view_kanban_inherit_pos_sale
 msgid "Sessions Running"
 msgstr "Sesiones en ejecución"
 
@@ -208,13 +222,3 @@ msgstr "Sitio web"
 #: selection:crm.team,dashboard_graph_group_pos:0
 msgid "Week"
 msgstr "Semana"
-
-#. module: pos_sale
-#: model:ir.model,name:pos_sale.model_pos_config
-msgid "pos.config"
-msgstr "Configuración del TPV"
-
-#. module: pos_sale
-#: model:ir.model,name:pos_sale.model_pos_session
-msgid "pos.session"
-msgstr "Sesión TPV"

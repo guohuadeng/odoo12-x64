@@ -4,13 +4,15 @@
 # 
 # Translators:
 # Martin Trigaux, 2018
+# Yenthe Van Ginneken <yenthespam@gmail.com>, 2018
+# Thomas Pot <thomas@open2bizz.nl>, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server saas~11.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-24 09:04+0000\n"
-"PO-Revision-Date: 2018-08-24 09:04+0000\n"
-"Last-Translator: Martin Trigaux, 2018\n"
+"POT-Creation-Date: 2018-09-21 13:17+0000\n"
+"PO-Revision-Date: 2018-09-21 13:17+0000\n"
+"Last-Translator: Thomas Pot <thomas@open2bizz.nl>, 2018\n"
 "Language-Team: Dutch (https://www.transifex.com/odoo/teams/41243/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -29,6 +31,11 @@ msgstr ": Controleer nummerreeks"
 #, python-format
 msgid "A check memo cannot exceed 60 characters."
 msgstr "Een cheque memo kan niet langer zijn dan 60 karakters."
+
+#. module: account_check_printing
+#: model:ir.model,name:account_check_printing.model_account_chart_template
+msgid "Account Chart Template"
+msgstr ""
 
 #. module: account_check_printing
 #: model:ir.model.fields,help:account_check_printing.field_res_company__account_check_printing_margin_left
@@ -50,7 +57,7 @@ msgid "Amount in Words"
 msgstr "Aantal in woorden"
 
 #. module: account_check_printing
-#: model:ir.ui.view,arch_db:account_check_printing.print_pre_numbered_checks_view
+#: model_terms:ir.ui.view,arch_db:account_check_printing.print_pre_numbered_checks_view
 msgid "Cancel"
 msgstr "Annuleer"
 
@@ -73,7 +80,7 @@ msgid "Check Number"
 msgstr "Controleer nummer"
 
 #. module: account_check_printing
-#: model:ir.ui.view,arch_db:account_check_printing.view_account_journal_form_inherited
+#: model_terms:ir.ui.view,arch_db:account_check_printing.view_account_journal_form_inherited
 msgid "Check Printing"
 msgstr "Cheque afdrukken"
 
@@ -107,7 +114,7 @@ msgstr ""
 "Vink deze optie aan als uw her-afgedrukte cheques niet genummerd zijn."
 
 #. module: account_check_printing
-#: model:ir.ui.view,arch_db:account_check_printing.account_journal_dashboard_kanban_view_inherited
+#: model_terms:ir.ui.view,arch_db:account_check_printing.account_journal_dashboard_kanban_view_inherited
 msgid "Check to print"
 msgstr "Cheque om af te drukken"
 
@@ -117,7 +124,7 @@ msgid "Checks"
 msgstr "Cheques"
 
 #. module: account_check_printing
-#: model:ir.ui.view,arch_db:account_check_printing.view_payment_check_printing_search
+#: model_terms:ir.ui.view,arch_db:account_check_printing.view_payment_check_printing_search
 msgid "Checks To Print"
 msgstr "Cheques om af te drukken"
 
@@ -133,7 +140,7 @@ msgid "Checks to Print"
 msgstr "Cheques om af te drukken"
 
 #. module: account_check_printing
-#: model:ir.ui.view,arch_db:account_check_printing.account_journal_dashboard_kanban_view_inherited
+#: model_terms:ir.ui.view,arch_db:account_check_printing.account_journal_dashboard_kanban_view_inherited
 msgid "Checks to print"
 msgstr "Cheques om af te drukken"
 
@@ -146,6 +153,11 @@ msgstr "Bedrijven"
 #: model:ir.model.fields,field_description:account_check_printing.field_res_config_settings__country_code
 msgid "Company Country code"
 msgstr "Bedrijf landcode"
+
+#. module: account_check_printing
+#: model:ir.model,name:account_check_printing.model_res_config_settings
+msgid "Config Settings"
+msgstr "Configuratie instellingen"
 
 #. module: account_check_printing
 #: model:ir.model.fields,field_description:account_check_printing.field_print_prenumbered_checks__create_uid
@@ -205,11 +217,6 @@ msgid "Manual Numbering"
 msgstr "Handmatige nummering"
 
 #. module: account_check_printing
-#: model:ir.ui.view,arch_db:account_check_printing.view_account_bank_journal_form_inherited_check_printing
-msgid "Manual Numbering of check"
-msgstr "Handmatige nummering van cheques"
-
-#. module: account_check_printing
 #: model:ir.model.fields,field_description:account_check_printing.field_res_company__account_check_printing_multi_stub
 #: model:ir.model.fields,field_description:account_check_printing.field_res_config_settings__account_check_printing_multi_stub
 msgid "Multi-Pages Check Stub"
@@ -253,7 +260,7 @@ msgstr ""
 "als betalingsmethode en moeten al afgeletterd zijn"
 
 #. module: account_check_printing
-#: model:ir.ui.view,arch_db:account_check_printing.print_pre_numbered_checks_view
+#: model_terms:ir.ui.view,arch_db:account_check_printing.print_pre_numbered_checks_view
 msgid ""
 "Please enter the number of the first pre-printed check that you are about to"
 " print on."
@@ -262,12 +269,12 @@ msgstr ""
 "afdrukken."
 
 #. module: account_check_printing
-#: model:ir.ui.view,arch_db:account_check_printing.print_pre_numbered_checks_view
+#: model_terms:ir.ui.view,arch_db:account_check_printing.print_pre_numbered_checks_view
 msgid "Print"
 msgstr "Afdrukken"
 
 #. module: account_check_printing
-#: model:ir.ui.view,arch_db:account_check_printing.view_account_payment_form_inherited
+#: model_terms:ir.ui.view,arch_db:account_check_printing.view_account_payment_form_inherited
 msgid "Print Check"
 msgstr "Cheque afdrukken"
 
@@ -285,15 +292,15 @@ msgstr "Print datum label"
 #. module: account_check_printing
 #: code:addons/account_check_printing/models/account_payment.py:94
 #: model:ir.model,name:account_check_printing.model_print_prenumbered_checks
-#: model:ir.ui.view,arch_db:account_check_printing.print_pre_numbered_checks_view
+#: model_terms:ir.ui.view,arch_db:account_check_printing.print_pre_numbered_checks_view
 #, python-format
 msgid "Print Pre-numbered Checks"
 msgstr "Her-nummerde cheques afdrukken"
 
 #. module: account_check_printing
 #: model:ir.model,name:account_check_printing.model_account_register_payments
-msgid "Register payments on multiple invoices"
-msgstr "Betalingen voor meerdere facturen registreren"
+msgid "Register Payments"
+msgstr "Betalingen registreren"
 
 #. module: account_check_printing
 #: model:ir.model.fields,field_description:account_check_printing.field_res_company__account_check_printing_margin_right
@@ -323,11 +330,6 @@ msgid ""
 msgstr ""
 "Technische optie gebruikt om te weten of cheque afdrukken is opgezet als "
 "betaalmethode."
-
-#. module: account_check_printing
-#: model:ir.model,name:account_check_printing.model_account_chart_template
-msgid "Templates for Account Chart"
-msgstr "Sjabloon voor grootboekschema"
 
 #. module: account_check_printing
 #: model:ir.model.fields,help:account_check_printing.field_res_config_settings__country_code
@@ -378,7 +380,7 @@ msgid ""
 msgstr ""
 
 #. module: account_check_printing
-#: model:ir.ui.view,arch_db:account_check_printing.print_pre_numbered_checks_view
+#: model_terms:ir.ui.view,arch_db:account_check_printing.print_pre_numbered_checks_view
 msgid ""
 "This will allow to save on payments the number of the corresponding check."
 msgstr ""
@@ -386,7 +388,7 @@ msgstr ""
 "voegen."
 
 #. module: account_check_printing
-#: model:ir.ui.view,arch_db:account_check_printing.view_account_payment_form_inherited
+#: model_terms:ir.ui.view,arch_db:account_check_printing.view_account_payment_form_inherited
 msgid "Unmark Sent"
 msgstr "Demarkeer verzonden"
 
@@ -412,8 +414,3 @@ msgstr "Cheque beneden"
 #: selection:res.company,account_check_printing_layout:0
 msgid "check on top"
 msgstr "Cheque boven"
-
-#. module: account_check_printing
-#: model:ir.model,name:account_check_printing.model_res_config_settings
-msgid "res.config.settings"
-msgstr "res.config.settings"

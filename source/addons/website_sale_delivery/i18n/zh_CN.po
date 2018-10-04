@@ -11,13 +11,16 @@
 # 菜小蛇 <lttlsnk@gmail.com>, 2018
 # e2f_cn c5 <jarvisn@ecinnovations.com>, 2018
 # e2f_cn c7 <e2f_cn_c7@outlook.com>, 2018
+# Fisher <fisher@kdomi.com>, 2018
+# Lisa Zhang <lzh@odoo.com>, 2018
+# 珠海-杜哥 <liangjia@qq.com>, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server saas~11.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-24 09:05+0000\n"
-"PO-Revision-Date: 2018-08-24 09:05+0000\n"
-"Last-Translator: e2f_cn c7 <e2f_cn_c7@outlook.com>, 2018\n"
+"POT-Creation-Date: 2018-09-21 13:18+0000\n"
+"PO-Revision-Date: 2018-09-21 13:18+0000\n"
+"Last-Translator: 珠海-杜哥 <liangjia@qq.com>, 2018\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/odoo/teams/41243/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,16 +29,9 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #. module: website_sale_delivery
-#: model:ir.ui.view,arch_db:website_sale_delivery.payment_delivery
+#: model_terms:ir.ui.view,arch_db:website_sale_delivery.payment_delivery
 msgid "<b>Shipping Method: </b>"
-msgstr ""
-
-#. module: website_sale_delivery
-#: model:ir.ui.view,arch_db:website_sale_delivery.payment_delivery_methods
-msgid ""
-"<span class=\"float-right badge badge-secondary o_delivery_compute\">Select "
-"to compute delivery rate</span>"
-msgstr ""
+msgstr "<b>装运方法: </b>"
 
 #. module: website_sale_delivery
 #: model:ir.model.fields,help:website_sale_delivery.field_delivery_carrier__website_description
@@ -46,12 +42,7 @@ msgid ""
 msgstr "您想与客户沟通的产品说明。 此说明将被复制到每个销售订单，交货订单和客户发票/信用单"
 
 #. module: website_sale_delivery
-#: model:ir.model,name:website_sale_delivery.model_delivery_carrier
-msgid "Carrier"
-msgstr "承运方"
-
-#. module: website_sale_delivery
-#: model:ir.ui.view,arch_db:website_sale_delivery.payment_delivery
+#: model_terms:ir.ui.view,arch_db:website_sale_delivery.payment_delivery
 msgid "Choose a delivery method"
 msgstr "选择配送方式"
 
@@ -61,7 +52,7 @@ msgid "Country"
 msgstr "国家"
 
 #. module: website_sale_delivery
-#: model:ir.ui.view,arch_db:website_sale_delivery.res_config_settings_view_form
+#: model_terms:ir.ui.view,arch_db:website_sale_delivery.res_config_settings_view_form
 msgid "DHL Delivery Methods"
 msgstr "DHL 交货方式"
 
@@ -71,28 +62,29 @@ msgid "Delivery Amount"
 msgstr "交货金额"
 
 #. module: website_sale_delivery
+#: model:ir.model,name:website_sale_delivery.model_delivery_carrier
 #: model:ir.ui.menu,name:website_sale_delivery.menu_ecommerce_delivery
-#: model:ir.ui.view,arch_db:website_sale_delivery.res_config_settings_view_form
+#: model_terms:ir.ui.view,arch_db:website_sale_delivery.res_config_settings_view_form
 msgid "Delivery Methods"
 msgstr "交货方式"
 
 #. module: website_sale_delivery
-#: model:ir.ui.view,arch_db:website_sale_delivery.cart_delivery
+#: model_terms:ir.ui.view,arch_db:website_sale_delivery.cart_delivery
 msgid "Delivery will be updated after choosing a new delivery method"
 msgstr ""
 
 #. module: website_sale_delivery
-#: model:ir.ui.view,arch_db:website_sale_delivery.cart_delivery
+#: model_terms:ir.ui.view,arch_db:website_sale_delivery.cart_delivery
 msgid "Delivery:"
 msgstr "发货 :"
 
 #. module: website_sale_delivery
-#: model:ir.ui.view,arch_db:website_sale_delivery.view_delivery_carrier_form_website_delivery
+#: model_terms:ir.ui.view,arch_db:website_sale_delivery.view_delivery_carrier_form_website_delivery
 msgid "Description"
 msgstr "说明"
 
 #. module: website_sale_delivery
-#: model:ir.ui.view,arch_db:website_sale_delivery.view_delivery_carrier_form_website_delivery
+#: model_terms:ir.ui.view,arch_db:website_sale_delivery.view_delivery_carrier_form_website_delivery
 msgid "Description displayed on the eCommerce and on online quotations."
 msgstr "描述显示在电子商务和在线报价单上。"
 
@@ -102,17 +94,17 @@ msgid "Description for Online Quotations"
 msgstr "在线报价单的描述"
 
 #. module: website_sale_delivery
-#: model:ir.ui.view,arch_db:website_sale_delivery.res_config_settings_view_form
+#: model_terms:ir.ui.view,arch_db:website_sale_delivery.res_config_settings_view_form
 msgid "Easypost Delivery Methods"
 msgstr ""
 
 #. module: website_sale_delivery
-#: model:ir.ui.view,arch_db:website_sale_delivery.res_config_settings_view_form
+#: model_terms:ir.ui.view,arch_db:website_sale_delivery.res_config_settings_view_form
 msgid "FedEx Delivery Methods"
 msgstr "FedEx 交货方式"
 
 #. module: website_sale_delivery
-#: model:ir.ui.view,arch_db:website_sale_delivery.payment_delivery_methods
+#: model_terms:ir.ui.view,arch_db:website_sale_delivery.payment_delivery_methods
 msgid "Free"
 msgstr "空闲"
 
@@ -129,7 +121,7 @@ msgstr "已发货"
 #. module: website_sale_delivery
 #: model:ir.model.fields,field_description:website_sale_delivery.field_delivery_carrier__is_published
 msgid "Is published"
-msgstr ""
+msgstr "已发布"
 
 #. module: website_sale_delivery
 #: code:addons/website_sale_delivery/controllers/main.py:44
@@ -152,18 +144,23 @@ msgid ""
 msgstr "订单明细会显示在网站中，但不能用于统计分析。"
 
 #. module: website_sale_delivery
-#: model:ir.ui.view,arch_db:website_sale_delivery.view_delivery_carrier_search_inherit_website_sale_delivery
+#: model_terms:ir.ui.view,arch_db:website_sale_delivery.view_delivery_carrier_search_inherit_website_sale_delivery
 msgid "Published"
 msgstr "已发布"
 
 #. module: website_sale_delivery
-#: model:ir.model,name:website_sale_delivery.model_sale_order
-msgid "Quotation"
-msgstr "报价单"
-
-#. module: website_sale_delivery
 #: model:ir.model.fields,help:website_sale_delivery.field_delivery_carrier__website_id
 msgid "Restrict publishing to this website."
+msgstr "限制发布到本网站。"
+
+#. module: website_sale_delivery
+#: model:ir.model,name:website_sale_delivery.model_sale_order
+msgid "Sale Order"
+msgstr "销售订单"
+
+#. module: website_sale_delivery
+#: model_terms:ir.ui.view,arch_db:website_sale_delivery.payment_delivery_methods
+msgid "Select to compute delivery rate"
 msgstr ""
 
 #. module: website_sale_delivery
@@ -183,19 +180,19 @@ msgid "The full URL to access the document through the website."
 msgstr "通过网站访问单据的完整URL。"
 
 #. module: website_sale_delivery
-#: model:ir.ui.view,arch_db:website_sale_delivery.sale_order_portal_content_inherit_sale_stock_inherit_website_sale_delivery
+#: model_terms:ir.ui.view,arch_db:website_sale_delivery.sale_order_portal_content_inherit_sale_stock_inherit_website_sale_delivery
 msgid "Tracking:"
 msgstr "追踪:"
 
 #. module: website_sale_delivery
-#: model:ir.ui.view,arch_db:website_sale_delivery.res_config_settings_view_form
+#: model_terms:ir.ui.view,arch_db:website_sale_delivery.res_config_settings_view_form
 msgid "USPS Delivery Methods"
 msgstr "USPS 交货方式"
 
 #. module: website_sale_delivery
 #: model:ir.model.fields,field_description:website_sale_delivery.field_delivery_carrier__website_published
 msgid "Visible on current website"
-msgstr ""
+msgstr "在当前网站显示"
 
 #. module: website_sale_delivery
 #: model:ir.model.fields,field_description:website_sale_delivery.field_delivery_carrier__website_id
@@ -208,6 +205,6 @@ msgid "Website URL"
 msgstr "网站网址"
 
 #. module: website_sale_delivery
-#: model:ir.ui.view,arch_db:website_sale_delivery.res_config_settings_view_form
+#: model_terms:ir.ui.view,arch_db:website_sale_delivery.res_config_settings_view_form
 msgid "bpost Delivery Methods"
 msgstr "Bpost运输方式"

@@ -17,7 +17,7 @@ class StockMoveLine(models.Model):
         'Quantity Finished Product', digits=dp.get_precision('Product Unit of Measure'),
         help="Informative, not used in matching")
     done_wo = fields.Boolean('Done for Work Order', default=True, help="Technical Field which is False when temporarily filled in in work order")  # TDE FIXME: naming
-    done_move = fields.Boolean('Move Done', related='move_id.is_done', store=True)  # TDE FIXME: naming
+    done_move = fields.Boolean('Move Done', related='move_id.is_done', readonly=False, store=True)  # TDE FIXME: naming
 
     def _get_similar_move_lines(self):
         lines = super(StockMoveLine, self)._get_similar_move_lines()
@@ -262,4 +262,6 @@ class StockMove(models.Model):
             else:
                 return super(StockMove, self)._get_upstream_documents_and_responsibles(visited)
 
-
+    def _should_be_assigned(self):
+        res = super(StockMove, self)._should_be_assigned()
+        return bool(res and not (self.production_id or self.raw_material_production_id))

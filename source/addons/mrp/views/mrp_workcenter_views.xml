@@ -127,7 +127,7 @@
         </record>
 
         <record model="ir.actions.act_window" id="mrp_workorder_report">
-            <field name="name">Work Orders Performance</field>
+            <field name="name">Work Orders</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">mrp.workorder</field>
             <field name="domain">[]</field>
@@ -331,7 +331,7 @@
                             </group>
                             <group>
                                 <field name="code"/>
-                                <field name="resource_calendar_id"/>
+                                <field name="resource_calendar_id" required="1"/>
                                 <field name="company_id" groups="base.group_multi_company" options="{'no_create': True}"/>
                             </group>
                         </group>
@@ -411,7 +411,7 @@
         </record>
 
         <record id="mrp_workcenter_kanban_action" model="ir.actions.act_window">
-            <field name="name">Work Centers Dashboard</field>
+            <field name="name">Work Centers Overview</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">mrp.workcenter</field>
             <field name="view_type">form</field>
@@ -436,7 +436,7 @@
             sequence="90"/>
 
         <menuitem id="menu_mrp_dashboard"
-            name="Dashboard"
+            name="Overview"
             action="mrp_workcenter_kanban_action"
             groups="group_mrp_routings"
             parent="menu_mrp_root"
@@ -537,8 +537,6 @@
         <field name="arch" type="xml">
             <search string="Operations">
                 <field name="workcenter_id"/>
-                <filter string="Start Date" name="date_start_filter" date="date_start"/>
-                <separator/>
                 <field name="workcenter_id"/>
                 <field name="loss_id"/>
                 <separator/>
@@ -548,11 +546,9 @@
                 <filter name="productive" string="Fully Productive" domain="[('loss_type','=','productive')]"/>
                 <separator/>
                 <group expand='0' string='Group by...'>
-                    <filter string="Date" name="loss_date" context="{'group_by': 'date_start'}"/>
                     <filter string="User" name="user" context="{'group_by': 'create_uid'}"/>
                     <filter string='Workcenter' name="workcenter_group" context="{'group_by': 'workcenter_id'}"/>
                     <filter string="Loss Reason" name="loss_group" context="{'group_by': 'loss_id'}"/>
-                    <filter string="TPM Big Loss" name="loss_group_main" context="{'group_by': 'loss_type'}"/>
                 </group>
             </search>
         </field>

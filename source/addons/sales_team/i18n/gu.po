@@ -2,12 +2,18 @@
 # This file contains the translation of the following modules:
 # * sales_team
 # 
+# Translators:
+# Martin Trigaux, 2018
+# Turkesh Patel <turkesh4friends@gmail.com>, 2018
+# Dharmraj Jhala <dja@openerp.com>, 2018
+# Spellbound Soft Solutions <jeel.spellbound@gmail.com>, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server saas~11.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-24 09:05+0000\n"
-"PO-Revision-Date: 2018-08-24 09:05+0000\n"
+"POT-Creation-Date: 2018-09-21 13:17+0000\n"
+"PO-Revision-Date: 2018-09-21 13:17+0000\n"
+"Last-Translator: Spellbound Soft Solutions <jeel.spellbound@gmail.com>, 2018\n"
 "Language-Team: Gujarati (https://www.transifex.com/odoo/teams/41243/gu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -16,17 +22,17 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: sales_team
-#: model:ir.ui.view,arch_db:sales_team.crm_team_salesteams_view_kanban
+#: model_terms:ir.ui.view,arch_db:sales_team.crm_team_salesteams_view_kanban
 msgid "<span>New</span>"
 msgstr ""
 
 #. module: sales_team
-#: model:ir.ui.view,arch_db:sales_team.crm_team_salesteams_view_kanban
+#: model_terms:ir.ui.view,arch_db:sales_team.crm_team_salesteams_view_kanban
 msgid "<span>Reporting</span>"
 msgstr ""
 
 #. module: sales_team
-#: model:ir.ui.view,arch_db:sales_team.crm_team_salesteams_view_kanban
+#: model_terms:ir.ui.view,arch_db:sales_team.crm_team_salesteams_view_kanban
 msgid "<span>View</span>"
 msgstr ""
 
@@ -38,7 +44,7 @@ msgstr ""
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__active
 msgid "Active"
-msgstr ""
+msgstr "સક્રિય"
 
 #. module: sales_team
 #: model:ir.actions.act_window,name:sales_team.mail_activity_type_action_config_sales
@@ -46,12 +52,17 @@ msgid "Activity Types"
 msgstr ""
 
 #. module: sales_team
-#: model:ir.ui.view,arch_db:sales_team.crm_team_salesteams_search
+#: model_terms:ir.ui.view,arch_db:sales_team.crm_team_salesteams_search
 msgid "Archived"
 msgstr ""
 
 #. module: sales_team
-#: model:ir.ui.view,arch_db:sales_team.crm_team_view_form
+#: model:ir.model.fields,field_description:sales_team.field_crm_team__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: sales_team
+#: model_terms:ir.ui.view,arch_db:sales_team.crm_team_view_form
 msgid "Avatar"
 msgstr ""
 
@@ -79,17 +90,17 @@ msgstr ""
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__company_id
 msgid "Company"
-msgstr ""
+msgstr "કંપની"
 
 #. module: sales_team
 #: model:ir.ui.menu,name:sales_team.menu_sale_config
 msgid "Configuration"
-msgstr ""
+msgstr "રુપરેખાંકન"
 
 #. module: sales_team
 #: model:ir.model,name:sales_team.model_res_partner
 msgid "Contact"
-msgstr ""
+msgstr "સંપર્ક"
 
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__dashboard_graph_model
@@ -99,7 +110,7 @@ msgstr ""
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "બનાવનાર"
 
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__create_date
@@ -109,10 +120,10 @@ msgstr ""
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__currency_id
 msgid "Currency"
-msgstr ""
+msgstr "ચલણ"
 
 #. module: sales_team
-#: model:ir.ui.view,arch_db:sales_team.crm_team_view_form
+#: model_terms:ir.ui.view,arch_db:sales_team.crm_team_view_form
 msgid "Dashboard"
 msgstr ""
 
@@ -129,18 +140,18 @@ msgstr ""
 #. module: sales_team
 #: selection:crm.team,dashboard_graph_group:0
 msgid "Day"
-msgstr ""
+msgstr "દિવસ"
 
 #. module: sales_team
-#: model:ir.actions.act_window,help:sales_team.crm_team_salesteams_act
-#: model:ir.actions.act_window,help:sales_team.sales_team_config_action
+#: model_terms:ir.actions.act_window,help:sales_team.crm_team_salesteams_act
+#: model_terms:ir.actions.act_window,help:sales_team.sales_team_config_action
 msgid "Define a new Sales Team"
 msgstr ""
 
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "પ્રદર્શન નામ"
 
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__favorite_user_ids
@@ -154,7 +165,7 @@ msgid ""
 msgstr ""
 
 #. module: sales_team
-#: model:ir.ui.view,arch_db:sales_team.crm_team_view_form
+#: model_terms:ir.ui.view,arch_db:sales_team.crm_team_view_form
 msgid ""
 "Follow this salesteam to automatically track the events associated to users "
 "of this team."
@@ -163,7 +174,7 @@ msgstr ""
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__message_follower_ids
 msgid "Followers"
-msgstr ""
+msgstr "અનુયાયીઓ"
 
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__message_channel_ids
@@ -176,14 +187,14 @@ msgid "Followers (Partners)"
 msgstr ""
 
 #. module: sales_team
-#: model:ir.ui.view,arch_db:sales_team.crm_team_view_form
+#: model_terms:ir.ui.view,arch_db:sales_team.crm_team_view_form
 msgid "Graph"
-msgstr ""
+msgstr "આલેખ"
 
 #. module: sales_team
-#: model:ir.ui.view,arch_db:sales_team.crm_team_salesteams_search
+#: model_terms:ir.ui.view,arch_db:sales_team.crm_team_salesteams_search
 msgid "Group By..."
-msgstr ""
+msgstr "ગ્રુપ દ્વારા..."
 
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__dashboard_graph_group
@@ -198,22 +209,22 @@ msgstr ""
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__id
 msgid "ID"
-msgstr ""
+msgstr "ઓળખ"
 
 #. module: sales_team
 #: model:ir.model.fields,help:sales_team.field_crm_team__message_unread
 msgid "If checked new messages require your attention."
-msgstr ""
+msgstr "જો ચેક કરેલા નવા સંદેશા માટે તમારું ધ્યાન આવશ્યક છે"
 
 #. module: sales_team
 #: model:ir.model.fields,help:sales_team.field_crm_team__message_needaction
 msgid "If checked, new messages require your attention."
-msgstr ""
+msgstr "જો ચેક કરેલું હોય, તો નવા સંદેશા માટે તમારું ધ્યાન આવશ્યક છે."
 
 #. module: sales_team
 #: model:ir.model.fields,help:sales_team.field_crm_team__message_has_error
 msgid "If checked, some messages have a delivery error."
-msgstr ""
+msgstr "જો ચેક કરેલું હોય, તો કેટલાક મેસેજીસમાં ડિલિવરીની ભૂલ છે."
 
 #. module: sales_team
 #: model:ir.model.fields,help:sales_team.field_res_partner__team_id
@@ -233,7 +244,7 @@ msgstr ""
 #. module: sales_team
 #: selection:crm.team,dashboard_graph_model:0
 msgid "Invoices"
-msgstr ""
+msgstr "ઈનવોઈસ"
 
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__message_is_follower
@@ -276,9 +287,14 @@ msgid "Line"
 msgstr ""
 
 #. module: sales_team
+#: model:ir.model.fields,field_description:sales_team.field_crm_team__message_main_attachment_id
+msgid "Main Attachment"
+msgstr ""
+
+#. module: sales_team
 #: model:res.groups,name:sales_team.group_sale_manager
 msgid "Manager"
-msgstr ""
+msgstr "વ્યવસ્થાપક"
 
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__message_has_error
@@ -288,15 +304,15 @@ msgstr ""
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__message_ids
 msgid "Messages"
-msgstr ""
+msgstr "સંદેશાઓ"
 
 #. module: sales_team
 #: selection:crm.team,dashboard_graph_group:0
 msgid "Month"
-msgstr ""
+msgstr "મહિનો"
 
 #. module: sales_team
-#: model:ir.ui.view,arch_db:sales_team.crm_team_salesteams_search
+#: model_terms:ir.ui.view,arch_db:sales_team.crm_team_salesteams_search
 msgid "My Favorites"
 msgstr ""
 
@@ -314,22 +330,22 @@ msgstr ""
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__message_has_error_counter
 msgid "Number of error"
-msgstr ""
+msgstr "ભૂલની સંખ્યા"
 
 #. module: sales_team
 #: model:ir.model.fields,help:sales_team.field_crm_team__message_needaction_counter
 msgid "Number of messages which requires an action"
-msgstr ""
+msgstr "સંદેશાઓની સંખ્યા જે ક્રિયા માટે જરૂરી છે"
 
 #. module: sales_team
 #: model:ir.model.fields,help:sales_team.field_crm_team__message_has_error_counter
 msgid "Number of messages with delivery error"
-msgstr ""
+msgstr "વિતરણ ભૂલ સાથે સંદેશાઓની સંખ્યા"
 
 #. module: sales_team
 #: model:ir.model.fields,help:sales_team.field_crm_team__message_unread_counter
 msgid "Number of unread messages"
-msgstr ""
+msgstr "ન વાંચેલા સંદેશાની સંખ્યા"
 
 #. module: sales_team
 #: selection:crm.team,dashboard_graph_model:0
@@ -350,22 +366,20 @@ msgstr ""
 #: selection:crm.team,dashboard_graph_model:0
 #: model:crm.team,name:sales_team.team_sales_department
 #: selection:crm.team,team_type:0
-#: model:ir.model.fields,field_description:sales_team.field_res_users__group_sales_team_user
 msgid "Sales"
-msgstr ""
-
-#. module: sales_team
-#: model:ir.actions.act_window,name:sales_team.crm_team_salesteams_act
-msgid "Sales Dashboard"
-msgstr ""
+msgstr "વેચાણ"
 
 #. module: sales_team
 #: model:ir.model,name:sales_team.model_crm_team
+msgid "Sales Channels"
+msgstr ""
+
+#. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__name
 #: model:ir.model.fields,field_description:sales_team.field_res_partner__team_id
 #: model:ir.model.fields,field_description:sales_team.field_res_users__team_id
-#: model:ir.ui.view,arch_db:sales_team.crm_team_view_form
-#: model:ir.ui.view,arch_db:sales_team.crm_team_view_tree
+#: model_terms:ir.ui.view,arch_db:sales_team.crm_team_view_form
+#: model_terms:ir.ui.view,arch_db:sales_team.crm_team_view_tree
 msgid "Sales Team"
 msgstr ""
 
@@ -387,12 +401,12 @@ msgid "Salesperson"
 msgstr ""
 
 #. module: sales_team
-#: model:ir.ui.view,arch_db:sales_team.crm_team_view_form
+#: model_terms:ir.ui.view,arch_db:sales_team.crm_team_view_form
 msgid "Salesteam name..."
 msgstr ""
 
 #. module: sales_team
-#: model:ir.ui.view,arch_db:sales_team.crm_team_salesteams_search
+#: model_terms:ir.ui.view,arch_db:sales_team.crm_team_salesteams_search
 msgid "Salesteams Search"
 msgstr ""
 
@@ -402,9 +416,9 @@ msgid "Scale"
 msgstr ""
 
 #. module: sales_team
-#: model:ir.ui.view,arch_db:sales_team.crm_team_salesteams_view_kanban
+#: model_terms:ir.ui.view,arch_db:sales_team.crm_team_salesteams_view_kanban
 msgid "Settings"
-msgstr ""
+msgstr "સુયોજનો"
 
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__is_favorite
@@ -413,13 +427,18 @@ msgstr ""
 
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__user_id
-#: model:ir.ui.view,arch_db:sales_team.crm_team_salesteams_search
+#: model_terms:ir.ui.view,arch_db:sales_team.crm_team_salesteams_search
 msgid "Team Leader"
 msgstr ""
 
 #. module: sales_team
-#: model:ir.ui.view,arch_db:sales_team.crm_team_view_form
+#: model_terms:ir.ui.view,arch_db:sales_team.crm_team_view_form
 msgid "Team Members"
+msgstr ""
+
+#. module: sales_team
+#: model:ir.actions.act_window,name:sales_team.crm_team_salesteams_act
+msgid "Team Pipelines"
 msgstr ""
 
 #. module: sales_team
@@ -463,7 +482,7 @@ msgstr ""
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__dashboard_graph_type
 msgid "Type"
-msgstr ""
+msgstr "પ્રકાર"
 
 #. module: sales_team
 #: code:addons/sales_team/models/crm_team.py:151
@@ -483,8 +502,8 @@ msgid "Unread Messages Counter"
 msgstr ""
 
 #. module: sales_team
-#: model:ir.actions.act_window,help:sales_team.crm_team_salesteams_act
-#: model:ir.actions.act_window,help:sales_team.sales_team_config_action
+#: model_terms:ir.actions.act_window,help:sales_team.crm_team_salesteams_act
+#: model_terms:ir.actions.act_window,help:sales_team.sales_team_config_action
 msgid ""
 "Use Sales Teams to organize your sales departments.\n"
 "                    Each channel will work with a separate pipeline."
@@ -506,17 +525,9 @@ msgid "User: Own Documents Only"
 msgstr ""
 
 #. module: sales_team
-#: model:ir.model.fields,help:sales_team.field_res_users__group_sales_team_user
-msgid ""
-"User: Own Documents Only: the user will have access to his own data in the sales application.\n"
-"User: All Documents: the user will have access to all records of everyone in the sales application.\n"
-"Manager: the user will have an access to the sales configuration as well as statistic reports."
-msgstr ""
-
-#. module: sales_team
 #: model:ir.model,name:sales_team.model_res_users
 msgid "Users"
-msgstr ""
+msgstr "વપરાશકર્તાઓ"
 
 #. module: sales_team
 #: model:crm.team,name:sales_team.salesteam_website_sales

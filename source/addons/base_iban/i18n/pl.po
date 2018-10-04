@@ -3,13 +3,16 @@
 # * base_iban
 # 
 # Translators:
+# Martin Trigaux, 2018
+# Grzegorz Grzelak <grzegorz.grzelak@openglobe.pl>, 2018
+# Piotr Szlązak <szlazakpiotr@gmail.com>, 2018
 # Wiktor Kaźmierczak <wik92tor@wp.pl>, 2018
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server saas~11.4\n"
+"Project-Id-Version: Odoo Server saas~11.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-02 09:55+0000\n"
-"PO-Revision-Date: 2018-08-02 09:55+0000\n"
+"POT-Creation-Date: 2018-09-18 09:49+0000\n"
+"PO-Revision-Date: 2018-09-18 09:49+0000\n"
 "Last-Translator: Wiktor Kaźmierczak <wik92tor@wp.pl>, 2018\n"
 "Language-Team: Polish (https://www.transifex.com/odoo/teams/41243/pl/)\n"
 "MIME-Version: 1.0\n"
@@ -21,13 +24,13 @@ msgstr ""
 #. module: base_iban
 #: model:ir.model,name:base_iban.model_res_partner_bank
 msgid "Bank Accounts"
-msgstr ""
+msgstr "Konta bankowe"
 
 #. module: base_iban
 #: code:addons/base_iban/models/res_partner_bank.py:67
 #, python-format
 msgid "Cannot compute the BBAN because the account number is not an IBAN."
-msgstr ""
+msgstr "Nie można obliczyć BBAN, bo numer konta nie jest IBAN."
 
 #. module: base_iban
 #: code:addons/base_iban/models/res_partner_bank.py:54
@@ -42,6 +45,8 @@ msgid ""
 "The IBAN does not seem to be correct. You should have entered something like this %s\n"
 "Where B = National bank code, S = Branch code, C = Account No, k = Check digit"
 msgstr ""
+"IBAN nie wydaje się być poprawny. Trzeba wpisać coś takiego %s\n"
+"Where B = National bank code, S = Branch code, C = Account No, k = Check digit"
 
 #. module: base_iban
 #: code:addons/base_iban/models/res_partner_bank.py:35
@@ -59,4 +64,4 @@ msgstr ""
 #: code:addons/base_iban/models/res_partner_bank.py:45
 #, python-format
 msgid "This IBAN does not pass the validation check, please verify it."
-msgstr ""
+msgstr "Ten numer IBAN nie przeszedł weryfikacji. Sprawdź go."

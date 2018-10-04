@@ -255,11 +255,11 @@
                         help="Manufacturing Orders which are in confirmed state."/>
                     <separator/>
                     <filter string="Confirmed" name="confirmed" domain="[('state','=','confirmed')]"/>
+                    <filter string="Waiting for Materials" name="waiting" domain="[('availability', '=', 'waiting')]"/>
                     <filter string="Planned" name="planned" domain="[('state','=','planned')]" groups="mrp.group_mrp_routings"/>
                     <filter string="In Progress" name="inprogress" domain="[('state','=','progress')]"
                         help="Manufacturing Orders which are currently in production."/>
                     <filter string="Done" name="done" domain="[('state', '=', 'done')]"/>
-                    <filter string="Waiting" name="waiting" domain="[('availability', '=', 'waiting')]"/>
                     <separator/>
                     <filter string="Late" domain="['&amp;', ('date_planned_start', '&lt;', current_date), ('state', '=', 'confirmed')]"
                         name="late" help="Production started late"/>
@@ -268,7 +268,6 @@
                     <filter string="My Activities" name="activities_my"
                         domain="[('activity_ids.user_id', '=', uid)]"/>
                     <separator/>
-                    <filter string="No Routing" domain="[('routing_id','=', False)]" name="norouting" groups="mrp.group_mrp_routings"/>
                     <field name="product_id"/>
                     <field name="move_raw_ids" string="Raw Material" filter_domain="[('move_raw_ids.product_id','ilike',self)]"/>
                     <field name="name" string="Work Center" filter_domain="[('routing_id.operation_ids.workcenter_id','ilike',self)]"/>
@@ -285,7 +284,7 @@
                     <group expand="0" string="Group By...">
                         <filter string="Product" name="product" domain="[]" context="{'group_by':'product_id'}"/>
                         <filter string="Routing" name="routing" domain="[]" context="{'group_by':'routing_id'}" groups="mrp.group_mrp_routings"/>
-                        <filter string="Scheduled Month" name="scheduled_month" domain="[]" context="{'group_by':'date_planned_start'}" help="Scheduled Date by Month"/>
+                        <filter string="Scheduled Date" name="scheduled_date" domain="[]" context="{'group_by':'date_planned_start'}" help="Scheduled Date by Month"/>
                         <filter string="Status" name="status" domain="[]" context="{'group_by': 'state'}"/>
                     </group>
                </search>
@@ -325,48 +324,6 @@
             id="menu_mrp_production_action"
             parent="menu_mrp_manufacturing"
             sequence="1"/>
-
-        <record id="mrp_production_action_planning" model="ir.actions.act_window">
-            <field name="name">Manufacturing Orders</field>
-            <field name="type">ir.actions.act_window</field>
-            <field name="res_model">mrp.production</field>
-            <field name="view_type">form</field>
-            <field name="view_mode">tree,kanban,form,calendar,pivot,graph</field>
-            <field name="domain">[('state', '=', 'confirmed'), ('routing_id', '!=', False)]</field>
-            <field name="help" type="html">
-              <p class="o_view_nocontent_smiling_face">
-                Create a new manufacturing order
-              </p><p>
-                A manufacturing order, based on a bill of materials, will
-                consume raw materials and produce finished products.
-              </p><p>
-                Manufacturing orders are usually proposed automatically based
-                on customer requirements or automated rules like the minimum
-                stock rule.
-              </p>
-            </field>
-        </record>
-
-        <record id="mrp_production_action_waiting" model="ir.actions.act_window">
-            <field name="name">Waiting Availability MO</field>
-            <field name="type">ir.actions.act_window</field>
-            <field name="res_model">mrp.production</field>
-            <field name="view_type">form</field>
-            <field name="view_mode">tree,form,kanban,calendar,pivot,graph</field>
-            <field name="domain">[('availability', 'in', ('waiting', 'partially_available'))]</field>
-            <field name="help" type="html">
-              <p class="o_view_nocontent_smiling_face">
-                Create a new manufacturing order
-              </p><p>
-                A manufacturing order, based on a bill of materials, will
-                consume raw materials and produce finished products.
-              </p><p>
-                Manufacturing orders are usually proposed automatically based
-                on customer requirements or automated rules like the minimum
-                stock rule.
-              </p>
-            </field>
-        </record>
 
     <record id="mrp_production_report" model="ir.actions.act_window">
         <field name="name">Manufacturing Orders</field>

@@ -3,16 +3,17 @@
 # * barcodes
 # 
 # Translators:
-# Jeffery CHEN Fan <jeffery9@gmail.com>, 2016
-# 苏州远鼎 <tiexinliu@126.com>, 2016
-# liAnGjiA <liangjia@qq.com>, 2017
+# Martin Trigaux, 2018
+# 珠海-杜哥 <liangjia@qq.com>, 2018
+# 老窦 北京 <2662059195@qq.com>, 2018
+# ChinaMaker <liuct@chinamaker.net>, 2018
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server saas~11.4\n"
+"Project-Id-Version: Odoo Server saas~11.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-02 09:12+0000\n"
-"PO-Revision-Date: 2018-08-02 09:12+0000\n"
-"Last-Translator: liAnGjiA <liangjia@qq.com>, 2017\n"
+"POT-Creation-Date: 2018-09-21 13:17+0000\n"
+"PO-Revision-Date: 2018-09-21 13:17+0000\n"
+"Last-Translator: ChinaMaker <liuct@chinamaker.net>, 2018\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/odoo/teams/41243/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,31 +22,31 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #. module: barcodes
-#: code:addons/barcodes/models/barcodes.py:202
+#: code:addons/barcodes/models/barcodes.py:204
 #, python-format
 msgid " '*' is not a valid Regex Barcode Pattern. Did you mean '.*' ?"
 msgstr "'*' 不是一个有效的正则条码模式，你的意思是'.*' ?"
 
 #. module: barcodes
-#: code:addons/barcodes/models/barcodes.py:200
+#: code:addons/barcodes/models/barcodes.py:202
 #, python-format
 msgid ": a rule can only contain one pair of braces."
 msgstr ": 规则只能包含一对大括号"
 
 #. module: barcodes
-#: code:addons/barcodes/models/barcodes.py:196
+#: code:addons/barcodes/models/barcodes.py:198
 #, python-format
 msgid ": braces can only contain N's followed by D's."
 msgstr ": 大括号只能后跟D序列的N序列"
 
 #. module: barcodes
-#: code:addons/barcodes/models/barcodes.py:198
+#: code:addons/barcodes/models/barcodes.py:200
 #, python-format
 msgid ": empty braces."
-msgstr ": 空的括号"
+msgstr ": 空括号"
 
 #. module: barcodes
-#: model:ir.ui.view,arch_db:barcodes.view_barcode_nomenclature_form
+#: model_terms:ir.ui.view,arch_db:barcodes.view_barcode_nomenclature_form
 msgid ""
 "<i>Barcodes Nomenclatures</i> define how barcodes are recognized and categorized.\n"
 "                                When a barcode is scanned it is associated to the <i>first</i> rule with a matching\n"
@@ -55,21 +56,20 @@ msgstr ""
 "<i>条码命名规则</i>定义如何识别和归类条码。当条码被扫码后，它就会关联到匹配到的<i>第一条<i>规则。模式的语法是正则表达式，如果正则表达式匹配到条码的前缀，则条码被匹配。"
 
 #. module: barcodes
-#: model:ir.actions.act_window,help:barcodes.action_barcode_nomenclature_form
+#: model_terms:ir.actions.act_window,help:barcodes.action_barcode_nomenclature_form
 msgid ""
 "A barcode nomenclature defines how the point of sale identify and interprets"
 " barcodes"
 msgstr "一个条码命名规则定义了POS如何识别和解释条码"
 
 #. module: barcodes
-#: model:ir.actions.act_window,help:barcodes.action_barcode_nomenclature_form
+#: model_terms:ir.actions.act_window,help:barcodes.action_barcode_nomenclature_form
 msgid "Add a new barcode nomenclature"
-msgstr ""
+msgstr "增加新条码命名规则"
 
 #. module: barcodes
-#: code:addons/barcodes/models/barcodes.py:183 selection:barcode.rule,type:0
+#: selection:barcode.rule,type:0
 #: model:ir.model.fields,field_description:barcodes.field_barcode_rule__alias
-#, python-format
 msgid "Alias"
 msgstr "别名"
 
@@ -89,21 +89,26 @@ msgid "An internal identification of the barcode nomenclature"
 msgstr "条码命名规则的内部识别"
 
 #. module: barcodes
-#: code:addons/barcodes/models/barcodes.py:177
 #: selection:barcode.rule,encoding:0
-#, python-format
 msgid "Any"
 msgstr "任意"
 
 #. module: barcodes
+#: model:ir.model,name:barcodes.model_barcodes_barcode_events_mixin
+msgid "Barcode Event Mixin"
+msgstr ""
+
+#. module: barcodes
+#: model:ir.model,name:barcodes.model_barcode_nomenclature
+#: model:ir.model.fields,field_description:barcodes.field_barcode_nomenclature__name
 #: model:ir.model.fields,field_description:barcodes.field_barcode_rule__barcode_nomenclature_id
-#: model:ir.ui.view,arch_db:barcodes.view_barcode_nomenclature_form
+#: model_terms:ir.ui.view,arch_db:barcodes.view_barcode_nomenclature_form
 msgid "Barcode Nomenclature"
 msgstr "条码命名规则"
 
 #. module: barcodes
 #: model:ir.actions.act_window,name:barcodes.action_barcode_nomenclature_form
-#: model:ir.ui.view,arch_db:barcodes.view_barcode_nomenclature_tree
+#: model_terms:ir.ui.view,arch_db:barcodes.view_barcode_nomenclature_tree
 msgid "Barcode Nomenclatures"
 msgstr "条码命名规则"
 
@@ -113,7 +118,8 @@ msgid "Barcode Pattern"
 msgstr "条码模式"
 
 #. module: barcodes
-#: model:ir.ui.view,arch_db:barcodes.view_barcode_rule_form
+#: model:ir.model,name:barcodes.model_barcode_rule
+#: model_terms:ir.ui.view,arch_db:barcodes.view_barcode_rule_form
 msgid "Barcode Rule"
 msgstr "条码规则"
 
@@ -131,6 +137,11 @@ msgstr "收银员"
 #: selection:barcode.rule,type:0
 msgid "Client"
 msgstr "客户端"
+
+#. module: barcodes
+#: model:ir.model,name:barcodes.model_res_company
+msgid "Companies"
+msgstr "公司"
 
 #. module: barcodes
 #: model:ir.model.fields,field_description:barcodes.field_barcode_nomenclature__create_uid
@@ -154,7 +165,7 @@ msgstr "信用卡"
 #: code:addons/barcodes/static/src/js/barcode_form_view.js:390
 #, python-format
 msgid "Discard"
-msgstr "放弃"
+msgstr "取消"
 
 #. module: barcodes
 #: selection:barcode.rule,type:0
@@ -176,7 +187,7 @@ msgstr "EAN-13"
 #. module: barcodes
 #: selection:barcode.nomenclature,upc_ean_conv:0
 msgid "EAN-13 to UPC-A"
-msgstr "EAN-13 to UPC-A"
+msgstr "EAN-13 转 UPC-A"
 
 #. module: barcodes
 #: selection:barcode.rule,encoding:0
@@ -200,7 +211,7 @@ msgstr ""
 #: code:addons/barcodes/static/src/js/barcode_form_view.js:63
 #, python-format
 msgid "Error: Document not editable"
-msgstr ""
+msgstr "错误：单据不可编辑"
 
 #. module: barcodes
 #. openerp-web
@@ -221,7 +232,7 @@ msgstr ""
 
 #. module: barcodes
 #: model:ir.model,name:barcodes.model_ir_http
-msgid "HTTP routing"
+msgid "HTTP Routing"
 msgstr "HTTP 路由"
 
 #. module: barcodes
@@ -236,7 +247,7 @@ msgstr "ID"
 #: model:ir.model.fields,field_description:barcodes.field_barcode_rule____last_update
 #: model:ir.model.fields,field_description:barcodes.field_barcodes_barcode_events_mixin____last_update
 msgid "Last Modified on"
-msgstr "最后修改日"
+msgstr "最后修改时间"
 
 #. module: barcodes
 #: model:ir.model.fields,field_description:barcodes.field_barcode_nomenclature__write_uid
@@ -266,9 +277,9 @@ msgid "Never"
 msgstr "从不"
 
 #. module: barcodes
-#: model:ir.model.fields,field_description:barcodes.field_barcode_nomenclature__name
-msgid "Nomenclature Name"
-msgstr "条码命名规则"
+#: model:ir.model.fields,field_description:barcodes.field_res_company__nomenclature_id
+msgid "Nomenclature"
+msgstr ""
 
 #. module: barcodes
 #: selection:barcode.rule,type:0
@@ -276,7 +287,7 @@ msgid "Package"
 msgstr "包裹"
 
 #. module: barcodes
-#: model:ir.ui.view,arch_db:barcodes.view_barcode_nomenclature_form
+#: model_terms:ir.ui.view,arch_db:barcodes.view_barcode_nomenclature_form
 msgid ""
 "Patterns can also define how numerical values, such as weight or price, can be\n"
 "                                encoded into the barcode. They are indicated by <code>{NNN}</code> where the N's\n"
@@ -325,7 +336,7 @@ msgid "Set quantity"
 msgstr "设置数量"
 
 #. module: barcodes
-#: model:ir.ui.view,arch_db:barcodes.view_barcode_nomenclature_form
+#: model_terms:ir.ui.view,arch_db:barcodes.view_barcode_nomenclature_form
 msgid "Tables"
 msgstr "桌台"
 
@@ -345,9 +356,9 @@ msgid "The matched pattern will alias to this barcode"
 msgstr "匹配模式将别名到该条码"
 
 #. module: barcodes
-#: code:addons/barcodes/models/barcodes.py:196
 #: code:addons/barcodes/models/barcodes.py:198
 #: code:addons/barcodes/models/barcodes.py:200
+#: code:addons/barcodes/models/barcodes.py:202
 #, python-format
 msgid "There is a syntax error in the barcode pattern "
 msgstr "条码模式中有一个语法错误"
@@ -402,8 +413,7 @@ msgid "UPC/EAN Conversion"
 msgstr "UPC/EAN 转换"
 
 #. module: barcodes
-#: code:addons/barcodes/models/barcodes.py:184 selection:barcode.rule,type:0
-#, python-format
+#: selection:barcode.rule,type:0
 msgid "Unit Product"
 msgstr "单位产品"
 
@@ -422,18 +432,3 @@ msgstr "上个扫描到的条码的值"
 #: selection:barcode.rule,type:0
 msgid "Weighted Product"
 msgstr "称重的产品"
-
-#. module: barcodes
-#: model:ir.model,name:barcodes.model_barcode_nomenclature
-msgid "barcode.nomenclature"
-msgstr "barcode.nomenclature"
-
-#. module: barcodes
-#: model:ir.model,name:barcodes.model_barcode_rule
-msgid "barcode.rule"
-msgstr "barcode.rule"
-
-#. module: barcodes
-#: model:ir.model,name:barcodes.model_barcodes_barcode_events_mixin
-msgid "barcodes.barcode_events_mixin"
-msgstr "barcodes.barcode_events_mixin"

@@ -34,14 +34,14 @@
     background-size: cover;
     background-position: bottom center;
     background-repeat: no-repeat;
-    min-height: 900px;
+    min-height: 620px;
     thead tr th, h2 {
         color: $o-brand-odoo;
     }
     tbody {
         color: gray('700');
         tr:nth-child(odd) {
-            background-color: rgba(184, 171, 180, 0.2);
+            background-color: rgba(220, 205, 216, 0.2);
         }
         tr td {
             border-top: none;

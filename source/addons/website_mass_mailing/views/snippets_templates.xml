@@ -51,6 +51,9 @@
 </template>
 
 <template id="newsletter_subscribe_options" name="Newsletter Subscribe Options" inherit_id="website.snippet_options">
+    <xpath expr="//*[@id='so_snippet_addition']" position="attributes">
+        <attribute name="data-selector" add=".o_newsletter_popup" separator=","/>
+    </xpath>
     <xpath expr="//div" position="after">
         <div data-js="mailing_list_subscribe"
             data-selector=".js_subscribe"
@@ -58,8 +61,7 @@
             <a tabindex="-1" href="#" class="dropdown-item" data-select_mailing_list="" data-no-preview="true">Change Newsletter</a>
         </div>
         <div data-js="newsletter_popup"
-            data-selector=".o_newsletter_popup"
-            data-drop-in=".oe_structure, [data-oe-type=html]">
+            data-selector=".o_newsletter_popup">
             <a tabindex="-1" href="#" class="dropdown-item" data-select_mailing_list="" data-no-preview="true">Change Newsletter</a>
         </div>
     </xpath>
@@ -85,6 +87,11 @@
     <t t-if="website.social_twitter">
         <a t-att-href="website.social_twitter" style="margin-left:10px" aria-label="Twitter" title="Twitter">
             <span class="fa fa-twitter"></span>
+        </a>
+    </t>
+    <t t-if="website.social_instagram">
+        <a t-att-href="website.social_instagram" style="margin-left:10px" aria-label="Instagram" title="Instagram">
+            <span class="fa fa-instagram"></span>
         </a>
     </t>
 </template>

@@ -13,7 +13,7 @@ $o-community-color: #7C7BAD;
 $o-enterprise-color: #875A7B;
 $o-enterprise-primary-color: #00A09D;
 
-$o-brand-odoo: $o-community-color;
+$o-brand-odoo: $o-enterprise-color;
 $o-brand-primary: $o-community-color;
 
 $o-brand-secondary: #f0eeee;
@@ -74,7 +74,7 @@ $o-avatar-size: 90px;
 $o-statusbar-height: 33px;
 
 $o-label-font-size-factor: 0.8;
-$o-navbar-height: 34px;
+$o-navbar-height: 46px;
 
 $o-nb-calendar-colors: 24;
 
@@ -106,3 +106,6 @@ $o-kanban-mobile-tabs-height: 40px;
 
 // Used to manage spacing in complex dropdown menu
 $o-kanban-dashboard-dropdown-complex-gap: 5px;
+
+// For the frontend part
+$o-theme-font-size-base: (14 / 16) * 1rem;

@@ -63,7 +63,7 @@ class StockRule(models.Model):
 class StockPicking(models.Model):
     _inherit = 'stock.picking'
 
-    sale_id = fields.Many2one(related="group_id.sale_id", string="Sales Order", store=True)
+    sale_id = fields.Many2one(related="group_id.sale_id", string="Sales Order", store=True, readonly=False)
 
 
     def _log_less_quantities_than_expected(self, moves):
@@ -123,7 +123,7 @@ class ProductionLot(models.Model):
             ]).mapped('move_id').filtered(
                 lambda move: move.picking_id.location_dest_id.usage == 'customer' and move.state == 'done')
             lot.sale_order_ids = stock_moves.mapped('sale_line_id.order_id')
-            lot.sale_order_count = len(stock_moves)
+            lot.sale_order_count = len(lot.sale_order_ids)
 
     def action_view_so(self):
         self.ensure_one()

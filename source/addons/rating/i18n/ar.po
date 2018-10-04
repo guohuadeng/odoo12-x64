@@ -2,12 +2,20 @@
 # This file contains the translation of the following modules:
 # * rating
 # 
+# Translators:
+# Mustafa Rawi <mustafa@cubexco.com>, 2018
+# amrnegm <amrnegm.01@gmail.com>, 2018
+# Martin Trigaux, 2018
+# Osoul <baruni@osoul.ly>, 2018
+# Osama Ahmaro <osamaahmaro@gmail.com>, 2018
+# Shaima Safar <shaima.safar@open-inside.com>, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server saas~11.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-24 09:05+0000\n"
-"PO-Revision-Date: 2018-08-24 09:05+0000\n"
+"POT-Creation-Date: 2018-09-18 09:49+0000\n"
+"PO-Revision-Date: 2018-09-18 09:49+0000\n"
+"Last-Translator: Shaima Safar <shaima.safar@open-inside.com>, 2018\n"
 "Language-Team: Arabic (https://www.transifex.com/odoo/teams/41243/ar/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -16,14 +24,14 @@ msgstr ""
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 
 #. module: rating
-#: model:ir.ui.view,arch_db:rating.rating_external_page_submit
+#: model_terms:ir.ui.view,arch_db:rating.rating_external_page_submit
 msgid ""
 "<br/>\n"
 "                            on our services on \""
 msgstr ""
 
 #. module: rating
-#: model:ir.ui.view,arch_db:rating.rating_rating_view_form
+#: model_terms:ir.ui.view,arch_db:rating.rating_rating_view_form
 msgid "<span class=\"o_stat_text\">Resource</span>"
 msgstr ""
 
@@ -41,63 +49,58 @@ msgstr ""
 #. module: rating
 #: model:ir.model.fields,help:rating.field_rating_rating__partner_id
 msgid "Author of the rating"
-msgstr ""
+msgstr "مؤلف تصنيف"
 
 #. module: rating
 #: model:ir.model.fields,field_description:rating.field_rating_rating__feedback
 msgid "Comment"
-msgstr ""
+msgstr "تعليق"
 
 #. module: rating
 #: model:ir.model.fields,field_description:rating.field_rating_rating__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "أنشئ بواسطة"
 
 #. module: rating
 #: model:ir.model.fields,field_description:rating.field_rating_rating__create_date
 msgid "Created on"
-msgstr ""
+msgstr "أنشئ في"
 
 #. module: rating
 #: model:ir.model.fields,field_description:rating.field_rating_rating__partner_id
-#: model:ir.ui.view,arch_db:rating.rating_rating_view_search
+#: model_terms:ir.ui.view,arch_db:rating.rating_rating_view_search
 msgid "Customer"
-msgstr ""
+msgstr "العميل"
 
 #. module: rating
-#: model:ir.ui.view,arch_db:rating.rating_rating_view_search
+#: model_terms:ir.ui.view,arch_db:rating.rating_rating_view_search
 msgid "Date"
-msgstr ""
+msgstr "التاريخ"
 
 #. module: rating
 #: model:ir.model.fields,field_description:rating.field_rating_mixin__display_name
 #: model:ir.model.fields,field_description:rating.field_rating_rating__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "اسم العرض"
 
 #. module: rating
 #: model:ir.model.fields,field_description:rating.field_rating_rating__res_id
 msgid "Document"
-msgstr ""
+msgstr "مستند"
 
 #. module: rating
 #: model:ir.model.fields,field_description:rating.field_rating_rating__res_model
 msgid "Document Model"
-msgstr ""
+msgstr "نموذج وثيقة "
 
 #. module: rating
 #: model:ir.model,name:rating.model_mail_thread
 msgid "Email Thread"
-msgstr ""
+msgstr "المحادثة البريدية"
 
 #. module: rating
 #: model:ir.model.fields,help:rating.field_rating_rating__consumed
 msgid "Enabled if the rating has been filled."
-msgstr ""
-
-#. module: rating
-#: model:ir.ui.view,arch_db:rating.rating_rating_view_kanban
-msgid "Feedback:\\n#{record.feedback.raw_value}"
 msgstr ""
 
 #. module: rating
@@ -106,17 +109,17 @@ msgid "Filled Rating"
 msgstr ""
 
 #. module: rating
-#: model:ir.ui.view,arch_db:rating.rating_external_page_view
+#: model_terms:ir.ui.view,arch_db:rating.rating_external_page_view
 msgid "Go to our website"
 msgstr ""
 
 #. module: rating
-#: model:ir.ui.view,arch_db:rating.rating_rating_view_search
+#: model_terms:ir.ui.view,arch_db:rating.rating_rating_view_search
 msgid "Group By"
-msgstr ""
+msgstr "تجميع حسب"
 
 #. module: rating
-#: model:ir.ui.view,arch_db:rating.rating_rating_view_search
+#: model_terms:ir.ui.view,arch_db:rating.rating_rating_view_search
 #: selection:rating.rating,rating_text:0
 msgid "Highly dissatisfied"
 msgstr ""
@@ -125,7 +128,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:rating.field_rating_mixin__id
 #: model:ir.model.fields,field_description:rating.field_rating_rating__id
 msgid "ID"
-msgstr ""
+msgstr "المعرف"
 
 #. module: rating
 #: model:ir.model.fields,help:rating.field_rating_rating__res_id
@@ -135,33 +138,33 @@ msgstr ""
 #. module: rating
 #: model:ir.model.fields,field_description:rating.field_rating_rating__rating_image
 msgid "Image"
-msgstr ""
+msgstr "الصورة"
 
 #. module: rating
 #: model:ir.model.fields,field_description:rating.field_rating_mixin____last_update
 #: model:ir.model.fields,field_description:rating.field_rating_rating____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "آخر تعديل في"
 
 #. module: rating
 #: model:ir.model.fields,field_description:rating.field_rating_rating__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "آخر تحديث بواسطة"
 
 #. module: rating
 #: model:ir.model.fields,field_description:rating.field_rating_rating__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "آخر تحديث في"
 
 #. module: rating
 #: model:ir.model.fields,field_description:rating.field_rating_rating__message_id
 msgid "Linked message"
-msgstr ""
+msgstr "رسالة مرتبطة"
 
 #. module: rating
 #: model:ir.model,name:rating.model_mail_message
 msgid "Message"
-msgstr ""
+msgstr "الرسالة"
 
 #. module: rating
 #: model:ir.model.fields,help:rating.field_rating_rating__res_model_id
@@ -169,7 +172,7 @@ msgid "Model of the followed resource"
 msgstr ""
 
 #. module: rating
-#: model:ir.ui.view,arch_db:rating.rating_rating_view_search
+#: model_terms:ir.ui.view,arch_db:rating.rating_rating_view_search
 msgid "My Ratings"
 msgstr ""
 
@@ -179,12 +182,12 @@ msgid "No Rating yet"
 msgstr ""
 
 #. module: rating
-#: model:ir.actions.act_window,help:rating.action_view_rating
+#: model_terms:ir.actions.act_window,help:rating.action_view_rating
 msgid "No rating yet"
 msgstr ""
 
 #. module: rating
-#: model:ir.ui.view,arch_db:rating.rating_rating_view_search
+#: model_terms:ir.ui.view,arch_db:rating.rating_rating_view_search
 #: selection:rating.rating,rating_text:0
 msgid "Not satisfied"
 msgstr ""
@@ -215,7 +218,7 @@ msgid "Parent Related Document Model"
 msgstr ""
 
 #. module: rating
-#: model:ir.ui.view,arch_db:rating.rating_rating_view_search
+#: model_terms:ir.ui.view,arch_db:rating.rating_rating_view_search
 msgid "Rated User"
 msgstr ""
 
@@ -229,17 +232,17 @@ msgstr ""
 #: model:ir.model,name:rating.model_rating_rating
 #: model:ir.model.fields,field_description:rating.field_rating_mixin__rating_ids
 #: model:ir.model.fields,field_description:rating.field_rating_rating__rating_text
-#: model:ir.ui.view,arch_db:rating.rating_rating_view_form
-#: model:ir.ui.view,arch_db:rating.rating_rating_view_search
-#: model:ir.ui.view,arch_db:rating.rating_rating_view_tree
+#: model_terms:ir.ui.view,arch_db:rating.rating_rating_view_form
+#: model_terms:ir.ui.view,arch_db:rating.rating_rating_view_search
+#: model_terms:ir.ui.view,arch_db:rating.rating_rating_view_tree
 msgid "Rating"
-msgstr ""
+msgstr "التقييم"
 
 #. module: rating
-#: model:ir.ui.view,arch_db:rating.rating_rating_view_graph
-#: model:ir.ui.view,arch_db:rating.rating_rating_view_pivot
+#: model_terms:ir.ui.view,arch_db:rating.rating_rating_view_graph
+#: model_terms:ir.ui.view,arch_db:rating.rating_rating_view_pivot
 msgid "Rating Average"
-msgstr ""
+msgstr "متوسط التقييم"
 
 #. module: rating
 #: model:ir.model.fields,field_description:rating.field_rating_mixin__rating_last_feedback
@@ -289,20 +292,20 @@ msgid "Rating value: 0=Unhappy, 10=Happy"
 msgstr ""
 
 #. module: rating
-#: model:ir.ui.view,arch_db:rating.rating_rating_view_search
+#: model_terms:ir.ui.view,arch_db:rating.rating_rating_view_search
 msgid "Ratings"
-msgstr ""
+msgstr "تقييمات"
 
 #. module: rating
 #: model:ir.model.fields,help:rating.field_rating_mixin__rating_last_feedback
 #: model:ir.model.fields,help:rating.field_rating_rating__feedback
 msgid "Reason of the rating"
-msgstr ""
+msgstr "السبب من التصنيف"
 
 #. module: rating
 #: model:ir.model.fields,field_description:rating.field_rating_rating__res_model_id
 msgid "Related Document Model"
-msgstr ""
+msgstr "كائن المستند المقترن"
 
 #. module: rating
 #: model:ir.model.fields,field_description:rating.field_mail_compose_message__rating_ids
@@ -312,9 +315,9 @@ msgid "Related ratings"
 msgstr ""
 
 #. module: rating
-#: model:ir.ui.view,arch_db:rating.rating_rating_view_search
+#: model_terms:ir.ui.view,arch_db:rating.rating_rating_view_search
 msgid "Resource"
-msgstr ""
+msgstr "الكائن"
 
 #. module: rating
 #: model:ir.model.fields,field_description:rating.field_rating_rating__res_name
@@ -322,7 +325,7 @@ msgid "Resource name"
 msgstr ""
 
 #. module: rating
-#: model:ir.ui.view,arch_db:rating.rating_rating_view_search
+#: model_terms:ir.ui.view,arch_db:rating.rating_rating_view_search
 #: selection:rating.rating,rating_text:0
 msgid "Satisfied"
 msgstr ""
@@ -330,21 +333,21 @@ msgstr ""
 #. module: rating
 #: model:ir.model.fields,field_description:rating.field_rating_rating__access_token
 msgid "Security Token"
-msgstr ""
+msgstr "رمز الحماية"
 
 #. module: rating
-#: model:ir.ui.view,arch_db:rating.rating_external_page_submit
+#: model_terms:ir.ui.view,arch_db:rating.rating_external_page_submit
 msgid "Send Feedback"
 msgstr ""
 
 #. module: rating
-#: model:ir.ui.view,arch_db:rating.rating_rating_view_form
-#: model:ir.ui.view,arch_db:rating.rating_rating_view_tree
+#: model_terms:ir.ui.view,arch_db:rating.rating_rating_view_form
+#: model_terms:ir.ui.view,arch_db:rating.rating_rating_view_tree
 msgid "Submitted on"
 msgstr ""
 
 #. module: rating
-#: model:ir.ui.view,arch_db:rating.rating_external_page_submit
+#: model_terms:ir.ui.view,arch_db:rating.rating_external_page_submit
 msgid "Thanks! We appreciate your feedback."
 msgstr ""
 
@@ -354,33 +357,33 @@ msgid "The name of the rated resource."
 msgstr ""
 
 #. module: rating
-#: model:ir.actions.act_window,help:rating.action_view_rating
+#: model_terms:ir.actions.act_window,help:rating.action_view_rating
 msgid "There is no rating for this object at the moment."
-msgstr ""
+msgstr "لا يوجد تقييم لهذا الكائن في الوقت الراهن."
 
 #. module: rating
-#: model:ir.ui.view,arch_db:rating.rating_external_page_view
+#: model_terms:ir.ui.view,arch_db:rating.rating_external_page_view
 msgid "We appreciate your feedback!"
 msgstr ""
 
 #. module: rating
-#: model:ir.ui.view,arch_db:rating.rating_external_page_submit
+#: model_terms:ir.ui.view,arch_db:rating.rating_external_page_submit
 msgid "Would be great if you can provide more information:"
 msgstr ""
 
 #. module: rating
-#: model:ir.ui.view,arch_db:rating.rating_external_page_submit
+#: model_terms:ir.ui.view,arch_db:rating.rating_external_page_submit
 msgid "Your rating has been submitted."
 msgstr ""
 
 #. module: rating
-#: model:ir.ui.view,arch_db:rating.rating_external_page_submit
-#: model:ir.ui.view,arch_db:rating.rating_rating_view_kanban
+#: model_terms:ir.ui.view,arch_db:rating.rating_external_page_submit
+#: model_terms:ir.ui.view,arch_db:rating.rating_rating_view_kanban
 msgid "by"
-msgstr ""
+msgstr "بواسطة"
 
 #. module: rating
-#: model:ir.ui.view,arch_db:rating.rating_rating_view_kanban
+#: model_terms:ir.ui.view,arch_db:rating.rating_rating_view_kanban
 msgid "for"
 msgstr ""
 
@@ -397,9 +400,9 @@ msgid "not satisfied"
 msgstr ""
 
 #. module: rating
-#: model:ir.ui.view,arch_db:rating.rating_rating_view_kanban
+#: model_terms:ir.ui.view,arch_db:rating.rating_rating_view_kanban
 msgid "on"
-msgstr ""
+msgstr "على"
 
 #. module: rating
 #: code:addons/rating/controllers/main.py:22
@@ -408,6 +411,6 @@ msgid "satisfied"
 msgstr ""
 
 #. module: rating
-#: model:ir.ui.view,arch_db:rating.rating_external_page_submit
+#: model_terms:ir.ui.view,arch_db:rating.rating_external_page_submit
 msgid "you are"
 msgstr ""

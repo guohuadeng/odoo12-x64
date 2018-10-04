@@ -64,10 +64,28 @@ var SearchableThread = Thread.extend({
     },
     /**
      * @override
+     * @param {Object} [options={}]
+     * @param {Array} [options.domain=[]]
      * @return {mail.model.Message[]}
      */
-    getMessages: function () {
-        return this._cache['[]'].messages;
+    getMessages: function (options) {
+        options = options || {};
+        var domain = options.domain || [];
+        return this._getCache(domain).messages;
+    },
+    /**
+     * Override so that a thread can tell whether there are message based on
+     * the domain.
+     *
+     * @override
+     * @param {Object} [options={}]
+     * @param {Array} [options.domain=[]]
+     * @returns {boolean}
+     */
+    hasMessages: function (options) {
+        options = options || {};
+        var domain = options.domain || [];
+        return !_.isEmpty(this.getMessages({ domain: domain }));
     },
     /**
      * Invalidate the caches of the thread
@@ -147,6 +165,7 @@ var SearchableThread = Thread.extend({
         var self = this;
 
         var domain = this._getThreadDomain();
+        var moderatedChannelIds = typeof(this._id) === 'number' ? [this._id] : false;
 
         var cache = this._getCache(pDomain);
         if (pDomain) {
@@ -161,6 +180,7 @@ var SearchableThread = Thread.extend({
             method: 'message_fetch',
             args: [domain],
             kwargs: {
+                moderated_channel_ids: moderatedChannelIds,
                 limit: this._FETCH_LIMIT,
                 context: session.user_context
             },

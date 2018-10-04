@@ -10,7 +10,7 @@ class Partner(models.Model):
     _inherit = 'res.partner'
 
     associate_member = fields.Many2one('res.partner', string='Associate Member',
-        help="A member with whom you want to associate your membership. "
+        help="A member with whom you want to associate your membership."
              "It will consider the membership state of the associated member.")
     member_lines = fields.One2many('membership.membership_line', 'partner', string='Membership')
     free_member = fields.Boolean(string='Free Member',
@@ -164,8 +164,10 @@ class Partner(models.Model):
 
     @api.model
     def _cron_update_membership(self):
-        # used to recompute 'membership_state'; should no longer be necessary
-        pass
+        partners = self.search([('membership_state', 'in', ['invoiced', 'paid'])])
+        # mark the field to be recomputed, and recompute it
+        partners._recompute_todo(self._fields['membership_state'])
+        self.recompute()
 
     @api.multi
     def create_membership_invoice(self, product_id=None, datas=None):

@@ -10,12 +10,6 @@
         <div class="o_mail_discuss">
             <div class="o_mail_discuss_sidebar"/>
             <div class="o_mail_discuss_content">
-                <t t-if="widget.displayNotificationBar">
-                    <div class="o_mail_annoying_notification_bar">
-                        <span class="o_mail_request_permission">Odoo needs your permission to <a href="#"> enable desktop notifications</a>.</span>
-                        <span class="fa fa-close" role="button" aria-label="Close" title="Close"></span>
-                    </div>
-                </t>
             </div>
         </div>
     </t>
@@ -184,7 +178,7 @@
             <button type="button" class="btn btn-primary o_mail_discuss_button_invite d-none d-md-inline-block" title="Invite people">Invite</button>
             <button type="button" class="btn btn-secondary o_mail_discuss_button_mark_all_read d-none d-md-inline-block" title="Mark all as read">Mark all read</button>
             <button type="button" class="btn btn-secondary o_mail_discuss_button_unstar_all" title="Unstar all messages">Unstar all</button>
-            <button type="button" class="btn btn-secondary o_mail_discuss_button_dm d-block d-md-none" title="New Message">New Message</button>
+            <button type="button" class="btn btn-secondary o_mail_discuss_button_dm_chat o_hidden d-md-none" title="New Message">New Message</button>
             <button t-if="!disableAddThread" type="button" class="btn btn-secondary o_mail_discuss_button_public o_mail_discuss_button_private d-block d-md-none" title="New Channel">New Channel</button>
             <button type="button" class="btn btn-secondary o_hidden o_mail_discuss_button_select_all" title="Select all messages to moderate">Select All</button>
             <button type="button" class="btn btn-secondary o_hidden o_mail_discuss_button_unselect_all" title="Unselect all messages to moderate">Unselect All</button>

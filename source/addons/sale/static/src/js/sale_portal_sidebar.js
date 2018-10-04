@@ -24,9 +24,6 @@ odoo.define('sale.SalePortalSidebar', function (require) {
 var PortalSidebar = require('portal.PortalSidebar');
 
 var SalePortalSidebar = PortalSidebar.extend({
-    events: {
-        'click .o_portal_sale_print': '_onPrintSaleOrder',
-    },
     /**
      * @override
      * @param {Object} $watched_selector
@@ -76,11 +73,11 @@ var SalePortalSidebar = PortalSidebar.extend({
             lastUL = null,
             $bsSidenav = this.$el.find('.bs-sidenav');
 
-        $("[id^=quote_header_], [id^=quote_]", this.spyWatched).attr("id", "");
-        _.each(this.spyWatched.find("h1, h2"), function (el) {
+        $("#quote_content [id^=quote_header_], #quote_content [id^=quote_]", this.spyWatched).attr("id", "");
+        _.each(this.spyWatched.find("#quote_content h2, #quote_content h3"), function (el) {
             var id, text;
             switch (el.tagName.toLowerCase()) {
-                case "h1":
+                case "h2":
                     id = self._setElementId('quote_header_', el);
                     text = self._extractText($(el));
                     if (!text) {
@@ -89,7 +86,7 @@ var SalePortalSidebar = PortalSidebar.extend({
                     lastLI = $("<li class='nav-item'>").append($('<a class="nav-link" href="#' + id + '"/>').text(text)).appendTo($bsSidenav);
                     lastUL = false;
                     break;
-                case "h2":
+                case "h3":
                     id = self._setElementId('quote_', el);
                     text = self._extractText($(el));
                     if (!text) {
@@ -97,7 +94,7 @@ var SalePortalSidebar = PortalSidebar.extend({
                     }
                     if (lastLI) {
                         if (!lastUL) {
-                            lastUL = $("<ul class='nav'>").appendTo(lastLI);
+                            lastUL = $("<ul class='nav flex-column'>").appendTo(lastLI);
                         }
                         $("<li class='nav-item'>").append($('<a class="nav-link" href="#' + id + '"/>').text(text)).appendTo(lastUL);
                     }
@@ -125,20 +122,6 @@ var SalePortalSidebar = PortalSidebar.extend({
             }
         });
         return rawText.join(' ');
-    },
-
-    //--------------------------------------------------------------------------
-    // Handlers
-    //--------------------------------------------------------------------------
-
-    /**
-     * @private
-     * @param {MouseEvent} ev
-     */
-    _onPrintSaleOrder: function (ev) {
-        ev.preventDefault();
-        var href = $(ev.currentTarget).attr('href');
-        this._printIframeContent(href);
     },
 });
 

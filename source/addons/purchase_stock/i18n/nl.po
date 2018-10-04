@@ -5,13 +5,14 @@
 # Translators:
 # Martin Trigaux, 2018
 # Yenthe Van Ginneken <yenthespam@gmail.com>, 2018
+# Thomas Pot <thomas@open2bizz.nl>, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server saas~11.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-24 09:04+0000\n"
-"PO-Revision-Date: 2018-08-24 09:04+0000\n"
-"Last-Translator: Yenthe Van Ginneken <yenthespam@gmail.com>, 2018\n"
+"POT-Creation-Date: 2018-09-21 13:17+0000\n"
+"PO-Revision-Date: 2018-09-21 13:17+0000\n"
+"Last-Translator: Thomas Pot <thomas@open2bizz.nl>, 2018\n"
 "Language-Team: Dutch (https://www.transifex.com/odoo/teams/41243/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,7 +21,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: purchase_stock
-#: model:ir.ui.view,arch_db:purchase_stock.stock_production_lot_view_form
+#: model_terms:ir.ui.view,arch_db:purchase_stock.stock_production_lot_view_form
 msgid "<span class=\"o_stat_text\">Purchase Orders</span>"
 msgstr "<span class=\"o_stat_text\">Inkooporders</span>"
 
@@ -30,7 +31,7 @@ msgid "Action"
 msgstr "Actie"
 
 #. module: purchase_stock
-#: model:ir.ui.view,arch_db:purchase_stock.purchase_report_stock_rule
+#: model_terms:ir.ui.view,arch_db:purchase_stock.purchase_report_stock_rule
 #: model:stock.location.route,name:purchase_stock.route_warehouse0_buy
 #: selection:stock.rule,action:0
 msgid "Buy"
@@ -47,6 +48,11 @@ msgid "Buy to Resupply"
 msgstr ""
 
 #. module: purchase_stock
+#: model:ir.model,name:purchase_stock.model_res_config_settings
+msgid "Config Settings"
+msgstr "Configuratie instellingen"
+
+#. module: purchase_stock
 #: model:ir.model.fields,field_description:purchase_stock.field_stock_move__created_purchase_line_id
 msgid "Created Purchase Order Line"
 msgstr "Maak inkooporderregel"
@@ -60,11 +66,8 @@ msgstr "Leveren aan"
 #: model:ir.model.fields,help:purchase_stock.field_product_template__route_ids
 msgid ""
 "Depending on the modules installed, this will allow you to define the route "
-"of the product: whether it will be bought, manufactured, MTO/MTS,..."
+"of the product: whether it will be bought, manufactured, MTO, etc."
 msgstr ""
-"Afhankelijk van de geïnstalleerde modules geeft u dit de mogelijkheid om de "
-"route van het product aan te geven. Of het product gekocht wordt, gemaakt "
-"wordt of MTO/MTS,..."
 
 #. module: purchase_stock
 #: model:ir.model.fields,field_description:purchase_stock.field_purchase_order__default_location_dest_id_usage
@@ -82,12 +85,12 @@ msgid "Dropshipping"
 msgstr "Dropship"
 
 #. module: purchase_stock
-#: model:ir.ui.view,arch_db:purchase_stock.exception_on_po
+#: model_terms:ir.ui.view,arch_db:purchase_stock.exception_on_po
 msgid "Exception(s) occurred on the purchase order(s):"
 msgstr "Foutmelding(en) zijn opgetreden op de inkooporder(s):"
 
 #. module: purchase_stock
-#: model:ir.ui.view,arch_db:purchase_stock.exception_on_po
+#: model_terms:ir.ui.view,arch_db:purchase_stock.exception_on_po
 msgid "Exception(s):"
 msgstr "Uitzondering(en):"
 
@@ -97,7 +100,7 @@ msgid "Incoming  Products"
 msgstr "Inkomende producten"
 
 #. module: purchase_stock
-#: model:ir.ui.view,arch_db:purchase_stock.purchase_order_view_form_inherit
+#: model_terms:ir.ui.view,arch_db:purchase_stock.purchase_order_view_form_inherit
 msgid "Incoming Shipments"
 msgstr "Ontvangsten"
 
@@ -132,7 +135,7 @@ msgid "Is the Sale Module Installed"
 msgstr "Is de verkoop module geïnstalleerd"
 
 #. module: purchase_stock
-#: model:ir.ui.view,arch_db:purchase_stock.res_config_settings_view_form_purchase
+#: model_terms:ir.ui.view,arch_db:purchase_stock.res_config_settings_view_form_purchase
 msgid "Logistics"
 msgstr "Logistiek"
 
@@ -142,7 +145,7 @@ msgid "Lot/Serial"
 msgstr "Partij/Serienummer"
 
 #. module: purchase_stock
-#: model:ir.ui.view,arch_db:purchase_stock.exception_on_po
+#: model_terms:ir.ui.view,arch_db:purchase_stock.exception_on_po
 msgid "Manual actions may be needed."
 msgstr "Manuele acties zijn mogelijk nodig"
 
@@ -152,7 +155,7 @@ msgid "Manufacture"
 msgstr "Productie"
 
 #. module: purchase_stock
-#: model:ir.ui.view,arch_db:purchase_stock.res_config_settings_view_form_stock
+#: model_terms:ir.ui.view,arch_db:purchase_stock.res_config_settings_view_form_stock
 msgid ""
 "Margin of error for vendor lead times. When the system generates Purchase "
 "Orders for reordering products,they will be scheduled that many days earlier"
@@ -169,12 +172,12 @@ msgid "Minimum Inventory Rule"
 msgstr "Minimale voorraadregel"
 
 #. module: purchase_stock
-#: model:ir.ui.view,arch_db:purchase_stock.res_config_settings_view_form_stock
+#: model_terms:ir.ui.view,arch_db:purchase_stock.res_config_settings_view_form_stock
 msgid "Move forward expected delivery dates by"
 msgstr "Verschuif geplande leverdatum vooruit met"
 
 #. module: purchase_stock
-#: model:ir.ui.view,arch_db:purchase_stock.exception_on_po
+#: model_terms:ir.ui.view,arch_db:purchase_stock.exception_on_po
 msgid "Next transfer(s) impacted:"
 msgstr "Volgende verplaatsing(en) beïnvloed:"
 
@@ -201,12 +204,12 @@ msgstr "Productsjabloon"
 #. module: purchase_stock
 #: selection:stock.rule,action:0
 msgid "Pull & Push"
-msgstr ""
+msgstr "Pull & Push"
 
 #. module: purchase_stock
 #: selection:stock.rule,action:0
 msgid "Pull From"
-msgstr ""
+msgstr "Pull van"
 
 #. module: purchase_stock
 #: model:ir.model,name:purchase_stock.model_purchase_order
@@ -222,9 +225,14 @@ msgstr "Inkooporderregel"
 #. module: purchase_stock
 #: model:ir.model.fields,field_description:purchase_stock.field_stock_picking__purchase_id
 #: model:ir.model.fields,field_description:purchase_stock.field_stock_production_lot__purchase_order_ids
-#: model:ir.ui.view,arch_db:purchase_stock.stock_production_lot_view_form
+#: model_terms:ir.ui.view,arch_db:purchase_stock.stock_production_lot_view_form
 msgid "Purchase Orders"
 msgstr "Inkooporders"
+
+#. module: purchase_stock
+#: model:ir.model,name:purchase_stock.model_purchase_report
+msgid "Purchase Report"
+msgstr ""
 
 #. module: purchase_stock
 #: model:ir.model.fields,field_description:purchase_stock.field_stock_production_lot__purchase_order_count
@@ -232,22 +240,17 @@ msgid "Purchase order count"
 msgstr ""
 
 #. module: purchase_stock
-#: model:ir.model,name:purchase_stock.model_purchase_report
-msgid "Purchases Orders"
-msgstr "Inkooporders"
-
-#. module: purchase_stock
 #: selection:stock.rule,action:0
 msgid "Push To"
-msgstr ""
+msgstr "Push naar"
 
 #. module: purchase_stock
-#: model:ir.ui.view,arch_db:purchase_stock.purchase_order_view_form_inherit
+#: model_terms:ir.ui.view,arch_db:purchase_stock.purchase_order_view_form_inherit
 msgid "Receipt"
 msgstr "Ontvangst"
 
 #. module: purchase_stock
-#: model:ir.ui.view,arch_db:purchase_stock.purchase_order_view_form_inherit
+#: model_terms:ir.ui.view,arch_db:purchase_stock.purchase_order_view_form_inherit
 msgid "Receive Products"
 msgstr "Producten ontvangen"
 
@@ -258,7 +261,7 @@ msgid "Receptions"
 msgstr "Ontvangsten"
 
 #. module: purchase_stock
-#: model:ir.ui.view,arch_db:purchase_stock.res_config_settings_view_form_purchase
+#: model_terms:ir.ui.view,arch_db:purchase_stock.res_config_settings_view_form_purchase
 msgid "Request your vendors to deliver to your customers"
 msgstr "Vraag uw leveranciers om direct te leveren aan uw klanten"
 
@@ -278,7 +281,7 @@ msgid "Routes"
 msgstr "Routes"
 
 #. module: purchase_stock
-#: model:ir.ui.view,arch_db:purchase_stock.res_config_settings_view_form_stock
+#: model_terms:ir.ui.view,arch_db:purchase_stock.res_config_settings_view_form_stock
 msgid "Schedule receivings earlier to avoid delays"
 msgstr "Plan ontvangsten eerder om vertragingen te voorkomen"
 
@@ -288,7 +291,7 @@ msgid "Stock Move"
 msgstr "Voorraadmutatie"
 
 #. module: purchase_stock
-#: model:ir.ui.view,arch_db:purchase_stock.purchase_order_line_view_form_inherit
+#: model_terms:ir.ui.view,arch_db:purchase_stock.purchase_order_line_view_form_inherit
 msgid "Stock Moves"
 msgstr "Voorraadmutaties"
 
@@ -296,6 +299,11 @@ msgstr "Voorraadmutaties"
 #: model:ir.model,name:purchase_stock.model_stock_rule
 msgid "Stock Rule"
 msgstr "Voorraadregel"
+
+#. module: purchase_stock
+#: model:ir.model,name:purchase_stock.model_report_stock_report_stock_rule
+msgid "Stock rule report"
+msgstr ""
 
 #. module: purchase_stock
 #: model:ir.model.fields,help:purchase_stock.field_purchase_order__default_location_dest_id_usage
@@ -324,7 +332,7 @@ msgstr ""
 "aan dit product."
 
 #. module: purchase_stock
-#: model:ir.ui.view,arch_db:purchase_stock.res_config_settings_view_form_purchase
+#: model_terms:ir.ui.view,arch_db:purchase_stock.res_config_settings_view_form_purchase
 msgid ""
 "This adds a dropshipping route to apply on products in order to request your"
 " vendors to deliver to your customers. A product to dropship will generate a"
@@ -394,26 +402,16 @@ msgid "You must set a Vendor Location for this partner %s"
 msgstr "U dient een leverancierslocatie in te stellen voor deze partner %s"
 
 #. module: purchase_stock
-#: model:ir.ui.view,arch_db:purchase_stock.res_config_settings_view_form_stock
+#: model_terms:ir.ui.view,arch_db:purchase_stock.res_config_settings_view_form_stock
 msgid "days"
 msgstr "dagen"
 
 #. module: purchase_stock
-#: model:ir.ui.view,arch_db:purchase_stock.exception_on_po
+#: model_terms:ir.ui.view,arch_db:purchase_stock.exception_on_po
 msgid "of"
 msgstr "of"
 
 #. module: purchase_stock
-#: model:ir.ui.view,arch_db:purchase_stock.exception_on_po
+#: model_terms:ir.ui.view,arch_db:purchase_stock.exception_on_po
 msgid "ordered instead of"
 msgstr "geordend in plaats van"
-
-#. module: purchase_stock
-#: model:ir.model,name:purchase_stock.model_report_stock_report_stock_rule
-msgid "report.stock.report_stock_rule"
-msgstr ""
-
-#. module: purchase_stock
-#: model:ir.model,name:purchase_stock.model_res_config_settings
-msgid "res.config.settings"
-msgstr "res.config.settings"

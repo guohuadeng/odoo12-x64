@@ -5,13 +5,16 @@
 # Translators:
 # Martin Trigaux, 2018
 # Nicole Kist <nki@odoo.com>, 2018
+# Christopher Ormaza <chris.ormaza@gmail.com>, 2018
+# Cristopher Cravioto <ccr@odoo.com>, 2018
+# Miquel Torner <miq@odoo.com>, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server saas~11.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-24 09:05+0000\n"
-"PO-Revision-Date: 2018-08-24 09:05+0000\n"
-"Last-Translator: Nicole Kist <nki@odoo.com>, 2018\n"
+"POT-Creation-Date: 2018-09-21 13:17+0000\n"
+"PO-Revision-Date: 2018-09-21 13:17+0000\n"
+"Last-Translator: Miquel Torner <miq@odoo.com>, 2018\n"
 "Language-Team: Spanish (https://www.transifex.com/odoo/teams/41243/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -36,25 +39,25 @@ msgid "# Products"
 msgstr "# Productos"
 
 #. module: product
-#: code:addons/product/models/product_pricelist.py:453
+#: code:addons/product/models/product_pricelist.py:462
 #, python-format
 msgid "%s %% discount"
 msgstr "%s %% de descuento"
 
 #. module: product
-#: code:addons/product/models/product_pricelist.py:455
+#: code:addons/product/models/product_pricelist.py:464
 #, python-format
 msgid "%s %% discount and %s surcharge"
 msgstr "%s %% de descuento y %s de recargo"
 
 #. module: product
-#: code:addons/product/models/product_template.py:359
+#: code:addons/product/models/product_template.py:350
 #, python-format
 msgid "%s (copy)"
 msgstr "%s (copia)"
 
 #. module: product
-#: model:ir.ui.view,arch_db:product.product_pricelist_item_form_view
+#: model_terms:ir.ui.view,arch_db:product.product_pricelist_item_form_view
 msgid ""
 "<span attrs=\"{'invisible':[('base', '!=', 'list_price')]}\">Public Price  -  </span>\n"
 "                            <span attrs=\"{'invisible':[('base', '!=', 'standard_price')]}\">Cost  -  </span>\n"
@@ -65,53 +68,58 @@ msgstr ""
 "                            <span attrs=\"{'invisible':[('base', '!=', 'pricelist')]}\">Otra Lista de Precios  -  </span>"
 
 #. module: product
-#: model:ir.ui.view,arch_db:product.product_pricelist_item_form_view
+#: model_terms:ir.ui.view,arch_db:product.product_pricelist_item_form_view
 msgid "<span class=\"o_form_label\">New Price =</span>"
 msgstr ""
 
 #. module: product
-#: model:ir.ui.view,arch_db:product.product_category_form_view
+#: model_terms:ir.ui.view,arch_db:product.product_category_form_view
 msgid "<span class=\"o_stat_text\"> Products</span>"
 msgstr "<span class=\"o_stat_text\"> Productos</span>"
 
 #. module: product
-#: model:ir.ui.view,arch_db:product.product_variant_easy_edit_view
+#: model_terms:ir.ui.view,arch_db:product.product_variant_easy_edit_view
 msgid "<span>kg</span>"
 msgstr "<span>kg</span>"
 
 #. module: product
-#: model:ir.ui.view,arch_db:product.product_template_form_view
-#: model:ir.ui.view,arch_db:product.product_variant_easy_edit_view
+#: model_terms:ir.ui.view,arch_db:product.product_template_form_view
+#: model_terms:ir.ui.view,arch_db:product.product_variant_easy_edit_view
 msgid "<span>m³</span>"
 msgstr "<span>m³</span>"
 
 #. module: product
-#: model:ir.ui.view,arch_db:product.report_pricelist
+#: model_terms:ir.ui.view,arch_db:product.report_pricelist
 msgid "<strong>Currency</strong>:<br/>"
 msgstr "<strong>Moneda</strong>:<br/>"
 
 #. module: product
-#: model:ir.ui.view,arch_db:product.report_pricelist
+#: model_terms:ir.ui.view,arch_db:product.report_pricelist
 msgid "<strong>Description</strong>"
 msgstr "<strong>Descripción</strong>"
 
 #. module: product
-#: model:ir.ui.view,arch_db:product.report_pricelist
+#: model_terms:ir.ui.view,arch_db:product.report_pricelist
 msgid "<strong>Price List Name</strong>:<br/>"
 msgstr "<strong>Nombre de tarifa</strong>:<br/>"
 
 #. module: product
-#: model:ir.ui.view,arch_db:product.report_simple_label
+#: model_terms:ir.ui.view,arch_db:product.report_simple_label
 msgid "<strong>Price:</strong>"
 msgstr "<strong>Precio:</strong>"
 
 #. module: product
-#: model:ir.ui.view,arch_db:product.report_pricelist
+#: model_terms:ir.ui.view,arch_db:product.report_pricelist
 msgid "<strong>Print date</strong>:<br/>"
 msgstr "<strong>Fecha de impresión</strong>:<br/>"
 
 #. module: product
-#: model:ir.ui.view,arch_db:product.product_template_only_form_view
+#: model_terms:ir.ui.view,arch_db:product.report_packagingbarcode
+msgid "<strong>Qty: </strong>"
+msgstr "<strong>Cant: </strong>"
+
+#. module: product
+#: model_terms:ir.ui.view,arch_db:product.product_template_only_form_view
 msgid ""
 "<strong>Warning</strong>: adding or deleting attributes\n"
 "                        will delete and recreate existing variants and lead\n"
@@ -139,29 +147,7 @@ msgstr ""
 "de cliente."
 
 #. module: product
-#: model:ir.model.fields,help:product.field_product_product__description_purchase
-#: model:ir.model.fields,help:product.field_product_template__description_purchase
-msgid ""
-"A description of the Product that you want to communicate to your vendors. "
-"This description will be copied to every Purchase Order, Receipt and Vendor "
-"Bill/Credit Note."
-msgstr ""
-"Una descripción del producto que quiere comunicar a sus proveedores. Esta "
-"descripción se reflejará en todos los pedidos de compra, recibos y facturas "
-"de proveedor."
-
-#. module: product
-#: model:ir.model.fields,help:product.field_product_product__description
-#: model:ir.model.fields,help:product.field_product_template__description
-msgid ""
-"A precise description of the Product, used only for internal information "
-"purposes."
-msgstr ""
-"Una descripción precisa del producto, usada sólo para propósitos de "
-"información interna."
-
-#. module: product
-#: model:ir.actions.act_window,help:product.product_pricelist_action2
+#: model_terms:ir.actions.act_window,help:product.product_pricelist_action2
 msgid ""
 "A price is a set of sales prices or rules to compute the price of sales order lines based on products, product categories, dates and ordered quantities.\n"
 "                This is the perfect tool to handle several pricings, seasonal discounts, etc."
@@ -171,10 +157,9 @@ msgstr ""
 #: model:ir.model.fields,help:product.field_product_product__type
 #: model:ir.model.fields,help:product.field_product_template__type
 msgid ""
-"A storable product is a product for which you manage stock. The \"Inventory\" app has to be installed.\n"
-"A consumable product, on the other hand, is a product for which stock is not managed.\n"
-"A service is a non-material product you provide.\n"
-"A digital content is a non-material product you sell online. The files attached to the products are the one that are sold on the e-commerce such as e-books, music, pictures,... The \"Digital Product\" module has to be installed."
+"A storable product is a product for which you manage stock. The Inventory app has to be installed.\n"
+"A consumable product is a product for which stock is not managed.\n"
+"A service is a non-material product you provide."
 msgstr ""
 
 #. module: product
@@ -187,7 +172,7 @@ msgstr "Acción requerida"
 #: model:ir.model.fields,field_description:product.field_product_pricelist__active
 #: model:ir.model.fields,field_description:product.field_product_product__active
 #: model:ir.model.fields,field_description:product.field_product_template__active
-#: model:ir.ui.view,arch_db:product.product_supplierinfo_search_view
+#: model_terms:ir.ui.view,arch_db:product.product_supplierinfo_search_view
 msgid "Active"
 msgstr "Activo"
 
@@ -209,13 +194,13 @@ msgid "All"
 msgstr "Todos"
 
 #. module: product
-#: code:addons/product/models/product_pricelist.py:448
+#: code:addons/product/models/product_pricelist.py:457
 #, python-format
 msgid "All Products"
 msgstr "Todos los productos"
 
 #. module: product
-#: model:ir.ui.view,arch_db:product.product_variant_easy_edit_view
+#: model_terms:ir.ui.view,arch_db:product.product_variant_easy_edit_view
 msgid "All general settings about this product are managed on"
 msgstr "All general settings about this product are managed on"
 
@@ -229,8 +214,8 @@ msgstr ""
 "                Ejemplo: 10% para los minoristas, promoción de 5 EUR en este producto, etc."
 
 #. module: product
-#: model:ir.ui.view,arch_db:product.product_normal_form_view
-#: model:ir.ui.view,arch_db:product.product_pricelist_view
+#: model_terms:ir.ui.view,arch_db:product.product_normal_form_view
+#: model_terms:ir.ui.view,arch_db:product.product_pricelist_view
 msgid "Applicable On"
 msgstr "Aplicable en"
 
@@ -240,9 +225,9 @@ msgid "Apply On"
 msgstr "Aplicar Sobre"
 
 #. module: product
-#: model:ir.ui.view,arch_db:product.product_pricelist_view_search
-#: model:ir.ui.view,arch_db:product.product_supplierinfo_search_view
-#: model:ir.ui.view,arch_db:product.product_template_search_view
+#: model_terms:ir.ui.view,arch_db:product.product_pricelist_view_search
+#: model_terms:ir.ui.view,arch_db:product.product_supplierinfo_search_view
+#: model_terms:ir.ui.view,arch_db:product.product_template_search_view
 msgid "Archived"
 msgstr "Archivado"
 
@@ -252,14 +237,21 @@ msgid "Assigns the priority to the list of product vendor."
 msgstr "Asigna la prioridad a la lista de productos de proveedor"
 
 #. module: product
+#: model:ir.model.fields,field_description:product.field_product_product__message_attachment_count
+#: model:ir.model.fields,field_description:product.field_product_template__message_attachment_count
+msgid "Attachment Count"
+msgstr "Conteo de archivos adjuntos"
+
+#. module: product
+#: model:ir.model.fields,field_description:product.field_product_attribute__name
 #: model:ir.model.fields,field_description:product.field_product_attribute_line__attribute_id
 #: model:ir.model.fields,field_description:product.field_product_attribute_value__attribute_id
 msgid "Attribute"
 msgstr "Atributo"
 
 #. module: product
-#: model:ir.ui.view,arch_db:product.product_attribute_line_form
-#: model:ir.ui.view,arch_db:product.product_attribute_view_form
+#: model_terms:ir.ui.view,arch_db:product.product_attribute_line_form
+#: model_terms:ir.ui.view,arch_db:product.product_attribute_view_form
 msgid "Attribute Name"
 msgstr "Nombre del Atributo"
 
@@ -274,18 +266,23 @@ msgid "Attribute Prices"
 msgstr "Precios de atributo"
 
 #. module: product
+#: model:ir.model.fields,field_description:product.field_product_attribute_value__name
+msgid "Attribute Value"
+msgstr ""
+
+#. module: product
 #: model:ir.actions.act_window,name:product.variants_action
 #: model:ir.model.fields,field_description:product.field_product_attribute_line__value_ids
-#: model:ir.ui.view,arch_db:product.product_attribute_view_form
+#: model_terms:ir.ui.view,arch_db:product.product_attribute_view_form
 msgid "Attribute Values"
 msgstr "Valores de atributo"
 
 #. module: product
 #: model:ir.actions.act_window,name:product.attribute_action
 #: model:ir.model.fields,field_description:product.field_product_product__attribute_value_ids
-#: model:ir.ui.view,arch_db:product.product_attribute_value_view_tree
-#: model:ir.ui.view,arch_db:product.product_template_search_view
-#: model:ir.ui.view,arch_db:product.product_variant_easy_edit_view
+#: model_terms:ir.ui.view,arch_db:product.product_attribute_value_view_tree
+#: model_terms:ir.ui.view,arch_db:product.product_template_search_view
+#: model_terms:ir.ui.view,arch_db:product.product_variant_easy_edit_view
 msgid "Attributes"
 msgstr "Atributos"
 
@@ -298,8 +295,9 @@ msgstr "Atributos y variantes"
 #: model:ir.model.fields,field_description:product.field_product_packaging__barcode
 #: model:ir.model.fields,field_description:product.field_product_product__barcode
 #: model:ir.model.fields,field_description:product.field_product_template__barcode
-#: model:ir.ui.view,arch_db:product.report_simple_barcode
-#: model:ir.ui.view,arch_db:product.report_simple_label
+#: model_terms:ir.ui.view,arch_db:product.report_packagingbarcode
+#: model_terms:ir.ui.view,arch_db:product.report_simple_barcode
+#: model_terms:ir.ui.view,arch_db:product.report_simple_label
 msgid "Barcode"
 msgstr "Código de barras"
 
@@ -322,17 +320,6 @@ msgstr ""
 "Otras tarifas: Cálculo del precio base basado en otra lista de precios."
 
 #. module: product
-#: model:ir.model.fields,help:product.field_product_product__list_price
-#: model:ir.model.fields,help:product.field_product_template__list_price
-#: model:ir.model.fields,help:product.field_product_template__lst_price
-msgid ""
-"Base price to compute the customer price. Sometimes called the catalog "
-"price."
-msgstr ""
-"Precio base para calcular el precio de los clientes. A veces llamado precio "
-"de catalogo."
-
-#. module: product
 #: model:ir.model.fields,field_description:product.field_product_pricelist_item__base
 msgid "Based on"
 msgstr "Basado en"
@@ -343,7 +330,7 @@ msgid "Big-sized image"
 msgstr "Imagen grande"
 
 #. module: product
-#: model:ir.ui.view,arch_db:product.view_product_price_list
+#: model_terms:ir.ui.view,arch_db:product.view_product_price_list
 msgid "Calculate Product Price per Unit Based on Pricelist Version."
 msgstr ""
 "Calcular los precios del producto según unidades para una versión de tarifa."
@@ -351,7 +338,7 @@ msgstr ""
 #. module: product
 #: model:ir.model.fields,field_description:product.field_product_product__purchase_ok
 #: model:ir.model.fields,field_description:product.field_product_template__purchase_ok
-#: model:ir.ui.view,arch_db:product.product_template_search_view
+#: model_terms:ir.ui.view,arch_db:product.product_template_search_view
 msgid "Can be Purchased"
 msgstr "Puede ser comprado"
 
@@ -364,22 +351,22 @@ msgstr "Puede ser alquilado"
 #. module: product
 #: model:ir.model.fields,field_description:product.field_product_product__sale_ok
 #: model:ir.model.fields,field_description:product.field_product_template__sale_ok
-#: model:ir.ui.view,arch_db:product.product_template_search_view
+#: model_terms:ir.ui.view,arch_db:product.product_template_search_view
 msgid "Can be Sold"
 msgstr "Puede ser vendido"
 
 #. module: product
-#: model:ir.ui.view,arch_db:product.view_product_price_list
+#: model_terms:ir.ui.view,arch_db:product.view_product_price_list
 msgid "Cancel"
 msgstr "Cancelar"
 
 #. module: product
-#: model:ir.ui.view,arch_db:product.product_category_form_view
+#: model_terms:ir.ui.view,arch_db:product.product_category_form_view
 msgid "Category name"
 msgstr "Nombre de categoría"
 
 #. module: product
-#: code:addons/product/models/product_pricelist.py:442
+#: code:addons/product/models/product_pricelist.py:451
 #, python-format
 msgid "Category: %s"
 msgstr "Categoría: %s"
@@ -396,7 +383,12 @@ msgid "Child Categories"
 msgstr "Categorías hijas"
 
 #. module: product
-#: model:ir.ui.view,arch_db:product.product_variant_easy_edit_view
+#: model_terms:ir.ui.view,arch_db:product.res_config_settings_view_form
+msgid "Choose the unit to measure weight"
+msgstr ""
+
+#. module: product
+#: model_terms:ir.ui.view,arch_db:product.product_variant_easy_edit_view
 msgid "Codes"
 msgstr "Códigos"
 
@@ -407,7 +399,7 @@ msgid "Color Index"
 msgstr "Índice de Colores"
 
 #. module: product
-#: model:ir.ui.view,arch_db:product.res_config_settings_view_form
+#: model_terms:ir.ui.view,arch_db:product.res_config_settings_view_form
 msgid "Common Product Catalog"
 msgstr "Catálogo de productos comunes"
 
@@ -433,14 +425,17 @@ msgstr "Nombre completo"
 
 #. module: product
 #: model:ir.model.fields,field_description:product.field_product_pricelist_item__compute_price
-#: model:ir.ui.view,arch_db:product.product_pricelist_item_form_view
+#: model_terms:ir.ui.view,arch_db:product.product_pricelist_item_form_view
 msgid "Compute Price"
 msgstr "Calcula el Precio"
 
 #. module: product
-#: code:addons/product/models/product_template.py:50
+#: model:ir.model,name:product.model_res_config_settings
+msgid "Config Settings"
+msgstr "Opciones de Configuración"
+
+#. module: product
 #: selection:product.template,type:0
-#, python-format
 msgid "Consumable"
 msgstr "Consumible"
 
@@ -455,6 +450,11 @@ msgid "Contained Quantity"
 msgstr ""
 
 #. module: product
+#: model_terms:ir.ui.view,arch_db:product.product_packaging_form_view
+msgid "Contained quantity"
+msgstr ""
+
+#. module: product
 #: model:ir.model.fields,field_description:product.field_product_price_history__cost
 #: model:ir.model.fields,field_description:product.field_product_product__standard_price
 #: model:ir.model.fields,field_description:product.field_product_template__standard_price
@@ -463,23 +463,18 @@ msgid "Cost"
 msgstr "Coste"
 
 #. module: product
+#: model:ir.model.fields,help:product.field_product_template__standard_price
+msgid ""
+"Cost used for stock valuation in standard price and as a first price to set "
+"in average/FIFO."
+msgstr ""
+
+#. module: product
 #: model:ir.model.fields,help:product.field_product_product__standard_price
 msgid ""
 "Cost used for stock valuation in standard price and as a first price to set "
 "in average/fifo. Also used as a base price for pricelists. Expressed in the "
 "default unit of measure of the product."
-msgstr ""
-"Costo utilizado para la valuación de acciones en precio estándar y como "
-"primer precio para establecer en promedio / fifo. También se utiliza como "
-"precio base para las listas de precios. Expresado en la unidad de medida "
-"predeterminada del producto."
-
-#. module: product
-#: model:ir.model.fields,help:product.field_product_template__standard_price
-msgid ""
-"Cost used for stock valuation in standard price and as a first price to set "
-"in average/fifo. Also used as a base price for pricelists. Expressed in the "
-"default unit of measure of the product. "
 msgstr ""
 "Costo utilizado para la valuación de acciones en precio estándar y como "
 "primer precio para establecer en promedio / fifo. También se utiliza como "
@@ -502,20 +497,20 @@ msgid "Create Variant"
 msgstr "Crear variante"
 
 #. module: product
-#: model:ir.actions.act_window,help:product.product_pricelist_action2
+#: model_terms:ir.actions.act_window,help:product.product_pricelist_action2
 msgid "Create a new pricelist"
 msgstr ""
 
 #. module: product
-#: model:ir.actions.act_window,help:product.product_template_action
-#: model:ir.actions.act_window,help:product.product_template_action_all
+#: model_terms:ir.actions.act_window,help:product.product_template_action
+#: model_terms:ir.actions.act_window,help:product.product_template_action_all
 msgid "Create a new product"
 msgstr "Crear un nuevo producto"
 
 #. module: product
-#: model:ir.actions.act_window,help:product.product_normal_action
-#: model:ir.actions.act_window,help:product.product_normal_action_sell
-#: model:ir.actions.act_window,help:product.product_variant_action
+#: model_terms:ir.actions.act_window,help:product.product_normal_action
+#: model_terms:ir.actions.act_window,help:product.product_normal_action_sell
+#: model_terms:ir.actions.act_window,help:product.product_variant_action
 msgid "Create a new product variant"
 msgstr ""
 
@@ -573,27 +568,37 @@ msgid "Date"
 msgstr "Fecha"
 
 #. module: product
+#: model:ir.model,name:product.model_decimal_precision
+msgid "Decimal Precision"
+msgstr "Precisión decimales"
+
+#. module: product
 #: code:addons/product/models/res_company.py:59
 #, python-format
 msgid "Default %(currency)s pricelist for %(company)s"
 msgstr "%(currency)s por defecto para listas de precios de %(company)s"
 
 #. module: product
+#: model:ir.model.fields,help:product.field_product_packaging__product_uom_id
 #: model:ir.model.fields,help:product.field_product_product__uom_id
 #: model:ir.model.fields,help:product.field_product_template__uom_id
-msgid "Default Unit of Measure used for all stock operation."
+msgid "Default unit of measure used for all stock operations."
 msgstr ""
-"Unidad de medida por defecto utilizada para todas las operaciones de stock."
+"Unidad de medida por defecto utilizada para todas las operaciones de stock"
 
 #. module: product
 #: model:ir.model.fields,help:product.field_product_product__uom_po_id
 #: model:ir.model.fields,help:product.field_product_template__uom_po_id
 msgid ""
-"Default Unit of Measure used for purchase orders. It must be in the same "
-"category than the default unit of measure."
+"Default unit of measure used for purchase orders. It must be in the same "
+"category as the default unit of measure."
 msgstr ""
-"Unidad de medida por defecto utilizada para los pedidos de compra. Debe "
-"estar en la misma categoría que la unidad de medida por defecto."
+
+#. module: product
+#: model:ir.model.fields,help:product.field_product_product__seller_ids
+#: model:ir.model.fields,help:product.field_product_template__seller_ids
+msgid "Define vendor pricelists."
+msgstr ""
 
 #. module: product
 #: model:ir.model.fields,field_description:product.field_product_supplierinfo__delay
@@ -607,7 +612,7 @@ msgid "Description"
 msgstr "Descripción"
 
 #. module: product
-#: model:ir.ui.view,arch_db:product.product_template_form_view
+#: model_terms:ir.ui.view,arch_db:product.product_template_form_view
 msgid "Description for Customers"
 msgstr "Descripción para Clientes"
 
@@ -653,7 +658,7 @@ msgstr ""
 "Finalización válida para la validación del elementos de tarifa de precios"
 
 #. module: product
-#: code:addons/product/models/product.py:291
+#: code:addons/product/models/product.py:292
 #, python-format
 msgid ""
 "Error! It is not allowed to choose more than one value for a given "
@@ -715,12 +720,12 @@ msgid "Formula"
 msgstr "Fórmula"
 
 #. module: product
-#: model:ir.ui.view,arch_db:product.product_template_search_view
+#: model_terms:ir.ui.view,arch_db:product.product_template_search_view
 msgid "Future Activities"
 msgstr "Actividades Futuras"
 
 #. module: product
-#: model:ir.ui.view,arch_db:product.product_template_form_view
+#: model_terms:ir.ui.view,arch_db:product.product_template_form_view
 msgid "General Information"
 msgstr "Información General"
 
@@ -748,7 +753,7 @@ msgid "Go to Internal Categories"
 msgstr "Ir a Categorías internas"
 
 #. module: product
-#: model:ir.ui.view,arch_db:product.product_supplierinfo_search_view
+#: model_terms:ir.ui.view,arch_db:product.product_supplierinfo_search_view
 msgid "Group By"
 msgstr "Agrupar por"
 
@@ -786,7 +791,7 @@ msgstr "Si está marcado hay nuevos mensajes que requieren su atención."
 #: model:ir.model.fields,help:product.field_product_product__message_has_error
 #: model:ir.model.fields,help:product.field_product_template__message_has_error
 msgid "If checked, some messages have a delivery error."
-msgstr ""
+msgstr "Si se encuentra marcado, algunos mensajes tienen error de envío."
 
 #. module: product
 #: model:ir.model.fields,help:product.field_product_supplierinfo__product_id
@@ -842,35 +847,25 @@ msgstr ""
 "producto en caso de que esté vacía)."
 
 #. module: product
-#: code:addons/product/models/product_pricelist.py:339
+#: code:addons/product/models/product_pricelist.py:348
 #, python-format
 msgid "Import Template for Pricelists"
 msgstr ""
 
 #. module: product
-#: code:addons/product/models/product_template.py:498
+#: code:addons/product/models/product_template.py:492
 #, python-format
 msgid "Import Template for Products"
 msgstr ""
 
 #. module: product
-#: code:addons/product/models/product.py:648
+#: code:addons/product/models/product.py:650
 #, python-format
 msgid "Import Template for Vendor Pricelists"
 msgstr ""
 
 #. module: product
-#: model:ir.ui.view,arch_db:product.res_config_settings_view_form
-msgid "In which unit of measure do you manage your weights"
-msgstr ""
-
-#. module: product
-#: model:ir.model,name:product.model_product_supplierinfo
-msgid "Information about a product vendor"
-msgstr "Información acerca del proveedor de un producto"
-
-#. module: product
-#: model:ir.ui.view,arch_db:product.product_template_form_view
+#: model_terms:ir.ui.view,arch_db:product.product_template_form_view
 msgid "Internal Notes"
 msgstr "Notas internas"
 
@@ -888,7 +883,7 @@ msgstr ""
 "Número de artículo internacional usado para la identificación de producto."
 
 #. module: product
-#: model:ir.ui.view,arch_db:product.product_template_form_view
+#: model_terms:ir.ui.view,arch_db:product.product_template_form_view
 msgid "Inventory"
 msgstr "Inventario"
 
@@ -962,7 +957,7 @@ msgid "Last Updated on"
 msgstr "Última actualización el"
 
 #. module: product
-#: model:ir.ui.view,arch_db:product.product_template_search_view
+#: model_terms:ir.ui.view,arch_db:product.product_template_search_view
 msgid "Late Activities"
 msgstr "Actividades tardías"
 
@@ -983,30 +978,33 @@ msgid "Lines"
 msgstr "Líneas"
 
 #. module: product
-#: model:ir.ui.view,arch_db:product.product_template_form_view
+#: model_terms:ir.ui.view,arch_db:product.product_template_form_view
 msgid "Logistics"
 msgstr "Logística"
 
 #. module: product
-#: model:ir.model.fields,field_description:product.field_res_users__has_group_pricelist_item
+#: model:ir.model.fields,field_description:product.field_product_product__message_main_attachment_id
+#: model:ir.model.fields,field_description:product.field_product_template__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "Adjuntos principales"
+
+#. module: product
 #: model:res.groups,name:product.group_pricelist_item
 msgid "Manage Pricelist Items"
 msgstr "Gestionar elementos de tarifa"
 
 #. module: product
-#: model:ir.model.fields,field_description:product.field_res_users__has_group_stock_packaging
 #: model:res.groups,name:product.group_stock_packaging
 msgid "Manage Product Packaging"
 msgstr "Administrar empaquetado del producto"
 
 #. module: product
-#: model:ir.model.fields,field_description:product.field_res_users__has_group_product_variant
 #: model:res.groups,name:product.group_product_variant
 msgid "Manage Product Variants"
 msgstr "Administrar Variantes de Productos"
 
 #. module: product
-#: model:ir.ui.view,arch_db:product.product_pricelist_item_form_view
+#: model_terms:ir.ui.view,arch_db:product.product_pricelist_item_form_view
 msgid "Max. Margin"
 msgstr "Margen máx."
 
@@ -1037,7 +1035,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:product.field_product_product__message_has_error
 #: model:ir.model.fields,field_description:product.field_product_template__message_has_error
 msgid "Message Delivery error"
-msgstr ""
+msgstr "Error de Envío de Mensaje"
 
 #. module: product
 #: model:ir.model.fields,field_description:product.field_product_product__message_ids
@@ -1046,7 +1044,7 @@ msgid "Messages"
 msgstr "Mensajes"
 
 #. module: product
-#: model:ir.ui.view,arch_db:product.product_pricelist_item_form_view
+#: model_terms:ir.ui.view,arch_db:product.product_pricelist_item_form_view
 msgid "Min. Margin"
 msgstr "Margen mín."
 
@@ -1066,7 +1064,6 @@ msgid "Minimal Quantity"
 msgstr "Cantidad mínima"
 
 #. module: product
-#: model:ir.model.fields,field_description:product.field_product_attribute__name
 #: model:ir.model.fields,field_description:product.field_product_category__name
 #: model:ir.model.fields,field_description:product.field_product_pricelist_item__name
 #: model:ir.model.fields,field_description:product.field_product_product__name
@@ -1102,7 +1099,7 @@ msgstr "Número de acciones"
 #: model:ir.model.fields,field_description:product.field_product_product__message_has_error_counter
 #: model:ir.model.fields,field_description:product.field_product_template__message_has_error_counter
 msgid "Number of error"
-msgstr ""
+msgstr "Número de error"
 
 #. module: product
 #: model:ir.model.fields,help:product.field_product_product__message_needaction_counter
@@ -1114,7 +1111,7 @@ msgstr "Número de mensajes que requieren una acción"
 #: model:ir.model.fields,help:product.field_product_product__message_has_error_counter
 #: model:ir.model.fields,help:product.field_product_template__message_has_error_counter
 msgid "Number of messages with delivery error"
-msgstr ""
+msgstr "Número de mensajes con error de envío"
 
 #. module: product
 #: model:ir.model.fields,help:product.field_product_product__message_unread_counter
@@ -1123,7 +1120,7 @@ msgid "Number of unread messages"
 msgstr "Número de mensajes no leidos"
 
 #. module: product
-#: model:ir.ui.view,arch_db:product.product_supplierinfo_form_view
+#: model_terms:ir.ui.view,arch_db:product.product_supplierinfo_form_view
 msgid "Other Information"
 msgstr "Otra información"
 
@@ -1145,11 +1142,10 @@ msgid "Package Type"
 msgstr "Tipo de paquete"
 
 #. module: product
-#: model:ir.model,name:product.model_product_packaging
-#: model:ir.ui.view,arch_db:product.product_packaging_form_view
-#: model:ir.ui.view,arch_db:product.product_packaging_tree_view
-#: model:ir.ui.view,arch_db:product.product_template_form_view
-#: model:ir.ui.view,arch_db:product.product_variant_easy_edit_view
+#: model_terms:ir.ui.view,arch_db:product.product_packaging_form_view
+#: model_terms:ir.ui.view,arch_db:product.product_packaging_tree_view
+#: model_terms:ir.ui.view,arch_db:product.product_template_form_view
+#: model_terms:ir.ui.view,arch_db:product.product_variant_easy_edit_view
 msgid "Packaging"
 msgstr "Empaquetado"
 
@@ -1189,15 +1185,15 @@ msgstr ""
 #: model:ir.model.fields,field_description:product.field_product_product__price
 #: model:ir.model.fields,field_description:product.field_product_supplierinfo__price
 #: model:ir.model.fields,field_description:product.field_product_template__price
-#: model:ir.ui.view,arch_db:product.product_normal_form_view
-#: model:ir.ui.view,arch_db:product.product_pricelist_view
-#: model:ir.ui.view,arch_db:product.product_supplierinfo_tree_view
-#: model:ir.ui.view,arch_db:product.product_template_form_view
+#: model_terms:ir.ui.view,arch_db:product.product_normal_form_view
+#: model_terms:ir.ui.view,arch_db:product.product_pricelist_view
+#: model_terms:ir.ui.view,arch_db:product.product_supplierinfo_tree_view
+#: model_terms:ir.ui.view,arch_db:product.product_template_form_view
 msgid "Price"
 msgstr "Precio"
 
 #. module: product
-#: model:ir.ui.view,arch_db:product.product_pricelist_item_form_view
+#: model_terms:ir.ui.view,arch_db:product.product_pricelist_item_form_view
 msgid "Price Computation"
 msgstr "Cálculo del precio"
 
@@ -1223,10 +1219,9 @@ msgstr ""
 
 #. module: product
 #: model:ir.actions.act_window,name:product.action_product_price_list
-#: model:ir.model,name:product.model_product_price_list
-#: model:ir.ui.view,arch_db:product.product_supplierinfo_form_view
-#: model:ir.ui.view,arch_db:product.report_pricelist
-#: model:ir.ui.view,arch_db:product.view_product_price_list
+#: model_terms:ir.ui.view,arch_db:product.product_supplierinfo_form_view
+#: model_terms:ir.ui.view,arch_db:product.report_pricelist
+#: model_terms:ir.ui.view,arch_db:product.view_product_price_list
 msgid "Price List"
 msgstr "Lista de precios"
 
@@ -1241,8 +1236,15 @@ msgid "Price Surcharge"
 msgstr "Recargo precio"
 
 #. module: product
-#: model:ir.ui.view,arch_db:product.product_kanban_view
-#: model:ir.ui.view,arch_db:product.product_template_kanban_view
+#: model:ir.model.fields,help:product.field_product_product__list_price
+#: model:ir.model.fields,help:product.field_product_template__list_price
+#: model:ir.model.fields,help:product.field_product_template__lst_price
+msgid "Price at which the product is sold to customers."
+msgstr ""
+
+#. module: product
+#: model_terms:ir.ui.view,arch_db:product.product_kanban_view
+#: model_terms:ir.ui.view,arch_db:product.product_template_kanban_view
 msgid "Price:"
 msgstr "Precio:"
 
@@ -1259,11 +1261,12 @@ msgstr "Tarifa"
 #: model:ir.model.fields,field_description:product.field_product_template__pricelist_id
 #: model:ir.model.fields,field_description:product.field_res_partner__property_product_pricelist
 #: model:ir.model.fields,field_description:product.field_res_users__property_product_pricelist
-#: model:ir.ui.view,arch_db:product.product_template_form_view
+#: model_terms:ir.ui.view,arch_db:product.product_template_form_view
 msgid "Pricelist"
 msgstr "Tarifa"
 
 #. module: product
+#: model:ir.model,name:product.model_product_pricelist_item
 #: model:ir.model.fields,field_description:product.field_product_product__pricelist_item_ids
 msgid "Pricelist Item"
 msgstr "Item de Lista de precios"
@@ -1277,11 +1280,11 @@ msgstr "Elemento de tarifa aplicable a la opción seleccionada"
 #: model:ir.model.fields,field_description:product.field_product_pricelist__item_ids
 #: model:ir.model.fields,field_description:product.field_product_product__item_ids
 #: model:ir.model.fields,field_description:product.field_product_template__item_ids
-#: model:ir.ui.view,arch_db:product.product_normal_form_view
-#: model:ir.ui.view,arch_db:product.product_pricelist_item_form_view
-#: model:ir.ui.view,arch_db:product.product_pricelist_item_tree_view
-#: model:ir.ui.view,arch_db:product.product_pricelist_view
-#: model:ir.ui.view,arch_db:product.product_template_form_view
+#: model_terms:ir.ui.view,arch_db:product.product_normal_form_view
+#: model_terms:ir.ui.view,arch_db:product.product_pricelist_item_form_view
+#: model_terms:ir.ui.view,arch_db:product.product_pricelist_item_tree_view
+#: model_terms:ir.ui.view,arch_db:product.product_pricelist_view
+#: model_terms:ir.ui.view,arch_db:product.product_template_form_view
 msgid "Pricelist Items"
 msgstr "Elementos de tarifa"
 
@@ -1291,35 +1294,29 @@ msgid "Pricelist Name"
 msgstr "Nombre tarifa"
 
 #. module: product
-#: model:ir.model,name:product.model_product_pricelist_item
-msgid "Pricelist item"
-msgstr "Elemento de la tarifa"
-
-#. module: product
 #: model:ir.actions.act_window,name:product.product_pricelist_action2
 #: model:ir.model.fields,field_description:product.field_res_country_group__pricelist_ids
 msgid "Pricelists"
 msgstr "Tarifas"
 
 #. module: product
-#: model:ir.model.fields,field_description:product.field_res_users__has_group_product_pricelist
 #: model:res.groups,name:product.group_product_pricelist
 msgid "Pricelists On Product"
 msgstr "Tarifa por producto"
 
 #. module: product
-#: model:ir.ui.view,arch_db:product.view_partner_property_form
+#: model_terms:ir.ui.view,arch_db:product.view_partner_property_form
 msgid "Pricelists are managed on"
 msgstr "Las tarifas de precios son gestionadas en"
 
 #. module: product
-#: model:ir.ui.view,arch_db:product.product_template_form_view
-#: model:ir.ui.view,arch_db:product.product_variant_easy_edit_view
+#: model_terms:ir.ui.view,arch_db:product.product_template_form_view
+#: model_terms:ir.ui.view,arch_db:product.product_variant_easy_edit_view
 msgid "Pricing"
 msgstr "Precio"
 
 #. module: product
-#: model:ir.ui.view,arch_db:product.view_product_price_list
+#: model_terms:ir.ui.view,arch_db:product.view_product_price_list
 msgid "Print"
 msgstr "Imprimir"
 
@@ -1330,33 +1327,44 @@ msgstr "Imprimir"
 #: model:ir.model.fields,field_description:product.field_product_pricelist_item__product_id
 #: model:ir.model.fields,field_description:product.field_product_product__product_variant_id
 #: model:ir.model.fields,field_description:product.field_product_template__product_variant_id
-#: model:ir.ui.view,arch_db:product.product_kanban_view
-#: model:ir.ui.view,arch_db:product.product_pricelist_item_form_view
-#: model:ir.ui.view,arch_db:product.product_search_form_view
-#: model:ir.ui.view,arch_db:product.product_supplierinfo_form_view
-#: model:ir.ui.view,arch_db:product.product_supplierinfo_search_view
-#: model:ir.ui.view,arch_db:product.product_supplierinfo_tree_view
-#: model:ir.ui.view,arch_db:product.product_template_form_view
-#: model:ir.ui.view,arch_db:product.product_template_kanban_view
-#: model:ir.ui.view,arch_db:product.product_template_search_view
-#: model:ir.ui.view,arch_db:product.product_template_tree_view
+#: model_terms:ir.ui.view,arch_db:product.product_kanban_view
+#: model_terms:ir.ui.view,arch_db:product.product_pricelist_item_form_view
+#: model_terms:ir.ui.view,arch_db:product.product_search_form_view
+#: model_terms:ir.ui.view,arch_db:product.product_supplierinfo_form_view
+#: model_terms:ir.ui.view,arch_db:product.product_supplierinfo_search_view
+#: model_terms:ir.ui.view,arch_db:product.product_supplierinfo_tree_view
+#: model_terms:ir.ui.view,arch_db:product.product_template_form_view
+#: model_terms:ir.ui.view,arch_db:product.product_template_kanban_view
+#: model_terms:ir.ui.view,arch_db:product.product_template_search_view
+#: model_terms:ir.ui.view,arch_db:product.product_template_tree_view
 #: selection:product.pricelist.item,applied_on:0
 msgid "Product"
 msgstr "Producto"
 
 #. module: product
 #: model:ir.model,name:product.model_product_attribute
-#: model:ir.ui.view,arch_db:product.product_attribute_view_form
+#: model_terms:ir.ui.view,arch_db:product.product_attribute_view_form
 msgid "Product Attribute"
 msgstr "Atributo de producto"
 
 #. module: product
+#: model:ir.model,name:product.model_product_attribute_line
+msgid "Product Attribute Line"
+msgstr ""
+
+#. module: product
+#: model:ir.model,name:product.model_product_attribute_price
+msgid "Product Attribute Price"
+msgstr ""
+
+#. module: product
+#: model:ir.model,name:product.model_product_attribute_value
 #: model:ir.model.fields,field_description:product.field_product_attribute_price__value_id
 msgid "Product Attribute Value"
 msgstr "Valor del atributo de producto"
 
 #. module: product
-#: model:ir.ui.view,arch_db:product.product_attribute_line_form
+#: model_terms:ir.ui.view,arch_db:product.product_attribute_line_form
 msgid "Product Attribute and Values"
 msgstr "Atributos y valores del producto"
 
@@ -1374,8 +1382,8 @@ msgstr ""
 
 #. module: product
 #: model:ir.actions.act_window,name:product.product_category_action_form
-#: model:ir.ui.view,arch_db:product.product_category_list_view
-#: model:ir.ui.view,arch_db:product.product_category_search_view
+#: model_terms:ir.ui.view,arch_db:product.product_category_list_view
+#: model_terms:ir.ui.view,arch_db:product.product_category_search_view
 msgid "Product Categories"
 msgstr "Categorías de productos"
 
@@ -1384,7 +1392,8 @@ msgstr "Categorías de productos"
 #: model:ir.model.fields,field_description:product.field_product_pricelist_item__categ_id
 #: model:ir.model.fields,field_description:product.field_product_product__categ_id
 #: model:ir.model.fields,field_description:product.field_product_template__categ_id
-#: model:ir.ui.view,arch_db:product.product_template_form_view
+#: model_terms:ir.ui.view,arch_db:product.product_category_list_view
+#: model_terms:ir.ui.view,arch_db:product.product_template_form_view
 msgid "Product Category"
 msgstr "Categoría de producto"
 
@@ -1395,8 +1404,8 @@ msgid "Product Label (PDF)"
 msgstr ""
 
 #. module: product
-#: model:ir.ui.view,arch_db:product.product_template_form_view
-#: model:ir.ui.view,arch_db:product.product_variant_easy_edit_view
+#: model_terms:ir.ui.view,arch_db:product.product_template_form_view
+#: model_terms:ir.ui.view,arch_db:product.product_variant_easy_edit_view
 msgid "Product Name"
 msgstr "Nombre del producto"
 
@@ -1407,15 +1416,36 @@ msgid "Product Packages"
 msgstr "Paquetes de productos"
 
 #. module: product
-#: model:ir.ui.view,arch_db:product.product_packaging_form_view
+#: model:ir.model,name:product.model_product_packaging
+#: model_terms:ir.ui.view,arch_db:product.product_packaging_form_view
 msgid "Product Packaging"
 msgstr "Empaquetado del producto"
 
 #. module: product
+#: model:ir.actions.report,name:product.report_product_packaging
+msgid "Product Packaging (PDF)"
+msgstr ""
+
+#. module: product
 #: model:ir.actions.act_window,name:product.action_packaging_view
 #: model:ir.model.fields,field_description:product.field_res_config_settings__group_stock_packaging
-#: model:ir.ui.view,arch_db:product.product_packaging_tree_view
+#: model_terms:ir.ui.view,arch_db:product.product_packaging_tree_view
 msgid "Product Packagings"
+msgstr "Empaquetados del producto"
+
+#. module: product
+#: model:ir.model,name:product.model_product_price_history
+msgid "Product Price List History"
+msgstr ""
+
+#. module: product
+#: model:ir.model,name:product.model_report_product_report_pricelist
+msgid "Product Price List Report"
+msgstr ""
+
+#. module: product
+#: model:ir.model,name:product.model_product_price_list
+msgid "Product Price per Unit Based on Pricelist Version"
 msgstr ""
 
 #. module: product
@@ -1425,7 +1455,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:product.field_product_pricelist_item__product_tmpl_id
 #: model:ir.model.fields,field_description:product.field_product_product__product_tmpl_id
 #: model:ir.model.fields,field_description:product.field_product_supplierinfo__product_tmpl_id
-#: model:ir.ui.view,arch_db:product.product_search_form_view
+#: model_terms:ir.ui.view,arch_db:product.product_search_form_view
 msgid "Product Template"
 msgstr "Plantilla de producto"
 
@@ -1437,8 +1467,8 @@ msgstr "Tipo de producto"
 
 #. module: product
 #: model:ir.model.fields,field_description:product.field_product_supplierinfo__product_id
-#: model:ir.ui.view,arch_db:product.product_normal_form_view
-#: model:ir.ui.view,arch_db:product.product_pricelist_item_form_view
+#: model_terms:ir.ui.view,arch_db:product.product_normal_form_view
+#: model_terms:ir.ui.view,arch_db:product.product_pricelist_item_form_view
 #: selection:product.pricelist.item,applied_on:0
 msgid "Product Variant"
 msgstr "Variantes de producto"
@@ -1447,7 +1477,7 @@ msgstr "Variantes de producto"
 #: model:ir.actions.act_window,name:product.product_normal_action
 #: model:ir.actions.act_window,name:product.product_normal_action_sell
 #: model:ir.actions.act_window,name:product.product_variant_action
-#: model:ir.ui.view,arch_db:product.product_product_tree_view
+#: model_terms:ir.ui.view,arch_db:product.product_product_tree_view
 msgid "Product Variants"
 msgstr "Variantes de producto"
 
@@ -1456,29 +1486,29 @@ msgstr "Variantes de producto"
 #: model:ir.actions.act_window,name:product.product_template_action_all
 #: model:ir.model.fields,field_description:product.field_product_product__product_variant_ids
 #: model:ir.model.fields,field_description:product.field_product_template__product_variant_ids
-#: model:ir.ui.view,arch_db:product.product_template_search_view
-#: model:ir.ui.view,arch_db:product.res_config_settings_view_form
+#: model_terms:ir.ui.view,arch_db:product.product_template_search_view
+#: model_terms:ir.ui.view,arch_db:product.res_config_settings_view_form
 msgid "Products"
 msgstr "Productos"
 
 #. module: product
-#: model:ir.ui.view,arch_db:product.product_pricelist_view_search
+#: model_terms:ir.ui.view,arch_db:product.product_pricelist_view_search
 msgid "Products Price"
 msgstr "Precio de los productos"
 
 #. module: product
-#: model:ir.ui.view,arch_db:product.product_pricelist_view
-#: model:ir.ui.view,arch_db:product.product_pricelist_view_tree
+#: model_terms:ir.ui.view,arch_db:product.product_pricelist_view
+#: model_terms:ir.ui.view,arch_db:product.product_pricelist_view_tree
 msgid "Products Price List"
 msgstr "Tarifa de productos"
 
 #. module: product
-#: model:ir.ui.view,arch_db:product.product_pricelist_view_search
+#: model_terms:ir.ui.view,arch_db:product.product_pricelist_view_search
 msgid "Products Price Search"
 msgstr "Buscar precio productos"
 
 #. module: product
-#: code:addons/product/models/product.py:465
+#: code:addons/product/models/product.py:466
 #, python-format
 msgid "Products: "
 msgstr "Productos: "
@@ -1495,7 +1525,7 @@ msgid "Public Pricelist"
 msgstr "Tarifa pública"
 
 #. module: product
-#: model:ir.ui.view,arch_db:product.product_template_form_view
+#: model_terms:ir.ui.view,arch_db:product.product_template_form_view
 msgid "Purchase"
 msgstr "Compra"
 
@@ -1548,7 +1578,7 @@ msgid "Responsible User"
 msgstr "Usuario responsable"
 
 #. module: product
-#: model:ir.ui.view,arch_db:product.product_pricelist_item_form_view
+#: model_terms:ir.ui.view,arch_db:product.product_pricelist_item_form_view
 msgid "Rounding Method"
 msgstr "Método redondeo"
 
@@ -1569,20 +1599,19 @@ msgid "Saleable"
 msgstr "Se puede vender"
 
 #. module: product
-#: model:ir.ui.view,arch_db:product.product_template_form_view
+#: model_terms:ir.ui.view,arch_db:product.product_template_form_view
 msgid "Sales"
 msgstr "Ventas"
 
 #. module: product
 #: model:ir.model.fields,field_description:product.field_product_product__list_price
 #: model:ir.model.fields,field_description:product.field_product_template__list_price
-#: model:ir.ui.view,arch_db:product.product_template_form_view
-#: model:ir.ui.view,arch_db:product.product_template_tree_view
+#: model_terms:ir.ui.view,arch_db:product.product_template_form_view
+#: model_terms:ir.ui.view,arch_db:product.product_template_tree_view
 msgid "Sales Price"
 msgstr "Precios de venta"
 
 #. module: product
-#: model:ir.model.fields,field_description:product.field_res_users__has_group_sale_pricelist
 #: model:res.groups,name:product.group_sale_pricelist
 msgid "Sales Pricelists"
 msgstr "Tarifas de venta"
@@ -1605,14 +1634,12 @@ msgid "Sequence"
 msgstr "Secuencia"
 
 #. module: product
-#: code:addons/product/models/product_template.py:51
 #: selection:product.template,type:0
-#, python-format
 msgid "Service"
 msgstr "Servicio"
 
 #. module: product
-#: model:ir.ui.view,arch_db:product.product_template_search_view
+#: model_terms:ir.ui.view,arch_db:product.product_template_search_view
 msgid "Services"
 msgstr "Servicios"
 
@@ -1644,7 +1671,7 @@ msgstr ""
 "* Desactivada: Cada empresa sólo puede ver su producto ( producto donde la empresa se ​​define ). Producto no relacionado con una empresa son visibles para todas las empresas."
 
 #. module: product
-#: model:ir.ui.view,arch_db:product.product_template_search_view
+#: model_terms:ir.ui.view,arch_db:product.product_template_search_view
 msgid "Show all records which has next action date is before today"
 msgstr ""
 "Mostrar todos los registros que tienen la próxima fecha de acción antes de "
@@ -1706,13 +1733,6 @@ msgstr ""
 "producto. Déjelo vacío en caso contrario."
 
 #. module: product
-#: model:ir.model.fields,help:product.field_product_product__sale_ok
-#: model:ir.model.fields,help:product.field_product_template__sale_ok
-msgid "Specify if the product can be selected in a sales order line."
-msgstr ""
-"Especifique si un producto puede ser seleccionado en un pedido de venta."
-
-#. module: product
 #: model:ir.model.fields,help:product.field_product_pricelist_item__price_surcharge
 msgid ""
 "Specify the fixed amount to add or substract(if negative) to the amount "
@@ -1767,6 +1787,11 @@ msgid "Storable Product"
 msgstr ""
 
 #. module: product
+#: model:ir.model,name:product.model_product_supplierinfo
+msgid "Supplier Pricelist"
+msgstr "Tarifa de proveedor"
+
+#. module: product
 #: model:ir.model.fields,help:product.field_product_product__pricelist_id
 #: model:ir.model.fields,help:product.field_product_template__pricelist_id
 msgid ""
@@ -1776,7 +1801,7 @@ msgstr ""
 "de datos."
 
 #. module: product
-#: model:ir.ui.view,arch_db:product.product_pricelist_item_form_view
+#: model_terms:ir.ui.view,arch_db:product.product_pricelist_item_form_view
 msgid ""
 "The computed price is expressed in the default Unit of Measure of the "
 "product."
@@ -1785,7 +1810,7 @@ msgstr ""
 "producto."
 
 #. module: product
-#: code:addons/product/models/product_template.py:305
+#: code:addons/product/models/product_template.py:296
 #, python-format
 msgid ""
 "The default Unit of Measure and the purchase Unit of Measure must be in the "
@@ -1809,7 +1834,7 @@ msgstr ""
 " defecto del producto."
 
 #. module: product
-#: code:addons/product/models/product_pricelist.py:434
+#: code:addons/product/models/product_pricelist.py:443
 #, python-format
 msgid "The minimum margin should be lower than the maximum margin."
 msgstr ""
@@ -1824,7 +1849,7 @@ msgstr ""
 "hijas)"
 
 #. module: product
-#: code:addons/product/models/product_attribute.py:75
+#: code:addons/product/models/product_attribute.py:76
 #, python-format
 msgid ""
 "The operation cannot be completed:\n"
@@ -1898,12 +1923,12 @@ msgid "This is the sum of the extra price of all attributes"
 msgstr "Ésta es la suma de los precios extra de todos los atributos"
 
 #. module: product
-#: model:ir.ui.view,arch_db:product.product_template_form_view
+#: model_terms:ir.ui.view,arch_db:product.product_template_form_view
 msgid "This note is only for internal purposes."
 msgstr ""
 
 #. module: product
-#: model:ir.ui.view,arch_db:product.product_template_form_view
+#: model_terms:ir.ui.view,arch_db:product.product_template_form_view
 msgid "This note will show up on sales orders & invoices."
 msgstr ""
 
@@ -1942,11 +1967,12 @@ msgid "Today"
 msgstr "Hoy"
 
 #. module: product
-#: model:ir.ui.view,arch_db:product.product_template_search_view
+#: model_terms:ir.ui.view,arch_db:product.product_template_search_view
 msgid "Today Activities"
 msgstr "Actividades de Hoy"
 
 #. module: product
+#: model:ir.model.fields,field_description:product.field_product_packaging__product_uom_id
 #: model:ir.model.fields,field_description:product.field_product_product__uom_id
 #: model:ir.model.fields,field_description:product.field_product_supplierinfo__product_uom
 #: model:ir.model.fields,field_description:product.field_product_template__uom_id
@@ -1982,24 +2008,14 @@ msgid "Use pricelists to adapt your price per customers"
 msgstr "Usar tarifas para adaptar los precios a cada cliente"
 
 #. module: product
-#: model:ir.model,name:product.model_res_users
-msgid "Users"
-msgstr "Usuarios"
-
-#. module: product
-#: model:ir.ui.view,arch_db:product.product_supplierinfo_form_view
+#: model_terms:ir.ui.view,arch_db:product.product_supplierinfo_form_view
 msgid "Validity"
 msgstr "Validez"
 
 #. module: product
-#: model:ir.model.fields,field_description:product.field_product_attribute_value__name
-msgid "Value"
-msgstr "Valor"
-
-#. module: product
 #: model:ir.model.fields,field_description:product.field_product_attribute__value_ids
-#: model:ir.ui.view,arch_db:product.product_attribute_line_form
-#: model:ir.ui.view,arch_db:product.product_attribute_view_form
+#: model_terms:ir.ui.view,arch_db:product.product_attribute_line_form
+#: model_terms:ir.ui.view,arch_db:product.product_attribute_view_form
 msgid "Values"
 msgstr "Valores"
 
@@ -2014,7 +2030,7 @@ msgid "Variant Image"
 msgstr "Imagen de la variante"
 
 #. module: product
-#: model:ir.ui.view,arch_db:product.product_variant_easy_edit_view
+#: model_terms:ir.ui.view,arch_db:product.product_variant_easy_edit_view
 msgid "Variant Information"
 msgstr "Información de la variante"
 
@@ -2024,7 +2040,7 @@ msgid "Variant Price Extra"
 msgstr "Precio adicional de la variante "
 
 #. module: product
-#: model:ir.ui.view,arch_db:product.product_template_form_view
+#: model_terms:ir.ui.view,arch_db:product.product_template_form_view
 msgid "Variant Prices"
 msgstr "Precios de las variantes"
 
@@ -2036,33 +2052,33 @@ msgstr "Variante del vendedor"
 
 #. module: product
 #: model:ir.actions.act_window,name:product.product_attribute_value_action
-#: model:ir.ui.view,arch_db:product.attribute_tree_view
-#: model:ir.ui.view,arch_db:product.variants_tree_view
+#: model_terms:ir.ui.view,arch_db:product.attribute_tree_view
+#: model_terms:ir.ui.view,arch_db:product.variants_tree_view
 msgid "Variant Values"
 msgstr "Valores de las variantes"
 
 #. module: product
 #: model:ir.model.fields,field_description:product.field_product_attribute_value__product_ids
-#: model:ir.ui.view,arch_db:product.product_template_kanban_view
-#: model:ir.ui.view,arch_db:product.product_template_only_form_view
+#: model_terms:ir.ui.view,arch_db:product.product_template_kanban_view
+#: model_terms:ir.ui.view,arch_db:product.product_template_only_form_view
 msgid "Variants"
 msgstr "Variantes"
 
 #. module: product
 #: model:ir.model.fields,field_description:product.field_product_supplierinfo__name
-#: model:ir.ui.view,arch_db:product.product_supplierinfo_form_view
-#: model:ir.ui.view,arch_db:product.product_supplierinfo_search_view
+#: model_terms:ir.ui.view,arch_db:product.product_supplierinfo_form_view
+#: model_terms:ir.ui.view,arch_db:product.product_supplierinfo_search_view
 msgid "Vendor"
 msgstr "Proveedor"
 
 #. module: product
-#: model:ir.ui.view,arch_db:product.product_template_form_view
+#: model_terms:ir.ui.view,arch_db:product.product_template_form_view
 msgid "Vendor Bills"
 msgstr "Facturas de proveedor"
 
 #. module: product
-#: model:ir.ui.view,arch_db:product.product_supplierinfo_form_view
-#: model:ir.ui.view,arch_db:product.product_supplierinfo_tree_view
+#: model_terms:ir.ui.view,arch_db:product.product_supplierinfo_form_view
+#: model_terms:ir.ui.view,arch_db:product.product_supplierinfo_tree_view
 msgid "Vendor Information"
 msgstr "Información del proveedor"
 
@@ -2095,7 +2111,7 @@ msgstr "Proveedores"
 #. module: product
 #: model:ir.model.fields,field_description:product.field_product_product__volume
 #: model:ir.model.fields,field_description:product.field_product_template__volume
-#: model:ir.ui.view,arch_db:product.product_template_form_view
+#: model_terms:ir.ui.view,arch_db:product.product_template_form_view
 msgid "Volume"
 msgstr "Volumen"
 
@@ -2116,6 +2132,11 @@ msgstr "Historial de comunicaciones del sitio web"
 #: model:ir.model.fields,field_description:product.field_product_template__weight
 msgid "Weight"
 msgstr "Peso"
+
+#. module: product
+#: model_terms:ir.ui.view,arch_db:product.res_config_settings_view_form
+msgid "Weight Measurement"
+msgstr ""
 
 #. module: product
 #: model:ir.model.fields,field_description:product.field_product_product__weight_uom_id
@@ -2142,19 +2163,19 @@ msgid "Weight unit of measure label"
 msgstr ""
 
 #. module: product
-#: model:ir.ui.view,arch_db:product.product_variant_easy_edit_view
+#: model_terms:ir.ui.view,arch_db:product.product_variant_easy_edit_view
 msgid "Weights"
 msgstr "Pesos"
 
 #. module: product
-#: model:ir.actions.act_window,help:product.product_pricelist_action2
+#: model_terms:ir.actions.act_window,help:product.product_pricelist_action2
 msgid ""
 "You can assign pricelists to your customers or select one when creating a "
 "new sales quotation."
 msgstr ""
 
 #. module: product
-#: code:addons/product/models/product_pricelist.py:428
+#: code:addons/product/models/product_pricelist.py:437
 #, python-format
 msgid ""
 "You cannot assign the Main Pricelist as Other Pricelist in PriceList Item"
@@ -2177,7 +2198,7 @@ msgstr ""
 "factor de redondeo de la moneda actual de la compañía."
 
 #. module: product
-#: code:addons/product/models/product_attribute.py:102
+#: code:addons/product/models/product_attribute.py:105
 #, python-format
 msgid "You cannot use this attribute with the following value."
 msgstr ""
@@ -2196,16 +2217,16 @@ msgstr ""
 "Debe configurar el encabezado y el diseño del pie de página de sus informes."
 
 #. module: product
-#: model:ir.actions.act_window,help:product.product_normal_action
-#: model:ir.actions.act_window,help:product.product_template_action
+#: model_terms:ir.actions.act_window,help:product.product_normal_action
+#: model_terms:ir.actions.act_window,help:product.product_template_action
 msgid ""
 "You must define a product for everything you purchase,\n"
 "                whether it's a physical product, a consumable or services."
 msgstr ""
 
 #. module: product
-#: model:ir.actions.act_window,help:product.product_normal_action_sell
-#: model:ir.actions.act_window,help:product.product_variant_action
+#: model_terms:ir.actions.act_window,help:product.product_normal_action_sell
+#: model_terms:ir.actions.act_window,help:product.product_variant_action
 msgid ""
 "You must define a product for everything you sell, whether it's a physical product,\n"
 "                a consumable or a service you offer to customers.\n"
@@ -2223,79 +2244,44 @@ msgstr ""
 "Debe definir al menos una categoría de producto para poder crear productos."
 
 #. module: product
-#: model:ir.ui.view,arch_db:product.product_supplierinfo_form_view
-#: model:ir.ui.view,arch_db:product.product_supplierinfo_view_kanban
+#: model_terms:ir.ui.view,arch_db:product.product_supplierinfo_form_view
+#: model_terms:ir.ui.view,arch_db:product.product_supplierinfo_view_kanban
 msgid "days"
 msgstr "días"
 
 #. module: product
-#: model:ir.model,name:product.model_decimal_precision
-msgid "decimal.precision"
-msgstr "Precision decimal"
-
-#. module: product
-#: model:ir.ui.view,arch_db:product.product_category_form_view
+#: model_terms:ir.ui.view,arch_db:product.product_category_form_view
 msgid "e.g. Lamps"
 msgstr "ej. Lamps"
 
 #. module: product
-#: model:ir.ui.view,arch_db:product.product_variant_easy_edit_view
+#: model_terms:ir.ui.view,arch_db:product.product_variant_easy_edit_view
 msgid "e.g. Odoo Enterprise Subscription"
 msgstr "p.ej. Suscripción Enterprise Odoo"
 
 #. module: product
-#: model:ir.ui.view,arch_db:product.product_pricelist_view
+#: model_terms:ir.ui.view,arch_db:product.product_pricelist_view
 msgid "e.g. USD Retailers"
 msgstr "ej. USD Minoristas"
 
 #. module: product
-#: code:addons/product/models/product.py:571
-#: code:addons/product/models/product_template.py:491
+#: code:addons/product/models/product.py:572
+#: code:addons/product/models/product_template.py:485
 #, python-format
 msgid "product"
 msgstr ""
 
 #. module: product
-#: model:ir.model,name:product.model_product_attribute_line
-msgid "product.attribute.line"
-msgstr "product.attribute.line"
-
-#. module: product
-#: model:ir.model,name:product.model_product_attribute_price
-msgid "product.attribute.price"
-msgstr "product.attribute.price"
-
-#. module: product
-#: model:ir.model,name:product.model_product_attribute_value
-msgid "product.attribute.value"
-msgstr "product.attribute.value"
-
-#. module: product
-#: model:ir.model,name:product.model_product_price_history
-msgid "product.price.history"
-msgstr "product.price.history"
-
-#. module: product
-#: model:ir.model,name:product.model_report_product_report_pricelist
-msgid "report.product.report_pricelist"
-msgstr "report.product.report_pricelist"
-
-#. module: product
-#: model:ir.model,name:product.model_res_config_settings
-msgid "res.config.settings"
-msgstr "res.config.settings"
-
-#. module: product
-#: model:ir.ui.view,arch_db:product.view_partner_property_form
+#: model_terms:ir.ui.view,arch_db:product.view_partner_property_form
 msgid "the parent company"
 msgstr "la compañia matriz"
 
 #. module: product
-#: model:ir.ui.view,arch_db:product.product_variant_easy_edit_view
+#: model_terms:ir.ui.view,arch_db:product.product_variant_easy_edit_view
 msgid "the product template"
 msgstr "la plantilla de producto"
 
 #. module: product
-#: model:ir.ui.view,arch_db:product.product_supplierinfo_form_view
+#: model_terms:ir.ui.view,arch_db:product.product_supplierinfo_form_view
 msgid "to"
 msgstr "a"

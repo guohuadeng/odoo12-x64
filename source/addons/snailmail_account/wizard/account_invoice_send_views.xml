@@ -18,7 +18,7 @@
                             <b>(
                                 <field name="snailmail_cost" class="mr4" widget='monetary' options="{'currency_field': 'currency_id'}"/>
                                 <i class="fa fa-info-circle" role="img" aria-label="Warning" title="
-                                The letter will be sent using the IAP service from Odoo.&#10;Make sure you have enough credits on your account or proceed to a recharge.&#10;In case of multiple sending, the price is estimated based on 1 page per document.
+                                The letter will be sent using the IAP service from Odoo.&#10;Make sure you have enough credits on your account or proceed to a recharge.&#10;The price is estimated based on 1 page per document.
                                 "/>
                             )</b>
                         </div>
@@ -29,13 +29,13 @@
                     </div>
                 </xpath>
                 <xpath expr="//footer/button[hasclass('send_and_print')]" position='attributes'>
-                    <attribute name="attrs">{'invisible': ['|', ('printed', '=', True), '|', ('is_print', '=', False), '&amp;', '&amp;', ('is_print', '=', True), ('snailmail_is_letter', '=', False), ('is_email', '=', False)]}</attribute>
+                    <attribute name="attrs">{'invisible': ['|', ('is_print', '=', False), '&amp;', '&amp;', ('is_print', '=', True), ('snailmail_is_letter', '=', False), ('is_email', '=', False)]}</attribute>
                 </xpath>
                 <xpath expr="//footer/button[hasclass('send')]" position='attributes'>
                     <attribute name="attrs">{'invisible': ['|', ('is_print', '=', True), '&amp;', '&amp;', ('is_print', '=', False), ('snailmail_is_letter', '=', False), ('is_email', '=', False)]}</attribute>
                 </xpath>
                 <xpath expr="//footer/button[hasclass('print')]" position='attributes'>
-                    <attribute name="attrs">{'invisible': ['|', '|', '|', ('printed', '=', True), ('is_print', '=', False), ('snailmail_is_letter', '=', True), ('is_email', '=', True)]}</attribute>
+                    <attribute name="attrs">{'invisible': ['|', '|', ('is_print', '=', False), ('snailmail_is_letter', '=', True), ('is_email', '=', True)]}</attribute>
                 </xpath>
             </field>
         </record>

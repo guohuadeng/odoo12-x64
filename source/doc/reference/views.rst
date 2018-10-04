@@ -876,6 +876,9 @@ following attributes:
   the name of a field to use in the view. If used for grouping (rather
   than aggregating)
 
+``title`` (optional)
+  string displayed on the top of the graph.
+
 ``type``
   indicates whether the field should be used as a grouping criteria or as an
   aggregated value within a group. Possible values are:
@@ -957,6 +960,18 @@ sorted on the string of the field.
     which means that non-stored function fields can not be used in pivot views
 
 
+In Pivot view a ``field`` can have a ``widget`` attribute to dictate its format.
+The widget should be a field formatter, of which the most interesting are
+``date``, ``datetime``, ``float_time``, and ``monetary``.
+
+For instance a timesheet pivot view could be defined as::
+
+    <pivot string="Timesheet">
+        <field name="employee_id" type="row"/>
+        <field name="date" interval="month" type="col"/>
+        <field name="unit_amount" type="measure" widget="float_time"/>
+    </pivot>
+
 .. _reference/views/kanban:
 
 Kanban
@@ -967,6 +982,10 @@ The kanban view is a `kanban board`_ visualisation: it displays records as
 non-editable :ref:`form view <reference/views/form>`. Records may be grouped
 in columns for use in workflow visualisation or manipulation (e.g. tasks or
 work-progress management), or ungrouped (used simply to visualize records).
+
+.. note:: The kanban view will load and display a maximum of ten columns.
+          Any column after that will be closed (but can still be opened by
+          the user).
 
 The root element of the Kanban view is ``<kanban>``, it can use the following
 attributes:
@@ -986,6 +1005,9 @@ attributes:
   whether groups can be deleted via the context menu. Default: true.
 ``group_edit``
   whether groups can be edited via the context menu. Default: true.
+``archivable``
+  whether records belonging to a column can be archived / restored if an
+  ``active`` field is defined on the model. Default: true.
 ``quick_create``
   whether it should be possible to create records without switching to the
   form view. By default, ``quick_create`` is enabled when the Kanban view is
@@ -1275,7 +1297,7 @@ Possible children of the diagram view are:
     note's content. Each ``label`` is output as a paragraph in the diagram
     header, easily visible but without any special emphasis.
 
-.. _reference/views/search:
+.. _reference/views/dashboard:
 
 Dashboard
 =========
@@ -1415,6 +1437,11 @@ There are 5 possible type of tags in a dashboard view:
         Clicking on a clickable aggregate will change the measures used by the subviews
         and add the value of the domain attribute (if any) to the search view.
 
+    - ``value_label`` (optional)
+        A string put on the right of the aggregate value.
+        For example, it can be useful to indicate the unit of measure
+        of the aggregate value.
+
 ``formula``
     declares a derived value.  Formulas are values computed from aggregates.
 
@@ -1446,6 +1473,11 @@ There are 5 possible type of tags in a dashboard view:
     - ``help`` (optional)
         A help message to dipslay in a tooltip (equivalent of help for a field in python)
 
+    - ``value_label`` (optional)
+        A string put on the right of the formula value.
+        For example, it can be useful to indicate the unit of measure
+        of the formula value.
+
 ``widget``
     Declares a specialized widget to be used to display the information. This is
     a mechanism similar to the widgets in the form view.
@@ -1459,6 +1491,8 @@ There are 5 possible type of tags in a dashboard view:
     - ``col`` (optional)
         The number of columns spanned by this tag (only makes sense inside a
         group). By default, 1.
+
+.. _reference/views/cohort:
 
 Cohort
 =========
@@ -1519,6 +1553,35 @@ attributes:
 - ``measure`` (optional)
     A field that can be aggregated.  This field will be used to compute the values
     for each cell.  If not set, the cohort view will count the number of occurrences.
+
+.. _reference/views/activity:
+
+Activity
+========
+
+The Activity view is used to display the activities linked to the records. The
+data are displayed in a chart with the records forming the rows and the activity
+types the columns. When clicking on a cell, a detailed description of all
+activities of the same type for the record is displayed.
+
+.. warning::
+
+   The Activity view is only available when the ``mail`` module is installed,
+   and for the models that inherit from the ``mail.activity.mixin``.
+
+For example, here is a very simple Activity view:
+
+.. code-block:: xml
+
+    <activity string="Activities"/>
+
+The root element of the Activity view is <activity>, it accepts the following
+attributes:
+
+- ``string`` (mandatory)
+    A title, which should describe the view
+
+.. _reference/views/search:
 
 Search
 ======

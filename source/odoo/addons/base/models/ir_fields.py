@@ -34,6 +34,7 @@ class ConversionNotFound(ValueError):
 
 class IrFieldsConverter(models.AbstractModel):
     _name = 'ir.fields.converter'
+    _description = 'Fields Converter'
 
     @api.model
     def _format_import_error(self, error_type, error_msg, error_params=(), error_args=None):
@@ -336,7 +337,7 @@ class IrFieldsConverter(models.AbstractModel):
             else:
                 xmlid = "%s.%s" % (self._context.get('_import_current_module', ''), value)
             flush(xmlid)
-            id = getattr(self.env.ref(xmlid, raise_if_not_found=False), 'id', None)
+            id = self.env['ir.model.data'].xmlid_to_res_id(xmlid, raise_if_not_found=False) or None
         elif subfield is None:
             field_type = _(u"name")
             flush()

@@ -14,6 +14,15 @@ from odoo.tools import pycompat
 Image.preinit()
 Image._initialized = 2
 
+# Maps only the 6 first bits of the base64 data, accurate enough
+# for our purpose and faster than decoding the full blob first
+FILETYPE_BASE64_MAGICWORD = {
+    b'/': 'jpg',
+    b'R': 'gif',
+    b'i': 'png',
+    b'P': 'svg+xml',
+}
+
 # ----------------------------------------
 # Image resizing
 # ----------------------------------------
@@ -51,7 +60,10 @@ def image_resize_image(base64_source, size=(1024, 1024), encoding='base64', file
     """
     if not base64_source:
         return False
-    if size == (None, None):
+    # Return unmodified content if no resize or we etect first 6 bits of '<'
+    # (0x3C) for SVG documents - This will bypass XML files as well, but it's
+    # harmless for these purposes
+    if size == (None, None) or base64_source[:1] == b'P':
         return base64_source
     image_stream = io.BytesIO(codecs.decode(base64_source, encoding))
     image = Image.open(image_stream)
@@ -177,7 +189,7 @@ def image_resize_image_small(base64_source, size=(64, 64), encoding='base64', fi
 # ----------------------------------------
 # Crop Image
 # ----------------------------------------
-def crop_image(data, type='top', ratio=False, size=None, image_format="PNG"):
+def crop_image(data, type='top', ratio=False, size=None, image_format=None):
     """ Used for cropping image and create thumbnail
         :param data: base64 data of image.
         :param type: Used for cropping position possible
@@ -206,6 +218,7 @@ def crop_image(data, type='top', ratio=False, size=None, image_format="PNG"):
             new_h = h
             new_w = (h * w_ratio) // h_ratio
 
+    image_format = image_format or image_stream.format or 'JPEG'
     if type == "top":
         cropped_image = image_stream.crop((0, 0, new_w, new_h))
         cropped_image.save(output_stream, format=image_format)
@@ -219,6 +232,8 @@ def crop_image(data, type='top', ratio=False, size=None, image_format="PNG"):
         raise ValueError('ERROR: invalid value for crop_type')
     if size:
         thumbnail = Image.open(io.BytesIO(output_stream.getvalue()))
+        output_stream.truncate(0)
+        output_stream.seek(0)
         thumbnail.thumbnail(size, Image.ANTIALIAS)
         thumbnail.save(output_stream, image_format)
     return base64.b64encode(output_stream.getvalue())
@@ -306,6 +321,15 @@ def image_resize_images(vals, big_name='image', medium_name='image_medium', smal
     elif big_name in vals or medium_name in vals or small_name in vals:
         vals[big_name] = vals[medium_name] = vals[small_name] = False
 
+def image_data_uri(base64_source):
+    """This returns data URL scheme according RFC 2397
+    (https://tools.ietf.org/html/rfc2397) for all kind of supported images
+    (PNG, GIF, JPG and SVG), defaulting on PNG type if not mimetype detected.
+    """
+    return 'data:image/%s;base64,%s' % (
+        FILETYPE_BASE64_MAGICWORD.get(base64_source[:1], 'png'),
+        base64_source.decode(),
+    )
 
 if __name__=="__main__":
     import sys

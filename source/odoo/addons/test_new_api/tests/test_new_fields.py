@@ -749,6 +749,7 @@ class TestFields(common.TransactionCase):
         company0 = self.env.ref('base.main_company')
         company1 = self.env['res.company'].create({'name': 'A', 'parent_id': company0.id})
         company2 = self.env['res.company'].create({'name': 'B', 'parent_id': company1.id})
+
         # create one user per company
         user0 = self.env['res.users'].create({'name': 'Foo', 'login': 'foo',
                                               'company_id': company0.id, 'company_ids': []})
@@ -756,24 +757,44 @@ class TestFields(common.TransactionCase):
                                               'company_id': company1.id, 'company_ids': []})
         user2 = self.env['res.users'].create({'name': 'Baz', 'login': 'baz',
                                               'company_id': company2.id, 'company_ids': []})
-        # create a default value for the company-dependent field
-        field = self.env['ir.model.fields'].search([('model', '=', 'test_new_api.company'),
-                                                    ('name', '=', 'foo')])
-        self.env['ir.property'].create({'name': 'foo', 'fields_id': field.id,
+
+        # create values for many2one field
+        tag0 = self.env['test_new_api.multi.tag'].create({'name': 'Qux'})
+        tag1 = self.env['test_new_api.multi.tag'].create({'name': 'Quux'})
+        tag2 = self.env['test_new_api.multi.tag'].create({'name': 'Quuz'})
+
+        # create default values for the company-dependent fields
+        field_foo = self.env['ir.model.fields']._get('test_new_api.company', 'foo')
+        self.env['ir.property'].create({'name': 'foo', 'fields_id': field_foo.id,
                                         'value': 'default', 'type': 'char'})
+        field_tag_id = self.env['ir.model.fields']._get('test_new_api.company', 'tag_id')
+        self.env['ir.property'].create({'name': 'foo', 'fields_id': field_tag_id.id,
+                                        'value': tag0, 'type': 'many2one'})
 
         # create/modify a record, and check the value for each user
-        record = self.env['test_new_api.company'].create({'foo': 'main'})
+        record = self.env['test_new_api.company'].create({'foo': 'main', 'tag_id': tag1})
         record.invalidate_cache()
         self.assertEqual(record.sudo(user0).foo, 'main')
         self.assertEqual(record.sudo(user1).foo, 'default')
         self.assertEqual(record.sudo(user2).foo, 'default')
+        self.assertEqual(record.sudo(user0).tag_id, tag1)
+        self.assertEqual(record.sudo(user1).tag_id, tag0)
+        self.assertEqual(record.sudo(user2).tag_id, tag0)
 
-        record.sudo(user1).foo = 'alpha'
+        record.sudo(user1).write({'foo': 'alpha', 'tag_id': tag2.id})
         record.invalidate_cache()
         self.assertEqual(record.sudo(user0).foo, 'main')
         self.assertEqual(record.sudo(user1).foo, 'alpha')
         self.assertEqual(record.sudo(user2).foo, 'default')
+        self.assertEqual(record.sudo(user0).tag_id, tag1)
+        self.assertEqual(record.sudo(user1).tag_id, tag2)
+        self.assertEqual(record.sudo(user2).tag_id, tag0)
+
+        # unlink value of a many2one (tag2), and check again
+        tag2.unlink()
+        self.assertEqual(record.sudo(user0).tag_id, tag1)
+        self.assertEqual(record.sudo(user1).tag_id, tag0.browse())
+        self.assertEqual(record.sudo(user2).tag_id, tag0)
 
         # create company record and attribute
         company_record = self.env['test_new_api.company'].create({'foo': 'ABC'})
@@ -901,7 +922,7 @@ class TestFields(common.TransactionCase):
     def test_50_search_many2one(self):
         """ test search through a path of computed fields"""
         messages = self.env['test_new_api.message'].search(
-            [('author_partner.name', '=', 'Marc Brown')])
+            [('author_partner.name', '=', 'Marc Demo')])
         self.assertEqual(messages, self.env.ref('test_new_api.message_0_1'))
 
     def test_60_x2many_domain(self):
@@ -942,6 +963,96 @@ class TestFields(common.TransactionCase):
         self.assertEqual(len(discussion.messages), 5)
         self.assertEqual(len(discussion.important_messages), 2)
         self.assertEqual(len(discussion.very_important_messages), 2)
+
+    def test_80_copy(self):
+        Translations = self.env['ir.translation']
+        discussion = self.env.ref('test_new_api.discussion_0')
+        message = self.env.ref('test_new_api.message_0_0')
+        message1 = self.env.ref('test_new_api.message_0_1')
+
+        email = self.env.ref('test_new_api.emailmessage_0_0')
+        self.assertEqual(email.message, message)
+
+        french = self.env['res.lang']._lang_get('fr_FR')
+        french.active = True
+
+        def count(msg):
+            # return the number of translations of msg.label
+            return Translations.search_count([
+                ('name', '=', 'test_new_api.message,label'),
+                ('res_id', '=', msg.id),
+            ])
+
+        # set a translation for message.label
+        email.with_context(lang='fr_FR').label = "bonjour"
+        self.assertEqual(count(message), 1)
+        self.assertEqual(count(message1), 0)
+
+        # setting the parent record should not copy its translations
+        email.copy({'message': message1.id})
+        self.assertEqual(count(message), 1)
+        self.assertEqual(count(message1), 0)
+
+        # setting a one2many should not copy translations on the lines
+        discussion.copy({'messages': [(6, 0, message1.ids)]})
+        self.assertEqual(count(message), 1)
+        self.assertEqual(count(message1), 0)
+
+    def test_90_binary_svg(self):
+        from odoo.addons.base.tests.test_mimetypes import SVG
+        # This should work without problems
+        self.env['test_new_api.binary_svg'].create({
+            'name': 'Test without attachment',
+            'image_wo_attachment': SVG,
+        })
+        # And this gives error
+        with self.assertRaises(UserError):
+            self.env['test_new_api.binary_svg'].sudo(
+                self.env.ref('base.user_demo'),
+            ).create({
+                'name': 'Test without attachment',
+                'image_wo_attachment': SVG,
+            })
+
+    def test_91_binary_svg_attachment(self):
+        from odoo.addons.base.tests.test_mimetypes import SVG
+        # This doesn't neuter SVG with admin
+        record = self.env['test_new_api.binary_svg'].create({
+            'name': 'Test without attachment',
+            'image_attachment': SVG,
+        })
+        attachment = self.env['ir.attachment'].search([
+            ('res_model', '=', record._name),
+            ('res_field', '=', 'image_attachment'),
+            ('res_id', '=', record.id),
+        ])
+        self.assertEqual(attachment.mimetype, 'image/svg+xml')
+        # ...but this should be neutered with demo user
+        record = self.env['test_new_api.binary_svg'].sudo(
+            self.env.ref('base.user_demo'),
+        ).create({
+            'name': 'Test without attachment',
+            'image_attachment': SVG,
+        })
+        attachment = self.env['ir.attachment'].search([
+            ('res_model', '=', record._name),
+            ('res_field', '=', 'image_attachment'),
+            ('res_id', '=', record.id),
+        ])
+        self.assertEqual(attachment.mimetype, 'text/plain')
+
+    def test_92_binary_self_avatar_svg(self):
+        from odoo.addons.base.tests.test_mimetypes import SVG
+        demo_user = self.env.ref('base.user_demo')
+        # User demo changes his own avatar
+        demo_user.sudo(demo_user).image = SVG
+        # The SVG file should have been neutered
+        attachment = self.env['ir.attachment'].search([
+            ('res_model', '=', demo_user.partner_id._name),
+            ('res_field', '=', 'image'),
+            ('res_id', '=', demo_user.partner_id.id),
+        ])
+        self.assertEqual(attachment.mimetype, 'text/plain')
 
 
 class TestX2many(common.TransactionCase):

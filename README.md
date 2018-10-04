@@ -20,8 +20,8 @@ http://www.sunpop.cn/odoo-12-features-enhance-boost-from-11/
 使用pycharm搭建odoo 12, 11,10 开发调试环境
 http://www.sunpop.cn/odoo_12_11_10_dev_with_pycharm_setup/
 
-## odoo12 预览学习
-http://368760-master-8a7b0b.runbot11.odoo.com/web?debug=1
+## odoo12 在线演示学习，请注册
+http://demo.odooapp.cn
 
 ## 操作说明
 - 启动odoo：执行 r.bat后，访问 http://localhost:8012  或者  http://localhost

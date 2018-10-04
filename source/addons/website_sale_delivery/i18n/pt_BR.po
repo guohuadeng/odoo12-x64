@@ -3,20 +3,19 @@
 # * website_sale_delivery
 # 
 # Translators:
-# Luiz Carlos de Lima <luiz.carlos@akretion.com.br>, 2016
-# grazziano <gra.negocia@gmail.com>, 2016
-# Martin Trigaux, 2016
-# Mateus Lopes <mateus1@gmail.com>, 2016
-# danimaribeiro <danimaribeiro@gmail.com>, 2016
-# AlexSandro Cruz <alex@sapienzae.com.br>, 2016
-# Rui Andrada <shingonoide@gmail.com>, 2017
+# danimaribeiro <danimaribeiro@gmail.com>, 2018
+# Rui Andrada <shingonoide@gmail.com>, 2018
+# Martin Trigaux, 2018
+# Mateus Lopes <mateus1@gmail.com>, 2018
+# Luiz Carlos de Lima <luiz.carlos@akretion.com.br>, 2018
+# grazziano <gra.negocia@gmail.com>, 2018
 # Diego Bittencourt <diegomb86@gmail.com>, 2018
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server saas~11.4\n"
+"Project-Id-Version: Odoo Server saas~11.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-02 09:56+0000\n"
-"PO-Revision-Date: 2018-08-02 09:56+0000\n"
+"POT-Creation-Date: 2018-09-21 13:18+0000\n"
+"PO-Revision-Date: 2018-09-21 13:18+0000\n"
 "Last-Translator: Diego Bittencourt <diegomb86@gmail.com>, 2018\n"
 "Language-Team: Portuguese (Brazil) (https://www.transifex.com/odoo/teams/41243/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -26,10 +25,8 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #. module: website_sale_delivery
-#: model:ir.ui.view,arch_db:website_sale_delivery.payment_delivery
-msgid ""
-"<span class=\"badge pull-right o_delivery_compute\">Select to compute "
-"delivery rate</span>"
+#: model_terms:ir.ui.view,arch_db:website_sale_delivery.payment_delivery
+msgid "<b>Shipping Method: </b>"
 msgstr ""
 
 #. module: website_sale_delivery
@@ -41,12 +38,7 @@ msgid ""
 msgstr ""
 
 #. module: website_sale_delivery
-#: model:ir.model,name:website_sale_delivery.model_delivery_carrier
-msgid "Carrier"
-msgstr "Transportadora"
-
-#. module: website_sale_delivery
-#: model:ir.ui.view,arch_db:website_sale_delivery.payment_delivery
+#: model_terms:ir.ui.view,arch_db:website_sale_delivery.payment_delivery
 msgid "Choose a delivery method"
 msgstr ""
 
@@ -56,7 +48,7 @@ msgid "Country"
 msgstr "País"
 
 #. module: website_sale_delivery
-#: model:ir.ui.view,arch_db:website_sale_delivery.res_config_settings_view_form
+#: model_terms:ir.ui.view,arch_db:website_sale_delivery.res_config_settings_view_form
 msgid "DHL Delivery Methods"
 msgstr "Métodos de entrega da DHL"
 
@@ -66,28 +58,29 @@ msgid "Delivery Amount"
 msgstr "Montante de entrega"
 
 #. module: website_sale_delivery
+#: model:ir.model,name:website_sale_delivery.model_delivery_carrier
 #: model:ir.ui.menu,name:website_sale_delivery.menu_ecommerce_delivery
-#: model:ir.ui.view,arch_db:website_sale_delivery.res_config_settings_view_form
+#: model_terms:ir.ui.view,arch_db:website_sale_delivery.res_config_settings_view_form
 msgid "Delivery Methods"
 msgstr "Métodos de Entrega"
 
 #. module: website_sale_delivery
-#: model:ir.ui.view,arch_db:website_sale_delivery.cart_delivery
+#: model_terms:ir.ui.view,arch_db:website_sale_delivery.cart_delivery
 msgid "Delivery will be updated after choosing a new delivery method"
 msgstr ""
 
 #. module: website_sale_delivery
-#: model:ir.ui.view,arch_db:website_sale_delivery.cart_delivery
+#: model_terms:ir.ui.view,arch_db:website_sale_delivery.cart_delivery
 msgid "Delivery:"
 msgstr ""
 
 #. module: website_sale_delivery
-#: model:ir.ui.view,arch_db:website_sale_delivery.view_delivery_carrier_form_website_delivery
+#: model_terms:ir.ui.view,arch_db:website_sale_delivery.view_delivery_carrier_form_website_delivery
 msgid "Description"
 msgstr "Descrição"
 
 #. module: website_sale_delivery
-#: model:ir.ui.view,arch_db:website_sale_delivery.view_delivery_carrier_form_website_delivery
+#: model_terms:ir.ui.view,arch_db:website_sale_delivery.view_delivery_carrier_form_website_delivery
 msgid "Description displayed on the eCommerce and on online quotations."
 msgstr ""
 
@@ -97,17 +90,17 @@ msgid "Description for Online Quotations"
 msgstr "Descrição para Cotações On-line"
 
 #. module: website_sale_delivery
-#: model:ir.ui.view,arch_db:website_sale_delivery.res_config_settings_view_form
+#: model_terms:ir.ui.view,arch_db:website_sale_delivery.res_config_settings_view_form
 msgid "Easypost Delivery Methods"
 msgstr ""
 
 #. module: website_sale_delivery
-#: model:ir.ui.view,arch_db:website_sale_delivery.res_config_settings_view_form
+#: model_terms:ir.ui.view,arch_db:website_sale_delivery.res_config_settings_view_form
 msgid "FedEx Delivery Methods"
 msgstr ""
 
 #. module: website_sale_delivery
-#: model:ir.ui.view,arch_db:website_sale_delivery.payment_delivery
+#: model_terms:ir.ui.view,arch_db:website_sale_delivery.payment_delivery_methods
 msgid "Free"
 msgstr "Livre"
 
@@ -120,6 +113,11 @@ msgstr "Tem uma linha de pedido indicada para a entrega"
 #: model:ir.model.fields,field_description:website_sale_delivery.field_sale_order__has_delivery
 msgid "Has delivery"
 msgstr "Possui entrega"
+
+#. module: website_sale_delivery
+#: model:ir.model.fields,field_description:website_sale_delivery.field_delivery_carrier__is_published
+msgid "Is published"
+msgstr ""
 
 #. module: website_sale_delivery
 #: code:addons/website_sale_delivery/controllers/main.py:44
@@ -146,14 +144,24 @@ msgstr ""
 " para propósito de somas."
 
 #. module: website_sale_delivery
-#: model:ir.ui.view,arch_db:website_sale_delivery.view_delivery_carrier_search_inherit_website_sale_delivery
+#: model_terms:ir.ui.view,arch_db:website_sale_delivery.view_delivery_carrier_search_inherit_website_sale_delivery
 msgid "Published"
 msgstr "Publicado"
 
 #. module: website_sale_delivery
+#: model:ir.model.fields,help:website_sale_delivery.field_delivery_carrier__website_id
+msgid "Restrict publishing to this website."
+msgstr ""
+
+#. module: website_sale_delivery
 #: model:ir.model,name:website_sale_delivery.model_sale_order
-msgid "Quotation"
-msgstr "Cotação"
+msgid "Sale Order"
+msgstr "Pedido de Venda"
+
+#. module: website_sale_delivery
+#: model_terms:ir.ui.view,arch_db:website_sale_delivery.payment_delivery_methods
+msgid "Select to compute delivery rate"
+msgstr ""
 
 #. module: website_sale_delivery
 #: code:addons/website_sale_delivery/controllers/main.py:43
@@ -172,19 +180,24 @@ msgid "The full URL to access the document through the website."
 msgstr "A URL completa para acessar o documento através do site."
 
 #. module: website_sale_delivery
-#: model:ir.ui.view,arch_db:website_sale_delivery.portal_order_page_shipping_tracking
+#: model_terms:ir.ui.view,arch_db:website_sale_delivery.sale_order_portal_content_inherit_sale_stock_inherit_website_sale_delivery
 msgid "Tracking:"
 msgstr ""
 
 #. module: website_sale_delivery
-#: model:ir.ui.view,arch_db:website_sale_delivery.res_config_settings_view_form
+#: model_terms:ir.ui.view,arch_db:website_sale_delivery.res_config_settings_view_form
 msgid "USPS Delivery Methods"
 msgstr ""
 
 #. module: website_sale_delivery
 #: model:ir.model.fields,field_description:website_sale_delivery.field_delivery_carrier__website_published
-msgid "Visible in Website"
-msgstr "Visível no Website"
+msgid "Visible on current website"
+msgstr ""
+
+#. module: website_sale_delivery
+#: model:ir.model.fields,field_description:website_sale_delivery.field_delivery_carrier__website_id
+msgid "Website"
+msgstr "Site"
 
 #. module: website_sale_delivery
 #: model:ir.model.fields,field_description:website_sale_delivery.field_delivery_carrier__website_url
@@ -192,6 +205,6 @@ msgid "Website URL"
 msgstr "Website URL"
 
 #. module: website_sale_delivery
-#: model:ir.ui.view,arch_db:website_sale_delivery.res_config_settings_view_form
+#: model_terms:ir.ui.view,arch_db:website_sale_delivery.res_config_settings_view_form
 msgid "bpost Delivery Methods"
 msgstr ""

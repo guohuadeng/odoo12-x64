@@ -4,16 +4,13 @@
 # 
 # Translators:
 # Martin Trigaux, 2018
-# Otgonbayar.A <gobi.mn@gmail.com>, 2018
-# Batzul B <batzul.active@gmail.com>, 2018
-# Onii Onii <onii0223@yahoo.com>, 2018
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server saas~11.2\n"
+"Project-Id-Version: Odoo Server saas~11.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-22 14:10+0000\n"
-"PO-Revision-Date: 2018-03-22 14:10+0000\n"
-"Last-Translator: Onii Onii <onii0223@yahoo.com>, 2018\n"
+"POT-Creation-Date: 2018-09-21 13:17+0000\n"
+"PO-Revision-Date: 2018-09-21 13:17+0000\n"
+"Last-Translator: Martin Trigaux, 2018\n"
 "Language-Team: Mongolian (https://www.transifex.com/odoo/teams/41243/mn/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -37,19 +34,24 @@ msgid "Channel"
 msgstr "Суваг"
 
 #. module: bus
+#: model:ir.model,name:bus.model_bus_bus
+msgid "Communication Bus"
+msgstr ""
+
+#. module: bus
 #: model:ir.model,name:bus.model_res_partner
 msgid "Contact"
 msgstr "Холбох хаяг"
 
 #. module: bus
-#: model:ir.model.fields,field_description:bus.field_bus_bus__create_date
-msgid "Create date"
-msgstr "Үүсгэсэн огноо"
-
-#. module: bus
 #: model:ir.model.fields,field_description:bus.field_bus_bus__create_uid
 msgid "Created by"
 msgstr "Үүсгэгч"
+
+#. module: bus
+#: model:ir.model.fields,field_description:bus.field_bus_bus__create_date
+msgid "Created on"
+msgstr "Үүсгэсэн"
 
 #. module: bus
 #: model:ir.model.fields,field_description:bus.field_bus_bus__display_name
@@ -127,8 +129,3 @@ msgstr "Хэрэглэгчид"
 #, python-format
 msgid "bus.Bus not available in test mode"
 msgstr ""
-
-#. module: bus
-#: model:ir.model,name:bus.model_bus_bus
-msgid "bus.bus"
-msgstr "bus.bus"

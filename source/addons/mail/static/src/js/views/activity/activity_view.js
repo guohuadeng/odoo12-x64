@@ -13,13 +13,14 @@ var _lt = core._lt;
 var ActivityView = AbstractView.extend({
     accesskey: "a",
     display_name: _lt('Activity'),
-    icon: 'fa-clock-o',
+    icon: 'fa-th',
     config: _.extend({}, AbstractView.prototype.config, {
         Controller: ActivityController,
         Model: ActivityModel,
         Renderer: ActivityRenderer,
     }),
     viewType: 'activity',
+    groupable: false,
 });
 
 view_registry.add('activity', ActivityView);

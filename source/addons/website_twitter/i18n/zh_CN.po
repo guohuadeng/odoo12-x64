@@ -8,7 +8,7 @@
 # Maie <m@maie.name>, 2018
 # mrshelly <mrshelly@hotmail.com>, 2018
 # Jeffery CHEN Fan <jeffery9@gmail.com>, 2018
-# liAnGjiA <liangjia@qq.com>, 2018
+# 珠海-杜哥 <liangjia@qq.com>, 2018
 # Talway <9010446@qq.com>, 2018
 # Liping Wang <lynn.config@gmail.com>, 2018
 # e2f_cn c5 <jarvisn@ecinnovations.com>, 2018
@@ -18,8 +18,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server saas~11.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-24 09:05+0000\n"
-"PO-Revision-Date: 2018-08-24 09:05+0000\n"
+"POT-Creation-Date: 2018-09-21 13:18+0000\n"
+"PO-Revision-Date: 2018-09-21 13:18+0000\n"
 "Last-Translator: e2f_cn r14 <e2f_cn_r14@outlook.com>, 2018\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/odoo/teams/41243/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -29,44 +29,57 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #. module: website_twitter
-#: model:ir.ui.view,arch_db:website_twitter.res_config_settings_view_form
-msgid "<span class=\"o_form_label\">Twitter Roller</span>"
+#: model_terms:ir.ui.view,arch_db:website_twitter.res_config_settings_view_form
+msgid ""
+"<i class=\"fa fa-arrow-right\"/>\n"
+"                                Show me how to obtain the Twitter API key and Twitter API secret"
 msgstr ""
+"<i class=\"fa fa-arrow-right\"/>\n"
+"                                展示如何获取Twitter API密钥和Twitter API密钥"
 
 #. module: website_twitter
-#: model:ir.ui.view,arch_db:website_twitter.res_config_settings_view_form
+#: model_terms:ir.ui.view,arch_db:website_twitter.res_config_settings_view_form
+msgid ""
+"<span class=\"o_form_label\">Twitter Roller</span>\n"
+"                        <span class=\"fa fa-lg fa-globe\" title=\"Values set here are website-specific.\" groups=\"website.group_multi_website\"/>"
+msgstr ""
+"<span class=\"o_form_label\">Twitter Roller</span>\n"
+"                        <span class=\"fa fa-lg fa-globe\" title=\"Values set here are website-specific.\" groups=\"website.group_multi_website\"/>"
+
+#. module: website_twitter
+#: model_terms:ir.ui.view,arch_db:website_twitter.res_config_settings_view_form
 msgid "<strong>Callback URL: </strong>Leave blank"
 msgstr ""
 
 #. module: website_twitter
-#: model:ir.ui.view,arch_db:website_twitter.res_config_settings_view_form
+#: model_terms:ir.ui.view,arch_db:website_twitter.res_config_settings_view_form
 msgid "<strong>Description: </strong> Odoo Twitter Integration"
 msgstr ""
 
 #. module: website_twitter
-#: model:ir.ui.view,arch_db:website_twitter.res_config_settings_view_form
+#: model_terms:ir.ui.view,arch_db:website_twitter.res_config_settings_view_form
 msgid "<strong>Name: </strong> Odoo Twitter Integration"
 msgstr ""
 
 #. module: website_twitter
-#: model:ir.ui.view,arch_db:website_twitter.res_config_settings_view_form
+#: model_terms:ir.ui.view,arch_db:website_twitter.res_config_settings_view_form
 msgid "<strong>Website: </strong>"
 msgstr "<strong>网站: </strong>"
 
 #. module: website_twitter
 #: model:ir.model.fields,field_description:website_twitter.field_res_config_settings__twitter_api_key
-#: model:ir.ui.view,arch_db:website_twitter.res_config_settings_view_form
+#: model_terms:ir.ui.view,arch_db:website_twitter.res_config_settings_view_form
 msgid "API Key"
 msgstr "API Key"
 
 #. module: website_twitter
 #: model:ir.model.fields,field_description:website_twitter.field_res_config_settings__twitter_api_secret
-#: model:ir.ui.view,arch_db:website_twitter.res_config_settings_view_form
+#: model_terms:ir.ui.view,arch_db:website_twitter.res_config_settings_view_form
 msgid "API secret"
 msgstr "API 密钥"
 
 #. module: website_twitter
-#: model:ir.ui.view,arch_db:website_twitter.res_config_settings_view_form
+#: model_terms:ir.ui.view,arch_db:website_twitter.res_config_settings_view_form
 msgid ""
 "Accept terms of use and click on the Create your Twitter application button "
 "at the bottom"
@@ -81,14 +94,19 @@ msgid ""
 msgstr "身份验证证明丢失或者错误。可能是屏幕名称推文被保护。"
 
 #. module: website_twitter
-#: model:ir.ui.view,arch_db:website_twitter.res_config_settings_view_form
+#: model:ir.model,name:website_twitter.model_res_config_settings
+msgid "Config Settings"
+msgstr "配置设定"
+
+#. module: website_twitter
+#: model_terms:ir.ui.view,arch_db:website_twitter.res_config_settings_view_form
 msgid ""
 "Copy/Paste Consumer Key (API Key) and Consumer Secret (API Secret) keys "
 "below."
 msgstr ""
 
 #. module: website_twitter
-#: model:ir.ui.view,arch_db:website_twitter.res_config_settings_view_form
+#: model_terms:ir.ui.view,arch_db:website_twitter.res_config_settings_view_form
 msgid "Create a new Twitter application on"
 msgstr "创建新的Twitter应用程序"
 
@@ -109,7 +127,7 @@ msgstr "显示名称"
 
 #. module: website_twitter
 #: model:ir.model.fields,field_description:website_twitter.field_res_config_settings__twitter_screen_name
-#: model:ir.ui.view,arch_db:website_twitter.res_config_settings_view_form
+#: model_terms:ir.ui.view,arch_db:website_twitter.res_config_settings_view_form
 msgid "Favorites From"
 msgstr "收藏来源"
 
@@ -125,7 +143,7 @@ msgid "HTTP Error: Something is misconfigured"
 msgstr "HTTP错误：某些配置错误。"
 
 #. module: website_twitter
-#: model:ir.ui.view,arch_db:website_twitter.res_config_settings_view_form
+#: model_terms:ir.ui.view,arch_db:website_twitter.res_config_settings_view_form
 msgid "How to configure the Twitter API access"
 msgstr "如何设置 Twitter API"
 
@@ -168,7 +186,7 @@ msgstr "请再次确认你的Twiiter API 密钥和秘密!"
 msgid ""
 "Please set a Twitter screen name to load favorites from, in the Website "
 "Settings (it does not have to be yours)"
-msgstr "请为一个网站设置的推特屏幕名称来上载你的喜好（它不必是你自己的）"
+msgstr "将推特地址添加到收藏夹中（可以非本人）"
 
 #. module: website_twitter
 #: code:addons/website_twitter/controllers/main.py:23
@@ -204,12 +222,7 @@ msgid ""
 msgstr "你想从中上载的喜好推特账号的屏幕名称。它不必与 API 密钥/秘密相匹配。"
 
 #. module: website_twitter
-#: model:ir.ui.view,arch_db:website_twitter.res_config_settings_view_form
-msgid "Show me how to obtain the Twitter API key and Twitter API secret"
-msgstr ""
-
-#. module: website_twitter
-#: model:ir.ui.view,arch_db:website_twitter.res_config_settings_view_form
+#: model_terms:ir.ui.view,arch_db:website_twitter.res_config_settings_view_form
 msgid "Switch to the API Keys tab: <br/>"
 msgstr "切换到API密钥选项："
 
@@ -261,7 +274,7 @@ msgid "Tweets"
 msgstr "Tweets"
 
 #. module: website_twitter
-#: model:ir.ui.view,arch_db:website_twitter.res_config_settings_view_form
+#: model_terms:ir.ui.view,arch_db:website_twitter.res_config_settings_view_form
 msgid "Twitter API Credentials"
 msgstr "Twitter API 凭据"
 
@@ -273,7 +286,7 @@ msgstr "Twitter API 密钥"
 #. module: website_twitter
 #: model:ir.model.fields,help:website_twitter.field_website__twitter_api_secret
 msgid "Twitter API Secret"
-msgstr "Twitter API 秘密"
+msgstr "Twitter API 密钥"
 
 #. module: website_twitter
 #: model:ir.model.fields,field_description:website_twitter.field_website__twitter_api_key
@@ -288,7 +301,7 @@ msgstr "您可以通过 https://apps.twitter.com/ 获取 Twitter API 密钥"
 #. module: website_twitter
 #: model:ir.model.fields,field_description:website_twitter.field_website__twitter_api_secret
 msgid "Twitter API secret"
-msgstr "Twitter API 秘密"
+msgstr "Twitter API 密钥"
 
 #. module: website_twitter
 #: model:ir.model.fields,help:website_twitter.field_res_config_settings__twitter_api_secret
@@ -328,7 +341,7 @@ msgid "Twitter server uri"
 msgstr ""
 
 #. module: website_twitter
-#: model:ir.ui.view,arch_db:website_twitter.res_config_settings_view_form
+#: model_terms:ir.ui.view,arch_db:website_twitter.res_config_settings_view_form
 msgid "Twitter tutorial"
 msgstr ""
 
@@ -368,26 +381,21 @@ msgid "Website"
 msgstr "网站"
 
 #. module: website_twitter
-#: model:ir.ui.view,arch_db:website_twitter.res_config_settings_view_form
+#: model:ir.model,name:website_twitter.model_website_twitter_tweet
+msgid "Website Twitter"
+msgstr ""
+
+#. module: website_twitter
+#: model_terms:ir.ui.view,arch_db:website_twitter.res_config_settings_view_form
 msgid "api_key.png"
 msgstr ""
 
 #. module: website_twitter
-#: model:ir.ui.view,arch_db:website_twitter.res_config_settings_view_form
+#: model_terms:ir.ui.view,arch_db:website_twitter.res_config_settings_view_form
 msgid "https://apps.twitter.com/app/new"
 msgstr "https://apps.twitter.com/app/new"
 
 #. module: website_twitter
-#: model:ir.model,name:website_twitter.model_res_config_settings
-msgid "res.config.settings"
-msgstr "设置-基础设置"
-
-#. module: website_twitter
-#: model:ir.model,name:website_twitter.model_website_twitter_tweet
-msgid "website.twitter.tweet"
-msgstr "website.twitter.tweet"
-
-#. module: website_twitter
-#: model:ir.ui.view,arch_db:website_twitter.res_config_settings_view_form
+#: model_terms:ir.ui.view,arch_db:website_twitter.res_config_settings_view_form
 msgid "with the following values:"
 msgstr "用下列值:"

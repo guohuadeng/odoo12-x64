@@ -3,22 +3,14 @@
 # * base_sparse_field
 # 
 # Translators:
-# Martin Trigaux, 2017
-# Tina Rittmüller <tr@ife.de>, 2017
-# Niki Waibel, 2017
-# darenkster <inactive+darenkster@transifex.com>, 2017
-# Henry Mineehen <info@mineehen.de>, 2017
-# Renzo Meister, 2017
-# Wolfgang Taferner, 2017
-# e2f <projects@e2f.com>, 2018
-# Katharina Moritz <kmo@e2f.com>, 2018
+# Martin Trigaux, 2018
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server saas~11.4\n"
+"Project-Id-Version: Odoo Server saas~11.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-02 09:55+0000\n"
-"PO-Revision-Date: 2018-08-02 09:55+0000\n"
-"Last-Translator: Katharina Moritz <kmo@e2f.com>, 2018\n"
+"POT-Creation-Date: 2018-09-21 13:17+0000\n"
+"PO-Revision-Date: 2018-09-21 13:17+0000\n"
+"Last-Translator: Martin Trigaux, 2018\n"
 "Language-Team: German (https://www.transifex.com/odoo/teams/41243/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -146,6 +138,11 @@ msgid "Serialization field `%s` not found for sparse field `%s`!"
 msgstr "Serialisierungsfeld `%s` für Ersatzfeld `%s` nicht  gefunden!"
 
 #. module: base_sparse_field
+#: model:ir.model,name:base_sparse_field.model_sparse_fields_test
+msgid "Sparse fields Test"
+msgstr ""
+
+#. module: base_sparse_field
 #: selection:sparse_fields.test,selection:0
 msgid "Two"
 msgstr "Zwei"
@@ -224,11 +221,6 @@ msgstr "Auswahl"
 #: selection:ir.model.fields,ttype:0
 msgid "serialized"
 msgstr ""
-
-#. module: base_sparse_field
-#: model:ir.model,name:base_sparse_field.model_sparse_fields_test
-msgid "sparse_fields.test"
-msgstr "sparse_fields.test"
 
 #. module: base_sparse_field
 #: selection:ir.model.fields,ttype:0

@@ -85,7 +85,7 @@ class PurchaseOrder(models.Model):
     date_order = fields.Datetime('Order Date', required=True, states=READONLY_STATES, index=True, copy=False, default=fields.Datetime.now,\
         help="Depicts the date where the Quotation should be validated and converted into a purchase order.")
     date_approve = fields.Date('Approval Date', readonly=1, index=True, copy=False)
-    partner_id = fields.Many2one('res.partner', string='Vendor', required=True, states=READONLY_STATES, change_default=True, track_visibility='always')
+    partner_id = fields.Many2one('res.partner', string='Vendor', required=True, states=READONLY_STATES, change_default=True, track_visibility='always', help="You can find a vendor by its Name, TIN, Email or Internal Reference.")
     dest_address_id = fields.Many2one('res.partner', string='Drop Ship Address', states=READONLY_STATES,
         help="Put an address if you want to deliver directly from the vendor to the customer. "
              "Otherwise, keep empty to deliver to your own company.")
@@ -121,7 +121,7 @@ class PurchaseOrder(models.Model):
     payment_term_id = fields.Many2one('account.payment.term', 'Payment Terms')
     incoterm_id = fields.Many2one('account.incoterms', 'Incoterm', states={'done': [('readonly', True)]}, help="International Commercial Terms are a series of predefined commercial terms used in international transactions.")
 
-    product_id = fields.Many2one('product.product', related='order_line.product_id', string='Product')
+    product_id = fields.Many2one('product.product', related='order_line.product_id', string='Product', readonly=False)
     user_id = fields.Many2one('res.users', string='Purchase Representative', index=True, track_visibility='onchange', default=lambda self: self.env.user)
     company_id = fields.Many2one('res.company', 'Company', required=True, index=True, states=READONLY_STATES, default=lambda self: self.env.user.company_id.id)
 
@@ -368,7 +368,7 @@ class PurchaseOrder(models.Model):
         '''
         action = self.env.ref('account.action_vendor_bill_template')
         result = action.read()[0]
-
+        create_bill = self.env.context.get('create_bill', False)
         # override the context to get rid of the default filtering
         result['context'] = {
             'type': 'in_invoice',
@@ -378,16 +378,14 @@ class PurchaseOrder(models.Model):
             'company_id': self.company_id.id
         }
         # choose the view_mode accordingly
-        if len(self.invoice_ids) != 1:
+        if len(self.invoice_ids) > 1 and not create_bill:
             result['domain'] = "[('id', 'in', " + str(self.invoice_ids.ids) + ")]"
-        elif len(self.invoice_ids) == 1:
+        else:
             res = self.env.ref('account.invoice_supplier_form', False)
             result['views'] = [(res and res.id or False, 'form')]
-            result['res_id'] = self.invoice_ids.id
-
-        # complete the help tooltip
-        new_help = self.env['account.invoice'].complete_empty_list_help()
-        result['help'] = result.get('help', '') + new_help
+            # Do not set an invoice_id if we want to create a new bill.
+            if not create_bill:
+                result['res_id'] = self.invoice_ids.id or False
         return result
 
     @api.multi
@@ -410,7 +408,7 @@ class PurchaseOrderLine(models.Model):
     product_uom = fields.Many2one('uom.uom', string='Product Unit of Measure', required=True)
     product_id = fields.Many2one('product.product', string='Product', domain=[('purchase_ok', '=', True)], change_default=True, required=True)
     product_image = fields.Binary(
-        'Product Image', related="product_id.image",
+        'Product Image', related="product_id.image", readonly=False,
         help="Non-stored related field to allow portal user to see the image of the product he has ordered")
     product_type = fields.Selection(related='product_id.type', readonly=True)
     price_unit = fields.Float(string='Unit Price', required=True, digits=dp.get_precision('Product Price'))
@@ -423,13 +421,13 @@ class PurchaseOrderLine(models.Model):
     account_analytic_id = fields.Many2one('account.analytic.account', string='Analytic Account')
     analytic_tag_ids = fields.Many2many('account.analytic.tag', string='Analytic Tags')
     company_id = fields.Many2one('res.company', related='order_id.company_id', string='Company', store=True, readonly=True)
-    state = fields.Selection(related='order_id.state', store=True)
+    state = fields.Selection(related='order_id.state', store=True, readonly=False)
 
     invoice_lines = fields.One2many('account.invoice.line', 'purchase_line_id', string="Bill Lines", readonly=True, copy=False)
 
     # Replace by invoiced Qty
     qty_invoiced = fields.Float(compute='_compute_qty_invoiced', string="Billed Qty", digits=dp.get_precision('Product Unit of Measure'), store=True)
-    qty_received = fields.Float(string="Received Qty", digits=dp.get_precision('Product Unit of Measure'))
+    qty_received = fields.Float(string="Received Qty", digits=dp.get_precision('Product Unit of Measure'), copy=False)
 
     partner_id = fields.Many2one('res.partner', related='order_id.partner_id', string='Partner', readonly=True, store=True)
     currency_id = fields.Many2one(related='order_id.currency_id', store=True, string='Currency', readonly=True)

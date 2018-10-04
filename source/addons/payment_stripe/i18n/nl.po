@@ -3,18 +3,14 @@
 # * payment_stripe
 # 
 # Translators:
-# Yenthe Van Ginneken <yenthespam@gmail.com>, 2016
-# Cas Vissers <casvissers@brahoo.nl>, 2017
-# Erwin van der Ploeg <erwin@odooexperts.nl>, 2017
 # Martin Trigaux, 2018
-# Eric Geens <ericgeens@yahoo.com>, 2018
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server saas~11.4\n"
+"Project-Id-Version: Odoo Server saas~11.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-02 09:56+0000\n"
-"PO-Revision-Date: 2018-08-02 09:56+0000\n"
-"Last-Translator: Eric Geens <ericgeens@yahoo.com>, 2018\n"
+"POT-Creation-Date: 2018-09-21 13:17+0000\n"
+"PO-Revision-Date: 2018-09-21 13:17+0000\n"
+"Last-Translator: Martin Trigaux, 2018\n"
 "Language-Team: Dutch (https://www.transifex.com/odoo/teams/41243/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,7 +20,7 @@ msgstr ""
 
 #. module: payment_stripe
 #. openerp-web
-#: code:addons/payment_stripe/static/src/xml/stripe_templates.xml:8
+#: code:addons/payment_stripe/static/src/xml/stripe_templates.xml:9
 #, python-format
 msgid "&times;"
 msgstr "&times;"
@@ -56,17 +52,17 @@ msgid "Buckaroo"
 msgstr "Buckaroo"
 
 #. module: payment_stripe
-#: model:ir.ui.view,arch_db:payment_stripe.stripe_s2s_form
+#: model_terms:ir.ui.view,arch_db:payment_stripe.stripe_s2s_form
 msgid "CVC"
 msgstr "CVC"
 
 #. module: payment_stripe
-#: model:ir.ui.view,arch_db:payment_stripe.stripe_s2s_form
+#: model_terms:ir.ui.view,arch_db:payment_stripe.stripe_s2s_form
 msgid "Card number"
 msgstr "Kaartnummer"
 
 #. module: payment_stripe
-#: model:ir.ui.view,arch_db:payment_stripe.stripe_s2s_form
+#: model_terms:ir.ui.view,arch_db:payment_stripe.stripe_s2s_form
 msgid "Cardholder name"
 msgstr "Kaarthouder naam"
 
@@ -84,13 +80,13 @@ msgstr "Sluiten"
 
 #. module: payment_stripe
 #. openerp-web
-#: code:addons/payment_stripe/static/src/xml/stripe_templates.xml:9
+#: code:addons/payment_stripe/static/src/xml/stripe_templates.xml:8
 #, python-format
 msgid "Error"
 msgstr "Fout"
 
 #. module: payment_stripe
-#: model:ir.ui.view,arch_db:payment_stripe.stripe_s2s_form
+#: model_terms:ir.ui.view,arch_db:payment_stripe.stripe_s2s_form
 msgid "Expires (MM / YY)"
 msgstr "Vervalt (MM / JJ)"
 
@@ -122,6 +118,11 @@ msgid "Payment Acquirer"
 msgstr "Betaling verwerver"
 
 #. module: payment_stripe
+#: model:ir.model,name:payment_stripe.model_payment_token
+msgid "Payment Token"
+msgstr "Betalingstoken"
+
+#. module: payment_stripe
 #: model:ir.model,name:payment_stripe.model_payment_transaction
 msgid "Payment Transaction"
 msgstr "Betalingstransactie"
@@ -139,7 +140,7 @@ msgid "Paypal"
 msgstr "Paypal"
 
 #. module: payment_stripe
-#: code:addons/payment_stripe/models/payment.py:175
+#: code:addons/payment_stripe/models/payment.py:174
 #, python-format
 msgid ""
 "Perhaps the problem can be solved by double-checking your credit card "
@@ -174,26 +175,26 @@ msgid "Stripe Secret Key"
 msgstr "Stripe geheime sleutel"
 
 #. module: payment_stripe
-#: code:addons/payment_stripe/models/payment.py:173
+#: code:addons/payment_stripe/models/payment.py:172
 #, python-format
 msgid "Stripe gave us the following info about the problem: '%s'"
 msgstr ""
 "Stripe heeft ons de volgende informatie gegeven over het probleem: '%s'"
 
 #. module: payment_stripe
-#: code:addons/payment_stripe/models/payment.py:185
+#: code:addons/payment_stripe/models/payment.py:184
 #, python-format
 msgid "Stripe: %s orders found for reference %s"
 msgstr "Stripe: %s orders gevonden voor referentie %s"
 
 #. module: payment_stripe
-#: code:addons/payment_stripe/models/payment.py:181
+#: code:addons/payment_stripe/models/payment.py:180
 #, python-format
 msgid "Stripe: no order found for reference %s"
 msgstr "Stripe: geen order gevonden voor referentie %s"
 
 #. module: payment_stripe
-#: code:addons/payment_stripe/models/payment.py:171
+#: code:addons/payment_stripe/models/payment.py:170
 #, python-format
 msgid "We're sorry to report that the transaction has failed."
 msgstr "Het spijt ons dat we moeten rapporteren dat de transactie mislukt is."
@@ -202,8 +203,3 @@ msgstr "Het spijt ons dat we moeten rapporteren dat de transactie mislukt is."
 #: selection:payment.acquirer,provider:0
 msgid "Wire Transfer"
 msgstr "Overschrijving"
-
-#. module: payment_stripe
-#: model:ir.model,name:payment_stripe.model_payment_token
-msgid "payment.token"
-msgstr "payment.token"

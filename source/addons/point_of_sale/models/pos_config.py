@@ -37,6 +37,7 @@ class AccountBankStmtCashWizard(models.Model):
 
 class PosConfig(models.Model):
     _name = 'pos.config'
+    _description = 'Point of Sale Configuration'
 
     def _default_sale_journal(self):
         journal = self.env.ref('point_of_sale.pos_sale_journal', raise_if_not_found=False)
@@ -70,7 +71,7 @@ class PosConfig(models.Model):
         'pos_config_id', 'journal_id', string='Available Payment Methods',
         domain="[('journal_user', '=', True ), ('type', 'in', ['bank', 'cash'])]",)
     picking_type_id = fields.Many2one('stock.picking.type', string='Operation Type')
-    use_existing_lots = fields.Boolean(related='picking_type_id.use_existing_lots')
+    use_existing_lots = fields.Boolean(related='picking_type_id.use_existing_lots', readonly=False)
     stock_location_id = fields.Many2one(
         'stock.location', string='Stock Location',
         domain=[('usage', '=', 'internal')], required=True, default=_get_default_location)
@@ -271,7 +272,7 @@ class PosConfig(models.Model):
     def _onchange_use_pricelist(self):
         """
         If the 'pricelist' box is unchecked, we reset the pricelist_id to stop
-        using a pricelist for this posbox. 
+        using a pricelist for this iotbox.
         """
         if not self.use_pricelist:
             self.pricelist_id = self._default_pricelist()
@@ -291,7 +292,7 @@ class PosConfig(models.Model):
     @api.onchange('barcode_scanner')
     def _onchange_barcode_scanner(self):
         if self.barcode_scanner:
-            self.barcode_nomenclature_id = self.env['barcode.nomenclature'].search([], limit=1)
+            self.barcode_nomenclature_id = self.env.user.company_id.nomenclature_id
         else:
             self.barcode_nomenclature_id = False
 
@@ -437,11 +438,6 @@ class PosConfig(models.Model):
         """
         self.ensure_one()
         if not self.current_session_id:
-            self._check_company_location()
-            self._check_company_journal()
-            self._check_company_invoice_journal()
-            self._check_company_payment()
-            self._check_currencies()
             self.current_session_id = self.env['pos.session'].create({
                 'user_id': self.env.uid,
                 'config_id': self.id

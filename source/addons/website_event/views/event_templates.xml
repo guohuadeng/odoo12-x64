@@ -19,7 +19,7 @@
 <template id="index" name="Events">
     <t t-call="website.layout">
       <div id="wrap">
-        <div class="oe_structure"/>
+        <div class="oe_structure" id="oe_structure_website_event_index_1"/>
         <div class="container">
             <div class="row mt8">
                 <div class="col-md-12">
@@ -83,7 +83,7 @@
                 </div>
             </div>
         </div>
-        <div class="oe_structure"/>
+        <div class="oe_structure" id="oe_structure_website_event_index_2"/>
       </div>
     </t>
 </template>
@@ -220,7 +220,8 @@
                     <ol name="Event Menu" class="breadcrumb mb0" id="event_menu" t-if="event.menu_id" t-att-data-content_menu_id="editable and event.menu_id.id">
                         <t t-foreach="event.menu_id.child_id" t-as="submenu">
                             <t t-call="website.submenu">
-                                <t t-set="submenu_type" t-value="'breadcrumb'"/>
+                                <t t-set="item_class" t-value="'breadcrumb-item'"/>
+                                <t t-set="link_class" t-value="None"/>
                             </t>
                         </t>
                     </ol>
@@ -228,14 +229,14 @@
             </div>
         </div>
         <t t-raw="0"/>
-        <div class="oe_structure"/>
+        <div class="oe_structure" id="oe_structure_website_event_layout_1"/>
       </div>
     </t>
 </template>
 
 <template id="template_location">
     <t t-call="website_event.layout">
-        <div class="oe_structure"/>
+        <div class="oe_structure" id="oe_structure_website_event_location_1"/>
         <section class="container">
             <h1 class="text-center">Event Location</h1>
         </section>
@@ -244,7 +245,7 @@
                 "widget": "contact",
                 "fields": ["name", "address", "phone", "mobile"]
             }'/>
-        <div class="oe_structure"/>
+        <div class="oe_structure" id="oe_structure_website_event_location_2"/>
     </t>
 </template>
 
@@ -253,7 +254,7 @@
         <section class="container">
             <h1 class="text-center">Event Introduction</h1>
         </section>
-        <div class="oe_structure oe_empty"/>
+        <div class="oe_structure oe_empty" id="oe_structure_website_event_intro_1"/>
     </t>
 </template>
 
@@ -267,7 +268,7 @@
 <template id="event_details">
     <t t-call="website_event.layout">
         <div itemscope="itemscope" itemtype="http://schema.org/Event" class="container">
-            <h1 itemprop="name" class="text-center" t-field="event.name"></h1>
+            <h1 itemprop="name" class="text-center mt-3 mb-2" t-field="event.name"></h1>
             <div class="text-center">
                 <small t-if="event.is_participating" class="badge badge-info">Participating</small>
             </div>
@@ -519,7 +520,7 @@
                             <t t-set="counter_type" t-value="1"/>
                             <t t-set="counter" t-value="0"/>
                             <t t-foreach="tickets" t-as="ticket">
-                                <h4 class="page-header mt16">
+                                <h4 class="o_page_header mt16">
                                     <strong>
                                         Ticket Type #<t t-raw="counter_type"/>: <t t-esc="ticket['name']"/>
                                         <t t-if="ticket['price'] == 0">(Free)</t>
@@ -697,9 +698,12 @@
 
 
 <!-- User Navbar -->
-<template id="content_new_event" inherit_id="website.user_navbar">
-    <xpath expr="//div[@id='o_new_content_menu_choices']//ul" position="inside">
-        <li groups="event.group_event_manager"><a href="#" data-action="new_event"><i class="fa fa-glass"/><p>New Event</p></a></li>
+<template id="user_navbar_inherit_website_event" inherit_id="website.user_navbar">
+    <xpath expr="//div[@id='o_new_content_menu_choices']//div[@name='module_website_event']" position="attributes">
+        <attribute name="name"/>
+        <attribute name="t-att-data-module-id"/>
+        <attribute name="t-att-data-module-shortdesc"/>
+        <attribute name="groups">event.group_event_manager</attribute>
     </xpath>
 </template>
 </odoo>

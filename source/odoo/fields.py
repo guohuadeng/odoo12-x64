@@ -10,6 +10,7 @@ from functools import partial
 from operator import attrgetter
 import itertools
 import logging
+import base64
 
 import pytz
 
@@ -27,6 +28,7 @@ from .tools import float_repr, float_round, frozendict, html_sanitize, human_siz
 from .tools import DEFAULT_SERVER_DATE_FORMAT as DATE_FORMAT
 from .tools import DEFAULT_SERVER_DATETIME_FORMAT as DATETIME_FORMAT
 from .tools.translate import html_translate, _
+from .tools.mimetypes import guess_mimetype
 
 DATE_LENGTH = len(date.today().strftime(DATE_FORMAT))
 DATETIME_LENGTH = len(datetime.now().strftime(DATETIME_FORMAT))
@@ -421,6 +423,7 @@ class Field(MetaField('DummyField', (object,), {})):
             # by default, related fields are not stored and not copied
             attrs['store'] = attrs.get('store', False)
             attrs['copy'] = attrs.get('copy', False)
+            attrs['readonly'] = attrs.get('readonly', True)
         if attrs.get('company_dependent'):
             # by default, company-dependent fields are not stored and not copied
             attrs['store'] = False
@@ -621,7 +624,6 @@ class Field(MetaField('DummyField', (object,), {})):
     _related_comodel_name = property(attrgetter('comodel_name'))
     _related_string = property(attrgetter('string'))
     _related_help = property(attrgetter('help'))
-    _related_readonly = property(attrgetter('readonly'))
     _related_groups = property(attrgetter('groups'))
     _related_group_operator = property(attrgetter('group_operator'))
 
@@ -1681,6 +1683,8 @@ class Datetime(Field):
             return None
         if isinstance(value, date):
             if isinstance(value, datetime):
+                if value.tzinfo:
+                    raise ValueError("Datetime field expects a naive datetime: %s" % value)
                 return value
             return datetime.combine(value, time.min)
         try:
@@ -1750,9 +1754,20 @@ class Binary(Field):
         # on purpose - non base64 data must be passed as a 8bit byte strings.
         if not value:
             return None
+        # Detect if the binary content is an SVG for restricting its upload
+        # only to system users.
+        if value[:1] == b'P':  # Fast detection of first 6 bits of '<' (0x3C)
+            decoded_value = base64.b64decode(value)
+            # Full mimetype detection
+            if (guess_mimetype(decoded_value).startswith('image/svg') and
+                    not record.env.user._is_system()):
+                raise UserError(_("Only admins can upload SVG files."))
         if isinstance(value, bytes):
             return psycopg2.Binary(value)
-        return psycopg2.Binary(pycompat.text_type(value).encode('ascii'))
+        try:
+            return psycopg2.Binary(pycompat.text_type(value).encode('ascii'))
+        except UnicodeEncodeError:
+            raise UserError(_("ASCII characters are required for %s in %s") % (value, self.name))
 
     def convert_to_cache(self, value, record, validate=True):
         if isinstance(value, _BINARY):
@@ -1788,7 +1803,9 @@ class Binary(Field):
         # create the attachments that store the values
         env = record_values[0][0].env
         with env.norecompute():
-            env['ir.attachment'].sudo().create([{
+            env['ir.attachment'].sudo().with_context(
+                binary_field_real_user=env.user,
+            ).create([{
                     'name': self.name,
                     'res_model': self.model_name,
                     'res_field': self.name,
@@ -2153,8 +2170,12 @@ class _RelationalMulti(_Relational):
         cache = records.env.cache
         for record in records:
             if cache.contains(record, self):
-                val = self.convert_to_cache(record[self.name] | value, record, validate=False)
-                cache.set(record, self, val)
+                try:
+                    val = self.convert_to_cache(record[self.name] | value, record, validate=False)
+                    cache.set(record, self, val)
+                except Exception as exc:
+                    # delay the failure until the field is necessary
+                    cache.set_failed(record, [self], exc)
             else:
                 cache.set_special(record, self, self._update_getter(record, value))
 
@@ -2627,8 +2648,8 @@ class Many2many(_RelationalMulti):
         model = record_values[0][0]
         comodel = model.env[self.comodel_name]
 
-        # determine links (set of pairs (id1, id2))
-        links = set()
+        # determine relation {id1: ids2}
+        rel_ids = {record.id: set() for record, value in record_values}
         recs, vals_list = [], []
 
         def flush():
@@ -2636,12 +2657,12 @@ class Many2many(_RelationalMulti):
             if vals_list:
                 lines = comodel.create(vals_list)
                 for rec, line in pycompat.izip(recs, lines):
-                    links.add((rec.id, line.id))
+                    rel_ids[rec.id].add(line.id)
                 recs.clear()
                 vals_list.clear()
 
         for record, value in record_values:
-            for act in (value or []):
+            for act in value or []:
                 if not isinstance(act, (list, tuple)) or not act:
                     continue
                 if act[0] == 0:
@@ -2651,23 +2672,22 @@ class Many2many(_RelationalMulti):
                     comodel.browse(act[1]).write(act[2])
                 elif act[0] == 2:
                     comodel.browse(act[1]).unlink()
-                    links.discard((record.id, act[1]))
+                    rel_ids[record.id].discard(act[1])
                 elif act[0] == 3:
-                    links.discard((record.id, act[1]))
+                    rel_ids[record.id].discard(act[1])
                 elif act[0] == 4:
-                    links.add((record.id, act[1]))
+                    rel_ids[record.id].add(act[1])
                 elif act[0] in (5, 6):
                     if recs and recs[-1] == record:
                         flush()
-                    # must reify the RHS as Python can update the subject on
-                    # the fly leading to "RuntimeError: Set changed size during iteration"
-                    links.difference_update([pair for pair in links if pair[0] == record.id])
+                    rel_ids[record.id].clear()
                     if act[0] == 6:
-                        links.update((record.id, id2) for id2 in act[2])
+                        rel_ids[record.id].update(act[2])
 
         flush()
 
         # add links
+        links = [(id1, id2) for id1, ids2 in rel_ids.items() for id2 in ids2]
         if links:
             query = """
                 INSERT INTO {rel} ({id1}, {id2}) VALUES {values}
@@ -2780,9 +2800,15 @@ class Id(Field):
     def __get__(self, record, owner):
         if record is None:
             return self         # the field is accessed through the class owner
-        if not record:
+
+        # the code below is written to make record.id as quick as possible
+        ids = record._ids
+        size = len(ids)
+        if size is 0:
             return False
-        return record.ensure_one()._ids[0]
+        elif size is 1:
+            return ids[0]
+        raise ValueError("Expected singleton: %s" % record)
 
     def __set__(self, record, value):
         raise TypeError("field 'id' cannot be assigned")

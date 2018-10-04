@@ -1,5 +1,6 @@
 # -*- encoding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
+from datetime import datetime, time
 
 from odoo import api, fields, models, _
 from odoo.addons import decimal_precision as dp
@@ -18,7 +19,7 @@ PURCHASE_REQUISITION_STATES = [
 
 class PurchaseRequisitionType(models.Model):
     _name = "purchase.requisition.type"
-    _description = "Purchase Agreement Type"
+    _description = "Purchase Requisition Type"
     _order = "sequence"
 
     name = fields.Char(string='Agreement Type', required=True, translate=True)
@@ -183,7 +184,7 @@ class SupplierInfo(models.Model):
     _inherit = "product.supplierinfo"
     _order = 'sequence, purchase_requisition_id desc, min_qty desc, price'
 
-    purchase_requisition_id = fields.Many2one('purchase.requisition', related='purchase_requisition_line_id.requisition_id', string='Blanket order')
+    purchase_requisition_id = fields.Many2one('purchase.requisition', related='purchase_requisition_line_id.requisition_id', string='Blanket order', readonly=False)
     purchase_requisition_line_id = fields.Many2one('purchase.requisition.line')
 
 
@@ -273,6 +274,10 @@ class PurchaseRequisitionLine(models.Model):
     def _prepare_purchase_order_line(self, name, product_qty=0.0, price_unit=0.0, taxes_ids=False):
         self.ensure_one()
         requisition = self.requisition_id
+        if requisition.schedule_date:
+            date_planned = datetime.combine(requisition.schedule_date, time.min)
+        else:
+            date_planned = datetime.now()
         return {
             'name': name,
             'product_id': self.product_id.id,
@@ -280,7 +285,7 @@ class PurchaseRequisitionLine(models.Model):
             'product_qty': product_qty,
             'price_unit': price_unit,
             'taxes_id': [(6, 0, taxes_ids)],
-            'date_planned': requisition.schedule_date or fields.Datetime.now(),
+            'date_planned': date_planned,
             'account_analytic_id': self.account_analytic_id.id,
             'analytic_tag_ids': self.analytic_tag_ids.ids,
             'move_dest_ids': self.move_dest_id and [(4, self.move_dest_id.id)] or []
@@ -291,7 +296,7 @@ class PurchaseOrder(models.Model):
     _inherit = "purchase.order"
 
     requisition_id = fields.Many2one('purchase.requisition', string='Purchase Agreement', copy=False)
-    is_quantity_copy = fields.Selection(related='requisition_id.is_quantity_copy')
+    is_quantity_copy = fields.Selection(related='requisition_id.is_quantity_copy', readonly=False)
 
     @api.onchange('requisition_id')
     def _onchange_requisition_id(self):
@@ -428,7 +433,24 @@ class ProductTemplate(models.Model):
     purchase_requisition = fields.Selection(
         [('rfq', 'Create a draft purchase order'),
          ('tenders', 'Propose a call for tenders')],
-        string='Procurement', default='rfq')
+        string='Procurement', default='rfq',
+        help="Create a draft purchase order: Based on your product configuration, the system will create a draft "
+             "purchase order.Propose a call for tender : If the 'purchase_requisition' module is installed and this option "
+             "is selected, the system will create a draft call for tender.")
+
+
+class StockMove(models.Model):
+    _inherit = "stock.move"
+
+    requistion_line_ids = fields.One2many('purchase.requisition.line', 'move_dest_id')
+
+
+class ProcurementGroup(models.Model):
+    _inherit = 'procurement.group'
+
+    @api.model
+    def _get_exceptions_domain(self):
+        return super(ProcurementGroup, self)._get_exceptions_domain() + [('requistion_line_ids', '=', False)]
 
 
 class StockRule(models.Model):

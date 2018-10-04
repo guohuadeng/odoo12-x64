@@ -358,13 +358,13 @@ var StatementModel = BasicModel.extend({
             .then(function (statement) {
                 self.statement = statement;
                 self.bank_statement_id = statement_ids.length === 1 ? {id: statement_ids[0], display_name: statement.statement_name} : false;
-                self.valuenow = 0;
-                self.valuemax = statement.st_lines_ids.length;
+                self.valuenow = statement.value_min;
+                self.valuemax = statement.value_max;
                 self.context.journal_id = statement.journal_id;
-                _.each(statement.st_lines_ids, function (id) {
+                _.each(statement.lines, function (res) {
                     var handle = _.uniqueId('rline');
                     self.lines[handle] = {
-                        id: id,
+                        id: res.st_line.id,
                         handle: handle,
                         reconciled: false,
                         mode: 'inactive',
@@ -412,7 +412,7 @@ var StatementModel = BasicModel.extend({
             var ids = _.pluck(self.lines, 'id');
             ids = ids.splice(0, self.defaultDisplayQty);
             self.pagerIndex = ids.length;
-            return self.loadData(ids, []);
+            return self._formatLine(self.statement.lines);
         });
     },
     /**
@@ -445,7 +445,9 @@ var StatementModel = BasicModel.extend({
             args: [ids, excluded_ids],
             context: self.context,
         })
-        .then(self._formatLine.bind(self));
+        .then(function(res){
+            return self._formatLine(res['lines']);
+        })
     },
     /**
      * Add lines into the propositions from the reconcile model
@@ -545,23 +547,13 @@ var StatementModel = BasicModel.extend({
         var line = this.getLine(handle);
 
         // Retrieve the toggle proposition
-        var selected;
-        var targetLineAmount = line.st_line.amount;
-        line.reconciliation_proposition.every(function (prop) {
-            if (!prop.invalid) {
-                if (((line.balance.amount < 0 || !line.partial_reconcile) && prop.amount > 0 && targetLineAmount > 0 && targetLineAmount < prop.amount) ||
-                    ((line.balance.amount > 0 || !line.partial_reconcile) && prop.amount < 0 && targetLineAmount < 0 && targetLineAmount > prop.amount)) {
-                    selected = prop;
-                    return false;
-                }
-            targetLineAmount -= prop.amount;
-            }
-            return true;
-        });
+        var selected = _.filter(line.reconciliation_proposition, function(prop){return prop.display_triangle});
 
         // If no toggled proposition found, reject it
-        if (selected == null)
+        if(selected.length != 1)
             return $.Deferred().reject();
+
+        selected = selected[0];
 
         // Inverse partial_reconcile value
         selected.partial_reconcile = !selected.partial_reconcile;
@@ -793,7 +785,7 @@ var StatementModel = BasicModel.extend({
             }).then(function (result) {
                 if (result.length > 0) {
                     var line = self.getLine(handle);
-                    self.lines[handle].st_line.open_balance_account_id = line.amount < 0 ? result[0]['property_account_payable_id'][0] : result[0]['property_account_receivable_id'][0];
+                    self.lines[handle].st_line.open_balance_account_id = line.balance.amount < 0 ? result[0]['property_account_payable_id'][0] : result[0]['property_account_receivable_id'][0];
                 }
             });
     },
@@ -853,6 +845,7 @@ var StatementModel = BasicModel.extend({
                                 '__focus': false
                             });
 
+                            prop.tax_exigible = tax.tax_exigibility === 'on_payment' ? true : undefined
                             prop.amount = tax.base;
                             prop.amount_str = field_utils.format.monetary(Math.abs(prop.amount), {}, formatOptions);
                             prop.invalid = !self._isValid(prop);
@@ -889,8 +882,14 @@ var StatementModel = BasicModel.extend({
                     }
                 }
             });
-            total = Math.round(total*1000)/1000 || 0;
-            amount_currency = Math.round(amount_currency);
+            var company_currency = session.get_currency(line.st_line.currency_id);
+            var company_precision = company_currency && company_currency.digits[1] || 2;
+            total = utils.round_precision(total*1000, company_precision)/1000 || 0;
+            if(isOtherCurrencyId){
+                var other_currency = session.get_currency(isOtherCurrencyId);
+                var other_precision = other_currency && other_currency.digits[1] || 2;
+                amount_currency = utils.round_precision(amount_currency, other_precision)
+            }
             line.balance = {
                 amount: total,
                 amount_str: field_utils.format.monetary(Math.abs(total), {}, formatOptions),
@@ -978,39 +977,30 @@ var StatementModel = BasicModel.extend({
             self._formatLineProposition(line, line.reconciliation_proposition);
             if (!line.reconciliation_proposition.length) {
                 delete line.reconciliation_proposition;
-            }else{
-                // loop state propositions
-                var debit_props = _.filter(line.reconciliation_proposition, function(p){
-                    return p.amount > 0 && line.st_line.amount;
-                });
-                var credit_props = _.filter(line.reconciliation_proposition, function(p){
-                    return p.amount < 0 && line.st_line.amount < 0;
-                });
-                var sum_debit_props = debit_props.length > 0 ? debit_props.map(function(p){return p.amount}).reduce(function(p1, p2){return p1 + p2}) : 0;
-                var sum_credit_props = credit_props.length > 0 ? credit_props.map(function(p){return p.amount}).reduce(function(p1, p2){return p1 + p2}) : 0;
-
-                // Want to display the triangle for partial reconciliation or not.
-                if(line.st_line.amount_currency > 0 && line.st_line.amount_currency < sum_debit_props && debit_props.length == 1)
-                    debit_props[0].display_triangle = true;
-                else if(line.st_line.amount_currency < 0 && line.st_line.amount_currency > sum_credit_props && credit_props.length == 1)
-                    credit_props[0].display_triangle = true;
             }
 
             // No partner set on st_line and all matching amls have the same one: set it on the st_line.
-            if(!line.st_line.partner_id && line.reconciliation_proposition){
-                var hasDifferentPartners = function(prop){
-                    return !prop.partner_id || prop.partner_id != line.reconciliation_proposition[0].partner_id;
-                }
+            defs.push(
+                self._computeLine(line)
+                .then(function(){
+                    if(!line.st_line.partner_id && line.reconciliation_proposition.length > 0){
+                        var hasDifferentPartners = function(prop){
+                            return !prop.partner_id || prop.partner_id != line.reconciliation_proposition[0].partner_id;
+                        }
 
-                if(!_.any(line.reconciliation_proposition, hasDifferentPartners)){
-                    defs.push(self.changePartner(line.handle, {
-                        'id': line.reconciliation_proposition[0].partner_id,
-                        'display_name': line.reconciliation_proposition[0].partner_name,
-                    }, true));
-                }
-            }
-
-            defs.push(self._computeLine(line));
+                        if(!_.any(line.reconciliation_proposition, hasDifferentPartners)){
+                            return self.changePartner(line.handle, {
+                                'id': line.reconciliation_proposition[0].partner_id,
+                                'display_name': line.reconciliation_proposition[0].partner_name,
+                            }, true);
+                        }
+                    }
+                    return true;
+                })
+                .then(function(){
+                    return data.write_off ? self.quickCreateProposition(line.handle, data.model_id) : true;
+                })
+            );
         });
         return $.when.apply($, defs);
     },
@@ -1198,6 +1188,7 @@ var StatementModel = BasicModel.extend({
             name : prop.label,
             debit : amount > 0 ? amount : 0,
             credit : amount < 0 ? -amount : 0,
+            tax_exigible: prop.tax_exigible,
             analytic_tag_ids: [[6, null, _.pluck(prop.analytic_tag_ids, 'id')]]
         };
         if (!isNaN(prop.id)) {
@@ -1260,7 +1251,15 @@ var ManualModel = StatementModel.extend({
                 self.accounts = _.object(self.account_ids, _.pluck(accounts, 'code'));
             });
 
-        return def_account.then(function () {
+        var def_reconcileModel = this._rpc({
+                model: 'account.reconcile.model',
+                method: 'search_read',
+            })
+            .then(function (reconcileModels) {
+                self.reconcileModels = reconcileModels;
+            });
+
+        return $.when(def_reconcileModel, def_account).then(function () {
             switch(context.mode) {
                 case 'customers':
                 case 'suppliers':
@@ -1460,7 +1459,7 @@ var ManualModel = StatementModel.extend({
             offset: 0,
             limitMoveLines: this.limitMoveLines,
             filter: "",
-            reconcileModels: [],
+            reconcileModels: this.reconcileModels,
             account_id: this._formatNameGet([data.account_id, data.account_name]),
             st_line: data,
             visible: true

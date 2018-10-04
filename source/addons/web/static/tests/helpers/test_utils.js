@@ -16,6 +16,7 @@ var basic_fields = require('web.basic_fields');
 var config = require('web.config');
 var ControlPanel = require('web.ControlPanel');
 var core = require('web.core');
+var DebugManager = require('web.DebugManager');
 var dom = require('web.dom');
 var session = require('web.session');
 var MockServer = require('web.MockServer');
@@ -115,6 +116,41 @@ var createActionManager = function (params) {
     actionManager.appendTo(widget.$el);
 
     return actionManager;
+};
+/**
+ * Create and return an instance of DebugManager with all rpcs going through a
+ * mock method, assuming that the user has access rights, and is an admin.
+ *
+ * @param {Object} [params={}]
+ */
+var createDebugManager = function (params) {
+    params = params || {};
+    var mockRPC = params.mockRPC;
+    _.extend(params, {
+        mockRPC: function (route, args) {
+            if (args.method === 'check_access_rights') {
+                return $.when(true);
+            }
+            if (args.method === 'xmlid_to_res_id') {
+                return $.when(true);
+            }
+            if (mockRPC) {
+                return mockRPC.apply(this, arguments);
+            }
+            return this._super.apply(this, arguments);
+        },
+        session: {
+            user_has_group: function (group) {
+                if (group === 'base.group_no_one') {
+                    return $.when(true);
+                }
+                return this._super.apply(this, arguments);
+            },
+        },
+    });
+    var debugManager = new DebugManager();
+    addMockEnvironment(debugManager, params);
+    return debugManager;
 };
 
 /**
@@ -341,7 +377,7 @@ function patchDate(year, month, day, hours, minutes, seconds) {
  *   up in the init process of the view, because there are no other way to do it
  *   after this method returns. Some events ('call_service', "load_views",
  *   "get_session", "load_filters") have a special treatment beforehand.
- * @param {web.AbstractService[]} [params.services] list of services to load in
+ * @param {Object} [params.services={}] list of services to load in
  *   addition to the ajax service. For instance, if a test needs the local
  *   storage service in order to work, it can provide a mock version of it.
  * @param {boolean} [debounce=true] set to false to completely remove the
@@ -356,6 +392,7 @@ function patchDate(year, month, day, hours, minutes, seconds) {
  */
 function addMockEnvironment(widget, params) {
     var Server = MockServer;
+    params.services = params.services || {};
     if (params.mockRPC) {
         Server = MockServer.extend({_performRpc: params.mockRPC});
     }
@@ -371,7 +408,6 @@ function addMockEnvironment(widget, params) {
         archs: params.archs,
         currentDate: params.currentDate,
         debug: params.debug,
-        services: params.services,
         widget: widget,
     });
 
@@ -462,18 +498,18 @@ function addMockEnvironment(widget, params) {
     // Dispatch service calls
     // Note: some services could call other services at init,
     // Which is why we have to init services after that
-    var services = {ajax: null}; // mocked ajax service already loaded
+    var services = {};
     intercept(widget, 'call_service', function (ev) {
         var args, result;
-        if (ev.data.service === 'ajax') {
-            // ajax service is already mocked by the server
-            var route = ev.data.args[0];
-            args = ev.data.args[1];
-            result = mockServer.performRpc(route, args);
-        } else if (services[ev.data.service]) {
+        if (services[ev.data.service]) {
             var service = services[ev.data.service];
             args = (ev.data.args || []);
             result = service[ev.data.method].apply(service, args);
+        } else if (ev.data.service === 'ajax') {
+            // use ajax service that is mocked by the server
+            var route = ev.data.args[0];
+            args = ev.data.args[1];
+            result = mockServer.performRpc(route, args);
         }
         ev.data.callback(result);
     });
@@ -528,6 +564,9 @@ function addMockEnvironment(widget, params) {
     // Deploy services
     var done = false;
     var servicesToDeploy = _.clone(params.services);
+    if (!servicesToDeploy.ajax) {
+        services.ajax = null; // use mocked ajax from mocked server
+    }
     while (!done) {
         var serviceName = _.findKey(servicesToDeploy, function (Service) {
             return !_.some(Service.prototype.dependencies, function (depName) {
@@ -642,7 +681,7 @@ function dragAndDrop($el, $to, options) {
         toOffset.left += bound.left;
         toOffset.top += bound.top;
     }
-
+    $el.trigger($.Event("mouseenter"));
     if (!(options && options.continueMove)) {
         elementCenter.left += $el.outerWidth()/2;
         elementCenter.top += $el.outerHeight()/2;
@@ -774,7 +813,7 @@ var patches = {};
  * @param {Class|Object} target
  * @param {Object} props
  */
-function patch (target, props) {
+function patch(target, props) {
     var patchID = _.uniqueId('patch_');
     target.__patchID = patchID;
     patches[patchID] = {
@@ -852,6 +891,15 @@ function unpatch(target) {
     delete target.__patchID;
 }
 
+/**
+ * Opens the datepicker of a given element.
+ *
+ * @param {jQuery} $datepickerEl element to which a datepicker is attached
+ */
+function openDatepicker($datepickerEl) {
+    $datepickerEl.find('.o_datepicker_input').trigger('focus.datetimepicker');
+}
+
 // Loading static files cannot be properly simulated when their real content is
 // really needed. This is the case for static XML files so we load them here,
 // before starting the qunit test suite.
@@ -869,6 +917,7 @@ return $.when(
     return {
         addMockEnvironment: addMockEnvironment,
         createActionManager: createActionManager,
+        createDebugManager: createDebugManager,
         createAsyncView: createAsyncView,
         createModel: createModel,
         createParent: createParent,
@@ -877,6 +926,7 @@ return $.when(
         fieldsViewGet: fieldsViewGet,
         intercept: intercept,
         observe: observe,
+        openDatepicker: openDatepicker,
         patch: patch,
         patchDate: patchDate,
         removeSrcAttribute: removeSrcAttribute,

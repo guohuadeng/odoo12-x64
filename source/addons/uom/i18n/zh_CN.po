@@ -6,18 +6,19 @@
 # Martin Trigaux, 2018
 # Maie <m@maie.name>, 2018
 # Jeffery CHEN Fan <jeffery9@gmail.com>, 2018
-# liAnGjiA <liangjia@qq.com>, 2018
+# 珠海-杜哥 <liangjia@qq.com>, 2018
 # liyes <bodetools@gmail.com>, 2018
 # Talway <9010446@qq.com>, 2018
 # 山西清水欧度(QQ:54773801) <54773801@qq.com>, 2018
 # Ted Wang <feiyuwang2012@gmail.com>, 2018
+# zhining wu <wzn63@21cn.com>, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server saas~11.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-24 09:05+0000\n"
-"PO-Revision-Date: 2018-08-24 09:05+0000\n"
-"Last-Translator: Ted Wang <feiyuwang2012@gmail.com>, 2018\n"
+"POT-Creation-Date: 2018-09-18 09:49+0000\n"
+"PO-Revision-Date: 2018-09-18 09:49+0000\n"
+"Last-Translator: zhining wu <wzn63@21cn.com>, 2018\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/odoo/teams/41243/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -31,14 +32,14 @@ msgid "Active"
 msgstr "有效"
 
 #. module: uom
-#: model:ir.actions.act_window,help:uom.product_uom_form_action
+#: model_terms:ir.actions.act_window,help:uom.product_uom_form_action
 msgid "Add a new unit of measure"
 msgstr ""
 
 #. module: uom
-#: model:ir.actions.act_window,help:uom.product_uom_categ_form_action
+#: model_terms:ir.actions.act_window,help:uom.product_uom_categ_form_action
 msgid "Add a new unit of measure category"
-msgstr ""
+msgstr "添加一个新的度量单位"
 
 #. module: uom
 #: model:ir.model.fields,field_description:uom.field_uom_uom__factor_inv
@@ -88,7 +89,7 @@ msgstr "显示名称"
 #. module: uom
 #: model:uom.uom,name:uom.product_uom_dozen
 msgid "Dozen(s)"
-msgstr "打"
+msgstr "打(s)"
 
 #. module: uom
 #: model:uom.uom,name:uom.product_uom_hour
@@ -149,15 +150,9 @@ msgid "Liter(s)"
 msgstr "升"
 
 #. module: uom
-#: model:ir.model.fields,field_description:uom.field_res_users__has_group_uom
 #: model:res.groups,name:uom.group_uom
 msgid "Manage Multiple Units of Measure"
 msgstr "管理多个计量单位"
-
-#. module: uom
-#: model:ir.model.fields,field_description:uom.field_uom_category__name
-msgid "Name"
-msgstr "名称"
 
 #. module: uom
 #: model:ir.model,name:uom.model_uom_uom
@@ -234,7 +229,7 @@ msgstr "类型"
 #. module: uom
 #: model:ir.model.fields,field_description:uom.field_uom_category__measure_type
 msgid "Type of Measure"
-msgstr ""
+msgstr "度量类型"
 
 #. module: uom
 #: model:ir.model.fields,field_description:uom.field_uom_uom__measure_type
@@ -263,6 +258,11 @@ msgid "Unit of Measure Categories"
 msgstr "计量单位类别"
 
 #. module: uom
+#: model:ir.model.fields,field_description:uom.field_uom_category__name
+msgid "Unit of Measure Category"
+msgstr "计量单位类别"
+
+#. module: uom
 #: model:uom.uom,name:uom.product_uom_unit
 msgid "Unit(s)"
 msgstr "件"
@@ -270,22 +270,22 @@ msgstr "件"
 #. module: uom
 #: selection:uom.category,measure_type:0
 msgid "Units"
-msgstr ""
+msgstr "单位"
 
 #. module: uom
 #: model:ir.actions.act_window,name:uom.product_uom_form_action
-#: model:ir.ui.view,arch_db:uom.product_uom_form_view
-#: model:ir.ui.view,arch_db:uom.product_uom_tree_view
+#: model_terms:ir.ui.view,arch_db:uom.product_uom_form_view
+#: model_terms:ir.ui.view,arch_db:uom.product_uom_tree_view
 msgid "Units of Measure"
 msgstr "计量单位"
 
 #. module: uom
-#: model:ir.ui.view,arch_db:uom.product_uom_categ_form_view
+#: model_terms:ir.ui.view,arch_db:uom.product_uom_categ_form_view
 msgid "Units of Measure categories"
 msgstr "计量单位类别"
 
 #. module: uom
-#: model:ir.actions.act_window,help:uom.product_uom_categ_form_action
+#: model_terms:ir.actions.act_window,help:uom.product_uom_categ_form_action
 msgid ""
 "Units of measure belonging to the same category can be\n"
 "            converted between each others. For example, in the category\n"
@@ -309,11 +309,6 @@ msgstr ""
 #, python-format
 msgid "UoM category %s should only have one reference unit of measure."
 msgstr ""
-
-#. module: uom
-#: model:ir.model,name:uom.model_res_users
-msgid "Users"
-msgstr "用户"
 
 #. module: uom
 #: selection:uom.category,measure_type:0
@@ -352,7 +347,7 @@ msgid ""
 msgstr ""
 
 #. module: uom
-#: model:ir.actions.act_window,help:uom.product_uom_form_action
+#: model_terms:ir.actions.act_window,help:uom.product_uom_form_action
 msgid ""
 "You must define a conversion rate between several Units of\n"
 "            Measure within the same category."
@@ -363,15 +358,15 @@ msgstr ""
 #. module: uom
 #: model:uom.uom,name:uom.product_uom_cm
 msgid "cm"
-msgstr "cm"
+msgstr "厘米"
 
 #. module: uom
-#: model:ir.ui.view,arch_db:uom.product_uom_form_view
+#: model_terms:ir.ui.view,arch_db:uom.product_uom_form_view
 msgid "e.g: 1 * (reference unit) = ratio * (this unit)"
 msgstr "例如: 1*(参考单位) = 比例 * （本单位）"
 
 #. module: uom
-#: model:ir.ui.view,arch_db:uom.product_uom_form_view
+#: model_terms:ir.ui.view,arch_db:uom.product_uom_form_view
 msgid "e.g: 1 * (this unit) = ratio * (reference unit)"
 msgstr "例如: 1 * (本单位t) = 比例 * (参考单位)"
 
@@ -398,12 +393,12 @@ msgstr "英寸"
 #. module: uom
 #: model:uom.uom,name:uom.product_uom_kgm
 msgid "kg"
-msgstr "kg"
+msgstr "公斤"
 
 #. module: uom
 #: model:uom.uom,name:uom.product_uom_km
 msgid "km"
-msgstr "km"
+msgstr "千米"
 
 #. module: uom
 #: model:uom.uom,name:uom.product_uom_lb

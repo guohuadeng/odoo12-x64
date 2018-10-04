@@ -5,7 +5,6 @@ from odoo.exceptions import UserError, ValidationError
 from odoo.tools import float_compare
 
 from itertools import groupby
-import re
 
 
 MAP_INVOICE_TYPE_PARTNER_TYPE = {
@@ -249,7 +248,7 @@ class account_abstract_payment(models.AbstractModel):
 class account_register_payments(models.TransientModel):
     _name = "account.register.payments"
     _inherit = 'account.abstract.payment'
-    _description = "Register payments on multiple invoices"
+    _description = "Register Payments"
 
     group_invoices = fields.Boolean(string="Group Invoices", help="""If enabled, groups invoices by commercial partner, invoice account,
                                                                     type and recipient bank account in the generated payments. If disabled,
@@ -806,23 +805,3 @@ class account_payment(models.Model):
             })
 
         return vals
-
-    @api.model
-    def _sanitize_communication(self, communication):
-        """ Returns a sanitized version of the communication given in parameter,
-            so that:
-                - it contains only latin characters
-                - it does not contain any //
-                - it does not start or end with /
-                - it is maximum 140 characters long
-            (these are the SEPA compliance criteria)
-        """
-        communication = communication[:140]
-        while '//' in communication:
-            communication = communication.replace('//', '/')
-        if communication.startswith('/'):
-            communication = communication[1:]
-        if communication.endswith('/'):
-            communication = communication[:-1]
-        communication = re.sub('[^-A-Za-z0-9/?:().,\'+ ]', '', communication)
-        return communication

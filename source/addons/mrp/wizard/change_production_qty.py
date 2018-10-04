@@ -9,7 +9,7 @@ from odoo.tools import float_is_zero, float_round
 
 class ChangeProductionQty(models.TransientModel):
     _name = 'change.production.qty'
-    _description = 'Change Quantity of Products'
+    _description = 'Change Production Qty'
 
     # TDE FIXME: add production_id field
     mo_id = fields.Many2one('mrp.production', 'Manufacturing Order', required=True)
@@ -90,6 +90,8 @@ class ChangeProductionQty(models.TransientModel):
                 wo.qty_producing = quantity
                 if wo.qty_produced < wo.qty_production and wo.state == 'done':
                     wo.state = 'progress'
+                if wo.qty_produced == wo.qty_production and wo.state == 'progress':
+                    wo.state = 'done'
                 # assign moves; last operation receive all unassigned moves
                 # TODO: following could be put in a function as it is similar as code in _workorders_create
                 # TODO: only needed when creating new moves

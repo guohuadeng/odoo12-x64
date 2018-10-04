@@ -3,22 +3,22 @@
 # * pos_mercury
 # 
 # Translators:
-# eren b <inactive+erenbn@transifex.com>, 2017
-# Murat Kaplan <muratk@projetgrup.com>, 2017
-# Ayhan KIZILTAN <akiziltan76@hotmail.com>, 2017
-# gezgin biri <gezginbiri@hotmail.com>, 2017
-# Gökhan Erdoğdu <gokhan.erdogdu@mechsoft.com.tr>, 2017
-# Martin Trigaux, 2017
-# Umur Akın <umura@projetgrup.com>, 2018
+# Ayhan KIZILTAN <akiziltan76@hotmail.com>, 2018
+# Martin Trigaux, 2018
 # Levent Karakaş <levent@mektup.at>, 2018
+# Murat Kaplan <muratk@projetgrup.com>, 2018
+# Ertuğrul Güreş <ertugrulg@projetgrup.com>, 2018
 # Ramiz Deniz Öner <deniz@denizoner.com>, 2018
+# eren b <inactive+erenbn@transifex.com>, 2018
+# Umur Akın <umura@projetgrup.com>, 2018
+# Ahmet Altinisik <aaltinisik@altinkaya.com.tr>, 2018
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server saas~11.4\n"
+"Project-Id-Version: Odoo Server saas~11.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-02 09:11+0000\n"
-"PO-Revision-Date: 2018-08-02 09:11+0000\n"
-"Last-Translator: Ramiz Deniz Öner <deniz@denizoner.com>, 2018\n"
+"POT-Creation-Date: 2018-09-21 13:16+0000\n"
+"PO-Revision-Date: 2018-09-21 13:16+0000\n"
+"Last-Translator: Ahmet Altinisik <aaltinisik@altinkaya.com.tr>, 2018\n"
 "Language-Team: Turkish (https://www.transifex.com/odoo/teams/41243/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -34,12 +34,12 @@ msgid "&nbsp;&nbsp;APPROVAL CODE:"
 msgstr "&nbsp;&nbsp;ONAY KODU:"
 
 #. module: pos_mercury
-#: model:ir.ui.view,arch_db:pos_mercury.pos_config_view_form_inherit_pos_mercury
+#: model_terms:ir.ui.view,arch_db:pos_mercury.pos_config_view_form_inherit_pos_mercury
 msgid "<i class=\"fa fa-fw fa-arrow-right\"/>Buy a card reader"
 msgstr ""
 
 #. module: pos_mercury
-#: model:ir.ui.view,arch_db:pos_mercury.view_pos_mercury_configuration_form
+#: model_terms:ir.ui.view,arch_db:pos_mercury.view_pos_mercury_configuration_form
 msgid ""
 "<i>Mercury Configurations</i> define what Mercury account will be used when\n"
 "                                processing credit card transactions in the Point Of Sale. Setting up a Mercury\n"
@@ -68,9 +68,19 @@ msgid "Alias"
 msgstr "Rumuz"
 
 #. module: pos_mercury
+#: model:ir.model,name:pos_mercury.model_ir_autovacuum
+msgid "Automatic Vacuum"
+msgstr ""
+
+#. module: pos_mercury
 #: model:ir.model,name:pos_mercury.model_account_bank_statement_line
 msgid "Bank Statement Line"
 msgstr "Banka Hesap Özeti Kalemi"
+
+#. module: pos_mercury
+#: model:ir.model,name:pos_mercury.model_barcode_rule
+msgid "Barcode Rule"
+msgstr "Barkod kuralı"
 
 #. module: pos_mercury
 #. openerp-web
@@ -86,7 +96,7 @@ msgstr "Kart Markası"
 
 #. module: pos_mercury
 #: model:ir.model.fields,field_description:pos_mercury.field_account_bank_statement_line__mercury_card_number
-#: model:ir.ui.view,arch_db:pos_mercury.view_pos_order
+#: model_terms:ir.ui.view,arch_db:pos_mercury.view_pos_order
 msgid "Card Number"
 msgstr "Kart numarası"
 
@@ -101,8 +111,8 @@ msgid "Card Owner Name"
 msgstr "Kart Sahibinin Adı"
 
 #. module: pos_mercury
-#: model:ir.ui.view,arch_db:pos_mercury.view_pos_mercury_configuration_form
-#: model:ir.ui.view,arch_db:pos_mercury.view_pos_mercury_configuration_tree
+#: model_terms:ir.ui.view,arch_db:pos_mercury.view_pos_mercury_configuration_form
+#: model_terms:ir.ui.view,arch_db:pos_mercury.view_pos_mercury_configuration_tree
 msgid "Card Reader"
 msgstr "Kart Okuyucu"
 
@@ -117,7 +127,7 @@ msgid "Client"
 msgstr "Müşteri"
 
 #. module: pos_mercury
-#: model:ir.actions.act_window,help:pos_mercury.action_configuration_form
+#: model_terms:ir.actions.act_window,help:pos_mercury.action_configuration_form
 msgid "Configure your card reader"
 msgstr ""
 
@@ -141,9 +151,7 @@ msgid "Created on"
 msgstr "Oluşturulma"
 
 #. module: pos_mercury
-#: code:addons/pos_mercury/models/pos_mercury.py:16
 #: selection:barcode.rule,type:0
-#, python-format
 msgid "Credit Card"
 msgstr "Kredi Kartı"
 
@@ -170,20 +178,13 @@ msgstr "Görünüm Adı"
 
 #. module: pos_mercury
 #. openerp-web
-#: code:addons/pos_mercury/static/src/xml/pos_mercury.xml:7
-#, python-format
-msgid "Electronic Payment"
-msgstr "Elektronik Ödeme"
-
-#. module: pos_mercury
-#. openerp-web
 #: code:addons/pos_mercury/static/src/js/pos_mercury.js:651
 #, python-format
 msgid "Error"
 msgstr "Hata"
 
 #. module: pos_mercury
-#: model:ir.ui.view,arch_db:pos_mercury.view_pos_mercury_configuration_form
+#: model_terms:ir.ui.view,arch_db:pos_mercury.view_pos_mercury_configuration_form
 msgid ""
 "For quickly handling orders: just swiping a credit card when on the payment screen\n"
 "                                (without having pressed anything else) will charge the full amount of the order to\n"
@@ -205,7 +206,7 @@ msgstr "Kart kullanmak için ödeme ekranına git"
 #: code:addons/pos_mercury/static/src/js/pos_mercury.js:396
 #, python-format
 msgid "Handling transaction..."
-msgstr "İşlem gerçekleştiriliyor"
+msgstr "İşlem gerçekleştiriliyor..."
 
 #. module: pos_mercury
 #: model:ir.model.fields,field_description:pos_mercury.field_pos_mercury_configuration__id
@@ -216,12 +217,10 @@ msgstr "ID"
 #. module: pos_mercury
 #: model:ir.model.fields,help:pos_mercury.field_pos_mercury_configuration__merchant_id
 msgid "ID of the merchant to authenticate him on the payment provider server"
-msgstr ""
-"Ödeme sağlayıcı sunucusunda satıcının kimliğini doğrulamak için satıcı "
-"kimliği"
+msgstr "Ödeme sağlayıcı sunucusunda satıcının kimliğini doğrulama ID'si"
 
 #. module: pos_mercury
-#: model:ir.ui.view,arch_db:pos_mercury.view_pos_mercury_configuration_form
+#: model_terms:ir.ui.view,arch_db:pos_mercury.view_pos_mercury_configuration_form
 msgid ""
 "If you don't already have a Mercury account, contact Mercury at +1 (800) 846-4472\n"
 "                                to create one."
@@ -232,7 +231,7 @@ msgstr ""
 #. module: pos_mercury
 #: model:ir.model.fields,help:pos_mercury.field_account_bank_statement_line__mercury_invoice_no
 msgid "Invoice number from Mercury Pay"
-msgstr "Mercury Ödeme'den fatura numarası"
+msgstr "Mercury Ödeme fatura numarası"
 
 #. module: pos_mercury
 #: model:ir.model,name:pos_mercury.model_account_journal
@@ -314,13 +313,13 @@ msgid "Name of this Mercury configuration"
 msgstr "Mercury yapılandırmasının adı"
 
 #. module: pos_mercury
-#: code:addons/pos_mercury/models/pos_mercury_transaction.py:33
+#: code:addons/pos_mercury/models/pos_mercury_transaction.py:34
 #, python-format
 msgid "No Mercury configuration associated with the journal."
 msgstr "Yevmiye ile bağlı bir Mercury yapılandırması bulunmuyor."
 
 #. module: pos_mercury
-#: code:addons/pos_mercury/models/pos_mercury_transaction.py:21
+#: code:addons/pos_mercury/models/pos_mercury_transaction.py:22
 #, python-format
 msgid "No opened point of sale session for user %s found."
 msgstr ""
@@ -345,7 +344,7 @@ msgstr "Mercury'den cevap yok (Ağa bağlı mı?)"
 #: code:addons/pos_mercury/static/src/js/pos_mercury.js:577
 #, python-format
 msgid "Odoo error while processing transaction."
-msgstr "İşlem yapılırken Odoo hata verdi."
+msgstr "İşlem yapılırken Odoo hatası."
 
 #. module: pos_mercury
 #. openerp-web
@@ -353,6 +352,13 @@ msgstr "İşlem yapılırken Odoo hata verdi."
 #, python-format
 msgid "One credit card swipe already pending."
 msgstr "Bir kredi kartı okutması zaten bekliyor."
+
+#. module: pos_mercury
+#. openerp-web
+#: code:addons/pos_mercury/static/src/xml/pos_mercury.xml:7
+#, python-format
+msgid "Online Payment"
+msgstr "Online Ödeme"
 
 #. module: pos_mercury
 #: selection:barcode.rule,type:0
@@ -380,7 +386,7 @@ msgstr "Mercury Ödemesi'nden ödeme kaydı numarası"
 #. module: pos_mercury
 #: model:ir.model.fields,help:pos_mercury.field_account_bank_statement_line__mercury_ref_no
 msgid "Payment reference number from Mercury Pay"
-msgstr "Öercury Ödemesi'nden ödeme referans numarası"
+msgstr "Mercury Ödemesi'nden ödeme referans numarası"
 
 #. module: pos_mercury
 #. openerp-web
@@ -388,6 +394,16 @@ msgstr "Öercury Ödemesi'nden ödeme referans numarası"
 #, python-format
 msgid "Please setup your Mercury merchant account."
 msgstr "Lütfen Mercury satıcı hesabınızı kurun."
+
+#. module: pos_mercury
+#: model:ir.model,name:pos_mercury.model_pos_mercury_configuration
+msgid "Point of Sale Mercury Configuration"
+msgstr ""
+
+#. module: pos_mercury
+#: model:ir.model,name:pos_mercury.model_pos_mercury_mercury_transaction
+msgid "Point of Sale Mercury Transaction"
+msgstr ""
 
 #. module: pos_mercury
 #: model:ir.model,name:pos_mercury.model_pos_order
@@ -432,7 +448,7 @@ msgstr "Ters kayıt gönderiliyor"
 #: code:addons/pos_mercury/static/src/xml/pos_mercury.xml:47
 #, python-format
 msgid "TO CARDHOLDER AGREEMENT"
-msgstr "Kart Sahibi Sözleşmesi"
+msgstr "KART SAHİBİ SÖZLEŞMESİ"
 
 #. module: pos_mercury
 #: model:ir.model.fields,help:pos_mercury.field_account_bank_statement_line__mercury_card_brand
@@ -488,7 +504,7 @@ msgid "Unit Product"
 msgstr "Birim Ürün"
 
 #. module: pos_mercury
-#: model:ir.ui.view,arch_db:pos_mercury.view_pos_mercury_configuration_form
+#: model_terms:ir.ui.view,arch_db:pos_mercury.view_pos_mercury_configuration_form
 msgid ""
 "Using the Mercury integration in the Point Of Sale is easy: just press the\n"
 "                                associated payment method. After that the amount can be adjusted (eg. for cashback)\n"
@@ -500,7 +516,7 @@ msgstr ""
 "Ödeme satırı ne zaman kurulursa, kart okuyucudan kartla işlem yapılabilir."
 
 #. module: pos_mercury
-#: model:ir.ui.view,arch_db:pos_mercury.pos_config_view_form_inherit_pos_mercury
+#: model_terms:ir.ui.view,arch_db:pos_mercury.pos_config_view_form_inherit_pos_mercury
 msgid "Vantiv Accounts"
 msgstr "Vantiv Hesabı"
 
@@ -519,7 +535,7 @@ msgid "WAITING FOR SWIPE"
 msgstr "KART İŞLEMİ İÇİN BEKLEYİNİZ"
 
 #. module: pos_mercury
-#: model:ir.ui.view,arch_db:pos_mercury.view_pos_mercury_configuration_form
+#: model_terms:ir.ui.view,arch_db:pos_mercury.view_pos_mercury_configuration_form
 msgid ""
 "We currently support the MagTek Dynamag card reader device. It can be connected\n"
 "                                directly to the Point Of Sale device or it can be connected to the POSBox."
@@ -538,23 +554,3 @@ msgstr "Tartılmış Ürün"
 #, python-format
 msgid "X______________________________"
 msgstr "X_______________________________"
-
-#. module: pos_mercury
-#: model:ir.model,name:pos_mercury.model_barcode_rule
-msgid "barcode.rule"
-msgstr "barkod.kuralı"
-
-#. module: pos_mercury
-#: model:ir.model,name:pos_mercury.model_ir_autovacuum
-msgid "ir.autovacuum"
-msgstr "ir.autovacuum"
-
-#. module: pos_mercury
-#: model:ir.model,name:pos_mercury.model_pos_mercury_configuration
-msgid "pos_mercury.configuration"
-msgstr ""
-
-#. module: pos_mercury
-#: model:ir.model,name:pos_mercury.model_pos_mercury_mercury_transaction
-msgid "pos_mercury.mercury_transaction"
-msgstr ""

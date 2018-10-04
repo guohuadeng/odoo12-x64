@@ -74,8 +74,8 @@ class ResPartnerBank(models.Model):
     acc_holder_name = fields.Char(string='Account Holder Name', help="Account holder name, in case it is different than the name of the Account Holder")
     partner_id = fields.Many2one('res.partner', 'Account Holder', ondelete='cascade', index=True, domain=['|', ('is_company', '=', True), ('parent_id', '=', False)], required=True)
     bank_id = fields.Many2one('res.bank', string='Bank')
-    bank_name = fields.Char(related='bank_id.name')
-    bank_bic = fields.Char(related='bank_id.bic')
+    bank_name = fields.Char(related='bank_id.name', readonly=False)
+    bank_bic = fields.Char(related='bank_id.bic', readonly=False)
     sequence = fields.Integer()
     currency_id = fields.Many2one('res.currency', string='Currency')
     company_id = fields.Many2one('res.company', 'Company', default=lambda self: self.env.user.company_id, ondelete='cascade')
@@ -120,18 +120,20 @@ class ResPartnerBank(models.Model):
 
     @api.model
     def build_qr_code_url(self, amount, comment):
-        communication = (comment[:137] + '...') if len(comment) > 140 else comment
+        communication = ""
+        if comment:
+            communication = (comment[:137] + '...') if len(comment) > 140 else comment
         qr_code_string = 'BCD\n001\n1\nSCT\n%s\n%s\n%s\nEUR%s\n\n\n%s' % (self.bank_bic, self.company_id.name, self.acc_number, amount, communication)
         qr_code_url = '/report/barcode/?type=%s&value=%s&width=%s&height=%s&humanreadable=1' % ('QR', werkzeug.url_quote_plus(qr_code_string), 128, 128)
         return qr_code_url
 
     @api.multi
     def _validate_qr_code_arguments(self):
-        for bank in self:            
+        for bank in self:
             if bank.currency_id.name == False:
                 currency = bank.company_id.currency_id
             else:
-                currency = bank.currency_id            
+                currency = bank.currency_id
             bank.qr_code_valid = (bank.bank_bic
                                             and bank.company_id.name
                                             and bank.acc_number

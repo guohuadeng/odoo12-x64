@@ -102,7 +102,7 @@ var PivotController = AbstractController.extend({
      */
     renderButtons: function ($node) {
         if ($node) {
-            var context = {measures: _.sortBy(_.pairs(_.omit(this.measures, '__count')), function(x) { return x[0]; })};
+            var context = {measures: _.sortBy(_.pairs(_.omit(this.measures, '__count')), function (x) { return x[1].string.toLowerCase(); })};
             this.$buttons = $(QWeb.render('PivotView.buttons', context));
             this.$buttons.click(this._onButtonClick.bind(this));
             this.$buttons.find('button').tooltip();
@@ -192,6 +192,10 @@ var PivotController = AbstractController.extend({
             self.$buttons.find('.dropdown-item[data-field="' + name + '"]')
                          .toggleClass('selected', isSelected);
         });
+        var noDataDisplayed = !state.has_data || !state.measures.length;
+        this.$buttons.find('.o_pivot_flip_button').prop('disabled', noDataDisplayed);
+        this.$buttons.find('.o_pivot_expand_button').prop('disabled', noDataDisplayed);
+        this.$buttons.find('.o_pivot_download').prop('disabled', noDataDisplayed);
     },
 
     //--------------------------------------------------------------------------

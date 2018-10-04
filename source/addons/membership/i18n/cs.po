@@ -2,12 +2,18 @@
 # This file contains the translation of the following modules:
 # * membership
 # 
+# Translators:
+# Martin Trigaux, 2018
+# Jan Horzinka <jan.horzinka@centrum.cz>, 2018
+# Michal Veselý <michal@veselyberanek.net>, 2018
+# trendspotter, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server saas~11.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-24 09:04+0000\n"
-"PO-Revision-Date: 2018-08-24 09:04+0000\n"
+"POT-Creation-Date: 2018-09-21 13:17+0000\n"
+"PO-Revision-Date: 2018-09-21 13:17+0000\n"
+"Last-Translator: trendspotter, 2018\n"
 "Language-Team: Czech (https://www.transifex.com/odoo/teams/41243/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,27 +24,27 @@ msgstr ""
 #. module: membership
 #: model:ir.model.fields,field_description:membership.field_report_membership__num_invoiced
 msgid "# Invoiced"
-msgstr ""
+msgstr "# Fakturováno"
 
 #. module: membership
 #: model:ir.model.fields,field_description:membership.field_report_membership__num_paid
 msgid "# Paid"
-msgstr ""
+msgstr "# Zaplaceno"
 
 #. module: membership
 #: model:ir.model.fields,field_description:membership.field_report_membership__num_waiting
 msgid "# Waiting"
-msgstr ""
+msgstr "# Čekající"
 
 #. module: membership
-#: model:ir.ui.view,arch_db:membership.membership_products_kanban
+#: model_terms:ir.ui.view,arch_db:membership.membership_products_kanban
 msgid ""
 "<i class=\"fa fa-clock-o\" role=\"img\" aria-label=\"Period\" "
 "title=\"Period\"/><strong> From: </strong>"
 msgstr ""
 
 #. module: membership
-#: model:ir.ui.view,arch_db:membership.membership_products_kanban
+#: model_terms:ir.ui.view,arch_db:membership.membership_products_kanban
 msgid "<strong> To:</strong>"
 msgstr ""
 
@@ -46,85 +52,87 @@ msgstr ""
 #: model:ir.model.fields,help:membership.field_res_partner__associate_member
 #: model:ir.model.fields,help:membership.field_res_users__associate_member
 msgid ""
-"A member with whom you want to associate your membership. It will consider "
+"A member with whom you want to associate your membership.It will consider "
 "the membership state of the associated member."
 msgstr ""
+"Člen, s kterým chcete asociovat vaše členství. Vezme v úvahu stav členství "
+"asociovaného člena."
 
 #. module: membership
 #: model:ir.model.fields,field_description:membership.field_membership_membership_line__account_invoice_line
 msgid "Account Invoice line"
-msgstr ""
+msgstr "Účetní řádek faktury"
 
 #. module: membership
-#: model:ir.ui.view,arch_db:membership.membership_products_form
+#: model_terms:ir.ui.view,arch_db:membership.membership_products_form
 msgid "Add a description..."
-msgstr ""
+msgstr "Přidat popis..."
 
 #. module: membership
-#: model:ir.actions.act_window,help:membership.action_membership_members
+#: model_terms:ir.actions.act_window,help:membership.action_membership_members
 msgid "Add a new member"
 msgstr ""
 
 #. module: membership
-#: model:ir.ui.view,arch_db:membership.view_res_partner_member_filter
+#: model_terms:ir.ui.view,arch_db:membership.view_res_partner_member_filter
 msgid "All Members"
-msgstr ""
+msgstr "Všichni členové"
 
 #. module: membership
-#: model:ir.ui.view,arch_db:membership.view_res_partner_member_filter
+#: model_terms:ir.ui.view,arch_db:membership.view_res_partner_member_filter
 msgid "All non Members"
-msgstr ""
+msgstr "Všichni nečleni"
 
 #. module: membership
 #: model:ir.model.fields,help:membership.field_membership_membership_line__member_price
 msgid "Amount for the membership"
-msgstr ""
+msgstr "Částka pro členství"
 
 #. module: membership
 #: model:ir.model.fields,field_description:membership.field_report_membership__associate_member_id
 #: model:ir.model.fields,field_description:membership.field_res_partner__associate_member
 #: model:ir.model.fields,field_description:membership.field_res_users__associate_member
-#: model:ir.ui.view,arch_db:membership.view_res_partner_member_filter
+#: model_terms:ir.ui.view,arch_db:membership.view_res_partner_member_filter
 msgid "Associate Member"
-msgstr ""
+msgstr "Přidružený člen"
 
 #. module: membership
-#: model:ir.ui.view,arch_db:membership.view_report_membership_search
+#: model_terms:ir.ui.view,arch_db:membership.view_report_membership_search
 msgid "Associated Partner"
-msgstr ""
+msgstr "Přidružený partner"
 
 #. module: membership
-#: model:ir.ui.view,arch_db:membership.view_partner_form
+#: model_terms:ir.ui.view,arch_db:membership.view_partner_form
 msgid "Buy Membership"
-msgstr ""
+msgstr "Koupit členství"
 
 #. module: membership
-#: model:ir.ui.view,arch_db:membership.view_membership_invoice_view
+#: model_terms:ir.ui.view,arch_db:membership.view_membership_invoice_view
 msgid "Cancel"
-msgstr ""
+msgstr "Zrušit"
 
 #. module: membership
 #: model:ir.model.fields,field_description:membership.field_res_partner__membership_cancel
 #: model:ir.model.fields,field_description:membership.field_res_users__membership_cancel
 msgid "Cancel Membership Date"
-msgstr ""
+msgstr "Zrušit datum členství"
 
 #. module: membership
 #: model:ir.model.fields,field_description:membership.field_membership_membership_line__date_cancel
 msgid "Cancel date"
-msgstr ""
+msgstr "Zrušit datum"
 
 #. module: membership
 #: selection:membership.membership_line,state:0
 #: selection:report.membership,membership_state:0
 #: selection:res.partner,membership_state:0
 msgid "Cancelled Member"
-msgstr ""
+msgstr "Zrušený člen"
 
 #. module: membership
-#: model:ir.ui.view,arch_db:membership.membership_product_search_form_view
+#: model_terms:ir.ui.view,arch_db:membership.membership_product_search_form_view
 msgid "Category"
-msgstr ""
+msgstr "Kategorie"
 
 #. module: membership
 #: model:ir.model.fields,help:membership.field_product_product__membership
@@ -135,42 +143,42 @@ msgstr ""
 #. module: membership
 #: model:ir.model.fields,field_description:membership.field_membership_membership_line__company_id
 #: model:ir.model.fields,field_description:membership.field_report_membership__company_id
-#: model:ir.ui.view,arch_db:membership.view_report_membership_search
+#: model_terms:ir.ui.view,arch_db:membership.view_report_membership_search
 msgid "Company"
-msgstr ""
+msgstr "Firma"
 
 #. module: membership
 #: model:ir.ui.menu,name:membership.menu_marketing_config_association
 msgid "Configuration"
-msgstr ""
+msgstr "Konfigurace"
 
 #. module: membership
 #: model:ir.model,name:membership.model_res_partner
 msgid "Contact"
-msgstr ""
+msgstr "Kontakt"
 
 #. module: membership
-#: model:ir.ui.view,arch_db:membership.view_partner_tree
+#: model_terms:ir.ui.view,arch_db:membership.view_partner_tree
 msgid "Contacts"
-msgstr ""
+msgstr "Kontakty"
 
 #. module: membership
 #: model:ir.model.fields,field_description:membership.field_membership_invoice__create_uid
 #: model:ir.model.fields,field_description:membership.field_membership_membership_line__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Vytvořil(a)"
 
 #. module: membership
 #: model:ir.model.fields,field_description:membership.field_membership_invoice__create_date
 #: model:ir.model.fields,field_description:membership.field_membership_membership_line__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Vytvořeno"
 
 #. module: membership
 #: model:ir.model.fields,field_description:membership.field_report_membership__membership_state
-#: model:ir.ui.view,arch_db:membership.view_report_membership_search
+#: model_terms:ir.ui.view,arch_db:membership.view_report_membership_search
 msgid "Current Membership State"
-msgstr ""
+msgstr "Aktuální stav členství"
 
 #. module: membership
 #: model:ir.model.fields,field_description:membership.field_res_partner__membership_state
@@ -179,9 +187,9 @@ msgid "Current Membership Status"
 msgstr ""
 
 #. module: membership
-#: model:ir.ui.view,arch_db:membership.view_res_partner_member_filter
+#: model_terms:ir.ui.view,arch_db:membership.view_res_partner_member_filter
 msgid "Customers"
-msgstr ""
+msgstr "Zákazníci"
 
 #. module: membership
 #: model:ir.model.fields,help:membership.field_product_product__membership_date_from
@@ -189,18 +197,18 @@ msgstr ""
 #: model:ir.model.fields,help:membership.field_res_partner__membership_start
 #: model:ir.model.fields,help:membership.field_res_users__membership_start
 msgid "Date from which membership becomes active."
-msgstr ""
+msgstr "Datum, od kterého se stává členství aktivním."
 
 #. module: membership
 #: model:ir.model.fields,help:membership.field_membership_membership_line__date
 msgid "Date on which member has joined the membership"
-msgstr ""
+msgstr "Datum, kdy se člen připojil k členství"
 
 #. module: membership
 #: model:ir.model.fields,help:membership.field_res_partner__membership_cancel
 #: model:ir.model.fields,help:membership.field_res_users__membership_cancel
 msgid "Date on which membership has been cancelled"
-msgstr ""
+msgstr "Datum, kdy bylo zrušeno členství"
 
 #. module: membership
 #: model:ir.model.fields,help:membership.field_product_product__membership_date_to
@@ -208,38 +216,38 @@ msgstr ""
 #: model:ir.model.fields,help:membership.field_res_partner__membership_stop
 #: model:ir.model.fields,help:membership.field_res_users__membership_stop
 msgid "Date until which membership remains active."
-msgstr ""
+msgstr "Datum, do kterého členství zůstává aktivní."
 
 #. module: membership
 #: model:ir.model.fields,field_description:membership.field_membership_invoice__display_name
 #: model:ir.model.fields,field_description:membership.field_membership_membership_line__display_name
 #: model:ir.model.fields,field_description:membership.field_report_membership__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Zobrazovaný název"
 
 #. module: membership
 #: model:ir.model.fields,field_description:membership.field_report_membership__tot_earned
 msgid "Earned Amount"
-msgstr ""
+msgstr "Vydělaná částka"
 
 #. module: membership
 #: model:ir.model.fields,field_description:membership.field_report_membership__date_to
-#: model:ir.ui.view,arch_db:membership.view_res_partner_member_filter
+#: model_terms:ir.ui.view,arch_db:membership.view_res_partner_member_filter
 msgid "End Date"
-msgstr ""
+msgstr "Datum ukončení"
 
 #. module: membership
-#: model:ir.ui.view,arch_db:membership.view_res_partner_member_filter
+#: model_terms:ir.ui.view,arch_db:membership.view_res_partner_member_filter
 msgid "End Membership Date"
-msgstr ""
+msgstr "Datum ukončení členství"
 
 #. module: membership
 #: model:ir.model.fields,help:membership.field_report_membership__date_to
 msgid "End membership date"
-msgstr ""
+msgstr "Datum ukončení členství"
 
 #. module: membership
-#: model:ir.ui.view,arch_db:membership.view_res_partner_member_filter
+#: model_terms:ir.ui.view,arch_db:membership.view_res_partner_member_filter
 msgid "Ending Date Of Membership"
 msgstr ""
 
@@ -249,9 +257,9 @@ msgid "Error ! Ending Date cannot be set before Beginning Date."
 msgstr ""
 
 #. module: membership
-#: model:ir.ui.view,arch_db:membership.view_report_membership_search
+#: model_terms:ir.ui.view,arch_db:membership.view_report_membership_search
 msgid "Forecast"
-msgstr ""
+msgstr "Předpověď"
 
 #. module: membership
 #: model:ir.model.fields,field_description:membership.field_res_partner__free_member
@@ -260,50 +268,50 @@ msgstr ""
 #: selection:report.membership,membership_state:0
 #: selection:res.partner,membership_state:0
 msgid "Free Member"
-msgstr ""
+msgstr "Volný člen"
 
 #. module: membership
 #: model:ir.model.fields,field_description:membership.field_membership_membership_line__date_from
 msgid "From"
-msgstr ""
+msgstr "Od"
 
 #. module: membership
-#: model:ir.ui.view,arch_db:membership.view_report_membership_search
-#: model:ir.ui.view,arch_db:membership.view_res_partner_member_filter
+#: model_terms:ir.ui.view,arch_db:membership.view_report_membership_search
+#: model_terms:ir.ui.view,arch_db:membership.view_res_partner_member_filter
 msgid "Group By"
-msgstr ""
+msgstr "Seskupit podle"
 
 #. module: membership
-#: model:ir.ui.view,arch_db:membership.membership_product_search_form_view
+#: model_terms:ir.ui.view,arch_db:membership.membership_product_search_form_view
 msgid "Group by..."
-msgstr ""
+msgstr "Seskupit podle..."
 
 #. module: membership
 #: model:ir.model.fields,field_description:membership.field_membership_invoice__id
 #: model:ir.model.fields,field_description:membership.field_membership_membership_line__id
 #: model:ir.model.fields,field_description:membership.field_report_membership__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: membership
-#: model:ir.ui.view,arch_db:membership.membership_product_search_form_view
+#: model_terms:ir.ui.view,arch_db:membership.membership_product_search_form_view
 msgid "Inactive"
-msgstr ""
+msgstr "Neaktivní"
 
 #. module: membership
 #: model:ir.model,name:membership.model_account_invoice
 #: model:ir.model.fields,field_description:membership.field_membership_membership_line__account_invoice_id
 msgid "Invoice"
-msgstr ""
+msgstr "Faktura"
 
 #. module: membership
 #: model:ir.model,name:membership.model_account_invoice_line
 msgid "Invoice Line"
-msgstr ""
+msgstr "Řádek faktury"
 
 #. module: membership
 #: model:ir.actions.act_window,name:membership.action_membership_invoice_view
-#: model:ir.ui.view,arch_db:membership.view_membership_invoice_view
+#: model_terms:ir.ui.view,arch_db:membership.view_membership_invoice_view
 msgid "Invoice Membership"
 msgstr ""
 
@@ -312,12 +320,12 @@ msgstr ""
 #: selection:report.membership,membership_state:0
 #: selection:res.partner,membership_state:0
 msgid "Invoiced Member"
-msgstr ""
+msgstr "Fakturovaný člen"
 
 #. module: membership
-#: model:ir.ui.view,arch_db:membership.view_res_partner_member_filter
+#: model_terms:ir.ui.view,arch_db:membership.view_res_partner_member_filter
 msgid "Invoiced/Paid/Free"
-msgstr ""
+msgstr "Fakturované / placené / zdarma"
 
 #. module: membership
 #: model:ir.model.fields,help:membership.field_res_partner__membership_state
@@ -347,49 +355,49 @@ msgstr ""
 #. module: membership
 #: model:ir.model.fields,field_description:membership.field_membership_membership_line__date
 msgid "Join Date"
-msgstr ""
+msgstr "Datum vstupu"
 
 #. module: membership
 #: model:ir.model.fields,field_description:membership.field_membership_invoice____last_update
 #: model:ir.model.fields,field_description:membership.field_membership_membership_line____last_update
 #: model:ir.model.fields,field_description:membership.field_report_membership____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Naposled změněno"
 
 #. module: membership
 #: model:ir.model.fields,field_description:membership.field_membership_invoice__write_uid
 #: model:ir.model.fields,field_description:membership.field_membership_membership_line__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Naposledy upraveno od"
 
 #. module: membership
 #: model:ir.model.fields,field_description:membership.field_membership_invoice__write_date
 #: model:ir.model.fields,field_description:membership.field_membership_membership_line__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Naposled upraveno"
 
 #. module: membership
 #: model:ir.model.fields,field_description:membership.field_report_membership__partner_id
 msgid "Member"
-msgstr ""
+msgstr "Člen"
 
 #. module: membership
 #: model:ir.model.fields,field_description:membership.field_membership_invoice__member_price
 msgid "Member Price"
-msgstr ""
+msgstr "Členská cena"
 
 #. module: membership
 #: model:ir.actions.act_window,name:membership.action_membership_members
 #: model:ir.ui.menu,name:membership.menu_association
 #: model:ir.ui.menu,name:membership.menu_membership
-#: model:ir.ui.view,arch_db:membership.membership_members_tree
+#: model_terms:ir.ui.view,arch_db:membership.membership_members_tree
 msgid "Members"
-msgstr ""
+msgstr "Členové"
 
 #. module: membership
 #: model:ir.actions.act_window,name:membership.action_report_membership_tree
 msgid "Members Analysis"
-msgstr ""
+msgstr "Analýza členů"
 
 #. module: membership
 #: model:ir.model.fields,field_description:membership.field_membership_invoice__product_id
@@ -398,12 +406,12 @@ msgstr ""
 #: model:ir.model.fields,field_description:membership.field_product_template__membership
 #: model:ir.model.fields,field_description:membership.field_res_partner__member_lines
 #: model:ir.model.fields,field_description:membership.field_res_users__member_lines
-#: model:ir.ui.view,arch_db:membership.view_partner_form
-#: model:ir.ui.view,arch_db:membership.view_report_membership_graph1
-#: model:ir.ui.view,arch_db:membership.view_report_membership_pivot
-#: model:ir.ui.view,arch_db:membership.view_report_membership_search
+#: model_terms:ir.ui.view,arch_db:membership.view_partner_form
+#: model_terms:ir.ui.view,arch_db:membership.view_report_membership_graph1
+#: model_terms:ir.ui.view,arch_db:membership.view_report_membership_pivot
+#: model_terms:ir.ui.view,arch_db:membership.view_report_membership_search
 msgid "Membership"
-msgstr ""
+msgstr "Členství"
 
 #. module: membership
 #: model:ir.model.fields,field_description:membership.field_res_partner__membership_amount
@@ -414,10 +422,10 @@ msgstr ""
 #. module: membership
 #: model:ir.model,name:membership.model_report_membership
 msgid "Membership Analysis"
-msgstr ""
+msgstr "Analýza členství"
 
 #. module: membership
-#: model:ir.ui.view,arch_db:membership.membership_products_form
+#: model_terms:ir.ui.view,arch_db:membership.membership_products_form
 msgid "Membership Duration"
 msgstr ""
 
@@ -431,34 +439,39 @@ msgstr ""
 
 #. module: membership
 #: model:ir.model.fields,field_description:membership.field_membership_membership_line__member_price
-#: model:ir.ui.view,arch_db:membership.membership_products_form
-#: model:ir.ui.view,arch_db:membership.membership_products_tree
+#: model_terms:ir.ui.view,arch_db:membership.membership_products_form
+#: model_terms:ir.ui.view,arch_db:membership.membership_products_tree
 msgid "Membership Fee"
-msgstr ""
+msgstr "Členský poplatek"
 
 #. module: membership
 #: model:ir.model,name:membership.model_membership_invoice
-#: model:ir.ui.view,arch_db:membership.view_membership_invoice_view
+#: model_terms:ir.ui.view,arch_db:membership.view_membership_invoice_view
 msgid "Membership Invoice"
+msgstr "Členská faktura"
+
+#. module: membership
+#: model:ir.model,name:membership.model_membership_membership_line
+msgid "Membership Line"
 msgstr ""
 
 #. module: membership
-#: model:ir.ui.view,arch_db:membership.view_res_partner_member_filter
+#: model_terms:ir.ui.view,arch_db:membership.view_res_partner_member_filter
 msgid "Membership Partners"
 msgstr ""
 
 #. module: membership
 #: model:ir.model.fields,field_description:membership.field_report_membership__membership_id
-#: model:ir.ui.view,arch_db:membership.membership_product_search_form_view
-#: model:ir.ui.view,arch_db:membership.view_report_membership_search
+#: model_terms:ir.ui.view,arch_db:membership.membership_product_search_form_view
+#: model_terms:ir.ui.view,arch_db:membership.view_report_membership_search
 msgid "Membership Product"
-msgstr ""
+msgstr "Výrobek členství"
 
 #. module: membership
 #: model:ir.actions.act_window,name:membership.action_membership_products
-#: model:ir.ui.view,arch_db:membership.membership_product_search_form_view
+#: model_terms:ir.ui.view,arch_db:membership.membership_product_search_form_view
 msgid "Membership Products"
-msgstr ""
+msgstr "Výrobky členství"
 
 #. module: membership
 #: model:ir.model.fields,field_description:membership.field_product_product__membership_date_from
@@ -469,9 +482,9 @@ msgid "Membership Start Date"
 msgstr ""
 
 #. module: membership
-#: model:ir.ui.view,arch_db:membership.view_res_partner_member_filter
+#: model_terms:ir.ui.view,arch_db:membership.view_res_partner_member_filter
 msgid "Membership State"
-msgstr ""
+msgstr "Stav členství"
 
 #. module: membership
 #: model:ir.model.fields,field_description:membership.field_membership_membership_line__state
@@ -479,10 +492,10 @@ msgid "Membership Status"
 msgstr ""
 
 #. module: membership
-#: model:ir.ui.view,arch_db:membership.membership_products_form
-#: model:ir.ui.view,arch_db:membership.membership_products_tree
+#: model_terms:ir.ui.view,arch_db:membership.membership_products_form
+#: model_terms:ir.ui.view,arch_db:membership.membership_products_tree
 msgid "Membership products"
-msgstr ""
+msgstr "Výrobky členství"
 
 #. module: membership
 #: model:ir.actions.server,name:membership.ir_cron_update_membership_ir_actions_server
@@ -492,29 +505,29 @@ msgid "Membership: update memberships"
 msgstr ""
 
 #. module: membership
-#: model:ir.ui.view,arch_db:membership.view_partner_form
+#: model_terms:ir.ui.view,arch_db:membership.view_partner_form
 msgid "Memberships"
-msgstr ""
+msgstr "Členství"
 
 #. module: membership
-#: model:ir.ui.view,arch_db:membership.view_report_membership_search
+#: model_terms:ir.ui.view,arch_db:membership.view_report_membership_search
 msgid "Month"
-msgstr ""
+msgstr "Měsíc"
 
 #. module: membership
 #: selection:membership.membership_line,state:0
 #: selection:report.membership,membership_state:0
 #: selection:res.partner,membership_state:0
 msgid "Non Member"
-msgstr ""
+msgstr "Nečlen"
 
 #. module: membership
-#: model:ir.ui.view,arch_db:membership.view_res_partner_member_filter
+#: model_terms:ir.ui.view,arch_db:membership.view_res_partner_member_filter
 msgid "None/Canceled/Old/Waiting"
 msgstr ""
 
 #. module: membership
-#: model:ir.actions.act_window,help:membership.action_membership_members
+#: model_terms:ir.actions.act_window,help:membership.action_membership_members
 msgid ""
 "Odoo helps you easily track all activities related to a member: \n"
 "                  Current Membership Status, Discussions and History of Membership, etc."
@@ -525,63 +538,63 @@ msgstr ""
 #: selection:report.membership,membership_state:0
 #: selection:res.partner,membership_state:0
 msgid "Old Member"
-msgstr ""
+msgstr "Starý člen"
 
 #. module: membership
 #: selection:membership.membership_line,state:0
 #: selection:report.membership,membership_state:0
 #: selection:res.partner,membership_state:0
 msgid "Paid Member"
-msgstr ""
+msgstr "Zaplacený člen"
 
 #. module: membership
 #: model:ir.model.fields,field_description:membership.field_membership_membership_line__partner
 msgid "Partner"
-msgstr ""
+msgstr "Kontakt"
+
+#. module: membership
+#: code:addons/membership/models/partner.py:186
+#, python-format
+msgid "Partner doesn't have an address to make the invoice."
+msgstr "Partner nemá adresu pro vytvoření faktury."
 
 #. module: membership
 #: code:addons/membership/models/partner.py:184
 #, python-format
-msgid "Partner doesn't have an address to make the invoice."
-msgstr ""
-
-#. module: membership
-#: code:addons/membership/models/partner.py:182
-#, python-format
 msgid "Partner is a free Member."
-msgstr ""
+msgstr "Partner je volný člen."
 
 #. module: membership
 #: model:ir.model.fields,field_description:membership.field_report_membership__tot_pending
 msgid "Pending Amount"
-msgstr ""
+msgstr "Čekající částka"
 
 #. module: membership
 #: model:ir.model,name:membership.model_product_template
 msgid "Product Template"
-msgstr ""
+msgstr "Šablona výrobku"
 
 #. module: membership
 #: model:ir.model.fields,field_description:membership.field_report_membership__quantity
 msgid "Quantity"
-msgstr ""
+msgstr "Množství"
 
 #. module: membership
 #: model:ir.ui.menu,name:membership.menu_report_membership
 msgid "Reporting"
-msgstr ""
+msgstr "Sestavy"
 
 #. module: membership
-#: model:ir.ui.view,arch_db:membership.view_report_membership_search
+#: model_terms:ir.ui.view,arch_db:membership.view_report_membership_search
 msgid "Revenue Done"
-msgstr ""
+msgstr "Příjem proveden"
 
 #. module: membership
 #: model:ir.model.fields,field_description:membership.field_report_membership__user_id
-#: model:ir.ui.view,arch_db:membership.view_report_membership_search
-#: model:ir.ui.view,arch_db:membership.view_res_partner_member_filter
+#: model_terms:ir.ui.view,arch_db:membership.view_report_membership_search
+#: model_terms:ir.ui.view,arch_db:membership.view_res_partner_member_filter
 msgid "Salesperson"
-msgstr ""
+msgstr "Obchodník"
 
 #. module: membership
 #: model:ir.model.fields,help:membership.field_res_partner__free_member
@@ -591,66 +604,61 @@ msgstr ""
 
 #. module: membership
 #: model:ir.model.fields,field_description:membership.field_report_membership__start_date
-#: model:ir.ui.view,arch_db:membership.membership_product_search_form_view
-#: model:ir.ui.view,arch_db:membership.view_res_partner_member_filter
+#: model_terms:ir.ui.view,arch_db:membership.membership_product_search_form_view
+#: model_terms:ir.ui.view,arch_db:membership.view_res_partner_member_filter
 msgid "Start Date"
-msgstr ""
+msgstr "Datum zahájení"
 
 #. module: membership
-#: model:ir.ui.view,arch_db:membership.view_res_partner_member_filter
+#: model_terms:ir.ui.view,arch_db:membership.view_res_partner_member_filter
 msgid "Starting Date Of Membership"
 msgstr ""
 
 #. module: membership
-#: model:ir.ui.view,arch_db:membership.membership_products_form
+#: model_terms:ir.ui.view,arch_db:membership.membership_products_form
 msgid "Taxes"
-msgstr ""
+msgstr "Daně"
 
 #. module: membership
 #: model:ir.model.fields,help:membership.field_res_partner__membership_amount
 #: model:ir.model.fields,help:membership.field_res_users__membership_amount
 msgid "The price negotiated by the partner"
-msgstr ""
+msgstr "Cena vyjednaná partnerem"
 
 #. module: membership
-#: model:ir.ui.view,arch_db:membership.membership_products_form
+#: model_terms:ir.ui.view,arch_db:membership.membership_products_form
 msgid "This note will be displayed on quotations..."
 msgstr ""
 
 #. module: membership
-#: model:ir.ui.view,arch_db:membership.view_report_membership_search
+#: model_terms:ir.ui.view,arch_db:membership.view_report_membership_search
 msgid "This will display paid, old and total earned columns"
 msgstr ""
 
 #. module: membership
-#: model:ir.ui.view,arch_db:membership.view_report_membership_search
+#: model_terms:ir.ui.view,arch_db:membership.view_report_membership_search
 msgid "This will display waiting, invoiced and total pending columns"
 msgstr ""
 
 #. module: membership
 #: model:ir.model.fields,field_description:membership.field_membership_membership_line__date_to
 msgid "To"
-msgstr ""
+msgstr "Do"
 
 #. module: membership
-#: model:ir.ui.view,arch_db:membership.view_res_partner_member_filter
+#: model_terms:ir.ui.view,arch_db:membership.view_res_partner_member_filter
 msgid "Vendors"
-msgstr ""
+msgstr "Dodavatelé"
 
 #. module: membership
 #: selection:membership.membership_line,state:0
 #: selection:report.membership,membership_state:0
 #: selection:res.partner,membership_state:0
 msgid "Waiting Member"
-msgstr ""
+msgstr "Čekající člen"
 
 #. module: membership
 #: code:addons/membership/models/partner.py:162
 #, python-format
 msgid "You cannot create recursive associated members."
-msgstr ""
-
-#. module: membership
-#: model:ir.model,name:membership.model_membership_membership_line
-msgid "membership.membership_line"
 msgstr ""

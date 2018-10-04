@@ -159,7 +159,7 @@ class TestPickShip(TestStockCommon):
         self.assertEqual(picking_client.state, 'assigned', 'The picking should not assign what it does not have')
         self.assertEqual(self.env['stock.quant']._get_available_quantity(self.productA, stock_location), 0.0)
         self.assertEqual(self.env['stock.quant']._get_available_quantity(self.productA, pack_location), 5.0)
-        self.assertEqual(len(self.env['stock.quant']._gather(self.productA, stock_location)), 0.0)
+        self.assertEqual(sum(self.env['stock.quant']._gather(self.productA, stock_location).mapped('quantity')), 0.0)
         self.assertEqual(len(self.env['stock.quant']._gather(self.productA, pack_location)), 1.0)
 
     def test_mto_moves_return(self):
@@ -184,6 +184,30 @@ class TestPickShip(TestStockCommon):
         return_pick.action_done()
         # the client picking should not be assigned anymore, as we returned partially what we took
         self.assertEqual(picking_client.state, 'confirmed')
+
+    def test_mto_moves_return_extra(self):
+        picking_pick, picking_client = self.create_pick_ship()
+        stock_location = self.env['stock.location'].browse(self.stock_location)
+        self.env['stock.quant']._update_available_quantity(self.productA, stock_location, 10.0)
+
+        picking_pick.action_assign()
+        picking_pick.move_lines[0].move_line_ids[0].qty_done = 10.0
+        picking_pick.action_done()
+        self.assertEqual(picking_pick.state, 'done')
+        self.assertEqual(picking_client.state, 'assigned')
+
+        # return more than we've done
+        stock_return_picking = self.env['stock.return.picking']\
+            .with_context(active_ids=picking_pick.ids, active_id=picking_pick.ids[0])\
+            .create({})
+        stock_return_picking.product_return_moves.quantity = 12.0 # Return 2 extra
+        stock_return_picking_action = stock_return_picking.create_returns()
+        return_pick = self.env['stock.picking'].browse(stock_return_picking_action['res_id'])
+
+        # Verify the extra move has been merged with the original move
+        self.assertAlmostEqual(return_pick.move_lines.product_uom_qty, 12.0)
+        self.assertAlmostEqual(return_pick.move_lines.quantity_done, 0.0)
+        self.assertAlmostEqual(return_pick.move_lines.reserved_availability, 10.0)
 
     def test_mto_resupply_cancel_ship(self):
         """ This test simulates a pick pack ship with a resupply route
@@ -681,7 +705,7 @@ class TestPickShip(TestStockCommon):
 
         self.assertEqual(self.env['stock.quant']._get_available_quantity(self.productA, pick_location), 5.0)
         self.assertEqual(self.env['stock.quant']._get_available_quantity(self.productA, return_location), 5.0)
-        self.assertEqual(len(self.env['stock.quant'].search([('product_id', '=', self.productA.id)])), 2)
+        self.assertEqual(len(self.env['stock.quant'].search([('product_id', '=', self.productA.id), ('quantity', '!=', 0)])), 2)
 
 
 class TestSinglePicking(TestStockCommon):

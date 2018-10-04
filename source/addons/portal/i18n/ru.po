@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server saas~11.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-24 09:06+0000\n"
-"PO-Revision-Date: 2018-08-24 09:06+0000\n"
+"POT-Creation-Date: 2018-09-21 13:18+0000\n"
+"PO-Revision-Date: 2018-09-21 13:18+0000\n"
 "Last-Translator: Collex100, 2018\n"
 "Language-Team: Russian (https://www.transifex.com/odoo/teams/41243/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -21,23 +21,43 @@ msgstr ""
 
 #. module: portal
 #. openerp-web
-#: code:addons/portal/static/src/js/portal_sidebar.js:46
+#: code:addons/portal/static/src/js/portal_sidebar.js:43
 #, python-format
 msgid "%d days overdue"
 msgstr ""
 
 #. module: portal
-#: model:ir.ui.view,arch_db:portal.portal_show_sign_in
+#: model_terms:ir.ui.view,arch_db:portal.portal_show_sign_in
 msgid "<b>Sign in</b>"
 msgstr "<b>Зарегистрируйтесь</b>"
 
 #. module: portal
-#: model:ir.ui.view,arch_db:portal.portal_searchbar
-msgid "<span id=\"search_label\" class=\"d-none d-md-inline mr4\">Search</span>"
+#: model_terms:ir.ui.view,arch_db:portal.portal_back_in_edit_mode
+msgid "<i class=\"fa fa-arrow-right\"/> Back to edit mode"
 msgstr ""
 
 #. module: portal
-#: model:ir.ui.view,arch_db:portal.portal_share_template
+#: model_terms:ir.ui.view,arch_db:portal.portal_layout
+msgid "<i class=\"fa fa-pencil\"/> Edit"
+msgstr ""
+
+#. module: portal
+#: model_terms:ir.ui.view,arch_db:portal.portal_searchbar
+msgid "<span class=\"small mr-1 navbar-text\">Filter By:</span>"
+msgstr ""
+
+#. module: portal
+#: model_terms:ir.ui.view,arch_db:portal.portal_searchbar
+msgid "<span class=\"small mr-1 navbar-text\">Group By:</span>"
+msgstr ""
+
+#. module: portal
+#: model_terms:ir.ui.view,arch_db:portal.portal_searchbar
+msgid "<span class=\"small mr-1 navbar-text\">Sort By:</span>"
+msgstr ""
+
+#. module: portal
+#: model_terms:ir.ui.view,arch_db:portal.portal_share_template
 msgid "<strong>Open </strong>"
 msgstr ""
 
@@ -135,12 +155,12 @@ msgid "Access warning"
 msgstr ""
 
 #. module: portal
-#: model:ir.ui.view,arch_db:portal.portal_share_wizard
+#: model_terms:ir.ui.view,arch_db:portal.portal_share_wizard
 msgid "Add a note"
 msgstr ""
 
 #. module: portal
-#: model:ir.ui.view,arch_db:portal.portal_share_wizard
+#: model_terms:ir.ui.view,arch_db:portal.portal_share_wizard
 msgid "Add contacts to share the document..."
 msgstr ""
 
@@ -150,12 +170,12 @@ msgid "Add extra content to display in the email"
 msgstr ""
 
 #. module: portal
-#: model:ir.ui.view,arch_db:portal.wizard_view
+#: model_terms:ir.ui.view,arch_db:portal.wizard_view
 msgid "Apply"
 msgstr "Применить "
 
 #. module: portal
-#: model:ir.ui.view,arch_db:portal.portal_archive_groups
+#: model_terms:ir.ui.view,arch_db:portal.portal_archive_groups
 msgid "Archives"
 msgstr "Архивы"
 
@@ -167,18 +187,13 @@ msgid "Avatar"
 msgstr "Аватар"
 
 #. module: portal
-#: model:ir.ui.view,arch_db:portal.portal_share_wizard
-#: model:ir.ui.view,arch_db:portal.wizard_view
+#: model_terms:ir.ui.view,arch_db:portal.portal_share_wizard
+#: model_terms:ir.ui.view,arch_db:portal.wizard_view
 msgid "Cancel"
 msgstr "Отменить"
 
 #. module: portal
-#: model:ir.ui.view,arch_db:portal.portal_layout
-msgid "Change"
-msgstr "Сдача"
-
-#. module: portal
-#: code:addons/portal/controllers/portal.py:218
+#: code:addons/portal/controllers/portal.py:220
 #, python-format
 msgid ""
 "Changing VAT number is not allowed once document(s) have been issued for "
@@ -186,7 +201,7 @@ msgid ""
 msgstr ""
 
 #. module: portal
-#: model:ir.ui.view,arch_db:portal.portal_my_details
+#: model_terms:ir.ui.view,arch_db:portal.portal_my_details
 msgid "City"
 msgstr "Город"
 
@@ -205,12 +220,18 @@ msgid "Click here to see your document."
 msgstr ""
 
 #. module: portal
-#: model:ir.ui.view,arch_db:portal.portal_my_details
+#: model_terms:ir.ui.view,arch_db:portal.portal_back_in_edit_mode
+#: model_terms:ir.ui.view,arch_db:portal.portal_layout
+msgid "Close"
+msgstr "Закрыть"
+
+#. module: portal
+#: model_terms:ir.ui.view,arch_db:portal.portal_my_details
 msgid "Company Name"
 msgstr "Название компании"
 
 #. module: portal
-#: model:ir.ui.view,arch_db:portal.portal_my_details
+#: model_terms:ir.ui.view,arch_db:portal.portal_my_details
 msgid ""
 "Confirm\n"
 "                                <span class=\"fa fa-long-arrow-right\"/>"
@@ -223,17 +244,17 @@ msgid "Contact"
 msgstr "Контакт"
 
 #. module: portal
-#: model:ir.ui.view,arch_db:portal.wizard_view
+#: model_terms:ir.ui.view,arch_db:portal.wizard_view
 msgid "Contacts"
 msgstr "Контакты"
 
 #. module: portal
-#: model:ir.ui.view,arch_db:portal.portal_my_details
+#: model_terms:ir.ui.view,arch_db:portal.portal_my_details
 msgid "Country"
 msgstr "Страна"
 
 #. module: portal
-#: model:ir.ui.view,arch_db:portal.portal_my_details
+#: model_terms:ir.ui.view,arch_db:portal.portal_my_details
 msgid "Country..."
 msgstr "Страна..."
 
@@ -257,7 +278,7 @@ msgid "Customer Portal URL"
 msgstr ""
 
 #. module: portal
-#: model:ir.ui.view,arch_db:portal.portal_share_template
+#: model_terms:ir.ui.view,arch_db:portal.portal_share_template
 msgid "Dear"
 msgstr "Уважаемый "
 
@@ -278,21 +299,21 @@ msgstr ""
 
 #. module: portal
 #. openerp-web
-#: code:addons/portal/static/src/js/portal_sidebar.js:44
+#: code:addons/portal/static/src/js/portal_sidebar.js:41
 #, python-format
 msgid "Due in %d days"
 msgstr ""
 
 #. module: portal
 #. openerp-web
-#: code:addons/portal/static/src/js/portal_sidebar.js:42
+#: code:addons/portal/static/src/js/portal_sidebar.js:39
 #, python-format
 msgid "Due today"
 msgstr ""
 
 #. module: portal
 #: model:ir.model.fields,field_description:portal.field_portal_wizard_user__email
-#: model:ir.ui.view,arch_db:portal.portal_my_details
+#: model_terms:ir.ui.view,arch_db:portal.portal_my_details
 msgid "Email"
 msgstr "Email"
 
@@ -304,17 +325,17 @@ msgstr "Цепочка эл.почты"
 #. module: portal
 #: model:ir.actions.act_window,name:portal.partner_wizard_action
 #: model:ir.model,name:portal.model_portal_wizard
-#: model:ir.ui.view,arch_db:portal.wizard_view
+#: model_terms:ir.ui.view,arch_db:portal.wizard_view
 msgid "Grant Portal Access"
 msgstr ""
 
 #. module: portal
 #: model:ir.model,name:portal.model_ir_http
-msgid "HTTP routing"
-msgstr "HTTP маршрутизация"
+msgid "HTTP Routing"
+msgstr ""
 
 #. module: portal
-#: model:ir.ui.view,arch_db:portal.portal_layout
+#: model_terms:ir.ui.view,arch_db:portal.portal_breadcrumbs
 msgid "Home"
 msgstr "Главная"
 
@@ -332,7 +353,7 @@ msgid "In Portal"
 msgstr "В портале"
 
 #. module: portal
-#: code:addons/portal/controllers/portal.py:199
+#: code:addons/portal/controllers/portal.py:201
 #, python-format
 msgid "Invalid Email! Please enter a valid email address."
 msgstr ""
@@ -383,7 +404,7 @@ msgid "Login User"
 msgstr "Логин пользовтеля"
 
 #. module: portal
-#: model:ir.ui.view,arch_db:portal.frontend_layout
+#: model_terms:ir.ui.view,arch_db:portal.frontend_layout
 msgid "Logout"
 msgstr "Выход"
 
@@ -393,22 +414,17 @@ msgid "Message"
 msgstr "Сообщение"
 
 #. module: portal
-#: model:ir.ui.view,arch_db:portal.my_account_link
+#: model_terms:ir.ui.view,arch_db:portal.my_account_link
 msgid "My Account"
 msgstr "Моя учётная запись"
 
 #. module: portal
 #. openerp-web
 #: code:addons/portal/static/src/xml/portal_chatter.xml:92
-#: model:ir.ui.view,arch_db:portal.pager
+#: model_terms:ir.ui.view,arch_db:portal.pager
 #, python-format
 msgid "Next"
 msgstr "Далее"
-
-#. module: portal
-#: model:ir.ui.view,arch_db:portal.portal_searchbar
-msgid "No title"
-msgstr ""
 
 #. module: portal
 #: model:ir.model.fields,field_description:portal.field_portal_share__note
@@ -416,9 +432,14 @@ msgid "Note"
 msgstr "Заметка"
 
 #. module: portal
-#: model:ir.ui.view,arch_db:portal.frontend_layout
+#: model_terms:ir.ui.view,arch_db:portal.frontend_layout
 msgid "Odoo"
 msgstr "Odoo"
+
+#. module: portal
+#: model_terms:ir.ui.view,arch_db:portal.portal_record_sidebar
+msgid "Odoo Logo"
+msgstr "Логотип Odoo"
 
 #. module: portal
 #. openerp-web
@@ -428,7 +449,7 @@ msgid "Oops! Something went wrong. Try to reload the page and log in."
 msgstr ""
 
 #. module: portal
-#: model:ir.ui.view,arch_db:portal.portal_my_details
+#: model_terms:ir.ui.view,arch_db:portal.portal_my_details
 msgid "Phone"
 msgstr "Телефон"
 
@@ -438,17 +459,28 @@ msgid "Portal Access URL"
 msgstr ""
 
 #. module: portal
+#: model:ir.model,name:portal.model_portal_mixin
+msgid "Portal Mixin"
+msgstr ""
+
+#. module: portal
+#: model:ir.model,name:portal.model_portal_share
+msgid "Portal Sharing"
+msgstr ""
+
+#. module: portal
 #: model:ir.model,name:portal.model_portal_wizard_user
 msgid "Portal User Config"
 msgstr "Настройка пользователя портала"
 
 #. module: portal
-#: model:ir.ui.view,arch_db:portal.frontend_layout
+#: model_terms:ir.ui.view,arch_db:portal.frontend_layout
+#: model_terms:ir.ui.view,arch_db:portal.portal_record_sidebar
 msgid "Powered by"
 msgstr "На базе"
 
 #. module: portal
-#: model:ir.ui.view,arch_db:portal.pager
+#: model_terms:ir.ui.view,arch_db:portal.pager
 msgid "Prev"
 msgstr "Пред"
 
@@ -482,12 +514,17 @@ msgid "Related Document Model"
 msgstr "Модель связанного документа"
 
 #. module: portal
+#: model_terms:ir.ui.view,arch_db:portal.portal_searchbar
+msgid "Search"
+msgstr "Поиск"
+
+#. module: portal
 #: model:ir.model.fields,field_description:portal.field_portal_mixin__access_token
 msgid "Security Token"
 msgstr "Маркер доступа"
 
 #. module: portal
-#: model:ir.ui.view,arch_db:portal.wizard_view
+#: model_terms:ir.ui.view,arch_db:portal.wizard_view
 msgid ""
 "Select which contacts should belong to the portal in the list below.\n"
 "                        The email address of each selected contact must be valid and unique.\n"
@@ -500,7 +537,7 @@ msgstr ""
 #. module: portal
 #. openerp-web
 #: code:addons/portal/static/src/xml/portal_chatter.xml:42
-#: model:ir.ui.view,arch_db:portal.portal_share_wizard
+#: model_terms:ir.ui.view,arch_db:portal.portal_share_wizard
 #, python-format
 msgid "Send"
 msgstr "Отправить"
@@ -513,7 +550,7 @@ msgstr "У некоторых контактов одинаковый адрес
 
 #. module: portal
 #: model:ir.actions.act_window,name:portal.portal_share_action
-#: model:ir.ui.view,arch_db:portal.portal_share_wizard
+#: model_terms:ir.ui.view,arch_db:portal.portal_share_wizard
 msgid "Share Document"
 msgstr ""
 
@@ -532,18 +569,18 @@ msgstr ""
 "пользователей портала:"
 
 #. module: portal
-#: code:addons/portal/controllers/portal.py:222
+#: code:addons/portal/controllers/portal.py:224
 #, python-format
 msgid "Some required fields are empty."
 msgstr "Некоторые обязательные поля не заполнены."
 
 #. module: portal
-#: model:ir.ui.view,arch_db:portal.portal_my_details
+#: model_terms:ir.ui.view,arch_db:portal.portal_my_details
 msgid "State / Province"
 msgstr "Штат / Провинция"
 
 #. module: portal
-#: model:ir.ui.view,arch_db:portal.portal_my_details
+#: model_terms:ir.ui.view,arch_db:portal.portal_my_details
 msgid "Street"
 msgstr "Улица"
 
@@ -562,7 +599,12 @@ msgid "There are no comments for now."
 msgstr ""
 
 #. module: portal
-#: model:ir.ui.view,arch_db:portal.wizard_view
+#: model_terms:ir.ui.view,arch_db:portal.portal_back_in_edit_mode
+msgid "This is a preview of the customer portal."
+msgstr ""
+
+#. module: portal
+#: model_terms:ir.ui.view,arch_db:portal.wizard_view
 msgid "This text is included in the email sent to new portal users."
 msgstr "Этот текст включается в эл. письмо новым пользователям портала."
 
@@ -585,35 +627,26 @@ msgstr ""
 "- Предоставить доступ только контактам с уникальными адресами"
 
 #. module: portal
+#: model_terms:ir.ui.view,arch_db:portal.portal_searchbar
+msgid "Toggle filters"
+msgstr ""
+
+#. module: portal
 #: model:ir.model.fields,field_description:portal.field_portal_wizard__user_ids
 msgid "Users"
 msgstr "Пользователи"
 
 #. module: portal
-#: model:ir.ui.view,arch_db:portal.portal_my_details
+#: model_terms:ir.ui.view,arch_db:portal.portal_my_details
 msgid "VAT Number"
 msgstr "Номер НДС"
 
 #. module: portal
 #: model:ir.model.fields,field_description:portal.field_account_analytic_account__website_message_ids
 #: model:ir.model.fields,field_description:portal.field_calendar_event__website_message_ids
-#: model:ir.model.fields,field_description:portal.field_event_event__website_message_ids
-#: model:ir.model.fields,field_description:portal.field_event_registration__website_message_ids
-#: model:ir.model.fields,field_description:portal.field_fleet_vehicle__website_message_ids
-#: model:ir.model.fields,field_description:portal.field_fleet_vehicle_log_contract__website_message_ids
-#: model:ir.model.fields,field_description:portal.field_gamification_badge__website_message_ids
-#: model:ir.model.fields,field_description:portal.field_gamification_challenge__website_message_ids
-#: model:ir.model.fields,field_description:portal.field_hr_department__website_message_ids
-#: model:ir.model.fields,field_description:portal.field_hr_employee__website_message_ids
-#: model:ir.model.fields,field_description:portal.field_hr_job__website_message_ids
 #: model:ir.model.fields,field_description:portal.field_mail_blacklist__website_message_ids
 #: model:ir.model.fields,field_description:portal.field_mail_channel__website_message_ids
-#: model:ir.model.fields,field_description:portal.field_mail_mass_mailing_contact__website_message_ids
 #: model:ir.model.fields,field_description:portal.field_mail_thread__website_message_ids
-#: model:ir.model.fields,field_description:portal.field_maintenance_equipment__website_message_ids
-#: model:ir.model.fields,field_description:portal.field_maintenance_equipment_category__website_message_ids
-#: model:ir.model.fields,field_description:portal.field_maintenance_request__website_message_ids
-#: model:ir.model.fields,field_description:portal.field_note_note__website_message_ids
 #: model:ir.model.fields,field_description:portal.field_res_partner__website_message_ids
 #: model:ir.model.fields,field_description:portal.field_res_users__website_message_ids
 msgid "Website Messages"
@@ -622,23 +655,9 @@ msgstr "Сообщения с сайта"
 #. module: portal
 #: model:ir.model.fields,help:portal.field_account_analytic_account__website_message_ids
 #: model:ir.model.fields,help:portal.field_calendar_event__website_message_ids
-#: model:ir.model.fields,help:portal.field_event_event__website_message_ids
-#: model:ir.model.fields,help:portal.field_event_registration__website_message_ids
-#: model:ir.model.fields,help:portal.field_fleet_vehicle__website_message_ids
-#: model:ir.model.fields,help:portal.field_fleet_vehicle_log_contract__website_message_ids
-#: model:ir.model.fields,help:portal.field_gamification_badge__website_message_ids
-#: model:ir.model.fields,help:portal.field_gamification_challenge__website_message_ids
-#: model:ir.model.fields,help:portal.field_hr_department__website_message_ids
-#: model:ir.model.fields,help:portal.field_hr_employee__website_message_ids
-#: model:ir.model.fields,help:portal.field_hr_job__website_message_ids
 #: model:ir.model.fields,help:portal.field_mail_blacklist__website_message_ids
 #: model:ir.model.fields,help:portal.field_mail_channel__website_message_ids
-#: model:ir.model.fields,help:portal.field_mail_mass_mailing_contact__website_message_ids
 #: model:ir.model.fields,help:portal.field_mail_thread__website_message_ids
-#: model:ir.model.fields,help:portal.field_maintenance_equipment__website_message_ids
-#: model:ir.model.fields,help:portal.field_maintenance_equipment_category__website_message_ids
-#: model:ir.model.fields,help:portal.field_maintenance_request__website_message_ids
-#: model:ir.model.fields,help:portal.field_note_note__website_message_ids
 #: model:ir.model.fields,help:portal.field_res_partner__website_message_ids
 #: model:ir.model.fields,help:portal.field_res_users__website_message_ids
 msgid "Website communication history"
@@ -657,14 +676,14 @@ msgid "Write a message..."
 msgstr "Напишите сообщение..."
 
 #. module: portal
-#: code:addons/portal/wizard/portal_share.py:58
-#: code:addons/portal/wizard/portal_share.py:70
+#: code:addons/portal/wizard/portal_share.py:59
+#: code:addons/portal/wizard/portal_share.py:71
 #, python-format
 msgid "You are invited to access %s"
 msgstr ""
 
 #. module: portal
-#: model:ir.ui.view,arch_db:portal.portal_share_template
+#: model_terms:ir.ui.view,arch_db:portal.portal_share_template
 msgid "You have been invited to access the following document:"
 msgstr ""
 
@@ -685,25 +704,26 @@ msgstr ""
 "пользователя."
 
 #. module: portal
-#: model:ir.ui.view,arch_db:portal.portal_my_details
+#: model_terms:ir.ui.view,arch_db:portal.portal_my_details
 msgid "Your Contact Details"
 msgstr ""
 
 #. module: portal
-#: model:ir.ui.view,arch_db:portal.portal_layout
-#: model:ir.ui.view,arch_db:portal.portal_my_details
+#: model_terms:ir.ui.view,arch_db:portal.portal_breadcrumbs
+#: model_terms:ir.ui.view,arch_db:portal.portal_layout
+#: model_terms:ir.ui.view,arch_db:portal.portal_my_details
 msgid "Your Details"
 msgstr "Ваше подробности"
 
 #. module: portal
-#: model:ir.ui.view,arch_db:portal.portal_my_home
+#: model_terms:ir.ui.view,arch_db:portal.portal_my_home
 msgid "Your Documents"
 msgstr ""
 
 #. module: portal
 #. openerp-web
 #: code:addons/portal/static/src/xml/portal_signature.xml:6
-#: model:ir.ui.view,arch_db:portal.portal_my_details
+#: model_terms:ir.ui.view,arch_db:portal.portal_my_details
 #, python-format
 msgid "Your Name"
 msgstr "Ваше Имя"
@@ -714,7 +734,12 @@ msgid "Your Odoo account at ${object.user_id.company_id.name}"
 msgstr ""
 
 #. module: portal
-#: model:ir.ui.view,arch_db:portal.portal_my_details
+#: model_terms:ir.ui.view,arch_db:portal.portal_contact
+msgid "Your contact"
+msgstr ""
+
+#. module: portal
+#: model_terms:ir.ui.view,arch_db:portal.portal_my_details
 msgid "Zip / Postal Code"
 msgstr "Индекс"
 
@@ -747,17 +772,12 @@ msgid "logged in"
 msgstr "вошедший в"
 
 #. module: portal
-#: model:ir.model,name:portal.model_portal_mixin
-msgid "portal.mixin"
+#: model_terms:ir.ui.view,arch_db:portal.portal_record_sidebar
+msgid "odoo"
 msgstr ""
 
 #. module: portal
-#: model:ir.model,name:portal.model_portal_share
-msgid "portal.share"
-msgstr ""
-
-#. module: portal
-#: model:ir.ui.view,arch_db:portal.portal_my_details
+#: model_terms:ir.ui.view,arch_db:portal.portal_my_details
 msgid "select..."
 msgstr "выбрать..."
 

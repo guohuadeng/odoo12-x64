@@ -72,6 +72,7 @@ else:
 
 class IrActionsReport(models.Model):
     _name = 'ir.actions.report'
+    _description = 'Report Action'
     _inherit = 'ir.actions.actions'
     _table = 'ir_act_report_xml'
     _sequence = 'ir_actions_id_seq'
@@ -196,6 +197,10 @@ class IrActionsReport(models.Model):
         return wkhtmltopdf_state
 
     @api.model
+    def get_paperformat(self):
+        return self.paperformat_id or self.env.user.company_id.paperformat_id
+
+    @api.model
     def _build_wkhtmltopdf_args(
             self,
             paperformat_id,
@@ -300,27 +305,31 @@ class IrActionsReport(models.Model):
         bodies = []
         res_ids = []
 
+        body_parent = root.xpath('//main')
         # Retrieve headers
         for node in root.xpath(match_klass.format('header')):
+            body_parent = node.getparent()
+            node.getparent().remove(node)
             header_node.append(node)
 
         # Retrieve footers
         for node in root.xpath(match_klass.format('footer')):
+            body_parent = node.getparent()
+            node.getparent().remove(node)
             footer_node.append(node)
 
         # Retrieve bodies
         for node in root.xpath(match_klass.format('article')):
+            body = layout.render(dict(subst=False, body=lxml.html.tostring(node), base_url=base_url))
+            bodies.append(body)
             if node.get('data-oe-model') == self.model:
-                body = layout.render(dict(subst=False, body=lxml.html.tostring(node), base_url=base_url))
-                bodies.append(body)
-                res_ids.append(int(node.get('data-oe-id', False)))
+                res_ids.append(int(node.get('data-oe-id', 0)))
             else:
-                _logger.warning("The report's template '%s' does not contains the attributes 'data-oe-model' and  'data-oe-id' on the container (with class 'article')", self.name)
-                raise UserError(_("The report's template is wrong, please contact your administrator"))
+                res_ids.append(None)
 
         if not bodies:
-            _logger.warning("The report's template '%s' does not contains the container with the class 'article'", self.name)
-            raise UserError(_("The report's template is wrong, please contact your administrator"))
+            body = bytearray().join([lxml.html.tostring(c) for c in body_parent.getchildren()])
+            bodies.append(body)
 
         # Get paperformat arguments set in the root html tag. They are prioritized over
         # paperformat-record arguments.
@@ -354,7 +363,7 @@ class IrActionsReport(models.Model):
         :param set_viewport_size: Enable a viewport sized '1024x1280' or '1280x1024' depending of landscape arg.
         :return: Content of the pdf as a string
         '''
-        paperformat_id = self.paperformat_id or self.env.user.company_id.paperformat_id
+        paperformat_id = self.get_paperformat()
 
         # Build the base command args for wkhtmltopdf bin
         command_args = self._build_wkhtmltopdf_args(
@@ -660,6 +669,10 @@ class IrActionsReport(models.Model):
 
         bodies, html_ids, header, footer, specific_paperformat_args = self.with_context(context)._prepare_html(html)
 
+        if self.attachment and set(res_ids) != set(html_ids):
+            raise UserError(_("The report's template '%s' is wrong, please contact your administrator. \n\n"
+                "Can not separate file to save as attachment because the report's template does not contains the attributes 'data-oe-model' and 'data-oe-id' on the div with 'article' classname.") %  self.name)
+
         pdf_content = self._run_wkhtmltopdf(
             bodies,
             header=header,
@@ -692,12 +705,12 @@ class IrActionsReport(models.Model):
         report_model_name = 'report.%s' % self.report_name
         report_model = self.env.get(report_model_name)
 
+        data = data and dict(data) or {}
+
         if report_model is not None:
-            data = report_model._get_report_values(docids, data=data)
+            data.update(report_model._get_report_values(docids, data=data))
         else:
             docs = self.env[self.model].browse(docids)
-            if not data:
-                data = {}
             data.update({
                 'doc_ids': docids,
                 'doc_model': self.model,

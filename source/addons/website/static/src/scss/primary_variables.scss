@@ -1,3 +1,4 @@
+$o-theme-layout: 'full';
 
 //------------------------------------------------------------------------------
 // Colors
@@ -7,26 +8,27 @@
 $-palettes: ();
 @each $palette in $o-color-palettes {
     $-palettes: append($-palettes, map-merge((
-        body: null, // Default to bootstrap
-        menu: #F9F9F9,
-        footer: #F9F9F9,
-        text: null, // Default to bootstrap
-        h1: null, // Default to text
-        h2: null, // Default to h1
-        h3: null, // Default to h2
-        h4: null, // Default to h3
-        h5: null, // Default to h4
-        h6: null, // Default to h5
+        'body': null, // Default to bootstrap
+        'menu': #F9F9F9,
+        'footer': #F9F9F9,
+        'text': null, // Default to bootstrap
+        'h1': null, // Default to text
+        'h2': null, // Default to h1
+        'h3': null, // Default to h2
+        'h4': null, // Default to h3
+        'h5': null, // Default to h4
+        'h6': null, // Default to h5
     ), $palette));
 }
 $o-color-palettes: $-palettes;
 
-// By default, all user color palette values are null. Each null value is automatically replaced
-// with corresponsing color of color palette 1.
+// By default, all user color palette values are null. Each null value is
+// automatically replaced with corresponsing color of chosen color palette.
 $o-user-color-palette: () !default;
 
-// By default, all user theme color palette values are null. Each null value is automatically
-// replaced with corresponsing color of theme color palette 1.
+// By default, all user theme color palette values are null. Each null value
+// is automatically replaced with corresponsing color of chosen theme color
+// palette.
 $o-user-theme-color-palette: () !default;
 
 //------------------------------------------------------------------------------
@@ -59,3 +61,5 @@ $o-theme-font-names: (
 ) !default;
 $o-theme-font-number: 1 !default;
 $o-theme-headings-font-number: 1 !default;
+$o-theme-buttons-font-number: 1 !default;
+$o-theme-navbar-font-number: 1 !default;

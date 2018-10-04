@@ -80,83 +80,53 @@ class test_ir_http_mimetype(common.TransactionCase):
         mimetype = dict(headers).get('Content-Type')
         self.assertEqual(mimetype, 'image/gif')
 
-    def test_ir_http_binary_content_force_ext_for_wrong_ext(self):
-        """ Test force mimetype for wrong extension when renamed """
+    def test_ir_http_attachment_access(self):
+        """ Test attachment access with and without access token """
+        public_user = self.env.ref('base.public_user')
         attachment = self.env['ir.attachment'].create({
             'datas': GIF,
-            'name': 'Test mimetype gif',
-            'datas_fname': 'file.gif'})
-
-        attachment.datas_fname = 'file.png'
-
-        status, headers, content = self.env['ir.http'].binary_content(
-            id=attachment.id,
-            mimetype=None,
-            default_mimetype='application/octet-stream',
-            env=self.env,
-            download=True,
-            force_ext=True,
-        )
-        disposition = dict(headers).get('Content-Disposition')
-        self.assertTrue(disposition.endswith('file.gif'))
-
-    def test_ir_http_binary_content_force_ext_for_right_ext(self):
-        """ Test force mimetype for right extension when renamed """
-        attachment = self.env['ir.attachment'].create({
-            'datas': GIF,
-            'name': 'Test mimetype gif',
-            'datas_fname': 'file.gif'})
-
-        attachment.datas_fname = 'file.gif'
-
-        status, headers, content = self.env['ir.http'].binary_content(
-            id=attachment.id,
-            mimetype=None,
-            default_mimetype='application/octet-stream',
-            env=self.env,
-            download=True,
-            force_ext=True,
-        )
-        disposition = dict(headers).get('Content-Disposition')
-        self.assertTrue(disposition.endswith('file.gif'))
-
-    def test_ir_http_binary_content_force_ext_without_ext(self):
-        """ Test force mimetype for right extension when renamed whith filename without extension """
-        attachment = self.env['ir.attachment'].create({
-            'datas': GIF,
-            'name': 'Test mimetype gif',
-            'datas_fname': 'file.gif'})
-
-        attachment.datas_fname = 'file'
-
-        status, headers, content = self.env['ir.http'].binary_content(
-            id=attachment.id,
-            mimetype=None,
-            default_mimetype='application/octet-stream',
-            env=self.env,
-            download=True,
-            force_ext=True,
-        )
-        disposition = dict(headers).get('Content-Disposition')
-        self.assertTrue(disposition.endswith('file.gif'))
-
-    def test_ir_http_binary_content_force_ext_for_binary_mimetype(self):
-        """ Test force mimetype for wrong extension when renamed and mimetyp is 'application/octet-stream' """
-        attachment = self.env['ir.attachment'].create({
-            'datas': GIF,
-            'name': 'Test mimetype exe',
-            'datas_fname': 'file.exe',
+            'name': 'Test valid access token with image',
+            'datas_fname': 'image.gif'
         })
-        attachment.mimetype = 'application/octet-stream'
-        attachment.datas_fname = 'file.txt'
 
-        status, headers, content = self.env['ir.http'].binary_content(
-            id=attachment.id,
-            mimetype=None,
-            default_mimetype='application/octet-stream',
-            env=self.env,
-            download=True,
-            force_ext=True,
-        )
-        disposition = dict(headers).get('Content-Disposition')
-        self.assertTrue(disposition.endswith('file.txt'))
+        defaults = {
+            'id': attachment.id,
+            'default_mimetype': 'image/gif',
+            'env': public_user.sudo(public_user.id).env,
+        }
+
+        def test_access(**kwargs):
+            status, _, _ = self.env['ir.http'].binary_content(
+                **defaults, **kwargs
+            )
+            return status
+
+        status = test_access()
+        self.assertEqual(status, 403, "no access")
+
+        status = test_access(access_token='Secret')
+        self.assertEqual(status, 403,
+            "no access if access token for attachment without access token")
+
+        attachment.access_token = 'Secret'
+        status = test_access(access_token='Secret')
+        self.assertEqual(status, 200, "access for correct access token")
+
+        status = test_access(access_token='Wrong')
+        self.assertEqual(status, 403, "no access for wrong access token")
+
+        attachment.public = True
+        status = test_access()
+        self.assertEqual(status, 200, "access for attachment with access")
+
+        status = test_access(access_token='Wrong')
+        self.assertEqual(status, 403,
+            "no access for wrong access token for attachment with access")
+
+        attachment.unlink()
+        status = test_access()
+        self.assertEqual(status, 404, "no access for deleted attachment")
+
+        status = test_access(access_token='Secret')
+        self.assertEqual(status, 404,
+            "no access with access token for deleted attachment")

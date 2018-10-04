@@ -321,7 +321,8 @@ return core.Class.extend(mixins.EventDispatcherMixin, ServicesMixin, {
                     console.log(log);
                 });
                 console.log(document.body.outerHTML);
-                console.log("error " + error); // phantomJS wait for message starting by error
+                console.error(error); // will be displayed as error info
+                console.log("error"); // phantomJS wait for message starting by error to stop
             } else {
                 console.log(_.str.sprintf("Tour %s succeeded", tour_name));
                 console.log("ok"); // phantomJS wait for exact message "ok"
@@ -372,17 +373,11 @@ return core.Class.extend(mixins.EventDispatcherMixin, ServicesMixin, {
      * Tour predefined steps
      */
     STEPS: {
-        MENU_MORE: {
-            edition: "community",
-            trigger: "body > header > nav",
-            position: "bottom",
+        SHOW_APPS_MENU_ITEM: {
+            edition: 'community',
+            trigger: '.o_menu_apps a',
             auto: true,
-            run: function (actions) {
-                var $more = $('.o_extra_menu_items > .dropdown-toggle');
-                if ($more.length) {
-                    actions.auto($more);
-                }
-            },
+            position: "bottom",
         },
 
         TOGGLE_HOME_MENU: {

@@ -9,6 +9,7 @@ import logging
 import os
 import re
 import time
+import uuid
 
 import itertools
 from dateutil.relativedelta import relativedelta
@@ -32,6 +33,7 @@ from odoo.tools.parse_version import parse_version
 from odoo.tools.safe_eval import safe_eval
 from odoo.tools.view_validation import valid_view
 from odoo.tools.translate import xml_translate, TRANSLATED_ATTRS
+from odoo.tools.image import image_data_uri
 
 _logger = logging.getLogger(__name__)
 
@@ -81,6 +83,7 @@ def keep_query(*keep_params, **additional_params):
 
 class ViewCustom(models.Model):
     _name = 'ir.ui.view.custom'
+    _description = 'Custom View'
     _order = 'create_date desc'  # search(limit=1) should return the last customization
 
     ref_id = fields.Many2one('ir.ui.view', string='Original View', index=True, required=True, ondelete='cascade')
@@ -178,6 +181,7 @@ READONLY = re.compile(r"\breadonly\b")
 
 class View(models.Model):
     _name = 'ir.ui.view'
+    _description = 'View'
     _order = "priority,name,id"
 
     name = fields.Char(string='View Name', required=True)
@@ -208,8 +212,6 @@ class View(models.Model):
     groups_id = fields.Many2many('res.groups', 'ir_ui_view_group_rel', 'view_id', 'group_id',
                                  string='Groups', help="If this field is empty, the view applies to all users. Otherwise, the view applies to the users of those groups only.")
     model_ids = fields.One2many('ir.model.data', 'res_id', string="Models", domain=[('model', '=', 'ir.ui.view')], auto_join=True)
-    create_date = fields.Datetime(readonly=True)
-    write_date = fields.Datetime(string='Last Modification Date', readonly=True)
 
     mode = fields.Selection([('primary', "Base view"), ('extension', "Extension View")],
                             string="View inheritance mode", default='primary', required=True,
@@ -241,15 +243,16 @@ actual arch.
 
         for view in self:
             arch_fs = None
-            if 'xml' in config['dev_mode'] and view.arch_fs and view.xml_id:
+            xml_id = view.xml_id or view.key
+            if 'xml' in config['dev_mode'] and view.arch_fs and xml_id:
                 # It is safe to split on / herebelow because arch_fs is explicitely stored with '/'
                 fullpath = get_resource_path(*view.arch_fs.split('/'))
                 if fullpath:
-                    arch_fs = get_view_arch_from_file(fullpath, view.xml_id)
+                    arch_fs = get_view_arch_from_file(fullpath, xml_id)
                     # replace %(xml_id)s, %(xml_id)d, %%(xml_id)s, %%(xml_id)d by the res_id
-                    arch_fs = arch_fs and resolve_external_ids(arch_fs, view.xml_id).replace('%%', '%')
+                    arch_fs = arch_fs and resolve_external_ids(arch_fs, xml_id).replace('%%', '%')
                 else:
-                    _logger.warning("View %s: Full path [%s] cannot be found.", view.xml_id, view.arch_fs)
+                    _logger.warning("View %s: Full path [%s] cannot be found.", xml_id, view.arch_fs)
                     arch_fs = False
             view.arch = pycompat.to_text(arch_fs or view.arch_db)
 
@@ -318,6 +321,12 @@ actual arch.
                         self.raise_view_error(message, self.id)
         return True
 
+    def _check_groups_validity(self, view, view_name):
+        for node in view.xpath('//*[@groups]'):
+            for group in node.get('groups').replace('!', '').split(','):
+                if not self.env.ref(group.strip(), raise_if_not_found=False):
+                    _logger.warning("The group %s defined in view %s does not exist!", group, view_name)
+
     @api.constrains('arch_db')
     def _check_xml(self):
         # Sanity checks: the view should not break anything upon rendering!
@@ -330,6 +339,7 @@ actual arch.
             view_arch_utf8 = view_def['arch']
             if view.type != 'qweb':
                 view_doc = etree.fromstring(view_arch_utf8)
+                self._check_groups_validity(view_doc, view.name)
                 # verify that all fields used are valid, etc.
                 self.postprocess_and_fields(view.model, view_doc, view.id)
                 # RNG-based validation is not possible anymore with 7.0 forms
@@ -363,6 +373,9 @@ actual arch.
          "CHECK (mode != 'extension' OR inherit_id IS NOT NULL)",
          "Invalid inheritance mode: if the mode is 'extension', the view must"
          " extend an other view"),
+        ('qweb_required_key',
+         "CHECK (type != 'qweb' OR key IS NOT NULL)",
+         "Invalid key: QWeb view should have a key"),
     ]
 
     @api.model_cr_context
@@ -393,6 +406,10 @@ actual arch.
                         # don't raise here, the constraint that runs `self._check_xml` will
                         # do the job properly.
                         pass
+            if not values.get('key') and values.get('type') == 'qweb':
+                values['key'] = "gen_key.%s" % str(uuid.uuid4())[:6]
+                if values.get('model'):
+                    values['key'] = "%s.gen_key_%s" % (values.get('model'), str(uuid.uuid4())[:6])
             if not values.get('name'):
                 values['name'] = "%s %s" % (values.get('model'), values['type'])
             values.update(self._compute_defaults(values))
@@ -421,6 +438,15 @@ actual arch.
         if self.env.context.get('_force_unlink', False) and self.mapped('inherit_children_ids'):
             self.mapped('inherit_children_ids').unlink()
         super(View, self).unlink()
+
+    @api.multi
+    @api.returns('self', lambda value: value.id)
+    def copy(self, default=None):
+        self.ensure_one()
+        if self.key and default and 'key' not in default:
+            new_key = self.key + '_%s' % str(uuid.uuid4())[:6]
+            default = dict(default or {}, key=new_key)
+        return super(View, self).copy(default)
 
     @api.multi
     def toggle(self):
@@ -932,6 +958,12 @@ actual arch.
             'datetime',
             'relativedelta',
             'current_date',
+            'abs',
+            'len',
+            'bool',
+            'float',
+            'str',
+            'unicode',
         }
 
     def get_attrs_field_names(self, arch, model, editable):
@@ -1020,17 +1052,11 @@ actual arch.
             self.raise_view_error(_('Model not found: %(model)s') % dict(model=model), view_id)
         Model = self.env[model]
 
-        is_base_model = self.env.context.get('base_model_name', model) == model
-
         if node.tag == 'diagram':
             if node.getchildren()[0].tag == 'node':
                 node_model = self.env[node.getchildren()[0].get('object')]
                 node_fields = node_model.fields_get(None)
                 fields.update(node_fields)
-                if (not node.get("create") and
-                        not node_model.check_access_rights('create', raise_exception=False) or
-                        not self._context.get("create", True) and is_base_model):
-                    node.set("create", 'false')
             if node.getchildren()[1].tag == 'arrow':
                 arrow_fields = self.env[node.getchildren()[1].get('object')].fields_get(None)
                 fields.update(arrow_fields)
@@ -1045,23 +1071,7 @@ actual arch.
             attrs_fields = self.get_attrs_field_names(node, Model, editable)
 
         fields_def = self.postprocess(model, node, view_id, False, fields)
-        if node.tag in ('kanban', 'tree', 'form', 'gantt'):
-            for action, operation in (('create', 'create'), ('delete', 'unlink'), ('edit', 'write')):
-                if (not node.get(action) and
-                        not Model.check_access_rights(operation, raise_exception=False) or
-                        not self._context.get(action, True) and is_base_model):
-                    node.set(action, 'false')
-        if node.tag in ('kanban',):
-            group_by_name = node.get('default_group_by')
-            if group_by_name in Model._fields:
-                group_by_field = Model._fields[group_by_name]
-                if group_by_field.type == 'many2one':
-                    group_by_model = Model.env[group_by_field.comodel_name]
-                    for action, operation in (('group_create', 'create'), ('group_delete', 'unlink'), ('group_edit', 'write')):
-                        if (not node.get(action) and
-                                not group_by_model.check_access_rights(operation, raise_exception=False) or
-                                not self._context.get(action, True) and is_base_model):
-                            node.set(action, 'false')
+        self._postprocess_access_rights(model, node)
 
         arch = etree.tostring(node, encoding="unicode").replace('\t', '')
         for k in list(fields):
@@ -1088,6 +1098,42 @@ actual arch.
             self.raise_view_error("\n".join(msg_lines), view_id)
 
         return arch, fields
+
+    def _postprocess_access_rights(self, model, node):
+        """ Compute and set on node access rights based on view type. Specific
+        views can add additional specific rights like creating columns for
+        many2one-based grouping views. """
+        Model = self.env[model]
+        is_base_model = self.env.context.get('base_model_name', model) == model
+
+        if node.tag == 'diagram':
+            if node.getchildren()[0].tag == 'node':
+                node_model = self.env[node.getchildren()[0].get('object')]
+                if (not node.get("create") and
+                        not node_model.check_access_rights('create', raise_exception=False) or
+                        not self._context.get("create", True) and is_base_model):
+                    node.set("create", 'false')
+
+        if node.tag in ('kanban', 'tree', 'form', 'gantt'):
+            for action, operation in (('create', 'create'), ('delete', 'unlink'), ('edit', 'write')):
+                if (not node.get(action) and
+                        not Model.check_access_rights(operation, raise_exception=False) or
+                        not self._context.get(action, True) and is_base_model):
+                    node.set(action, 'false')
+
+        if node.tag in ('kanban',):
+            group_by_name = node.get('default_group_by')
+            if group_by_name in Model._fields:
+                group_by_field = Model._fields[group_by_name]
+                if group_by_field.type == 'many2one':
+                    group_by_model = Model.env[group_by_field.comodel_name]
+                    for action, operation in (('group_create', 'create'), ('group_delete', 'unlink'), ('group_edit', 'write')):
+                        if (not node.get(action) and
+                                not group_by_model.check_access_rights(operation, raise_exception=False) or
+                                not self._context.get(action, True) and is_base_model):
+                            node.set(action, 'false')
+
+        return node
 
     #------------------------------------------------------
     # QWeb template views
@@ -1251,6 +1297,7 @@ actual arch.
             xmlid=self.key,
             viewid=self.id,
             to_text=pycompat.to_text,
+            image_data_uri=image_data_uri,
         )
         return qcontext
 
@@ -1355,32 +1402,35 @@ actual arch.
 
     @api.model
     def _validate_module_views(self, module):
-        """Validate architecture of all the views of a given module"""
-        assert not self.pool._init or module in self.pool._init_modules
-        xmlid_filter = ''
-        params = (module,)
-        if self.pool._init:
-            # only validate the views that are still existing...
-            xmlid_filter = "AND md.name IN %s"
-            names = tuple(
-                name
-                for (xmod, name), (model, res_id) in self.pool.model_data_reference_ids.items()
-                if xmod == module and model == self._name
-            )
-            if not names:
-                # no views for this module, nothing to validate
-                return
-            params += (names,)
+        """ Validate the architecture of all the views of a given module that
+            are impacted by view updates, but have not been checked yet.
+        """
+        assert self.pool._init
 
-        query = """SELECT max(v.id)
-                     FROM ir_ui_view v
-                LEFT JOIN ir_model_data md ON (md.model = 'ir.ui.view' AND md.res_id = v.id)
-                    WHERE md.module = %s {0}
-                 GROUP BY coalesce(v.inherit_id, v.id)""".format(xmlid_filter)
-        self._cr.execute(query, params)
+        # only validate the views that still exist...
+        prefix = module + '.'
+        prefix_len = len(prefix)
+        names = tuple(
+            xmlid[prefix_len:]
+            for xmlid in self.pool.loaded_xmlids
+            if xmlid.startswith(prefix)
+        )
+        if not names:
+            return
 
-        for vid, in self._cr.fetchall():
+        # retrieve the views with an XML id that has not been checked yet, i.e.,
+        # the views with noupdate=True on their xml id
+        query = """
+            SELECT v.id
+            FROM ir_ui_view v
+            JOIN ir_model_data md ON (md.model = 'ir.ui.view' AND md.res_id = v.id)
+            WHERE md.module = %s AND md.name IN %s AND md.noupdate
+        """
+        self._cr.execute(query, (module, names))
+        views = self.browse([row[0] for row in self._cr.fetchall()])
+
+        for view in views:
             try:
-                self.browse(vid)._check_xml()
+                view._check_xml()
             except Exception as e:
-                self.raise_view_error("Can't validate view:\n%s" % e, vid)
+                self.raise_view_error("Can't validate view:\n%s" % e, view.id)

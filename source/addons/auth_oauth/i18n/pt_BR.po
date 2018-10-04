@@ -3,18 +3,21 @@
 # * auth_oauth
 # 
 # Translators:
-# Martin Trigaux, 2016
-# Mateus Lopes <mateus1@gmail.com>, 2016
-# grazziano <gra.negocia@gmail.com>, 2016
-# Wagner Pereira <wagner@wagner.pereira.nom.br>, 2016
-# Marina Jacques <marinajacques@gmail.com>, 2017
+# Rodrigo de Almeida Sottomaior Macedo <rmsolucoeseminformatic4@gmail.com>, 2018
+# Martin Trigaux, 2018
+# Mateus Lopes <mateus1@gmail.com>, 2018
+# Wagner Pereira <wagner@wagner.pereira.nom.br>, 2018
+# grazziano <gra.negocia@gmail.com>, 2018
+# André Augusto Firmino Cordeiro <a.cordeito@gmail.com>, 2018
+# Marina Jacques <marinajacques@gmail.com>, 2018
+# Silmar <pinheirosilmar@gmail.com>, 2018
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server saas~11.2\n"
+"Project-Id-Version: Odoo Server saas~11.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-22 14:10+0000\n"
-"PO-Revision-Date: 2018-03-22 14:10+0000\n"
-"Last-Translator: Marina Jacques <marinajacques@gmail.com>, 2017\n"
+"POT-Creation-Date: 2018-09-21 13:17+0000\n"
+"PO-Revision-Date: 2018-09-21 13:17+0000\n"
+"Last-Translator: Silmar <pinheirosilmar@gmail.com>, 2018\n"
 "Language-Team: Portuguese (Brazil) (https://www.transifex.com/odoo/teams/41243/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,7 +26,12 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #. module: auth_oauth
-#: model:ir.ui.view,arch_db:auth_oauth.res_config_settings_view_form
+#: model_terms:ir.ui.view,arch_db:auth_oauth.providers
+msgid "- or -"
+msgstr ""
+
+#. module: auth_oauth
+#: model_terms:ir.ui.view,arch_db:auth_oauth.res_config_settings_view_form
 msgid "<i class=\"fa fa-fw fa-arrow-right\"/>Tutorial"
 msgstr "<i class=\"fa fa-fw fa-arrow-right\"/>Tutorial"
 
@@ -39,7 +47,7 @@ msgid "Allow users to sign in with Google"
 msgstr "Permite a usuários logar pelo Google"
 
 #. module: auth_oauth
-#: model:ir.ui.view,arch_db:auth_oauth.res_config_settings_view_form
+#: model_terms:ir.ui.view,arch_db:auth_oauth.res_config_settings_view_form
 msgid "Allow users to sign in with their Google account"
 msgstr "Permitir que os usuários acessem com sua conta do Google"
 
@@ -70,9 +78,14 @@ msgid "Client ID"
 msgstr "ID do Cliente"
 
 #. module: auth_oauth
-#: model:ir.ui.view,arch_db:auth_oauth.res_config_settings_view_form
+#: model_terms:ir.ui.view,arch_db:auth_oauth.res_config_settings_view_form
 msgid "Client ID:"
 msgstr "ID do Cliente"
+
+#. module: auth_oauth
+#: model:ir.model,name:auth_oauth.model_res_config_settings
+msgid "Config Settings"
+msgstr "Ajuste de configurações"
 
 #. module: auth_oauth
 #: model:ir.model.fields,field_description:auth_oauth.field_auth_oauth_provider__create_uid
@@ -92,10 +105,10 @@ msgstr "Dados da URL"
 #. module: auth_oauth
 #: model:ir.model.fields,field_description:auth_oauth.field_auth_oauth_provider__display_name
 msgid "Display Name"
-msgstr "Nome para Exibição"
+msgstr "Nome exibido"
 
 #. module: auth_oauth
-#: model:ir.ui.view,arch_db:auth_oauth.res_config_settings_view_form
+#: model_terms:ir.ui.view,arch_db:auth_oauth.res_config_settings_view_form
 msgid "Google Authentication"
 msgstr ""
 
@@ -107,7 +120,7 @@ msgstr "ID"
 #. module: auth_oauth
 #: model:ir.model.fields,field_description:auth_oauth.field_auth_oauth_provider____last_update
 msgid "Last Modified on"
-msgstr "Última Modificação em"
+msgstr "Última modificação em"
 
 #. module: auth_oauth
 #: model:ir.model.fields,field_description:auth_oauth.field_auth_oauth_provider__write_uid
@@ -131,7 +144,7 @@ msgstr "Serviço OAuth"
 
 #. module: auth_oauth
 #: model:ir.ui.menu,name:auth_oauth.menu_oauth_providers
-#: model:ir.ui.view,arch_db:auth_oauth.res_config_settings_view_form
+#: model_terms:ir.ui.view,arch_db:auth_oauth.res_config_settings_view_form
 msgid "OAuth Providers"
 msgstr "Serviços OAuth"
 
@@ -151,7 +164,7 @@ msgid "OAuth2 provider"
 msgstr "Serviço Oauth2"
 
 #. module: auth_oauth
-#: model:ir.ui.view,arch_db:auth_oauth.view_users_form
+#: model_terms:ir.ui.view,arch_db:auth_oauth.view_users_form
 msgid "Oauth"
 msgstr "Oauth"
 
@@ -192,6 +205,11 @@ msgid "Sign up is not allowed on this database."
 msgstr "A inscrição não é permitida neste banco de dados."
 
 #. module: auth_oauth
+#: model:ir.model,name:auth_oauth.model_ir_config_parameter
+msgid "System Parameter"
+msgstr ""
+
+#. module: auth_oauth
 #: model:ir.model,name:auth_oauth.model_res_users
 msgid "Users"
 msgstr "Usuários"
@@ -214,22 +232,12 @@ msgstr ""
 "enviado ao seu e-mail."
 
 #. module: auth_oauth
-#: model:ir.ui.view,arch_db:auth_oauth.view_oauth_provider_form
-#: model:ir.ui.view,arch_db:auth_oauth.view_oauth_provider_tree
+#: model_terms:ir.ui.view,arch_db:auth_oauth.view_oauth_provider_form
+#: model_terms:ir.ui.view,arch_db:auth_oauth.view_oauth_provider_tree
 msgid "arch"
 msgstr "arquitetura"
 
 #. module: auth_oauth
-#: model:ir.ui.view,arch_db:auth_oauth.res_config_settings_view_form
+#: model_terms:ir.ui.view,arch_db:auth_oauth.res_config_settings_view_form
 msgid "e.g. 1234-xyz.apps.googleusercontent.com"
 msgstr "Ex: 1234-xyz.apps.googleusercontent.com"
-
-#. module: auth_oauth
-#: model:ir.model,name:auth_oauth.model_ir_config_parameter
-msgid "ir.config_parameter"
-msgstr "ir.config_parameter"
-
-#. module: auth_oauth
-#: model:ir.model,name:auth_oauth.model_res_config_settings
-msgid "res.config.settings"
-msgstr "res.config.settings"

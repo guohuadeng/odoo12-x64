@@ -157,7 +157,7 @@ var History = function History($editable) {
 
         if (aUndo[pos]) {
             pos = Math.min(pos, aUndo.length);
-            aUndo.splice(Math.max(pos,1), aUndo.length);
+            aUndo.splice(pos, aUndo.length);
         }
 
         // => make a snap when the user change editable zone (because: don't make snap for each keydown)
@@ -573,8 +573,8 @@ var RTEWidget = Widget.extend({
                 $el.data('oe-id'),
                 this._getEscapedElement($el).prop('outerHTML'),
                 $el.data('oe-xpath') || null,
-                withLang ? context : _.omit(context, 'lang')
             ],
+            context: withLang ? context : _.extend({}, context, {lang: undefined}),
         });
     },
 

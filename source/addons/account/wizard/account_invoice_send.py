@@ -8,6 +8,7 @@ from odoo.exceptions import UserError
 class AccountInvoiceSend(models.TransientModel):
     _name = 'account.invoice.send'
     _inherits = {'mail.compose.message':'composer_id'}
+    _description = 'Account Invoice Send'
 
     is_email = fields.Boolean('Email', default=lambda self: self.env.user.company_id.invoice_is_email)
     is_print = fields.Boolean('Print', default=lambda self: self.env.user.company_id.invoice_is_print)
@@ -53,7 +54,9 @@ class AccountInvoiceSend(models.TransientModel):
     def _print_document(self):
         """ to override for each type of models that will use this composer."""
         self.ensure_one()
-        return self.invoice_ids.invoice_print()
+        action = self.invoice_ids.invoice_print()
+        action.update({'close_on_report_download': True})
+        return action
 
     @api.multi
     def send_and_print_action(self):

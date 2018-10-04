@@ -228,7 +228,7 @@
 
 <t t-name="WebClient.DebugManager">
     <li class="o_debug_manager" role="menuitem">
-        <a href="#" title="Open Developer Tools" aria-label="Open Developer Tools" data-toggle="dropdown" aria-expanded="false" tabindex="-1">
+        <a href="#" title="Open Developer Tools" aria-label="Open Developer Tools" data-toggle="dropdown" aria-expanded="false" tabindex="-1" data-display="static">
             <span class="fa fa-bug"/>
         </a>
         <div class="dropdown-menu dropdown-menu-right o_debug_dropdown" role="menu"/>
@@ -237,6 +237,7 @@
 <t t-name="WebClient.DebugManager.Global">
     <a role="menuitem" href="#" data-action="perform_js_tests" class="dropdown-item">Run JS Tests</a>
     <a role="menuitem" href="#" data-action="perform_js_mobile_tests" class="dropdown-item">Run JS Mobile Tests</a>
+    <a role="menuitem" href="#" data-action="perform_click_everywhere_test" class="dropdown-item">Run Click Everywhere Test</a>
     <a role="menuitem" href="#" data-action="select_view" class="dropdown-item">Open View</a>
     <t t-if="manager._events">
         <div class="dropdown-divider" role="separator"/>
@@ -246,6 +247,7 @@
     <div class="dropdown-divider o_debug_leave_section" role="separator"/>
     <a role="menuitem" href="#" data-action="split_assets" class="dropdown-item">Activate Assets Debugging</a>
     <a role="menuitem" href="#" data-action="regenerateAssets" class="dropdown-item">Regenerate Assets Bundles</a>
+    <a t-if="manager._is_admin" role="menuitem" href="/web/become" class="dropdown-item">Become Superuser</a>
     <a role="menuitem" href="#" data-action="leave_debug_mode" class="dropdown-item">Leave the Developer Tools</a>
 </t>
 <t t-name="WebClient.DebugManager.Action">
@@ -266,12 +268,13 @@
             <a role="menuitem" href="#" data-action="set_defaults" class="dropdown-item">Set Defaults</a>
             <t t-if="controller.getSelectedIds().length === 1">
                 <a role="menuitem" href="#" data-action="get_metadata" class="dropdown-item">View Metadata</a>
+                <a role="menuitem" href="#" data-action="get_attachments" class="dropdown-item">Manage Attachments</a>
             </t>
         </t>
         <a role="menuitem" href="#" data-action="fvg" class="dropdown-item">Fields View Get</a>
         <t t-if="can_edit">
             <a role="menuitem" href="#" data-action="edit" data-model="ir.ui.view" t-att-data-id="view.fieldsView.view_id" class="dropdown-item">
-                Edit View: <t t-esc="_.str.capitalize(view.type)"/>
+                Edit View: <t t-esc="view.displayName"/>
             </a>
             <a t-if="searchview and searchview.$el.is(':visible')" role="menuitem" href="#" data-action="edit" data-model="ir.ui.view" t-att-data-id="action.searchFieldsView.view_id" class="dropdown-item">Edit SearchView</a>
         </t>
@@ -510,7 +513,7 @@
     </div>
     <div class="btn-group" role="toolbar" aria-label="Change graph">
         <button class="btn btn-secondary fa fa-bar-chart-o o_graph_button" title="Bar Chart" aria-label="Bar Chart" data-mode="bar"/>
-        <button class="btn btn-secondary fa fa-line-chart o_graph_button" title="Line Chart" aria-label="Line Chart" data-mode="line"/>
+        <button class="btn btn-secondary fa fa-area-chart o_graph_button" title="Line Chart" aria-label="Line Chart" data-mode="line"/>
         <button class="btn btn-secondary fa fa-pie-chart o_graph_button" title="Pie Chart" aria-label="Pie Chart" data-mode="pie"/>
     </div>
 </t>
@@ -538,8 +541,8 @@
         </div>
     </div>
     <div class="btn-group" role="toolbar" aria-label="Pivot settings">
-        <button class="btn btn-secondary fa fa-expand o_pivot_flip_button" title="Flip axis" aria-label="Flip axis"/>
-        <button class="btn btn-secondary fa fa-arrows-alt o_pivot_expand_button" title="Expand all" aria-label="Expand all"/>
+        <button class="btn btn-secondary fa fa-exchange o_pivot_flip_button" title="Flip axis" aria-label="Flip axis"/>
+        <button class="btn btn-secondary fa fa-arrows o_pivot_expand_button" title="Expand all" aria-label="Expand all"/>
         <button class="btn btn-secondary fa fa-download o_pivot_download" title="Download xls" aria-label="Download xls"/>
     </div>
 </t>
@@ -771,11 +774,13 @@
 </ul>
 <t t-name="web.datepicker">
     <t t-set="placeholder" t-value="widget.getParent().node and widget.getParent().node.attrs.placeholder"/>
-    <div class="o_datepicker" aria-atomic="true">
+    <t t-set="datepickerID" t-value="_.uniqueId('datepicker')"/>
+    <div class="o_datepicker" aria-atomic="true" t-att-id="datepickerID" data-target-input="nearest">
         <input type="text"
-            class="o_datepicker_input o_input"
+            class="o_datepicker_input o_input datetimepicker-input"
             t-att-name="widget.name"
-            t-att-placeholder="placeholder"/>
+            t-att-placeholder="placeholder"
+            t-attf-data-target="##{datepickerID}"/>
         <span class="o_datepicker_button"/>
     </div>
 </t>
@@ -833,11 +838,19 @@
     <t t-foreach="elements" t-as="el">
         <t t-set="color" t-value="el[colorField] || 0"/>
         <t t-set="colornames" t-value="['No color', 'Red', 'Orange', 'Yellow', 'Light blue', 'Dark purple', 'Salmon pink', 'Medium blue', 'Dark blue', 'Fushia', 'Green', 'Purple']"/>
-        <div class="dropdown">
-            <button t-attf-class="badge badge-pill dropdown-toggle o-no-caret o_tag_color_#{color}" data-toggle="dropdown" t-att-data-color="color" t-att-data-index="el_index" t-att-data-id="el.id" t-attf-title="Tag color: #{colornames[color]}">
+        <div t-attf-class="badge badge-pill dropdown o_tag_color_#{color}" t-att-data-color="color" t-att-data-index="el_index" t-att-data-id="el.id" t-attf-title="Tag color: #{colornames[color]}">
+            <t t-set="_badge_text">
                 <span class="o_badge_text" t-att-title="el.display_name"><span role="img" t-attf-aria-label="Tag color: #{colornames[color]}"/><t t-esc="el.display_name"/></span>
-                <a t-if="!readonly" class="fa fa-times o_delete" title="Delete" aria-label="Delete"/>
-            </button>
+            </t>
+            <t t-if="colorField">
+                <a href="#" class="dropdown-toggle o-no-caret" data-toggle="dropdown">
+                    <t t-raw="_badge_text"/>
+                </a>
+            </t>
+            <t t-else="">
+                <t t-raw="_badge_text"/>
+            </t>
+            <a t-if="!readonly" href="#" class="fa fa-times o_delete" title="Delete" aria-label="Delete"/>
         </div>
     </t>
 </t>
@@ -1121,13 +1134,13 @@
 </t>
 
 <div t-name="web.TimeRangeMenu" class="btn-group o_dropdown">
-    <button class="o_dropdown_toggler_btn btn btn-secondary dropdown-toggle o_time_range_menu_button" data-toggle="dropdown"
+    <button t-att-class="'o_dropdown_toggler_btn btn btn-secondary dropdown-toggle o_time_range_menu_button' + (widget.isMobile ? ' o-no-caret' : '')" data-toggle="dropdown"
         aria-expanded="false" tabindex="-1">
-        <span class="fa fa-calendar"/> Time Ranges <span class="caret"/>
+        <span class="fa fa-calendar"/> Time Ranges <span t-att-class="widget.symbol"/>
     </button>
     <div class="dropdown-menu o_dropdown_menu o_time_range_menu" role="menu">
         <div class="dropdown-item-text">
-            <label for="date_field_selector">Date Field</label>
+            <label for="date_field_selector">Based On</label>
             <select id="date_field_selector" class="o_input o_date_field_selector">
                 <t t-foreach="widget.dateFields" t-as="field">
                     <t t-if="widget.dateField.name === field.name">
@@ -1144,19 +1157,24 @@
             </select>
         </div>
         <div class="dropdown-item-text">
-            <label for="time_range_selector">Date Range</label>
+            <label for="time_range_selector">Range</label>
             <select id="time_range_selector" class="o_input o_time_range_selector">
-                <t t-foreach="widget.periodOptions" t-as="option">
-                    <t t-if="widget.timeRangeId === option.optionId">
-                        <option t-att-value="option.optionId" selected="selected">
-                            <t t-esc="option.description"/>
-                        </option>
-                    </t>
-                    <t t-else="">
-                        <option t-att-value="option.optionId">
-                            <t t-esc="option.description"/>
-                        </option>
-                    </t>
+                <t t-foreach="widget.periodGroups" t-as="group">
+                    <optgroup t-if="group !== 1"/>
+                        <t t-foreach="widget.periodOptions" t-as="option">
+                            <t t-if="option.groupId === group">
+                                <t t-if="widget.timeRangeId === option.optionId">
+                                    <option t-att-value="option.optionId" selected="selected">
+                                        <t t-esc="option.description"/>
+                                    </option>
+                                </t>
+                                <t t-else="">
+                                    <option t-att-value="option.optionId">
+                                        <t t-esc="option.description"/>
+                                    </option>
+                                </t>
+                            </t>
+                        </t>
                 </t>
             </select>
         </div>
@@ -1514,7 +1532,7 @@
 
 <t t-name="UserMenu">
     <li class="o_user_menu">
-        <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">
+        <a class="dropdown-toggle" data-toggle="dropdown" data-display="static" aria-expanded="false" href="#">
             <img class="rounded-circle oe_topbar_avatar" t-att-src="_s + '/web/static/src/img/user_menu_avatar.png'" alt="Avatar"/>
             <span class="oe_topbar_name"/>
         </a>

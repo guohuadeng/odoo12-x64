@@ -5,7 +5,6 @@ var config = require('web.config');
 var core = require('web.core');
 var ColorpickerDialog = require('web.colorpicker');
 var Dialog = require('web.Dialog');
-var weContext = require('web_editor.context');
 var widgets = require('web_editor.widget');
 var websiteNavbarData = require('website.navbar');
 
@@ -31,6 +30,7 @@ var ThemeCustomizeDialog = Dialog.extend({
         options = options || {};
         this._super(parent, _.extend({
             title: _t("Customize this theme"),
+            buttons: [],
         }, options));
 
         this.defaultTab = options.tab || 0;
@@ -43,7 +43,7 @@ var ThemeCustomizeDialog = Dialog.extend({
             templateDef = this._rpc({
                 model: 'ir.ui.view',
                 method: 'read_template',
-                args: ['website.theme_customize', weContext.get()],
+                args: ['website.theme_customize'],
             }).then(function (data) {
                 return core.qweb.add_template(data);
             });
@@ -62,6 +62,27 @@ var ThemeCustomizeDialog = Dialog.extend({
         var $tabs = this.$('[data-toggle="tab"]');
         this.opened().then(function () {
             $tabs.eq(self.defaultTab).tab('show');
+
+            var $colorPreview = self.$('.o_theme_customize_color_previews:visible');
+            var $primary = $colorPreview.find('.o_theme_customize_color[data-color="primary"]');
+            var $alpha = $colorPreview.find('.o_theme_customize_color[data-color="alpha"]');
+            var $secondary = $colorPreview.find('.o_theme_customize_color[data-color="secondary"]');
+            var $beta = $colorPreview.find('.o_theme_customize_color[data-color="beta"]');
+            var sameAlphaPrimary = $primary.find('.o_color_preview').css('background-color') === $alpha.find('.o_color_preview').css('background-color');
+            var sameBetaSecondary = $secondary.find('.o_color_preview').css('background-color') === $beta.find('.o_color_preview').css('background-color');
+            if (!sameAlphaPrimary) {
+                $alpha.find('.o_color_name').text(_t("Extra Color"));
+                $primary.removeClass('d-none').addClass('d-flex');
+            }
+            if (!sameBetaSecondary) {
+                $beta.find('.o_color_name').text(_t("Extra Color"));
+                $secondary.removeClass('d-none').addClass('d-flex');
+            }
+            if (!sameAlphaPrimary && sameBetaSecondary) {
+                $beta.insertBefore($alpha);
+            } else if (sameAlphaPrimary && !sameBetaSecondary) {
+                $secondary.insertAfter($alpha);
+            }
         });
 
         // Hide the tab navigation if only one tab
@@ -129,10 +150,11 @@ var ThemeCustomizeDialog = Dialog.extend({
 
             _.each($items, function (item) {
                 var $item = $(item);
+                var $col;
 
                 switch (item.tagName) {
                     case 'OPT':
-                        var colorPalette = $item.data('colorPalette');
+                        var colorPalette = $item.data('colorPalette') === 'user';
                         var icon = $item.data('icon');
 
                         // Build the options template
@@ -153,8 +175,11 @@ var ThemeCustomizeDialog = Dialog.extend({
                             reload: $item.data('reload'),
                         }));
 
+                        $multiChoiceLabel.find('.o_theme_customize_color[data-color="primary"]').addClass('d-none').removeClass('d-flex');
+                        $multiChoiceLabel.find('.o_theme_customize_color[data-color="secondary"]').addClass('d-none').removeClass('d-flex');
+
                         if ($container.hasClass('form-row')) {
-                            var $col = $('<div/>', {class: (icon ? 'col-4' : (colorPalette ? 'col-12' : 'col-6'))});
+                            $col = $('<div/>', {class: (icon ? 'col-4' : (colorPalette ? 'col-12' : 'col-6'))});
                             $col.append($multiChoiceLabel);
                             $container.append($col);
                         } else {
@@ -165,7 +190,7 @@ var ThemeCustomizeDialog = Dialog.extend({
                     case 'MORE':
                         var collapseID = _.uniqueId('collapse-');
 
-                        var $col = $('<div/>', {
+                        $col = $('<div/>', {
                             class: 'col-12',
                         }).appendTo($container);
 
@@ -193,7 +218,7 @@ var ThemeCustomizeDialog = Dialog.extend({
 
                     case 'LIST':
                         var $listContainer = $('<div/>', {class: 'py-1 px-2 o_theme_customize_option_list'});
-                        var $col = $('<div/>', {
+                        $col = $('<div/>', {
                             class: 'col-6 mt-2',
                             'data-depends': $item.data('depends'),
                         }).append($('<h6/>', {text: $item.attr('string')}), $listContainer);
@@ -214,8 +239,8 @@ var ThemeCustomizeDialog = Dialog.extend({
             params: {
                 xml_ids: this._getXMLIDs(this.$inputs),
             },
-        }).done(function (data) {      
-            self.$inputs.prop('checked', false);      
+        }).done(function (data) {
+            self.$inputs.prop('checked', false);
             _.each(self.$inputs.filter('[data-xmlid]:not([data-xmlid=""])'), function (input) {
                 var $input = $(input);
                 if (!_.difference(self._getXMLIDs($input), data[0]).length) {
@@ -230,7 +255,7 @@ var ThemeCustomizeDialog = Dialog.extend({
             });
             self._setActive();
         }).fail(function (d, error) {
-            Dialog.alert(this, error.data.message)
+            Dialog.alert(this, error.data.message);
         });
     },
     /**
@@ -264,7 +289,7 @@ var ThemeCustomizeDialog = Dialog.extend({
         this.$modal.addClass('o_theme_customize_loading');
 
         var bodyCustomImageXMLID = 'option_custom_body_image';
-        var $inputBodyCustomImage = $inputs.filter('[data-xmlid*="website.' + bodyCustomImageXMLID + '"]');
+        var $inputBodyCustomImage = $inputs.filter('[data-xmlid*="website.' + bodyCustomImageXMLID + '"]:checked');
         if (!$inputBodyCustomImage.length) {
             return $.when();
         }
@@ -287,7 +312,6 @@ var ThemeCustomizeDialog = Dialog.extend({
                         data[1],
                         '#wrapwrap { background-image: url("' + src + '"); }',
                         '//style',
-                        weContext.get(),
                     ],
                 });
             }).then(function () {
@@ -310,7 +334,6 @@ var ThemeCustomizeDialog = Dialog.extend({
 
         // Look at all options to see if they are enabled or disabled
         var $enable = this.$inputs.filter('[data-xmlid]:checked');
-        var $disable = this.$inputs.filter('[data-xmlid]:not(:checked)');
 
         // Mark the labels as checked accordingly
         this.$('label').removeClass('checked');
@@ -334,9 +357,10 @@ var ThemeCustomizeDialog = Dialog.extend({
         var $collapsedElements = this.$('[data-depends]');
         _.each($collapsedElements, function (collapsed) {
             var $collapsed = $(collapsed);
-            var enabled = true;
-            if (self._getInputs($collapsed.data('depends')).not(':checked').length) {
-                enabled = false;
+            var enabled = false;
+            var nbDependencies = $collapsed.data('depends') ? $collapsed.data('depends').split(',').length : 0;
+            if (self._getInputs($collapsed.data('depends')).filter(':checked').length === nbDependencies) {
+                enabled = true;
             }
 
             if ($collapsed.is('.collapse')) {
@@ -414,8 +438,8 @@ var ThemeCustomizeDialog = Dialog.extend({
         var $options = $option;
         var checked = $option.is(':checked');
 
-        // If it was enabled, enable/disable the related input (see data-enable, data-disable)
-        // and retain the ones that actually changed
+        // If it was enabled, enable/disable the related input (see data-enable,
+        // data-disable) and retain the ones that actually changed
         if (checked) {
             var $inputs;
             // Input to enable
@@ -427,10 +451,16 @@ var ThemeCustomizeDialog = Dialog.extend({
             $options = $options.add($inputs.filter(':checked'));
             $inputs.prop('checked', false);
         }
+        var optionNames = _.uniq(_.map($options, function (option) {
+            return option.name;
+        }));
+        $options = this.$inputs.filter(function (i, input) {
+            return _.contains(optionNames, input.name);
+        });
 
         // Look at all options to see if they are enabled or disabled
-        var $enable = this.$inputs.filter('[data-xmlid]:checked');
-        var $disable = this.$inputs.filter('[data-xmlid]:not(:checked)');
+        var $enable = $options.filter('[data-xmlid]:checked');
+        var $disable = $options.filter('[data-xmlid]:not(:checked)');
 
         this._setActive();
 
@@ -454,7 +484,7 @@ var ThemeCustomizeDialog = Dialog.extend({
         var colorType = $color.data('colorType');
 
         var colorpicker = new ColorpickerDialog(this, {
-            defaultColor: $color.find('span').css('background-color'),
+            defaultColor: $color.find('.o_color_preview').css('background-color'),
         });
         colorpicker.on('colorpicker:saved', this, function (ev) {
             ev.stopPropagation();
@@ -472,19 +502,14 @@ var ThemeCustomizeDialog = Dialog.extend({
             }).then(function (data) {
                 var files = data.scss[0][1];
                 var file = _.find(files, function (file) {
-                    switch (colorType) {
-                        case 'theme':
-                            return file.url === '/website/static/src/scss/options/colors/user_theme_color_palette.scss';
-                        case 'typo':
-                            return file.url === '/website/static/src/scss/options/colors/user_color_palette_typo.scss';
-                    }
-                    return file.url === '/website/static/src/scss/options/colors/user_color_palette_' + colorName + '.scss';
+                    var baseURL = '/website/static/src/scss/options/colors/';
+                    return file.url === _.str.sprintf('%suser_%scolor_palette.scss', baseURL, (colorType ? (colorType + '_') : ''));
                 });
 
                 var colors = {};
-                colors[colorName] = ev.data.hex;
-                if (colorName === 'primary') {
-                    colors['secondary'] = 'null';
+                colors[colorName] = ev.data.cssColor;
+                if (colorName === 'alpha') {
+                    colors['beta'] = 'null';
                     colors['gamma'] = 'null';
                     colors['delta'] = 'null';
                     colors['epsilon'] = 'null';
@@ -492,7 +517,16 @@ var ThemeCustomizeDialog = Dialog.extend({
 
                 var updatedFileContent = file.arch;
                 _.each(colors, function (colorValue, colorName) {
-                    updatedFileContent = updatedFileContent.replace(new RegExp(colorName + ': (?:null|#[a-fA-F0-9]{6}),'), colorName + ': ' + colorValue + ',');
+                    var pattern = _.str.sprintf("'%s': %%s,\n", colorName);
+                    var regex = new RegExp(_.str.sprintf(pattern, ".+"));
+                    var replacement = _.str.sprintf(pattern, colorValue);
+                    if (regex.test(updatedFileContent)) {
+                        updatedFileContent = updatedFileContent
+                            .replace(regex, replacement);
+                    } else {
+                        updatedFileContent = updatedFileContent
+                            .replace(/( *)(.*hook.*)/, _.str.sprintf('$1%s$1$2', replacement));
+                    }
                 });
 
                 return self._rpc({

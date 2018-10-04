@@ -4,14 +4,13 @@
 # 
 # Translators:
 # Martin Trigaux, 2018
-# Jorunn D. Newth, 2018
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server saas~11.2\n"
+"Project-Id-Version: Odoo Server saas~11.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-22 14:10+0000\n"
-"PO-Revision-Date: 2018-03-22 14:10+0000\n"
-"Last-Translator: Jorunn D. Newth, 2018\n"
+"POT-Creation-Date: 2018-09-21 13:17+0000\n"
+"PO-Revision-Date: 2018-09-21 13:17+0000\n"
+"Last-Translator: Martin Trigaux, 2018\n"
 "Language-Team: Norwegian Bokmål (https://www.transifex.com/odoo/teams/41243/nb/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -35,19 +34,24 @@ msgid "Channel"
 msgstr "Kanal"
 
 #. module: bus
+#: model:ir.model,name:bus.model_bus_bus
+msgid "Communication Bus"
+msgstr ""
+
+#. module: bus
 #: model:ir.model,name:bus.model_res_partner
 msgid "Contact"
 msgstr "Kontakt"
 
 #. module: bus
-#: model:ir.model.fields,field_description:bus.field_bus_bus__create_date
-msgid "Create date"
-msgstr "Opprettet dato"
-
-#. module: bus
 #: model:ir.model.fields,field_description:bus.field_bus_bus__create_uid
 msgid "Created by"
 msgstr "Opprettet av"
+
+#. module: bus
+#: model:ir.model.fields,field_description:bus.field_bus_bus__create_date
+msgid "Created on"
+msgstr "Opprettet"
 
 #. module: bus
 #: model:ir.model.fields,field_description:bus.field_bus_bus__display_name
@@ -125,8 +129,3 @@ msgstr "Brukere"
 #, python-format
 msgid "bus.Bus not available in test mode"
 msgstr ""
-
-#. module: bus
-#: model:ir.model,name:bus.model_bus_bus
-msgid "bus.bus"
-msgstr "bus.bus"

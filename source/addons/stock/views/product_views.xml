@@ -117,12 +117,15 @@
                     <group string="Description for Delivery Orders">
                         <field name="description_pickingout" nolabel="1" placeholder="This note will show up on delivery orders."/>
                     </group>
-                    <group string="Description for Receptions">
+                    <group string="Description for Receipts">
                         <field name="description_pickingin" nolabel="1" placeholder="This note will show up on receipt orders (e.g. where to store the product in the warehouse)."/>
                     </group>
                     <group string="Description for Internal Transfers" groups="stock.group_stock_multi_locations">
                         <field name="description_picking" placeholder="This note will show up on internal transfer orders (e.g. where to pick the product in the warehouse)." nolabel="1"/>
                     </group>
+                </page>
+                <page name="inventory" position="attributes">
+                    <attribute name="groups">stock.group_stock_user,product.group_stock_packaging</attribute>
                 </page>
             </field>
         </record>

@@ -11,13 +11,15 @@
 # Antonio Trueba, 2018
 # Miguel Orueta <mo@landoo.es>, 2018
 # Nicolás Broggi <rnbroggi@gmail.com>, 2018
+# Cristopher Cravioto <ccr@odoo.com>, 2018
+# Miquel Torner <miq@odoo.com>, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server saas~11.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-24 09:05+0000\n"
-"PO-Revision-Date: 2018-08-24 09:05+0000\n"
-"Last-Translator: Nicolás Broggi <rnbroggi@gmail.com>, 2018\n"
+"POT-Creation-Date: 2018-09-21 13:17+0000\n"
+"PO-Revision-Date: 2018-09-21 13:17+0000\n"
+"Last-Translator: Miquel Torner <miq@odoo.com>, 2018\n"
 "Language-Team: Spanish (https://www.transifex.com/odoo/teams/41243/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,17 +28,17 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: stock_picking_batch
-#: model:ir.ui.view,arch_db:stock_picking_batch.report_picking_batch
+#: model_terms:ir.ui.view,arch_db:stock_picking_batch.report_picking_batch
 msgid "<strong>Lot/Serial Number</strong>"
 msgstr "<strong>Número Lote/Serie</strong>"
 
 #. module: stock_picking_batch
-#: model:ir.ui.view,arch_db:stock_picking_batch.report_picking_batch
+#: model_terms:ir.ui.view,arch_db:stock_picking_batch.report_picking_batch
 msgid "<strong>Package</strong>"
 msgstr "<strong>Paquete</strong>"
 
 #. module: stock_picking_batch
-#: model:ir.ui.view,arch_db:stock_picking_batch.report_picking_batch
+#: model_terms:ir.ui.view,arch_db:stock_picking_batch.report_picking_batch
 msgid "<strong>Responsible:</strong>"
 msgstr ""
 
@@ -46,31 +48,26 @@ msgid "Action Needed"
 msgstr "Acción requerida"
 
 #. module: stock_picking_batch
-#: model:ir.model,name:stock_picking_batch.model_stock_picking_to_batch
-msgid "Add pickings to a batch picking"
-msgstr "Añadir albaranes a una agrupación"
-
-#. module: stock_picking_batch
-#: model:ir.ui.view,arch_db:stock_picking_batch.stock_picking_to_batch_form
+#: model_terms:ir.ui.view,arch_db:stock_picking_batch.stock_picking_to_batch_form
 msgid "Add pickings to batch"
 msgstr "Añadir albaranes a la agrupación"
 
 #. module: stock_picking_batch
 #: model:ir.actions.act_window,name:stock_picking_batch.stock_picking_to_batch_action
 #: model:ir.actions.act_window,name:stock_picking_batch.stock_picking_to_batch_action_stock_picking
-#: model:ir.ui.view,arch_db:stock_picking_batch.stock_picking_to_batch_form
+#: model_terms:ir.ui.view,arch_db:stock_picking_batch.stock_picking_to_batch_form
 msgid "Add to Batch"
 msgstr "Añadir a agrupación"
 
 #. module: stock_picking_batch
-#: model:ir.ui.view,arch_db:stock_picking_batch.report_picking_batch
-msgid "Barcode"
-msgstr "Código de barras"
+#: model:ir.model.fields,field_description:stock_picking_batch.field_stock_picking_batch__message_attachment_count
+msgid "Attachment Count"
+msgstr "Conteo de archivos adjuntos"
 
 #. module: stock_picking_batch
-#: model:ir.ui.view,arch_db:stock_picking_batch.view_picking_internal_search_inherit_stock_picking_batch
-msgid "Batch"
-msgstr "Agrupación"
+#: model_terms:ir.ui.view,arch_db:stock_picking_batch.report_picking_batch
+msgid "Barcode"
+msgstr "Código de barras"
 
 #. module: stock_picking_batch
 #: code:addons/stock_picking_batch/models/stock_picking_batch.py:64
@@ -78,10 +75,15 @@ msgstr "Agrupación"
 #: model:ir.model,name:stock_picking_batch.model_stock_picking_batch
 #: model:ir.model.fields,field_description:stock_picking_batch.field_stock_picking__batch_id
 #: model:ir.model.fields,field_description:stock_picking_batch.field_stock_picking_to_batch__batch_id
-#: model:ir.ui.view,arch_db:stock_picking_batch.stock_picking_batch_filter
+#: model_terms:ir.ui.view,arch_db:stock_picking_batch.stock_picking_batch_filter
 #, python-format
 msgid "Batch Picking"
 msgstr "Agrupación de albaranes"
+
+#. module: stock_picking_batch
+#: model:ir.model,name:stock_picking_batch.model_stock_picking_to_batch
+msgid "Batch Picking Lines"
+msgstr ""
 
 #. module: stock_picking_batch
 #: model:ir.model.fields,field_description:stock_picking_batch.field_stock_picking_batch__name
@@ -95,7 +97,7 @@ msgid "Batch Pickings"
 msgstr "Agrupación de albaranes"
 
 #. module: stock_picking_batch
-#: model:ir.ui.view,arch_db:stock_picking_batch.stock_picking_batch_filter
+#: model_terms:ir.ui.view,arch_db:stock_picking_batch.stock_picking_batch_filter
 msgid "Batch Pickings not finished"
 msgstr "Agrupaciones de albaranes sin finalizar"
 
@@ -105,13 +107,13 @@ msgid "Batch associated to this picking"
 msgstr "Agrupación asociada a este albarán"
 
 #. module: stock_picking_batch
-#: model:ir.ui.view,arch_db:stock_picking_batch.stock_picking_batch_form
-#: model:ir.ui.view,arch_db:stock_picking_batch.stock_picking_to_batch_form
+#: model_terms:ir.ui.view,arch_db:stock_picking_batch.stock_picking_batch_form
+#: model_terms:ir.ui.view,arch_db:stock_picking_batch.stock_picking_to_batch_form
 msgid "Cancel"
 msgstr "Cancelar"
 
 #. module: stock_picking_batch
-#: model:ir.ui.view,arch_db:stock_picking_batch.stock_picking_batch_form
+#: model_terms:ir.ui.view,arch_db:stock_picking_batch.stock_picking_batch_form
 msgid "Cancel picking"
 msgstr "Cancelar albarán"
 
@@ -121,22 +123,22 @@ msgid "Cancelled"
 msgstr "Cancelado"
 
 #. module: stock_picking_batch
-#: model:ir.ui.view,arch_db:stock_picking_batch.report_picking_batch
+#: model_terms:ir.ui.view,arch_db:stock_picking_batch.report_picking_batch
 msgid "Commitment Date"
 msgstr "Fecha de compromiso"
 
 #. module: stock_picking_batch
-#: model:ir.ui.view,arch_db:stock_picking_batch.stock_picking_batch_form
+#: model_terms:ir.ui.view,arch_db:stock_picking_batch.stock_picking_batch_form
 msgid "Confirm"
 msgstr "Confirmar"
 
 #. module: stock_picking_batch
-#: model:ir.ui.view,arch_db:stock_picking_batch.stock_picking_batch_form
+#: model_terms:ir.ui.view,arch_db:stock_picking_batch.stock_picking_batch_form
 msgid "Confirm picking"
 msgstr "Confirmar albarán"
 
 #. module: stock_picking_batch
-#: model:ir.actions.act_window,help:stock_picking_batch.stock_picking_batch_action
+#: model_terms:ir.actions.act_window,help:stock_picking_batch.stock_picking_batch_action
 msgid "Create a new batch picking"
 msgstr ""
 
@@ -153,7 +155,7 @@ msgid "Created on"
 msgstr "Creado el"
 
 #. module: stock_picking_batch
-#: model:ir.ui.view,arch_db:stock_picking_batch.report_picking_batch
+#: model_terms:ir.ui.view,arch_db:stock_picking_batch.report_picking_batch
 msgid "Destination"
 msgstr "Destino"
 
@@ -164,7 +166,7 @@ msgid "Display Name"
 msgstr "Nombre mostrado"
 
 #. module: stock_picking_batch
-#: model:ir.ui.view,arch_db:stock_picking_batch.stock_picking_batch_form
+#: model_terms:ir.ui.view,arch_db:stock_picking_batch.stock_picking_batch_form
 #: selection:stock.picking.batch,state:0
 msgid "Done"
 msgstr "Hecho"
@@ -190,7 +192,7 @@ msgid "Followers (Partners)"
 msgstr "Seguidores (Empresas)"
 
 #. module: stock_picking_batch
-#: model:ir.ui.view,arch_db:stock_picking_batch.stock_picking_batch_filter
+#: model_terms:ir.ui.view,arch_db:stock_picking_batch.stock_picking_batch_filter
 msgid "Group By"
 msgstr "Agrupar por"
 
@@ -213,7 +215,7 @@ msgstr "Si está marcado hay nuevos mensajes que requieren su atención."
 #. module: stock_picking_batch
 #: model:ir.model.fields,help:stock_picking_batch.field_stock_picking_batch__message_has_error
 msgid "If checked, some messages have a delivery error."
-msgstr ""
+msgstr "Si se encuentra marcado, algunos mensajes tienen error de envío."
 
 #. module: stock_picking_batch
 #: model:ir.model,name:stock_picking_batch.model_stock_immediate_transfer
@@ -225,11 +227,6 @@ msgstr "Transferencia inmediata"
 #, python-format
 msgid "Immediate Transfer?"
 msgstr "¿Transferencia inmediata?"
-
-#. module: stock_picking_batch
-#: model:ir.ui.view,arch_db:stock_picking_batch.stock_picking_batch_filter
-msgid "In Progress"
-msgstr "En progreso"
 
 #. module: stock_picking_batch
 #: model:ir.model.fields,field_description:stock_picking_batch.field_stock_picking_batch__message_is_follower
@@ -260,9 +257,14 @@ msgid "List of picking associated to this batch"
 msgstr "Lista de albaranes asociados a esta agrupación"
 
 #. module: stock_picking_batch
+#: model:ir.model.fields,field_description:stock_picking_batch.field_stock_picking_batch__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "Adjuntos principales"
+
+#. module: stock_picking_batch
 #: model:ir.model.fields,field_description:stock_picking_batch.field_stock_picking_batch__message_has_error
 msgid "Message Delivery error"
-msgstr ""
+msgstr "Error de Envío de Mensaje"
 
 #. module: stock_picking_batch
 #: model:ir.model.fields,field_description:stock_picking_batch.field_stock_picking_batch__message_ids
@@ -288,7 +290,7 @@ msgstr "Número de acciones"
 #. module: stock_picking_batch
 #: model:ir.model.fields,field_description:stock_picking_batch.field_stock_picking_batch__message_has_error_counter
 msgid "Number of error"
-msgstr ""
+msgstr "Número de error"
 
 #. module: stock_picking_batch
 #: model:ir.model.fields,help:stock_picking_batch.field_stock_picking_batch__message_needaction_counter
@@ -298,7 +300,7 @@ msgstr "Número de mensajes que requieren una acción"
 #. module: stock_picking_batch
 #: model:ir.model.fields,help:stock_picking_batch.field_stock_picking_batch__message_has_error_counter
 msgid "Number of messages with delivery error"
-msgstr ""
+msgstr "Número de mensajes con error de envío"
 
 #. module: stock_picking_batch
 #: model:ir.model.fields,help:stock_picking_batch.field_stock_picking_batch__message_unread_counter
@@ -316,12 +318,12 @@ msgid "Pick To Backorder"
 msgstr "Albarán para pedido pendiente"
 
 #. module: stock_picking_batch
-#: model:ir.ui.view,arch_db:stock_picking_batch.report_picking_batch
+#: model_terms:ir.ui.view,arch_db:stock_picking_batch.report_picking_batch
 msgid "Picking"
 msgstr "Albarán"
 
 #. module: stock_picking_batch
-#: model:ir.ui.view,arch_db:stock_picking_batch.report_picking_batch
+#: model_terms:ir.ui.view,arch_db:stock_picking_batch.report_picking_batch
 msgid "Picking Reference"
 msgstr ""
 
@@ -332,47 +334,49 @@ msgstr "Albarán para pedido pendiente"
 
 #. module: stock_picking_batch
 #: model:ir.model.fields,field_description:stock_picking_batch.field_stock_picking_batch__picking_ids
-#: model:ir.ui.view,arch_db:stock_picking_batch.stock_picking_batch_form
+#: model_terms:ir.ui.view,arch_db:stock_picking_batch.stock_picking_batch_form
 msgid "Pickings"
 msgstr "Albaranes"
 
 #. module: stock_picking_batch
-#: model:ir.ui.view,arch_db:stock_picking_batch.stock_picking_batch_form
+#: model_terms:ir.ui.view,arch_db:stock_picking_batch.stock_picking_batch_form
 msgid "Print"
 msgstr "Imprimir"
 
 #. module: stock_picking_batch
-#: model:ir.ui.view,arch_db:stock_picking_batch.report_picking_batch
+#: model_terms:ir.ui.view,arch_db:stock_picking_batch.report_picking_batch
 msgid "Product"
 msgstr "Producto"
 
 #. module: stock_picking_batch
-#: model:ir.ui.view,arch_db:stock_picking_batch.report_picking_batch
+#: model_terms:ir.ui.view,arch_db:stock_picking_batch.report_picking_batch
 msgid "Quantity"
 msgstr "Cantidad"
 
 #. module: stock_picking_batch
 #: model:ir.model.fields,field_description:stock_picking_batch.field_stock_picking_batch__user_id
+#: model_terms:ir.ui.view,arch_db:stock_picking_batch.stock_picking_batch_filter
 msgid "Responsible"
 msgstr "Responsable"
 
 #. module: stock_picking_batch
+#: model_terms:ir.ui.view,arch_db:stock_picking_batch.stock_picking_batch_filter
 #: selection:stock.picking.batch,state:0
 msgid "Running"
 msgstr "En proceso"
 
 #. module: stock_picking_batch
-#: model:ir.ui.view,arch_db:stock_picking_batch.report_picking_batch
+#: model_terms:ir.ui.view,arch_db:stock_picking_batch.report_picking_batch
 msgid "Scheduled Date"
 msgstr "Fecha prevista"
 
 #. module: stock_picking_batch
-#: model:ir.ui.view,arch_db:stock_picking_batch.stock_picking_batch_filter
+#: model_terms:ir.ui.view,arch_db:stock_picking_batch.stock_picking_batch_filter
 msgid "Search Batch Picking"
 msgstr "Buscar agrupación de albaranes"
 
 #. module: stock_picking_batch
-#: model:ir.ui.view,arch_db:stock_picking_batch.stock_picking_to_batch_form
+#: model_terms:ir.ui.view,arch_db:stock_picking_batch.stock_picking_to_batch_form
 msgid "Select a batch"
 msgstr "Seleccionar agrupación"
 
@@ -400,28 +404,28 @@ msgstr "Etapa cambiada"
 
 #. module: stock_picking_batch
 #: model:ir.model.fields,field_description:stock_picking_batch.field_stock_picking_batch__state
-#: model:ir.ui.view,arch_db:stock_picking_batch.stock_picking_batch_filter
+#: model_terms:ir.ui.view,arch_db:stock_picking_batch.stock_picking_batch_filter
 msgid "State"
 msgstr "Estado"
 
 #. module: stock_picking_batch
-#: model:ir.ui.view,arch_db:stock_picking_batch.report_picking_batch
+#: model_terms:ir.ui.view,arch_db:stock_picking_batch.report_picking_batch
 msgid "Status"
 msgstr "Estado"
 
 #. module: stock_picking_batch
-#: model:ir.ui.view,arch_db:stock_picking_batch.stock_picking_batch_form
-#: model:ir.ui.view,arch_db:stock_picking_batch.stock_picking_batch_tree
+#: model_terms:ir.ui.view,arch_db:stock_picking_batch.stock_picking_batch_form
+#: model_terms:ir.ui.view,arch_db:stock_picking_batch.stock_picking_batch_tree
 msgid "Stock Batch Picking"
 msgstr "Agrupación de albaranes"
 
 #. module: stock_picking_batch
-#: model:ir.ui.view,arch_db:stock_picking_batch.report_picking_batch
+#: model_terms:ir.ui.view,arch_db:stock_picking_batch.report_picking_batch
 msgid "Summary:"
 msgstr "Resumen"
 
 #. module: stock_picking_batch
-#: model:ir.actions.act_window,help:stock_picking_batch.stock_picking_batch_action
+#: model_terms:ir.actions.act_window,help:stock_picking_batch.stock_picking_batch_action
 msgid ""
 "The goal of the batch picking is to group operations that may\n"
 "            (needs to) be done together in order to increase their efficiency.\n"
@@ -434,7 +438,7 @@ msgstr ""
 "            para ayudar con la gestión temporal de las operaciones (tareas que terminar a la 1 p. m.)."
 
 #. module: stock_picking_batch
-#: model:ir.ui.view,arch_db:stock_picking_batch.report_picking_batch
+#: model_terms:ir.ui.view,arch_db:stock_picking_batch.report_picking_batch
 msgid "To take from:"
 msgstr ""
 
@@ -458,11 +462,6 @@ msgstr "Mensajes sin leer"
 #: model:ir.model.fields,field_description:stock_picking_batch.field_stock_picking_batch__message_unread_counter
 msgid "Unread Messages Counter"
 msgstr "Contador de mensajes sin leer"
-
-#. module: stock_picking_batch
-#: model:ir.ui.view,arch_db:stock_picking_batch.stock_picking_batch_filter
-msgid "User"
-msgstr "Usuario"
 
 #. module: stock_picking_batch
 #: model:ir.model.fields,field_description:stock_picking_batch.field_stock_picking_batch__website_message_ids

@@ -51,6 +51,7 @@ class ResConfigConfigurable(models.TransientModel):
     their view inherit from the related res_config_view_base view.
     '''
     _name = 'res.config'
+    _description = 'Config'
 
     @api.multi
     def start(self):
@@ -228,6 +229,7 @@ class ResConfigInstaller(models.TransientModel, ResConfigModuleInstallationMixin
     """
     _name = 'res.config.installer'
     _inherit = 'res.config'
+    _description = 'Config Installer'
 
     _install_if = {}
 
@@ -379,6 +381,7 @@ class ResConfigSettings(models.TransientModel, ResConfigModuleInstallationMixin)
         such methods can be defined to provide current values for other fields.
     """
     _name = 'res.config.settings'
+    _description = 'Config Settings'
 
     @api.multi
     def copy(self, values):
@@ -551,14 +554,6 @@ class ResConfigSettings(models.TransientModel, ResConfigModuleInstallationMixin)
         """
         Set values for the fields other that `default`, `group` and `module`
         """
-        pass
-
-    @api.multi
-    def execute(self):
-        self.ensure_one()
-        if not self.env.user._is_superuser() and not self.env.user.has_group('base.group_system'):
-            raise AccessError(_("Only administrators can change the settings"))
-
         self = self.with_context(active_test=False)
         classified = self._get_classified_fields()
 
@@ -575,7 +570,7 @@ class ResConfigSettings(models.TransientModel, ResConfigModuleInstallationMixin)
             IrDefault.set(model, field, value)
 
         # group fields: modify group / implied groups
-        current_settings = self.new(self.default_get(list(self.fields_get())))
+        current_settings = self.default_get(list(self.fields_get()))
         with self.env.norecompute():
             for name, groups, implied_group in classified['group']:
                 if self[name] == current_settings[name]:
@@ -608,6 +603,16 @@ class ResConfigSettings(models.TransientModel, ResConfigModuleInstallationMixin)
         for method in dir(self):
             if method.startswith('set_') and method is not 'set_values':
                 _logger.warning(_('Methods that start with `set_` are deprecated. Override `set_values` instead (Method %s)') % method)
+
+    @api.multi
+    def execute(self):
+        self.ensure_one()
+        if not self.env.user._is_admin() and not self.env.user.has_group('base.group_system'):
+            raise AccessError(_("Only administrators can change the settings"))
+
+        self = self.with_context(active_test=False)
+        classified = self._get_classified_fields()
+
         self.set_values()
 
         # module fields: install/uninstall the selected modules

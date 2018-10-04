@@ -16,6 +16,7 @@ PRINT_ENDPOINT = '/iap/snailmail/1/print'
 
 class SnailmailLetter(models.Model):
     _name = 'snailmail.letter'
+    _description = 'Snailmail Letter'
 
     user_id = fields.Many2one('res.users', 'User sending the letter')
     model = fields.Char('Model', required=True)
@@ -65,7 +66,7 @@ class SnailmailLetter(models.Model):
             else:
                 report_name = 'Document'
             filename = "%s.%s" % (report_name, "pdf")
-            pdf_bin, _ = report.render_qweb_pdf(self.res_id)
+            pdf_bin, _ = report.with_context(snailmail_layout=True).render_qweb_pdf(self.res_id)
             attachment = self.env['ir.attachment'].create({
                 'name': filename,
                 'datas': base64.b64encode(pdf_bin),
@@ -126,6 +127,7 @@ class SnailmailLetter(models.Model):
         }
         """
         account_token = self.env['iap.account'].get('snailmail').account_token
+        dbuuid = self.env['ir.config_parameter'].sudo().get_param('database.uuid')
         documents = []
 
         batch = len(self) > 1
@@ -155,11 +157,15 @@ class SnailmailLetter(models.Model):
                 }
             }
             # Specific to each case:
-            # If we are estimating the price: batch: 1 obj = 1 page else: we generate the attachment to have the exact price.
+            # If we are estimating the price: 1 object = 1 page
             # If we are printing -> attach the pdf
-            if route == 'estimate' and batch:
+            if route == 'estimate':
                 document.update(pages=1)
             else:
+                # adding the web logo from the company for future possible customization
+                document.update({
+                    'company_logo': letter.company_id.logo_web,
+                })
                 attachment = letter._fetch_attachment()
                 if attachment:
                     document.update({
@@ -172,10 +178,15 @@ class SnailmailLetter(models.Model):
                         'state': 'error',
                         })
                     continue
+                if letter.company_id.external_report_layout_id == self.env.ref('l10n_de.external_layout_din5008', False):
+                    document.update({
+                        'rightaddress': 0,
+                    })
             documents.append(document)
 
         return {
             'account_token': account_token,
+            'dbuuid': dbuuid,
             'documents': documents,
             'options': {
                 'color': self and self[0].color,
@@ -189,6 +200,9 @@ class SnailmailLetter(models.Model):
         if error == 'CREDIT_ERROR':
             link = self.env['iap.account'].get_credits_url(service_name='snailmail')
             return _('You don\'t have enough credits to perform this operation.<br>Please go to your <a href=%s target="new">iap account</a>.' % link)
+        if error == 'TRIAL_ERROR':
+            link = self.env['iap.account'].get_credits_url(service_name='snailmail', trial=True)
+            return _('You don\'t have an IAP account registered for this service.<br>Please go to <a href=%s target="new">iap.odoo.com</a> to claim your free credits.' % link)
         if error == 'NO_PRICE_AVAILABLE':
             return _('The country of the partner is not covered by Snailmail.')
         if error == 'MISSING_REQUIRED_FIELDS':
@@ -230,7 +244,7 @@ class SnailmailLetter(models.Model):
                 activity_data = {
                     'res_id': letter.res_id,
                     'res_model_id': self.env['ir.model']._get(letter.model).id,
-                    'activity_type_id': self.env.ref('snailmail.mail_activity_data_snailmail').id,
+                    'activity_type_id': self.env.ref('mail.mail_activity_data_warning').id,
                     'summary': _('Post letter: an error occured.'),
                     'note': note,
                     'user_id': letter.user_id.id,

@@ -7,7 +7,7 @@
 # e2f <projects@e2f.com>, 2018
 # mrshelly <mrshelly@hotmail.com>, 2018
 # Jeffery CHEN Fan <jeffery9@gmail.com>, 2018
-# liAnGjiA <liangjia@qq.com>, 2018
+# 珠海-杜哥 <liangjia@qq.com>, 2018
 # THL <wt39181819@gmail.com>, 2018
 # Talway <9010446@qq.com>, 2018
 # SHOM <shanmuxin@yeah.net>, 2018
@@ -15,13 +15,21 @@
 # xiangye xiao, 2018
 # e2f_cn c5 <jarvisn@ecinnovations.com>, 2018
 # e2f_cn c7 <e2f_cn_c7@outlook.com>, 2018
+# ChinaMaker <liuct@chinamaker.net>, 2018
+# 老窦 北京 <2662059195@qq.com>, 2018
+# Jackie Zhang <jzh@odoo.com>, 2018
+# gary chk <garychk@163.com>, 2018
+# Emily JIA <eji@odoo.com>, 2018
+# 菜小蛇 <lttlsnk@gmail.com>, 2018
+# bower Guo <124358678@qq.com>, 2018
+# roye w <159820@qq.com>, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server saas~11.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-24 09:05+0000\n"
-"PO-Revision-Date: 2018-08-24 09:05+0000\n"
-"Last-Translator: e2f_cn c7 <e2f_cn_c7@outlook.com>, 2018\n"
+"POT-Creation-Date: 2018-09-21 13:18+0000\n"
+"PO-Revision-Date: 2018-09-21 13:18+0000\n"
+"Last-Translator: roye w <159820@qq.com>, 2018\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/odoo/teams/41243/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -30,14 +38,14 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.survey_page_tree
+#: model_terms:ir.ui.view,arch_db:survey.survey_page_tree
 msgid "#Questions"
 msgstr "# 问题"
 
 #. module: survey
 #: model:mail.template,subject:survey.email_template_survey
 msgid "${object.title}: Survey"
-msgstr ""
+msgstr "${object.title}: 问卷调查"
 
 #. module: survey
 #: code:addons/survey/models/survey.py:122
@@ -46,17 +54,17 @@ msgid "%s (copy)"
 msgstr "%s (副本)"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.page
+#: model_terms:ir.ui.view,arch_db:survey.page
 msgid "&amp;times;"
 msgstr "&amp;次数;"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.403
+#: model_terms:ir.ui.view,arch_db:survey.403
 msgid "403: Forbidden"
 msgstr "403: 禁止"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.result
+#: model_terms:ir.ui.view,arch_db:survey.result
 msgid "<b>Question </b>"
 msgstr "<b>问题 </b>"
 
@@ -79,12 +87,12 @@ msgid ""
 msgstr ""
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.survey_question_form
+#: model_terms:ir.ui.view,arch_db:survey.survey_question_form
 msgid "<i class=\"fa fa-2x\" role=\"img\" aria-label=\"Numeric\" title=\"Numeric\">123..</i>"
 msgstr ""
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.result_matrix
+#: model_terms:ir.ui.view,arch_db:survey.result_matrix
 msgid ""
 "<i class=\"fa fa-bar-chart\"/>\n"
 "                    Graph"
@@ -93,32 +101,32 @@ msgstr ""
 "                    图表"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.result_choice
+#: model_terms:ir.ui.view,arch_db:survey.result_choice
 msgid "<i class=\"fa fa-bar-chart-o\"/> Graph"
 msgstr "<i class=\"fa fa-bar-chart-o\"/> 图表"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.result_choice
+#: model_terms:ir.ui.view,arch_db:survey.result_choice
 msgid "<i class=\"fa fa-bar-chart-o\"/> Pie Chart"
 msgstr "<i class=\"fa fa-bar-chart-o\"/> 圆形分格统计图表"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.survey_question_form
+#: model_terms:ir.ui.view,arch_db:survey.survey_question_form
 msgid "<i class=\"fa fa-check-square-o fa-lg\"/> answer"
 msgstr "<i class=\"fa fa-check-square-o fa-lg\"/> 回答"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.survey_question_form
+#: model_terms:ir.ui.view,arch_db:survey.survey_question_form
 msgid "<i class=\"fa fa-circle-o  fa-lg\"/> answer"
-msgstr "<i class=\"fa fa-check-square-o fa-lg\"/> 回答"
+msgstr "<i class=\"fa fa-circle-o  fa-lg\"/> 答案"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.survey_question_form
+#: model_terms:ir.ui.view,arch_db:survey.survey_question_form
 msgid "<i class=\"fa fa-dot-circle-o fa-lg\"/> answer"
-msgstr "<i class=\"fa fa-check-square-o fa-lg\"/> 回答"
+msgstr "<i class=\"fa fa-circle-o  fa-lg\"/> 答案"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.result_number
+#: model_terms:ir.ui.view,arch_db:survey.result_number
 msgid ""
 "<i class=\"fa fa-list-alt\"/>\n"
 "                    All Data"
@@ -127,7 +135,7 @@ msgstr ""
 "                    所有数据"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.result_matrix
+#: model_terms:ir.ui.view,arch_db:survey.result_matrix
 msgid ""
 "<i class=\"fa fa-list-alt\"/>\n"
 "                    Data"
@@ -136,12 +144,12 @@ msgstr ""
 "                    数据"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.result_choice
+#: model_terms:ir.ui.view,arch_db:survey.result_choice
 msgid "<i class=\"fa fa-list-alt\"/> Data"
 msgstr "<i class=\"fa fa-list-alt\"/> 数据"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.result_number
+#: model_terms:ir.ui.view,arch_db:survey.result_number
 msgid ""
 "<i class=\"fa fa-list-ol\"/>\n"
 "                    Most Common"
@@ -150,17 +158,17 @@ msgstr ""
 "                    最常见"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.survey_question_form
+#: model_terms:ir.ui.view,arch_db:survey.survey_question_form
 msgid "<i class=\"fa fa-square-o fa-lg\"/> answer"
 msgstr "<i class=\"fa fa-square-o fa-lg\"/> 回答"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.result
+#: model_terms:ir.ui.view,arch_db:survey.result
 msgid "<i class=\"fa fa-times\"/> Clear All Filters"
 msgstr "<i class=\"fa fa-times\"/> 清空所有筛选"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.result
+#: model_terms:ir.ui.view,arch_db:survey.result
 msgid ""
 "<span class=\"badge badge-primary only_left_radius filter-all\">All "
 "surveys</span><span class=\"badge badge-secondary only_right_radius filter-"
@@ -168,7 +176,7 @@ msgid ""
 msgstr ""
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.result
+#: model_terms:ir.ui.view,arch_db:survey.result
 msgid ""
 "<span class=\"badge badge-secondary only_left_radius filter-all\">All "
 "surveys</span><span class=\"badge badge-primary only_right_radius filter-"
@@ -176,32 +184,32 @@ msgid ""
 msgstr ""
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.result_number
+#: model_terms:ir.ui.view,arch_db:survey.result_number
 msgid "<span class=\"badge badge-secondary only_left_radius\">Average </span>"
-msgstr ""
+msgstr "<span class=\"badge badge-secondary only_left_radius\">平均</span>"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.result_number
+#: model_terms:ir.ui.view,arch_db:survey.result_number
 msgid "<span class=\"badge badge-secondary only_left_radius\">Maximum </span>"
-msgstr ""
+msgstr "<span class=\"badge badge-secondary only_left_radius\">最大</span>"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.result_number
+#: model_terms:ir.ui.view,arch_db:survey.result_number
 msgid "<span class=\"badge badge-secondary only_left_radius\">Minimum </span>"
 msgstr ""
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.result_number
+#: model_terms:ir.ui.view,arch_db:survey.result_number
 msgid "<span class=\"badge badge-secondary only_left_radius\">Sum </span>"
 msgstr ""
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.result
+#: model_terms:ir.ui.view,arch_db:survey.result
 msgid "<span class=\"fa fa-filter\"/>  Filters"
 msgstr "<span class=\"fa fa-filter\"/>  筛选"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.no_result
+#: model_terms:ir.ui.view,arch_db:survey.no_result
 msgid ""
 "<span>\n"
 "                            <i style=\"font-size:1.8em\" class=\"fa fa-users float-right\" role=\"img\" aria-label=\"No answer\" title=\"No answer\"/>\n"
@@ -233,7 +241,7 @@ msgid ""
 msgstr "正分数表明选对，没有分数或者负分数表明回答错误"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.page
+#: model_terms:ir.ui.view,arch_db:survey.page
 msgid "A problem has occured"
 msgstr "已发生的问题"
 
@@ -275,27 +283,27 @@ msgstr "活动状态"
 #. module: survey
 #: model:ir.model.fields,field_description:survey.field_survey_mail_compose_message__add_sign
 msgid "Add Sign"
-msgstr ""
+msgstr "添加签名"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.survey_email_compose_message
+#: model_terms:ir.ui.view,arch_db:survey.survey_email_compose_message
 msgid ""
 "Add a list of email of recipients (will not be converted into contacts). "
 "Separated by commas, semicolons or newline..."
 msgstr "添加电子邮件收件人列表（不会转换为联系人）。采用逗号、分号或新行分隔..."
 
 #. module: survey
-#: model:ir.actions.act_window,help:survey.action_survey_form
+#: model_terms:ir.actions.act_window,help:survey.action_survey_form
 msgid "Add a new survey"
 msgstr ""
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.survey_email_compose_message
+#: model_terms:ir.ui.view,arch_db:survey.survey_email_compose_message
 msgid "Add existing contacts..."
 msgstr "添加现有联系人..."
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.survey_question_form
+#: model_terms:ir.ui.view,arch_db:survey.survey_question_form
 msgid "Allow Comments"
 msgstr "允许评论"
 
@@ -305,12 +313,12 @@ msgid "An introductory text to your page"
 msgstr "您页面的介绍文本"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.survey_kanban
+#: model_terms:ir.ui.view,arch_db:survey.survey_kanban
 msgid "Analyze Answers"
 msgstr "答案分析"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.result_choice
+#: model_terms:ir.ui.view,arch_db:survey.result_choice
 msgid "Answer Choices"
 msgstr "答案选项"
 
@@ -321,7 +329,7 @@ msgid "Answer Type"
 msgstr "回复类型"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.result
+#: model_terms:ir.ui.view,arch_db:survey.result
 msgid "Answered"
 msgstr "已答复"
 
@@ -330,8 +338,8 @@ msgstr "已答复"
 #: model:ir.model.fields,field_description:survey.field_survey_question__user_input_line_ids
 #: model:ir.model.fields,field_description:survey.field_survey_user_input__user_input_line_ids
 #: model:ir.ui.menu,name:survey.menu_survey_type_form1
-#: model:ir.ui.view,arch_db:survey.survey_form
-#: model:ir.ui.view,arch_db:survey.survey_question_form
+#: model_terms:ir.ui.view,arch_db:survey.survey_form
+#: model_terms:ir.ui.view,arch_db:survey.survey_question_form
 msgid "Answers"
 msgstr "答案"
 
@@ -343,9 +351,14 @@ msgid ""
 msgstr "答案不在原来的讨论区中，会对生成的message-id中有影响"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.survey_survey_view_search
+#: model_terms:ir.ui.view,arch_db:survey.survey_survey_view_search
 msgid "Archived"
 msgstr "已归档"
+
+#. module: survey
+#: model:ir.model.fields,field_description:survey.field_survey_survey__message_attachment_count
+msgid "Attachment Count"
+msgstr "附件数量"
 
 #. module: survey
 #: model:ir.model.fields,field_description:survey.field_survey_mail_compose_message__attachment_ids
@@ -377,12 +390,17 @@ msgid "Author's avatar"
 msgstr "作者头像"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.back
+#: model:ir.model,name:survey.model_ir_autovacuum
+msgid "Automatic Vacuum"
+msgstr ""
+
+#. module: survey
+#: model_terms:ir.ui.view,arch_db:survey.back
 msgid "Back to Survey"
 msgstr "回到调查"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.survey_email_compose_message
+#: model_terms:ir.ui.view,arch_db:survey.survey_email_compose_message
 msgid "Cancel"
 msgstr "取消"
 
@@ -397,12 +415,12 @@ msgid "Child Messages"
 msgstr "下级信息"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.survey_question_form
+#: model_terms:ir.ui.view,arch_db:survey.survey_question_form
 msgid "Choices"
 msgstr "选择"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.simple_choice
+#: model_terms:ir.ui.view,arch_db:survey.simple_choice
 msgid "Choose..."
 msgstr "选择..."
 
@@ -413,8 +431,8 @@ msgid "Click here to start survey"
 msgstr "点击此处开始调查"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.page
-#: model:ir.ui.view,arch_db:survey.survey_email_compose_message
+#: model_terms:ir.ui.view,arch_db:survey.page
+#: model_terms:ir.ui.view,arch_db:survey.survey_email_compose_message
 msgid "Close"
 msgstr "关闭"
 
@@ -425,7 +443,7 @@ msgid "Closed"
 msgstr "已关闭"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.survey_kanban
+#: model_terms:ir.ui.view,arch_db:survey.survey_kanban
 msgid "Color"
 msgstr "颜色"
 
@@ -435,7 +453,7 @@ msgid "Color Index"
 msgstr "颜色索引"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.result_comments
+#: model_terms:ir.ui.view,arch_db:survey.result_comments
 #: selection:survey.mail.compose.message,message_type:0
 msgid "Comment"
 msgstr "备注"
@@ -451,19 +469,19 @@ msgid "Comment Message"
 msgstr "评论消息"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.layout
+#: model_terms:ir.ui.view,arch_db:survey.layout
 msgid "Company name"
 msgstr "公司名称"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.survey_tree
-#: model:ir.ui.view,arch_db:survey.survey_user_input_search
+#: model_terms:ir.ui.view,arch_db:survey.survey_tree
+#: model_terms:ir.ui.view,arch_db:survey.survey_user_input_search
 #: selection:survey.user_input,state:0
 msgid "Completed"
 msgstr "已完成"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.survey_email_compose_message
+#: model_terms:ir.ui.view,arch_db:survey.survey_email_compose_message
 msgid "Compose Email"
 msgstr "撰写邮件"
 
@@ -478,7 +496,7 @@ msgid "Configuration"
 msgstr "配置"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.survey_question_form
+#: model_terms:ir.ui.view,arch_db:survey.survey_question_form
 msgid "Constraints"
 msgstr "限制"
 
@@ -488,18 +506,18 @@ msgid "Contents"
 msgstr "内容"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.survey_email_compose_message
+#: model_terms:ir.ui.view,arch_db:survey.survey_email_compose_message
 msgid ""
 "Copy and paste the HTML code below to add this web link to any webpage."
 msgstr "复制和粘贴下方的HTML代码，把该链接增加到任何网页。"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.survey_email_compose_message
+#: model_terms:ir.ui.view,arch_db:survey.survey_email_compose_message
 msgid "Copy, paste and share the web link below to your audience."
 msgstr "复制、粘贴并分享下面的链接给你的观众。"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.layout
+#: model_terms:ir.ui.view,arch_db:survey.layout
 msgid "Copyright &amp;copy;"
 msgstr "Copyright &amp;copy;"
 
@@ -509,7 +527,7 @@ msgid "Create Date"
 msgstr "创建日期"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.layout
+#: model_terms:ir.ui.view,arch_db:survey.layout
 msgid "Create a"
 msgstr "创建一个"
 
@@ -582,7 +600,7 @@ msgid "Deadline to which the invitation to respond is valid"
 msgstr "邀请回馈的截止日期有效"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.survey_kanban
+#: model_terms:ir.ui.view,arch_db:survey.survey_kanban
 msgid "Delete"
 msgstr "刪除"
 
@@ -602,6 +620,7 @@ msgid "Delete sent emails (mass mailing only)"
 msgstr "删除已发送邮件(仅限群发邮件)"
 
 #. module: survey
+#: model:ir.model.fields,field_description:survey.field_survey_mail_compose_message__description
 #: model:ir.model.fields,field_description:survey.field_survey_page__description
 #: model:ir.model.fields,field_description:survey.field_survey_question__description
 #: model:ir.model.fields,field_description:survey.field_survey_survey__description
@@ -609,7 +628,7 @@ msgid "Description"
 msgstr "说明"
 
 #. module: survey
-#: model:ir.actions.act_window,help:survey.action_survey_form
+#: model_terms:ir.actions.act_window,help:survey.action_survey_form
 msgid ""
 "Design easily your survey, send invitations to answer by email and analyse "
 "answers."
@@ -633,7 +652,7 @@ msgid "Display Name"
 msgstr "显示名称"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.survey_question_form
+#: model_terms:ir.ui.view,arch_db:survey.survey_question_form
 msgid "Display mode"
 msgstr "显示模式"
 
@@ -650,9 +669,9 @@ msgid "Draft"
 msgstr "草稿"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.survey_kanban
+#: model_terms:ir.ui.view,arch_db:survey.survey_kanban
 msgid "Dropdown menu"
-msgstr ""
+msgstr "下拉菜单"
 
 #. module: survey
 #: model:ir.model.fields,field_description:survey.field_survey_user_input__email
@@ -660,17 +679,17 @@ msgid "E-mail"
 msgstr "电子邮件"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.survey_form
+#: model_terms:ir.ui.view,arch_db:survey.survey_form
 msgid "Edit Pages and Questions"
 msgstr "编辑页面和问题"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.survey_kanban
+#: model_terms:ir.ui.view,arch_db:survey.survey_kanban
 msgid "Edit Survey"
 msgstr "编辑问卷"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.survey_user_input_search
+#: model_terms:ir.ui.view,arch_db:survey.survey_user_input_search
 #: selection:survey.mail.compose.message,message_type:0
 msgid "Email"
 msgstr "Email"
@@ -708,7 +727,7 @@ msgid "Favorited By"
 msgstr "收藏夹"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.result_choice
+#: model_terms:ir.ui.view,arch_db:survey.result_choice
 msgid "Filter question"
 msgstr ""
 
@@ -733,7 +752,7 @@ msgid "Followers (Partners)"
 msgstr "关注者(业务伙伴)"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.survey_question_form
+#: model_terms:ir.ui.view,arch_db:survey.survey_question_form
 msgid "Format"
 msgstr "格式"
 
@@ -753,10 +772,10 @@ msgid "From"
 msgstr "从"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.survey_page_search
-#: model:ir.ui.view,arch_db:survey.survey_question_search
-#: model:ir.ui.view,arch_db:survey.survey_response_line_search
-#: model:ir.ui.view,arch_db:survey.survey_user_input_search
+#: model_terms:ir.ui.view,arch_db:survey.survey_page_search
+#: model_terms:ir.ui.view,arch_db:survey.survey_question_search
+#: model_terms:ir.ui.view,arch_db:survey.survey_response_line_search
+#: model_terms:ir.ui.view,arch_db:survey.survey_user_input_search
 msgid "Group By"
 msgstr "分组"
 
@@ -764,7 +783,7 @@ msgstr "分组"
 #: model:ir.model.fields,field_description:survey.field_survey_mail_compose_message__has_error
 #: model:ir.model.fields,help:survey.field_survey_mail_compose_message__has_error
 msgid "Has error"
-msgstr ""
+msgstr "有误差"
 
 #. module: survey
 #: model:ir.model.fields,field_description:survey.field_survey_label__id
@@ -796,7 +815,7 @@ msgstr "如果勾选此项，有新消息会提醒你。"
 #. module: survey
 #: model:ir.model.fields,help:survey.field_survey_survey__message_has_error
 msgid "If checked, some messages have a delivery error."
-msgstr ""
+msgstr "如果勾选此项， 某些信息将会产生传递错误。"
 
 #. module: survey
 #: model:ir.model.fields,help:survey.field_survey_survey__users_can_go_back
@@ -816,7 +835,7 @@ msgid "If other, please specify:"
 msgstr "如果是其它，请指定"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.sfinished
+#: model_terms:ir.ui.view,arch_db:survey.sfinished
 msgid "If you wish, you can"
 msgstr "如果你愿意，你能"
 
@@ -842,7 +861,7 @@ msgid "Input must be an email"
 msgstr "输入必须是电子邮件"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.survey_tree
+#: model_terms:ir.ui.view,arch_db:survey.survey_tree
 msgid "Invitations sent"
 msgstr "已发送邀请"
 
@@ -914,14 +933,14 @@ msgid "Last displayed page"
 msgstr "最后显示页面"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.survey_survey_view_search
+#: model_terms:ir.ui.view,arch_db:survey.survey_survey_view_search
 msgid "Late Activities"
 msgstr "逾期活动"
 
 #. module: survey
 #: model:ir.model.fields,field_description:survey.field_survey_mail_compose_message__layout
 msgid "Layout"
-msgstr ""
+msgstr "布局"
 
 #. module: survey
 #: selection:survey.user_input,type:0
@@ -940,12 +959,12 @@ msgstr "记录内部备注"
 
 #. module: survey
 #: model:ir.model.fields,field_description:survey.field_survey_survey__auth_required
-#: model:ir.ui.view,arch_db:survey.auth_required
+#: model_terms:ir.ui.view,arch_db:survey.auth_required
 msgid "Login required"
 msgstr "需要登录"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.layout
+#: model_terms:ir.ui.view,arch_db:survey.layout
 msgid "Logo"
 msgstr "徽标"
 
@@ -955,9 +974,9 @@ msgid "Mail Activity Type"
 msgstr "邮件活动类型"
 
 #. module: survey
-#: model:ir.model.fields,field_description:survey.field_survey_mail_compose_message__mailing_list_ids
-msgid "Mailing List"
-msgstr "邮件列表"
+#: model:ir.model.fields,field_description:survey.field_survey_survey__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "附件"
 
 #. module: survey
 #: model:res.groups,name:survey.group_survey_manager
@@ -966,7 +985,7 @@ msgstr "管理员"
 
 #. module: survey
 #: model:ir.model.fields,field_description:survey.field_survey_question__constr_mandatory
-#: model:ir.ui.view,arch_db:survey.survey_question_form
+#: model_terms:ir.ui.view,arch_db:survey.survey_question_form
 msgid "Mandatory Answer"
 msgstr "必答问题"
 
@@ -974,21 +993,6 @@ msgstr "必答问题"
 #: selection:survey.user_input,type:0
 msgid "Manually"
 msgstr "手工"
-
-#. module: survey
-#: model:ir.model.fields,field_description:survey.field_survey_mail_compose_message__mass_mailing_id
-msgid "Mass Mailing"
-msgstr "群发邮件"
-
-#. module: survey
-#: model:ir.model.fields,field_description:survey.field_survey_mail_compose_message__mass_mailing_campaign_id
-msgid "Mass Mailing Campaign"
-msgstr "群发邮件营销"
-
-#. module: survey
-#: model:ir.model.fields,field_description:survey.field_survey_mail_compose_message__mass_mailing_name
-msgid "Mass Mailing Name"
-msgstr ""
 
 #. module: survey
 #: selection:survey.question,type:0
@@ -1001,7 +1005,7 @@ msgid "Matrix Type"
 msgstr "表格类型"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.result
+#: model_terms:ir.ui.view,arch_db:survey.result
 msgid "Matrix:"
 msgstr "表格："
 
@@ -1036,19 +1040,24 @@ msgid "Maximum value"
 msgstr "最大值"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.403
+#: model_terms:ir.ui.view,arch_db:survey.403
 msgid "Maybe you were looking for"
 msgstr ""
 
 #. module: survey
 #: model:ir.model.fields,field_description:survey.field_survey_survey__message_has_error
 msgid "Message Delivery error"
-msgstr ""
+msgstr "消息递送错误"
 
 #. module: survey
 #: model:ir.model.fields,field_description:survey.field_survey_mail_compose_message__record_name
 msgid "Message Record Name"
 msgstr "消息记录名称"
+
+#. module: survey
+#: model:ir.model.fields,help:survey.field_survey_mail_compose_message__description
+msgid "Message description: either the subject, or the beginning of the body"
+msgstr "消息描述：主题或正文的开始部分"
 
 #. module: survey
 #: model:ir.model.fields,help:survey.field_survey_mail_compose_message__message_type
@@ -1090,12 +1099,12 @@ msgstr "最小值"
 #. module: survey
 #: model:ir.model.fields,field_description:survey.field_survey_mail_compose_message__moderator_id
 msgid "Moderated By"
-msgstr ""
+msgstr "管理人"
 
 #. module: survey
 #: model:ir.model.fields,field_description:survey.field_survey_mail_compose_message__moderation_status
 msgid "Moderation Status"
-msgstr ""
+msgstr "管理状态"
 
 #. module: survey
 #: selection:survey.question,type:0
@@ -1103,12 +1112,12 @@ msgid "Multiple Lines Text Box"
 msgstr "多行文本框"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.survey_question_form
+#: model_terms:ir.ui.view,arch_db:survey.survey_question_form
 msgid "Multiple choice with multiple answers"
 msgstr ""
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.survey_question_form
+#: model_terms:ir.ui.view,arch_db:survey.survey_question_form
 msgid "Multiple choice with one answer"
 msgstr ""
 
@@ -1128,7 +1137,7 @@ msgid "Multiple choices per row"
 msgstr "每行有多个选项"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.survey_survey_view_search
+#: model_terms:ir.ui.view,arch_db:survey.survey_survey_view_search
 msgid "My Activities"
 msgstr "我的活动"
 
@@ -1151,10 +1160,10 @@ msgstr "待处理"
 #. module: survey
 #: model:ir.model.fields,field_description:survey.field_survey_mail_compose_message__need_moderation
 msgid "Need moderation"
-msgstr ""
+msgstr "需要调节"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.survey_user_input_search
+#: model_terms:ir.ui.view,arch_db:survey.survey_user_input_search
 msgid "New"
 msgstr "新建"
 
@@ -1174,22 +1183,22 @@ msgid "Next Activity Type"
 msgstr "下一活动类型"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.page
+#: model_terms:ir.ui.view,arch_db:survey.page
 msgid "Next page"
 msgstr "下一页"
 
 #. module: survey
-#: model:ir.actions.act_window,help:survey.action_survey_page_form
+#: model_terms:ir.actions.act_window,help:survey.action_survey_page_form
 msgid "No pages found"
 msgstr ""
 
 #. module: survey
-#: model:ir.actions.act_window,help:survey.action_survey_question_form
+#: model_terms:ir.actions.act_window,help:survey.action_survey_question_form
 msgid "No questions found"
 msgstr ""
 
 #. module: survey
-#: model:ir.actions.act_window,help:survey.action_survey_label_form
+#: model_terms:ir.actions.act_window,help:survey.action_survey_label_form
 msgid "No survey labels found"
 msgstr ""
 
@@ -1199,23 +1208,23 @@ msgid "No threading for answers"
 msgstr "答案没有线程"
 
 #. module: survey
-#: model:ir.actions.act_window,help:survey.action_survey_user_input_line
+#: model_terms:ir.actions.act_window,help:survey.action_survey_user_input_line
 msgid "No user input lines found"
 msgstr ""
 
 #. module: survey
-#: model:ir.actions.act_window,help:survey.action_selected_survey_user_input
-#: model:ir.actions.act_window,help:survey.action_survey_user_input
+#: model_terms:ir.actions.act_window,help:survey.action_selected_survey_user_input
+#: model_terms:ir.actions.act_window,help:survey.action_survey_user_input
 msgid "Nobody has replied to your surveys yet"
 msgstr ""
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.notopen
+#: model_terms:ir.ui.view,arch_db:survey.notopen
 msgid "Not open"
 msgstr "未打开"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.nopages
+#: model_terms:ir.ui.view,arch_db:survey.nopages
 msgid "Not ready"
 msgstr "未就绪"
 
@@ -1251,7 +1260,7 @@ msgstr "行动数量"
 
 #. module: survey
 #: model:ir.model.fields,field_description:survey.field_survey_question__column_nb
-#: model:ir.ui.view,arch_db:survey.survey_question_form
+#: model_terms:ir.ui.view,arch_db:survey.survey_question_form
 msgid "Number of columns"
 msgstr "栏位数"
 
@@ -1263,7 +1272,7 @@ msgstr "已完成的调查数量"
 #. module: survey
 #: model:ir.model.fields,field_description:survey.field_survey_survey__message_has_error_counter
 msgid "Number of error"
-msgstr ""
+msgstr "错误数"
 
 #. module: survey
 #: model:ir.model.fields,help:survey.field_survey_survey__message_needaction_counter
@@ -1273,7 +1282,7 @@ msgstr "需要行动消息的数量"
 #. module: survey
 #: model:ir.model.fields,help:survey.field_survey_survey__message_has_error_counter
 msgid "Number of messages with delivery error"
-msgstr ""
+msgstr "递送错误的消息数量"
 
 #. module: survey
 #: model:ir.model.fields,field_description:survey.field_survey_survey__tot_sent_survey
@@ -1301,12 +1310,12 @@ msgid "Numerical answer"
 msgstr "数字答案"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.result_number
+#: model_terms:ir.ui.view,arch_db:survey.result_number
 msgid "Occurence"
 msgstr "发生"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.layout
+#: model_terms:ir.ui.view,arch_db:survey.layout
 msgid "Odoo"
 msgstr "Odoo"
 
@@ -1316,8 +1325,8 @@ msgid "One choice per row"
 msgstr "每行一个选项"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.survey_form
-#: model:ir.ui.view,arch_db:survey.survey_question_form
+#: model_terms:ir.ui.view,arch_db:survey.survey_form
+#: model_terms:ir.ui.view,arch_db:survey.survey_question_form
 msgid "Options"
 msgstr "选项"
 
@@ -1333,15 +1342,15 @@ msgstr "逾期"
 
 #. module: survey
 #: model:ir.model.fields,field_description:survey.field_survey_user_input_line__page_id
-#: model:ir.ui.view,arch_db:survey.page
-#: model:ir.ui.view,arch_db:survey.survey_page_search
-#: model:ir.ui.view,arch_db:survey.survey_question_search
+#: model_terms:ir.ui.view,arch_db:survey.page
+#: model_terms:ir.ui.view,arch_db:survey.survey_page_search
+#: model_terms:ir.ui.view,arch_db:survey.survey_question_search
 msgid "Page"
 msgstr "页"
 
 #. module: survey
 #: model:ir.model.fields,field_description:survey.field_survey_page__title
-#: model:ir.ui.view,arch_db:survey.survey_page_form
+#: model_terms:ir.ui.view,arch_db:survey.survey_page_form
 msgid "Page Title"
 msgstr "网页标题"
 
@@ -1364,14 +1373,18 @@ msgid "Parent Message"
 msgstr "上级消息"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.survey_user_input_search
+#: model_terms:ir.ui.view,arch_db:survey.survey_user_input_search
+msgid "Partially Completed"
+msgstr ""
+
+#. module: survey
 #: selection:survey.user_input,state:0
 msgid "Partially completed"
 msgstr "部分完成"
 
 #. module: survey
 #: model:ir.model.fields,field_description:survey.field_survey_user_input__partner_id
-#: model:ir.ui.view,arch_db:survey.survey_user_input_search
+#: model_terms:ir.ui.view,arch_db:survey.survey_user_input_search
 msgid "Partner"
 msgstr "业务伙伴"
 
@@ -1383,7 +1396,7 @@ msgstr "待处理的业务伙伴"
 #. module: survey
 #: selection:survey.mail.compose.message,moderation_status:0
 msgid "Pending Moderation"
-msgstr ""
+msgstr "待调节"
 
 #. module: survey
 #: model:survey.stage,name:survey.stage_permanent
@@ -1402,17 +1415,17 @@ msgid "Please enter at least one valid recipient."
 msgstr "请至少输入一个可用的收件人。"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.page
+#: model_terms:ir.ui.view,arch_db:survey.page
 msgid "Previous page"
 msgstr "上一页"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.survey_form
+#: model_terms:ir.ui.view,arch_db:survey.survey_form
 msgid "Print Survey"
 msgstr "打印问卷"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.survey_user_input_form
+#: model_terms:ir.ui.view,arch_db:survey.survey_user_input_form
 msgid "Print These Answers"
 msgstr "打印此答案"
 
@@ -1452,10 +1465,15 @@ msgid "Public url"
 msgstr "公开网址"
 
 #. module: survey
+#: model:ir.model.fields,field_description:survey.field_survey_mail_compose_message__website_published
+msgid "Published"
+msgstr "已发布"
+
+#. module: survey
 #: model:ir.model.fields,field_description:survey.field_survey_label__question_id
 #: model:ir.model.fields,field_description:survey.field_survey_user_input_line__question_id
-#: model:ir.ui.view,arch_db:survey.survey_label_search
-#: model:ir.ui.view,arch_db:survey.survey_question_search
+#: model_terms:ir.ui.view,arch_db:survey.survey_label_search
+#: model_terms:ir.ui.view,arch_db:survey.survey_question_search
 msgid "Question"
 msgstr "疑问"
 
@@ -1466,12 +1484,12 @@ msgstr "第二个问题"
 
 #. module: survey
 #: model:ir.model.fields,field_description:survey.field_survey_question__question
-#: model:ir.ui.view,arch_db:survey.survey_question_form
+#: model_terms:ir.ui.view,arch_db:survey.survey_question_form
 msgid "Question Name"
 msgstr "问题名称"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.survey_question_form
+#: model_terms:ir.ui.view,arch_db:survey.survey_question_form
 msgid "Question name"
 msgstr "问题名称"
 
@@ -1547,22 +1565,22 @@ msgid "Row answer"
 msgstr "答案行"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.survey_question_form
+#: model_terms:ir.ui.view,arch_db:survey.survey_question_form
 msgid "Row1"
 msgstr "第一行"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.survey_question_form
+#: model_terms:ir.ui.view,arch_db:survey.survey_question_form
 msgid "Row2"
 msgstr "第二行"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.survey_question_form
+#: model_terms:ir.ui.view,arch_db:survey.survey_question_form
 msgid "Row3"
 msgstr "第三行"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.survey_question_form
+#: model_terms:ir.ui.view,arch_db:survey.survey_question_form
 msgid "Rows"
 msgstr "行"
 
@@ -1572,12 +1590,12 @@ msgid "Rows of the Matrix"
 msgstr "表格行数"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.survey_email_compose_message
+#: model_terms:ir.ui.view,arch_db:survey.survey_email_compose_message
 msgid "Save as a new template"
 msgstr "保存为新模版"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.survey_email_compose_message
+#: model_terms:ir.ui.view,arch_db:survey.survey_email_compose_message
 msgid "Save as new template"
 msgstr "保存为新模版"
 
@@ -1597,27 +1615,27 @@ msgid "Score given for this choice"
 msgstr "这个选项分配的分数"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.survey_label_search
+#: model_terms:ir.ui.view,arch_db:survey.survey_label_search
 msgid "Search Label"
 msgstr "搜索标签"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.survey_page_search
+#: model_terms:ir.ui.view,arch_db:survey.survey_page_search
 msgid "Search Page"
 msgstr "搜索页面"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.survey_question_search
+#: model_terms:ir.ui.view,arch_db:survey.survey_question_search
 msgid "Search Question"
 msgstr "搜索问题"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.survey_user_input_search
+#: model_terms:ir.ui.view,arch_db:survey.survey_user_input_search
 msgid "Search Survey"
 msgstr "搜索调查"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.survey_response_line_search
+#: model_terms:ir.ui.view,arch_db:survey.survey_response_line_search
 msgid "Search User input lines"
 msgstr "搜索用户输入行"
 
@@ -1627,12 +1645,12 @@ msgid "Selection Box"
 msgstr "选择框"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.survey_email_compose_message
+#: model_terms:ir.ui.view,arch_db:survey.survey_email_compose_message
 msgid "Send"
 msgstr "发送"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.survey_user_input_form
+#: model_terms:ir.ui.view,arch_db:survey.survey_user_input_form
 msgid "Send Invitation Again"
 msgstr "再次发送邀请"
 
@@ -1660,12 +1678,12 @@ msgid "Sequence number MUST be a natural"
 msgstr "序列数必须是自然数。"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.survey_kanban
+#: model_terms:ir.ui.view,arch_db:survey.survey_kanban
 msgid "Share &amp;amp; Invite"
 msgstr "分享并邀请"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.survey_form
+#: model_terms:ir.ui.view,arch_db:survey.survey_form
 msgid "Share and invite by email"
 msgstr "通过邮件分享和邀请"
 
@@ -1685,7 +1703,7 @@ msgid "Show Comments Field"
 msgstr "显示评论字段"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.survey_survey_view_search
+#: model_terms:ir.ui.view,arch_db:survey.survey_survey_view_search
 msgid "Show all records which has next action date is before today"
 msgstr "显示所有下一个活动日期在今天之前的记录"
 
@@ -1696,7 +1714,7 @@ msgstr "单行文本框"
 
 #. module: survey
 #: model:ir.model.fields,field_description:survey.field_survey_user_input_line__skipped
-#: model:ir.ui.view,arch_db:survey.result
+#: model_terms:ir.ui.view,arch_db:survey.result
 msgid "Skipped"
 msgstr "忽略"
 
@@ -1709,7 +1727,7 @@ msgid ""
 msgstr "联系人小尺寸图像。自动缩放为64x64px ，保留纵横比。此字段用于任何需要小图像的场合"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.page
+#: model_terms:ir.ui.view,arch_db:survey.page
 msgid ""
 "Something went wrong while contacting survey server. <strong class=\"text-"
 "danger\">Your answers have probably not been recorded.</strong> Try "
@@ -1718,13 +1736,13 @@ msgstr ""
 "在连接调查服务的时候出错。 <strong class=\"text-danger\">你的回答可能已经被记录下来。</strong> 试着更新一下 "
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.result
+#: model_terms:ir.ui.view,arch_db:survey.result
 msgid "Sorry, No one answered this question."
 msgstr "抱歉，没有人回答此问题。"
 
 #. module: survey
 #: model:ir.model.fields,field_description:survey.field_survey_survey__stage_id
-#: model:ir.ui.view,arch_db:survey.survey_stage_form
+#: model_terms:ir.ui.view,arch_db:survey.survey_stage_form
 msgid "Stage"
 msgstr "阶段"
 
@@ -1734,12 +1752,12 @@ msgid "Starred"
 msgstr "星标邮件"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.survey_init
+#: model_terms:ir.ui.view,arch_db:survey.survey_init
 msgid "Start Survey"
 msgstr "开始调查"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.survey_tree
+#: model_terms:ir.ui.view,arch_db:survey.survey_tree
 msgid "Started"
 msgstr "已开始"
 
@@ -1767,12 +1785,12 @@ msgid "Subject"
 msgstr "主题"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.survey_email_compose_message
+#: model_terms:ir.ui.view,arch_db:survey.survey_email_compose_message
 msgid "Subject..."
 msgstr "主题..."
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.page
+#: model_terms:ir.ui.view,arch_db:survey.page
 msgid "Submit survey"
 msgstr "提交问卷"
 
@@ -1798,44 +1816,43 @@ msgstr "建议"
 
 #. module: survey
 #: model:ir.model,name:survey.model_survey_survey
-#: model:ir.model.fields,field_description:survey.field_res_users__group_survey_user
 #: model:ir.model.fields,field_description:survey.field_survey_mail_compose_message__survey_id
 #: model:ir.model.fields,field_description:survey.field_survey_page__survey_id
 #: model:ir.model.fields,field_description:survey.field_survey_question__survey_id
 #: model:ir.model.fields,field_description:survey.field_survey_user_input__survey_id
 #: model:ir.model.fields,field_description:survey.field_survey_user_input_line__survey_id
-#: model:ir.ui.view,arch_db:survey.survey_form
-#: model:ir.ui.view,arch_db:survey.survey_page_search
-#: model:ir.ui.view,arch_db:survey.survey_question_search
-#: model:ir.ui.view,arch_db:survey.survey_response_line_search
-#: model:ir.ui.view,arch_db:survey.survey_survey_view_search
-#: model:ir.ui.view,arch_db:survey.survey_tree
-#: model:ir.ui.view,arch_db:survey.survey_user_input_search
+#: model_terms:ir.ui.view,arch_db:survey.survey_form
+#: model_terms:ir.ui.view,arch_db:survey.survey_page_search
+#: model_terms:ir.ui.view,arch_db:survey.survey_question_search
+#: model_terms:ir.ui.view,arch_db:survey.survey_response_line_search
+#: model_terms:ir.ui.view,arch_db:survey.survey_survey_view_search
+#: model_terms:ir.ui.view,arch_db:survey.survey_tree
+#: model_terms:ir.ui.view,arch_db:survey.survey_user_input_search
 msgid "Survey"
 msgstr "问卷"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.survey_response_line_tree
+#: model_terms:ir.ui.view,arch_db:survey.survey_response_line_tree
 msgid "Survey Answer Line"
 msgstr "问卷答案明细"
 
 #. module: survey
 #: model:ir.model,name:survey.model_survey_label
-#: model:ir.ui.view,arch_db:survey.survey_label_tree
+#: model_terms:ir.ui.view,arch_db:survey.survey_label_tree
 msgid "Survey Label"
 msgstr "调查标签"
 
 #. module: survey
 #: model:ir.model,name:survey.model_survey_page
-#: model:ir.ui.view,arch_db:survey.survey_page_form
-#: model:ir.ui.view,arch_db:survey.survey_page_tree
+#: model_terms:ir.ui.view,arch_db:survey.survey_page_form
+#: model_terms:ir.ui.view,arch_db:survey.survey_page_tree
 msgid "Survey Page"
 msgstr "问卷页面"
 
 #. module: survey
 #: model:ir.model,name:survey.model_survey_question
-#: model:ir.ui.view,arch_db:survey.survey_question_form
-#: model:ir.ui.view,arch_db:survey.survey_question_tree
+#: model_terms:ir.ui.view,arch_db:survey.survey_question_form
+#: model_terms:ir.ui.view,arch_db:survey.survey_question_tree
 msgid "Survey Question"
 msgstr "调查问题"
 
@@ -1845,7 +1862,7 @@ msgid "Survey Stage"
 msgstr "调查阶段"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.survey_form
+#: model_terms:ir.ui.view,arch_db:survey.survey_form
 msgid "Survey Title"
 msgstr "问卷标题"
 
@@ -1870,15 +1887,15 @@ msgid "Survey User input"
 msgstr "调查用户输入"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.survey_user_input_form
-#: model:ir.ui.view,arch_db:survey.survey_user_input_tree
+#: model_terms:ir.ui.view,arch_db:survey.survey_user_input_form
+#: model_terms:ir.ui.view,arch_db:survey.survey_user_input_tree
 msgid "Survey User inputs"
 msgstr "调查用户输入"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.result_matrix
+#: model_terms:ir.ui.view,arch_db:survey.result_matrix
 msgid "Survey filter"
-msgstr ""
+msgstr "调查筛选"
 
 #. module: survey
 #: model:ir.model.fields,field_description:survey.field_survey_question__page_id
@@ -1903,10 +1920,14 @@ msgid "System notification"
 msgstr "系统通知"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.survey_kanban
-#: model:ir.ui.view,arch_db:survey.survey_user_input_search
+#: model_terms:ir.ui.view,arch_db:survey.survey_kanban
 msgid "Test"
 msgstr "测试"
+
+#. module: survey
+#: model_terms:ir.ui.view,arch_db:survey.survey_user_input_search
+msgid "Test Entries"
+msgstr ""
 
 #. module: survey
 #: model:ir.model.fields,field_description:survey.field_survey_user_input__test_entry
@@ -1914,7 +1935,7 @@ msgid "Test Entry"
 msgstr "测试问卷"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.survey_form
+#: model_terms:ir.ui.view,arch_db:survey.survey_form
 msgid "Test Survey"
 msgstr "测试问卷"
 
@@ -1929,7 +1950,7 @@ msgid "Text answer"
 msgstr "文本答案"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.sfinished
+#: model_terms:ir.ui.view,arch_db:survey.sfinished
 msgid "Thank you!"
 msgstr "谢谢！"
 
@@ -1959,7 +1980,7 @@ msgid ""
 msgstr "文本内容中不包含 '__URL__'.                     __URL__ 会被自动转换成特殊的调查网址。"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.403
+#: model_terms:ir.ui.view,arch_db:survey.403
 msgid "The page you were looking for could not be authorized."
 msgstr "你正在查找的网页可能未被授权。"
 
@@ -2009,23 +2030,23 @@ msgid "This question requires an answer."
 msgstr "此问题需要答案。"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.nopages
+#: model_terms:ir.ui.view,arch_db:survey.nopages
 msgid "This survey has no pages by now!"
 msgstr "此调查目前还没有页面！"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.notopen
+#: model_terms:ir.ui.view,arch_db:survey.notopen
 msgid "This survey is not open. Thank you for your interest!"
 msgstr "此调查尚未开始，感谢你的关注！"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.auth_required
+#: model_terms:ir.ui.view,arch_db:survey.auth_required
 msgid "This survey is open only to registered people. Please"
 msgstr "此调查只针对已注册用户，请"
 
 #. module: survey
 #: model:ir.model.fields,field_description:survey.field_survey_survey__title
-#: model:ir.ui.view,arch_db:survey.survey_survey_view_search
+#: model_terms:ir.ui.view,arch_db:survey.survey_survey_view_search
 msgid "Title"
 msgstr "称谓"
 
@@ -2035,7 +2056,7 @@ msgid "Today"
 msgstr "今日"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.survey_survey_view_search
+#: model_terms:ir.ui.view,arch_db:survey.survey_survey_view_search
 msgid "Today Activities"
 msgstr "今天的活动"
 
@@ -2053,7 +2074,7 @@ msgstr "追踪值"
 
 #. module: survey
 #: model:ir.model.fields,field_description:survey.field_survey_mail_compose_message__message_type
-#: model:ir.ui.view,arch_db:survey.survey_question_search
+#: model_terms:ir.ui.view,arch_db:survey.survey_question_search
 msgid "Type"
 msgstr "类型"
 
@@ -2063,7 +2084,7 @@ msgid "Type of Question"
 msgstr "问题类型"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.survey_question_form
+#: model_terms:ir.ui.view,arch_db:survey.survey_question_form
 msgid "Type of answers"
 msgstr "答案类型"
 
@@ -2083,7 +2104,7 @@ msgid "Unread Messages Counter"
 msgstr "未读消息计数器"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.survey_survey_view_search
+#: model_terms:ir.ui.view,arch_db:survey.survey_survey_view_search
 msgid "Upcoming Activities"
 msgstr "即将开始的活动"
 
@@ -2094,7 +2115,7 @@ msgstr "使用有效域"
 
 #. module: survey
 #: model:ir.model.fields,field_description:survey.field_survey_mail_compose_message__template_id
-#: model:ir.ui.view,arch_db:survey.survey_email_compose_message
+#: model_terms:ir.ui.view,arch_db:survey.survey_email_compose_message
 msgid "Use template"
 msgstr "使用模版"
 
@@ -2111,7 +2132,7 @@ msgstr "用户"
 
 #. module: survey
 #: model:ir.model.fields,field_description:survey.field_survey_user_input_line__user_input_id
-#: model:ir.ui.view,arch_db:survey.survey_response_line_search
+#: model_terms:ir.ui.view,arch_db:survey.survey_response_line_search
 msgid "User Input"
 msgstr "用户输入"
 
@@ -2121,19 +2142,19 @@ msgid "User Input Lines"
 msgstr "用户输入明细"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.result_choice
-#: model:ir.ui.view,arch_db:survey.result_number
-#: model:ir.ui.view,arch_db:survey.result_text
+#: model_terms:ir.ui.view,arch_db:survey.result_choice
+#: model_terms:ir.ui.view,arch_db:survey.result_number
+#: model_terms:ir.ui.view,arch_db:survey.result_text
 msgid "User Responses"
 msgstr "用户回应"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.survey_form
+#: model_terms:ir.ui.view,arch_db:survey.survey_form
 msgid "User can come back in the previous page"
 msgstr "用户能够返回上一页"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.survey_user_input_line_form
+#: model_terms:ir.ui.view,arch_db:survey.survey_user_input_line_form
 msgid "User input line details"
 msgstr "用户输入行细节"
 
@@ -2141,11 +2162,6 @@ msgstr "用户输入行细节"
 #: model:ir.model.fields,field_description:survey.field_survey_survey__user_input_ids
 msgid "User responses"
 msgstr "用户回应"
-
-#. module: survey
-#: model:ir.model,name:survey.model_res_users
-msgid "Users"
-msgstr "用户"
 
 #. module: survey
 #: model:ir.model.fields,field_description:survey.field_survey_survey__users_can_go_back
@@ -2170,17 +2186,22 @@ msgid "Validation Error message"
 msgstr "信息：验证错误"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.survey_user_input_form
+#: model_terms:ir.ui.view,arch_db:survey.survey_user_input_form
 msgid "View Results"
 msgstr "查看结果"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.survey_form
+#: model_terms:ir.ui.view,arch_db:survey.survey_form
 msgid "View results"
 msgstr "查看结果"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.result_choice
+#: model:ir.model.fields,help:survey.field_survey_mail_compose_message__website_published
+msgid "Visible on the website as a comment"
+msgstr "作为评论在网站可见"
+
+#. module: survey
+#: model_terms:ir.ui.view,arch_db:survey.result_choice
 msgid "Vote"
 msgstr "投票"
 
@@ -2200,14 +2221,14 @@ msgid "Whether the message is an internal note (comment mode only)"
 msgstr "该消息是否是一个内部备注(注释模式)"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.survey_question_form
+#: model_terms:ir.ui.view,arch_db:survey.survey_question_form
 msgid ""
 "YYYY-MM-DD\n"
 "                                            <i class=\"fa fa-calendar fa-2x\" role=\"img\" aria-label=\"Calendar\" title=\"Calendar\"/>"
 msgstr ""
 
 #. module: survey
-#: model:ir.actions.act_window,help:survey.action_survey_form
+#: model_terms:ir.actions.act_window,help:survey.action_survey_form
 msgid ""
 "You can create surveys for different purposes: customer opinion, services "
 "feedback, recruitment interviews, employee's periodical evaluations, "
@@ -2215,7 +2236,7 @@ msgid ""
 msgstr "你可以根据不同的目的创建调查：客户意见、服务回馈、招聘面试、员工定期评估、市场活动等。"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.survey_email_compose_message
+#: model_terms:ir.ui.view,arch_db:survey.survey_email_compose_message
 msgid ""
 "You can share your survey web public link and/or send private invitations to"
 " your audience. People can answer once per invitation, and whenever they "
@@ -2237,51 +2258,46 @@ msgid "You cannot send invitations for closed surveys."
 msgstr "不能为已关闭的调查发送邀请。"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.sfinished
+#: model_terms:ir.ui.view,arch_db:survey.sfinished
 msgid "You scored"
 msgstr "你的得分"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.survey_question_form
+#: model_terms:ir.ui.view,arch_db:survey.survey_question_form
 msgid "ans"
 msgstr "ans"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.layout
+#: model_terms:ir.ui.view,arch_db:survey.layout
 msgid "free website"
 msgstr "免费的网站"
 
 #. module: survey
-#: model:ir.model,name:survey.model_ir_autovacuum
-msgid "ir.autovacuum"
-msgstr "ir.autovacuum"
-
-#. module: survey
-#: model:ir.ui.view,arch_db:survey.auth_required
+#: model_terms:ir.ui.view,arch_db:survey.auth_required
 msgid "log in"
 msgstr "登录"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.page
+#: model_terms:ir.ui.view,arch_db:survey.page
 msgid "of"
 msgstr "的"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.sfinished
+#: model_terms:ir.ui.view,arch_db:survey.sfinished
 msgid "points."
 msgstr "点。"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.sfinished
+#: model_terms:ir.ui.view,arch_db:survey.sfinished
 msgid "review your answers"
 msgstr "审查你的回答"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.403
+#: model_terms:ir.ui.view,arch_db:survey.403
 msgid "this page"
-msgstr ""
+msgstr "此页"
 
 #. module: survey
-#: model:ir.ui.view,arch_db:survey.layout
+#: model_terms:ir.ui.view,arch_db:survey.layout
 msgid "with"
 msgstr "使用"

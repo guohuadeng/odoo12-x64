@@ -9,6 +9,7 @@ from odoo import models, _
 
 class MailBot(models.AbstractModel):
     _name = 'mail.bot'
+    _description = 'Mail Bot'
 
     def _apply_logic(self, record, values, command=None):
         """ Apply bot logic to generate an answer (or not) for the user
@@ -20,7 +21,7 @@ class MailBot(models.AbstractModel):
          :param values: msg_values of the message_post or other values needed by logic
          :param command: the name of the called command if the logic is not triggered by a message_post
         """
-        odoobot_id = self.env['ir.model.data'].xmlid_to_res_id("mail_bot.partner_odoobot")
+        odoobot_id = self.env['ir.model.data'].xmlid_to_res_id("base.partner_root")
         if len(record) != 1 or values.get("author_id") == odoobot_id:
             return
         if self._is_bot_pinged(values) or self._is_bot_in_private_channel(record):
@@ -29,7 +30,7 @@ class MailBot(models.AbstractModel):
             if answer:
                 message_type = values.get('message_type', 'comment')
                 subtype_id = values.get('subtype_id', self.env['ir.model.data'].xmlid_to_res_id('mail.mt_comment'))
-                record.with_context({"mail_create_nosubscribe": True}).message_post(body=answer, author_id=odoobot_id, message_type=message_type, subtype_id=subtype_id)
+                record.with_context({"mail_create_nosubscribe": True}).sudo().message_post(body=answer, author_id=odoobot_id, message_type=message_type, subtype_id=subtype_id)
 
     def _get_answer(self, record, body, values, command=False):
         # onboarding
@@ -212,11 +213,11 @@ class MailBot(models.AbstractModel):
         return False
 
     def _is_bot_pinged(self, values):
-        odoobot_id = self.env['ir.model.data'].xmlid_to_res_id("mail_bot.partner_odoobot")
+        odoobot_id = self.env['ir.model.data'].xmlid_to_res_id("base.partner_root")
         return (4, odoobot_id) in values.get('partner_ids', [])
 
     def _is_bot_in_private_channel(self, record):
-        odoobot_id = self.env['ir.model.data'].xmlid_to_res_id("mail_bot.partner_odoobot")
+        odoobot_id = self.env['ir.model.data'].xmlid_to_res_id("base.partner_root")
         if record._name == 'mail.channel' and record.channel_type == 'chat':
             return odoobot_id in record.with_context(active_test=False).channel_partner_ids.ids
         return False

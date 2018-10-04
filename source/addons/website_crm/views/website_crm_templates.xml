@@ -60,7 +60,7 @@
             <t name="Thanks (Contact us)" t-name="website_crm.contactus_thanks">
                 <t t-call="website.layout">
                   <div id="wrap">
-                    <div class="oe_structure"/>
+                    <div class="oe_structure" id="oe_structure_website_crm_contact_us_thanks_1"/>
                     <div class="container">
                         <h1>Thanks!</h1>
                         <div class="row">
@@ -71,20 +71,14 @@
                                 </div>
                                 <p>
                                     We will get back to you shortly.
-                                </p><p class="mt64">
-                                    If you have an emergency, do not hesitate to contact us by phone:
                                 </p>
-                                <ul class="list-unstyled">
-                                    <li><i class="fa fa-phone" role="img" aria-label="Phone" title="Phone"></i> : <span t-field="res_company.phone"/></li>
-                                    <li><i class="fa fa-envelope" role="img" aria-label="Email" title="Email"></i> : <span t-field="res_company.email"/></li>
-                                </ul>
                             </div>
                             <div class="col-lg-4">
                                 <t t-call="website.company_description"/>
                             </div>
                         </div>
                     </div>
-                    <div class="oe_structure"/>
+                    <div class="oe_structure" id="oe_structure_website_crm_contact_us_thanks_2"/>
                   </div>
                 </t>
             </t>

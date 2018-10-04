@@ -4,6 +4,8 @@ odoo.define('mail.activity_view_tests', function (require) {
 var ActivityView = require('mail.ActivityView');
 var testUtils = require('web.test_utils');
 
+var createActionManager = testUtils.createActionManager;
+
 var createView = testUtils.createView;
 var ACTIVITY_DATA = {
     "grouped_activities":{
@@ -187,6 +189,30 @@ QUnit.test('activity view: simple activity rendering', function (assert) {
     activity.destroy();
 });
 
+QUnit.test('activity view: no content rendering', function (assert) {
+    assert.expect(2);
+    var activity = createView({
+        View: ActivityView,
+        model: 'task',
+        data: this.data,
+        arch: '<activity string="Task"/>',
+        mockRPC: function (route, args) {
+            if (args.method === 'get_activity_data') {
+                return $.when({ activity_types: [] });
+            }
+            return this._super(route, args);
+        },
+    });
+
+    assert.strictEqual(activity.$('.o_view_nocontent').length, 1,
+        "should display the no content helper");
+    assert.strictEqual(activity.$('.o_view_nocontent .o_view_nocontent_empty_folder').text().trim(),
+        "No data to display",
+        "should display the no content helper text");
+
+    activity.destroy();
+});
+
 QUnit.test('activity view: batch send mail on activity', function (assert) {
     assert.expect(6);
     var activity = createView({
@@ -239,10 +265,10 @@ QUnit.test('activity view: activity widget', function (assert) {
                 assert.step('activity_send_mail');
                 return $.when();
             }
-            if (args.method === 'action_done_schedule_next'){
-                assert.deepEqual([[3]],args.args, "Should execute action_done_schedule_next on activity 3 only ");
+            if (args.method === 'action_feedback_schedule_next'){
+                assert.deepEqual([[3]],args.args, "Should execute action_feedback_schedule_next on activity 3 only ");
                 assert.equal(args.kwargs.feedback, "feedback2");
-                assert.step('action_done_schedule_next');
+                assert.step('action_feedback_schedule_next');
                 return $.when({serverGeneratedAction: true});
             }
             if (args.method === 'get_activity_data') {
@@ -282,13 +308,13 @@ QUnit.test('activity view: activity widget', function (assert) {
     today.find('.o_closest_deadline').click();
     assert.ok(dropdown.hasClass('show'), "dropdown should be displayed");
     assert.ok(dropdown.find('.o_activity_color_today:contains(Today)').length, "Title should be today");
-    assert.ok(dropdown.find('.o_activity_title div div div:first span:contains(template8)').length,
+    assert.ok(dropdown.find('.o_activity_title_entry[data-activity-id="2"]:first div:contains(template8)').length,
         "template8 should be available");
-    assert.ok(dropdown.find('.o_activity_title div div div:nth-child(2) span:contains(template9)').length,
+    assert.ok(dropdown.find('.o_activity_title_entry[data-activity-id="2"]:eq(1) div:contains(template9)').length,
         "template9 should be available");
 
-    dropdown.find('.o_activity_title div div div:first .o_activity_template_preview').click();
-    dropdown.find('.o_activity_title div div div:first .o_activity_template_send').click();
+    dropdown.find('.o_activity_title_entry[data-activity-id="2"]:first .o_activity_template_preview').click();
+    dropdown.find('.o_activity_title_entry[data-activity-id="2"]:first .o_activity_template_send').click();
     var overdue = activity.$('table tbody tr:first td:nth-child(3).overdue');
     overdue.find('.o_closest_deadline').click();
     dropdown = overdue.find('.dropdown-menu.o_activity');
@@ -305,12 +331,48 @@ QUnit.test('activity view: activity widget', function (assert) {
         "do_action_compose",
         "activity_send_mail",
         "do_action_activity",
-        "action_done_schedule_next",
+        "action_feedback_schedule_next",
         "serverGeneratedAction"
         ]);
 
     activity.destroy();
+});
+QUnit.test('activity view: no group by', function (assert) {
+    assert.expect(4);
+
+    var actionManager = createActionManager({
+        actions: [{
+            id: 1,
+            name: 'Task Action',
+            res_model: 'task',
+            type: 'ir.actions.act_window',
+            views: [[false, 'activity']],
+        }],
+        archs: {
+            'task,false,activity': '<activity></activity>',
+            'task,false,search': '<search></search>',
+        },
+        data: this.data,
+        mockRPC: function(route, args) {
+            if (args.method === 'get_activity_data') {
+                return $.when(ACTIVITY_DATA);
+            }
+            return this._super(route, args);
+        },
     });
+
+    actionManager.doAction(1);
+
+    assert.strictEqual($('.o_search_options .o_dropdown:visible').length, 2,
+        "only two elements should be available in view search");
+    assert.strictEqual($('.o_search_options .o_dropdown:visible .o_filters_menu').length, 1,
+        "filter should be available in view search");
+    assert.strictEqual($('.o_search_options .o_dropdown:visible .o_favorites_menu').length, 1,
+        "favorites should be available in view search");
+    assert.strictEqual($('.o_search_options .o_dropdown:hidden .o_group_by_menu').length, 1,
+        "group by should be hidden");
+    actionManager.destroy();
+});
 
 });
 });

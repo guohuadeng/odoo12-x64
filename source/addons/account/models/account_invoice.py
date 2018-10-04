@@ -279,7 +279,7 @@ class AccountInvoice(models.Model):
              "means direct payment.")
     partner_id = fields.Many2one('res.partner', string='Partner', change_default=True,
         readonly=True, states={'draft': [('readonly', False)]},
-        track_visibility='always')
+        track_visibility='always', help="You can find a contact by its Name, TIN, Email or Internal Reference.")
     vendor_bill_id = fields.Many2one('account.invoice', string='Vendor Bill',
         help="Auto-complete from a past bill.")
     payment_term_id = fields.Many2one('account.payment.term', string='Payment Terms', oldname='payment_term',
@@ -304,7 +304,7 @@ class AccountInvoice(models.Model):
         readonly=True, index=True, ondelete='restrict', copy=False,
         help="Link to the automatically generated Journal Items.")
 
-    amount_by_group = fields.Binary(string="Taxe amount by group", compute='_amount_by_group', help="type: [(name, amount, base, formated amount, formated base)]")
+    amount_by_group = fields.Binary(string="Tax amount by group", compute='_amount_by_group', help="type: [(name, amount, base, formated amount, formated base)]")
     amount_untaxed = fields.Monetary(string='Untaxed Amount',
         store=True, readonly=True, compute='_compute_amount', track_visibility='always')
     amount_untaxed_signed = fields.Monetary(string='Untaxed Amount in Company Currency', currency_field='company_currency_id',
@@ -479,7 +479,7 @@ class AccountInvoice(models.Model):
             sequence.number_next = int(result.group(2))
 
     @api.multi
-    def _get_printed_report_name(self):
+    def _get_report_base_filename(self):
         self.ensure_one()
         return  self.type == 'out_invoice' and self.state == 'draft' and _('Draft Invoice') or \
                 self.type == 'out_invoice' and self.state in ('open','in_payment','paid') and _('Invoice - %s') % (self.number) or \
@@ -528,7 +528,7 @@ class AccountInvoice(models.Model):
         reconciled = self.filtered(lambda invoice: invoice.reconciled)
         not_reconciled = self - reconciled
         (reconciled & pre_reconciled).filtered(lambda invoice: invoice.state == 'open').action_invoice_paid()
-        (not_reconciled & pre_not_reconciled).filtered(lambda invoice: invoice.state == 'paid').action_invoice_re_open()
+        (not_reconciled & pre_not_reconciled).filtered(lambda invoice: invoice.state in ('in_payment', 'paid')).action_invoice_re_open()
         return res
 
     @api.model
@@ -560,6 +560,7 @@ class AccountInvoice(models.Model):
                 return view.id
 
         context = self._context
+        supplier_form_view_id = get_view_id('invoice_supplier_form', 'account.invoice.supplier.form').id
         if context.get('active_model') == 'res.partner' and context.get('active_ids'):
             partner = self.env['res.partner'].browse(context['active_ids'])[0]
             if not view_type:
@@ -567,9 +568,10 @@ class AccountInvoice(models.Model):
                 view_type = 'tree'
             elif view_type == 'form':
                 if partner.supplier and not partner.customer:
-                    view_id = get_view_id('invoice_supplier_form', 'account.invoice.supplier.form').id
+                    view_id = supplier_form_view_id
                 elif partner.customer and not partner.supplier:
                     view_id = get_view_id('invoice_form', 'account.invoice.form').id
+
         return super(AccountInvoice, self).fields_view_get(view_id=view_id, view_type=view_type, toolbar=toolbar, submenu=submenu)
 
     @api.multi
@@ -577,7 +579,7 @@ class AccountInvoice(models.Model):
         """ Print the invoice and mark it as sent, so that we can see more
             easily the next step of the workflow
         """
-        self.write({'sent': True})
+        self.filtered(lambda inv: not inv.sent).write({'sent': True})
         if self.user_has_groups('account.group_account_invoice'):
             return self.env.ref('account.account_invoices').report_action(self)
         else:
@@ -893,9 +895,6 @@ class AccountInvoice(models.Model):
             raise UserError(_("You cannot validate an invoice with a negative total amount. You should create a credit note instead."))
         if to_open_invoices.filtered(lambda inv: not inv.account_id):
             raise UserError(_('No account was found to create the invoice, be sure you have installed a chart of account.'))
-        for record in to_open_invoices:
-            if record.company_id.account_sanitize_invoice_ref and record.reference:
-                record.reference = self.env['account.payment']._sanitize_communication(record.reference)
         to_open_invoices.action_date_assign()
         to_open_invoices.action_move_create()
         return to_open_invoices.invoice_validate()
@@ -917,7 +916,7 @@ class AccountInvoice(models.Model):
 
     @api.multi
     def action_invoice_re_open(self):
-        if self.filtered(lambda inv: inv.state != 'paid'):
+        if self.filtered(lambda inv: inv.state not in ('in_payment', 'paid')):
             raise UserError(_('Invoice must be paid in order to set it to register payment.'))
         return self.write({'state': 'open'})
 
@@ -1442,18 +1441,7 @@ class AccountInvoice(models.Model):
             new_invoices += refund_invoice
         return new_invoices
 
-    @api.multi
-    def pay_and_reconcile(self, pay_journal, pay_amount=None, date=None, writeoff_acc=None):
-        """ Create and post an account.payment for the invoice self, which creates a journal entry that reconciles the invoice.
-
-            :param pay_journal: journal in which the payment entry will be created
-            :param pay_amount: amount of the payment to register, defaults to the residual of the invoice
-            :param date: payment date, defaults to fields.Date.context_today(self)
-            :param writeoff_acc: account in which to create a writeoff if pay_amount < self.residual, so that the invoice is fully paid
-        """
-        if isinstance(pay_journal, pycompat.integer_types):
-            pay_journal = self.env['account.journal'].browse([pay_journal])
-        assert len(self) == 1, "Can only pay one invoice at a time."
+    def _prepare_payment_vals(self, pay_journal, pay_amount=None, date=None, writeoff_acc=None, communication=None):
         payment_type = self.type in ('out_invoice', 'in_refund') and 'inbound' or 'outbound'
         if payment_type == 'inbound':
             payment_method = self.env.ref('account.account_payment_method_manual_in')
@@ -1462,9 +1450,10 @@ class AccountInvoice(models.Model):
             payment_method = self.env.ref('account.account_payment_method_manual_out')
             journal_payment_methods = pay_journal.outbound_payment_method_ids
 
-        communication = self.type in ('in_invoice', 'in_refund') and self.reference or self.number
-        if self.origin:
-            communication = '%s (%s)' % (communication, self.origin)
+        if not communication:
+            communication = self.type in ('in_invoice', 'in_refund') and self.reference or self.number
+            if self.origin:
+                communication = '%s (%s)' % (communication, self.origin)
 
         payment_vals = {
             'invoice_ids': [(6, 0, self.ids)],
@@ -1479,7 +1468,22 @@ class AccountInvoice(models.Model):
             'payment_difference_handling': writeoff_acc and 'reconcile' or 'open',
             'writeoff_account_id': writeoff_acc and writeoff_acc.id or False,
         }
+        return payment_vals
 
+    @api.multi
+    def pay_and_reconcile(self, pay_journal, pay_amount=None, date=None, writeoff_acc=None):
+        """ Create and post an account.payment for the invoice self, which creates a journal entry that reconciles the invoice.
+
+            :param pay_journal: journal in which the payment entry will be created
+            :param pay_amount: amount of the payment to register, defaults to the residual of the invoice
+            :param date: payment date, defaults to fields.Date.context_today(self)
+            :param writeoff_acc: account in which to create a writeoff if pay_amount < self.residual, so that the invoice is fully paid
+        """
+        if isinstance(pay_journal, pycompat.integer_types):
+            pay_journal = self.env['account.journal'].browse([pay_journal])
+        assert len(self) == 1, "Can only pay one invoice at a time."
+
+        payment_vals = self._prepare_payment_vals(pay_journal, pay_amount=pay_amount, date=date, writeoff_acc=writeoff_acc)
         payment = self.env['account.payment'].create(payment_vals)
         payment.post()
 
@@ -1513,15 +1517,6 @@ class AccountInvoice(models.Model):
             ) for r in res]
 
     @api.multi
-    def get_portal_url(self, suffix=None):
-        """
-            Get a portal url for this invoice, including access_token.
-            - suffix: string to append to the url, before the query string
-        """
-        self.ensure_one()
-        return self.access_url + '%s?access_token=%s' % (suffix if suffix else '', self._portal_ensure_token())
-
-    @api.multi
     def preview_invoice(self):
         self.ensure_one()
         return {
@@ -1530,6 +1525,8 @@ class AccountInvoice(models.Model):
             'url': self.get_portal_url(),
         }
 
+    def _get_intrastat_country_id(self):
+        return self.partner_id.country_id.id
 
 class AccountInvoiceLine(models.Model):
     _name = "account.invoice.line"
@@ -1578,7 +1575,7 @@ class AccountInvoiceLine(models.Model):
         ondelete='set null', index=True, oldname='uos_id')
     product_id = fields.Many2one('product.product', string='Product',
         ondelete='restrict', index=True)
-    product_image = fields.Binary('Product Image', related="product_id.image", store=False)
+    product_image = fields.Binary('Product Image', related="product_id.image", store=False, readonly=True)
     account_id = fields.Many2one('account.account', string='Account', domain=[('deprecated', '=', False)],
         default=_default_account,
         help="The income or expense account related to the selected product.")
@@ -1605,7 +1602,7 @@ class AccountInvoiceLine(models.Model):
         related='invoice_id.company_id', store=True, readonly=True, related_sudo=False)
     partner_id = fields.Many2one('res.partner', string='Partner',
         related='invoice_id.partner_id', store=True, readonly=True, related_sudo=False)
-    currency_id = fields.Many2one('res.currency', related='invoice_id.currency_id', store=True, related_sudo=False)
+    currency_id = fields.Many2one('res.currency', related='invoice_id.currency_id', store=True, related_sudo=False, readonly=False)
     company_currency_id = fields.Many2one('res.currency', related='invoice_id.company_currency_id', readonly=True, related_sudo=False)
     is_rounding_line = fields.Boolean(string='Rounding Line', help='Is a rounding line in case of cash rounding.')
 
@@ -1645,11 +1642,12 @@ class AccountInvoiceLine(models.Model):
                 self.price_unit = self.price_unit * currency.with_context(dict(self._context or {}, date=self.invoice_id.date_invoice)).rate
 
     def _set_taxes(self):
-        """ Used in on_change to set taxes and price."""
+        """ Used in on_change to set taxes and price"""
+        self.ensure_one()
         if self.invoice_id.type in ('out_invoice', 'out_refund'):
-            taxes = self.product_id.taxes_id or self.account_id.tax_ids
+            taxes = self.product_id.taxes_id or self.account_id.tax_ids or self.invoice_id.company_id.account_sale_tax_id
         else:
-            taxes = self.product_id.supplier_taxes_id or self.account_id.tax_ids
+            taxes = self.product_id.supplier_taxes_id or self.account_id.tax_ids or self.invoice_id.company_id.account_purchase_tax_id
 
         # Keep only taxes of the company
         company_id = self.company_id or self.env.user.company_id
@@ -1696,18 +1694,14 @@ class AccountInvoiceLine(models.Model):
             else:
                 product = self.product_id
 
-            self.name = product.partner_ref
             account = self.get_invoice_line_account(type, product, fpos, company)
             if account:
                 self.account_id = account.id
             self._set_taxes()
 
-            if type in ('in_invoice', 'in_refund'):
-                if product.description_purchase:
-                    self.name += '\n' + product.description_purchase
-            else:
-                if product.description_sale:
-                    self.name += '\n' + product.description_sale
+            product_name = self._get_invoice_line_name_from_product()
+            if product_name != None:
+                self.name = product_name
 
             if not self.uom_id or product.uom_id.category_id.id != self.uom_id.category_id.id:
                 self.uom_id = product.uom_id.id
@@ -1719,15 +1713,35 @@ class AccountInvoiceLine(models.Model):
                     self.price_unit = product.uom_id._compute_price(self.price_unit, self.uom_id)
         return {'domain': domain}
 
+    def _get_invoice_line_name_from_product(self):
+        """ Returns the automatic name to give to the invoice line depending on
+        the product it is linked to.
+        """
+        self.ensure_one()
+        if not self.product_id:
+            return ''
+        invoice_type = self.invoice_id.type
+        rslt = self.product_id.partner_ref
+        if invoice_type in ('in_invoice', 'in_refund'):
+            if self.product_id.description_purchase:
+                rslt += '\n' + self.product_id.description_purchase
+        else:
+            if self.product_id.description_sale:
+                rslt += '\n' + self.product_id.description_sale
+
+        return rslt
+
     @api.onchange('account_id')
     def _onchange_account_id(self):
         if not self.account_id:
             return
         if not self.product_id:
             fpos = self.invoice_id.fiscal_position_id
-            self.invoice_line_tax_ids = fpos.map_tax(self.account_id.tax_ids, partner=self.partner_id).ids
+            default_tax = self.invoice_id.type in ('out_invoice', 'out_refund') and self.invoice_id.company_id.account_sale_tax_id or self.invoice_id.company_id.account_purchase_tax_id
+            self.invoice_line_tax_ids = fpos.map_tax(self.account_id.tax_ids or default_tax, partner=self.partner_id).ids
         elif not self.price_unit:
             self._set_taxes()
+
 
     @api.onchange('uom_id')
     def _onchange_uom_id(self):
