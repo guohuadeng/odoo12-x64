@@ -4,12 +4,13 @@ Green Odoo 12 x64， http://www.Sunpop.cn
 64位版本性能会比32位高很多，包括高效指令及大内存更快巡址。对高资源消耗的odoo，使用64位是十分有必要的。
 本版本在使用64位的基础上，对postgresql进行了优化，并使用nginx进行反向代理，实现了longpolling，可以使用odoo的桌面消息通知，也不会经常报错了。
 在windows上搭建了一个完整的高性能 Odoo 环境。
+支持一键更新至最新版，执行 u 指令即可。
 
 ## 版本信息
 1. python 3.5.2 ,64位
 2. postgresql 9.6.4 ,64位
-3. Nginx 1.12.1， 32位
-4. Odoo 12，20180914版本。
+3. Nginx 1.15.5， 64位
+4. Odoo 12社区版，20181004版本。
 
 ## 全新功能，更快速度
 Odoo 12 Features, enhance and boost from 11。 新特性，功能更多，性能更好 - 广州尚鹏 | odoo专业实施开发
@@ -23,7 +24,7 @@ http://www.sunpop.cn/odoo_12_11_10_dev_with_pycharm_setup/
 http://368760-master-8a7b0b.runbot11.odoo.com/web?debug=1
 
 ## 操作说明
-- 执行 r.bat后，访问 http://localhost:8012  或者  http://localhost
+- 启动odoo：执行 r.bat后，访问 http://localhost:8012  或者  http://localhost
 - 系统已有默认数据库 demo，
 - 登录用户/密码:  admin/admin
 - 如多版本并存，请自行调整nginx的映射端口
@@ -49,6 +50,8 @@ odoo.conf   配置
 db.bat  单独启动数据库，用在pycharm中，debug启动时先启用数据库，假设odoo12是在 d:\odoo12-x64 目录，如有变化自行更改
 r.bat   最常用，odoo服务启动（如果当前有进程则先关闭再启动）
 s.bat 停止
+u.bat 删除当前source目录中的odoo源码，从git上下载最新版本
+
 extra 依赖文件目录，如果要自行安装涉及到的库，其它如果提示dll错误请安装 vcredist_x64.exe
 
 ## 问题处理
