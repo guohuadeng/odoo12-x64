@@ -1,6 +1,4 @@
 title GreenOdoo11 x64 fast - www.sunpop.cn
-d:
-cd \odoo12-x64
 %CD%\runtime\bin\pv.exe -f -k python.exe -q
 %CD%\runtime\bin\pv.exe -f -k python3.exe -q
 %CD%\runtime\pgsql\bin\pg_ctl stop -D %CD%\runtime\pgsql\data -s -m fast

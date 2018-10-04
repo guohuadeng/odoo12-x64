@@ -25,25 +25,21 @@ http://368760-master-8a7b0b.runbot11.odoo.com/web?debug=1
 
 ## 操作说明
 - 启动odoo：执行 r.bat后，访问 http://localhost:8012  或者  http://localhost
+- 更新odoo：执行 s.bat 停止odoo运行后，执行 u.bat。如要手工更新至最新odoo，请至官方下载后覆盖 ./source 目录下文件即可
 - 系统已有默认数据库 demo，
 - 登录用户/密码:  admin/admin
 - 如多版本并存，请自行调整nginx的映射端口
-- 如要更新至最新odoo，请至官方下载后覆盖 ./source 目录下文件即可
-- 下载地址 https://codeload.github.com/odoo/odoo/zip/master
-- pycharm配置说明： http://www.sunpop.cn/odoo10_11_dev_with_pycharm_setup/
+- odoo12下载地址 https://codeload.github.com/odoo/odoo/zip/12.0
+- pycharm配置说明： http://www.sunpop.cn/odoo_12_11_10_dev_with_pycharm_setup/
 
 ## 文件夹说明
 ├─addons_app    app通用源码
 ├─addons_odoo    odoo源码，用于优先加载后断点调试
 ├─addons_patch    app通用源码，需要直接修改的放这里，多用于调整bug和翻译
 ├─data  要人工导入的资料
-├─doc   文件资料归档
 ├─odoofile  odoo生成的静态文件资源
-├─preview  odoo12未发布时的测试
-├─ref    参考的odoo模块
 ├─runtime   运行库，包括pg数据文件
-├─remove    停用的odoo模块
-└─source    odoo12源码，可在 https://codeload.github.com/odoo/odoo/zip/master 下载最新版覆盖当前版本
+└─source    odoo12源码
 
 ## 主要文件说明
 odoo.conf   配置
