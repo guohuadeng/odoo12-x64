@@ -4978,20 +4978,17 @@ class BaseModel(MetaModel('DummyModel', (object,), {'_register': False})):
                 filename, lineno = frame_codeinfo(currentframe(), 1)
                 _logger.warning("Comparing apples and oranges: %r == %r (%s:%s)",
                                 self, other, filename, lineno)
-            return False
+            return NotImplemented
         return self._name == other._name and set(self._ids) == set(other._ids)
-
-    def __ne__(self, other):
-        return not self == other
 
     def __lt__(self, other):
         if not isinstance(other, BaseModel) or self._name != other._name:
-            raise TypeError("Mixing apples and oranges: %s < %s" % (self, other))
+            return NotImplemented
         return set(self._ids) < set(other._ids)
 
     def __le__(self, other):
         if not isinstance(other, BaseModel) or self._name != other._name:
-            raise TypeError("Mixing apples and oranges: %s <= %s" % (self, other))
+            return NotImplemented
         # these are much cheaper checks than a proper subset check, so
         # optimise for checking if a null or singleton are subsets of a
         # recordset
@@ -5001,12 +4998,12 @@ class BaseModel(MetaModel('DummyModel', (object,), {'_register': False})):
 
     def __gt__(self, other):
         if not isinstance(other, BaseModel) or self._name != other._name:
-            raise TypeError("Mixing apples and oranges: %s > %s" % (self, other))
+            return NotImplemented
         return set(self._ids) > set(other._ids)
 
     def __ge__(self, other):
         if not isinstance(other, BaseModel) or self._name != other._name:
-            raise TypeError("Mixing apples and oranges: %s >= %s" % (self, other))
+            return NotImplemented
         if not other or other in self:
             return True
         return set(self._ids) >= set(other._ids)
@@ -5141,7 +5138,7 @@ class BaseModel(MetaModel('DummyModel', (object,), {'_register': False})):
                     f = Model._fields.get(path)
                     if f and f.store and f.type not in ('one2many', 'many2many'):
                         # path is direct (not dotted), stored, and inline -> optimise to raw sql
-                        self.env.cr.execute("SELECT id FROM %s WHERE %s in %%s" % (Model._table, path), [tuple(self.ids)])
+                        self.env.cr.execute('SELECT id FROM "%s" WHERE "%s" in %%s' % (Model._table, path), [tuple(self.ids)])
                         target0 = Model.browse(i for [i] in self.env.cr.fetchall())
                     else:
                         env = self.env(user=SUPERUSER_ID, context={'active_test': False})
