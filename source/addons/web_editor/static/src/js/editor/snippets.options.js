@@ -303,8 +303,8 @@ var SnippetOption = Widget.extend({
      * @param {Event} ev
      */
     _onLinkEnter: function (ev) {
-        var $opt = $(ev.target);
-        if (!$opt.hasClass('dropdown-item')) {
+        var $opt = $(ev.target).closest('.dropdown-item');
+        if (!$opt.length) {
             return;
         }
 
@@ -331,8 +331,8 @@ var SnippetOption = Widget.extend({
      * @param {Event} ev
      */
     _onLinkClick: function (ev) {
-        var $opt = $(ev.target);
-        if (!$opt.hasClass('dropdown-item') || !$opt.is(':hasData')) {
+        var $opt = $(ev.target).closest('.dropdown-item');
+        if (!$opt.length || !$opt.is(':hasData')) {
             return;
         }
 
@@ -749,6 +749,7 @@ registry.colorpicker = SnippetOption.extend({
      */
     _onColorResetButtonClick: function () {
         this.$target.removeClass(this.classes).css('background-color', '');
+        self.$target.trigger('content_changed');
         this.$el.find('.colorpicker button.selected').removeClass('selected');
     },
 });
@@ -896,7 +897,7 @@ registry.background = SnippetOption.extend({
      * @param {string} value
      */
     _setCustomBackground: function (value) {
-        this.__customImageSrc = this._getSrcFromCssValue(value);
+        this.__customImageSrc = value;
         this.background(false, this.__customImageSrc);
         this.$target.addClass('oe_custom_bg');
         this._setActive();
