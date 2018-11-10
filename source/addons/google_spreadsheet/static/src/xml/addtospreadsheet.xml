@@ -1,5 +1,0 @@
-<template>
-<t t-name="SearchView.addtogooglespreadsheet">
-    <a class="add-to-spreadsheet dropdown-item">Add to Google Spreadsheet</a>
-</t>
-</template>

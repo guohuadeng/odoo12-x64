@@ -10,7 +10,7 @@ Green Odoo 12 x64， http://www.Sunpop.cn
 1. python 3.5.2 ,64位
 2. postgresql 9.6.4 ,64位
 3. Nginx 1.15.5， 64位
-4. Odoo 12社区版，20181024版本。
+4. Odoo 12社区版，20181110版本。
 
 ## 全新功能，更快速度
 Odoo 12 Features, enhance and boost from 11。 新特性，功能更多，性能更好 - 广州尚鹏 | odoo专业实施开发
@@ -30,6 +30,7 @@ http://demo.odooapp.cn
 - 重新初始化数据库：执行 init.bat
 - 如多版本并存，请自行调整nginx的映射端口
 - odoo12下载地址 https://codeload.github.com/odoo/odoo/zip/12.0
+- 高速odoo12下载地址 https://nightly.odoocdn.com/12.0/nightly/src/odoo_12.0.latest.zip
 - odoo12 deb http://nightly.odoo.com/12.0/nightly/deb/odoo_12.0.latest_all.deb
 - pycharm配置说明： http://www.sunpop.cn/odoo_12_11_10_dev_with_pycharm_setup/
 
