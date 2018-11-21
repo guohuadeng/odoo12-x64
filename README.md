@@ -31,7 +31,7 @@ http://demo.odooapp.cn
 - 如多版本并存，请自行调整nginx的映射端口
 - odoo12下载地址 https://codeload.github.com/odoo/odoo/zip/12.0
 - 高速odoo12下载地址 https://nightly.odoocdn.com/12.0/nightly/src/odoo_12.0.latest.zip
-- odoo12 deb http://nightly.odoo.com/12.0/nightly/deb/odoo_12.0.latest_all.deb
+- odoo12 deb https://nightly.odoocdn.com/12.0/nightly/deb/odoo_12.0.latest_all.deb
 - pycharm配置说明： http://www.sunpop.cn/odoo_12_11_10_dev_with_pycharm_setup/
 
 ## 文件夹说明
@@ -39,6 +39,7 @@ http://demo.odooapp.cn
 ├─addons_odoo    odoo源码，用于优先加载后断点调试
 ├─addons_patch    app通用源码，需要直接修改的放这里，多用于调整bug和翻译
 ├─data  要人工导入的资料
+├─extra  附加包，如 WKHTMLTOPDF
 ├─odoofile  odoo生成的静态文件资源
 ├─runtime   运行库，包括pg数据文件
 └─source    odoo12源码

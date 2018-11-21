@@ -1,6 +1,7 @@
 #个人文件目录，不传到git，每个人将个人文件放到 _s 目录下
 /_s
 /addons_ent
+/addons_ent_remove
 /source/.github
 /source/.tx
 /source_git
