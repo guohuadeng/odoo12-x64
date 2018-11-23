@@ -1,0 +1,129 @@
+
+.o_pivot {
+  overflow: auto;
+}
+
+.o_pivot.o_enable_linking .o_pivot_cell_value:hover {
+  color: #00A09D;
+  cursor: pointer;
+}
+
+.o_pivot .o_pivot_cell_value {
+  font-size: 1em;
+}
+
+.o_pivot .o_pivot_cell_value .o_comparison {
+  font-size: 0.61em;
+}
+
+.o_pivot .o_pivot_cell_value .o_variation.o_positive {
+  color: green;
+}
+
+.o_pivot .o_pivot_cell_value .o_variation.o_negative {
+  color: red;
+}
+
+.o_pivot table {
+  background-color: white;
+  width: auto;
+}
+
+.o_pivot table thead th:not(.o_pivot_header_cell_closed):not(.o_pivot_header_cell_opened) {
+  text-align: center;
+}
+
+.o_pivot table th {
+  font-weight: normal;
+  background-color: whitesmoke;
+}
+
+.o_pivot table .o_pivot_measure_row {
+  background-color: whitesmoke;
+  cursor: pointer;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.o_pivot table .o_pivot_measure_row:hover {
+  background-color: #dcdbdb;
+}
+
+.o_pivot table .o_pivot_header_cell_closed {
+  background-color: whitesmoke;
+  cursor: pointer;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.o_pivot table .o_pivot_header_cell_closed:hover {
+  background-color: #dcdbdb;
+}
+
+.o_pivot table .o_pivot_header_cell_closed::before {
+  font-family: FontAwesome;
+  content: "";
+  margin-right: 8px;
+}
+
+.o_pivot table .o_pivot_header_cell_opened {
+  background-color: whitesmoke;
+  cursor: pointer;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.o_pivot table .o_pivot_header_cell_opened:hover {
+  background-color: #dcdbdb;
+}
+
+.o_pivot table .o_pivot_header_cell_opened::before {
+  font-family: FontAwesome;
+  content: "";
+  margin-right: 8px;
+}
+
+.o_pivot table .o_pivot_measure_row_sorted_asc::after {
+  content: "";
+  display: inline-block;
+  width: 0;
+  height: 0;
+  vertical-align: middle;
+  border-bottom: 0;
+  border-left: 0.3em solid transparent;
+  border-right: 0.3em solid transparent;
+  border-top: 0.3em solid;
+  -moz-transform: scale(0.9999);
+  margin-left: 5px;
+}
+
+.o_pivot table .o_pivot_measure_row_sorted_desc::after {
+  content: "";
+  display: inline-block;
+  width: 0;
+  height: 0;
+  vertical-align: middle;
+  border-bottom: 0.3em solid;
+  border-left: 0.3em solid transparent;
+  border-right: 0.3em solid transparent;
+  border-top: 0;
+  -moz-transform: scale(0.9999);
+  margin-left: 5px;
+}
+
+.o_pivot .o_pivot_field_selection::after {
+  content: "";
+  display: inline-block;
+  width: 0;
+  height: 0;
+  vertical-align: middle;
+  border-bottom: 0.3em solid transparent;
+  border-left: 0.3em solid;
+  border-right: 0;
+  border-top: 0.3em solid transparent;
+  -moz-transform: scale(0.9999);
+  position: absolute;
+  right: 6px;
+  top: 9px;
+}
+

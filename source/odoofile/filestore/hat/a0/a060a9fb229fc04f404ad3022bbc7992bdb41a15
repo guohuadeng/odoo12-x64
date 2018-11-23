@@ -1,0 +1,55 @@
+
+.o_field_partner_autocomplete.dropdown {
+  display: block;
+}
+
+.o_field_partner_autocomplete.dropdown > .o_partner_autocomplete_dropdown .dropdown-item {
+  min-width: 300px;
+  padding: 4px 8px;
+}
+
+.o_field_partner_autocomplete.dropdown > .o_partner_autocomplete_dropdown .dropdown-item > img {
+  float: left;
+  width: 36px;
+  height: 36px;
+}
+
+.o_field_partner_autocomplete.dropdown > .o_partner_autocomplete_dropdown .dropdown-item > .o_partner_autocomplete_info {
+  margin-left: 50px;
+}
+
+.o_field_partner_autocomplete.dropdown > .o_partner_autocomplete_dropdown .dropdown-item > .o_partner_autocomplete_info > * {
+  display: block;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: top;
+}
+
+.ui-autocomplete.o_partner_autocomplete_dropdown > .ui-menu-item:nth-of-type(1n+16) {
+  display: none;
+}
+
+.ui-autocomplete.o_partner_autocomplete_dropdown > .o_partner_autocomplete_dropdown_item > a {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  position: relative;
+  padding-right: 50px;
+  padding-left: 40px;
+  max-width: 400px;
+}
+
+.ui-autocomplete.o_partner_autocomplete_dropdown > .o_partner_autocomplete_dropdown_item > a > img {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  right: 20px;
+  top: 3px;
+}
+
+.ui-autocomplete.o_partner_autocomplete_dropdown > .ui-menu-item.ui-state-focus .text-muted {
+  color: white !important;
+}
+

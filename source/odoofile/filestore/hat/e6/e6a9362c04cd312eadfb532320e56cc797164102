@@ -1,0 +1,493 @@
+
+.o_mail_discuss {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+.o_mail_discuss .o_mail_discuss_sidebar {
+  width: 250px;
+  height: 100%;
+  float: left;
+  overflow: auto;
+  padding: 16px 0;
+}
+
+@media (min-width: 1200px) {
+  .o_mail_discuss .o_mail_discuss_sidebar {
+    width: 300px;
+  }
+}
+
+.o_mail_discuss .o_mail_discuss_sidebar .o_mail_sidebar_title {
+  display: -webkit-box; display: -webkit-flex; display: flex;
+  padding: 6px 16px 0 16px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.o_mail_discuss .o_mail_discuss_sidebar .o_mail_sidebar_title h4 {
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+.o_mail_discuss .o_mail_discuss_sidebar .o_mail_sidebar_title .o_add {
+  padding: 6px;
+}
+
+.o_mail_discuss .o_mail_discuss_sidebar .o_mail_sidebar_title .o_mail_open_channels {
+  cursor: pointer;
+}
+
+.o_mail_discuss .o_mail_discuss_sidebar .o_mail_discuss_item {
+  display: -webkit-box; display: -webkit-flex; display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 2px 16px 2px 28px;
+}
+
+.o_mail_discuss .o_mail_discuss_sidebar .o_mail_discuss_item .o_thread_name {
+  -webkit-box-flex: 1; -webkit-flex: 1 1 auto; flex: 1 1 auto;
+  display: inline-block;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: top;
+}
+
+.o_mail_discuss .o_mail_discuss_sidebar .o_mail_discuss_item .o_mail_sidebar_needaction, .o_mail_discuss .o_mail_discuss_sidebar .o_mail_discuss_item .o_mail_partner_unpin, .o_mail_discuss .o_mail_discuss_sidebar .o_mail_discuss_item .o_mail_channel_settings {
+  -webkit-box-flex: 0; -webkit-flex: 0 0 auto; flex: 0 0 auto;
+}
+
+.o_mail_discuss .o_mail_discuss_sidebar .o_mail_discuss_item .o_mail_sidebar_needaction {
+  margin: 0 0 0 5px;
+}
+
+.o_mail_discuss .o_mail_discuss_sidebar .o_mail_discuss_item .o_mail_partner_unpin, .o_mail_discuss .o_mail_discuss_sidebar .o_mail_discuss_item .o_mail_channel_settings {
+  padding: 2px 6px;
+}
+
+.o_mail_discuss .o_mail_discuss_sidebar .o_mail_discuss_item i.fa-envelope-o {
+  margin-left: 3px;
+}
+
+.o_mail_discuss .o_mail_discuss_sidebar .o_mail_discuss_item.o_mail_discuss_title_main {
+  padding: 0.375rem 16px;
+  margin-bottom: 2px;
+}
+
+.o_mail_discuss .o_mail_discuss_sidebar .o_mail_discuss_item + .o_mail_sidebar_title {
+  margin-top: 0.375rem;
+}
+
+.o_mail_discuss .o_mail_discuss_sidebar .o_mail_add_thread {
+  width: 100%;
+  padding: 5px 39px;
+  position: relative;
+}
+
+.o_mail_discuss .o_mail_discuss_sidebar .o_mail_add_thread > input {
+  width: 100%;
+  padding: 2px 5px;
+}
+
+.o_mail_discuss .o_mail_discuss_sidebar .o_mail_add_thread > span {
+  position: absolute;
+  top: 7px;
+  left: 27px;
+  bottom: auto;
+  right: auto;
+}
+
+.o_mail_discuss .o_mail_discuss_content {
+  display: -webkit-box; display: -webkit-flex; display: flex;
+  -webkit-flex-flow: column nowrap; flex-flow: column nowrap;
+  height: 100%;
+  margin-left: 250px;
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .o_mail_discuss .o_mail_discuss_content {
+    overflow: auto;
+  }
+}
+
+@media (min-width: 1200px) {
+  .o_mail_discuss .o_mail_discuss_content {
+    margin-left: 300px;
+  }
+}
+
+.o_mail_discuss .o_mail_discuss_content .o_mail_thread {
+  -webkit-box-flex: 1; -webkit-flex: 1 0 0; flex: 1 0 0;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.o_mail_discuss .o_mail_discuss_content .o_mail_snackbar {
+  position: absolute;
+  top: 15px;
+  left: auto;
+  bottom: auto;
+  right: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  cursor: pointer;
+  background-color: #363c41;
+  color: white;
+}
+
+.o_mail_discuss .o_mail_discuss_sidebar {
+  background-color: #212529;
+  color: #dee2e6;
+}
+
+.o_mail_discuss .o_mail_discuss_sidebar .o_mail_discuss_item {
+  cursor: pointer;
+}
+
+.o_mail_discuss .o_mail_discuss_sidebar .o_mail_discuss_item:hover {
+  background-color: #1c2023;
+}
+
+.o_mail_discuss .o_mail_discuss_sidebar .o_mail_discuss_item:hover .o_mail_partner_unpin, .o_mail_discuss .o_mail_discuss_sidebar .o_mail_discuss_item:hover .o_mail_channel_settings {
+  opacity: 0.7;
+}
+
+.o_mail_discuss .o_mail_discuss_sidebar .o_mail_discuss_item.o_active {
+  background-color: #212529;
+  box-shadow: inset 3px 0 0 #00A09D;
+}
+
+.o_mail_discuss .o_mail_discuss_sidebar .o_mail_discuss_item .o_mail_hash {
+  opacity: 0.6;
+}
+
+.o_mail_discuss .o_mail_discuss_sidebar .o_mail_discuss_item .o_mail_partner_unpin, .o_mail_discuss .o_mail_discuss_sidebar .o_mail_discuss_item .o_mail_channel_settings {
+  opacity: 0;
+}
+
+.o_mail_discuss .o_mail_discuss_sidebar .o_mail_discuss_item .o_mail_partner_unpin:hover, .o_mail_discuss .o_mail_discuss_sidebar .o_mail_discuss_item .o_mail_partner_unpin:focus, .o_mail_discuss .o_mail_discuss_sidebar .o_mail_discuss_item .o_mail_partner_unpin.focus, .o_mail_discuss .o_mail_discuss_sidebar .o_mail_discuss_item .o_mail_channel_settings:hover, .o_mail_discuss .o_mail_discuss_sidebar .o_mail_discuss_item .o_mail_channel_settings:focus, .o_mail_discuss .o_mail_discuss_sidebar .o_mail_discuss_item .o_mail_channel_settings.focus {
+  opacity: 1;
+}
+
+.o_mail_discuss .o_mail_discuss_sidebar .o_mail_discuss_item.o_unread_message {
+  color: white;
+  font-weight: bold;
+}
+
+.o_mail_discuss .o_mail_discuss_sidebar .o_mail_discuss_item > .badge {
+  color: white;
+  background-color: #00A09D;
+}
+
+.o_mail_discuss .o_mail_discuss_sidebar .o_mail_discuss_item.o_mail_discuss_title_main {
+  font-size: 1.08333333rem;
+}
+
+.o_mail_discuss .o_mail_discuss_sidebar .o_mail_discuss_item.o_mail_discuss_title_main.o_mail_mailbox_title_starred > .badge {
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+
+.o_mail_discuss .o_mail_discuss_sidebar > hr {
+  border-color: #495057;
+}
+
+.o_mail_discuss .o_mail_discuss_sidebar .o_mail_add_thread {
+  display: none;
+}
+
+.o_mail_discuss .o_mail_discuss_sidebar .o_mail_add_thread > input {
+  color: black;
+}
+
+.o_mail_discuss .o_mail_discuss_sidebar .o_mail_add_thread > span {
+  color: gray;
+}
+
+.o_mail_discuss .o_mail_discuss_sidebar .o_mail_sidebar_title h4 {
+  margin: 0;
+  font-size: 0.94791667rem;
+  text-transform: uppercase;
+  color: #6c757d;
+}
+
+.o_mail_discuss .o_mail_discuss_sidebar .o_mail_sidebar_title h4.o_mail_open_channels:hover {
+  color: white;
+}
+
+.o_mail_discuss .o_mail_discuss_sidebar .o_mail_sidebar_title .o_add {
+  cursor: pointer;
+  opacity: 0.7;
+  color: #6c757d;
+}
+
+.o_mail_discuss .o_mail_discuss_sidebar .o_mail_sidebar_title .o_add:hover, .o_mail_discuss .o_mail_discuss_sidebar .o_mail_sidebar_title .o_add:focus, .o_mail_discuss .o_mail_discuss_sidebar .o_mail_sidebar_title .o_add.focus {
+  opacity: 1;
+}
+
+.o_mail_discuss .o_mail_discuss_sidebar .o_mail_sidebar_title .o_add:hover, .o_mail_discuss .o_mail_discuss_sidebar .o_mail_sidebar_title .o_add:focus, .o_mail_discuss .o_mail_discuss_sidebar .o_mail_sidebar_title .o_add.focus {
+  color: white;
+}
+
+.o_mail_discuss .o_mail_discuss_content {
+  background-color: white;
+}
+
+.o_mail_discuss.o_mail_selection_mode .o_thread_message {
+  opacity: 0.5;
+}
+
+.o_mail_discuss.o_mail_selection_mode .o_thread_message.o_thread_selected_message {
+  padding: 4px 16px;
+  opacity: 1;
+  background-color: lightgray;
+}
+
+.o_mail_user_status {
+  font-size: 1em;
+  position: relative;
+}
+
+.o_mail_user_status.o_user_online {
+  color: #00A09D;
+}
+
+.o_mail_user_status.o_user_idle {
+  color: #F0AD4E;
+}
+
+@media (max-width: 767.98px) {
+  .o_mail_discuss {
+    display: -webkit-box; display: -webkit-flex; display: flex;
+    -webkit-flex-flow: column nowrap; flex-flow: column nowrap;
+    background: white;
+  }
+  .o_mail_discuss .o_mail_discuss_mobile_mailboxes_buttons {
+    display: -webkit-box; display: -webkit-flex; display: flex;
+    -webkit-box-flex: 0; -webkit-flex: 0 0 auto; flex: 0 0 auto;
+    z-index: 2;
+    box-shadow: 0 2px 4px #ced4da;
+  }
+  .o_mail_discuss .o_mail_discuss_mobile_mailboxes_buttons .o_mailbox_inbox_item {
+    -webkit-box-flex: 1; -webkit-flex: 1 1 auto; flex: 1 1 auto;
+    width: 50%;
+    padding: 2%;
+  }
+  .o_mail_discuss .o_mail_discuss_mobile_mailboxes_buttons .o_mailbox_inbox_item.btn-secondary {
+    border-bottom: 1px solid #ced4da;
+  }
+  .o_mail_discuss .o_mail_discuss_content {
+    -webkit-box-flex: 1; -webkit-flex: 1 0 0; flex: 1 0 0;
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: transparent;
+  }
+  .o_mail_discuss .o_mail_discuss_tab_pane {
+    overflow-x: scroll;
+  }
+  .o_mail_discuss .o_mail_discuss_tab_pane .o_mail_add_thread {
+    display: none;
+    position: relative;
+    padding: 5px 0px;
+    margin: 10px;
+    border: 1px solid #afafaf;
+    border-radius: 4px;
+  }
+  .o_mail_discuss .o_mail_discuss_tab_pane .o_mail_add_thread > span {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    bottom: auto;
+    right: auto;
+  }
+  .o_mail_discuss .o_mail_discuss_tab_pane .o_mail_add_thread > input {
+    border: none;
+    padding: 5px 8px;
+    padding-left: 20px;
+  }
+  .o_mail_discuss .o_mail_mobile_tabs {
+    -webkit-box-flex: 0; -webkit-flex: 0 0 auto; flex: 0 0 auto;
+    z-index: 1;
+    background-color: white;
+  }
+}
+
+.o_mail_preview {
+  display: -webkit-box; display: -webkit-flex; display: flex;
+  background-color: #f8f9fa;
+  color: #666666;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+}
+
+.o_mail_preview:hover {
+  background-color: #dee2e6;
+}
+
+.o_mail_preview:hover .o_preview_name {
+  color: #212529;
+}
+
+.o_mail_preview:hover .o_discuss_icon {
+  opacity: 1;
+}
+
+.o_mail_preview:not(:last-child) {
+  border-bottom: 1px solid #ced4da;
+}
+
+.o_mail_preview .o_mail_preview_image {
+  -webkit-box-flex: 0; -webkit-flex: 0 0 auto; flex: 0 0 auto;
+  position: relative;
+}
+
+.o_mail_preview .o_mail_preview_image > img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.o_mail_preview .o_mail_preview_image.o_mail_preview_app > img {
+  border-radius: 2px;
+}
+
+.o_mail_preview .o_mail_preview_image .o_mail_user_status {
+  position: absolute;
+  top: auto;
+  left: auto;
+  bottom: 0px;
+  right: 0px;
+}
+
+.o_mail_preview .o_preview_info {
+  flex: 1 1 100%;
+  overflow: hidden;
+}
+
+.o_mail_preview .o_preview_info .o_preview_title {
+  display: -webkit-box; display: -webkit-flex; display: flex;
+}
+
+.o_mail_preview .o_preview_info .o_preview_title .o_preview_name {
+  -webkit-box-flex: 0; -webkit-flex: 0 0 auto; flex: 0 0 auto;
+  display: inline-block;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: top;
+}
+
+.o_mail_preview .o_preview_info .o_preview_title .o_mail_activity_action_buttons {
+  display: -webkit-box; display: -webkit-flex; display: flex;
+  -webkit-box-flex: 1; -webkit-flex: 1 1 auto; flex: 1 1 auto;
+  flex-flow: row-reverse wrap;
+}
+
+.o_mail_preview .o_preview_info .o_preview_title .o_mail_activity_action {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  padding-right: 0px;
+}
+
+.o_mail_preview .o_preview_info .o_preview_title .o_preview_counter {
+  -webkit-box-flex: 1; -webkit-flex: 1 1 auto; flex: 1 1 auto;
+}
+
+.o_mail_preview .o_preview_info .o_preview_title .o_last_message_date {
+  -webkit-box-flex: 0; -webkit-flex: 0 0 auto; flex: 0 0 auto;
+  color: #a8a8a8;
+  font-weight: 500;
+}
+
+.o_mail_preview .o_preview_info .o_last_message_preview {
+  width: 94%;
+  max-height: 20px;
+  color: #a8a8a8;
+  display: inline-block;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: top;
+}
+
+.o_mail_preview .o_discuss_icon {
+  opacity: 0;
+}
+
+.o_mail_preview.o_preview_unread {
+  background-color: transparent;
+}
+
+.o_mail_preview.o_preview_unread:hover {
+  background-color: #f8f9fa;
+}
+
+.o_mail_preview.o_preview_unread .o_preview_info .o_preview_title .o_preview_name, .o_mail_preview.o_preview_unread .o_preview_info .o_preview_title .o_preview_counter {
+  font-weight: 700;
+}
+
+.o_mail_preview.o_preview_unread .o_preview_info .o_preview_title .o_last_message_date {
+  color: #00A09D;
+}
+
+@media (max-width: 767.98px) {
+  .o_main_navbar > ul.o_menu_systray > li .dropdown-menu.show {
+    border: none;
+  }
+  .o_mail_preview {
+    padding: 2%;
+  }
+  .o_mail_preview .o_mail_preview_image:not(img) {
+    width: 12%;
+  }
+  .o_mail_preview .o_preview_info, .o_mail_preview .o_last_message_date {
+    margin-left: 2%;
+  }
+  .o_mail_preview .o_preview_name {
+    font-size: 1.1em;
+  }
+  .o_mail_preview .o_last_message_date {
+    font-size: 0.9em;
+  }
+  .o_mail_preview .o_last_message_preview {
+    margin-top: 1%;
+  }
+  .o_mail_mobile_tabs {
+    display: -webkit-box; display: -webkit-flex; display: flex;
+    box-shadow: 0 0 8px #ced4da;
+  }
+  .o_mail_mobile_tabs .o_mail_mobile_tab {
+    display: -webkit-box; display: -webkit-flex; display: flex;
+    -webkit-box-flex: 1; -webkit-flex: 1 1 auto; flex: 1 1 auto;
+    width: 20%;
+    -webkit-flex-flow: column nowrap; flex-flow: column nowrap;
+    justify-content: space-between;
+    padding: 2% 4%;
+    box-shadow: 1px 0 0 #ced4da;
+    text-align: center;
+  }
+  .o_mail_mobile_tabs .o_mail_mobile_tab > span {
+    display: block;
+    font-weight: 500;
+    font-size: 10px;
+  }
+  .o_mail_mobile_tabs .o_mail_mobile_tab > span.fa {
+    padding-bottom: 4%;
+    font-size: 1.3em;
+  }
+  .o_mail_mobile_tabs .o_mail_mobile_tab.active > span {
+    color: #00A09D;
+  }
+}
+

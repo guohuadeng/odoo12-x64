@@ -179,7 +179,7 @@ class SaleOrder(models.Model):
     amount_by_group = fields.Binary(string="Tax amount by group", compute='_amount_by_group', help="type: [(name, amount, base, formated amount, formated base)]")
     amount_tax = fields.Monetary(string='Taxes', store=True, readonly=True, compute='_amount_all')
     amount_total = fields.Monetary(string='Total', store=True, readonly=True, compute='_amount_all', track_visibility='always', track_sequence=6)
-    currency_rate = fields.Float("Currency Rate", compute='_compute_currency_rate', store=True, digits=(12, 6), readonly=True, help='The rate of the currency to the currency of rate 1 applicable at the date of the order')
+    currency_rate = fields.Float("Currency Rate", compute='_compute_currency_rate', compute_sudo=True, store=True, digits=(12, 6), readonly=True, help='The rate of the currency to the currency of rate 1 applicable at the date of the order')
 
     payment_term_id = fields.Many2one('account.payment.term', string='Payment Terms', oldname='payment_term')
     fiscal_position_id = fields.Many2one('account.fiscal.position', oldname='fiscal_position', string='Fiscal Position')
@@ -259,7 +259,7 @@ class SaleOrder(models.Model):
     @api.depends('state')
     def _compute_type_name(self):
         for record in self:
-            record.type_name = _('Quotation') if self.state in ('draft', 'sent', 'cancel') else _('Sales Order')
+            record.type_name = _('Quotation') if record.state in ('draft', 'sent', 'cancel') else _('Sales Order')
 
     @api.multi
     def unlink(self):
@@ -549,10 +549,11 @@ class SaleOrder(models.Model):
             raise UserError(_('There is no invoiceable line. If a product has a Delivered quantities invoicing policy, please make sure that a quantity has been delivered.'))
 
         for invoice in invoices.values():
+            invoice.compute_taxes()
             if not invoice.invoice_line_ids:
                 raise UserError(_('There is no invoiceable line. If a product has a Delivered quantities invoicing policy, please make sure that a quantity has been delivered.'))
             # If invoice is negative, do a refund invoice instead
-            if invoice.amount_untaxed < 0:
+            if invoice.amount_total < 0:
                 invoice.type = 'out_refund'
                 for line in invoice.invoice_line_ids:
                     line.quantity = -line.quantity
@@ -563,7 +564,10 @@ class SaleOrder(models.Model):
             # by onchanges, which are not triggered when doing a create.
             invoice.compute_taxes()
             # Idem for partner
+            so_payment_term_id = invoice.payment_term_id.id
             invoice._onchange_partner_id()
+            # To keep the payment terms set on the SO
+            invoice.payment_term_id = so_payment_term_id
             invoice.message_post_with_view('mail.message_origin_link',
                 values={'self': invoice, 'origin': references[invoice]},
                 subtype_id=self.env.ref('mail.mt_note').id)

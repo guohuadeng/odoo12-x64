@@ -1,0 +1,141 @@
+
+@font-face {
+  font-family: 'Lato';
+  src: url("/web/static/src/scss/../fonts/lato/Lato-Hai-webfont.eot");
+  src: url("/web/static/src/scss/../fonts/lato/Lato-Hai-webfont.eot?#iefix") format("embedded-opentype"), url("/web/static/src/scss/../fonts/lato/Lato-Hai-webfont.woff") format("woff"), url("/web/static/src/scss/../fonts/lato/Lato-Hai-webfont.ttf") format("truetype"), url("/web/static/src/scss/../fonts/lato/Lato-Hai-webfont.svg#Lato") format("svg");
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Lato-Hai";
+  src: url("/web/static/src/scss/../fonts/lato/Lato-Hai-webfont.eot");
+  src: url("/web/static/src/scss/../fonts/lato/Lato-Hai-webfont.eot?#iefix") format("embedded-opentype"), url("/web/static/src/scss/../fonts/lato/Lato-Hai-webfont.woff") format("woff"), url("/web/static/src/scss/../fonts/lato/Lato-Hai-webfont.ttf") format("truetype"), url("/web/static/src/scss/../fonts/lato/Lato-Hai-webfont.svg#Roboto") format("svg");
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url("/web/static/src/scss/../fonts/lato/Lato-HaiIta-webfont.eot");
+  src: url("/web/static/src/scss/../fonts/lato/Lato-HaiIta-webfont.eot?#iefix") format("embedded-opentype"), url("/web/static/src/scss/../fonts/lato/Lato-HaiIta-webfont.woff") format("woff"), url("/web/static/src/scss/../fonts/lato/Lato-HaiIta-webfont.ttf") format("truetype"), url("/web/static/src/scss/../fonts/lato/Lato-HaiIta-webfont.svg#Lato") format("svg");
+  font-weight: 100;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Lato-HaiIta";
+  src: url("/web/static/src/scss/../fonts/lato/Lato-HaiIta-webfont.eot");
+  src: url("/web/static/src/scss/../fonts/lato/Lato-HaiIta-webfont.eot?#iefix") format("embedded-opentype"), url("/web/static/src/scss/../fonts/lato/Lato-HaiIta-webfont.woff") format("woff"), url("/web/static/src/scss/../fonts/lato/Lato-HaiIta-webfont.ttf") format("truetype"), url("/web/static/src/scss/../fonts/lato/Lato-HaiIta-webfont.svg#Roboto") format("svg");
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url("/web/static/src/scss/../fonts/lato/Lato-Lig-webfont.eot");
+  src: url("/web/static/src/scss/../fonts/lato/Lato-Lig-webfont.eot?#iefix") format("embedded-opentype"), url("/web/static/src/scss/../fonts/lato/Lato-Lig-webfont.woff") format("woff"), url("/web/static/src/scss/../fonts/lato/Lato-Lig-webfont.ttf") format("truetype"), url("/web/static/src/scss/../fonts/lato/Lato-Lig-webfont.svg#Lato") format("svg");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Lato-Lig";
+  src: url("/web/static/src/scss/../fonts/lato/Lato-Lig-webfont.eot");
+  src: url("/web/static/src/scss/../fonts/lato/Lato-Lig-webfont.eot?#iefix") format("embedded-opentype"), url("/web/static/src/scss/../fonts/lato/Lato-Lig-webfont.woff") format("woff"), url("/web/static/src/scss/../fonts/lato/Lato-Lig-webfont.ttf") format("truetype"), url("/web/static/src/scss/../fonts/lato/Lato-Lig-webfont.svg#Roboto") format("svg");
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url("/web/static/src/scss/../fonts/lato/Lato-LigIta-webfont.eot");
+  src: url("/web/static/src/scss/../fonts/lato/Lato-LigIta-webfont.eot?#iefix") format("embedded-opentype"), url("/web/static/src/scss/../fonts/lato/Lato-LigIta-webfont.woff") format("woff"), url("/web/static/src/scss/../fonts/lato/Lato-LigIta-webfont.ttf") format("truetype"), url("/web/static/src/scss/../fonts/lato/Lato-LigIta-webfont.svg#Lato") format("svg");
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Lato-LigIta";
+  src: url("/web/static/src/scss/../fonts/lato/Lato-LigIta-webfont.eot");
+  src: url("/web/static/src/scss/../fonts/lato/Lato-LigIta-webfont.eot?#iefix") format("embedded-opentype"), url("/web/static/src/scss/../fonts/lato/Lato-LigIta-webfont.woff") format("woff"), url("/web/static/src/scss/../fonts/lato/Lato-LigIta-webfont.ttf") format("truetype"), url("/web/static/src/scss/../fonts/lato/Lato-LigIta-webfont.svg#Roboto") format("svg");
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url("/web/static/src/scss/../fonts/lato/Lato-Reg-webfont.eot");
+  src: url("/web/static/src/scss/../fonts/lato/Lato-Reg-webfont.eot?#iefix") format("embedded-opentype"), url("/web/static/src/scss/../fonts/lato/Lato-Reg-webfont.woff") format("woff"), url("/web/static/src/scss/../fonts/lato/Lato-Reg-webfont.ttf") format("truetype"), url("/web/static/src/scss/../fonts/lato/Lato-Reg-webfont.svg#Lato") format("svg");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Lato-Reg";
+  src: url("/web/static/src/scss/../fonts/lato/Lato-Reg-webfont.eot");
+  src: url("/web/static/src/scss/../fonts/lato/Lato-Reg-webfont.eot?#iefix") format("embedded-opentype"), url("/web/static/src/scss/../fonts/lato/Lato-Reg-webfont.woff") format("woff"), url("/web/static/src/scss/../fonts/lato/Lato-Reg-webfont.ttf") format("truetype"), url("/web/static/src/scss/../fonts/lato/Lato-Reg-webfont.svg#Roboto") format("svg");
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url("/web/static/src/scss/../fonts/lato/Lato-RegIta-webfont.eot");
+  src: url("/web/static/src/scss/../fonts/lato/Lato-RegIta-webfont.eot?#iefix") format("embedded-opentype"), url("/web/static/src/scss/../fonts/lato/Lato-RegIta-webfont.woff") format("woff"), url("/web/static/src/scss/../fonts/lato/Lato-RegIta-webfont.ttf") format("truetype"), url("/web/static/src/scss/../fonts/lato/Lato-RegIta-webfont.svg#Lato") format("svg");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Lato-RegIta";
+  src: url("/web/static/src/scss/../fonts/lato/Lato-RegIta-webfont.eot");
+  src: url("/web/static/src/scss/../fonts/lato/Lato-RegIta-webfont.eot?#iefix") format("embedded-opentype"), url("/web/static/src/scss/../fonts/lato/Lato-RegIta-webfont.woff") format("woff"), url("/web/static/src/scss/../fonts/lato/Lato-RegIta-webfont.ttf") format("truetype"), url("/web/static/src/scss/../fonts/lato/Lato-RegIta-webfont.svg#Roboto") format("svg");
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url("/web/static/src/scss/../fonts/lato/Lato-Bol-webfont.eot");
+  src: url("/web/static/src/scss/../fonts/lato/Lato-Bol-webfont.eot?#iefix") format("embedded-opentype"), url("/web/static/src/scss/../fonts/lato/Lato-Bol-webfont.woff") format("woff"), url("/web/static/src/scss/../fonts/lato/Lato-Bol-webfont.ttf") format("truetype"), url("/web/static/src/scss/../fonts/lato/Lato-Bol-webfont.svg#Lato") format("svg");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Lato-Bol";
+  src: url("/web/static/src/scss/../fonts/lato/Lato-Bol-webfont.eot");
+  src: url("/web/static/src/scss/../fonts/lato/Lato-Bol-webfont.eot?#iefix") format("embedded-opentype"), url("/web/static/src/scss/../fonts/lato/Lato-Bol-webfont.woff") format("woff"), url("/web/static/src/scss/../fonts/lato/Lato-Bol-webfont.ttf") format("truetype"), url("/web/static/src/scss/../fonts/lato/Lato-Bol-webfont.svg#Roboto") format("svg");
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url("/web/static/src/scss/../fonts/lato/Lato-BolIta-webfont.eot");
+  src: url("/web/static/src/scss/../fonts/lato/Lato-BolIta-webfont.eot?#iefix") format("embedded-opentype"), url("/web/static/src/scss/../fonts/lato/Lato-BolIta-webfont.woff") format("woff"), url("/web/static/src/scss/../fonts/lato/Lato-BolIta-webfont.ttf") format("truetype"), url("/web/static/src/scss/../fonts/lato/Lato-BolIta-webfont.svg#Lato") format("svg");
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Lato-BolIta";
+  src: url("/web/static/src/scss/../fonts/lato/Lato-BolIta-webfont.eot");
+  src: url("/web/static/src/scss/../fonts/lato/Lato-BolIta-webfont.eot?#iefix") format("embedded-opentype"), url("/web/static/src/scss/../fonts/lato/Lato-BolIta-webfont.woff") format("woff"), url("/web/static/src/scss/../fonts/lato/Lato-BolIta-webfont.ttf") format("truetype"), url("/web/static/src/scss/../fonts/lato/Lato-BolIta-webfont.svg#Roboto") format("svg");
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url("/web/static/src/scss/../fonts/lato/Lato-Bla-webfont.eot");
+  src: url("/web/static/src/scss/../fonts/lato/Lato-Bla-webfont.eot?#iefix") format("embedded-opentype"), url("/web/static/src/scss/../fonts/lato/Lato-Bla-webfont.woff") format("woff"), url("/web/static/src/scss/../fonts/lato/Lato-Bla-webfont.ttf") format("truetype"), url("/web/static/src/scss/../fonts/lato/Lato-Bla-webfont.svg#Lato") format("svg");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Lato-Bla";
+  src: url("/web/static/src/scss/../fonts/lato/Lato-Bla-webfont.eot");
+  src: url("/web/static/src/scss/../fonts/lato/Lato-Bla-webfont.eot?#iefix") format("embedded-opentype"), url("/web/static/src/scss/../fonts/lato/Lato-Bla-webfont.woff") format("woff"), url("/web/static/src/scss/../fonts/lato/Lato-Bla-webfont.ttf") format("truetype"), url("/web/static/src/scss/../fonts/lato/Lato-Bla-webfont.svg#Roboto") format("svg");
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url("/web/static/src/scss/../fonts/lato/Lato-BlaIta-webfont.eot");
+  src: url("/web/static/src/scss/../fonts/lato/Lato-BlaIta-webfont.eot?#iefix") format("embedded-opentype"), url("/web/static/src/scss/../fonts/lato/Lato-BlaIta-webfont.woff") format("woff"), url("/web/static/src/scss/../fonts/lato/Lato-BlaIta-webfont.ttf") format("truetype"), url("/web/static/src/scss/../fonts/lato/Lato-BlaIta-webfont.svg#Lato") format("svg");
+  font-weight: 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Lato-BlaIta";
+  src: url("/web/static/src/scss/../fonts/lato/Lato-BlaIta-webfont.eot");
+  src: url("/web/static/src/scss/../fonts/lato/Lato-BlaIta-webfont.eot?#iefix") format("embedded-opentype"), url("/web/static/src/scss/../fonts/lato/Lato-BlaIta-webfont.woff") format("woff"), url("/web/static/src/scss/../fonts/lato/Lato-BlaIta-webfont.ttf") format("truetype"), url("/web/static/src/scss/../fonts/lato/Lato-BlaIta-webfont.svg#Roboto") format("svg");
+}
+

@@ -1,0 +1,48 @@
+
+.o_required_modifier.o_input, .o_required_modifier .o_input {
+  background-color: #D2D2FF !important;
+}
+
+.o_field_widget .o_input_dropdown .o_dropdown_button {
+  position: absolute;
+  top: 2px;
+  left: auto;
+  bottom: auto;
+  right: 4px;
+}
+
+.o_field_widget.o_field_many2one .o_external_button {
+  padding: 0;
+  margin-left: 2px;
+  font-size: 19px;
+  color: #7C7BAD;
+  border: none;
+}
+
+.o_field_widget.o_field_many2one .o_external_button:hover {
+  background-color: transparent;
+}
+
+.o_field_widget.o_field_percent_pie .o_pie {
+  width: 34px;
+  height: 34px;
+  margin-left: 5px;
+}
+
+.o_field_widget.o_field_percent_pie .o_pie:after {
+  border: 1px solid #7C7BAD;
+}
+
+.o_field_widget.o_field_percent_pie .o_pie .o_pie_value {
+  position: absolute;
+  top: 4px;
+  left: auto;
+  bottom: auto;
+  right: 4px;
+  width: 26px;
+  height: 26px;
+  border: 1px solid white;
+  background-color: white;
+  font-size: 10px;
+}
+

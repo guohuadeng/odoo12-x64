@@ -1,0 +1,69 @@
+
+.o_thread_window.o_thread_less .o_thread_search_input {
+  display: -webkit-box; display: -webkit-flex; display: flex;
+  align-items: baseline;
+  padding: 5px 10px;
+}
+
+.o_thread_window.o_thread_less .o_thread_search_input > span {
+  -webkit-box-flex: 0; -webkit-flex: 0 0 auto; flex: 0 0 auto;
+}
+
+.o_thread_window.o_thread_less .o_thread_search_input > input {
+  margin-left: 5px;
+  padding: 5px;
+  flex: 1 1 100%;
+}
+
+.o_thread_window.o_thread_less .o_mail_thread {
+  background-color: #f9f9f9;
+}
+
+.o_thread_window.o_thread_less .o_thread_composer {
+  display: none;
+}
+
+.o_thread_window .o_thread_composer .o_composer .o_composer_input {
+  width: 80%;
+}
+
+.o_thread_window .o_thread_composer .o_composer .o_composer_input > textarea {
+  padding: 10px;
+  font-size: 13px;
+}
+
+@media (max-width: 767.98px) {
+  .o_thread_window .o_thread_composer .o_composer .o_composer_input {
+    width: 70%;
+  }
+  .o_thread_window .o_thread_composer .o_composer .o_composer_input > textarea {
+    padding: 15px 10px;
+  }
+}
+
+.o_thread_window .o_thread_composer .o_composer .o_chatter_composer_tools {
+  position: absolute;
+  top: 0px;
+  left: auto;
+  bottom: auto;
+  right: 0px;
+}
+
+.o_thread_window .o_thread_composer .o_composer .o_chatter_composer_tools button {
+  padding: 10px;
+}
+
+@media (max-width: 767.98px) {
+  .o_thread_window .o_thread_composer .o_composer .o_chatter_composer_tools button {
+    padding: 13px;
+  }
+}
+
+.o_thread_window .o_thread_composer .o_composer .o_chatter_composer_tools button.btn.fa {
+  font-size: 1.3em;
+}
+
+.o_thread_window .o_thread_composer .o_composer_attachments_list {
+  margin: 0px;
+}
+

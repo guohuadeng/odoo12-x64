@@ -1,0 +1,218 @@
+
+/* Common */
+.o_mail_activity.o_field_widget {
+  display: block;
+}
+
+.o_mail_activity .o_thread_date_separator.o_border_dashed {
+  border-bottom-style: dashed;
+}
+
+.o_mail_activity .o_thread_date_separator.o_border_dashed[data-toggle="collapse"] {
+  cursor: pointer;
+}
+
+.o_mail_activity .o_thread_date_separator.o_border_dashed[data-toggle="collapse"] .o_chatter_planned_activities_summary {
+  display: none;
+}
+
+.o_mail_activity .o_thread_date_separator.o_border_dashed[data-toggle="collapse"].collapsed {
+  margin-bottom: 0;
+  transition: margin 0.8s ease 0s;
+}
+
+.o_mail_activity .o_thread_date_separator.o_border_dashed[data-toggle="collapse"].collapsed .o_chatter_planned_activities_summary {
+  display: inline-block;
+}
+
+.o_mail_activity .o_thread_date_separator.o_border_dashed[data-toggle="collapse"].collapsed .o_chatter_planned_activities_summary span {
+  padding: 0 5px;
+  border-radius: 100%;
+  font-size: 11px;
+}
+
+.o_mail_activity .o_thread_date_separator.o_border_dashed[data-toggle="collapse"].collapsed i.fa-caret-down:before {
+  content: '\f0da';
+}
+
+.o_mail_activity #o_chatter_planned_activities .o_thread_message .o_thread_message_sidebar .o_avatar_stack {
+  position: relative;
+  text-align: left;
+  margin-bottom: 8px;
+}
+
+.o_mail_activity #o_chatter_planned_activities .o_thread_message .o_thread_message_sidebar .o_avatar_stack img {
+  width: 31px;
+  height: 31px;
+}
+
+.o_mail_activity #o_chatter_planned_activities .o_thread_message .o_thread_message_sidebar .o_avatar_stack .o_avatar_icon {
+  position: absolute;
+  top: auto;
+  left: auto;
+  bottom: -5px;
+  right: -5px;
+  width: 25px;
+  height: 25px;
+  padding: 6px 5px;
+  text-align: center;
+  line-height: 1.2;
+  color: white;
+  border-radius: 100%;
+  border: 2px solid white;
+}
+
+.o_mail_activity #o_chatter_planned_activities .o_thread_message .o_mail_info .o_activity_info {
+  vertical-align: baseline;
+  padding: 4px 6px;
+  background: #f8f9fa;
+  border-radius: 2px 2px 0 0;
+  opacity: 1;
+}
+
+.o_mail_activity #o_chatter_planned_activities .o_thread_message .o_mail_info .o_activity_info:hover, .o_mail_activity #o_chatter_planned_activities .o_thread_message .o_mail_info .o_activity_info:focus, .o_mail_activity #o_chatter_planned_activities .o_thread_message .o_mail_info .o_activity_info.focus {
+  opacity: 1;
+}
+
+.o_mail_activity #o_chatter_planned_activities .o_thread_message .o_mail_info .o_activity_info.collapsed {
+  opacity: 0.5;
+  background: transparent;
+}
+
+.o_mail_activity #o_chatter_planned_activities .o_thread_message .o_mail_info .o_activity_info.collapsed:hover, .o_mail_activity #o_chatter_planned_activities .o_thread_message .o_mail_info .o_activity_info.collapsed:focus, .o_mail_activity #o_chatter_planned_activities .o_thread_message .o_mail_info .o_activity_info.collapsed.focus {
+  opacity: 1;
+}
+
+.o_mail_activity #o_chatter_planned_activities .o_thread_message .o_thread_message_collapse .dl-horizontal.card {
+  display: inline-block;
+  margin-bottom: 0;
+}
+
+.o_mail_activity #o_chatter_planned_activities .o_thread_message .o_thread_message_collapse .dl-horizontal.card dt {
+  max-width: 80px;
+}
+
+.o_mail_activity #o_chatter_planned_activities .o_thread_message .o_thread_message_collapse .dl-horizontal.card dd {
+  margin-left: 95px;
+}
+
+.o_mail_activity #o_chatter_planned_activities .o_thread_message .o_thread_message_note {
+  margin: 2px 0 5px;
+  padding: 0px;
+}
+
+.o_mail_activity #o_chatter_planned_activities .o_thread_message .o_thread_message_warning {
+  margin: 2px 0 5px;
+}
+
+.o_mail_activity #o_chatter_planned_activities .o_thread_message .o_activity_template_preview, .o_mail_activity #o_chatter_planned_activities .o_thread_message .o_activity_template_send {
+  font-weight: bold;
+  color: #00A09D;
+  cursor: pointer;
+}
+
+.o_mail_activity #o_chatter_planned_activities .o_thread_message .o_activity_template_preview:hover:not(.active), .o_mail_activity #o_chatter_planned_activities .o_thread_message .o_activity_template_send:hover:not(.active) {
+  color: #005452;
+  border-color: #005452;
+}
+
+.o_mail_activity #o_chatter_planned_activities .o_thread_message .o_thread_message_tools .o_activity_link {
+  padding: 0 0.75rem;
+}
+
+.o_mail_activity #o_chatter_planned_activities .o_thread_message .o_thread_message_tools .o_activity_done {
+  padding-left: 0;
+}
+
+.o_mail_activity .o_activity_color_default {
+  color: #dddddd;
+}
+
+.o_mail_activity .o_activity_color_planned {
+  color: #006d32;
+}
+
+.o_mail_activity .o_activity_color_overdue {
+  color: #d3413b;
+}
+
+.o_mail_activity .o_activity_color_today {
+  color: #ec971f;
+}
+
+/* Feedback popover (form view) */
+.o_mail_activity_feedback {
+  max-width: 410px;
+  outline: none;
+}
+
+.o_mail_activity_feedback textarea {
+  min-width: 250px;
+}
+
+/* Kanban View */
+.o_kanban_record .o_kanban_inline_block {
+  display: inline-block;
+}
+
+.o_kanban_record .o_mail_activity .o_activity_btn span.fa, .o_view_controller .o_mail_activity .o_activity_btn span.fa {
+  overflow: visible;
+  line-height: 1;
+  vertical-align: middle;
+}
+
+.o_kanban_record .o_mail_activity div.o_activity, .o_view_controller .o_mail_activity div.o_activity {
+  min-width: 290px;
+  padding: 0px 0px;
+}
+
+.o_kanban_record .o_mail_activity div.o_activity .o_activity_log_container, .o_view_controller .o_mail_activity div.o_activity .o_activity_log_container {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.o_kanban_record .o_mail_activity div.o_activity ul.o_activity_log, .o_view_controller .o_mail_activity div.o_activity ul.o_activity_log {
+  color: #666666;
+}
+
+.o_kanban_record .o_mail_activity div.o_activity ul.o_activity_log li .o_activity_title_entry, .o_view_controller .o_mail_activity div.o_activity ul.o_activity_log li .o_activity_title_entry {
+  display: -webkit-box; display: -webkit-flex; display: flex;
+  align-items: baseline;
+}
+
+.o_kanban_record .o_mail_activity div.o_activity ul.o_activity_log li .o_edit_button, .o_view_controller .o_mail_activity div.o_activity ul.o_activity_log li .o_edit_button {
+  opacity: 0.5;
+}
+
+.o_kanban_record .o_mail_activity div.o_activity ul.o_activity_log li:hover .o_edit_button, .o_view_controller .o_mail_activity div.o_activity ul.o_activity_log li:hover .o_edit_button {
+  opacity: 1;
+}
+
+.o_kanban_record .o_mail_activity div.o_activity ul.o_activity_log li .o_activity_link_kanban, .o_view_controller .o_mail_activity div.o_activity ul.o_activity_log li .o_activity_link_kanban {
+  font-size: 1.5em;
+  color: #adb5bd;
+  opacity: 0.5;
+}
+
+.o_kanban_record .o_mail_activity div.o_activity ul.o_activity_log li .o_activity_link_kanban:hover, .o_kanban_record .o_mail_activity div.o_activity ul.o_activity_log li .o_activity_link_kanban:focus, .o_kanban_record .o_mail_activity div.o_activity ul.o_activity_log li .o_activity_link_kanban.focus, .o_view_controller .o_mail_activity div.o_activity ul.o_activity_log li .o_activity_link_kanban:hover, .o_view_controller .o_mail_activity div.o_activity ul.o_activity_log li .o_activity_link_kanban:focus, .o_view_controller .o_mail_activity div.o_activity ul.o_activity_log li .o_activity_link_kanban.focus {
+  color: #00A04A;
+}
+
+.o_kanban_record .o_mail_activity div.o_activity ul.o_activity_log li .o_activity_link_kanban:hover, .o_kanban_record .o_mail_activity div.o_activity ul.o_activity_log li .o_activity_link_kanban:focus, .o_kanban_record .o_mail_activity div.o_activity ul.o_activity_log li .o_activity_link_kanban.focus, .o_view_controller .o_mail_activity div.o_activity ul.o_activity_log li .o_activity_link_kanban:hover, .o_view_controller .o_mail_activity div.o_activity ul.o_activity_log li .o_activity_link_kanban:focus, .o_view_controller .o_mail_activity div.o_activity ul.o_activity_log li .o_activity_link_kanban.focus {
+  opacity: 1;
+}
+
+.o_kanban_record .o_mail_activity div.o_activity ul.o_activity_log li.o_activity_selected, .o_view_controller .o_mail_activity div.o_activity ul.o_activity_log li.o_activity_selected {
+  border-bottom: 0;
+}
+
+.o_kanban_record .o_mail_activity div.o_activity ul.o_activity_log li.o_activity_form > div, .o_view_controller .o_mail_activity div.o_activity ul.o_activity_log li.o_activity_form > div {
+  padding-top: 0.5em;
+  padding-bottom: 0.7em;
+}
+
+.o_kanban_record .o_mail_activity div.o_activity .o_no_activity, .o_view_controller .o_mail_activity div.o_activity .o_no_activity {
+  padding: 10px;
+  cursor: initial;
+}
+

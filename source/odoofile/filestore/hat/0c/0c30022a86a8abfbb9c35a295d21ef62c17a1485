@@ -1,0 +1,47 @@
+
+[type="text"], [type="password"], [type="number"], textarea, select {
+  width: 100%;
+  display: block;
+  outline: none;
+}
+
+.o_input {
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  padding: 2px 4px;
+  color: #1f1f1f;
+}
+
+.o_input .o_input {
+  border: none !important;
+  padding: 0;
+}
+
+select {
+  background: white;
+}
+
+.o_loading {
+  background-color: #7C7BAD;
+  color: white;
+  padding: 4px;
+}
+
+#oe_main_menu_navbar .oe_user_menu_placeholder .o_user_menu .oe_topbar_name {
+  display: inline-block;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: top;
+  max-width: 150px;
+}
+
+.o_rtl .navbar-right {
+  padding: 0;
+}
+
+.btn-secondary {
+  border-color: #dee2e6;
+}
+

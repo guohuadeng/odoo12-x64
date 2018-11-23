@@ -1,0 +1,46 @@
+
+.o_kanban_view.o_kanban_dashboard.o_salesteam_kanban .o_kanban_record .o_sales_team_kanban_graph_section .o_graph_linechart > svg {
+  height: 80px;
+}
+
+.o_kanban_view.o_kanban_dashboard.o_salesteam_kanban .o_kanban_record .o_sales_team_kanban_graph_section .o_graph_linechart > svg g.nv-x.nv-axis {
+  transform: translateY(50px);
+}
+
+.o_kanban_view.o_kanban_dashboard.o_salesteam_kanban .o_kanban_record .o_sales_team_kanban_graph_section .o_graph_linechart > svg g.nv-x.nv-axis line {
+  transform: translateY(30px);
+}
+
+.o_kanban_view.o_kanban_dashboard.o_salesteam_kanban .o_kanban_record .o_sales_team_kanban_graph_section .o_graph_linechart > svg g.nv-x.nv-axis .nv-axislabel {
+  transform: translateY(-78px);
+  font-weight: bold;
+}
+
+.o_kanban_view.o_kanban_dashboard.o_salesteam_kanban .o_kanban_record .o_sales_team_kanban_graph_section .o_graph_linechart > svg g.nv-x.nv-axis g.nv-axisMaxMin {
+  display: none;
+}
+
+.o_kanban_view.o_kanban_dashboard.o_salesteam_kanban .o_kanban_record .o_sales_team_kanban_graph_section .o_graph_linechart > svg g.nv-x.nv-axis g.tick.major line {
+  display: none;
+}
+
+.o_kanban_view.o_kanban_dashboard.o_salesteam_kanban .o_kanban_record .o_sales_team_kanban_graph_section .o_graph_linechart > svg g.nv-linesWrap g.nv-group.nv-series-0 {
+  fill-opacity: 0.3 !important;
+}
+
+.o_kanban_view.o_kanban_dashboard.o_salesteam_kanban .o_kanban_record .o_sales_team_kanban_graph_section .o_graph_linechart > svg g.nv-linesWrap g.nv-group.nv-series-0 .nv-point {
+  visibility: hidden;
+  r: 3;
+  fill: white;
+  stroke-width: 2;
+}
+
+.o_kanban_view.o_kanban_dashboard.o_salesteam_kanban .o_kanban_record .o_sales_team_kanban_graph_section .o_graph_barchart > svg {
+  height: 95px;
+  overflow: visible;
+}
+
+.o_kanban_view.o_kanban_dashboard.o_salesteam_kanban.o_kanban_ungrouped .o_kanban_record {
+  width: 450px;
+}
+

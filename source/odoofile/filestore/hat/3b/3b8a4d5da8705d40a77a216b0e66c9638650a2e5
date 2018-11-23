@@ -1,0 +1,9 @@
+
+.o_datepicker .o_datepicker_button {
+  position: absolute;
+  top: 0;
+  left: auto;
+  bottom: auto;
+  right: 0;
+}
+

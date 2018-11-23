@@ -1,0 +1,61 @@
+
+.o_kanban_view.o_kanban_dashboard.o_account_kanban.o_kanban_ungrouped .o_account_dashboard_header {
+  margin: -8px -8px 8px;
+}
+
+.o_kanban_view.o_kanban_dashboard.o_account_kanban .o_account_dashboard_header {
+  flex: 1 0 100%;
+  -webkit-flex-flow: column nowrap; flex-flow: column nowrap;
+  align-self: flex-start;
+  width: 100%;
+  height: auto;
+  min-height: 0%;
+  background-color: white;
+}
+
+.o_kanban_view.o_kanban_dashboard.o_account_kanban .o_account_dashboard_header .o_form_statusbar {
+  padding-right: 16px;
+}
+
+.o_kanban_view.o_kanban_dashboard.o_account_kanban .o_account_dashboard_header h4 {
+  font-size: 1.08333333rem;
+  font-weight: 500;
+}
+
+.o_kanban_view.o_kanban_dashboard.o_account_kanban .o_account_dashboard_header .fa-gift {
+  color: #eeeeee;
+}
+
+.o_kanban_view.o_kanban_dashboard.o_account_kanban .o_account_dashboard_header .fa-gift:hover {
+  color: #555555;
+}
+
+.o_kanban_view.o_kanban_dashboard.o_account_kanban .o_account_dashboard_header .o_arrow_button.btn-secondary {
+  color: #adb5bd;
+  text-transform: none;
+  font-weight: 500;
+}
+
+.o_kanban_view.o_kanban_dashboard.o_account_kanban .o_account_dashboard_header .o_arrow_button.btn-secondary .o_account_dashboard_index {
+  color: #212529;
+}
+
+.o_kanban_view.o_kanban_dashboard.o_account_kanban .o_account_dashboard_header .o_arrow_button.btn-secondary.o_action_done {
+  color: #212529;
+  background-color: #e9ecef;
+}
+
+.o_kanban_view.o_kanban_dashboard.o_account_kanban .o_account_dashboard_header .o_arrow_button.btn-secondary.o_action_done:after {
+  border-left-color: #e9ecef;
+}
+
+.o_kanban_view.o_kanban_dashboard.o_account_kanban .o_account_dashboard_header .o_arrow_button.btn-secondary.o_action_done .fa-check {
+  color: #00A04A;
+}
+
+.o_kanban_view.o_kanban_dashboard.o_account_kanban .o_account_dashboard_header .o_arrow_button.btn-secondary:last-of-type {
+  margin-left: 16px;
+  padding-left: 8px;
+  border-left: 1px solid #dee2e6;
+}
+

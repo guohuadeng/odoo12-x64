@@ -1,0 +1,149 @@
+
+.o_content .o_view_controller > div {
+  -webkit-box-orient: vertical; -webkit-box-direction: normal; -webkit-flex-direction: column; flex-direction: column;
+  overflow: auto;
+}
+
+.o_content .o_view_controller .a-superbar {
+  height: auto;
+  overflow: auto;
+  padding: 2px;
+  background-color: white;
+  border-left: 1px solid #f8f9fa;
+  border-right: 1px solid #f8f9fa;
+  display: -webkit-box; display: -webkit-flex; display: flex;
+  -webkit-flex-flow: column wrap; flex-flow: column wrap;
+  -webkit-box-flex: 0; -webkit-flex: 0 1 auto; flex: 0 1 auto;
+}
+
+.o_content .o_view_controller .a-superbar .bar-header {
+  display: -webkit-box; display: -webkit-flex; display: flex;
+  -webkit-box-flex: 0; -webkit-flex: 0 1 auto; flex: 0 1 auto;
+}
+
+.o_content .o_view_controller .a-superbar .bar-header .btn-group {
+  display: -webkit-box; display: -webkit-flex; display: flex;
+  justify-content: center;
+}
+
+.o_content .o_view_controller .a-superbar .bar-content {
+  display: -webkit-box; display: -webkit-flex; display: flex;
+  -webkit-flex-flow: column wrap; flex-flow: column wrap;
+  -webkit-box-flex: 1; -webkit-flex: 1 0 auto; flex: 1 0 auto;
+  padding: 0px;
+  width: 100%;
+}
+
+.o_content .o_view_controller .a-superbar .bar-content .panel {
+  border-width: 0 0 1px 0;
+  border-style: solid;
+  border-color: #cfcfcf;
+  margin-bottom: 1px;
+}
+
+.o_content .o_view_controller .a-superbar .bar-content .panel + .panel {
+  margin-top: 0;
+}
+
+.o_content .o_view_controller .a-superbar .bar-content .panel .panel-title {
+  padding: 4px;
+  background-color: #cfcfcf;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.o_content .o_view_controller .a-superbar .bar-content .panel .panel-title .a_clear_ztree {
+  font-size: 20px;
+  padding: 0 6px;
+  margin-top: -2px;
+  background-color: transparent;
+}
+
+.o_content .o_view_controller .a-superbar .bar-content .panel .panel-title a {
+  padding: 0px 4px 4px 24px;
+  color: inherit;
+  font-size: 14px;
+  display: block;
+  position: relative;
+}
+
+.o_content .o_view_controller .a-superbar .bar-content .panel .panel-title a::before {
+  content: '\f067';
+  position: absolute;
+  font-family: FontAwesome;
+  font-size: 1.2em;
+  left: 5px;
+  top: 0px;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+
+.o_content .o_view_controller .a-superbar .bar-content .panel .panel-title a::after {
+  content: ' ';
+  position: absolute;
+  font-family: FontAwesome;
+  font-size: 1.2em;
+  left: 5px;
+  top: 0px;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.o_content .o_view_controller .a-superbar .bar-content .panel .panel-title.active a::before {
+  content: ' ';
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+}
+
+.o_content .o_view_controller .a-superbar .bar-content .panel .panel-title.active a::after {
+  content: '\f068';
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.o_content .o_view_controller .a-superbar .bar-content .panel .panel-body {
+  padding: 0px;
+  background-color: white;
+}
+
+.o_content .o_view_controller .a-superbar .bar-content .ztree_search .o_checkbox {
+  width: 95%;
+  margin: 2px 4px;
+  border-bottom: 1px dashed #cfcfcf;
+  display: inline-block;
+}
+
+.o_content .o_view_controller .a-superbar .bar-content .ztree_search .ztree {
+  border: 0px;
+  font-size: 1.08333333rem;
+  padding: 5px 0px;
+}
+
+.o_content .o_view_controller .a-superbar .panel_field {
+  display: -webkit-box; display: -webkit-flex; display: flex;
+  -webkit-flex-flow: column wrap; flex-flow: column wrap;
+  -webkit-box-flex: 1; -webkit-flex: 1 1 auto; flex: 1 1 auto;
+}
+
+@media (min-width: 768px) {
+  .o_content .o_view_controller > div {
+    flex-direction: row;
+  }
+  .o_content .o_view_controller .a-superbar {
+    -webkit-box-flex: 0; -webkit-flex: 0 1 auto; flex: 0 1 auto;
+    width: 250px;
+    height: 100%;
+  }
+  .o_content .o_view_controller .a-superbar .btn-group {
+    width: 290px;
+  }
+}
+

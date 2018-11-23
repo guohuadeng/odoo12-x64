@@ -1,0 +1,54 @@
+
+@media (min-width: 768px) {
+  .o_searchview {
+    border-bottom: 1px solid #8f8f8f;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .o_searchview {
+    padding: 0px 4px 0px 0px;
+  }
+}
+
+.o_searchview .o_searchview_facet {
+  border: 1px solid #8f8f8f;
+  background: #f8f9fa;
+  color: #8f8f8f;
+}
+
+@media (max-width: 767.98px) {
+  .o_searchview .o_searchview_facet {
+    -webkit-flex-flow: row wrap; flex-flow: row wrap;
+  }
+}
+
+.o_searchview .o_searchview_facet .o_searchview_facet_label {
+  background-color: #875A7B;
+}
+
+.o_searchview .o_searchview_facet .o_facet_remove:hover {
+  color: #5c5c5c;
+}
+
+.o_searchview .o_searchview_input {
+  border: none;
+  outline: none;
+}
+
+.o_searchview .o_searchview_more {
+  position: absolute;
+  top: 4px;
+  left: auto;
+  bottom: auto;
+  right: 0;
+}
+
+.o_searchview .o_searchview_autocomplete li.o-selection-focus {
+  background-color: rgba(0, 0, 0, 0.01);
+}
+
+.o_search_options {
+  margin: auto 0;
+}
+

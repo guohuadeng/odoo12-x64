@@ -1,0 +1,55 @@
+
+.o_kanban_view.o_kanban_payment_acquirer.o_kanban_ungrouped .o_kanban_record {
+  width: 500px;
+}
+
+.o_kanban_view.o_kanban_payment_acquirer.o_kanban_ungrouped .o_kanban_record .o_kanban_image {
+  float: right;
+}
+
+.o_kanban_view.o_kanban_payment_acquirer.o_kanban_ungrouped .o_kanban_record .o_kanban_image + div {
+  padding-left: 0;
+  padding-right: 72px;
+}
+
+.o_kanban_view.o_kanban_payment_acquirer.o_kanban_ungrouped .o_kanban_record .o_payment_acquirer_desc {
+  margin-bottom: 28px;
+}
+
+.o_kanban_view.o_kanban_payment_acquirer.o_kanban_ungrouped .o_kanban_record .o_payment_acquirer_desc i.fa {
+  margin-right: 5px;
+}
+
+.o_kanban_view.o_kanban_payment_acquirer.o_kanban_ungrouped .o_kanban_record .o_payment_acquirer_desc i.fa.fa-check {
+  color: green;
+}
+
+.o_kanban_view.o_kanban_payment_acquirer.o_kanban_ungrouped .o_kanban_record .o_payment_acquirer_bottom > button {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+}
+
+.o_kanban_view.o_kanban_payment_acquirer.o_kanban_ungrouped .o_kanban_record .o_payment_acquirer_bottom > .label {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+}
+
+.o_form_view .o_payment_acquirer_desc ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.o_form_view .o_payment_acquirer_desc ul i.fa {
+  margin-right: 5px;
+}
+
+.o_form_view .o_payment_acquirer_desc ul i.fa.fa-check {
+  color: green;
+}
+
+.o_form_view .o_warning_text {
+  color: #f0ad4e;
+}
+

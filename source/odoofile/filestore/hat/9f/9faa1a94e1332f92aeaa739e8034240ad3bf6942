@@ -1,0 +1,79 @@
+
+.o_hidden {
+  display: none !important;
+}
+
+.o_text_overflow {
+  display: inline-block;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: top;
+}
+
+.ui-autocomplete {
+  z-index: 1051;
+}
+
+[aria-hidden="true"], [aria-hidden="1"] {
+  display: none !important;
+}
+
+.dropdown-toggle {
+  white-space: nowrap;
+}
+
+.dropdown-toggle.o-no-caret::before, .dropdown-toggle.o-no-caret::after {
+  content: normal;
+}
+
+:not(.collapsed) > .o-collapsed-label,
+.collapsed > .o-not-collapsed-label {
+  display: none;
+}
+
+.o_rtl .ui-autocomplete {
+  direction: ltr;
+  right: 0;
+  left: auto;
+}
+
+.o_rtl .ui-datepicker-next, .o_rtl .ui-datepicker-prev {
+  -webkit-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.custom-control.custom-checkbox .custom-control-input:not(:checked):not(:indeterminate) ~ .custom-control-label:before {
+  background: none;
+  outline: 1px solid #666666;
+}
+
+.custom-control.custom-checkbox .custom-control-input:not(:checked):not(:indeterminate):disabled ~ .custom-control-label:before {
+  background: #f8f9fa;
+  opacity: 0.25;
+}
+
+@media print {
+  .custom-control.custom-checkbox {
+    -webkit-print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+}
+
+.o_catch_attention {
+  position: relative;
+  z-index: 1;
+  animation: catchAttention 200ms ease 0s infinite normal;
+}
+
+@keyframes catchAttention {
+  0% {
+    outline: 0px solid #00a09d;
+  }
+  100% {
+    outline: 20px solid rgba(0, 160, 157, 0);
+  }
+}
+

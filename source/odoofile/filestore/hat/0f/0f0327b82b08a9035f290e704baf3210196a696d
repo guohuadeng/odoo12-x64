@@ -1,0 +1,77 @@
+
+.o_kanban_examples_dialog {
+  display: -webkit-box; display: -webkit-flex; display: flex;
+  padding: 0px;
+  background: #f8f9fa;
+}
+
+.o_kanban_examples_dialog .o_kanban_examples_dialog_nav {
+  -webkit-box-flex: 0; -webkit-flex: 0 0 auto; flex: 0 0 auto;
+  border-right: 1px solid #dee2e6;
+  background: white;
+}
+
+.o_kanban_examples_dialog .o_kanban_examples_dialog_nav > ul > li {
+  margin: 0;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.o_kanban_examples_dialog .o_kanban_examples_dialog_nav > ul > li > a {
+  padding: 12px 15px;
+  color: #666666;
+  border-left: 3px solid transparent;
+}
+
+.o_kanban_examples_dialog .o_kanban_examples_dialog_nav > ul > li > a:focus {
+  outline: none;
+}
+
+.o_kanban_examples_dialog .o_kanban_examples_dialog_nav > ul > li.active > a {
+  color: #212529;
+  border-left-color: #00A09D;
+  font-weight: bold;
+}
+
+.o_kanban_examples_dialog .o_kanban_examples_dialog_content {
+  flex: 1 1 100%;
+}
+
+.o_kanban_examples_dialog .o_kanban_examples_dialog_content .o_kanban_examples_description {
+  padding: 16px 16px 0;
+  text-align: justify;
+}
+
+.o_kanban_examples_dialog .o_kanban_examples_dialog_content .o_kanban_examples {
+  display: -webkit-box; display: -webkit-flex; display: flex;
+  padding: 0 6px;
+}
+
+.o_kanban_examples_dialog .o_kanban_examples_dialog_content .o_kanban_examples .o_kanban_examples_group {
+  flex: 1 1 100%;
+  margin: 10px;
+}
+
+.o_kanban_examples_dialog .o_kanban_examples_dialog_content .o_kanban_examples .o_kanban_examples_group .o_kanban_examples_ghost {
+  padding: 5px;
+  margin-top: -1px;
+  border: thin solid #dee2e6;
+  background-color: white;
+}
+
+.o_kanban_examples_dialog .o_kanban_examples_dialog_content .o_kanban_examples .o_kanban_examples_group .o_kanban_examples_ghost .o_ghost_content {
+  height: 12px;
+  background: #dee2e6;
+}
+
+.o_kanban_examples_dialog .o_kanban_examples_dialog_content .o_kanban_examples .o_kanban_examples_group .o_kanban_examples_ghost .o_ghost_content.o_ghost_tag {
+  display: inline-block;
+  width: 40%;
+  margin-top: 10px;
+}
+
+.o_kanban_examples_dialog .o_kanban_examples_dialog_content .o_kanban_examples .o_kanban_examples_group .o_kanban_examples_ghost .o_ghost_avatar {
+  height: 20px;
+  width: 20px;
+  margin-top: 6px;
+}
+

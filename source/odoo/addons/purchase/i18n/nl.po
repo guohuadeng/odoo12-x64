@@ -971,7 +971,7 @@ msgstr ""
 #. module: purchase
 #: model:ir.model.fields,field_description:purchase.field_purchase_order__message_has_error
 msgid "Message Delivery error"
-msgstr "Bericht aflever fout"
+msgstr "Bericht afleverfout"
 
 #. module: purchase
 #: model:ir.model.fields,field_description:purchase.field_res_partner__purchase_warn_msg
@@ -1498,7 +1498,7 @@ msgstr "Inkopen"
 #. module: purchase
 #: model:ir.model,name:purchase.model_purchase_bill_union
 msgid "Purchases & Bills Union"
-msgstr ""
+msgstr "Inkopen & Facturen"
 
 #. module: purchase
 #: model:ir.model.fields,help:purchase.field_purchase_order__dest_address_id

@@ -1,0 +1,27 @@
+
+.oe_chatter .btn.o_active_attach {
+  color: #875A7B;
+  height: 300px;
+}
+
+.oe_chatter .o_chatter_attachment {
+  padding: 3px;
+}
+
+.oe_chatter .o_chatter_attachment .o_border_dashed {
+  position: relative;
+  margin-top: 15px;
+  margin-bottom: 30px;
+  border-bottom: 1px dashed #dee2e6;
+  text-align: center;
+}
+
+.oe_chatter .o_chatter_attachment .o_border_dashed .o_attach_title {
+  position: relative;
+  top: 10px;
+  margin: 0 auto;
+  padding: 0 10px;
+  font-weight: bold;
+  background: white;
+}
+

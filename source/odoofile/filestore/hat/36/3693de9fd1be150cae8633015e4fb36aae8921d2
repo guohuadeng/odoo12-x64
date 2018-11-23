@@ -1,0 +1,55 @@
+
+.o_chatter {
+  width: 100%;
+  padding-top: 0 !important;
+}
+
+.o_chatter .o_spinner {
+  text-align: center;
+  font-size: large;
+}
+
+.o_chatter .o_chatter_topbar {
+  height: 33px;
+  position: relative;
+  margin: 16px 0 0;
+  padding: 0;
+  display: -webkit-box; display: -webkit-flex; display: flex;
+}
+
+.o_chatter .o_chatter_topbar > .o_topbar_right_area {
+  border-bottom: 1px solid transparent;
+  position: relative;
+  float: right;
+  -webkit-box-flex: 1; -webkit-flex: 1 1 auto; flex: 1 1 auto;
+}
+
+.o_chatter .o_chatter_topbar > .o_topbar_right_area .o_chatter_button_attachment {
+  height: 2.3em;
+  float: right;
+}
+
+.o_chatter .o_chatter_topbar > .o_topbar_right_area .o_followers {
+  height: 34px;
+  border-bottom: 1px solid transparent;
+  -webkit-box-flex: 0; -webkit-flex: 0 1 auto; flex: 0 1 auto;
+}
+
+.o_chatter .o_chatter_topbar > .btn {
+  height: 34px;
+  border: 1px solid transparent;
+}
+
+.o_chatter.o_chatter_composer_active .o_chatter_topbar > .btn, .o_chatter.o_chatter_composer_active .o_chatter_topbar > .o_followers, .o_chatter.o_chatter_composer_active .o_chatter_topbar > .o_topbar_right_area {
+  border-radius: 0 0 0 0;
+  border-width: 0 0 1px;
+  border-bottom-color: #dee2e6;
+}
+
+.o_chatter.o_chatter_composer_active .o_chatter_topbar > .btn.o_active, .o_chatter.o_chatter_composer_active .o_chatter_topbar > .o_followers.o_active, .o_chatter.o_chatter_composer_active .o_chatter_topbar > .o_topbar_right_area.o_active {
+  color: #875A7B;
+  background-color: #f8f9fa;
+  border-color: #dee2e6;
+  border-width: 1px 1px 0;
+}
+

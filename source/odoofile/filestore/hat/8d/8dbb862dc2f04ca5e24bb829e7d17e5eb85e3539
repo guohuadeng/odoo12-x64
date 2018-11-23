@@ -1,0 +1,5 @@
+
+#oe_main_menu_navbar, .o_sub_menu {
+  display: none;
+}
+

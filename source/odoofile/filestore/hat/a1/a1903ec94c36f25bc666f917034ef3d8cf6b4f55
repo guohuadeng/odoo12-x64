@@ -1,0 +1,101 @@
+
+.o_web_client .o_mobile_search {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  padding: 0;
+  width: 100%;
+  background-color: white;
+  z-index: 1000;
+  overflow: auto;
+}
+
+.o_web_client .o_mobile_search .o_mobile_search_header {
+  height: 46px;
+  margin-bottom: 10px;
+  width: 100%;
+  background-color: #875A7B;
+  color: white;
+}
+
+.o_web_client .o_mobile_search .o_mobile_search_header span:active {
+  background-color: #006d6b;
+}
+
+.o_web_client .o_mobile_search .o_searchview_input_container {
+  display: -webkit-box; display: -webkit-flex; display: flex;
+  padding: 15px 20px 0 20px;
+  position: relative;
+}
+
+.o_web_client .o_mobile_search .o_searchview_input_container .o_searchview_input {
+  width: 100%;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #8f8f8f;
+}
+
+.o_web_client .o_mobile_search .o_searchview_input_container .o_searchview_facet {
+  border-radius: 10px;
+  display: -webkit-inline-box; display: -webkit-inline-flex; display: inline-flex;
+  order: 1;
+}
+
+.o_web_client .o_mobile_search .o_searchview_input_container .o_searchview_facet .o_searchview_facet_label {
+  border-radius: 2em 0em 0em 2em;
+}
+
+.o_web_client .o_mobile_search .o_searchview_input_container .o_searchview_autocomplete {
+  top: 100%;
+}
+
+.o_web_client .o_mobile_search .o_searchview_input_container .o_searchview_autocomplete > li {
+  margin: 5px 0px;
+}
+
+.o_web_client .o_mobile_search .o_mobile_search_filter {
+  padding-bottom: 15%;
+}
+
+.o_web_client .o_mobile_search .o_mobile_search_filter .o_dropdown {
+  width: 100%;
+  margin: 15px 5px 0px 5px;
+  border: solid 1px #aeb9c4;
+}
+
+.o_web_client .o_mobile_search .o_mobile_search_filter .o_dropdown_toggler_btn {
+  width: 100%;
+  text-align: left;
+}
+
+.o_web_client .o_mobile_search .o_mobile_search_filter .dropdown-backdrop {
+  z-index: -1;
+}
+
+.o_web_client .o_mobile_search .o_mobile_search_filter .dropdown-menu {
+  position: relative !important;
+  width: 100% !important;
+  transform: translate3d(0, 0, 0) !important;
+  box-shadow: none;
+  border: none;
+  color: #6c757d;
+}
+
+.o_web_client .o_mobile_search .o_mobile_search_filter .dropdown-menu .divider {
+  margin: 0px;
+}
+
+.o_web_client .o_mobile_search .o_mobile_search_filter .dropdown-menu > li > a {
+  padding: 10px 26px;
+}
+
+.o_web_client .o_mobile_search .o_mobile_search_show_result {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 15px;
+  font-size: 17px;
+  z-index: 1000;
+}
+

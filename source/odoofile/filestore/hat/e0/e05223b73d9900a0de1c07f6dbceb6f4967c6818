@@ -1,0 +1,350 @@
+
+.o_list_view {
+  position: relative;
+  cursor: pointer;
+  background-color: white;
+  margin-bottom: 0px;
+  border-collapse: initial;
+  border-spacing: 0;
+}
+
+.o_list_view.o_editable_list .o_data_row:not(.o_selected_row) .o_data_cell .custom-checkbox:not(.o_readonly_modifier) {
+  pointer-events: none;
+}
+
+.o_list_view thead {
+  color: #666666;
+  border-bottom: 1px solid #cacaca;
+}
+
+.o_list_view thead > tr > th {
+  border-left: 1px solid #dfdfdf;
+}
+
+@media (max-width: 767.98px) {
+  .o_list_view thead > tr > th {
+    white-space: nowrap;
+  }
+}
+
+.o_list_view thead > tr > th:not(.o_column_sortable):hover {
+  cursor: default;
+}
+
+.o_list_view tfoot {
+  cursor: default;
+  color: #666666;
+  background-color: white;
+  font-weight: bold;
+  border-top: 2px solid #cacaca;
+  border-bottom: 1px solid #cacaca;
+}
+
+.o_list_view .o_column_sortable {
+  position: relative;
+  user-select: none;
+}
+
+.o_list_view .o_column_sortable::after {
+  font-family: FontAwesome;
+  content: "\f0d7";
+  opacity: 0;
+}
+
+.o_list_view .o_column_sortable:not(:empty)::after {
+  margin-left: 6px;
+  position: absolute;
+}
+
+.o_list_view .o_column_sortable.o-sort-up {
+  cursor: n-resize;
+}
+
+.o_list_view .o_column_sortable.o-sort-up::after {
+  content: "\f0d7";
+}
+
+.o_list_view .o_column_sortable.o-sort-down {
+  cursor: s-resize;
+}
+
+.o_list_view .o_column_sortable.o-sort-down::after {
+  content: "\f0d8";
+}
+
+.o_list_view .o_column_sortable:hover::after {
+  opacity: 0.3;
+}
+
+.o_list_view .o_column_sortable.o-sort-up, .o_list_view .o_column_sortable.o-sort-down {
+  color: #212529;
+}
+
+.o_list_view .o_column_sortable.o-sort-up::after, .o_list_view .o_column_sortable.o-sort-down::after {
+  opacity: 1;
+}
+
+.o_list_view .o_list_record_selector, .o_list_view .o_list_record_remove, .o_list_view .o_handle_cell {
+  width: 1px;
+}
+
+.o_list_view .o_list_record_remove button {
+  padding: 0px;
+  background: none;
+  border-style: none;
+  display: table-cell;
+  cursor: pointer;
+}
+
+.o_list_view .text-primary {
+  color: #008684 !important;
+}
+
+.o_list_view a.text-primary:hover, .o_list_view a.text-primary:focus {
+  color: #005352 !important;
+}
+
+.o_list_view .text-secondary {
+  color: #dad2d2 !important;
+}
+
+.o_list_view a.text-secondary:hover, .o_list_view a.text-secondary:focus {
+  color: #c3b6b6 !important;
+}
+
+.o_list_view .text-success {
+  color: #00863e !important;
+}
+
+.o_list_view a.text-success:hover, .o_list_view a.text-success:focus {
+  color: #005326 !important;
+}
+
+.o_list_view .text-info {
+  color: #66a7bb !important;
+}
+
+.o_list_view a.text-info:hover, .o_list_view a.text-info:focus {
+  color: #498fa5 !important;
+}
+
+.o_list_view .text-warning {
+  color: #d69336 !important;
+}
+
+.o_list_view a.text-warning:hover, .o_list_view a.text-warning:focus {
+  color: #b47825 !important;
+}
+
+.o_list_view .text-danger, .o_list_view .oe_import .oe_import_error_report .oe_import_report.text-error, .oe_import .oe_import_error_report .o_list_view .oe_import_report.text-error {
+  color: #c54d49 !important;
+}
+
+.o_list_view a.text-danger:hover, .o_list_view .oe_import .oe_import_error_report a.oe_import_report.text-error:hover, .oe_import .oe_import_error_report .o_list_view a.oe_import_report.text-error:hover, .o_list_view a.text-danger:focus, .o_list_view .oe_import .oe_import_error_report a.oe_import_report.text-error:focus, .oe_import .oe_import_error_report .o_list_view a.oe_import_report.text-error:focus {
+  color: #a63835 !important;
+}
+
+.o_list_view .text-light {
+  color: #cbd1d7 !important;
+}
+
+.o_list_view a.text-light:hover, .o_list_view a.text-light:focus {
+  color: #afb8c0 !important;
+}
+
+.o_list_view .text-dark {
+  color: #27313b !important;
+}
+
+.o_list_view a.text-dark:hover, .o_list_view a.text-dark:focus {
+  color: #13181c !important;
+}
+
+.o_list_view .text-alpha {
+  color: #008684 !important;
+}
+
+.o_list_view a.text-alpha:hover, .o_list_view a.text-alpha:focus {
+  color: #005352 !important;
+}
+
+.o_list_view .text-beta {
+  color: #7a436b !important;
+}
+
+.o_list_view a.text-beta:hover, .o_list_view a.text-beta:focus {
+  color: #59314e !important;
+}
+
+.o_list_view .text-gamma {
+  color: #444375 !important;
+}
+
+.o_list_view a.text-gamma:hover, .o_list_view a.text-gamma:focus {
+  color: #313055 !important;
+}
+
+.o_list_view .text-delta {
+  color: #42778f !important;
+}
+
+.o_list_view a.text-delta:hover, .o_list_view a.text-delta:focus {
+  color: #325a6c !important;
+}
+
+.o_list_view .text-epsilon {
+  color: #cb525c !important;
+}
+
+.o_list_view a.text-epsilon:hover, .o_list_view a.text-epsilon:focus {
+  color: #b43640 !important;
+}
+
+.o_list_view tbody > tr.o_group_header > th, .o_list_view tbody > tr.o_group_header > td {
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
+}
+
+.o_list_view tbody > tr.o_group_header .o_group_name {
+  white-space: nowrap;
+}
+
+.o_list_view tbody > tr.o_group_header .o_group_pager {
+  cursor: text;
+  user-select: none;
+  text-align: right;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.o_list_view tbody > tr.o_group_header .o_group_pager .o_pager_previous, .o_list_view tbody > tr.o_group_header .o_group_pager .o_pager_next {
+  max-height: 30px;
+  background-color: white;
+}
+
+.o_list_view tbody > tr.o_group_header .o_group_pager .o_pager_previous:hover, .o_list_view tbody > tr.o_group_header .o_group_pager .o_pager_next:hover {
+  background-color: #e6e5e5;
+}
+
+.o_list_view tbody + tbody {
+  border-top: none;
+}
+
+.o_list_view tbody tr:focus-within {
+  background-color: #cfcfcf;
+}
+
+.o_list_view .o_list_number {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.o_list_view .o_list_text {
+  white-space: pre-wrap;
+}
+
+.o_list_view .o_data_cell.o_invisible_modifier {
+  display: table-cell !important;
+}
+
+.o_list_view .o_data_row.o_selected_row > .o_data_cell:not(.o_readonly_modifier) {
+  position: relative;
+  z-index: 1;
+  z-index: 1;
+}
+
+.o_list_view .o_data_row.o_selected_row > .o_data_cell:not(.o_readonly_modifier) > .o_field_widget {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: auto;
+  right: 0;
+  min-height: 100%;
+}
+
+.o_list_view .o_data_row.o_selected_row > .o_data_cell:not(.o_readonly_modifier) > .o_field_widget:not(.o_field_text) {
+  white-space: nowrap;
+}
+
+.o_list_view .o_data_row.o_selected_row > .o_data_cell:not(.o_readonly_modifier) > .o_field_widget.o_field_many2manytags > .badge, .o_list_view .o_data_row.o_selected_row > .o_data_cell:not(.o_readonly_modifier) > .o_field_widget.o_field_many2manytags > .badge > .o_badge_text {
+  white-space: normal;
+  max-width: 100%;
+}
+
+.o_list_view .o_data_row.o_selected_row > .o_data_cell:not(.o_readonly_modifier) > .o_field_translate {
+  position: absolute;
+  top: 0;
+  left: auto;
+  bottom: auto;
+  right: 5px;
+  width: 16px;
+}
+
+.o_list_view .o_data_row.o_selected_row > .o_data_cell:not(.o_readonly_modifier) .o_input {
+  padding: 0.3rem;
+  background-color: white;
+}
+
+.o_list_view .o_data_row.o_selected_row > .o_data_cell:not(.o_readonly_modifier) .o_input .o_input {
+  padding: 0 !important;
+}
+
+.o_list_view .o_data_row.o_selected_row > .o_data_cell:not(.o_readonly_modifier) .o_input_dropdown {
+  min-height: 100%;
+}
+
+.o_list_view .o_data_row.o_selected_row > .o_data_cell:not(.o_readonly_modifier) .o_field_monetary input {
+  width: 0;
+}
+
+.o_list_view .o_data_row.o_selected_row > .o_data_cell:not(.o_readonly_modifier) .o_field_boolean {
+  position: relative !important;
+}
+
+.o_list_view .o_data_row.o_selected_row > .o_data_cell:not(.o_readonly_modifier) .o_field_widget {
+  min-width: 0;
+}
+
+.o_list_view .o_data_row.o_selected_row > .o_data_cell:not(.o_readonly_modifier) .o_input_dropdown > .o_input, .o_list_view .o_data_row.o_selected_row > .o_data_cell:not(.o_readonly_modifier) .o_datepicker > .o_input {
+  padding-right: 15px;
+}
+
+.o_list_view .o_data_row.o_selected_row > .o_data_cell:not(.o_readonly_modifier) .o_input_dropdown > .o_dropdown_button, .o_list_view .o_data_row.o_selected_row > .o_data_cell:not(.o_readonly_modifier) .o_input_dropdown .o_datepicker_button, .o_list_view .o_data_row.o_selected_row > .o_data_cell:not(.o_readonly_modifier) .o_datepicker > .o_dropdown_button, .o_list_view .o_data_row.o_selected_row > .o_data_cell:not(.o_readonly_modifier) .o_datepicker .o_datepicker_button {
+  position: absolute;
+  top: 20%;
+  left: auto;
+  bottom: auto;
+  right: 5px;
+}
+
+.o_list_view .o_data_row.o_selected_row > .o_data_cell:not(.o_readonly_modifier) .o_field_widget > .o_external_button {
+  padding: 0;
+  background-color: inherit;
+  margin-left: 3px;
+}
+
+.o_list_view .o_data_row.o_selected_row > .o_data_cell:not(.o_readonly_modifier) .o_row_handle {
+  visibility: hidden;
+}
+
+.o_list_view .o_data_row.o_selected_row > .o_data_cell:not(.o_readonly_modifier) .o_field_boolean {
+  width: auto !important;
+}
+
+.o_list_view .o_field_x2many_list_row_add a:focus, .o_list_view .o_field_x2many_list_row_add a:active {
+  color: #003a39;
+  outline: none;
+}
+
+.o_list_buttons .o_list_button_save, .o_list_buttons .o_list_button_discard {
+  display: none;
+}
+
+.o_list_buttons.o-editing .o_list_button_add {
+  display: none;
+}
+
+.o_list_buttons.o-editing .o_list_button_save, .o_list_buttons.o-editing .o_list_button_discard {
+  display: inline-block;
+}
+

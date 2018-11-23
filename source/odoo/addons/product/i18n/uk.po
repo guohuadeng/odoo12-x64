@@ -3,32 +3,23 @@
 # * product
 # 
 # Translators:
-# Martin Trigaux, 2018
-# Alina Lisnenko <alinasemeniuk1@gmail.com>, 2018
 # Bohdan Lisnenko, 2018
+# Alina Lisnenko <alinasemeniuk1@gmail.com>, 2018
+# Martin Trigaux, 2018
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-10-08 06:49+0000\n"
-"PO-Revision-Date: 2018-10-08 06:49+0000\n"
-"Last-Translator: Bohdan Lisnenko, 2018\n"
+"PO-Revision-Date: 2018-08-24 09:23+0000\n"
+"Last-Translator: Martin Trigaux, 2018\n"
 "Language-Team: Ukrainian (https://www.transifex.com/odoo/teams/41243/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Language: uk\n"
 "Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != 11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
-
-#. module: product
-#: code:addons/product/models/product_template.py:469
-#, python-format
-msgid ""
-"\n"
-"                The number of variants to generate is too high.\n"
-"                You should either not generate variants for each combination or generate them on demand from the sales order.\n"
-"                To do so, open the form view of attributes and change the mode of *Create Variants*."
-msgstr ""
 
 #. module: product
 #: selection:product.pricelist.item,applied_on:0
@@ -285,7 +276,7 @@ msgstr "Присвоює пріоритет списку постачальни�
 #: model:ir.model.fields,field_description:product.field_product_product__message_attachment_count
 #: model:ir.model.fields,field_description:product.field_product_template__message_attachment_count
 msgid "Attachment Count"
-msgstr ""
+msgstr "Підрахунок прикріплення"
 
 #. module: product
 #: model:ir.model.fields,field_description:product.field_product_attribute__name
@@ -680,6 +671,8 @@ msgstr "За замовчуванням %(currency)s прайслист для %
 #: model:ir.model.fields,help:product.field_product_template__uom_id
 msgid "Default unit of measure used for all stock operations."
 msgstr ""
+"Стандартна одиниця вимірювання, що використовується для всіх операцій з "
+"акціями."
 
 #. module: product
 #: model:ir.model.fields,help:product.field_product_product__uom_po_id
@@ -969,7 +962,7 @@ msgstr "Якщо відмічено, то нові повідомлення бу
 #: model:ir.model.fields,help:product.field_product_product__message_has_error
 #: model:ir.model.fields,help:product.field_product_template__message_has_error
 msgid "If checked, some messages have a delivery error."
-msgstr ""
+msgstr "Якщо позначено, деякі повідомлення мають помилку доставки."
 
 #. module: product
 #: model:ir.model.fields,help:product.field_product_supplierinfo__product_id
@@ -1206,7 +1199,7 @@ msgstr "Логістика"
 #: model:ir.model.fields,field_description:product.field_product_product__message_main_attachment_id
 #: model:ir.model.fields,field_description:product.field_product_template__message_main_attachment_id
 msgid "Main Attachment"
-msgstr ""
+msgstr "Основне прикріплення"
 
 #. module: product
 #: model:ir.model.fields,help:product.field_product_template_attribute_value__exclude_for
@@ -1262,7 +1255,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:product.field_product_product__message_has_error
 #: model:ir.model.fields,field_description:product.field_product_template__message_has_error
 msgid "Message Delivery error"
-msgstr ""
+msgstr "Помилка доставлення повідомлення"
 
 #. module: product
 #: model:ir.model.fields,field_description:product.field_product_product__message_ids
@@ -1304,6 +1297,11 @@ msgid "Never"
 msgstr "Ніколи"
 
 #. module: product
+#: model_terms:ir.ui.view,arch_db:product.product_pricelist_item_form_view
+msgid "New Price ="
+msgstr "Нова ціна ="
+
+#. module: product
 #: model:ir.model.fields,field_description:product.field_product_product__activity_date_deadline
 #: model:ir.model.fields,field_description:product.field_product_template__activity_date_deadline
 msgid "Next Activity Deadline"
@@ -1331,7 +1329,7 @@ msgstr "Кількість дій"
 #: model:ir.model.fields,field_description:product.field_product_product__message_has_error_counter
 #: model:ir.model.fields,field_description:product.field_product_template__message_has_error_counter
 msgid "Number of error"
-msgstr ""
+msgstr "Кількість помилок"
 
 #. module: product
 #: model:ir.model.fields,help:product.field_product_product__message_needaction_counter
@@ -1343,7 +1341,7 @@ msgstr "Кількість повідомлень, які потебують д�
 #: model:ir.model.fields,help:product.field_product_product__message_has_error_counter
 #: model:ir.model.fields,help:product.field_product_template__message_has_error_counter
 msgid "Number of messages with delivery error"
-msgstr ""
+msgstr "Кількість повідомлень з помилковою дставкою"
 
 #. module: product
 #: model:ir.model.fields,help:product.field_product_product__message_unread_counter
@@ -1849,7 +1847,7 @@ msgstr "Референс"
 #: model:ir.model.fields,field_description:product.field_product_product__activity_user_id
 #: model:ir.model.fields,field_description:product.field_product_template__activity_user_id
 msgid "Responsible User"
-msgstr ""
+msgstr "Відповідальний користувач"
 
 #. module: product
 #: model:product.product,name:product.expense_product
@@ -2147,7 +2145,17 @@ msgid ""
 msgstr "Номер товарів під цією категорією (Не враховує категорії дітей)"
 
 #. module: product
-#: code:addons/product/models/product_attribute.py:55
+#: code:addons/product/models/product_template.py:475
+#, python-format
+msgid ""
+"The number of variants to generate is too high. You should either not "
+"generate variants for each combination or generate them on demand from the "
+"sales order. To do so, open the form view of attributes and change the mode "
+"of *Create Variants*."
+msgstr ""
+
+#. module: product
+#: code:addons/product/models/product_attribute.py:56
 #, python-format
 msgid ""
 "The operation cannot be completed:\n"

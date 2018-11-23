@@ -1,0 +1,71 @@
+
+.o_activity_view {
+  height: 100%;
+}
+
+.o_activity_view > table {
+  background-color: white;
+}
+
+.o_activity_view .o_activity_summary_cell {
+  background-color: #FFF;
+}
+
+.o_activity_view .o_activity_summary_cell.planned {
+  background-color: #00A04A;
+}
+
+.o_activity_view .o_activity_summary_cell.overdue {
+  background-color: #DC6965;
+}
+
+.o_activity_view .o_activity_summary_cell.today {
+  background-color: #F0AD4E;
+}
+
+.o_activity_view .o_activity_summary_cell .o_kanban_inline_block {
+  min-height: 42px;
+}
+
+.o_activity_view .o_activity_summary_cell .dropdown-toggle {
+  cursor: pointer;
+}
+
+.o_activity_view .o_activity_summary_cell .dropdown-toggle .o_closest_deadline {
+  height: 42px;
+  width: 100%;
+  color: #FFF;
+  text-align: center;
+  line-height: 42px;
+}
+
+.o_activity_view .o_res_name_cell {
+  padding: 0 10px;
+  color: #008784;
+  cursor: pointer;
+}
+
+.o_activity_view .o_res_name_cell:hover {
+  color: #666;
+  cursor: pointer;
+}
+
+.o_activity_view .o_activity_type_cell {
+  padding: 10px;
+  min-width: 100px;
+}
+
+.o_activity_view .o_activity_type_cell .fa-ellipsis-v {
+  cursor: pointer;
+}
+
+.o_activity_view .o_activity_type_cell .o_template_element {
+  white-space: nowrap;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.o_activity_view .o_activity_type_cell .o_template_element:hover {
+  color: #00A04A;
+}
+

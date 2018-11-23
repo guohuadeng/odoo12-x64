@@ -1,0 +1,166 @@
+
+body.o_is_superuser .o_menu_systray {
+  background: repeating-linear-gradient(135deg, #d9b904, #d9b904 10px, #373435 10px, #373435 20px);
+  border-bottom-left-radius: 20px;
+}
+
+body.o_is_superuser .o_menu_systray > li > a:hover, body.o_is_superuser .o_menu_systray > li > label:hover {
+  background-color: rgba(104, 70, 95, 0.5);
+}
+
+body.o_is_superuser .o_menu_systray .show .dropdown-toggle {
+  background-color: rgba(104, 70, 95, 0.5);
+}
+
+.o_main_navbar {
+  position: relative;
+  height: 46px;
+  border-bottom: 1px solid #68465f;
+  background-color: #875A7B;
+  color: white;
+}
+
+.o_main_navbar > a, .o_main_navbar > button {
+  float: left;
+  height: 46px;
+  border: none;
+  padding: 0 12px 0 16px;
+  line-height: 46px;
+  background-color: transparent;
+  text-align: center;
+  color: inherit;
+  font-size: 18px;
+  user-select: none;
+}
+
+.o_main_navbar > a:hover, .o_main_navbar > a:focus, .o_main_navbar > button:hover, .o_main_navbar > button:focus {
+  background-color: #68465f;
+  color: inherit;
+}
+
+.o_main_navbar > a:focus, .o_main_navbar > a:active, .o_main_navbar > a:focus:active, .o_main_navbar > button:focus, .o_main_navbar > button:active, .o_main_navbar > button:focus:active {
+  outline: none;
+}
+
+.o_main_navbar .o_app {
+  cursor: pointer;
+}
+
+.o_main_navbar > .o_menu_brand {
+  display: block;
+  float: left;
+  margin-right: 35px;
+  user-select: none;
+  color: white;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 46px;
+  cursor: pointer;
+}
+
+.o_main_navbar > .o_menu_toggle {
+  margin-right: 5px;
+}
+
+.o_main_navbar > ul {
+  display: block;
+  float: left;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.o_main_navbar > ul > li {
+  position: relative;
+  display: block;
+  float: left;
+}
+
+.o_main_navbar > ul > li > a {
+  display: block;
+}
+
+.o_main_navbar > ul > li > a:focus, .o_main_navbar > ul > li > a:active, .o_main_navbar > ul > li > a:focus:active {
+  outline: none;
+}
+
+.o_main_navbar > ul > li > a, .o_main_navbar > ul > li > label {
+  height: 46px;
+  padding: 0 10px;
+  color: white;
+  line-height: 46px;
+}
+
+.o_main_navbar > ul > li > a:hover, .o_main_navbar > ul > li > label:hover {
+  background-color: #68465f;
+}
+
+.o_main_navbar > ul > li.o_extra_menu_items > a {
+  width: 46px;
+  text-align: center;
+}
+
+.o_main_navbar > ul > li.o_extra_menu_items.show > ul {
+  padding: 0;
+}
+
+.o_main_navbar > ul > li.o_extra_menu_items.show > ul > li > a {
+  background-color: #875A7B;
+  color: white;
+  border-bottom: 1px solid #f8f9fa;
+}
+
+.o_main_navbar > ul > li.o_extra_menu_items.show > ul > li > a.dropdown-toggle {
+  background-color: #ac82a0;
+  pointer-events: none;
+}
+
+.o_main_navbar > ul > li.o_extra_menu_items.show > ul > li > .dropdown-menu {
+  position: static;
+  float: none;
+  display: block;
+  border: none;
+  box-shadow: none;
+  max-height: none;
+}
+
+.o_main_navbar > ul.o_menu_systray {
+  float: right;
+}
+
+.o_main_navbar .dropdown-menu.show {
+  max-height: 90vh;
+  min-width: 100%;
+  overflow: auto;
+  margin-top: 0;
+}
+
+.o_main_navbar .dropdown-menu.show .o_menu_header_lvl_3, .o_main_navbar .dropdown-menu.show .o_menu_entry_lvl_3 {
+  padding-left: 32px;
+}
+
+.o_main_navbar .dropdown-menu.show .o_menu_header_lvl_4, .o_main_navbar .dropdown-menu.show .o_menu_entry_lvl_4 {
+  padding-left: 44px;
+}
+
+.o_main_navbar .dropdown-menu.show .o_menu_header_lvl_5, .o_main_navbar .dropdown-menu.show .o_menu_entry_lvl_5 {
+  padding-left: 56px;
+}
+
+.o_main_navbar .show .dropdown-toggle {
+  background-color: #68465f;
+}
+
+.o_main_navbar .o_user_menu {
+  margin-left: 6px;
+}
+
+.o_main_navbar .o_user_menu > a {
+  padding-right: 16px;
+}
+
+.o_main_navbar .o_user_menu .oe_topbar_avatar {
+  height: 17px;
+  transform: translateY(-2px);
+}
+

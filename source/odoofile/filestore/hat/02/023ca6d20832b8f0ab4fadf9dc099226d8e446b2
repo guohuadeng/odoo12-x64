@@ -1,0 +1,138 @@
+
+.o_web_client .o_main_navbar .o_disabled {
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+.o_burger_menu {
+  display: -webkit-box; display: -webkit-flex; display: flex;
+  -webkit-flex-flow: column nowrap; flex-flow: column nowrap;
+  position: fixed;
+  top: 0px;
+  bottom: 0px;
+  width: 100%;
+  font-size: 15px;
+  font-weight: 300;
+  z-index: 10;
+}
+
+.o_burger_menu .o_burger_menu_topbar {
+  flex: 0 0 46px;
+  padding: 10px 16px;
+  background: #68465f;
+  color: white;
+}
+
+.o_burger_menu .o_burger_menu_topbar .o_burger_menu_avatar {
+  height: 26px;
+}
+
+.o_burger_menu .o_burger_menu_topbar .o_burger_menu_username, .o_burger_menu .o_burger_menu_topbar .o_burger_menu_caret {
+  vertical-align: middle;
+  margin-left: 10px;
+}
+
+.o_burger_menu .o_burger_menu_topbar .o_burger_menu_close {
+  padding: 5px 0;
+}
+
+.o_burger_menu .o_burger_menu_content {
+  -webkit-box-flex: 1; -webkit-flex: 1 1 auto; flex: 1 1 auto;
+  overflow: auto;
+  background: white;
+}
+
+.o_burger_menu .o_burger_menu_content.o_burger_menu_dark {
+  background-color: #875A7B;
+}
+
+.o_burger_menu .o_burger_menu_content .o_burger_menu_app ul {
+  padding: 0px;
+}
+
+.o_burger_menu .o_burger_menu_content .o_burger_menu_app ul > li {
+  list-style: none;
+}
+
+.o_burger_menu .o_burger_menu_content .o_burger_menu_app ul > li a {
+  display: block;
+  padding: 10px 15px;
+  color: white;
+}
+
+.o_burger_menu .o_burger_menu_content .o_burger_menu_app ul > li a .toggle_icon {
+  margin-top: 4px;
+}
+
+.o_burger_menu .o_burger_menu_content .o_burger_menu_app ul > li > div {
+  display: none;
+}
+
+.o_burger_menu .o_burger_menu_content .o_burger_menu_app ul > li.show > div {
+  display: block;
+}
+
+.o_burger_menu .o_burger_menu_content .o_burger_menu_app ul .o_menu_entry_lvl_1 {
+  padding-left: 0px;
+}
+
+.o_burger_menu .o_burger_menu_content .o_burger_menu_app ul .o_menu_entry_lvl_2 {
+  padding-left: 16px;
+}
+
+.o_burger_menu .o_burger_menu_content .o_burger_menu_app ul .o_menu_entry_lvl_3 {
+  padding-left: 32px;
+}
+
+.o_burger_menu .o_burger_menu_content .o_burger_menu_app ul .o_menu_entry_lvl_4 {
+  padding-left: 48px;
+}
+
+.o_burger_menu .o_burger_menu_content .o_burger_menu_app ul .o_menu_entry_lvl_5 {
+  padding-left: 64px;
+}
+
+.o_burger_menu .o_burger_menu_content .o_burger_menu_user {
+  color: #666666;
+}
+
+.o_burger_menu .o_burger_menu_content .o_burger_menu_user .o_burger_menu_companies {
+  padding: 16px;
+  border-bottom: 1px solid #a8a8a8;
+}
+
+.o_burger_menu .o_burger_menu_content .o_burger_menu_user .o_burger_menu_companies .o_burger_menu_user_title {
+  font-size: 12px;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.o_burger_menu .o_burger_menu_content .o_burger_menu_user .o_burger_menu_companies .o_burger_menu_company {
+  padding: 10px 0;
+}
+
+.o_burger_menu .o_burger_menu_content .o_burger_menu_user .o_burger_menu_companies .o_burger_menu_company.active {
+  font-weight: bold;
+}
+
+.o_burger_menu .o_burger_menu_content .o_burger_menu_user .o_burger_menu_companies .o_burger_menu_company .o_burger_menu_company_icon {
+  margin-right: 10px;
+}
+
+.o_burger_menu .o_burger_menu_content .o_burger_menu_user .o_user_menu_mobile {
+  padding: 16px;
+  list-style: none;
+}
+
+.o_burger_menu .o_burger_menu_content .o_burger_menu_user .o_user_menu_mobile > li.divider {
+  background-color: #a8a8a8;
+  height: 1px;
+  margin: 10px -16px;
+}
+
+.o_burger_menu .o_burger_menu_content .o_burger_menu_user .o_user_menu_mobile > li > a {
+  display: block;
+  padding: 10px 0;
+  color: #666666;
+}
+

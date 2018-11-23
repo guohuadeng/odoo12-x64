@@ -1,0 +1,155 @@
+
+.o_control_panel {
+  display: -webkit-box; display: -webkit-flex; display: flex;
+  -webkit-flex-flow: row wrap; flex-flow: row wrap;
+  border-bottom: 1px solid #cccccc;
+  padding-top: 10px;
+  padding-right: 16px;
+  padding-bottom: 10px;
+  padding-left: 16px;
+  background-color: white;
+}
+
+.o_control_panel > .breadcrumb {
+  width: 50%;
+  font-size: 18px;
+}
+
+.o_control_panel > .breadcrumb > li {
+  display: inline-block;
+  max-width: 90%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: top;
+}
+
+.o_control_panel > .breadcrumb > li > a {
+  cursor: pointer;
+}
+
+.o_control_panel.o_breadcrumb_full > .breadcrumb {
+  width: 100%;
+}
+
+.o_control_panel > .o_cp_searchview {
+  width: 50%;
+  min-height: 30px;
+}
+
+.o_control_panel .btn.o_enable_searchview {
+  margin-left: 2%;
+  padding: 0px;
+  background: white;
+}
+
+.o_control_panel > .o_cp_left {
+  display: -webkit-box; display: -webkit-flex; display: flex;
+  justify-content: space-between;
+  width: 50%;
+  margin-top: 5px;
+}
+
+.o_control_panel > .o_cp_left > .o_cp_sidebar {
+  padding-right: 10px;
+}
+
+.o_control_panel > .o_cp_left > .o_cp_sidebar .o_hidden_input_file {
+  position: relative;
+}
+
+.o_control_panel > .o_cp_left > .o_cp_sidebar .o_hidden_input_file input.o_input_file {
+  position: absolute;
+  top: 1px;
+  opacity: 0;
+  width: 100%;
+  height: 26px;
+}
+
+.o_control_panel > .o_cp_left > .o_cp_sidebar .o_hidden_input_file .o_form_binary_form span {
+  padding: 3px 25px;
+  color: #00A09D;
+}
+
+.o_control_panel > .o_cp_left > .o_cp_sidebar .o_hidden_input_file .o_form_binary_form:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.o_control_panel > .o_cp_left > .o_cp_sidebar .o_sidebar_delete_attachment {
+  padding: 0px;
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+
+.o_control_panel > .o_cp_right {
+  display: -webkit-box; display: -webkit-flex; display: flex;
+  width: 50%;
+  margin-top: 5px;
+}
+
+.o_control_panel > .o_cp_right > .o_cp_pager {
+  margin: auto 0 auto auto;
+  padding-left: 5px;
+  text-align: center;
+  user-select: none;
+}
+
+.o_control_panel > .o_cp_right > .o_cp_pager > div {
+  display: -webkit-box; display: -webkit-flex; display: flex;
+  align-items: center;
+}
+
+.o_control_panel > .o_cp_right > .o_cp_pager .o_pager_counter {
+  margin-right: 5px;
+}
+
+.o_control_panel > .o_cp_right > .o_cp_switch_buttons > .btn:first-child {
+  margin-left: 16px;
+}
+
+@media (max-width: 767.98px) {
+  .o_control_panel > .o_cp_right > .o_cp_switch_buttons > .btn:first-child {
+    margin-left: 10px;
+  }
+}
+
+.o_x2m_control_panel {
+  display: -webkit-box; display: -webkit-flex; display: flex;
+  -webkit-flex-flow: row wrap; flex-flow: row wrap;
+}
+
+.o_x2m_control_panel .o_cp_buttons {
+  display: -webkit-box; display: -webkit-flex; display: flex;
+  margin-right: auto;
+}
+
+.o_x2m_control_panel .o_cp_buttons > div {
+  margin-top: 5px;
+}
+
+.o_x2m_control_panel .o_cp_buttons .o-kanban-button-new {
+  margin-left: 8px;
+}
+
+.o_x2m_control_panel .o_cp_pager {
+  display: -webkit-box; display: -webkit-flex; display: flex;
+  margin-left: auto;
+}
+
+.o_pager_value > input {
+  display: inline-block;
+  width: 60px;
+  text-align: right;
+}
+
+.o_pager_value > input:focus {
+  outline: none;
+}
+
+@media print {
+  .o_control_panel {
+    display: none;
+  }
+}
+

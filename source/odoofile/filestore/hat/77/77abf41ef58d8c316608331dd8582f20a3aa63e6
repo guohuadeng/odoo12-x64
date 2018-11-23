@@ -1,0 +1,46 @@
+
+.o_searchview {
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  padding: 1px 25px 3px 5px;
+}
+
+.o_searchview .o_searchview_facet {
+  border: 1px solid #6c757d;
+  background: #e2e2e0;
+}
+
+.o_searchview .o_searchview_facet .o_searchview_facet_label {
+  background-color: #7C7BAD;
+}
+
+.o_searchview .o_searchview_facet .o_facet_remove {
+  color: #6c757d;
+}
+
+.o_searchview .o_searchview_facet .o_facet_remove:hover {
+  color: #495057;
+}
+
+.o_searchview .o_searchview_input {
+  border: none;
+  padding: 4px 0 0 0;
+}
+
+.o_searchview .o_searchview_more {
+  position: absolute;
+  top: 6px;
+  left: auto;
+  bottom: auto;
+  right: 5px;
+}
+
+.o_searchview .o_searchview_autocomplete li.o-selection-focus {
+  background-color: #7C7BAD;
+}
+
+.o_searchview .o_searchview_autocomplete li.o-selection-focus > a {
+  color: white;
+}
+

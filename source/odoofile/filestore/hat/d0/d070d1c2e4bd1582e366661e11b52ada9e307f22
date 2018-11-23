@@ -1,0 +1,10 @@
+
+.o_kanban_view .o_column_quick_create .o_kanban_quick_create input, .o_kanban_view .o_column_quick_create .o_kanban_quick_create input:focus, .o_kanban_view .o_column_quick_create .o_kanban_quick_create input:hover {
+  background: transparent;
+  border-bottom: 1px solid #6c757d;
+}
+
+.o_kanban_view .o_column_quick_create .o_kanban_quick_create .input-group-append, .o_kanban_view .o_column_quick_create .o_kanban_quick_create .input-group-prepend {
+  border-left: 10px solid #e9ecef;
+}
+

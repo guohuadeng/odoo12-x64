@@ -1247,10 +1247,7 @@ QUnit.module('basic_fields', {
         form.destroy();
     });
 
-    QUnit.skip('input field: change password value', function (assert) {
-        // password policy needs an RPC call to initialize &
-        // presents somewhat differently (custom widget), need way
-        // to augment/override tests
+    QUnit.test('input field: change password value', function (assert) {
         assert.expect(4);
 
         var form = createView({
@@ -1278,7 +1275,7 @@ QUnit.module('basic_fields', {
         form.destroy();
     });
 
-    QUnit.skip('input field: empty password', function (assert) {
+    QUnit.test('input field: empty password', function (assert) {
         assert.expect(3);
 
         this.data.partner.records[0].foo = false;
@@ -2775,6 +2772,42 @@ QUnit.module('basic_fields', {
 
         $warn = form.$('.o_datepicker_warning:visible');
         assert.strictEqual($warn.length, 0, "the warning in the form view should be hidden");
+
+        form.destroy();
+    });
+
+    QUnit.test('date field with warn_future option: do not overwrite datepicker option', function (assert) {
+        assert.expect(2);
+
+        // Making sure we don't have a legit default value
+        // or any onchange that would set the value
+        this.data.partner.fields.date.default = undefined;
+        this.data.partner.onchanges = {};
+
+        var form = createView({
+            View: FormView,
+            model: 'partner',
+            data: this.data,
+            arch:'<form string="Partners">' +
+                    '<field name="foo" />' + // Do not let the date field get the focus in the first place
+                    '<field name="date" options="{\'datepicker\': {\'warn_future\': true}}"/>' +
+                 '</form>',
+            res_id: 1,
+        });
+
+        // switch to edit mode
+        form.$buttons.find('.o_form_button_edit').click();
+        assert.strictEqual(form.$('input[name="date"]').val(), '02/03/2017',
+            'The existing record should have a value for the date field');
+
+        // save with no changes
+        form.$buttons.find('.o_form_button_save').click();
+
+        //Create a new record
+        form.$buttons.find('.o_form_button_create').click();
+
+        assert.notOk(form.$('input[name="date"]').val(),
+            'The new record should not have a value that the framework would have set');
 
         form.destroy();
     });

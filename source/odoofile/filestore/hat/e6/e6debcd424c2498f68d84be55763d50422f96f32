@@ -1,0 +1,53 @@
+
+.ui-autocomplete .ui-menu-item.ui-state-focus {
+  background-color: #e9ecef;
+}
+
+.ui-autocomplete .ui-menu-item.ui-state-focus > a {
+  color: #666666;
+}
+
+.ui-autocomplete .ui-menu-item.ui-state-focus > a:hover {
+  color: #666666;
+}
+
+.ui-autocomplete .ui-menu-item.o_m2o_dropdown_option > a,
+.ui-autocomplete .ui-menu-item.ui-state-focus.o_m2o_dropdown_option > a {
+  color: #00A09D;
+}
+
+.ui-autocomplete .ui-menu-item.o_m2o_dropdown_option > a:hover,
+.ui-autocomplete .ui-menu-item.ui-state-focus.o_m2o_dropdown_option > a:hover {
+  color: #00A09D;
+}
+
+.oe_dropdown_toggle {
+  float: right;
+  position: relative;
+}
+
+.oe_dropdown_toggle .oe_dropdown_menu {
+  display: none;
+  position: absolute;
+  min-width: 160px;
+  background: white;
+  border: 1px solid gray;
+  z-index: 3;
+}
+
+.oe_dropdown_toggle .oe_dropdown_menu.oe_opened {
+  display: block;
+}
+
+.o_dropdown_toggler_btn {
+  padding: 0;
+  color: #666666;
+  text-transform: initial;
+}
+
+.o_dropdown_toggler_btn:hover, .o_dropdown_toggler_btn:hover:active, .o_dropdown_toggler_btn:focus, .o_dropdown_toggler_btn:focus:active, .o_dropdown_toggler_btn:active, .show > .o_dropdown_toggler_btn.dropdown-toggle, .show > .o_dropdown_toggler_btn.dropdown-toggle:active, .show > .o_dropdown_toggler_btn.dropdown-toggle:hover, .show > .o_dropdown_toggler_btn.dropdown-toggle:hover:active, .show > .o_dropdown_toggler_btn.dropdown-toggle:focus, .show > .o_dropdown_toggler_btn.dropdown-toggle:focus:active {
+  background: transparent;
+  color: #333333;
+  box-shadow: none;
+}
+

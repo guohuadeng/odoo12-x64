@@ -1,0 +1,124 @@
+
+[type="text"], [type="password"], [type="number"], textarea, select {
+  width: 100%;
+  display: block;
+  outline: none;
+}
+
+.o_input {
+  border: 1px solid #cfcfcf;
+  border-top-style: none;
+  border-right-style: none;
+  border-left-style: none;
+}
+
+.o_input .o_input {
+  border: none !important;
+  padding: 0;
+}
+
+select {
+  cursor: pointer;
+  background-color: transparent;
+  min-width: 50px;
+  -webkit-appearance: none; -moz-appearance: none; appearance: none;
+  background-image: url("/web_enterprise/static/src/img/down-arrow.png");
+  background-repeat: no-repeat;
+  background-position: right center;
+  border-radius: 0;
+  color: transparent;
+  text-shadow: 0 0 0 #666666;
+}
+
+select > option {
+  color: #666666;
+}
+
+::-webkit-input-placeholder {
+  color: #8f8f8f;
+  opacity: 0.5;
+}
+
+::-moz-placeholder {
+  color: #8f8f8f;
+  opacity: 0.5;
+}
+
+:-ms-input-placeholder {
+  color: #8f8f8f;
+  opacity: 0.5;
+}
+
+.btn-secondary {
+  color: #00A09D;
+}
+
+.btn-secondary.fa {
+  color: #212529;
+}
+
+.o_loading {
+  background-color: #875A7B;
+  color: white;
+  padding: 4px;
+}
+
+.oe_clear {
+  clear: both;
+}
+
+@media (max-width: 767.98px) {
+  h1 {
+    font-size: 1.95rem;
+  }
+  h2, h3, h4, h5, h6 {
+    font-size: 15px;
+  }
+}
+
+.alert.alert-info, .alert.alert-success, .alert.alert-warning, .alert.alert-danger {
+  border-width: 0 0 0 3px;
+}
+
+.alert a {
+  font-weight: 700;
+}
+
+.card {
+  box-shadow: none;
+}
+
+.badge {
+  border: 1px solid #00A09D;
+}
+
+.btn, .btn-group > .btn {
+  border-radius: 0px;
+  border: none;
+}
+
+.btn:hover, .btn:active, .btn:focus, .btn:active:focus, .btn-group > .btn:hover, .btn-group > .btn:active, .btn-group > .btn:focus, .btn-group > .btn:active:focus {
+  outline: none;
+}
+
+.btn-primary.active, .btn-secondary.active {
+  box-shadow: none;
+}
+
+.btn-primary, .btn-secondary {
+  text-transform: uppercase;
+}
+
+.navbar .navbar-toggle {
+  border-color: transparent;
+}
+
+.label {
+  border-radius: 0;
+  font-size: 1em;
+}
+
+.popover {
+  border-radius: 0;
+}
+
