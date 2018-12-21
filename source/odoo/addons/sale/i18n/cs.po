@@ -627,7 +627,7 @@ msgstr ""
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_sale_order__message_attachment_count
 msgid "Attachment Count"
-msgstr ""
+msgstr "Počet příloh"
 
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_product_attribute_custom_value__attribute_value_id
@@ -918,7 +918,7 @@ msgstr "Vytvořit faktury"
 #. module: sale
 #: model_terms:ir.actions.act_window,help:sale.product_template_action
 msgid "Create a new product"
-msgstr ""
+msgstr "Vytvořit nový produkt"
 
 #. module: sale
 #: model_terms:ir.actions.act_window,help:sale.act_res_partner_2_sale_order
@@ -1201,7 +1201,7 @@ msgstr ""
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_sale_report__discount
 msgid "Discount %"
-msgstr ""
+msgstr "Sleva v %"
 
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_sale_order_line__discount
@@ -2132,7 +2132,7 @@ msgstr "Platná by měla být pouze celočíselná hodnota."
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.brand_promotion
 msgid "Open Source CRM"
-msgstr ""
+msgstr "Open Source CRM"
 
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.optional_product_items
@@ -2421,7 +2421,7 @@ msgstr ""
 #. module: sale
 #: selection:sale.order,activity_state:0
 msgid "Planned"
-msgstr ""
+msgstr "Plánováno"
 
 #. module: sale
 #: code:addons/sale/models/sale.py:450
@@ -2915,7 +2915,7 @@ msgstr "Analýza prodeje"
 #. module: sale
 #: model:ir.model,name:sale.model_sale_report
 msgid "Sales Analysis Report"
-msgstr ""
+msgstr "Zpráva analýzy prodeje"
 
 #. module: sale
 #: model:ir.model,name:sale.model_crm_team
@@ -2925,7 +2925,7 @@ msgstr "Prodejní kanály"
 #. module: sale
 #: selection:sale.report,state:0
 msgid "Sales Done"
-msgstr ""
+msgstr "Prodej dokončen"
 
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.view_order_form
@@ -3487,6 +3487,8 @@ msgid ""
 "The commitment date is sooner than the expected date.You may be unable to "
 "honor the commitment date."
 msgstr ""
+"Datum závazku je dříve, než je očekávané datum. Může se stát, že datum "
+"závazku nebude splněno."
 
 #. module: sale
 #: model:ir.model.fields,help:sale.field_crm_team__dashboard_graph_model

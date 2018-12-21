@@ -2866,7 +2866,7 @@ msgstr ""
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.res_config_settings_view_form
 msgid "Checks"
-msgstr "Controles"
+msgstr "Cheques"
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_invoice_send__child_ids
@@ -3273,7 +3273,7 @@ msgstr ""
 #. module: account
 #: model:account.account.type,name:account.data_account_type_direct_costs
 msgid "Cost of Revenue"
-msgstr "Kosten van de omzet"
+msgstr "Inkoopwaarde van de omzet"
 
 #. module: account
 #: code:addons/account/models/chart_template.py:192
@@ -3352,7 +3352,7 @@ msgstr "Maak een boeking"
 #. module: account
 #: model_terms:ir.actions.act_window,help:account.action_account_group_tree
 msgid "Create a new account group"
-msgstr "Maak een nieuwe boekhoud groep"
+msgstr "Maak een nieuwe rekeningrubriek"
 
 #. module: account
 #: model_terms:ir.actions.act_window,help:account.action_view_bank_statement_tree
@@ -3560,7 +3560,7 @@ msgstr "Credit"
 #. module: account
 #: model:account.account.type,name:account.data_account_type_credit_card
 msgid "Credit Card"
-msgstr "Credit Card"
+msgstr "Creditcard"
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_move_line__credit_cash_basis
@@ -3679,17 +3679,17 @@ msgstr "Verschil wisselkoers"
 #: model:account.account.type,name:account.data_account_type_current_assets
 #: model_terms:ir.ui.view,arch_db:account.view_account_form
 msgid "Current Assets"
-msgstr "Huidige activa"
+msgstr "Vlottende activa"
 
 #. module: account
 #: model:account.account.type,name:account.data_account_type_current_liabilities
 msgid "Current Liabilities"
-msgstr "Huidige passiva"
+msgstr "Kort vreemd vermogen"
 
 #. module: account
 #: model:account.account.type,name:account.data_unaffected_earnings
 msgid "Current Year Earnings"
-msgstr "Huidige jaaromzet"
+msgstr "Huidige jaarwinst"
 
 #. module: account
 #: model:ir.model.fields,help:account.field_account_invoice_send__starred
@@ -4512,7 +4512,7 @@ msgstr "Boekingsregels"
 #: model_terms:ir.ui.view,arch_db:account.view_account_form
 #: model_terms:ir.ui.view,arch_db:account.view_account_search
 msgid "Equity"
-msgstr "Vermogen"
+msgstr "Eigen vermogen"
 
 #. module: account
 #: code:addons/account/models/res_config_settings.py:145
@@ -4967,7 +4967,7 @@ msgstr "Ga naar de bankafschrift(en)"
 #: code:addons/account/models/company.py:521
 #, python-format
 msgid "Go to the configuration panel"
-msgstr "Ga naar het configuratie paneel"
+msgstr "Ga naar het configuratiepaneel"
 
 #. module: account
 #: code:addons/account/models/company.py:459
@@ -5291,8 +5291,7 @@ msgstr "Als u deze optie aanvinkt kan u uw betaling registreren met SEPA."
 msgid ""
 "If you have not installed a chart of account, please install one first.<br>"
 msgstr ""
-"Indien u de rekeningstelsels niet installeerde, aub installeer ze nu "
-"eerst.<br>"
+"Indien u geen grootboekschema heeft geïnstalleerd, doe dat dan eerst.<br>"
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.account_unreconcile_view
@@ -5861,7 +5860,7 @@ msgstr "Facturen die toebehoren aan u"
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.account_journal_dashboard_kanban_view
 msgid "Invoices to Validate"
-msgstr "Te bevestigen facturen"
+msgstr "Facturen te bevestigen"
 
 #. module: account
 #: model:ir.model.fields,help:account.field_account_payment__reconciled_invoice_ids
@@ -6863,7 +6862,7 @@ msgstr "Berichten"
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.view_account_form
 msgid "Minus Cost of Revenue"
-msgstr "Min kosten van de omzet"
+msgstr "Min inkoopwaarde van de omzet"
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.view_account_form
@@ -6873,7 +6872,7 @@ msgstr "Min creditcard rekeningen"
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.view_account_form
 msgid "Minus Current Liabilities"
-msgstr "Huidige passiva"
+msgstr "Min kort vreemd vermogen"
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.view_account_form
@@ -6883,7 +6882,7 @@ msgstr "Min kosten"
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.view_account_form
 msgid "Minus Non-Current Liabilities"
-msgstr "Minus huidige passiva"
+msgstr "Min lang vreemd vermogen"
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.view_account_form
@@ -7130,8 +7129,8 @@ msgid ""
 "No account was found to create the invoice, be sure you have installed a "
 "chart of account."
 msgstr ""
-"Geen rekening werd gevonden om de factuur te maken, verzeker u ervan om de "
-"rekeningstelsels te installeren."
+"Geen rekening werd gevonden om de factuur te maken, zorg ervoor dat u een "
+"grootboekschema heeft geïnstalleerd."
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_invoice_send__no_auto_thread
@@ -7161,7 +7160,7 @@ msgstr "Langlopende activa"
 #. module: account
 #: model:account.account.type,name:account.data_account_type_non_current_liabilities
 msgid "Non-current Liabilities"
-msgstr "Langlopende passiva"
+msgstr "Lang vreemd vermogen"
 
 #. module: account
 #: selection:account.tax,type_tax_use:0
@@ -7751,7 +7750,7 @@ msgstr "Relatiesoort"
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_invoice_send__needaction_partner_ids
 msgid "Partners with Need Action"
-msgstr "Relaties met Nodige Actie"
+msgstr "Relaties met benodigde actie"
 
 #. module: account
 #: code:addons/account/models/account_journal_dashboard.py:95
@@ -8218,7 +8217,7 @@ msgstr "Prefix van de transfer rekeningen"
 #: model:account.account.type,name:account.data_account_type_prepayments
 #: model_terms:ir.ui.view,arch_db:account.view_account_form
 msgid "Prepayments"
-msgstr "Voorafbetalingen"
+msgstr "Vooruitbetalingen"
 
 #. module: account
 #: model:ir.model,name:account.model_account_reconcile_model
@@ -9345,7 +9344,7 @@ msgstr "Stel uw bankrekening in om automatisch te synchroniseren."
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.onboarding_chart_of_account_step
 msgid "Setup your chart of accounts and record initial balances."
-msgstr "Configureer uw rekeningstelsels en initiële saldi."
+msgstr "Configureer uw grootboekschema en openingsbalans."
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.dashboard_onboarding_company_step
@@ -9499,7 +9498,7 @@ msgstr "Status"
 #. module: account
 #: model:ir.model.fields,field_description:account.field_res_company__account_dashboard_onboarding_state
 msgid "State of the account dashboard onboarding panel"
-msgstr "Status van het boekhoud dashboard onboarding paneel"
+msgstr "Status van het dashboard boekhouding onboarding paneel"
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_res_company__account_invoice_onboarding_state
@@ -11013,7 +11012,7 @@ msgstr ""
 #. module: account
 #: model_terms:ir.actions.act_window,help:account.open_account_journal_dashboard_kanban
 msgid "This is the accounting dashboard"
-msgstr "Dit is het boekhoud dashboard"
+msgstr "Dit is het dashboard boekhouding"
 
 #. module: account
 #: code:addons/account/models/account.py:620
@@ -11834,8 +11833,8 @@ msgid ""
 "We cannot find a chart of accounts for this company, you should configure it. \n"
 "Please go to Account Configuration and select or install a fiscal localization."
 msgstr ""
-"We kunnen geen rekeningstelsels vinden voor dit bedrijf, u kan ze instellen. \n"
-"ga naar Boekhoud Instellingen en selecteer of install een fiscale localisatie."
+"We kunnen geen grootboekschema vinden voor dit bedrij. U dient deze in te stellen\n"
+"Ga naar instellingen van de boekhouding en selecteer of installeer een lokalisatie."
 
 #. module: account
 #: code:addons/account/models/company.py:457
@@ -11867,8 +11866,9 @@ msgid ""
 "When receiving an email with a bill, or uploading scanned bills, Odoo will "
 "parse them (OCR) and auto-complete (AI) Draft Bills to validate."
 msgstr ""
-"Indien emails ontvangen met een rekening of een gescande rekening, Odoo zal "
-"ze analyseren (OCR) en autocomplete (AI) ontwerprekening voor validatie."
+"Indien e-mails worden ontvangen met een leveranciersfactuur of een geüploade"
+" gescande leveranciersfactuur, zal Odoo deze analyseren (OCR) en een concept"
+" leveranciersfactuur aanmaken en deze aanvullen (AI)."
 
 #. module: account
 #: model:ir.model.fields,help:account.field_account_journal__post_at_bank_rec

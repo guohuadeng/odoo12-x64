@@ -8,7 +8,6 @@
 # Nicolaj Helmer Hansen <nhh@softwarehuset.com>, 2018
 # jonas jensen <j.jensen@tcomp.dk>, 2018
 # JonathanStein <jstein@image.dk>, 2018
-# Kenneth Hansen <kenneth@vkdata.dk>, 2018
 # Hans Henrik Gabelgaard <hhg@gabelgaard.org>, 2018
 # Martin Trigaux, 2018
 # Per Rasmussen <perhgrasmussen@gmail.com>, 2018
@@ -17,7 +16,9 @@
 # Jarnhold Nattestad <nattestads@gmail.com>, 2018
 # Ejner Sønniksen <ejner@vkdata.dk>, 2018
 # Pernille Kristensen <pernillekristensen1994@gmail.com>, 2018
+# Kenneth Hansen <kenneth@vkdata.dk>, 2018
 # lhmflexerp <lhm@flexerp.dk>, 2018
+# Simon Andersen <simon@vkdata.dk>, 2018
 # Sanne Kristensen <sanne@vkdata.dk>, 2018
 # 
 msgid ""
@@ -86,7 +87,7 @@ msgstr "%s (kopi)"
 #: code:addons/account/models/account.py:688
 #, python-format
 msgid "%s Sequence"
-msgstr "Nummerserie"
+msgstr "%s Nummerserie"
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.report_invoice_document
@@ -763,7 +764,7 @@ msgstr "Der kan indstilles en advarsel på en partner (konto)"
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_invoice__access_warning
 msgid "Access warning"
-msgstr ""
+msgstr "Adgang advarsel"
 
 #. module: account
 #. openerp-web
@@ -1263,7 +1264,7 @@ msgstr ""
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.invoice_form
 msgid "Add a note"
-msgstr ""
+msgstr "Tilføj en note"
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.res_config_settings_view_form
@@ -3050,7 +3051,7 @@ msgstr ""
 #. module: account
 #: model:ir.model,name:account.model_res_config_settings
 msgid "Config Settings"
-msgstr ""
+msgstr "Konfigurer opsætning"
 
 #. module: account
 #: model:ir.ui.menu,name:account.menu_finance_configuration
@@ -3645,7 +3646,7 @@ msgstr "Kundebetalinger"
 #. module: account
 #: model:ir.model.fields,help:account.field_account_invoice__access_url
 msgid "Customer Portal URL"
-msgstr ""
+msgstr "Kundeportal URL"
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_product_template__taxes_id
@@ -4042,7 +4043,7 @@ msgstr ""
 #. module: account
 #: model:ir.model,name:account.model_digest_digest
 msgid "Digest"
-msgstr ""
+msgstr "Digest"
 
 #. module: account
 #: model:ir.model.fields,help:account.field_res_config_settings__group_products_in_bills
@@ -4151,6 +4152,7 @@ msgstr "Vis på fakturaer"
 #, python-format
 msgid "Do not have access, skip this data for user's digest email"
 msgstr ""
+"Har ikke adgang, spring over disse data til brugerens opsummerings e-mail"
 
 #. module: account
 #: model:ir.model.fields,help:account.field_account_invoice_send__auto_delete_message
@@ -4580,7 +4582,7 @@ msgstr ""
 #: model:ir.actions.act_window,name:account.actions_account_fiscal_year
 #: model:ir.model.fields,field_description:account.field_res_config_settings__group_fiscal_year
 msgid "Fiscal Years"
-msgstr ""
+msgstr "Regnskabasår"
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_financial_year_op__fiscalyear_last_day
@@ -6000,7 +6002,7 @@ msgstr "Juni"
 #: selection:res.company,account_setup_coa_state:0
 #: selection:res.company,account_setup_fy_data_state:0
 msgid "Just done"
-msgstr ""
+msgstr "Udført"
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_tax_adjustments_wizard__reason
@@ -6306,7 +6308,7 @@ msgstr "Seneste dato for udligning af faktura og betaling"
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_invoice_send__layout
 msgid "Layout"
-msgstr ""
+msgstr "Layout"
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.view_account_position_form
@@ -6893,7 +6895,7 @@ msgstr "Oversigt over næste aktivitet"
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_invoice__activity_type_id
 msgid "Next Activity Type"
-msgstr ""
+msgstr "Næste aktivitetstype"
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_invoice__sequence_number_next
@@ -7882,7 +7884,7 @@ msgstr ""
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.report_invoice_document
 msgid "Please use the following communication for your payment :"
-msgstr ""
+msgstr "Anvend venligst følgende oplysninger i din betaling:"
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.view_account_form
@@ -7912,7 +7914,7 @@ msgstr "Plus anden indkomst"
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_invoice__access_url
 msgid "Portal Access URL"
-msgstr ""
+msgstr "Portal adgangs URL"
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.view_move_form
@@ -9142,7 +9144,7 @@ msgstr ""
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.view_account_invoice_filter
 msgid "Show all records which has next action date is before today"
-msgstr ""
+msgstr "Vis alle poster, hvor den næste handlingsdato er før i dag"
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.view_account_tax_search
@@ -9357,6 +9359,10 @@ msgid ""
 "Today: Activity date is today\n"
 "Planned: Future activities."
 msgstr ""
+"Status baseret på aktiviteter\n"
+"Forfaldne: Forfaldsdato er allerede overskredet\n"
+"I dag: Aktivitetsdato er i dag\n"
+"Planlagt: Fremtidige aktiviteter."
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.onboarding_bank_account_step

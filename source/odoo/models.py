@@ -846,7 +846,6 @@ class BaseModel(MetaModel('DummyModel', (object,), {'_register': False})):
         ids = []
         messages = []
         ModelData = self.env['ir.model.data']
-        ModelData.clear_caches()
 
         # list of (xid, vals, info) for records to be created in batch
         batch = []
@@ -902,6 +901,7 @@ class BaseModel(MetaModel('DummyModel', (object,), {'_register': False})):
                     # avoid broken transaction) and keep going
                     cr.execute('ROLLBACK TO SAVEPOINT model_load_save')
                 except Exception as e:
+                    _logger.exception("Error while loading record")
                     info = rec_data['info']
                     message = (_(u'Unknown error during import:') + u' %s: %s' % (type(e), e))
                     moreinfo = _('Resolve other errors first')
@@ -928,6 +928,8 @@ class BaseModel(MetaModel('DummyModel', (object,), {'_register': False})):
         if any(message['type'] == 'error' for message in messages):
             cr.execute('ROLLBACK TO SAVEPOINT model_load')
             ids = False
+            # cancel all changes done to the registry/ormcache
+            self.pool.reset_changes()
 
         return {'ids': ids, 'messages': messages}
 
@@ -5360,10 +5362,13 @@ class BaseModel(MetaModel('DummyModel', (object,), {'_register': False})):
                                 line_diff = line_snapshot.diff({})
                                 commands.append((0, line.id.ref or 0, line_diff))
                             else:
-                                # existing line: send diff from database
+                                # existing line: check diff from database
                                 # (requires a clean record cache!)
                                 line_diff = line_snapshot.diff(Snapshot(line, subnames))
                                 if line_diff:
+                                    # send all fields because the web client
+                                    # might need them to evaluate modifiers
+                                    line_diff = line_snapshot.diff({})
                                     commands.append((1, line.id, line_diff))
                                 else:
                                     commands.append((4, line.id))

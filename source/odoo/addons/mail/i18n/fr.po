@@ -3,10 +3,12 @@
 # * mail
 # 
 # Translators:
+# nle_odoo, 2018
 # Fabien Bourgeois <fabien@yaltik.com>, 2018
 # Xavier Symons <xsy@openerp.com>, 2018
 # Xavier Belmere <Info@cartmeleon.com>, 2018
 # Olivier Lenoir <olivier.lenoir@free.fr>, 2018
+# Moka Tourisme <hello@mokatourisme.fr>, 2018
 # Christophe CHAUVET <christophe.chauvet@gmail.com>, 2018
 # Eloïse Stilmant <est@odoo.com>, 2018
 # Laura Piraux <lap@odoo.com>, 2018
@@ -154,10 +156,10 @@ msgid ""
 "            Type <b>:shortcut</b> to insert canned responses in your message.<br>"
 msgstr ""
 "<br><br>\n"
-"            Tappez <b>@nomutilisateur</b> pour mentionner quelqu'un et attirer son attention.<br>\n"
-"            Tappez<b>#canal</b> pour mentionner un canal.<br>\n"
-"            Tappez <b>/commande</b> pour exécuter une commande.<br>\n"
-"            Tappez <b>:raccourci</b> pour insérer une réponse automatique à votre message.<br>"
+"            Tapez <b>@nomutilisateur</b> pour mentionner quelqu'un et attirer son attention.<br>\n"
+"            Tapez <b>#canal</b> pour mentionner un canal.<br>\n"
+"            Tapez <b>/commande</b> pour exécuter une commande.<br>\n"
+"            Tapez <b>:raccourci</b> pour insérer une réponse automatique à votre message.<br>"
 
 #. module: mail
 #: code:addons/mail/models/mail_channel.py:721
@@ -2739,7 +2741,7 @@ msgstr "Invite des gens"
 #: code:addons/mail/static/src/js/discuss.js:1188
 #, python-format
 msgid "Invite people to #%s"
-msgstr "Inviter des joueurs à"
+msgstr "Inviter des personnes à #%s"
 
 #. module: mail
 #: model:ir.model,name:mail.model_mail_wizard_invite
@@ -4893,7 +4895,8 @@ msgstr "Envoyer les messages par courriel"
 
 #. module: mail
 #. openerp-web
-#: code:addons/mail/static/src/xml/thread.xml:397
+#: code:addons/mail/static/src/xml/thread.xml:390
+#: model_terms:ir.ui.view,arch_db:mail.message_notification_email
 #: model_terms:ir.ui.view,arch_db:mail.view_mail_search
 #: selection:mail.mail,state:0 selection:mail.notification,email_status:0
 #, python-format
@@ -5922,6 +5925,12 @@ msgstr ""
 "nécessaire pour d'autres modules."
 
 #. module: mail
+#: code:addons/mail/models/mail_thread.py:2358
+#, python-format
+msgid "You have been assigned to %s"
+msgstr ""
+
+#. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.message_user_assigned
 msgid "You have been assigned to the"
 msgstr "Vous avez été assigné à "
@@ -6052,6 +6061,7 @@ msgstr "Réunions"
 #. module: mail
 #. openerp-web
 #: code:addons/mail/static/src/xml/activity.xml:43
+#: model_terms:ir.ui.view,arch_db:mail.message_notification_email
 #: model_terms:ir.ui.view,arch_db:mail.view_mail_form
 #, python-format
 msgid "by"

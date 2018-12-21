@@ -1848,7 +1848,7 @@ msgstr "Vervalsoort"
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.email_template_form
 msgid "Dynamic Placeholder Generator"
-msgstr "Dynamische bladwijze generator"
+msgstr "Dynamische bladwijzer generator"
 
 #. module: mail
 #. openerp-web
@@ -2337,7 +2337,7 @@ msgstr "Algemene gebruiker van record"
 #: code:addons/mail/models/res_users.py:88
 #, python-format
 msgid "Go to the configuration panel"
-msgstr "Ga naar het configuratie paneel"
+msgstr "Ga naar het configuratiepaneel"
 
 #. module: mail
 #: selection:ir.actions.act_window.view,view_mode:0
@@ -2651,7 +2651,7 @@ msgstr "Initiële bericht thread"
 #: model:ir.ui.menu,name:mail.mail_channel_integrations_menu
 #: model_terms:ir.ui.view,arch_db:mail.mail_channel_view_form
 msgid "Integrations"
-msgstr "integraties"
+msgstr "Integraties"
 
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_mail_message_subtype__internal
@@ -3154,7 +3154,7 @@ msgstr "Hoofd bijlage"
 #: code:addons/mail/static/src/xml/thread.xml:9
 #, python-format
 msgid "Manage Messages"
-msgstr "Beheer e-Mails"
+msgstr "Beheer berichten"
 
 #. module: mail
 #. openerp-web
@@ -4041,7 +4041,7 @@ msgid ""
 msgstr ""
 "Optionele vertaling (ISO code) welke u kunt selecteren bij het versturen van"
 " een e-mail. Indien niet ingesteld, wordt de Engelse versie gebruikt. "
-"Normaliter is dit een bladwijzen welke de juiste taal aangeeft. Bijv.: "
+"Normaliter is dit een bladwijzer welke de juiste taal aangeeft. Bijv.: "
 "${object.partner_id.lang}."
 
 #. module: mail
@@ -4180,7 +4180,7 @@ msgstr "Relatie met aanvullende informatie voor e-mail opnieuw verzenden"
 #: model:ir.model.fields,field_description:mail.field_mail_mail__needaction_partner_ids
 #: model:ir.model.fields,field_description:mail.field_mail_message__needaction_partner_ids
 msgid "Partners with Need Action"
-msgstr "Relaties met Nodige Actie"
+msgstr "Relaties met benodigde actie"
 
 #. module: mail
 #: selection:mail.compose.message,moderation_status:0
@@ -5209,7 +5209,7 @@ msgid ""
 msgstr ""
 "Het model waar deze alias bijhoort. Iedere inkomende e-mail dat niet bij een"
 " bestaande regel hoort zal leiden tot het aanmaken van een nieuwe regel in "
-"dit model (Bijv. een project taak)."
+"dit model (Bijv. een projecttaak)."
 
 #. module: mail
 #: model:ir.model.fields,help:mail.field_mail_alias__alias_name
@@ -5926,6 +5926,12 @@ msgid ""
 msgstr ""
 "U kunt deze groep niet verwijderen omdat deze groep nodig is voor andere "
 "modules."
+
+#. module: mail
+#: code:addons/mail/models/mail_thread.py:2358
+#, python-format
+msgid "You have been assigned to %s"
+msgstr "U bent toegewezen aan %s"
 
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.message_user_assigned

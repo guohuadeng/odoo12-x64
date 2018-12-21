@@ -10,7 +10,7 @@ Green Odoo 12 x64， http://www.Sunpop.cn
 1. python 3.5.2 ,64位
 2. postgresql 9.6.4 ,64位
 3. Nginx 1.15.5， 64位
-4. Odoo 12社区版，20181123版本。
+4. Odoo 12社区版，20181222版本。
 
 ## 全新功能，更快速度
 Odoo 12 Features, enhance and boost from 11。 新特性，功能更多，性能更好 - 广州尚鹏 | odoo专业实施开发
@@ -47,6 +47,7 @@ http://demo.odooapp.cn
 ## 主要文件说明
 odoo.conf   配置
 db.bat  单独启动数据库，用在pycharm中，debug启动时先启用数据库，假设odoo12是在 d:\odoo12-x64 目录，如有变化自行更改
+ment.bat    将无法在windows处理的企业版模块移出
 r.bat   最常用，odoo服务启动（如果当前有进程则先关闭再启动）
 s.bat 停止
 u.bat 删除当前source目录中的odoo源码，从git上下载最新版本

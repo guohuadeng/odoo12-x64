@@ -214,7 +214,7 @@ class PurchaseRequisitionLine(models.Model):
                 ('product_id', '=', vals.get('product_id')),
                 ('name', '=', res.requisition_id.vendor_id.id),
             ])
-            if not [s.requisition_id for s in supplier_infos]:
+            if not any([s.purchase_requisition_id for s in supplier_infos]):
                 res.create_supplier_info()
             if vals['price_unit'] <= 0.0:
                 raise UserError(_('You cannot confirm the blanket order without price.'))
@@ -369,8 +369,8 @@ class PurchaseOrder(models.Model):
         self.order_line = order_lines
 
     @api.multi
-    def button_confirm(self):
-        res = super(PurchaseOrder, self).button_confirm()
+    def button_approve(self, force=False):
+        res = super(PurchaseOrder, self).button_approve(force=force)
         for po in self:
             if not po.requisition_id:
                 continue
