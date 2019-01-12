@@ -1,0 +1,273 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * link_tracker
+# 
+# Translators:
+# Martin Trigaux, 2018
+# snow wang <147156565@qq.com>, 2018
+# Jeffery CHEN Fan <jeffery9@gmail.com>, 2018
+# niulin lnc. <admin@niulin.net>, 2018
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server saas~11.5\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-09-21 13:17+0000\n"
+"PO-Revision-Date: 2018-08-24 09:20+0000\n"
+"Last-Translator: niulin lnc. <admin@niulin.net>, 2018\n"
+"Language-Team: Chinese (China) (https://www.transifex.com/odoo/teams/41243/zh_CN/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: zh_CN\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. module: link_tracker
+#: model:ir.model.fields,field_description:link_tracker.field_link_tracker__campaign_id
+msgid "Campaign"
+msgstr "营销"
+
+#. module: link_tracker
+#: model:ir.model.fields,field_description:link_tracker.field_link_tracker__link_click_ids
+#: model_terms:ir.ui.view,arch_db:link_tracker.view_link_tracker_form
+msgid "Clicks"
+msgstr "点击"
+
+#. module: link_tracker
+#: sql_constraint:link.tracker.code:0
+msgid "Code must be unique."
+msgstr "代码必须是唯一的。"
+
+#. module: link_tracker
+#: model:ir.model.fields,field_description:link_tracker.field_link_tracker__link_code_ids
+msgid "Codes"
+msgstr "代码"
+
+#. module: link_tracker
+#: model:ir.model.fields,field_description:link_tracker.field_link_tracker_click__country_id
+msgid "Country"
+msgstr "国家"
+
+#. module: link_tracker
+#: model:ir.model.fields,field_description:link_tracker.field_link_tracker_click__click_date
+msgid "Create Date"
+msgstr "创建日期"
+
+#. module: link_tracker
+#: model_terms:ir.actions.act_window,help:link_tracker.action_link_tracker
+msgid "Create a new link tracker"
+msgstr "创建一个新的连接跟踪器"
+
+#. module: link_tracker
+#: model:ir.model.fields,field_description:link_tracker.field_link_tracker__create_uid
+#: model:ir.model.fields,field_description:link_tracker.field_link_tracker_click__create_uid
+#: model:ir.model.fields,field_description:link_tracker.field_link_tracker_code__create_uid
+msgid "Created by"
+msgstr "创建人"
+
+#. module: link_tracker
+#: model:ir.model.fields,field_description:link_tracker.field_link_tracker__create_date
+#: model:ir.model.fields,field_description:link_tracker.field_link_tracker_click__create_date
+#: model:ir.model.fields,field_description:link_tracker.field_link_tracker_code__create_date
+msgid "Created on"
+msgstr "创建时间"
+
+#. module: link_tracker
+#: model:ir.model.fields,field_description:link_tracker.field_link_tracker__display_name
+#: model:ir.model.fields,field_description:link_tracker.field_link_tracker_click__display_name
+#: model:ir.model.fields,field_description:link_tracker.field_link_tracker_code__display_name
+msgid "Display Name"
+msgstr "显示名称"
+
+#. module: link_tracker
+#: model:ir.model.fields,field_description:link_tracker.field_link_tracker__favicon
+msgid "Favicon"
+msgstr "图标"
+
+#. module: link_tracker
+#: model:ir.model.fields,field_description:link_tracker.field_link_tracker__icon_src
+msgid "Favicon Source"
+msgstr "图标来源"
+
+#. module: link_tracker
+#: model:ir.model.fields,field_description:link_tracker.field_link_tracker__short_url_host
+msgid "Host of the short URL"
+msgstr "短网址主机"
+
+#. module: link_tracker
+#: model:ir.model.fields,field_description:link_tracker.field_link_tracker__id
+#: model:ir.model.fields,field_description:link_tracker.field_link_tracker_click__id
+#: model:ir.model.fields,field_description:link_tracker.field_link_tracker_code__id
+msgid "ID"
+msgstr "ID"
+
+#. module: link_tracker
+#: model:ir.model.fields,field_description:link_tracker.field_link_tracker_click__ip
+msgid "Internet Protocol"
+msgstr "互联网协议"
+
+#. module: link_tracker
+#: model:ir.model.fields,field_description:link_tracker.field_link_tracker____last_update
+#: model:ir.model.fields,field_description:link_tracker.field_link_tracker_click____last_update
+#: model:ir.model.fields,field_description:link_tracker.field_link_tracker_code____last_update
+msgid "Last Modified on"
+msgstr "最后修改日"
+
+#. module: link_tracker
+#: model:ir.model.fields,field_description:link_tracker.field_link_tracker__write_uid
+#: model:ir.model.fields,field_description:link_tracker.field_link_tracker_click__write_uid
+#: model:ir.model.fields,field_description:link_tracker.field_link_tracker_code__write_uid
+msgid "Last Updated by"
+msgstr "最后更新人"
+
+#. module: link_tracker
+#: model:ir.model.fields,field_description:link_tracker.field_link_tracker__write_date
+#: model:ir.model.fields,field_description:link_tracker.field_link_tracker_click__write_date
+#: model:ir.model.fields,field_description:link_tracker.field_link_tracker_code__write_date
+msgid "Last Updated on"
+msgstr "最后更新时间"
+
+#. module: link_tracker
+#: model:ir.model.fields,field_description:link_tracker.field_link_tracker_click__link_id
+#: model:ir.model.fields,field_description:link_tracker.field_link_tracker_code__link_id
+msgid "Link"
+msgstr "链接"
+
+#. module: link_tracker
+#: model:ir.actions.act_window,name:link_tracker.action_link_tracker
+#: model:ir.model,name:link_tracker.model_link_tracker
+#: model:ir.ui.menu,name:link_tracker.menu_url_shortener_main
+msgid "Link Tracker"
+msgstr "链接跟踪"
+
+#. module: link_tracker
+#: model:ir.model,name:link_tracker.model_link_tracker_click
+msgid "Link Tracker Click"
+msgstr "链接跟踪点击"
+
+#. module: link_tracker
+#: model:ir.model,name:link_tracker.model_link_tracker_code
+msgid "Link Tracker Code"
+msgstr "链接跟踪代码"
+
+#. module: link_tracker
+#: model:ir.model.fields,field_description:link_tracker.field_link_tracker__medium_id
+msgid "Medium"
+msgstr "中等"
+
+#. module: link_tracker
+#: model:ir.model.fields,field_description:link_tracker.field_link_tracker__count
+msgid "Number of Clicks"
+msgstr "点击数"
+
+#. module: link_tracker
+#: model:ir.model.fields,field_description:link_tracker.field_link_tracker__title
+msgid "Page Title"
+msgstr "网页标题"
+
+#. module: link_tracker
+#: model:ir.model.fields,field_description:link_tracker.field_link_tracker__redirected_url
+msgid "Redirected URL"
+msgstr "重定向网址"
+
+#. module: link_tracker
+#: model:ir.model.fields,field_description:link_tracker.field_link_tracker_code__code
+msgid "Short URL Code"
+msgstr "短网址代码"
+
+#. module: link_tracker
+#: model:ir.model.fields,field_description:link_tracker.field_link_tracker__code
+msgid "Short URL code"
+msgstr "短网址代码"
+
+#. module: link_tracker
+#: model:ir.model.fields,field_description:link_tracker.field_link_tracker__source_id
+msgid "Source"
+msgstr "来源"
+
+#. module: link_tracker
+#: model:ir.actions.act_window,name:link_tracker.action_view_click_statistics
+msgid "Statistics of Clicks"
+msgstr "点击分析"
+
+#. module: link_tracker
+#: model:ir.model.fields,field_description:link_tracker.field_link_tracker__url
+msgid "Target URL"
+msgstr "目标网址"
+
+#. module: link_tracker
+#: model:ir.model.fields,help:link_tracker.field_link_tracker__campaign_id
+msgid ""
+"This is a name that helps you keep track of your different campaign efforts,"
+" e.g. Fall_Drive, Christmas_Special"
+msgstr "这是一个帮助您追踪不同营销活动的名称，例如，节能减排、圣诞特辑"
+
+#. module: link_tracker
+#: model:ir.model.fields,help:link_tracker.field_link_tracker__medium_id
+msgid "This is the method of delivery, e.g. Postcard, Email, or Banner Ad"
+msgstr "这是传达方法，例如，明信片、EMail或横幅广告"
+
+#. module: link_tracker
+#: model:ir.model.fields,help:link_tracker.field_link_tracker__source_id
+msgid ""
+"This is the source of the link, e.g. Search Engine, another domain, or name "
+"of email list"
+msgstr "这是链接源，例如，搜索引擎、其他域名或EMail列表名称"
+
+#. module: link_tracker
+#: model_terms:ir.ui.view,arch_db:link_tracker.view_link_tracker_filter
+msgid "Title and URL"
+msgstr "标题和网址"
+
+#. module: link_tracker
+#: model_terms:ir.ui.view,arch_db:link_tracker.view_link_tracker_filter
+msgid "Tracked Link"
+msgstr "追踪链接"
+
+#. module: link_tracker
+#: model:ir.model.fields,field_description:link_tracker.field_link_tracker__short_url
+msgid "Tracked URL"
+msgstr "跟踪网址"
+
+#. module: link_tracker
+#: model_terms:ir.ui.view,arch_db:link_tracker.view_link_tracker_form
+msgid "Visit Page"
+msgstr "访问页面"
+
+#. module: link_tracker
+#: code:addons/link_tracker/models/link_tracker.py:142
+#, python-format
+msgid "Visit Webpage"
+msgstr "访问网页"
+
+#. module: link_tracker
+#: model_terms:ir.ui.view,arch_db:link_tracker.view_link_tracker_form
+msgid "Website Link"
+msgstr "网站链接"
+
+#. module: link_tracker
+#: model_terms:ir.ui.view,arch_db:link_tracker.view_link_tracker_click_form
+#: model_terms:ir.ui.view,arch_db:link_tracker.view_link_tracker_click_graph
+msgid "Website Link Clicks"
+msgstr "网站链接点击"
+
+#. module: link_tracker
+#: model_terms:ir.ui.view,arch_db:link_tracker.view_link_tracker_form_stats
+msgid "Website Link Graph"
+msgstr "网站链接图表"
+
+#. module: link_tracker
+#: model_terms:ir.ui.view,arch_db:link_tracker.view_link_tracker_graph
+#: model_terms:ir.ui.view,arch_db:link_tracker.view_link_tracker_tree
+msgid "Website Links"
+msgstr "网站链接"
+
+#. module: link_tracker
+#: model_terms:ir.ui.view,arch_db:link_tracker.view_link_tracker_click_tree
+msgid "Website Links Clicks"
+msgstr "网站链接点击"
+
+#. module: link_tracker
+#: model:ir.actions.act_window,name:link_tracker.action_link_tracker_stats
+msgid "link.tracker.form.graph.action"
+msgstr "链接.追踪.界面.图表.动作"
