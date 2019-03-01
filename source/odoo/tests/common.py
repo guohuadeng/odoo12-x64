@@ -530,6 +530,7 @@ class ChromeBrowser():
             '--user-data-dir': self.user_data_dir,
             '--disable-translate': '',
             '--window-size': '1366x768',
+            '--remote-debugging-address': HOST,
             '--remote-debugging-port': str(self.devtools_port),
             '--no-sandbox': '',
         }
@@ -572,7 +573,7 @@ class ChromeBrowser():
         command = os.path.join('json', command).strip('/')
         while timeout > 0:
             try:
-                url = werkzeug.urls.url_join('http://127.0.0.1:%s/' % self.devtools_port, command)
+                url = werkzeug.urls.url_join('http://%s:%s/' % (HOST, self.devtools_port), command)
                 self._logger.info('Url : %s', url)
                 r = requests.get(url, timeout=3)
                 if r.ok:
@@ -881,7 +882,7 @@ class HttpCase(TransactionCase):
         odoo.http.root.session_store.save(session)
         if self.browser:
             self._logger.info('Setting session cookie in browser')
-            self.browser.set_cookie('session_id', self.session_id, '/', '127.0.0.1')
+            self.browser.set_cookie('session_id', self.session_id, '/', HOST)
 
     def browser_js(self, url_path, code, ready='', login=None, timeout=60, **kw):
         """ Test js code running in the browser
@@ -905,7 +906,10 @@ class HttpCase(TransactionCase):
 
         try:
             self.authenticate(login, login)
-            url = "http://%s:%s%s" % (HOST, PORT, url_path or '/')
+            base_url = "http://%s:%s" % (HOST, PORT)
+            ICP = self.env['ir.config_parameter']
+            ICP.set_param('web.base.url', base_url)
+            url = "%s%s" % (base_url, url_path or '/')
             self._logger.info('Open "%s" in browser', url)
 
             if odoo.tools.config['logfile']:
@@ -1094,7 +1098,7 @@ class Form(object):
         else:
             view_id = view or False
         fvg = recordp.fields_view_get(view_id, 'form')
-        arch = etree.fromstring(fvg['arch'])
+        fvg['tree'] = etree.fromstring(fvg['arch'])
 
         object.__setattr__(self, '_view', fvg)
         # TODO: make this less crappy?
@@ -1103,7 +1107,7 @@ class Form(object):
             if descr['type'] != 'one2many':
                 continue
 
-            node = next(n for n in arch.iter('field') if n.get('name') == f)
+            node = self._get_node(f)
             default_view = next(
                 (m for m in node.get('mode', 'tree').split(',') if m != 'form'),
                 'tree'
@@ -1126,10 +1130,12 @@ class Form(object):
             # if the default view is a kanban or a non-editable list, the
             # "edition controller" is the form view
             edition = views['form']
+            edition['tree'] = etree.fromstring(edition['arch'])
             if default_view == 'tree':
                 subarch = etree.fromstring(views['tree']['arch'])
                 if subarch.get('editable'):
                     edition = views['tree']
+                    edition['tree'] = subarch
 
             self._process_fvg(submodel, edition)
             descr['views']['edition'] = edition
@@ -1149,6 +1155,14 @@ class Form(object):
         else:
             self._init_from_defaults(self._model)
 
+    def _get_node(self, f):
+        """ Find etree node for the field ``f`` in the current arch
+        """
+        return next(
+            n for n in self._view['tree'].iter('field')
+            if n.get('name') == f
+        )
+
     def __str__(self):
         return "<%s %s(%s)>" % (
             type(self).__name__,
@@ -1167,7 +1181,7 @@ class Form(object):
         # pre-resolve modifiers & bind to arch toplevel
         modifiers = fvg['modifiers'] = {}
         contexts = fvg['contexts'] = {}
-        for f in etree.fromstring(fvg['arch']).iter('field'):
+        for f in fvg['tree'].iter('field'):
             fname = f.get('name')
             modifiers[fname] = {
                 modifier: domain if isinstance(domain, bool) else normalize_domain(domain)
@@ -1352,8 +1366,11 @@ class Form(object):
             # skip unmodified fields
             if f not in self._changed:
                 continue
+
             if self._get_modifier(f, 'readonly'):
-                continue
+                node = self._get_node(f)
+                if not node.get('force_save'):
+                    continue
             # TODO: filter out (1, _, {}) from o2m values
             values[f] = v
         return values
