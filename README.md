@@ -93,6 +93,7 @@ pip3 install .\extra\psycopg2-2.7.4-cp35-cp35m-win_amd64.whl
 pip3 install .\extra\wandex-0.4.5-py3-none-any.whl
 pip3 install .\extra\imageio-2.3.0-py2.py3-none-any.whl
 pip3 install .\extra\moviepy-0.2.3.5-py2.py3-none-any.whl
+pip3 install .\extra\psutil-5.5.1-cp35-cp35m-win_amd64.whl
 ```
 
 ## Nginx配置相关
