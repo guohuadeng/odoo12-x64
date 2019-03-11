@@ -1,4 +1,4 @@
-#!d:\odoo11-x64\runtime\python3\python3.exe
+#!d:\odoo12-x64\runtime\python3\python3.exe
 """:mod:`sassc` --- SassC compliant command line interface
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -35,6 +35,18 @@ There are options as well:
 
    .. versionadded:: 0.4.0
 
+.. option:: -w, --watch
+
+   Watch file for changes.  Requires the second argument (output CSS
+   filename).
+
+.. note:: Note that ``--watch`` does not understand imports.  Due to this, the
+   option is scheduled for removal in a future version.  It is suggested to
+   use a third party tool which implements intelligent watching functionality.
+
+   .. versionadded:: 0.4.0
+   .. deprecated:: 0.11.2
+
 .. option:: -p, --precision
 
    Set the precision for numbers. Default is 5.
@@ -63,7 +75,9 @@ from __future__ import print_function
 import functools
 import io
 import optparse
+import os
 import sys
+import time
 
 import sass
 
@@ -91,8 +105,11 @@ def main(argv=sys.argv, stdout=sys.stdout, stderr=sys.stderr):
                            '(output css filename).')
     parser.add_option('-I', '--include-path', metavar='DIR',
                       dest='include_paths', action='append',
-                      help='Path to find "@import"ed (S)CSS source files. '
+                      help='Path to find "@import"ed (S)CSS source files.  '
                            'Can be multiply used.')
+    parser.add_option('-w', '--watch', action='store_true',
+                      help='Watch file for changes.  Requires the second '
+                           'argument (output css filename).')
     parser.add_option(
         '-p', '--precision', action='store', type='int', default=5,
         help='Set the precision for numbers. [default: %default]'
@@ -101,10 +118,6 @@ def main(argv=sys.argv, stdout=sys.stdout, stderr=sys.stderr):
         '--source-comments', action='store_true', default=False,
         help='Include debug info in output',
     )
-    parser.add_option('--import-extensions',
-                      dest='custom_import_extensions', action='append',
-                      help='Extra extensions allowed for sass imports. '
-                           'Can be multiply used.')
     options, args = parser.parse_args(argv[1:])
     error = functools.partial(print,
                               parser.get_prog_name() + ': error:',
@@ -123,48 +136,72 @@ def main(argv=sys.argv, stdout=sys.stdout, stderr=sys.stderr):
         error('-m/-g/--sourcemap requires the second argument, the output '
               'css filename.')
         return 2
-
-    try:
-        if options.source_map:
-            source_map_filename = args[1] + '.map'  # FIXME
-            css, source_map = sass.compile(
-                filename=filename,
-                output_style=options.style,
-                source_comments=options.source_comments,
-                source_map_filename=source_map_filename,
-                output_filename_hint=args[1],
-                include_paths=options.include_paths,
-                precision=options.precision,
-                custom_import_extensions=options.custom_import_extensions,
-            )
-        else:
-            source_map_filename = None
-            source_map = None
-            css = sass.compile(
-                filename=filename,
-                output_style=options.style,
-                source_comments=options.source_comments,
-                include_paths=options.include_paths,
-                precision=options.precision,
-                custom_import_extensions=options.custom_import_extensions,
-            )
-    except (IOError, OSError) as e:
-        error(e)
-        return 3
-    except sass.CompileError as e:
-        error(e)
-        return 1
+    elif options.watch and len(args) < 2:
+        parser.print_usage(stderr)
+        error('-w/--watch requires the second argument, the output css '
+              'filename.')
+        return 2
     else:
-        if len(args) < 2:
-            print(css, file=stdout)
+        pass
+    while True:
+        try:
+            mtime = os.stat(filename).st_mtime
+            if options.source_map:
+                source_map_filename = args[1] + '.map'  # FIXME
+                css, source_map = sass.compile(
+                    filename=filename,
+                    output_style=options.style,
+                    source_comments=options.source_comments,
+                    source_map_filename=source_map_filename,
+                    include_paths=options.include_paths,
+                    precision=options.precision
+                )
+            else:
+                source_map_filename = None
+                source_map = None
+                css = sass.compile(
+                    filename=filename,
+                    output_style=options.style,
+                    source_comments=options.source_comments,
+                    include_paths=options.include_paths,
+                    precision=options.precision
+                )
+        except (IOError, OSError) as e:
+            error(e)
+            return 3
+        except sass.CompileError as e:
+            error(e)
+            if not options.watch:
+                return 1
+        except KeyboardInterrupt:
+            break
         else:
-            with io.open(args[1], 'w', encoding='utf-8', newline='') as f:
-                f.write(css)
-        if source_map_filename:
-            with io.open(
-                source_map_filename, 'w', encoding='utf-8', newline='',
-            ) as f:
-                f.write(source_map)
+            if len(args) < 2:
+                print(css, file=stdout)
+            else:
+                with io.open(args[1], 'w', encoding='utf-8', newline='') as f:
+                    f.write(css)
+                if options.watch:
+                    print(filename, 'is just compiled to', args[1],
+                          file=stdout)
+            if source_map_filename:
+                with io.open(
+                    source_map_filename, 'w', encoding='utf-8', newline='',
+                ) as f:
+                    f.write(source_map)
+        if options.watch:  # pragma: no cover
+            # FIXME: we should utilize inotify on Linux, and FSEvents on Mac
+            while True:
+                try:
+                    st = os.stat(filename)
+                    if st.st_mtime > mtime:
+                        print(filename, 'changed; recompile...', file=stdout)
+                        break
+                    time.sleep(0.5)
+                except KeyboardInterrupt:
+                    return 0
+        else:
+            break
     return 0
 
 

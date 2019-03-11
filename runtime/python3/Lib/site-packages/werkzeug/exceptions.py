@@ -156,12 +156,10 @@ class HTTPException(Exception):
         return response(environ, start_response)
 
     def __str__(self):
-        code = self.code if self.code is not None else '???'
-        return '%s %s: %s' % (code, self.name, self.description)
+        return '%d: %s' % (self.code, self.name)
 
     def __repr__(self):
-        code = self.code if self.code is not None else '???'
-        return "<%s '%s: %s'>" % (self.__class__.__name__, code, self.name)
+        return '<%s \'%s\'>' % (self.__class__.__name__, self)
 
 
 class BadRequest(HTTPException):
@@ -414,7 +412,8 @@ class RequestedRangeNotSatisfiable(HTTPException):
 
     """*416* `Requested Range Not Satisfiable`
 
-    The client asked for an invalid part of the file.
+    The client asked for a part of the file that lies beyond the end
+    of the file.
 
     .. versionadded:: 0.7
     """
@@ -422,21 +421,6 @@ class RequestedRangeNotSatisfiable(HTTPException):
     description = (
         'The server cannot provide the requested range.'
     )
-
-    def __init__(self, length=None, units="bytes", description=None):
-        """Takes an optional `Content-Range` header value based on ``length``
-        parameter.
-        """
-        HTTPException.__init__(self, description)
-        self.length = length
-        self.units = units
-
-    def get_headers(self, environ):
-        headers = HTTPException.get_headers(self, environ)
-        if self.length is not None:
-            headers.append(
-                ('Content-Range', '%s */%d' % (self.units, self.length)))
-        return headers
 
 
 class ExpectationFailed(HTTPException):
@@ -479,18 +463,6 @@ class UnprocessableEntity(HTTPException):
     description = (
         'The request was well-formed but was unable to be followed '
         'due to semantic errors.'
-    )
-
-
-class Locked(HTTPException):
-
-    """*423* `Locked`
-
-    Used if the resource that is being accessed is locked.
-    """
-    code = 423
-    description = (
-        'The resource that is being accessed is locked.'
     )
 
 
@@ -540,19 +512,6 @@ class RequestHeaderFieldsTooLarge(HTTPException):
     code = 431
     description = (
         'One or more header fields exceeds the maximum size.'
-    )
-
-
-class UnavailableForLegalReasons(HTTPException):
-
-    """*451* `Unavailable For Legal Reasons`
-
-    This status code indicates that the server is denying access to the
-    resource as a consequence of a legal demand.
-    """
-    code = 451
-    description = (
-        'Unavailable for legal reasons.'
     )
 
 
@@ -686,27 +645,7 @@ class Aborter(object):
             raise LookupError('no exception for %r' % code)
         raise self.mapping[code](*args, **kwargs)
 
-
-def abort(status, *args, **kwargs):
-    '''
-    Raises an :py:exc:`HTTPException` for the given status code or WSGI
-    application::
-
-        abort(404)  # 404 Not Found
-        abort(Response('Hello World'))
-
-    Can be passed a WSGI application or a status code.  If a status code is
-    given it's looked up in the list of exceptions and will raise that
-    exception, if passed a WSGI application it will wrap it in a proxy WSGI
-    exception and raise that::
-
-       abort(404)
-       abort(Response('Hello World'))
-
-    '''
-    return _aborter(status, *args, **kwargs)
-
-_aborter = Aborter()
+abort = Aborter()
 
 
 #: an exception that is used internally to signal both a key error and a

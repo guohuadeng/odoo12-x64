@@ -213,8 +213,8 @@ def RegisterPythonwin(register=True):
 
     keys_vals = [
         ('Software\\Microsoft\\Windows\\CurrentVersion\\App Paths\\Pythonwin.exe', '', pythonwin_exe),
-        # ('Software\\Classes\\Python.File\\shell\\Edit with Pythonwin', 'command', pythonwin_edit_command),
-        # ('Software\\Classes\\Python.NoConFile\\shell\\Edit with Pythonwin', 'command', pythonwin_edit_command),
+        ('Software\\Classes\\Python.File\\shell\\Edit with Pythonwin', 'command', pythonwin_edit_command),
+        ('Software\\Classes\\Python.NoConFile\\shell\\Edit with Pythonwin', 'command', pythonwin_edit_command),
         ]
 
     try:

@@ -1,11 +1,11 @@
-#!D:\odoo11-x64\runtime\python3\python3.exe
+#!d:\odoo12-x64\runtime\python3\python3.exe
 
 ##############################################################################
 #
 # vba_extract - A simple utility to extract a vbaProject.bin binary from an
 # Excel 2007+ xlsm file for insertion into an XlsxWriter file.
 #
-# Copyright 2013-2018, John McNamara, jmcnamara@cpan.org
+# Copyright 2013-2016, John McNamara, jmcnamara@cpan.org
 #
 import sys
 import shutil
@@ -22,7 +22,7 @@ else:
     print("\nUtility to extract a vbaProject.bin binary from an Excel 2007+ "
           "xlsm macro file for insertion into an XlsxWriter file."
           "\n"
-          "See: https://xlsxwriter.readthedocs.io/working_with_macros.html\n"
+          "See: http://xlsxwriter.readthedocs.org/working_with_macros.html\n"
           "\n"
           "Usage: vba_extract file.xlsm\n")
     exit()

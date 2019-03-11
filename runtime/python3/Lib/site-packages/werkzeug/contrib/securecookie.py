@@ -57,7 +57,7 @@ r"""
                 return SecureCookie.unserialize(data, SECRET_KEY)
 
         def application(environ, start_response):
-            request = Request(environ)
+            request = Request(environ, start_response)
 
             # get a response object here
             response = ...
@@ -77,7 +77,7 @@ r"""
                 return SecureCookie.load_cookie(self, secret_key=COOKIE_SECRET)
 
         def application(environ, start_response):
-            request = Request(environ)
+            request = Request(environ, start_response)
 
             # get a response object here
             response = ...
@@ -94,7 +94,7 @@ from hmac import new as hmac
 from time import time
 from hashlib import sha1 as _default_hash
 
-from werkzeug._compat import iteritems, text_type, to_bytes
+from werkzeug._compat import iteritems, text_type
 from werkzeug.urls import url_quote_plus, url_unquote_plus
 from werkzeug._internal import _date_to_unix
 from werkzeug.contrib.sessions import ModificationTrackingDict
@@ -152,7 +152,7 @@ class SecureCookie(ModificationTrackingDict):
         # explicitly convert it into a bytestring because python 2.6
         # no longer performs an implicit string conversion on hmac
         if secret_key is not None:
-            secret_key = to_bytes(secret_key, 'utf-8')
+            secret_key = bytes(secret_key)
         self.secret_key = secret_key
         self.new = new
 

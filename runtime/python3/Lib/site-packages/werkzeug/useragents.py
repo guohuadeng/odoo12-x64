@@ -25,12 +25,8 @@ class UserAgentParser(object):
         (r'darwin|mac|os\s*x', 'macos'),
         ('win', 'windows'),
         (r'android', 'android'),
-        ('netbsd', 'netbsd'),
-        ('openbsd', 'openbsd'),
-        ('freebsd', 'freebsd'),
-        ('dragonfly', 'dragonflybsd'),
-        ('(sun|i86)os', 'solaris'),
         (r'x11|lin(\b|ux)?', 'linux'),
+        ('(sun|i86)os', 'solaris'),
         (r'nintendo\s+wii', 'wii'),
         ('irix', 'irix'),
         ('hp-?ux', 'hpux'),
@@ -48,9 +44,7 @@ class UserAgentParser(object):
         ('ask jeeves', 'ask'),
         (r'aol|america\s+online\s+browser', 'aol'),
         ('opera', 'opera'),
-        ('edge', 'edge'),
         ('chrome', 'chrome'),
-        ('seamonkey', 'seamonkey'),
         ('firefox|firebird|phoenix|iceweasel', 'firefox'),
         ('galeon', 'galeon'),
         ('safari|version', 'safari'),
@@ -62,12 +56,10 @@ class UserAgentParser(object):
         (r'msie|microsoft\s+internet\s+explorer|trident/.+? rv:', 'msie'),
         ('lynx', 'lynx'),
         ('links', 'links'),
-        ('Baiduspider', 'baidu'),
-        ('bingbot', 'bing'),
-        ('mozilla', 'mozilla')
+        ('seamonkey|mozilla', 'seamonkey')
     )
 
-    _browser_version_re = r'(?:%s)[/\sa-z(]*(\d+[.\da-z]+)?'
+    _browser_version_re = r'(?:%s)[/\sa-z(]*(\d+[.\da-z]+)?(?i)'
     _language_re = re.compile(
         r'(?:;\s*|\s+)(\b\w{2}\b(?:-\b\w{2}\b)?)\s*;|'
         r'(?:\(|\[|;)\s*(\b\w{2}\b(?:-\b\w{2}\b)?)\s*(?:\]|\)|;)'
@@ -75,7 +67,7 @@ class UserAgentParser(object):
 
     def __init__(self):
         self.platforms = [(b, re.compile(a, re.I)) for a, b in self.platforms]
-        self.browsers = [(b, re.compile(self._browser_version_re % a, re.I))
+        self.browsers = [(b, re.compile(self._browser_version_re % a))
                          for a, b in self.browsers]
 
     def __call__(self, user_agent):
@@ -118,22 +110,16 @@ class UserAgent(object):
        -   `aix`
        -   `amiga`
        -   `android`
-       -   `blackberry`
        -   `bsd`
        -   `chromeos`
-       -   `dragonflybsd`
-       -   `freebsd`
        -   `hpux`
-       -   `ipad`
        -   `iphone`
+       -   `ipad`
        -   `irix`
        -   `linux`
        -   `macos`
-       -   `netbsd`
-       -   `openbsd`
        -   `sco`
        -   `solaris`
-       -   `symbian`
        -   `wii`
        -   `windows`
 
@@ -144,8 +130,6 @@ class UserAgent(object):
 
         -   `aol` *
         -   `ask` *
-        -   `baidu` *
-        -   `bing` *
         -   `camino`
         -   `chrome`
         -   `firefox`
@@ -155,7 +139,6 @@ class UserAgent(object):
         -   `konqueror`
         -   `links`
         -   `lynx`
-        -   `mozilla`
         -   `msie`
         -   `msn`
         -   `netscape`
@@ -165,7 +148,7 @@ class UserAgent(object):
         -   `webkit`
         -   `yahoo` *
 
-        (Browsers marked with a star (``*``) are crawlers.)
+        (Browsers maked with a star (``*``) are crawlers.)
 
     .. attribute:: version
 

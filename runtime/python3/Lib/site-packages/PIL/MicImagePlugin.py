@@ -95,8 +95,16 @@ class MicImageFile(TiffImagePlugin.TiffImageFile):
         self.frame = frame
 
     def tell(self):
-
         return self.frame
+
+    def _close__fp(self):
+        try:
+            if self.__fp != self.fp:
+                self.__fp.close()
+        except AttributeError:
+            pass
+        finally:
+            self.__fp = None
 
 
 #

@@ -4,10 +4,10 @@ Green Odoo 12 x64， http://www.Sunpop.cn
 64位版本性能会比32位高很多，包括高效指令及大内存更快巡址。对高资源消耗的odoo，使用64位是十分有必要的。
 本版本在使用64位的基础上，对postgresql进行了优化，并使用nginx进行反向代理，实现了longpolling，可以使用odoo的桌面消息通知，也不会经常报错了。
 在windows上搭建了一个完整的高性能 Odoo 环境。
-支持一键更新至最新版，执行 u 指令即可。
+因速度原因，不再支持一键更新至最新版，请手工高速下载 https://nightly.odoocdn.com/12.0/nightly/src/odoo_12.0.latest.zip
 
 ## 版本信息
-1. python 3.5.2 ,64位
+1. python 3.6.7 ,64位，与ubuntu18同步
 2. postgresql 9.6.4 ,64位
 3. Nginx 1.15.5， 64位
 4. Odoo 12社区版，20190301版本。
@@ -74,26 +74,27 @@ https://www.python.org/downloads/windows/
 ```
 ## 安装pip
 ```
-python3 .\extra\getpip.py
+python3 .\extra\get-pip.py
 ```
 ## 对某些要编译的Python包，在此找
 ```
 http://www.lfd.uci.edu/~gohlke/pythonlibs/
 ```
 ## 部份要人工下载安装的odoo依赖，已下载放在 ./extra
+## 优化 requirements.txt 可忽略ms库
+## 更新为 python 3.6
 ```
-pip3 install -r .\source\requirements.txt  -i https://mirrors.aliyun.com/pypi/simple
-pip3 install .\extra\Pillow-5.0.0-cp35-cp35m-win_amd64.whl
-pip3 install .\extra\psycopg2-2.7.4-cp35-cp35m-win_amd64.whl
-pip3 install .\extra\pyldap-2.4.45-cp35-cp35m-win_amd64.whl
-pip3 install .\extra\reportlab-3.4.0-cp35-cp35m-win_amd64.whl
+pip3 install -r .\requirements.txt  -i https://mirrors.aliyun.com/pypi/simple
+pip3 install .\extra\Pillow-5.4.1-cp36-cp36m-win_amd64.whl
+pip3 install .\extra\psycopg2-2.7.7-cp36-cp36m-win_amd64.whl
+pip3 install .\extra\pyldap-2.4.45-cp36-cp36m-win_amd64.whl
+pip3 install .\extra\reportlab-3.5.13-cp36-cp36m-win_amd64.whl
 pip3 install .\extra\Werkzeug-0.14.1-py2.py3-none-any.whl
-pip3 install .\extra\pywin32-223-cp35-cp35m-win_amd64.whl
-pip3 install .\extra\psycopg2-2.7.4-cp35-cp35m-win_amd64.whl
+pip3 install .\extra\pywin32-224-cp36-cp36m-win_amd64.whl
 pip3 install .\extra\wandex-0.4.5-py3-none-any.whl
-pip3 install .\extra\imageio-2.3.0-py2.py3-none-any.whl
-pip3 install .\extra\moviepy-0.2.3.5-py2.py3-none-any.whl
-pip3 install .\extra\psutil-5.5.1-cp35-cp35m-win_amd64.whl
+pip3 install .\extra\imageio-2.5.0-py3-none-any.whl
+pip3 install .\extra\moviepy-1.0.0-py2.py3-none-any.whl
+pip3 install .\extra\psutil-5.6.1-cp36-cp36m-win_amd64.whl
 ```
 
 ## Nginx配置相关
