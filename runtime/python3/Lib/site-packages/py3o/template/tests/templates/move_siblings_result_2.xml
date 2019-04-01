@@ -1,0 +1,15 @@
+<office:document-content
+    xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0"
+    xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    office:version="1.2">
+    <office:body>
+        <office:text text:use-soft-page-breaks="true">
+            <span xmlns:py="http://genshi.edgewall.org/" py:for="item in items" py:strip="True">
+                <text:p text:style-name="P22">
+                    <text:span text:style-name="T39"><text:line-break/></text:span>
+                </text:p>
+            </span>
+        </office:text>
+    </office:body>
+</office:document-content>

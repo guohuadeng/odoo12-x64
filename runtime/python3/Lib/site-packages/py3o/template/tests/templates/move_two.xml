@@ -1,0 +1,10 @@
+<xml>
+    <mystruct>
+        <start>
+            <startchild1/>
+        </start>trailing text
+        <sib1/>
+        <sib2/>
+        <end/>
+    </mystruct>
+</xml>

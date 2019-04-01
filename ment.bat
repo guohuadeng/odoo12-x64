@@ -1,7 +1,7 @@
 title Remove invalid ent module
 rd /s/q .\addons_ent_remove
 md addons_ent_remove
-move /y .\addons_ent\account_taxcloud .\account_taxcloud\
+move /y .\addons_ent\account_taxcloud .\addons_ent_remove\
 move /y .\addons_ent\currency_rate_live .\addons_ent_remove\
 move /y .\addons_ent\delivery_bpost .\addons_ent_remove\
 move /y .\addons_ent\delivery_dhl .\addons_ent_remove\

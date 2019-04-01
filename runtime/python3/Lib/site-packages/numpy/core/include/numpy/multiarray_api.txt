@@ -718,12 +718,21 @@ don't use with PyArray_ITER_GOTO1D because factors are not adjusted
   void
   PyArray_Item_INCREF(char *data, PyArray_Descr *descr)
 
+XINCREF all objects in a single array item. This is complicated for
+structured datatypes where the position of objects needs to be extracted.
+The function is execute recursively for each nested field or subarrays dtype
+such as as `np.dtype([("field1", "O"), ("field2", "f,O", (3,2))])`
 
 ::
 
   void
   PyArray_Item_XDECREF(char *data, PyArray_Descr *descr)
 
+
+XDECREF all objects in a single array item. This is complicated for
+structured datatypes where the position of objects needs to be extracted.
+The function is execute recursively for each nested field or subarrays dtype
+such as as `np.dtype([("field1", "O"), ("field2", "f,O", (3,2))])`
 
 ::
 

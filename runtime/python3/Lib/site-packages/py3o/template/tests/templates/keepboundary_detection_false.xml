@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<office:document-content
+        xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0"
+        xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0"
+        xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0"
+        xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0"
+        xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0"
+        xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        xmlns:dc="http://purl.org/dc/elements/1.1/"
+        xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0"
+        xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0"
+        xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0"
+        xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0"
+        xmlns:dr3d="urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0"
+        xmlns:math="http://www.w3.org/1998/Math/MathML"
+        xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0"
+        xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0"
+        xmlns:ooo="http://openoffice.org/2004/office"
+        xmlns:ooow="http://openoffice.org/2004/writer"
+        xmlns:oooc="http://openoffice.org/2004/calc"
+        xmlns:dom="http://www.w3.org/2001/xml-events"
+        xmlns:xforms="http://www.w3.org/2002/xforms"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:rpt="http://openoffice.org/2005/report"
+        xmlns:of="urn:oasis:names:tc:opendocument:xmlns:of:1.2"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:grddl="http://www.w3.org/2003/g/data-view#"
+        xmlns:officeooo="http://openoffice.org/2009/office"
+        xmlns:tableooo="http://openoffice.org/2009/table"
+        xmlns:drawooo="http://openoffice.org/2010/draw"
+        xmlns:calcext="urn:org:documentfoundation:names:experimental:calc:xmlns:calcext:1.0"
+        xmlns:field="urn:openoffice:names:experimental:ooo-ms-interop:xmlns:field:1.0"
+        xmlns:formx="urn:openoffice:names:experimental:ooxml-odf-interop:xmlns:form:1.0"
+        xmlns:css3t="http://www.w3.org/TR/css3-text/" office:version="1.2">
+    <office:scripts/>
+    <office:font-face-decls>
+        <style:font-face style:name="Tahoma1" svg:font-family="Tahoma"/>
+        <style:font-face style:name="Times New Roman"
+                         svg:font-family="&apos;Times New Roman&apos;"
+                         style:font-family-generic="roman"
+                         style:font-pitch="variable"/>
+        <style:font-face style:name="Arial" svg:font-family="Arial"
+                         style:font-family-generic="swiss"
+                         style:font-pitch="variable"/>
+        <style:font-face style:name="Arial Unicode MS"
+                         svg:font-family="&apos;Arial Unicode MS&apos;"
+                         style:font-family-generic="system"
+                         style:font-pitch="variable"/>
+        <style:font-face style:name="Tahoma" svg:font-family="Tahoma"
+                         style:font-family-generic="system"
+                         style:font-pitch="variable"/>
+    </office:font-face-decls>
+    <office:automatic-styles>
+        <style:style style:name="Tableau1" style:family="table">
+            <style:table-properties style:width="6.6931in"
+                                    table:align="margins"/>
+        </style:style>
+        <style:style style:name="Tableau1.A" style:family="table-column">
+            <style:table-column-properties style:column-width="2.2313in"
+                                           style:rel-column-width="21845*"/>
+        </style:style>
+        <style:style style:name="Tableau1.A1" style:family="table-cell">
+            <style:table-cell-properties fo:background-color="#cccccc"
+                                         fo:padding="0.0382in"
+                                         fo:border-left="0.05pt solid #000000"
+                                         fo:border-right="none"
+                                         fo:border-top="0.05pt solid #000000"
+                                         fo:border-bottom="0.05pt solid #000000">
+                <style:background-image/>
+            </style:table-cell-properties>
+        </style:style>
+        <style:style style:name="Tableau1.C1" style:family="table-cell">
+            <style:table-cell-properties fo:background-color="#cccccc"
+                                         fo:padding="0.0382in"
+                                         fo:border="0.05pt solid #000000">
+                <style:background-image/>
+            </style:table-cell-properties>
+        </style:style>
+        <style:style style:name="Tableau1.A2" style:family="table-cell">
+            <style:table-cell-properties fo:padding="0.0382in"
+                                         fo:border-left="0.05pt solid #000000"
+                                         fo:border-right="0.05pt solid #000000"
+                                         fo:border-top="none"
+                                         fo:border-bottom="0.05pt solid #000000"/>
+        </style:style>
+        <style:style style:name="Tableau1.A3" style:family="table-cell">
+            <style:table-cell-properties fo:padding="0.0382in"
+                                         fo:border-left="0.05pt solid #000000"
+                                         fo:border-right="none"
+                                         fo:border-top="none"
+                                         fo:border-bottom="0.05pt solid #000000"/>
+        </style:style>
+        <style:style style:name="Tableau1.B3" style:family="table-cell">
+            <style:table-cell-properties fo:padding="0.0382in"
+                                         fo:border-left="0.05pt solid #000000"
+                                         fo:border-right="none"
+                                         fo:border-top="none"
+                                         fo:border-bottom="0.05pt solid #000000"/>
+        </style:style>
+        <style:style style:name="Tableau1.C3" style:family="table-cell">
+            <style:table-cell-properties fo:padding="0.0382in"
+                                         fo:border-left="0.05pt solid #000000"
+                                         fo:border-right="0.05pt solid #000000"
+                                         fo:border-top="none"
+                                         fo:border-bottom="0.05pt solid #000000"/>
+        </style:style>
+        <style:style style:name="Tableau1.A4" style:family="table-cell">
+            <style:table-cell-properties fo:padding="0.0382in"
+                                         fo:border-left="0.05pt solid #000000"
+                                         fo:border-right="0.05pt solid #000000"
+                                         fo:border-top="none"
+                                         fo:border-bottom="0.05pt solid #000000"/>
+        </style:style>
+        <style:style style:name="Tableau1.A5" style:family="table-cell">
+            <style:table-cell-properties fo:padding="0.0382in"
+                                         fo:border-left="0.05pt solid #000000"
+                                         fo:border-right="none"
+                                         fo:border-top="none"
+                                         fo:border-bottom="0.05pt solid #000000"/>
+        </style:style>
+        <style:style style:name="Tableau1.C5" style:family="table-cell">
+            <style:table-cell-properties fo:padding="0.0382in"
+                                         fo:border-left="0.05pt solid #000000"
+                                         fo:border-right="0.05pt solid #000000"
+                                         fo:border-top="none"
+                                         fo:border-bottom="0.05pt solid #000000"/>
+        </style:style>
+        <style:style style:name="P1" style:family="paragraph"
+                     style:parent-style-name="Table_20_Contents">
+            <style:paragraph-properties fo:text-align="end"
+                                        style:justify-single-word="false"/>
+        </style:style>
+        <style:style style:name="P2" style:family="paragraph"
+                     style:parent-style-name="Standard">
+            <style:paragraph-properties fo:text-align="end"
+                                        style:justify-single-word="false"/>
+        </style:style>
+        <style:style style:name="P3" style:family="paragraph"
+                     style:parent-style-name="Table_20_Heading">
+            <style:text-properties style:use-window-font-color="true"
+                                   fo:background-color="transparent"/>
+        </style:style>
+        <style:style style:name="T1" style:family="text">
+            <style:text-properties fo:font-style="italic"
+                                   style:font-style-asian="italic"
+                                   style:font-style-complex="italic"/>
+        </style:style>
+        <style:style style:name="T2" style:family="text">
+            <style:text-properties fo:font-weight="bold"
+                                   style:font-weight-asian="bold"
+                                   style:font-weight-complex="bold"/>
+        </style:style>
+        <style:style style:name="fr1" style:family="graphic"
+                     style:parent-style-name="Graphics">
+            <style:graphic-properties style:vertical-pos="top"
+                                      style:vertical-rel="baseline"
+                                      style:horizontal-pos="left"
+                                      style:horizontal-rel="paragraph"
+                                      style:mirror="none"
+                                      fo:clip="rect(0in, 0in, 0in, 0in)"
+                                      draw:luminance="0%" draw:contrast="0%"
+                                      draw:red="0%" draw:green="0%"
+                                      draw:blue="0%" draw:gamma="100%"
+                                      draw:color-inversion="false"
+                                      draw:image-opacity="100%"
+                                      draw:color-mode="standard"/>
+        </style:style>
+    </office:automatic-styles>
+    <office:body>
+        <office:text>
+            <office:forms form:automatic-focus="false"
+                          form:apply-design-mode="false"/>
+            <text:sequence-decls>
+                <text:sequence-decl text:display-outline-level="0"
+                                    text:name="Illustration"/>
+                <text:sequence-decl text:display-outline-level="0"
+                                    text:name="Table"/>
+                <text:sequence-decl text:display-outline-level="0"
+                                    text:name="Text"/>
+                <text:sequence-decl text:display-outline-level="0"
+                                    text:name="Drawing"/>
+            </text:sequence-decls>
+            <text:user-field-decls>
+                <text:user-field-decl office:value-type="string"
+                                      office:string-value="document.total"
+                                      text:name="py3o.document.total"/>
+                <text:user-field-decl office:value-type="string"
+                                      office:string-value="Line Value 3"
+                                      text:name="py3o.line.val3"/>
+                <text:user-field-decl office:value-type="string"
+                                      office:string-value="Invoice.Amount"
+                                      text:name="py3o.item.Amount"/>
+                <text:user-field-decl office:value-type="string"
+                                      office:string-value="Invoice.Currency"
+                                      text:name="py3o.item.Currency"/>
+                <text:user-field-decl office:value-type="string"
+                                      office:string-value="Invoice.Reference"
+                                      text:name="py3o.item.InvoiceRef"/>
+                <text:user-field-decl office:value-type="string"
+                                      office:string-value="Line Value 1"
+                                      text:name="py3o.line.val1"/>
+                <text:user-field-decl office:value-type="string"
+                                      office:string-value="Line Value 2"
+                                      text:name="py3o.line.val2"/>
+            </text:user-field-decls>
+            <text:p text:style-name="Title">Title</text:p>
+            <text:p text:style-name="Standard"/>
+            <text:p text:style-name="Standard">some text some<text:span
+                    text:style-name="T1">text some text some text some text some
+                text some text some text some text some text some text some text
+                some text some text some text some text some text some text some
+                text some text some text some text some text some text some text
+                some text some text some text some text some text some text
+                some</text:span>text some text some text some text some text
+                some text some text some text some text some text some text some
+                text some text some text some text some text some text some text
+                some text some text some text some text some text some text some
+                text some text some text some text some text.
+            </text:p>
+            <text:p text:style-name="Standard"/>
+            <table:table table:name="Tableau1" table:style-name="Tableau1">
+                <table:table-column table:style-name="Tableau1.A"
+                                    table:number-columns-repeated="3"/>
+                <table:table-header-rows>
+                    <table:table-row>
+                        <table:table-cell table:style-name="Tableau1.A1"
+                                          office:value-type="string">
+                            <text:p text:style-name="P3">Column1 Heading
+                            </text:p>
+                        </table:table-cell>
+                        <table:table-cell table:style-name="Tableau1.A1"
+                                          office:value-type="string">
+                            <text:p text:style-name="P3">Column2 Heading
+                            </text:p>
+                        </table:table-cell>
+                        <table:table-cell table:style-name="Tableau1.C1"
+                                          office:value-type="string">
+                            <text:p text:style-name="P3">Column3 Heading
+                            </text:p>
+                        </table:table-cell>
+                    </table:table-row>
+                </table:table-header-rows>
+                <table:table-row>
+                    <table:table-cell table:style-name="Tableau1.A4"
+                                      table:number-columns-spanned="3"
+                                      office:value-type="string">
+                        <text:p text:style-name="Table_20_Contents">
+                            <text:a xlink:type="simple"
+                                    xlink:href="py3o://for=%22line%20in%20items%22">
+                                for=&quot;line in items&quot;</text:a>
+                        </text:p>
+                    </table:table-cell>
+                    <table:covered-table-cell/>
+                    <table:covered-table-cell/>
+                </table:table-row>
+                <table:table-row>
+                    <table:table-cell table:style-name="Tableau1.B3"
+                                      office:value-type="string">
+                        <text:p text:style-name="Table_20_Contents">
+                            <text:user-field-get text:name="py3o.line.val1">Line
+                                Value 1
+                            </text:user-field-get>
+                        </text:p>
+                    </table:table-cell>
+                    <table:table-cell table:style-name="Tableau1.B3"
+                                      office:value-type="string">
+                        <text:p text:style-name="Table_20_Contents">Some hard
+                            coded text
+                        </text:p>
+                    </table:table-cell>
+                    <table:table-cell table:style-name="Tableau1.C5"
+                                      office:value-type="string">
+                        <text:p text:style-name="Table_20_Contents">
+                            <text:user-field-get text:name="py3o.line.val3">Line
+                                Value 3
+                            </text:user-field-get>
+                        </text:p>
+                    </table:table-cell>
+                </table:table-row>
+                <table:table-row>
+                    <table:table-cell table:style-name="Tableau1.A4"
+                                      table:number-columns-spanned="3"
+                                      office:value-type="string">
+                        <text:p text:style-name="Table_20_Contents">
+                            <text:a xlink:type="simple"
+                                    xlink:href="py3o:///for">/for
+                            </text:a>
+                        </text:p>
+                    </table:table-cell>
+                    <table:covered-table-cell/>
+                    <table:covered-table-cell/>
+                </table:table-row>
+                <table:table-row>
+                    <table:table-cell table:style-name="Tableau1.A5"
+                                      table:number-columns-spanned="2"
+                                      office:value-type="string">
+                        <text:p text:style-name="P1">Total :</text:p>
+                    </table:table-cell>
+                    <table:covered-table-cell/>
+                    <table:table-cell table:style-name="Tableau1.C5"
+                                      office:value-type="string">
+                        <text:p text:style-name="Table_20_Contents">
+                            <text:user-field-get
+                                    text:name="py3o.document.total">
+                                document.total
+                            </text:user-field-get>
+                        </text:p>
+                    </table:table-cell>
+                </table:table-row>
+            </table:table>
+            <text:p text:style-name="Standard"/>
+            <text:p text:style-name="Standard">We are remitting you<text:span
+                    text:style-name="T2">the following invoices</text:span>:
+            </text:p>
+            <text:p text:style-name="Standard">
+                <text:a xlink:type="simple"
+                        xlink:href="py3o://for=%22item%20in%20items%22">for=&quot;item
+                    in items&quot;</text:a>
+            </text:p>
+            <text:p text:style-name="Standard">
+                <text:a xlink:type="simple"
+                        xlink:href="py3o://if=%22item.InvoiceRef==&apos;#1234&apos;%22">
+                    if=&quot;item.InvoiceRef==&apos;#1234&apos;&quot;</text:a>
+            </text:p>
+            <text:p text:style-name="Standard">Invoice
+                <text:user-field-get text:name="py3o.item.InvoiceRef">
+                    Invoice.Reference
+                </text:user-field-get>
+                for a total of
+                <text:user-field-get text:name="py3o.item.Amount">
+                    Invoice.Amount
+                </text:user-field-get>
+                <text:user-field-get text:name="py3o.item.Currency">
+                    Invoice.Currency
+                </text:user-field-get>
+            </text:p>
+            <text:p text:style-name="Standard">
+                <text:a xlink:type="simple" xlink:href="py3o:///if">/if</text:a>
+            </text:p>
+            <text:p text:style-name="Standard">
+                <text:a xlink:type="simple" xlink:href="py3o:///for">/for
+                </text:a>
+            </text:p>
+            <text:p text:style-name="Standard"/>
+            <text:p text:style-name="Standard"/>
+            <text:p text:style-name="P2">Best regards</text:p>
+            <text:p text:style-name="P2">The accounting department</text:p>
+            <text:p text:style-name="Standard"/>
+        </office:text>
+    </office:body>
+</office:document-content>

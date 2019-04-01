@@ -11,9 +11,7 @@ from numpy.testing import (
 # Setup for optimize einsum
 chars = 'abcdefghij'
 sizes = np.array([2, 3, 4, 5, 4, 3, 2, 6, 5, 4, 3])
-global_size_dict = {}
-for size, char in zip(sizes, chars):
-    global_size_dict[char] = size
+global_size_dict = dict(zip(chars, sizes))
 
 
 class TestEinsum(object):
@@ -964,7 +962,6 @@ class TestEinsumPath(object):
 
         path, path_str = np.einsum_path(*edge_test4, optimize='optimal')
         self.assert_path_equal(path, ['einsum_path', (0, 1), (0, 1, 2, 3, 4, 5)])
-
 
     def test_path_type_input(self):
         # Test explicit path handeling

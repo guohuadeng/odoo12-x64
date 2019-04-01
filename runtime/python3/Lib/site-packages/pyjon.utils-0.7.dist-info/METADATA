@@ -1,0 +1,25 @@
+Metadata-Version: 2.0
+Name: pyjon.utils
+Version: 0.7
+Summary: Useful tools library with classes to do singletons, dynamic function pointers...
+Home-page: UNKNOWN
+Author: Florent Aide
+Author-email: florent.aide@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Dist: setuptools
+
+Introduction
+============
+
+Useful tools library with classes to do singletons, dynamic function pointers...
+
+Python 3 support
+================
+
+We have just added python 3 support, but the Singleton metaclass does
+ not work yet. You should not use the Singleton with python3
+
+
