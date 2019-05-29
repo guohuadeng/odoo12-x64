@@ -7,10 +7,10 @@ Green Odoo 12 x64， http://www.Sunpop.cn
 因速度原因，不再支持一键更新至最新版，请手工高速下载 https://nightly.odoocdn.com/12.0/nightly/src/odoo_12.0.latest.zip
 
 ## 版本信息
-1. python 3.6.7 ,64位，与ubuntu18同步
+1. python 3.5,64位
 2. postgresql 9.6.4 ,64位
 3. Nginx 1.15.5， 64位
-4. Odoo 12社区版，20190301版本
+4. Odoo 12社区版，20190512版本
 5. 增加 sphinx 及 tx_client，用于文档及翻译
 
 ## 全新功能，更快速度
