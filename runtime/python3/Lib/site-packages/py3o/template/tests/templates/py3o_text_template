@@ -1,3 +1,0 @@
-{% for line in mylist %}\
-${line.var0} ${line.var1} ${line.var2}
-{% end %}

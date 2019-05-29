@@ -1,6 +1,6 @@
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the (LGPL) GNU Lesser General Public License as
-# published by the Free Software Foundation; either version 3 of the 
+# published by the Free Software Foundation; either version 3 of the
 # License, or (at your option) any later version.
 #
 # This program is distributed in the hope that it will be useful,
@@ -18,7 +18,6 @@
 Provides I{marshaller} core classes.
 """
 
-from logging import getLogger
 from suds import *
 from suds.mx import *
 from suds.mx.appender import ContentAppender
@@ -26,7 +25,7 @@ from suds.sax.element import Element
 from suds.sax.document import Document
 from suds.sudsobject import Property
 
-
+from logging import getLogger
 log = getLogger(__name__)
 
 
@@ -57,11 +56,9 @@ class Core:
         document = Document()
         if isinstance(content.value, Property):
             root = self.node(content)
-            self.append(document, content)
-        else:
-            self.append(document, content)
+        self.append(document, content)
         return document.root()
-    
+
     def append(self, parent, content):
         """
         Append the specified L{content} to the I{parent}.
@@ -84,35 +81,35 @@ class Core:
     def node(self, content):
         """
         Create and return an XML node.
-        @param content: The content for which proccessing has been suspended.
+        @param content: The content for which processing has been suspended.
         @type content: L{Object}
         @return: An element.
         @rtype: L{Element}
         """
         return Element(content.tag)
-    
+
     def start(self, content):
         """
         Appending this content has started.
-        @param content: The content for which proccessing has started.
+        @param content: The content for which processing has started.
         @type content: L{Content}
         @return: True to continue appending
         @rtype: boolean
         """
         return True
-    
+
     def suspend(self, content):
         """
         Appending this content has suspended.
-        @param content: The content for which proccessing has been suspended.
+        @param content: The content for which processing has been suspended.
         @type content: L{Content}
         """
         pass
-    
+
     def resume(self, content):
         """
         Appending this content has resumed.
-        @param content: The content for which proccessing has been resumed.
+        @param content: The content for which processing has been resumed.
         @type content: L{Content}
         """
         pass
@@ -122,11 +119,11 @@ class Core:
         Appending this content has ended.
         @param parent: The parent node ending.
         @type parent: L{Element}
-        @param content: The content for which proccessing has ended.
+        @param content: The content for which processing has ended.
         @type content: L{Content}
         """
         pass
-    
+
     def setnil(self, node, content):
         """
         Set the value of the I{node} to nill.
@@ -147,7 +144,7 @@ class Core:
         @return: The default.
         """
         pass
-    
+
     def optional(self, content):
         """
         Get whether the specified content is optional.
@@ -155,4 +152,3 @@ class Core:
         @type content: L{Content}
         """
         return False
-

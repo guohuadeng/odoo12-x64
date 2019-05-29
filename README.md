@@ -73,8 +73,12 @@ createuser --createdb --no-createrole --no-superuser --pwprompt odoo
 ```
 https://www.python.org/downloads/windows/
 ```
+## 安装 win 支持，便于后续增加 python 依赖，也可以不装
+.\extra\vc_redist.x64.exe
+
 ## 安装pip
 ```
+SET PATH=%CD%\runtime\pgsql\bin;%CD%\runtime\python3;%CD%\runtime\python3\scripts;%CD%\runtime\win32\wkhtmltopdf;%CD%\runtime\win32\nodejs;%CD%\source;%PATH%
 python3 .\extra\get-pip.py
 ```
 ## 对某些要编译的Python包，在此找
@@ -83,6 +87,24 @@ http://www.lfd.uci.edu/~gohlke/pythonlibs/
 ```
 ## 部份要人工下载安装的odoo依赖，已下载放在 ./extra
 ## 优化 requirements.txt 可忽略ms库
+
+## python 3.5 ，此版本才可断点
+```
+pip3 install -r .\source\requirements.txt  -i https://mirrors.aliyun.com/pypi/simple
+pip3 install -r .\source\rfix.txt  -i https://mirrors.aliyun.com/pypi/simple
+pip3 install .\extra\Pillow-5.0.0-cp35-cp35m-win_amd64.whl
+pip3 install .\extra\psycopg2-2.7.4-cp35-cp35m-win_amd64.whl
+pip3 install .\extra\pyldap-2.4.45-cp35-cp35m-win_amd64.whl
+pip3 install .\extra\reportlab-3.4.0-cp35-cp35m-win_amd64.whl
+pip3 install .\extra\Werkzeug-0.14.1-py2.py3-none-any.whl
+pip3 install .\extra\pywin32-223-cp35-cp35m-win_amd64.whl
+pip3 install .\extra\psycopg2-2.7.4-cp35-cp35m-win_amd64.whl
+pip3 install .\extra\wandex-0.4.5-py3-none-any.whl
+pip3 install .\extra\imageio-2.3.0-py2.py3-none-any.whl
+pip3 install .\extra\moviepy-0.2.3.5-py2.py3-none-any.whl
+pip3 install .\extra\psutil-5.5.1-cp35-cp35m-win_amd64.whl
+```
+
 ## 更新为 python 3.6
 ```
 pip3 install -r .\requirements.txt  -i https://mirrors.aliyun.com/pypi/simple
@@ -95,6 +117,8 @@ pip3 install .\extra\pywin32-224-cp36-cp36m-win_amd64.whl
 pip3 install .\extra\wandex-0.4.5-py3-none-any.whl
 pip3 install .\extra\imageio-2.5.0-py3-none-any.whl
 pip3 install .\extra\moviepy-1.0.0-py2.py3-none-any.whl
+pip3 install .\extra\psutil-5.6.1-cp36-cp36m-win_amd64.whl
+pip3 install .\extra\lxml-4.2.3-cp36-cp36m-win_amd64.whl
 pip3 install .\extra\psutil-5.6.1-cp36-cp36m-win_amd64.whl
 ```
 

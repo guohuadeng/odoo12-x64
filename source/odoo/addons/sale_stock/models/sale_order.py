@@ -128,6 +128,8 @@ class SaleOrder(models.Model):
     def _prepare_invoice(self):
         invoice_vals = super(SaleOrder, self)._prepare_invoice()
         invoice_vals['incoterms_id'] = self.incoterm.id or False
+        if self.incoterm.id:
+            invoice_vals['incoterm_id'] = self.incoterm.id
         return invoice_vals
 
     @api.model
@@ -444,7 +446,8 @@ class SaleOrderLine(models.Model):
 
     def _update_line_quantity(self, values):
         precision = self.env['decimal.precision'].precision_get('Product Unit of Measure')
-        if self.mapped('qty_delivered') and float_compare(values['product_uom_qty'], max(self.mapped('qty_delivered')), precision_digits=precision) == -1:
+        line_products = self.filtered(lambda l: l.product_id.type in ['product', 'consu'])
+        if line_products.mapped('qty_delivered') and float_compare(values['product_uom_qty'], max(line_products.mapped('qty_delivered')), precision_digits=precision) == -1:
             raise UserError(_('You cannot decrease the ordered quantity below the delivered quantity.\n'
                               'Create a return first.'))
         super(SaleOrderLine, self)._update_line_quantity(values)

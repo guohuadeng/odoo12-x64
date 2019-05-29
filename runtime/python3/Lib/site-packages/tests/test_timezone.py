@@ -21,7 +21,7 @@ Implemented using the 'pytest' testing framework.
 """
 
 if __name__ == "__main__":
-    import __init__
+    from . import __init__
     __init__.runUsingPyTest(globals())
 
 

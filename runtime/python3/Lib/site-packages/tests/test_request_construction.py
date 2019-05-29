@@ -29,7 +29,7 @@ then passing that wrapper object instead.
 """
 
 if __name__ == "__main__":
-    import __init__
+    from . import __init__
     __init__.runUsingPyTest(globals())
 
 
@@ -588,7 +588,7 @@ def test_missing_parameters():
    </ns1:Body>
 </SOAP-ENV:Envelope>""")
 
-    assert _compare_request(service.f(u"Pero Ždero"), """\
+    assert _compare_request(service.f("Pero Ždero"), """\
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope xmlns:ns0="my-namespace" xmlns:ns1="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
    <SOAP-ENV:Header/>
@@ -826,7 +826,7 @@ def test_twice_wrapped_parameter():
     # Web service operation calls made with 'invalid' parameters.
     def testInvalidParameter(**kwargs):
         assert len(kwargs) == 1
-        element = kwargs.keys()[0]
+        element = list(kwargs.keys())[0]
         expected = "f() got an unexpected keyword argument '%s'" % (element,)
         e = pytest.raises(TypeError, client.service.f, **kwargs).value
         try:
@@ -947,7 +947,7 @@ def _compare_request(request, expected_xml):
 
 def _isInputWrapped(client, method_name):
     assert len(client.wsdl.bindings) == 1
-    operation = client.wsdl.bindings.values()[0].operations[method_name]
+    operation = list(client.wsdl.bindings.values())[0].operations[method_name]
     return operation.soap.input.body.wrapped
 
 

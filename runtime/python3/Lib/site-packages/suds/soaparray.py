@@ -1,6 +1,6 @@
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the (LGPL) GNU Lesser General Public License as
-# published by the Free Software Foundation; either version 3 of the 
+# published by the Free Software Foundation; either version 3 of the
 # License, or (at your option) any later version.
 #
 # This program is distributed in the hope that it will be useful,
@@ -43,12 +43,12 @@ class Attribute(SXAttribute):
             self.aty = aty[:-2]
         else:
             self.aty = aty
-        
+
     def autoqualified(self):
         aqs = SXAttribute.autoqualified(self)
         aqs.append('aty')
         return aqs
-    
+
     def description(self):
         d = SXAttribute.description(self)
         d = d+('aty',)
@@ -63,10 +63,9 @@ def __fn(x, y):
     aty = y.get('arrayType', ns=ns)
     if aty is None:
         return SXAttribute(x, y)
-    else:
-        return Attribute(x, y, aty)
+    return Attribute(x, y, aty)
 
 #
-# Remap <xs:attrbute/> tags to __fn() builder.
+# Remap <xs:attribute/> tags to __fn() builder.
 #
 SXFactory.maptag('attribute', __fn)

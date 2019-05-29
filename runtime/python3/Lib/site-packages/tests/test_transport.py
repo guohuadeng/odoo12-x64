@@ -23,7 +23,7 @@ Implemented using the 'pytest' testing framework.
 """
 
 if __name__ == "__main__":
-    import __init__
+    from . import __init__
     __init__.runUsingPyTest(globals())
 
 
@@ -36,28 +36,28 @@ import sys
 
 
 @pytest.mark.parametrize("message", (
-    u"",
-    u"for a bitch it's haaaard...",
-    u"I'm here to kick ass,\nand chew bubble gum...\nand I'm all out of gum.",
-    u"šuć-muć pa ožeži.. za 100 €\n\nwith multiple\nlines...",
-    u"\n\n\n\n\n\n",
-    u"中原千军逐蒋"))
+    "",
+    "for a bitch it's haaaard...",
+    "I'm here to kick ass,\nand chew bubble gum...\nand I'm all out of gum.",
+    "šuć-muć pa ožeži.. za 100 €\n\nwith multiple\nlines...",
+    "\n\n\n\n\n\n",
+    "中原千军逐蒋"))
 def test_reply_as_string(message):
     code = 17
     reply = Reply(code, {"aaa":1}, message)
-    expected = u"""\
+    expected = """\
 CODE: %s
 HEADERS: %s
 MESSAGE:
 %s""" % (code, reply.headers, message)
-    assert unicode(reply) == expected
+    assert str(reply) == expected
     if sys.version_info < (3, 0):
         assert str(reply) == expected.encode("utf-8")
 
 
 @pytest.mark.parametrize(("code", "headers", "message"), (
     (1, {}, "ola"),
-    (2, {"semper":"fi"}, u"中原千军逐蒋\n城楼万众检阅")))
+    (2, {"semper":"fi"}, "中原千军逐蒋\n城楼万众检阅")))
 def test_reply_constructor(code, headers, message):
     reply = Reply(code, headers, message)
     assert reply.code == code
@@ -66,28 +66,28 @@ def test_reply_constructor(code, headers, message):
 
 
 @pytest.mark.parametrize("message", (
-    u"",
-    u"for a bitch it's haaaard...",
-    u"I'm here to kick ass,\nand chew bubble gum...\nand I'm all out of gum.",
-    u"šuć-muć pa ožeži.. za 100 €\n\nwith multiple\nlines...",
-    u"\n\n\n\n\n\n",
-    u"中原千军逐蒋"))
+    "",
+    "for a bitch it's haaaard...",
+    "I'm here to kick ass,\nand chew bubble gum...\nand I'm all out of gum.",
+    "šuć-muć pa ožeži.. za 100 €\n\nwith multiple\nlines...",
+    "\n\n\n\n\n\n",
+    "中原千军逐蒋"))
 def test_request_as_string(message):
     request = Request("my url", message)
     request.headers["aaa"] = 1
-    expected = u"""\
+    expected = """\
 URL: my url
 HEADERS: %s
 MESSAGE:
 %s""" % (request.headers, message)
-    assert unicode(request) == expected
+    assert str(request) == expected
     if sys.version_info < (3, 0):
         assert str(request) == expected.encode("utf-8")
 
 
 @pytest.mark.parametrize(("url", "message"), (
     ("for a bitch it's haaaard...", "it's hard out here..."),
-    (u"中原千军逐蒋", u"城楼万众检阅")))
+    ("中原千军逐蒋", "城楼万众检阅")))
 def test_request_constructor(url, message):
     request = Request(url, message)
     assert request.url == url

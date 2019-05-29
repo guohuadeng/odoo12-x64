@@ -24,7 +24,7 @@ Implemented using the 'pytest' testing framework.
 """
 
 if __name__ == "__main__":
-    import __init__
+    from . import __init__
     __init__.runUsingPyTest(globals())
 
 
@@ -33,7 +33,7 @@ import tests
 
 import pytest
 
-import httplib
+import http.client
 import re
 import xml.sax
 
@@ -43,11 +43,11 @@ def test_ACCEPTED_and_NO_CONTENT_status_reported_as_None_with_faults():
     f = lambda r, s : client.service.f(__inject={"reply":suds.byte_str(r),
         "status":s})
     assert f("", None) is None
-    pytest.raises(Exception, f, "", httplib.INTERNAL_SERVER_ERROR)
-    assert f("", httplib.ACCEPTED) is None
-    assert f("", httplib.NO_CONTENT) is None
-    assert f("bla-bla", httplib.ACCEPTED) is None
-    assert f("bla-bla", httplib.NO_CONTENT) is None
+    pytest.raises(Exception, f, "", http.client.INTERNAL_SERVER_ERROR)
+    assert f("", http.client.ACCEPTED) is None
+    assert f("", http.client.NO_CONTENT) is None
+    assert f("bla-bla", http.client.ACCEPTED) is None
+    assert f("bla-bla", http.client.NO_CONTENT) is None
 
 
 def test_ACCEPTED_and_NO_CONTENT_status_reported_as_None_without_faults():
@@ -55,11 +55,11 @@ def test_ACCEPTED_and_NO_CONTENT_status_reported_as_None_without_faults():
     f = lambda r, s : client.service.f(__inject={"reply":suds.byte_str(r),
         "status":s})
     assert f("", None) is not None
-    assert f("", httplib.INTERNAL_SERVER_ERROR) is not None
-    assert f("", httplib.ACCEPTED) is None
-    assert f("", httplib.NO_CONTENT) is None
-    assert f("bla-bla", httplib.ACCEPTED) is None
-    assert f("bla-bla", httplib.NO_CONTENT) is None
+    assert f("", http.client.INTERNAL_SERVER_ERROR) is not None
+    assert f("", http.client.ACCEPTED) is None
+    assert f("", http.client.NO_CONTENT) is None
+    assert f("bla-bla", http.client.ACCEPTED) is None
+    assert f("bla-bla", http.client.NO_CONTENT) is None
 
 
 def test_badly_formed_reply_XML():
@@ -133,7 +133,7 @@ def test_builtin_data_types(monkeypatch):
         "byte":int,
         "int":int,
         "integer":int,
-        "long":long,
+        "long":int,
         "negativeInteger":int,
         "nonNegativeInteger":int,
         "nonPositiveInteger":int,
@@ -141,9 +141,9 @@ def test_builtin_data_types(monkeypatch):
         "short":int,
         "unsignedByte":int,
         "unsignedInt":int,
-        "unsignedLong":long,
+        "unsignedLong":int,
         "unsignedShort":int}
-    for tag, type in integer_type_mapping.items():
+    for tag, type in list(integer_type_mapping.items()):
         client = tests.client_from_wsdl(tests.wsdl_output("""\
       <xsd:element name="value" type="xsd:%s" />""" % tag, "value"))
         response = client.service.f(__inject=dict(reply=suds.byte_str("""\
@@ -159,7 +159,7 @@ def test_builtin_data_types(monkeypatch):
     boolean_mapping = {"0":False, "1":True, "false":False, "true":True}
     client = tests.client_from_wsdl(tests.wsdl_output("""\
       <xsd:element name="value" type="xsd:boolean" />""", "value"))
-    for value, expected_value in boolean_mapping.items():
+    for value, expected_value in list(boolean_mapping.items()):
         response = client.service.f(__inject=dict(reply=suds.byte_str("""\
 <?xml version="1.0"?>
 <env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/">
@@ -253,27 +253,27 @@ def test_empty_reply():
     f = lambda status=None, description=None : client.service.f(__inject=dict(
         reply=suds.byte_str(), status=status, description=description))
     status, reason = f()
-    assert status == httplib.OK
+    assert status == http.client.OK
     assert reason is None
-    status, reason = f(httplib.OK)
-    assert status == httplib.OK
+    status, reason = f(http.client.OK)
+    assert status == http.client.OK
     assert reason is None
-    status, reason = f(httplib.INTERNAL_SERVER_ERROR)
-    assert status == httplib.INTERNAL_SERVER_ERROR
+    status, reason = f(http.client.INTERNAL_SERVER_ERROR)
+    assert status == http.client.INTERNAL_SERVER_ERROR
     assert reason == 'injected reply'
-    status, reason = f(httplib.FORBIDDEN)
-    assert status == httplib.FORBIDDEN
+    status, reason = f(http.client.FORBIDDEN)
+    assert status == http.client.FORBIDDEN
     assert reason == 'injected reply'
-    status, reason = f(httplib.FORBIDDEN, "kwack")
-    assert status == httplib.FORBIDDEN
+    status, reason = f(http.client.FORBIDDEN, "kwack")
+    assert status == http.client.FORBIDDEN
     assert reason == 'kwack'
 
 
 def test_fault_reply_with_unicode_faultstring(monkeypatch):
     monkeypatch.delitem(locals(), "e", False)
 
-    unicode_string = u"€ Jurko Gospodnetić ČĆŽŠĐčćžšđ"
-    fault_xml = suds.byte_str(u"""\
+    unicode_string = "€ Jurko Gospodnetić ČĆŽŠĐčćžšđ"
+    fault_xml = suds.byte_str("""\
 <?xml version="1.0"?>
 <env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/">
   <env:Body>
@@ -286,15 +286,15 @@ def test_fault_reply_with_unicode_faultstring(monkeypatch):
 """ % unicode_string)
 
     client = tests.client_from_wsdl(_wsdl__simple, faults=True)
-    inject = dict(reply=fault_xml, status=httplib.INTERNAL_SERVER_ERROR)
+    inject = dict(reply=fault_xml, status=http.client.INTERNAL_SERVER_ERROR)
     e = pytest.raises(suds.WebFault, client.service.f, __inject=inject).value
     assert e.fault.faultstring == unicode_string
     assert e.document.__class__ is suds.sax.document.Document
 
     client = tests.client_from_wsdl(_wsdl__simple, faults=False)
     status, fault = client.service.f(__inject=dict(reply=fault_xml,
-        status=httplib.INTERNAL_SERVER_ERROR))
-    assert status == httplib.INTERNAL_SERVER_ERROR
+        status=http.client.INTERNAL_SERVER_ERROR))
+    assert status == http.client.INTERNAL_SERVER_ERROR
     assert fault.faultstring == unicode_string
 
 
@@ -316,13 +316,13 @@ def test_invalid_fault_namespace(monkeypatch):
 </env:Envelope>
 """)
     client = tests.client_from_wsdl(_wsdl__simple, faults=False)
-    inject = dict(reply=fault_xml, status=httplib.OK)
+    inject = dict(reply=fault_xml, status=http.client.OK)
     e = pytest.raises(Exception, client.service.f, __inject=inject).value
     assert e.__class__ is Exception
     assert str(e) == "<faultcode/> not mapped to message part"
 
-    for http_status in (httplib.INTERNAL_SERVER_ERROR,
-        httplib.PAYMENT_REQUIRED):
+    for http_status in (http.client.INTERNAL_SERVER_ERROR,
+        http.client.PAYMENT_REQUIRED):
         status, reason = client.service.f(__inject=dict(reply=fault_xml,
             status=http_status, description="trla baba lan"))
         assert status == http_status
@@ -360,7 +360,7 @@ def test_reply_error_with_detail_with_fault(monkeypatch):
 
     client = tests.client_from_wsdl(_wsdl__simple, faults=True)
 
-    for http_status in (httplib.OK, httplib.INTERNAL_SERVER_ERROR):
+    for http_status in (http.client.OK, http.client.INTERNAL_SERVER_ERROR):
         inject = dict(reply=_fault_reply__with_detail, status=http_status)
         e = pytest.raises(suds.WebFault, client.service.f, __inject=inject)
         e = e.value
@@ -368,32 +368,32 @@ def test_reply_error_with_detail_with_fault(monkeypatch):
         assert e.document.__class__ is suds.sax.document.Document
         assert str(e) == "Server raised fault: 'Dummy error.'"
 
-    inject = dict(reply=_fault_reply__with_detail, status=httplib.BAD_REQUEST,
+    inject = dict(reply=_fault_reply__with_detail, status=http.client.BAD_REQUEST,
         description="quack-quack")
     e = pytest.raises(Exception, client.service.f, __inject=inject).value
     assert e.__class__ is Exception
-    assert e.args[0][0] == httplib.BAD_REQUEST
+    assert e.args[0][0] == http.client.BAD_REQUEST
     assert e.args[0][1] == "quack-quack"
 
 
 def test_reply_error_with_detail_without_fault():
     client = tests.client_from_wsdl(_wsdl__simple, faults=False)
 
-    for http_status in (httplib.OK, httplib.INTERNAL_SERVER_ERROR):
+    for http_status in (http.client.OK, http.client.INTERNAL_SERVER_ERROR):
         status, fault = client.service.f(__inject=dict(
             reply=_fault_reply__with_detail, status=http_status))
-        assert status == httplib.INTERNAL_SERVER_ERROR
+        assert status == http.client.INTERNAL_SERVER_ERROR
         _test_fault(fault, True)
 
     status, fault = client.service.f(__inject=dict(
-        reply=_fault_reply__with_detail, status=httplib.BAD_REQUEST))
-    assert status == httplib.BAD_REQUEST
+        reply=_fault_reply__with_detail, status=http.client.BAD_REQUEST))
+    assert status == http.client.BAD_REQUEST
     assert fault == "injected reply"
 
     status, fault = client.service.f(__inject=dict(
-        reply=_fault_reply__with_detail, status=httplib.BAD_REQUEST,
+        reply=_fault_reply__with_detail, status=http.client.BAD_REQUEST,
         description="haleluja"))
-    assert status == httplib.BAD_REQUEST
+    assert status == http.client.BAD_REQUEST
     assert fault == "haleluja"
 
 
@@ -402,7 +402,7 @@ def test_reply_error_without_detail_with_fault(monkeypatch):
 
     client = tests.client_from_wsdl(_wsdl__simple, faults=True)
 
-    for http_status in (httplib.OK, httplib.INTERNAL_SERVER_ERROR):
+    for http_status in (http.client.OK, http.client.INTERNAL_SERVER_ERROR):
         inject = dict(reply=_fault_reply__without_detail, status=http_status)
         e = pytest.raises(suds.WebFault, client.service.f, __inject=inject)
         e = e.value
@@ -410,27 +410,27 @@ def test_reply_error_without_detail_with_fault(monkeypatch):
         assert e.document.__class__ is suds.sax.document.Document
         assert str(e) == "Server raised fault: 'Dummy error.'"
 
-    inject = dict(reply=_fault_reply__with_detail, status=httplib.BAD_REQUEST,
+    inject = dict(reply=_fault_reply__with_detail, status=http.client.BAD_REQUEST,
         description="quack-quack")
     e = pytest.raises(Exception, client.service.f, __inject=inject).value
     assert e.__class__ is Exception
-    assert e.args[0][0] == httplib.BAD_REQUEST
+    assert e.args[0][0] == http.client.BAD_REQUEST
     assert e.args[0][1] == "quack-quack"
 
 
 def test_reply_error_without_detail_without_fault():
     client = tests.client_from_wsdl(_wsdl__simple, faults=False)
 
-    for http_status in (httplib.OK, httplib.INTERNAL_SERVER_ERROR):
+    for http_status in (http.client.OK, http.client.INTERNAL_SERVER_ERROR):
         status, fault = client.service.f(__inject=dict(
             reply=_fault_reply__without_detail, status=http_status))
-        assert status == httplib.INTERNAL_SERVER_ERROR
+        assert status == http.client.INTERNAL_SERVER_ERROR
         _test_fault(fault, False)
 
     status, fault = client.service.f(__inject=dict(
-        reply=_fault_reply__without_detail, status=httplib.BAD_REQUEST,
+        reply=_fault_reply__without_detail, status=http.client.BAD_REQUEST,
         description="kung-fu-fui"))
-    assert status == httplib.BAD_REQUEST
+    assert status == http.client.BAD_REQUEST
     assert fault == "kung-fu-fui"
 
 
@@ -530,7 +530,7 @@ def _attibutes(object):
 
 def _isOutputWrapped(client, method_name):
     assert len(client.wsdl.bindings) == 1
-    operation = client.wsdl.bindings.values()[0].operations[method_name]
+    operation = list(client.wsdl.bindings.values())[0].operations[method_name]
     return operation.soap.output.body.wrapped
 
 

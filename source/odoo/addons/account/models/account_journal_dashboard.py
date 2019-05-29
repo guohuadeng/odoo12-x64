@@ -169,7 +169,7 @@ class account_journal(models.Model):
                            LEFT JOIN account_move move ON aml.move_id = move.id
                            WHERE aml.account_id in %%s
                            AND move.date <= %%s AND move.state = 'posted';""" % (amount_field,)
-                self.env.cr.execute(query, (account_ids, fields.Date.today(),))
+                self.env.cr.execute(query, (account_ids, fields.Date.context_today(self),))
                 query_results = self.env.cr.dictfetchall()
                 if query_results and query_results[0].get('sum') != None:
                     account_sum = query_results[0].get('sum')
@@ -343,10 +343,10 @@ class account_journal(models.Model):
                 action_name = 'action_view_bank_statement_tree'
             elif self.type == 'sale':
                 action_name = 'action_invoice_tree1'
-                self = self.with_context(use_domain=[('type', 'in', ['out_invoice', 'out_refund'])])
+                self = self.with_context(use_domain=[('journal_id', '=', self.id)])
             elif self.type == 'purchase':
                 action_name = 'action_vendor_bill_template'
-                self = self.with_context(use_domain=[('type', 'in', ['in_invoice', 'in_refund'])])
+                self = self.with_context(use_domain=[('journal_id', '=', self.id)])
             else:
                 action_name = 'action_move_journal_line'
 

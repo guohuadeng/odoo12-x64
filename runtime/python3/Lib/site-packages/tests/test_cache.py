@@ -24,7 +24,7 @@ Implemented using the 'pytest' testing framework.
 """
 
 if __name__ == "__main__":
-    import __init__
+    from . import __init__
     __init__.runUsingPyTest(globals())
 
 
@@ -54,7 +54,7 @@ value_p11 = suds.byte_str("pero11")
 value_p111 = suds.byte_str("pero111")
 value_p2 = suds.byte_str("pero2")
 value_p22 = suds.byte_str("pero22")
-value_unicode = suds.byte_str(u"€ 的 čćžšđČĆŽŠĐ")
+value_unicode = suds.byte_str("€ 的 čćžšđČĆŽŠĐ")
 
 
 def test_Cache():

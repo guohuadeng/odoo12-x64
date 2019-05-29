@@ -135,11 +135,16 @@ exports.PosModel = Backbone.Model.extend({
                         done.resolve();
                 },
                 function(statusText, url){
-                        if (statusText == 'error' && window.location.protocol == 'https:') {
-                            var error = {message: 'TLSError', url: url};
-                            self.chrome.loading_error(error);
-                        } else {
-                            done.resolve();
+                        var show_loading_error = (self.gui.current_screen === null);
+                        done.resolve();
+                        if (show_loading_error && statusText == 'error' && window.location.protocol == 'https:') {
+                            self.gui.show_popup('alert', {
+                                title: _t('HTTPS connection to IoT Box failed'),
+                                body: _.str.sprintf(
+                                  _t('Make sure you are using IoT Box v18.12 or higher. Navigate to %s to accept the certificate of your IoT Box.'),
+                                  url
+                                ),
+                            });
                         }
                 });
         return done;
@@ -899,6 +904,9 @@ exports.PosModel = Backbone.Model.extend({
                     }}).done(function () {
                         invoiced.resolve();
                         done.resolve();
+                    }).fail(function (error) {
+                        invoiced.reject({code:401, message:'Backend Invoice', data:{order: order}});
+                        done.reject();
                     });
                 } else {
                     // The order has been pushed separately in batch when
@@ -2659,7 +2667,7 @@ exports.NumpadState = Backbone.Model.extend({
             this.set({
                 buffer: "-" + newChar
             });
-        } else {
+        } else if (!(newChar === '.') || oldBuffer.indexOf('.') === -1) {
             this.set({
                 buffer: (this.get('buffer')) + newChar
             });

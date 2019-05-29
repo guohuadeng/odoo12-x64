@@ -1,6 +1,6 @@
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the (LGPL) GNU Lesser General Public License as
-# published by the Free Software Foundation; either version 3 of the 
+# published by the Free Software Foundation; either version 3 of the
 # License, or (at your option) any later version.
 #
 # This program is distributed in the hope that it will be useful,
@@ -18,19 +18,16 @@
 Provides basic I{marshaller} classes.
 """
 
-from logging import getLogger
 from suds import *
 from suds.mx import *
 from suds.mx.core import Core
-
-log = getLogger(__name__)
 
 
 class Basic(Core):
     """
     A I{basic} (untyped) marshaller.
     """
-    
+
     def process(self, value, tag=None):
         """
         Process (marshal) the tag with the specified value using the

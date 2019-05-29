@@ -27,7 +27,7 @@ tests get added to it and it acquires more structure.
 """
 
 if __name__ == "__main__":
-    import __init__
+    from . import __init__
     __init__.runUsingPyTest(globals())
 
 
@@ -1921,7 +1921,7 @@ xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
     assert binding_qname == ("dummy", "my-namespace")
     assert binding.__class__ is suds.wsdl.Binding
     assert len(binding.operations) == 1
-    operation = binding.operations.values()[0]
+    operation = list(binding.operations.values())[0]
     input = operation.soap.input.body
     output = operation.soap.output.body
     assert len(input.parts) == 1
@@ -2060,7 +2060,7 @@ def _element_node_xml(name, min=None, max=None):
 
 def _first_from_dict(d):
     """Returns the first name/value pair from a dictionary or None if empty."""
-    for x in d.items():
+    for x in list(d.items()):
         return x[0], x[1]
 
 

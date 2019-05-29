@@ -28,7 +28,7 @@ specific to a particular web service operation binding.
 """
 
 if __name__ == "__main__":
-    import __init__
+    from . import __init__
     __init__.runUsingPyTest(globals())
 
 

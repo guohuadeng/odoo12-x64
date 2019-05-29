@@ -23,7 +23,7 @@ Implemented using the 'pytest' testing framework.
 """
 
 if __name__ == "__main__":
-    import __init__
+    from . import __init__
     __init__.runUsingPyTest(globals())
 
 
@@ -36,7 +36,7 @@ import pytest
 
 import base64
 import sys
-import urllib2
+import urllib.request, urllib.error, urllib.parse
 
 
 class MyException(Exception):
@@ -222,7 +222,7 @@ def test_sending_unicode_data(monkeypatch):
     url = "http://%s:%s/svc" % (host, port)
     store = suds.store.DocumentStore(wsdl=_wsdl_with_input_data(url))
     client = suds.client.Client("suds://wsdl", cache=None, documentStore=store)
-    data = u"Дмитровский район"
+    data = "Дмитровский район"
     pytest.raises(MyException, client.service.f, data)
     assert data.encode("utf-8") in mocker.sentData
 
@@ -237,7 +237,7 @@ def test_sending_non_ascii_location():
     class MockURLOpener:
         def open(self, request, timeout=None):
             raise MyException
-    url = u"http://Дмитровский-район-152312306:9999/svc"
+    url = "http://Дмитровский-район-152312306:9999/svc"
     transport = suds.transport.http.HttpTransport()
     transport.urlopener = MockURLOpener()
     store = suds.store.DocumentStore(wsdl=_wsdl_with_no_input_data(url))
@@ -331,7 +331,7 @@ def _wsdl_with_input_data(url):
     Externally specified URL is used as the web service location.
 
     """
-    return suds.byte_str(u"""\
+    return suds.byte_str("""\
 <?xml version="1.0" encoding="utf-8"?>
 <wsdl:definitions targetNamespace="myNamespace"
   xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
@@ -375,7 +375,7 @@ def _wsdl_with_no_input_data(url):
     the web service location.
 
     """
-    return suds.byte_str(u"""\
+    return suds.byte_str("""\
 <?xml version="1.0" encoding="utf-8"?>
 <wsdl:definitions targetNamespace="myNamespace"
   xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
