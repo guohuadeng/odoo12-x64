@@ -24,6 +24,9 @@ http://www.sunpop.cn/odoo_12_11_10_dev_with_pycharm_setup/
 ## odoo12 在线演示学习，请注册
 http://demo.odooapp.cn
 
+## 多数的系统，请先安装 win 支持，用于PG及后续增加 python 依赖
+.\extra\vcredist_x64.2013.exe
+
 ## 操作说明
 - 启动odoo：执行 r.bat后，访问 http://localhost:8012  或者  http://localhost
 - 更新odoo：执行 s.bat 停止odoo运行后，执行 u.bat。如要手工更新至最新odoo，请至官方下载后覆盖 ./source 目录下文件即可
@@ -53,7 +56,6 @@ r.bat   最常用，odoo服务启动（如果当前有进程则先关闭再启�
 s.bat 停止
 u.bat 删除当前source目录中的odoo源码，从git上下载最新版本
 
-extra 依赖文件目录，如果要自行安装涉及到的库，其它如果提示dll错误请安装 vcredist_x64.exe
 
 ## 问题处理
 如果遇到问题，请首先尝试处理Postgresql,进入bin目录执行环境初始化，相关指令如下
@@ -73,8 +75,6 @@ createuser --createdb --no-createrole --no-superuser --pwprompt odoo
 ```
 https://www.python.org/downloads/windows/
 ```
-## 安装 win 支持，便于后续增加 python 依赖，也可以不装
-.\extra\vc_redist.x64.exe
 
 ## 安装pip
 ```
@@ -91,7 +91,7 @@ http://www.lfd.uci.edu/~gohlke/pythonlibs/
 ## python 3.5 ，此版本才可断点
 ```
 pip3 install -r .\source\requirements.txt  -i https://mirrors.aliyun.com/pypi/simple
-pip3 install -r .\source\rfix.txt  -i https://mirrors.aliyun.com/pypi/simple
+pip3 install -r .\rfix.txt  -i https://mirrors.aliyun.com/pypi/simple
 pip3 install .\extra\Pillow-5.0.0-cp35-cp35m-win_amd64.whl
 pip3 install .\extra\psycopg2-2.7.4-cp35-cp35m-win_amd64.whl
 pip3 install .\extra\pyldap-2.4.45-cp35-cp35m-win_amd64.whl
