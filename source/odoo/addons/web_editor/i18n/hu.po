@@ -3,18 +3,19 @@
 # * web_editor
 # 
 # Translators:
-# Ákos Nagy <akos.nagy@oregional.hu>, 2018
 # Martin Trigaux, 2018
 # krnkris, 2018
 # gezza <geza.nagy@oregional.hu>, 2018
+# Ákos Nagy <akos.nagy@oregional.hu>, 2019
+# Istvan <leki69@gmail.com>, 2019
 # 
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server saas~11.5\n"
+"Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-02 10:06+0000\n"
+"POT-Creation-Date: 2019-11-14 07:35+0000\n"
 "PO-Revision-Date: 2018-08-24 09:33+0000\n"
-"Last-Translator: gezza <geza.nagy@oregional.hu>, 2018\n"
+"Last-Translator: Istvan <leki69@gmail.com>, 2019\n"
 "Language-Team: Hungarian (https://www.transifex.com/odoo/teams/41243/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -234,7 +235,7 @@ msgstr ""
 #: code:addons/web_editor/static/src/js/editor/snippets.editor.js:255
 #, python-format
 msgid "Block"
-msgstr ""
+msgstr "Blokkolás"
 
 #. module: web_editor
 #. openerp-web
@@ -587,7 +588,7 @@ msgstr "Teljes képernyő"
 #. module: web_editor
 #: model:ir.model,name:web_editor.model_ir_http
 msgid "HTTP Routing"
-msgstr ""
+msgstr "HTTP irányítás"
 
 #. module: web_editor
 #. openerp-web
@@ -796,7 +797,7 @@ msgstr "Videó beillesztés"
 #: code:addons/web_editor/static/src/xml/editor.xml:200
 #, python-format
 msgid "Instagram"
-msgstr ""
+msgstr "Instagram"
 
 #. module: web_editor
 #. openerp-web
@@ -976,7 +977,7 @@ msgstr "Kiegyengetett"
 #: code:addons/web_editor/static/src/xml/editor.xml:270
 #, python-format
 msgid "Outline"
-msgstr ""
+msgstr "Körvonal"
 
 #. module: web_editor
 #. openerp-web
@@ -1027,7 +1028,7 @@ msgstr "Előnézet"
 #: code:addons/web_editor/static/src/xml/editor.xml:68
 #, python-format
 msgid "Previous"
-msgstr ""
+msgstr "Előző"
 
 #. module: web_editor
 #. openerp-web
@@ -1247,7 +1248,7 @@ msgstr ""
 #: code:addons/web_editor/static/src/xml/editor.xml:271
 #, python-format
 msgid "Rounded"
-msgstr ""
+msgstr "Kerekített"
 
 #. module: web_editor
 #. openerp-web
@@ -1506,7 +1507,7 @@ msgstr "Melyik URL webcímre menjen ez a hivatkozási link?"
 #: code:addons/web_editor/static/src/xml/editor.xml:44
 #, python-format
 msgid "Tooltip"
-msgstr ""
+msgstr "Helyi súgó"
 
 #. module: web_editor
 #. openerp-web
@@ -1621,23 +1622,30 @@ msgstr "Viedeó"
 
 #. module: web_editor
 #. openerp-web
-#: code:addons/web_editor/static/src/js/editor/rte.summernote.js:1025
+#: code:addons/web_editor/static/src/js/editor/rte.summernote.js:1029
 #, python-format
 msgid "Video Link"
 msgstr "Videó hivatkozás"
 
 #. module: web_editor
 #. openerp-web
-#: code:addons/web_editor/static/src/js/editor/rte.summernote.js:1027
+#: code:addons/web_editor/static/src/js/editor/rte.summernote.js:1031
 #, python-format
 msgid "Video URL?"
 msgstr "Videó URL hivatkozás?"
 
 #. module: web_editor
 #. openerp-web
-#: code:addons/web_editor/static/src/xml/editor.xml:195
+#: code:addons/web_editor/static/src/xml/editor.xml:196
 #, python-format
 msgid "Video code"
+msgstr ""
+
+#. module: web_editor
+#. openerp-web
+#: code:addons/web_editor/static/src/xml/editor.xml:210
+#, python-format
+msgid "Videos are muted when autoplay is enabled"
 msgstr ""
 
 #. module: web_editor

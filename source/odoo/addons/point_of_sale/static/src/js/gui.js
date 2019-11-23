@@ -321,16 +321,20 @@ var Gui = core.Class.extend({
                     self._close();
                 } else {
                     var reason = self.pos.get('failed') ? 
-                                 'configuration errors' : 
-                                 'internet connection issues';  
+                                 _t('Some orders could not be submitted to '+
+                                     'the server due to configuration errors. '+
+                                     'You can exit the Point of Sale, but do '+
+                                     'not close the session before the issue '+
+                                     'has been resolved.') :
+                                 _t('Some orders could not be submitted to '+
+                                     'the server due to internet connection issues. '+
+                                     'You can exit the Point of Sale, but do '+
+                                     'not close the session before the issue '+
+                                     'has been resolved.');
 
                     self.show_popup('confirm', {
                         'title': _t('Offline Orders'),
-                        'body':  _t(['Some orders could not be submitted to',
-                                     'the server due to ' + reason + '.',
-                                     'You can exit the Point of Sale, but do',
-                                     'not close the session before the issue',
-                                     'has been resolved.'].join(' ')),
+                        'body':  reason,
                         'confirm': function() {
                             self._close();
                         },
@@ -458,7 +462,7 @@ var Gui = core.Class.extend({
             }
         } else if (input === '-') {
             if (options.firstinput) {
-                newbuf = '-';
+                newbuf = '-0';
             } else if ( newbuf[0] === '-' ) {
                 newbuf = newbuf.substring(1,newbuf.length);
             } else {
@@ -472,6 +476,9 @@ var Gui = core.Class.extend({
             } else {
                 newbuf += input;
             }
+        }
+        if (newbuf === "-") {
+            newbuf = "";
         }
 
         // End of input buffer at 12 characters.

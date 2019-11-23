@@ -14,6 +14,7 @@ var Widget = require('web.Widget');
 var fieldUtils = require('web.field_utils');
 
 var createView = testUtils.createView;
+var createAsyncView = testUtils.createAsyncView;
 
 QUnit.module('fields', {}, function () {
 
@@ -776,6 +777,55 @@ QUnit.module('relational_fields', {
             "href should have #");
 
         form.destroy();
+    });
+
+    QUnit.test('many2one with co-model whose name field is a many2one', function (assert) {
+        var done = assert.async();
+        assert.expect(4);
+
+        var M2O_DELAY = relationalFields.FieldMany2One.prototype.AUTOCOMPLETE_DELAY;
+        relationalFields.FieldMany2One.prototype.AUTOCOMPLETE_DELAY = 0;
+
+        this.data.product.fields.name = {
+            string: 'User Name',
+            type: 'many2one',
+            relation: 'user',
+        };
+
+        var form = createView({
+            View: FormView,
+            model: 'partner',
+            data: this.data,
+            arch: '<form><field name="product_id"/></form>',
+            archs: {
+                'product,false,form': '<form><field name="name"/></form>',
+            },
+        });
+
+        // click on 'Create and Edit' in m2o dropdown
+        var $input = form.$('.o_field_many2one input');
+        $input.click();
+        $input.autocomplete('widget').find('.o_m2o_dropdown_option').focus().click();
+
+        assert.containsOnce(document.body, '.modal .o_form_view');
+
+        // quick create 'new value'
+        var $dialogInput = $('.modal .o_field_many2one input');
+        $dialogInput.val('new value').trigger('keydown');
+        concurrency.delay(0).then(function () {
+            $dialogInput.autocomplete('widget').find('li:first()').click();
+
+            assert.strictEqual($('.modal .o_field_many2one input').val(), 'new value');
+
+            $('.modal .modal-footer .btn-primary').click(); // save in modal
+
+            assert.containsNone(document.body, '.modal .o_form_view');
+            assert.strictEqual(form.$('.o_field_many2one input').val(), 'new value');
+
+            relationalFields.FieldMany2One.prototype.AUTOCOMPLETE_DELAY = M2O_DELAY;
+            form.destroy();
+            done();
+        });
     });
 
     QUnit.test('many2one searches with correct value', function (assert) {
@@ -2979,8 +3029,8 @@ QUnit.module('relational_fields', {
         // Open many2one modal
         form.$buttons.find('.btn.o_form_button_edit').click();
         form.$('.o_external_button').click();
-        var $originalModal = $('.modal-dialog');
-        var $focusedModal = $(document.activeElement).closest('.modal-dialog');
+        var $originalModal = $('.modal');
+        var $focusedModal = $(document.activeElement).closest('.modal');
 
         assert.equal($originalModal.length, 1, 'There should be one modal');
         assert.equal($originalModal[0], $focusedModal[0], 'Modal is focused');
@@ -2988,8 +3038,8 @@ QUnit.module('relational_fields', {
 
         // Open many2one modal of field in many2one modal
         $originalModal.find('.o_external_button').click();
-        var $modals = $('.modal-dialog');
-        $focusedModal = $(document.activeElement).closest('.modal-dialog');
+        var $modals = $('.modal');
+        $focusedModal = $(document.activeElement).closest('.modal');
 
         assert.equal($modals.length, 2, 'There should be two modals');
         assert.equal($modals[1], $focusedModal[0], 'Last modal is focused');
@@ -2997,8 +3047,8 @@ QUnit.module('relational_fields', {
 
         // Close second modal
         $modals.last().find('button[class="close"]').click();
-        var $modal = $('.modal-dialog');
-        $focusedModal = $(document.activeElement).closest('.modal-dialog');
+        var $modal = $('.modal');
+        $focusedModal = $(document.activeElement).closest('.modal');
 
         assert.equal($modal.length, 1, 'There should be one modal');
         assert.equal($modal[0], $originalModal[0], 'First modal is still opened');
@@ -11137,6 +11187,58 @@ QUnit.module('relational_fields', {
         form.destroy();
     });
 
+    // FORWARDPORT THIS UP TO 12.2, NOT FURTHER
+    QUnit.test('many2manys inside a one2many are fetched in batch after onchange', async function (assert) {
+        assert.expect(7);
+
+        this.data.partner.onchanges = {
+            turtles: function (obj) {
+                obj.turtles = [
+                    [5],
+                    [1, 1, {
+                        turtle_foo: "leonardo",
+                        partner_ids: [[4, 2]],
+                    }],
+                    [1, 2, {
+                        turtle_foo: "donatello",
+                        partner_ids: [[4, 2], [4, 4]],
+                    }],
+                ];
+            },
+        };
+
+        var form = await createAsyncView({
+            View: FormView,
+            model: 'partner',
+            data: this.data,
+            arch: '<form>' +
+                        '<field name="turtles">' +
+                            '<tree editable="bottom">' +
+                                '<field name="turtle_foo"/>' +
+                                '<field name="partner_ids" widget="many2many_tags"/>' +
+                            '</tree>' +
+                        '</field>' +
+                    '</form>',
+            enableBasicModelBachedRPCs: true,
+            mockRPC: function (route, args) {
+                assert.step(args.method || route);
+                if (args.method === 'read') {
+                    assert.deepEqual(args.args[0], [2, 4],
+                        'should read the partner_ids once, batched');
+                }
+                return this._super.apply(this, arguments);
+            },
+        });
+
+        assert.containsN(form, '.o_data_row', 2);
+        assert.strictEqual(form.$('.o_field_widget[name="partner_ids"]').text().replace(/\s/g, ''),
+            "secondrecordsecondrecordaaa");
+
+        assert.verifySteps(['default_get', 'onchange', 'read']);
+
+        form.destroy();
+    });
+
     QUnit.module('FieldMany2Many');
 
     QUnit.test('many2many kanban: edition', function (assert) {
@@ -13940,6 +14042,59 @@ QUnit.module('relational_fields', {
                         "should contain a link with the new value");
 
         form.destroy();
+    });
+
+    QUnit.test('interact with reference field changed by onchange', function (assert) {
+        assert.expect(2);
+        var done = assert.async();
+
+        var M2O_DELAY = relationalFields.FieldMany2One.prototype.AUTOCOMPLETE_DELAY;
+        relationalFields.FieldMany2One.prototype.AUTOCOMPLETE_DELAY = 0;
+
+        this.data.partner.onchanges = {
+            bar: function (obj) {
+                if (!obj.bar) {
+                    obj.reference = 'partner,1';
+                }
+            },
+        };
+        var form = createView({
+            View: FormView,
+            model: 'partner',
+            data: this.data,
+            arch: '<form>' +
+                        '<field name="bar"/>' +
+                        '<field name="reference"/>' +
+                '</form>',
+            mockRPC: function (route, args) {
+                if (args.method === 'create') {
+                    assert.deepEqual(args.args[0], {
+                        bar: false,
+                        reference: 'partner,4',
+                    });
+                }
+                return this._super.apply(this, arguments);
+            },
+        });
+
+        // trigger the onchange to set a value for the reference field
+        form.$('.o_field_boolean input').click();
+
+        assert.strictEqual(form.$('.o_field_widget[name=reference] select').val(), 'partner');
+
+        // manually update reference field
+        var $dropdown = form.$('.o_field_widget[name=reference] input').autocomplete('widget');
+        form.$('.o_field_widget[name=reference] input').val('aaa').trigger('keydown');
+        concurrency.delay(0).then(function () {
+            $dropdown.find('li:first()').click(); // select 'aaa'
+
+            // save
+            form.$buttons.find('.o_form_button_save').click();
+
+            relationalFields.FieldMany2One.prototype.AUTOCOMPLETE_DELAY = M2O_DELAY;
+            done();
+            form.destroy();
+        });
     });
 
     QUnit.test('default_get and onchange with a reference field', function (assert) {

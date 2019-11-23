@@ -10,7 +10,7 @@ Green Odoo 12 x64， http://www.Sunpop.cn
 1. python 3.5,64位
 2. postgresql 9.6.4 ,64位
 3. Nginx 1.15.5， 64位
-4. Odoo 12社区版，20190512版本
+4. Odoo 12社区版，20191123版本
 5. 增加 sphinx 及 tx_client，用于文档及翻译
 
 ## 全新功能，更快速度

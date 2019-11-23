@@ -86,12 +86,12 @@ class AcquirerPaypal(models.Model):
         else:
             percentage = self.fees_int_var
             fixed = self.fees_int_fixed
-        fees = (percentage / 100.0 * amount + fixed) / (1 - percentage / 100.0)
+        fees = (percentage / 100.0 * amount) + fixed / (1 - percentage / 100.0)
         return fees
 
     @api.multi
     def paypal_form_generate_values(self, values):
-        base_url = self.env['ir.config_parameter'].sudo().get_param('web.base.url')
+        base_url = self.get_base_url()
 
         paypal_tx_values = dict(values)
         paypal_tx_values.update({

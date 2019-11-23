@@ -1,12 +1,12 @@
+Jinja2
 babel >= 1.0
 decorator
 docutils
 feedparser
 gevent
 html2text
-Jinja2
-lxml
 libsass
+lxml
 mako
 mock
 ofxparse

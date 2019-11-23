@@ -115,7 +115,7 @@ class account_abstract_payment(models.AbstractModel):
             'payment_type': total_amount > 0 and 'inbound' or 'outbound',
             'partner_id': False if multi else invoices[0].commercial_partner_id.id,
             'partner_type': False if multi else MAP_INVOICE_TYPE_PARTNER_TYPE[invoices[0].type],
-            'communication': ' '.join([ref for ref in invoices.mapped('reference') if ref]),
+            'communication': ' '.join([ref for ref in invoices.mapped('reference') if ref])[:2000],
             'invoice_ids': [(6, 0, invoices.ids)],
             'multi': multi,
         })
@@ -195,7 +195,7 @@ class account_abstract_payment(models.AbstractModel):
     def _compute_journal_domain_and_types(self):
         journal_type = ['bank', 'cash']
         domain = []
-        if self.currency_id.is_zero(self.amount) and self.has_invoices:
+        if self.currency_id.is_zero(self.amount) and hasattr(self, "has_invoices") and self.has_invoices:
             # In case of payment with 0 amount, allow to select a journal of type 'general' like
             # 'Miscellaneous Operations' and set this journal by default.
             journal_type = ['general']
@@ -242,22 +242,32 @@ class account_abstract_payment(models.AbstractModel):
             invoices = self.invoice_ids
 
         # Get the payment currency
-        if not currency:
-            currency = self.currency_id or self.journal_id.currency_id or self.journal_id.company_id.currency_id or invoices and invoices[0].currency_id
+        payment_currency = currency
+        if not payment_currency:
+            payment_currency = self.currency_id or self.journal_id.currency_id or self.journal_id.company_id.currency_id or invoices and invoices[0].currency_id
 
         # Avoid currency rounding issues by summing the amounts according to the company_currency_id before
         invoice_datas = invoices.read_group(
             [('id', 'in', invoices.ids)],
-            ['currency_id', 'type', 'residual_signed'],
+            ['currency_id', 'type', 'residual_signed', 'residual_company_signed'],
             ['currency_id', 'type'], lazy=False)
         total = 0.0
         for invoice_data in invoice_datas:
-            amount_total = MAP_INVOICE_TYPE_PAYMENT_SIGN[invoice_data['type']] * invoice_data['residual_signed']
-            payment_currency = self.env['res.currency'].browse(invoice_data['currency_id'][0])
-            if payment_currency == currency:
+            sign = MAP_INVOICE_TYPE_PAYMENT_SIGN[invoice_data['type']]
+            amount_total = sign * invoice_data['residual_signed']
+            amount_total_company_signed = sign * invoice_data['residual_company_signed']
+            invoice_currency = self.env['res.currency'].browse(invoice_data['currency_id'][0])
+            if payment_currency == invoice_currency:
                 total += amount_total
             else:
-                total += payment_currency._convert(amount_total, currency, self.env.user.company_id, self.payment_date or fields.Date.today())
+                # Here there is no chance we will reconcile on amount_currency
+                # Hence, we need to compute with the amount in company currency as the base
+                total += self.journal_id.company_id.currency_id._convert(
+                    amount_total_company_signed,
+                    payment_currency,
+                    self.env.user.company_id,
+                    self.payment_date or fields.Date.today()
+                )
         return total
 
 
@@ -317,7 +327,10 @@ class account_register_payments(models.TransientModel):
         results = {}
         # Create a dict dispatching invoices according to their commercial_partner_id, account_id, invoice_type and partner_bank_id
         for inv in self.invoice_ids:
-            partner_id = inv.commercial_partner_id.id
+            if inv.partner_id.type == 'invoice':
+                partner_id = inv.partner_id.id
+            else:
+                partner_id = inv.commercial_partner_id.id
             account_id = inv.account_id.id
             invoice_type = MAP_INVOICE_TYPE_PARTNER_TYPE[inv.type]
             recipient_account =  inv.partner_bank_id
@@ -340,6 +353,12 @@ class account_register_payments(models.TransientModel):
         pmt_communication = self.show_communication_field and self.communication \
                             or self.group_invoices and ' '.join([inv.reference or inv.number for inv in invoices]) \
                             or invoices[0].reference # in this case, invoices contains only one element, since group_invoices is False
+
+        if invoices[0].partner_id.type == 'invoice':
+            partner_id = invoices[0].partner_id
+        else:
+            partner_id = invoices[0].commercial_partner_id
+
         values = {
             'journal_id': self.journal_id.id,
             'payment_method_id': self.payment_method_id.id,
@@ -349,7 +368,7 @@ class account_register_payments(models.TransientModel):
             'payment_type': payment_type,
             'amount': abs(amount),
             'currency_id': self.currency_id.id,
-            'partner_id': invoices[0].commercial_partner_id.id,
+            'partner_id': partner_id.id,
             'partner_type': MAP_INVOICE_TYPE_PARTNER_TYPE[invoices[0].type],
             'partner_bank_account_id': bank_account.id,
             'multi': False,
@@ -407,6 +426,10 @@ class account_payment(models.Model):
     _inherit = ['mail.thread', 'account.abstract.payment']
     _description = "Payments"
     _order = "payment_date desc, name desc"
+
+    @api.model
+    def _get_move_name_transfer_separator(self):
+        return '§§'
 
     @api.multi
     @api.depends('move_line_ids.reconciled')
@@ -560,20 +583,25 @@ class account_payment(models.Model):
 
     @api.multi
     def button_invoices(self):
-        if self.partner_type == 'supplier':
-            views = [(self.env.ref('account.invoice_supplier_tree').id, 'tree'), (self.env.ref('account.invoice_supplier_form').id, 'form')]
-        else:
-            views = [(self.env.ref('account.invoice_tree').id, 'tree'), (self.env.ref('account.invoice_form').id, 'form')]
-        return {
+        action = {
             'name': _('Paid Invoices'),
             'view_type': 'form',
             'view_mode': 'tree,form',
             'res_model': 'account.invoice',
             'view_id': False,
-            'views': views,
             'type': 'ir.actions.act_window',
             'domain': [('id', 'in', [x.id for x in self.reconciled_invoice_ids])],
         }
+        if self.partner_type == 'supplier':
+            action['views'] = [(self.env.ref('account.invoice_supplier_tree').id, 'tree'), (self.env.ref('account.invoice_supplier_form').id, 'form')]
+            action['context'] = {
+                'journal_type': 'purchase',
+                'type': 'in_invoice',
+                'default_type': 'in_invoice',
+            }
+        else:
+            action['views'] = [(self.env.ref('account.invoice_tree').id, 'tree'), (self.env.ref('account.invoice_form').id, 'form')]
+        return action
 
     @api.multi
     def button_dummy(self):
@@ -596,9 +624,12 @@ class account_payment(models.Model):
             for move in rec.move_line_ids.mapped('move_id'):
                 if rec.invoice_ids:
                     move.line_ids.remove_move_reconcile()
-                move.button_cancel()
+                if move.state != 'draft':
+                    move.button_cancel()
                 move.unlink()
-            rec.state = 'cancelled'
+            rec.write({
+                'state': 'cancelled',
+            })
 
     @api.multi
     def unlink(self):
@@ -647,6 +678,7 @@ class account_payment(models.Model):
             # Create the journal entry
             amount = rec.amount * (rec.payment_type in ('outbound', 'transfer') and 1 or -1)
             move = rec._create_payment_entry(amount)
+            persist_move_name = move.name
 
             # In case of a transfer, the first journal entry created debited the source liquidity account and credited
             # the transfer account. Now we debit the transfer account and credit the destination liquidity account.
@@ -654,8 +686,9 @@ class account_payment(models.Model):
                 transfer_credit_aml = move.line_ids.filtered(lambda r: r.account_id == rec.company_id.transfer_account_id)
                 transfer_debit_aml = rec._create_transfer_entry(amount)
                 (transfer_credit_aml + transfer_debit_aml).reconcile()
+                persist_move_name += self._get_move_name_transfer_separator() + transfer_debit_aml.move_id.name
 
-            rec.write({'state': 'posted', 'move_name': move.name})
+            rec.write({'state': 'posted', 'move_name': persist_move_name})
         return True
 
     @api.multi
@@ -759,14 +792,30 @@ class account_payment(models.Model):
         """ Return dict to create the payment move
         """
         journal = journal or self.journal_id
+
         move_vals = {
             'date': self.payment_date,
             'ref': self.communication or '',
             'company_id': self.company_id.id,
             'journal_id': journal.id,
         }
+
+        name = False
         if self.move_name:
-            move_vals['name'] = self.move_name
+            names = self.move_name.split(self._get_move_name_transfer_separator())
+            if self.payment_type == 'transfer':
+                if journal == self.destination_journal_id and len(names) == 2:
+                    name = names[1]
+                elif journal == self.destination_journal_id and len(names) != 2:
+                    # We are probably transforming a classical payment into a transfer
+                    name = False
+                else:
+                    name = names[0]
+            else:
+                name = names[0]
+
+        if name:
+            move_vals['name'] = name
         return move_vals
 
     def _get_shared_move_line_vals(self, debit, credit, amount_currency, move_id, invoice_id=False):

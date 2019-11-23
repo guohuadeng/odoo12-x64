@@ -89,6 +89,21 @@ class SaleOrder(models.Model):
         if self.warehouse_id.company_id:
             self.company_id = self.warehouse_id.company_id.id
 
+    @api.onchange('partner_shipping_id')
+    def _onchange_partner_shipping_id(self):
+        res = {}
+        pickings = self.picking_ids.filtered(
+            lambda p: p.state not in ['done', 'cancel'] and p.partner_id != self.partner_shipping_id
+        )
+        if pickings:
+            res['warning'] = {
+                'title': _('Warning!'),
+                'message': _(
+                    'Do not forget to change the partner on the following delivery orders: %s'
+                ) % (','.join(pickings.mapped('name')))
+            }
+        return res
+
     @api.multi
     def action_view_delivery(self):
         '''
@@ -102,7 +117,11 @@ class SaleOrder(models.Model):
         if len(pickings) > 1:
             action['domain'] = [('id', 'in', pickings.ids)]
         elif pickings:
-            action['views'] = [(self.env.ref('stock.view_picking_form').id, 'form')]
+            form_view = [(self.env.ref('stock.view_picking_form').id, 'form')]
+            if 'views' in action:
+                action['views'] = form_view + [(state,view) for state,view in action['views'] if view != 'form']
+            else:
+                action['views'] = form_view
             action['res_id'] = pickings.id
         return action
 

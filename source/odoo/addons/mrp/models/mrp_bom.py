@@ -4,7 +4,7 @@
 from odoo import api, fields, models, _
 from odoo.addons import decimal_precision as dp
 from odoo.exceptions import UserError, ValidationError
-from odoo.tools import float_round
+from odoo.tools import float_round, pycompat
 
 from itertools import groupby
 
@@ -101,6 +101,13 @@ class MrpBom(models.Model):
     def onchange_routing_id(self):
         for line in self.bom_line_ids:
             line.operation_id = False
+
+    @api.model
+    def name_create(self, name):
+        # prevent to use string as product_tmpl_id
+        if isinstance(name, pycompat.string_types):
+            raise UserError(_("You cannot create a new Bill of Material from here."))
+        return super(MrpBom, self).name_create(name)
 
     @api.multi
     def name_get(self):
@@ -230,6 +237,7 @@ class MrpBomLine(models.Model):
         'mrp.bom', 'Parent BoM',
         index=True, ondelete='cascade', required=True)
     parent_product_tmpl_id = fields.Many2one('product.template', 'Parent Product Template', related='bom_id.product_tmpl_id')
+    valid_product_attribute_value_ids = fields.Many2many('product.attribute.value', related='bom_id.product_tmpl_id.valid_product_attribute_value_ids')
     attribute_value_ids = fields.Many2many(
         'product.attribute.value', string='Apply on Variants',
         help="BOM Product Variants needed form apply this line.")

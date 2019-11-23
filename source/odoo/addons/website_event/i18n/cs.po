@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-09 10:32+0000\n"
+"POT-Creation-Date: 2019-11-14 07:35+0000\n"
 "PO-Revision-Date: 2018-08-24 09:34+0000\n"
 "Last-Translator: trendspotter <j.podhorecky@volny.cz>, 2019\n"
 "Language-Team: Czech (https://www.transifex.com/odoo/teams/41243/cs/)\n"
@@ -52,7 +52,7 @@ msgstr "<b>Množství</b>"
 #. module: website_event
 #: model_terms:ir.ui.view,arch_db:website_event.registration_template
 msgid "<b>Ticket Type</b>"
-msgstr ""
+msgstr "<b>Typ vstupenky</b>"
 
 #. module: website_event
 #: model_terms:ir.ui.view,arch_db:website_event.country_events_list
@@ -114,6 +114,8 @@ msgid ""
 "<i class=\"fa fa-flag fa-5x\"/>\n"
 "                            Events from Your Country"
 msgstr ""
+"<i class=\"fa fa-flag fa-5x\"/>\n"
+"                            Události z vaší země"
 
 #. module: website_event
 #: model_terms:ir.ui.view,arch_db:website_event.registration_complete
@@ -151,7 +153,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:website_event.index
 #: model_terms:ir.ui.view,arch_db:website_event.registration_complete
 msgid "<i>to</i>"
-msgstr ""
+msgstr "<i>komu</i>"
 
 #. module: website_event
 #: model_terms:ir.ui.view,arch_db:website_event.event_right_quotes
@@ -200,7 +202,7 @@ msgstr ""
 #. module: website_event
 #: model_terms:ir.ui.view,arch_db:website_event.event_location
 msgid "<span>Online Events</span>"
-msgstr ""
+msgstr "<span>Online události</span>"
 
 #. module: website_event
 #: model_terms:ir.ui.view,arch_db:website_event.registration_template
@@ -267,7 +269,7 @@ msgstr "Zeptejte se účastníků při registraci online"
 #. module: website_event
 #: model_terms:ir.ui.view,arch_db:website_event.registration_attendee_details
 msgid "Attendee #%s"
-msgstr ""
+msgstr "Účastník číslo %s"
 
 #. module: website_event
 #: model_terms:ir.ui.view,arch_db:website_event.registration_attendee_details
@@ -310,6 +312,7 @@ msgid "Click to publish your event."
 msgstr "Klepnutím zveřejníte událost."
 
 #. module: website_event
+#: model_terms:ir.ui.view,arch_db:website_event.layout
 #: model_terms:ir.ui.view,arch_db:website_event.registration_attendee_details
 msgid "Close"
 msgstr "Zavřít"
@@ -449,6 +452,11 @@ msgid ""
 "                            and join the conversation."
 msgstr ""
 "Zjistěte, co lidé o této události vědí a říkají, a připojte se k rozhovoru."
+
+#. module: website_event
+#: model_terms:ir.ui.view,arch_db:website_event.layout
+msgid "Following content will appear on all events"
+msgstr ""
 
 #. module: website_event
 #: model_terms:ir.ui.view,arch_db:website_event.event_description_full
@@ -598,7 +606,7 @@ msgstr "Založeno na"
 #. module: website_event
 #: model_terms:ir.ui.view,arch_db:website_event.event_event_view_form_inherit_website
 msgid "Preview Badges"
-msgstr ""
+msgstr "Náhled odznaků"
 
 #. module: website_event
 #: model_terms:ir.ui.view,arch_db:website_event.ticket
@@ -687,7 +695,7 @@ msgstr "Dnes"
 #. module: website_event
 #: model_terms:ir.ui.view,arch_db:website_event.index
 msgid "Use the top menu <i>'Content'</i> to create your first event."
-msgstr ""
+msgstr "K vytvoření první události použijte horní nabídku <i>'Obsah'</i>."
 
 #. module: website_event
 #: model_terms:ir.ui.view,arch_db:website_event.event_description_full

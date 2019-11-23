@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-29 10:09+0000\n"
+"POT-Creation-Date: 2019-11-14 07:33+0000\n"
 "PO-Revision-Date: 2018-08-24 09:23+0000\n"
 "Last-Translator: Alina Lisnenko <alinasemeniuk1@gmail.com>, 2019\n"
 "Language-Team: Ukrainian (https://www.transifex.com/odoo/teams/41243/uk/)\n"
@@ -181,11 +181,11 @@ msgstr ""
 #. module: purchase
 #: model_terms:ir.ui.view,arch_db:purchase.purchase_order_form
 msgid ""
-"<span class=\"o_form_label\" string=\"Request for Quotation \" attrs=\"{'invisible': [('state','not in',('draft','sent'))]}\"/>\n"
-"                        <span class=\"o_form_label\" string=\"Purchase Order \" attrs=\"{'invisible': [('state','in',('draft','sent'))]}\"/>"
+"<span class=\"o_form_label\" attrs=\"{'invisible': [('state','not in',('draft','sent'))]}\">Request for Quotation </span>\n"
+"                        <span class=\"o_form_label\" attrs=\"{'invisible': [('state','in',('draft','sent'))]}\">Purchase Order </span>"
 msgstr ""
-"<span class=\"o_form_label\" string=\"Request for Quotation \" attrs=\"{'invisible': [('state','not in',('draft','sent'))]}\"/>\n"
-"                        <span class=\"o_form_label\" string=\"Purchase Order \" attrs=\"{'invisible': [('state','in',('draft','sent'))]}\"/>"
+"<span class=\"o_form_label\" attrs=\"{'invisible': [('state','not in',('draft','sent'))]}\">Запит на комерційну пропозицію </span>\n"
+"                        <span class=\"o_form_label\" attrs=\"{'invisible': [('state','in',('draft','sent'))]}\">Замовлення на купівлю </span>"
 
 #. module: purchase
 #: model_terms:ir.ui.view,arch_db:purchase.product_normal_form_view_inherit_purchase
@@ -466,11 +466,11 @@ msgid ""
 "product if you directly do a Request for Quotation to one vendor or if you "
 "want a Call for Tenders to compare offers from several vendors."
 msgstr ""
-"Дзвінки на тендери використовуються, коли ви хочете створити запити для "
-"комерційних пропозицій кільком постачальникам для певного набору товарів. Ви"
-" можете налаштувати для кожного товару, якщо ви безпосередньо робите запит "
-"на комерційну пропозицію одному продавцеві або якщо ви хочете, аби "
-"запрошення до участі в тендері порівнювало пропозиції від кількох "
+"Запити на участь у тендерах використовуються, коли ви хочете створити запити"
+" для комерційних пропозицій декільком постачальникам для певного набору "
+"товарів. Ви можете налаштувати для кожного товару, якщо ви безпосередньо "
+"робите запит на комерційну пропозицію одному продавцеві або якщо ви хочете, "
+"щоб запрошення до участі в тендері порівнював пропозиції від кількох "
 "постачальників."
 
 #. module: purchase
@@ -698,7 +698,7 @@ msgstr "Сума подвійного затвердження"
 #. module: purchase
 #: selection:purchase.report,state:0
 msgid "Draft RFQ"
-msgstr "Чорновий ЗНКП"
+msgstr "Чорнове ЗНКП"
 
 #. module: purchase
 #: model:ir.model.fields,field_description:purchase.field_purchase_order__dest_address_id
@@ -817,7 +817,7 @@ msgstr "Імпортувати шаблон для товарів"
 #. module: purchase
 #: model_terms:ir.ui.view,arch_db:purchase.res_config_settings_view_form_purchase
 msgid "Import vendor pricelists"
-msgstr "Імпортувати прайслист постачальника"
+msgstr "Імпортувати прайс-лист постачальника"
 
 #. module: purchase
 #: code:addons/purchase/models/purchase.py:165
@@ -2096,7 +2096,7 @@ msgstr "Прайс-листи постачальника"
 #. module: purchase
 #: model:ir.model.fields,field_description:purchase.field_purchase_order__partner_ref
 msgid "Vendor Reference"
-msgstr "Посилання постачальника"
+msgstr "Референс постачальника"
 
 #. module: purchase
 #: model:ir.ui.menu,name:purchase.menu_procurement_management_supplier_name
@@ -2143,7 +2143,7 @@ msgstr "Попередження для %s"
 #. module: purchase
 #: model_terms:ir.ui.view,arch_db:purchase.res_partner_view_purchase_buttons
 msgid "Warning on the Purchase Order"
-msgstr "Очікування на замовленні на купівлю"
+msgstr "Попередження на замовленні на купівлю"
 
 #. module: purchase
 #: model_terms:ir.ui.view,arch_db:purchase.view_product_supplier_inherit

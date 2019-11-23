@@ -15,6 +15,7 @@ from odoo import api, fields, models, _
 from odoo.addons.payment.models.payment_acquirer import ValidationError
 from odoo.addons.payment_ogone.controllers.main import OgoneController
 from odoo.addons.payment_ogone.data import ogone
+from odoo.http import request
 from odoo.tools import DEFAULT_SERVER_DATE_FORMAT, ustr
 from odoo.tools.float_utils import float_compare, float_repr, float_round
 
@@ -148,7 +149,7 @@ class PaymentAcquirerOgone(models.Model):
         return shasign
 
     def ogone_form_generate_values(self, values):
-        base_url = self.env['ir.config_parameter'].sudo().get_param('web.base.url')
+        base_url = self.get_base_url()
         ogone_tx_values = dict(values)
         param_plus = {
             'return_url': ogone_tx_values.pop('return_url', False)
@@ -358,6 +359,9 @@ class PaymentTxOgone(models.Model):
             'RTIMEOUT': 30,
             'PARAMPLUS' : url_encode(param_plus)
         }
+
+        if request:
+            data['REMOTE_ADDR'] = request.httprequest.remote_addr
 
         if kwargs.get('3d_secure'):
             data.update({

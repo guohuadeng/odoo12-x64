@@ -123,6 +123,11 @@ msgid ""
 "  - Timesheet: the quantity is the sum of hours recorded on tasks linked to this sale line\n"
 "  - Stock Moves: the quantity comes from confirmed pickings\n"
 msgstr ""
+"Podle konfigurace produktu může být dodané množství automaticky vypočítáno pomocí mechanismu:\n"
+"- Ruční: množství je nastaveno ručně na lince\n"
+"- Analytické z nákladů: množství je množství z účtovaných nákladů\n"
+"- Časový rozvrh: množství je součtem hodin zaznamenaných na úkolech spojených s touto prodejní linkou\n"
+"- Skladové pohyby: množství pochází z potvrzených vychystávání\n"
 
 #. module: sale_stock
 #: model:ir.ui.menu,name:sale_stock.menu_aftersale
@@ -195,6 +200,13 @@ msgid "Display incoterms on orders &amp; invoices"
 msgstr ""
 
 #. module: sale_stock
+#: code:addons/sale_stock/models/sale_order.py:101
+#, python-format
+msgid ""
+"Do not forget to change the partner on the following delivery orders: %s"
+msgstr ""
+
+#. module: sale_stock
 #: model:ir.model.fields,field_description:sale_stock.field_sale_order__effective_date
 msgid "Effective Date"
 msgstr "Datum účinnosti"
@@ -212,7 +224,7 @@ msgstr ""
 #. module: sale_stock
 #: model_terms:ir.ui.view,arch_db:sale_stock.exception_on_so
 msgid "Exception(s) occurred on the sale order(s):"
-msgstr ""
+msgstr "Na prodejní objednávce (objednávkách) došlo k výjimkám (vyjímce):"
 
 #. module: sale_stock
 #: model_terms:ir.ui.view,arch_db:sale_stock.exception_on_picking
@@ -251,6 +263,9 @@ msgid ""
 "costs and responsibilities between buyer and seller and reflect state-of-"
 "the-art transportation practices."
 msgstr ""
+"Incoterms je řada prodejních podmínek. Používají se k rozdělení transakčních"
+" nákladů a odpovědnosti mezi kupujícím a prodávajícím a odrážejí "
+"nejmodernější převodní postupy."
 
 #. module: sale_stock
 #: model:ir.model.fields,help:sale_stock.field_sale_order__incoterm
@@ -290,7 +305,7 @@ msgstr "Produktové / seriové číslo"
 #: code:addons/sale_stock/models/sale_order.py:418
 #, python-format
 msgid "Make To Order"
-msgstr ""
+msgstr "Na objednávku"
 
 #. module: sale_stock
 #: selection:sale.order.line,qty_delivered_method:0
@@ -322,6 +337,9 @@ msgid ""
 "for procurement and delivery that many days earlier than the actual promised"
 " date, to cope with unexpected delays in the supply chain."
 msgstr ""
+"Rozpětí chyb pro data přislíbená zákazníkům. Produkty budou naplánovány na "
+"pořízení a dodání o mnoho dní dříve, než je skutečné slíbené datum, aby bylo"
+" možné čelit neočekávaným prodlevám v dodavatelském řetězci."
 
 #. module: sale_stock
 #: model:ir.model.fields,field_description:sale_stock.field_sale_order_line__qty_delivered_method
@@ -337,7 +355,7 @@ msgstr "Přesunutí očekávaných termínů doručení na později o"
 #: code:addons/sale_stock/models/sale_order.py:280
 #, python-format
 msgid "Not enough inventory!"
-msgstr ""
+msgstr "Nedostatek inventáře!"
 
 #. module: sale_stock
 #: model:ir.model.fields,field_description:sale_stock.field_res_config_settings__group_route_so_lines
@@ -348,7 +366,7 @@ msgstr ""
 #: code:addons/sale_stock/models/sale_order.py:294
 #, python-format
 msgid "Ordered quantity decreased!"
-msgstr ""
+msgstr "Objednané množství se snížilo!"
 
 #. module: sale_stock
 #: model:ir.model.fields,field_description:sale_stock.field_sale_order_line__product_packaging
@@ -504,7 +522,7 @@ msgstr "Pohyby zásob"
 #. module: sale_stock
 #: model:ir.model,name:sale_stock.model_stock_rule
 msgid "Stock Rule"
-msgstr ""
+msgstr "Pravidlo zásob"
 
 #. module: sale_stock
 #: model:ir.model,name:sale_stock.model_stock_rules_report
@@ -524,6 +542,10 @@ msgid ""
 "available in sales orders, routes must have 'Sales Order Line' option "
 "checked in their setup form."
 msgstr ""
+"To umožňuje použít speciální trasu na řádcích prodejních objednávek (např. "
+"Dropshipping, výrova na objednávku) v případě neobvyklého scénáře "
+"objednávky. Aby byly trasy dostupné v prodejních objednávkách, musí mít ve "
+"formuláři nastavení zaškrtnutou možnost „Prodejní řádek“."
 
 #. module: sale_stock
 #: code:addons/sale_stock/models/sale_order.py:397
@@ -552,6 +574,12 @@ msgstr "Sklad"
 #, python-format
 msgid "Warning"
 msgstr "Varování"
+
+#. module: sale_stock
+#: code:addons/sale_stock/models/sale_order.py:100
+#, python-format
+msgid "Warning!"
+msgstr "Varování!"
 
 #. module: sale_stock
 #: model_terms:ir.ui.view,arch_db:sale_stock.res_config_settings_view_form_stock

@@ -7,15 +7,18 @@
 # Vida Potočnik <vida.potocnik@mentis.si>, 2019
 # laznikd <laznik@mentis.si>, 2019
 # matjaz k <matjaz@mentis.si>, 2019
+# Boris Kodelja <boris@hbs.si>, 2019
 # Matjaz Mozetic <m.mozetic@matmoz.si>, 2019
+# Tadej Lupšina <tadej@hbs.si>, 2019
+# Jasmina Macur <jasmina@hbs.si>, 2019
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-29 10:09+0000\n"
+"POT-Creation-Date: 2019-11-14 07:33+0000\n"
 "PO-Revision-Date: 2018-08-24 09:25+0000\n"
-"Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>, 2019\n"
+"Last-Translator: Jasmina Macur <jasmina@hbs.si>, 2019\n"
 "Language-Team: Slovenian (https://www.transifex.com/odoo/teams/41243/sl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -38,6 +41,11 @@ msgstr ""
 #. module: stock_account
 #: model:ir.model.fields,field_description:stock_account.field_stock_move__account_move_ids
 msgid "Account Move"
+msgstr ""
+
+#. module: stock_account
+#: model:ir.model,name:stock_account.model_account_reconciliation_widget
+msgid "Account Reconciliation widget"
 msgstr ""
 
 #. module: stock_account
@@ -67,6 +75,8 @@ msgid ""
 "Affect landed costs on reception operations and split them among products to"
 " update their cost price."
 msgstr ""
+"Operacije prejema naj vplivajo na stroške dostave. Stroški dostave naj se "
+"razdelijo med proizvode in posodobijo njihovo lastno ceno."
 
 #. module: stock_account
 #: model_terms:ir.ui.view,arch_db:stock_account.view_inventory_valuation_search
@@ -131,6 +141,8 @@ msgid ""
 "Changing your cost method is an important change that will impact your "
 "inventory valuation. Are you sure you want to make that change?"
 msgstr ""
+"Spreminjanje stroškovne metode je pomembna sprememba, ki bo vplivala na "
+"vrednotenje zalog. Ali ste prepričani, da želite to spremeniti?"
 
 #. module: stock_account
 #: model_terms:ir.ui.view,arch_db:stock_account.view_stock_quantity_history
@@ -140,7 +152,7 @@ msgstr "Izbira datuma"
 #. module: stock_account
 #: model:ir.model,name:stock_account.model_res_config_settings
 msgid "Config Settings"
-msgstr ""
+msgstr "Uredi nastavitve"
 
 #. module: stock_account
 #: code:addons/stock_account/models/stock.py:587
@@ -238,7 +250,7 @@ msgstr ""
 #. module: stock_account
 #: model_terms:ir.ui.view,arch_db:stock_account.res_config_settings_view_form
 msgid "Include landed costs in product cost"
-msgstr ""
+msgstr "Stroški dostave vključeni v ceni"
 
 #. module: stock_account
 #: model:ir.model,name:stock_account.model_stock_inventory
@@ -251,7 +263,6 @@ msgid "Inventory Locations"
 msgstr "Lokacije inventure"
 
 #. module: stock_account
-#: code:addons/stock_account/wizard/stock_quantity_history.py:25
 #: model:ir.actions.act_window,name:stock_account.action_stock_inventory_valuation
 #: model:ir.actions.act_window,name:stock_account.product_valuation_action
 #: model:ir.model.fields,field_description:stock_account.field_product_category__property_valuation
@@ -260,7 +271,6 @@ msgstr "Lokacije inventure"
 #: model:ir.ui.menu,name:stock_account.menu_valuation
 #: model_terms:ir.ui.view,arch_db:stock_account.view_category_property_form
 #: model_terms:ir.ui.view,arch_db:stock_account.view_inventory_valuation_search
-#, python-format
 msgid "Inventory Valuation"
 msgstr "Vrednotenje zaloge"
 
@@ -282,7 +292,7 @@ msgstr "Dnevniki"
 #. module: stock_account
 #: model:ir.model.fields,field_description:stock_account.field_res_config_settings__module_stock_landed_costs
 msgid "Landed Costs"
-msgstr "Stroški iztovarjanja"
+msgstr "Stroški dostave"
 
 #. module: stock_account
 #: model:ir.model.fields,field_description:stock_account.field_stock_change_standard_price____last_update
@@ -321,17 +331,19 @@ msgid ""
 msgstr ""
 
 #. module: stock_account
-#: code:addons/stock_account/models/product.py:129
+#: code:addons/stock_account/models/product.py:139
 #, python-format
 msgid "No difference between the standard price and the new price."
 msgstr ""
 
 #. module: stock_account
+#: model_terms:ir.ui.view,arch_db:stock_account.view_inventory_valuation_search
 #: selection:product.template,property_valuation:0
 msgid "Periodic (manual)"
 msgstr ""
 
 #. module: stock_account
+#: model_terms:ir.ui.view,arch_db:stock_account.view_inventory_valuation_search
 #: selection:product.template,property_valuation:0
 msgid "Perpetual (automated)"
 msgstr ""
@@ -391,7 +403,7 @@ msgstr ""
 #. module: stock_account
 #: model_terms:ir.ui.view,arch_db:stock_account.view_stock_quantity_history
 msgid "Retrieve the inventory valuation"
-msgstr ""
+msgstr "Pridobi vrednotenje zaloge"
 
 #. module: stock_account
 #: model:ir.model,name:stock_account.model_stock_return_picking
@@ -476,7 +488,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:stock_account.view_stock_product_tree2
 #: model_terms:ir.ui.view,arch_db:stock_account.view_template_property_form
 msgid "Stock Valuation"
-msgstr ""
+msgstr "Vrednotenje zalog"
 
 #. module: stock_account
 #: model:ir.model.fields,field_description:stock_account.field_product_category__property_stock_valuation_account_id
@@ -505,6 +517,8 @@ msgid ""
 "The cost of %s is currently equal to 0. Change the cost or the configuration"
 " of your product to avoid an incorrect valuation."
 msgstr ""
+"Cena od %s je trenutno enaka 0. Spremenite stroške ali konfiguracijo "
+"izdelka, da se izognete napačnemu vrednotenju."
 
 #. module: stock_account
 #: code:addons/stock_account/models/stock.py:364
@@ -535,7 +549,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:stock_account.field_stock_move__to_refund
 #: model:ir.model.fields,field_description:stock_account.field_stock_return_picking_line__to_refund
 msgid "To Refund (update SO/PO)"
-msgstr ""
+msgstr "Za vračilo (posodobi SO/PO)"
 
 #. module: stock_account
 #: model:ir.model.fields,help:stock_account.field_stock_move__to_refund
@@ -594,7 +608,7 @@ msgstr ""
 #: code:addons/stock_account/models/product.py:246
 #, python-format
 msgid "Valuation at date"
-msgstr ""
+msgstr "Vrednotenje na datum"
 
 #. module: stock_account
 #: model:ir.model.fields,field_description:stock_account.field_product_product__stock_value

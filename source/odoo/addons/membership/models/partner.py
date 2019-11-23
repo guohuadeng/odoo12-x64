@@ -44,11 +44,18 @@ class Partner(models.Model):
                  'member_lines.account_invoice_line.invoice_id.partner_id',
                  'free_member',
                  'member_lines.date_to', 'member_lines.date_from',
-                 'associate_member.membership_state')
+                 'associate_member')
     def _compute_membership_state(self):
         values = self._membership_state()
         for partner in self:
             partner.membership_state = values[partner.id]
+
+        # Do not depend directly on "associate_member.membership_state" or we might end up in an
+        # infinite loop. Since we still need this dependency somehow, we explicitly search for the
+        # "parent members" and trigger a recompute.
+        parent_members = self.search([('associate_member', 'in', self.ids)]) - self
+        if parent_members:
+            parent_members._recompute_todo(self._fields['membership_state'])
 
     @api.depends('member_lines.account_invoice_line.invoice_id.state',
                  'member_lines.account_invoice_line.invoice_id.invoice_line_ids',
@@ -87,12 +94,9 @@ class Partner(models.Model):
                  'associate_member.membership_state')
     def _compute_membership_cancel(self):
         for partner in self:
-            if partner.membership_state == 'canceled':
-                partner.membership_cancel = self.env['membership.membership_line'].search([
-                    ('partner', '=', partner.id)
-                ], limit=1, order='date_cancel').date_cancel
-            else:
-                partner.membership_cancel = False
+            partner.membership_cancel = self.env['membership.membership_line'].search([
+                ('partner', '=', partner.id)
+            ], limit=1, order='date_cancel desc').date_cancel
 
     def _membership_state(self):
         """This Function return Membership State For Given Partner. """
@@ -119,18 +123,24 @@ class Partner(models.Model):
                         if mline.account_invoice_line.invoice_id.partner_id == partner:
                             mstate = mline.account_invoice_line.invoice_id.state
                             if mstate == 'paid':
-                                s = 0
                                 inv = mline.account_invoice_line.invoice_id
                                 for ml in inv.payment_move_line_ids:
                                     if any(ml.invoice_id.filtered(lambda inv: inv.type == 'out_refund')):
                                         s = 2
-                                break
+                                    else:
+                                        s = 0
                             elif mstate == 'open' and s != 0:
                                 s = 1
                             elif mstate == 'cancel' and s != 0 and s != 1:
                                 s = 2
                             elif mstate == 'draft' and s != 0 and s != 1:
                                 s = 3
+                        """
+                            If we have a line who is in the period and paid,
+                            the line is valid and can be used for the membership status.
+                        """
+                        if s == 0:
+                            break
                 if s == 4:
                     for mline in partner.member_lines:
                         if (mline.date_from or date.min) < today and (mline.date_to or date.min) < today and (mline.date_from or date.min) <= (mline.date_to or date.min) and mline.account_invoice_line and mline.account_invoice_line.invoice_id.state == 'paid':

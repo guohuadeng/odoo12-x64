@@ -9,14 +9,18 @@
 # Miquel Torner <miq@odoo.com>, 2018
 # Antonio Trueba, 2018
 # Amaia Bastida <amaiatrainer@gmail.com>, 2018
+# VivianMontana23 <vivianpvm@gmail.com>, 2019
+# Mariana Santos Romo <msn@odoo.com>, 2019
+# Juan Pablo Mora <jpm@odoo.com>, 2019
+# enjolras <yo@miguelrevilla.com>, 2019
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-29 10:09+0000\n"
+"POT-Creation-Date: 2019-11-14 07:34+0000\n"
 "PO-Revision-Date: 2018-08-24 09:17+0000\n"
-"Last-Translator: Amaia Bastida <amaiatrainer@gmail.com>, 2018\n"
+"Last-Translator: enjolras <yo@miguelrevilla.com>, 2019\n"
 "Language-Team: Spanish (https://www.transifex.com/odoo/teams/41243/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -91,6 +95,9 @@ msgid ""
 "                    Buy Odoo Enterprise now to get more providers.\n"
 "                </p>"
 msgstr ""
+"<p class=\"o_view_nocontent\">\n"
+"                    Compra Odoo Enterprise ahora para obtener más proveedores.\n"
+"                         </p>"
 
 #. module: delivery
 #: model_terms:ir.ui.view,arch_db:delivery.report_delivery_document2
@@ -145,7 +152,7 @@ msgstr "Archivado"
 #. module: delivery
 #: model:ir.model.fields,field_description:delivery.field_sale_order__available_carrier_ids
 msgid "Available Carriers"
-msgstr ""
+msgstr "Portadores disponibles"
 
 #. module: delivery
 #: selection:delivery.carrier,delivery_type:0
@@ -217,9 +224,16 @@ msgid "Debug logging"
 msgstr "Registro de debug"
 
 #. module: delivery
+#. openerp-web
+#: code:addons/delivery/static/src/js/delivery_translations.js:13
+#, python-format
+msgid "Debug requests"
+msgstr ""
+
+#. module: delivery
 #: model_terms:ir.actions.act_window,help:delivery.action_delivery_carrier_form
 msgid "Define a new delivery method"
-msgstr ""
+msgstr "Definir un nuevo método de envío."
 
 #. module: delivery
 #: model:product.category,name:delivery.product_category_deliveries
@@ -312,6 +326,13 @@ msgid "Determine the display order"
 msgstr "Determina el orden de visualización"
 
 #. module: delivery
+#. openerp-web
+#: code:addons/delivery/static/src/js/delivery_translations.js:14
+#, python-format
+msgid "Disable debug"
+msgstr ""
+
+#. module: delivery
 #: model_terms:ir.ui.view,arch_db:delivery.choose_delivery_package_view_form
 msgid "Discard"
 msgstr "Descartar"
@@ -326,7 +347,7 @@ msgstr "Nombre a mostrar"
 #. module: delivery
 #: model:ir.actions.act_window,name:delivery.act_delivery_trackers_url
 msgid "Display tracking links"
-msgstr ""
+msgstr "Mostrar enlaces de seguimiento"
 
 #. module: delivery
 #: model_terms:ir.actions.act_window,help:delivery.action_delivery_carrier_form
@@ -338,6 +359,13 @@ msgstr ""
 "Cada transportador (por ejemplo UPS) puede tener múltiples métodos de "
 "reparto (por ejemplo, UPS Express, UPS normal) con una serie de reglas de "
 "precio adjunto a cada método."
+
+#. module: delivery
+#. openerp-web
+#: code:addons/delivery/static/src/js/delivery_translations.js:16
+#, python-format
+msgid "Enable debug"
+msgstr ""
 
 #. module: delivery
 #: model:ir.model.fields,field_description:delivery.field_delivery_carrier__prod_environment
@@ -551,6 +579,13 @@ msgid "No carrier set for this order."
 msgstr "No hay transportista establecido para esta orden."
 
 #. module: delivery
+#. openerp-web
+#: code:addons/delivery/static/src/js/delivery_translations.js:15
+#, python-format
+msgid "No debug"
+msgstr ""
+
+#. module: delivery
 #: code:addons/delivery/models/delivery_grid.py:102
 #, python-format
 msgid "No price rule matching this order; delivery cost cannot be computed."
@@ -650,6 +685,13 @@ msgstr "Movimientos de Producto (Stock Move Line)"
 #: model:ir.model,name:delivery.model_product_packaging
 msgid "Product Packaging"
 msgstr "Empaquetado del producto"
+
+#. module: delivery
+#. openerp-web
+#: code:addons/delivery/static/src/js/delivery_translations.js:9
+#, python-format
+msgid "Production Environment"
+msgstr "Entorno de producción"
 
 #. module: delivery
 #: model:ir.model.fields,field_description:delivery.field_delivery_carrier__delivery_type
@@ -754,6 +796,27 @@ msgstr "Estados"
 #: model:ir.model,name:delivery.model_stock_move
 msgid "Stock Move"
 msgstr "Movimiento de existencias"
+
+#. module: delivery
+#. openerp-web
+#: code:addons/delivery/static/src/js/delivery_translations.js:12
+#, python-format
+msgid "Switch to production environment"
+msgstr "Cambiar a entorno de producción"
+
+#. module: delivery
+#. openerp-web
+#: code:addons/delivery/static/src/js/delivery_translations.js:10
+#, python-format
+msgid "Switch to test environment"
+msgstr "Cambiar a entorno de pruebas"
+
+#. module: delivery
+#. openerp-web
+#: code:addons/delivery/static/src/js/delivery_translations.js:11
+#, python-format
+msgid "Test Environment"
+msgstr "Entorno de pruebas"
 
 #. module: delivery
 #: model:delivery.carrier,name:delivery.delivery_carrier
@@ -891,7 +954,7 @@ msgstr "Peso para envío"
 #. module: delivery
 #: model:ir.model.fields,field_description:delivery.field_choose_delivery_package__weight_uom_name
 msgid "Weight unit of measure label"
-msgstr ""
+msgstr "Etiqueta de Unidad de Medida de peso"
 
 #. module: delivery
 #: model:ir.model.fields,help:delivery.field_stock_quant_package__shipping_weight

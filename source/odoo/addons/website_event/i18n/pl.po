@@ -4,7 +4,7 @@
 # 
 # Translators:
 # Ludwik Trammer <ludwik@gmail.com>, 2018
-# zbik2607 <darek@krokus.com.pl>, 2018
+# Dariusz Żbikowski <darek@krokus.com.pl>, 2018
 # Grzegorz Grzelak <grzegorz.grzelak@openglobe.pl>, 2018
 # Judyta Kaźmierczak <judyta.kazmierczak@openglobe.pl>, 2018
 # Tomasz Leppich <t.leppich@gmail.com>, 2018
@@ -16,14 +16,15 @@
 # Radosław Biegalski <radoslaw.biegalski@openglobe.pl>, 2018
 # Paweł Wodyński <pw@myodoo.pl>, 2018
 # Martin Trigaux, 2018
+# Piotr Cierkosz <piotr.w.cierkosz@gmail.com>, 2019
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-09 10:32+0000\n"
+"POT-Creation-Date: 2019-11-14 07:35+0000\n"
 "PO-Revision-Date: 2018-08-24 09:34+0000\n"
-"Last-Translator: Martin Trigaux, 2018\n"
+"Last-Translator: Piotr Cierkosz <piotr.w.cierkosz@gmail.com>, 2019\n"
 "Language-Team: Polish (https://www.transifex.com/odoo/teams/41243/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -321,6 +322,7 @@ msgid "Click to publish your event."
 msgstr "Kliknij aby opublikować swoje wydarzenie."
 
 #. module: website_event
+#: model_terms:ir.ui.view,arch_db:website_event.layout
 #: model_terms:ir.ui.view,arch_db:website_event.registration_attendee_details
 msgid "Close"
 msgstr "Zamknij"
@@ -466,6 +468,11 @@ msgstr ""
 "                            i dołącz do rozmowy."
 
 #. module: website_event
+#: model_terms:ir.ui.view,arch_db:website_event.layout
+msgid "Following content will appear on all events"
+msgstr ""
+
+#. module: website_event
 #: model_terms:ir.ui.view,arch_db:website_event.event_description_full
 msgid "Google Maps"
 msgstr "Mapy Google"
@@ -484,7 +491,7 @@ msgstr "Uczestniczy"
 #. module: website_event
 #: model:ir.model.fields,field_description:website_event.field_event_event__is_published
 msgid "Is published"
-msgstr ""
+msgstr "Opublikowane"
 
 #. module: website_event
 #: code:addons/website_event/models/event.py:71

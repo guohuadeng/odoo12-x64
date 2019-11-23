@@ -198,11 +198,12 @@ def normalize_domain(domain):
         if expected == 0:                   # more than expected, like in [A, B]
             result[0:0] = [AND_OPERATOR]             # put an extra '&' in front
             expected = 1
-        result.append(token)
         if isinstance(token, (list, tuple)):  # domain term
             expected -= 1
+            token = tuple(token)
         else:
             expected += op_arity.get(token, 0) - 1
+        result.append(token)
     assert expected == 0, 'This domain is syntactically not correct: %s' % (domain)
     return result
 
@@ -262,7 +263,7 @@ def combine(operator, unit, zero, domains):
             result += normalize_domain(domain)
             count += 1
     result = [operator] * (count - 1) + result
-    return result
+    return result or unit
 
 
 def AND(domains):

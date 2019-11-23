@@ -4,19 +4,28 @@
 # 
 # Translators:
 # f5f0a0dac17dde787a1d812a6989680e, 2018
-# Fred Gilson <fgi@odoo.com>, 2018
 # Marie Willemyns <mwi@odoo.com>, 2018
 # Nathan Grognet <ngr@odoo.com>, 2018
 # Eloïse Stilmant <est@odoo.com>, 2018
 # Nathan Noël <nathan070@me.com>, 2018
 # Martin Trigaux, 2019
+# Rémi CAZENAVE <remi@le-filament.com>, 2019
+# Damien Bouvy <dbo@odoo.com>, 2019
+# Ayoub Zahid <azahid@agilorg.com>, 2019
+# Cécile Collart <cco@odoo.com>, 2019
+# Aurélien Pillevesse <aurelienpillevesse@hotmail.fr>, 2019
+# thomas quertinmont <tqu@odoo.com>, 2019
+# gdp Odoo <gdp@odoo.com>, 2019
+# Florian Hatat, 2019
+# Nancy Bolognesi <nb@microcom.ca>, 2019
+# Mohamed BENKIRANE <benkirane.med.ali@gmail.com>, 2019
 # Moka Tourisme <hello@mokatourisme.fr>, 2019
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-29 10:09+0000\n"
+"POT-Creation-Date: 2019-11-14 07:33+0000\n"
 "PO-Revision-Date: 2018-08-24 09:22+0000\n"
 "Last-Translator: Moka Tourisme <hello@mokatourisme.fr>, 2019\n"
 "Language-Team: French (https://www.transifex.com/odoo/teams/41243/fr/)\n"
@@ -89,14 +98,9 @@ msgid "+ Transactions"
 msgstr "+ Transactions"
 
 #. module: point_of_sale
-#: model_terms:ir.ui.view,arch_db:point_of_sale.customer_facing_display_snippets
-msgid "<b>Set Custom Image...</b>"
-msgstr "<b>Placer une image personalisée<b>"
-
-#. module: point_of_sale
 #: model_terms:ir.ui.view,arch_db:point_of_sale.view_pos_config_kanban
 msgid "<i class=\"fa fa-ellipsis-v\" role=\"img\" aria-label=\"Manage\" title=\"Manage\"/>"
-msgstr ""
+msgstr "<i class=\"fa fa-ellipsis-v\" role=\"img\" aria-label=\"Manage\" title=\"Manage\"/>"
 
 #. module: point_of_sale
 #: model_terms:ir.ui.view,arch_db:point_of_sale.customer_facing_display_snippets
@@ -114,11 +118,13 @@ msgid ""
 "<i class=\"fa fa-fw fa-shopping-bag\" role=\"img\" aria-label=\"Shopping "
 "cart\" title=\"Shopping cart\"/>"
 msgstr ""
+"<i class=\"fa fa-fw fa-shopping-bag\" role=\"img\" aria-label=\"Shopping "
+"cart\" title=\"Shopping cart\"/>"
 
 #. module: point_of_sale
 #: model_terms:ir.ui.view,arch_db:point_of_sale.view_pos_order_kanban
 msgid "<i class=\"fa fa-money\" role=\"img\" aria-label=\"Amount\" title=\"Amount\"/>"
-msgstr ""
+msgstr "<i class=\"fa fa-money\" role=\"img\" aria-label=\"Amount\" title=\"Amount\"/>"
 
 #. module: point_of_sale
 #. openerp-web
@@ -137,12 +143,12 @@ msgstr ""
 #. module: point_of_sale
 #: model_terms:ir.ui.view,arch_db:point_of_sale.pos_config_view_form
 msgid "<span class=\"o_form_label\">Journal Entries</span>"
-msgstr ""
+msgstr "<span class=\"o_form_label\">Entrées de journal</span>"
 
 #. module: point_of_sale
 #: model_terms:ir.ui.view,arch_db:point_of_sale.pos_config_view_form
 msgid "<span class=\"o_form_label\">Order Reference</span>"
-msgstr "<span class=\"o_form_label\">Référence de la Commande</span>"
+msgstr "<span class=\"o_form_label\">Référence de la commande</span>"
 
 #. module: point_of_sale
 #: model_terms:ir.ui.view,arch_db:point_of_sale.pos_config_view_form
@@ -372,7 +378,7 @@ msgstr "ABC"
 #. module: point_of_sale
 #: model_terms:ir.ui.view,arch_db:point_of_sale.res_config_settings_view_form
 msgid "Accept payments with a credit card reader"
-msgstr ""
+msgstr "Accepter les paiements via lecteur de carte de crédit"
 
 #. module: point_of_sale
 #: model_terms:ir.ui.view,arch_db:point_of_sale.pos_config_view_form
@@ -504,6 +510,8 @@ msgid ""
 "An error occurred when loading product prices. Make sure all pricelists are "
 "available in the POS."
 msgstr ""
+"Une erreur s'est produite durant le chargement des prix des produits. "
+"Assurez-vous que toutes les listes de prix sont disponibles dans le POS"
 
 #. module: point_of_sale
 #: model:ir.model.fields,help:point_of_sale.field_pos_config__name
@@ -605,7 +613,7 @@ msgstr "Relevé bancaire"
 #. module: point_of_sale
 #: model:ir.model,name:point_of_sale.model_account_bank_statement_cashbox
 msgid "Bank Statement Cashbox"
-msgstr ""
+msgstr "Caisse des Relevés Bancaires"
 
 #. module: point_of_sale
 #: model:ir.model,name:point_of_sale.model_account_bank_statement_line
@@ -788,12 +796,12 @@ msgstr "Photos des catégories"
 #: model:ir.model.fields,help:point_of_sale.field_product_product__pos_categ_id
 #: model:ir.model.fields,help:point_of_sale.field_product_template__pos_categ_id
 msgid "Category used in the Point of Sale."
-msgstr ""
+msgstr "Catégorie utilisé sur le Point de Vente"
 
 #. module: point_of_sale
 #: model:pos.category,name:point_of_sale.pos_category_chairs
 msgid "Chairs"
-msgstr ""
+msgstr "Sièges"
 
 #. module: point_of_sale
 #. openerp-web
@@ -943,7 +951,7 @@ msgstr "Ecran du client déconnecté"
 #: code:addons/point_of_sale/static/src/js/chrome.js:463
 #, python-format
 msgid "Client Screen Unsupported. Please upgrade the IoT Box"
-msgstr ""
+msgstr "Ecran client non supporté. Veuillez mettre a jour votre IoT Box"
 
 #. module: point_of_sale
 #. openerp-web
@@ -1029,6 +1037,8 @@ msgstr "Confirmer"
 msgid ""
 "Connect devices to your PoS (ticket printer, barcode scanner, scale, etc.)"
 msgstr ""
+"Connecter les périphériques à votre PoS (imprimante de tickets, lecteur de "
+"code-barres, balance, etc.)"
 
 #. module: point_of_sale
 #. openerp-web
@@ -1049,7 +1059,7 @@ msgstr "Connexion au Proxy"
 #: code:addons/point_of_sale/static/src/js/models.js:121
 #, python-format
 msgid "Connecting to the IoT Box"
-msgstr ""
+msgstr "Connexion à l'IoT Box"
 
 #. module: point_of_sale
 #: model:ir.model,name:point_of_sale.model_res_partner
@@ -1287,7 +1297,7 @@ msgstr "Effacer les commandes payées"
 #: code:addons/point_of_sale/static/src/js/chrome.js:264
 #, python-format
 msgid "Delete Paid Orders ?"
-msgstr "Effacer les commandes payées?"
+msgstr "Effacer les commandes payées ?"
 
 #. module: point_of_sale
 #. openerp-web
@@ -1301,7 +1311,7 @@ msgstr "Effacer les commandes non-payées"
 #: code:addons/point_of_sale/static/src/js/chrome.js:274
 #, python-format
 msgid "Delete Unpaid Orders ?"
-msgstr "Effacer les commandes non-payées?"
+msgstr "Effacer les commandes non-payées ?"
 
 #. module: point_of_sale
 #. openerp-web
@@ -1358,7 +1368,7 @@ msgstr "Différence entre solde théorique et solde réel."
 #. module: point_of_sale
 #: model:ir.model,name:point_of_sale.model_digest_digest
 msgid "Digest"
-msgstr "Digest"
+msgstr "Récapitulatif"
 
 #. module: point_of_sale
 #. openerp-web
@@ -1370,7 +1380,7 @@ msgstr "Rem."
 #. module: point_of_sale
 #: model_terms:ir.ui.view,arch_db:point_of_sale.report_saledetails
 msgid "Disc:"
-msgstr "Remise:"
+msgstr "Remise :"
 
 #. module: point_of_sale
 #. openerp-web
@@ -1448,8 +1458,8 @@ msgstr "Afficher les images des catégories de produits"
 #, python-format
 msgid "Do not have access, skip this data for user's digest email"
 msgstr ""
-"Accès non disponible, ne pas tenir compte de cette donnée dans l'email "
-"digest de l'utilisateur"
+"Accès non disponible, ne pas tenir compte de cette donnée dans l'e-mail "
+"récapitulatif envoyé à l'utilisateur"
 
 #. module: point_of_sale
 #: model_terms:ir.ui.view,arch_db:point_of_sale.view_pos_open_statement
@@ -1732,14 +1742,21 @@ msgstr "Regrouper les produits dans le PdV"
 
 #. module: point_of_sale
 #. openerp-web
-#: code:addons/point_of_sale/static/src/xml/pos.xml:1372
+#: code:addons/point_of_sale/static/src/js/models.js:142
+#, python-format
+msgid "HTTPS connection to IoT Box failed"
+msgstr "La connexion HTTPS au boitier IOT a échouée"
+
+#. module: point_of_sale
+#. openerp-web
+#: code:addons/point_of_sale/static/src/xml/pos.xml:1375
 #, python-format
 msgid "Hardware Events"
 msgstr "Évènements matériels"
 
 #. module: point_of_sale
 #. openerp-web
-#: code:addons/point_of_sale/static/src/xml/pos.xml:1367
+#: code:addons/point_of_sale/static/src/xml/pos.xml:1370
 #, python-format
 msgid "Hardware Status"
 msgstr "État du matériel"
@@ -2138,6 +2155,17 @@ msgstr ""
 "formulaire de contact (onglet Ventes). Pour être valide, cette liste de prix"
 " doit être répertoriée ici en tant que liste de prix disponible. Autrement, "
 "la liste de prix par défaut sera appliquée."
+
+#. module: point_of_sale
+#. openerp-web
+#: code:addons/point_of_sale/static/src/js/models.js:144
+#, python-format
+msgid ""
+"Make sure you are using IoT Box v18.12 or higher. Navigate to %s to accept "
+"the certificate of your IoT Box."
+msgstr ""
+"Assurez-vous d'utiliser la version v18.12 ou supérieur du boitier IoT. "
+"Rendez-vous sur %s afin d'accepter le certificat de votre boitier IoT."
 
 #. module: point_of_sale
 #: model:res.groups,name:point_of_sale.group_pos_manager
@@ -2640,7 +2668,7 @@ msgstr "Logo du partenaire"
 #: code:addons/point_of_sale/static/src/js/gui.js:274
 #, python-format
 msgid "Password ?"
-msgstr "Mot de passe? "
+msgstr "Mot de passe ? "
 
 #. module: point_of_sale
 #. openerp-web
@@ -2803,7 +2831,7 @@ msgstr "Veuillez définir un compte de revenu pour cet article : \"%s\" (id. : %
 #: code:addons/point_of_sale/static/src/js/screens.js:2094
 #, python-format
 msgid "Please print the invoice from the backend"
-msgstr ""
+msgstr "Imprimer s'il vous plait la facture depuis le backend"
 
 #. module: point_of_sale
 #: code:addons/point_of_sale/models/pos_order.py:663
@@ -2849,7 +2877,7 @@ msgstr "Commandes en PdV"
 #. module: point_of_sale
 #: model_terms:ir.ui.view,arch_db:point_of_sale.product_template_form_view
 msgid "Point Of Sale"
-msgstr ""
+msgstr "Point de vente"
 
 #. module: point_of_sale
 #: model:ir.actions.act_window,name:point_of_sale.action_pos_config_kanban
@@ -2940,7 +2968,7 @@ msgstr "Commandes du point de vente"
 #. module: point_of_sale
 #: model:ir.model,name:point_of_sale.model_report_pos_order
 msgid "Point of Sale Orders Report"
-msgstr ""
+msgstr "Rapport sur les commandes au point de vente"
 
 #. module: point_of_sale
 #: model:ir.model,name:point_of_sale.model_pos_make_payment
@@ -3096,7 +3124,14 @@ msgstr "Imprimer"
 #. module: point_of_sale
 #. openerp-web
 #: code:addons/point_of_sale/static/src/xml/pos.xml:716
-#: code:addons/point_of_sale/static/src/xml/pos.xml:1375
+#, python-format
+msgid "Print Invoice"
+msgstr "Imprimer la facture"
+
+#. module: point_of_sale
+#. openerp-web
+#: code:addons/point_of_sale/static/src/xml/pos.xml:719
+#: code:addons/point_of_sale/static/src/xml/pos.xml:1378
 #, python-format
 msgid "Print Receipt"
 msgstr "Imprimer le ticket"
@@ -3135,7 +3170,7 @@ msgstr "Erreur d'impression :"
 #: code:addons/point_of_sale/static/src/js/screens.js:1580
 #, python-format
 msgid "Printing is not supported on some android browsers"
-msgstr ""
+msgstr "L'impression n'est pas supporté sur certains navigateurs android"
 
 #. module: point_of_sale
 #. openerp-web
@@ -3146,6 +3181,9 @@ msgid ""
 "printing protocol is available. It is possible to print your tickets by "
 "making use of an IoT Box."
 msgstr ""
+"L'impression n'est pas supportée sur certains navigateurs android en raison "
+"de l'absence de protocole d'impression par défaut disponible. Il est "
+"possible d'imprimer vos tickets à l'aide du boitier IoT."
 
 #. module: point_of_sale
 #: model:ir.model,name:point_of_sale.model_product_product
@@ -3594,7 +3632,7 @@ msgstr "Id. de session"
 #: code:addons/point_of_sale/static/src/xml/pos.xml:1225
 #, python-format
 msgid "Session ids:"
-msgstr "Session ids:"
+msgstr "Ids de session :"
 
 #. module: point_of_sale
 #: model_terms:ir.ui.view,arch_db:point_of_sale.view_pos_session_form
@@ -3612,8 +3650,13 @@ msgid "Sessions"
 msgstr "Sessions"
 
 #. module: point_of_sale
+#: model_terms:ir.ui.view,arch_db:point_of_sale.customer_facing_display_snippets
+msgid "Set Custom Image..."
+msgstr ""
+
+#. module: point_of_sale
 #. openerp-web
-#: code:addons/point_of_sale/static/src/js/screens.js:1218
+#: code:addons/point_of_sale/static/src/js/screens.js:1277
 #, python-format
 msgid "Set Customer"
 msgstr "Définir le client"
@@ -3724,10 +3767,23 @@ msgstr ""
 
 #. module: point_of_sale
 #. openerp-web
-#: code:addons/point_of_sale/static/src/js/gui.js:333
+#: code:addons/point_of_sale/static/src/js/gui.js:324
 #, python-format
-msgid "Some orders could not be submitted to"
-msgstr "Certaines commandes n'ont pas pu être soumisses à"
+msgid ""
+"Some orders could not be submitted to the server due to configuration "
+"errors. You can exit the Point of Sale, but do not close the session before "
+"the issue has been resolved."
+msgstr ""
+
+#. module: point_of_sale
+#. openerp-web
+#: code:addons/point_of_sale/static/src/js/gui.js:329
+#, python-format
+msgid ""
+"Some orders could not be submitted to the server due to internet connection "
+"issues. You can exit the Point of Sale, but do not close the session before "
+"the issue has been resolved."
+msgstr ""
 
 #. module: point_of_sale
 #: model:ir.model,name:point_of_sale.model_pos_pack_operation_lot
@@ -3852,21 +3908,21 @@ msgstr "Résumé par moyens de paiement"
 #: code:addons/point_of_sale/static/src/xml/pos.xml:55
 #, python-format
 msgid "Synchronisation Connected"
-msgstr ""
+msgstr "Synchronisé"
 
 #. module: point_of_sale
 #. openerp-web
 #: code:addons/point_of_sale/static/src/xml/pos.xml:58
 #, python-format
 msgid "Synchronisation Connecting"
-msgstr ""
+msgstr "Synchronisation en cours"
 
 #. module: point_of_sale
 #. openerp-web
 #: code:addons/point_of_sale/static/src/xml/pos.xml:61
 #, python-format
 msgid "Synchronisation Disconnected"
-msgstr ""
+msgstr "Déconnecté"
 
 #. module: point_of_sale
 #. openerp-web
@@ -4078,6 +4134,8 @@ msgid ""
 "The order has been synchronized earlier. Please make the invoice from the "
 "backend for the order: "
 msgstr ""
+"La commande a été synchronisée plus tôt. Veuillez établir la facture à "
+"partir du backend pour la commande : "
 
 #. module: point_of_sale
 #: model:ir.model.fields,help:point_of_sale.field_pos_config__iface_precompute_cash
@@ -5040,14 +5098,14 @@ msgstr "retour"
 #: code:addons/point_of_sale/static/src/xml/pos.xml:1605
 #, python-format
 msgid "shift"
-msgstr "service"
+msgstr "Maj."
 
 #. module: point_of_sale
 #. openerp-web
 #: code:addons/point_of_sale/static/src/xml/pos.xml:1567
 #, python-format
 msgid "tab"
-msgstr "onglet"
+msgstr "Tab"
 
 #. module: point_of_sale
 #. openerp-web

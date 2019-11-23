@@ -156,6 +156,62 @@ msgid ""
 "</div>\n"
 "            "
 msgstr ""
+"<div>\n"
+"    % set access_token = object.rating_get_access_token()\n"
+"    % set partner = object.rating_get_partner_id()\n"
+"    <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"width:100%; margin:0px auto;\">\n"
+"    <tbody>\n"
+"        <tr><td valign=\"top\" style=\"font-size: 13px;\">\n"
+"            안녕하세요 ${partner.name},<br/>\n"
+"            잠시만 시간을 내어 관련된 \"<strong>{object.name}</strong>\"업무에 대한 우리의 서비스를 평가해주십시오\n"
+"            % if object.rating_get_rated_partner_id().name:\n"
+"                 <strong>${object.rating_get_rated_partner_id().name}</strong>께 배정됨.<br/>\n"
+"            % else:\n"
+"                .<br/>\n"
+"            % endif\n"
+"        </td></tr>\n"
+"        <tr><td style=\"text-align: center;\">\n"
+"            <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" summary=\"o_mail_notification\" style=\"width:100%; margin: 32px 0px 32px 0px;\">\n"
+"                <tr><td style=\"font-size: 13px;\">\n"
+"                    <strong>저희 서비스에 대해 어떻게 생각하시는지 의견을 공유해주세요</strong><br/>\n"
+"                    <span style=\"text-color: #888888\">(셋중 하나의 아이콘을 클릭하세요)</span>\n"
+"                </td></tr>\n"
+"                <tr><td style=\"font-size: 13px;\">\n"
+"                    <table style=\"width:100%;text-align:center;\">\n"
+"                        <tr>\n"
+"                            <td>\n"
+"                                <a href=\"/rating/${access_token}/10\">\n"
+"                                    <img alt=\"Satisfied\" src=\"/rating/static/src/img/rating_10.png\" title=\"Satisfied\"/>\n"
+"                                </a>\n"
+"                            </td>\n"
+"                            <td>\n"
+"                                <a href=\"/rating/${access_token}/5\">\n"
+"                                    <img alt=\"Not satisfied\" src=\"/rating/static/src/img/rating_5.png\" title=\"Not satisfied\"/>\n"
+"                                </a>\n"
+"                            </td>\n"
+"                            <td>\n"
+"                                <a href=\"/rating/${access_token}/1\">\n"
+"                                    <img alt=\"Highly Dissatisfied\" src=\"/rating/static/src/img/rating_1.png\" title=\"Highly Dissatisfied\"/>\n"
+"                                </a>\n"
+"                            </td>\n"
+"                        </tr>\n"
+"                    </table>\n"
+"                </td></tr>\n"
+"            </table>\n"
+"        </td></tr>\n"
+"        <tr><td valign=\"top\" style=\"font-size: 13px;\">\n"
+"            귀하의 피드백에 감사드립니다. 귀하의 의견은 우리의 지속적인 개선에 도움이 됩니다.\n"
+"            % if object.project_id.rating_status == 'stage':\n"
+"                <br/><span style=\"margin: 0px 0px 0px 0px; font-size: 12px; opacity: 0.5; color: #454748;\">이 고객 설문은 해당  <b>${object.stage_id.name}</b>업무가 다음단계로 넘어갈때 발송됩니다.</span>\n"
+"            % endif\n"
+"            % if object.project_id.rating_status == 'periodic':\n"
+"                <br/><span style=\"margin: 0px 0px 0px 0px; font-size: 12px; opacity: 0.5; color: #454748;\">This customer survey is sent <b>${object.project_id.rating_status_period}</b> as long as the task is in the <b>${object.stage_id.name}</b> stage.</span>\n"
+"            % endif\n"
+"        </td></tr>\n"
+"    </tbody>\n"
+"    </table>\n"
+"</div>\n"
+"            "
 
 #. module: project
 #: model:mail.template,body_html:project.mail_template_data_project_task
@@ -170,6 +226,15 @@ msgid ""
 "</div>\n"
 "        "
 msgstr ""
+"<div>\n"
+"   ${object.partner_id.name or 'customer'} 귀하,<br/>\n"
+"    문의에 감사드립니다.<br/>\n"
+"    궁금하신 점이 있으시면 연락해주시기 바랍니다.\n"
+"    <br/><br/>\n"
+"    감사합니다,\n"
+"    <br/>\n"
+"</div>\n"
+"        "
 
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.rating_index
@@ -250,12 +315,12 @@ msgstr "<p>업무가 준비가 되면, 저장할 수 있습니다.</p>"
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.portal_my_project
 msgid "<small class=\"text-muted\">Project - </small>"
-msgstr ""
+msgstr "<small class=\"text-muted\">프로젝트 - </small>"
 
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.portal_my_task
 msgid "<small class=\"text-right\">Status:</small>"
-msgstr "<small class=\"text-right\">상태:</small>"
+msgstr "<small class=\"text-right\">상태 :</small>"
 
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.portal_my_project
@@ -275,7 +340,7 @@ msgstr "<strong class=\"d-block mb-2\">설명</strong>"
 #. module: project
 #: model_terms:digest.tip,tip_description:project.digest_tip_project_0
 msgid "<strong style=\"font-size: 16px;\">Try the mail gateway</strong>"
-msgstr ""
+msgstr "<strong style=\"font-size: 16px;\">메일 게이트웨이 시도</strong>"
 
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.portal_my_task
@@ -285,27 +350,27 @@ msgstr "<strong>담당자</strong>"
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.portal_my_task
 msgid "<strong>Date:</strong>"
-msgstr "<strong>일자:</strong>"
+msgstr "<strong>일자 :</strong>"
 
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.portal_my_task
 msgid "<strong>Deadline:</strong>"
-msgstr "<strong>마감일:</strong>"
+msgstr "<strong>마감일 :</strong>"
 
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.portal_my_task
 msgid "<strong>Message and communication history</strong>"
-msgstr "<strong>메시지 및 대화 기록</strong>"
+msgstr "<strong>메시지 및 대화 이력</strong>"
 
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.portal_my_task
 msgid "<strong>Project:</strong>"
-msgstr "<strong>프로젝트:</strong>"
+msgstr "<strong>프로젝트 :</strong>"
 
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.portal_project_rating_popover
 msgid "<strong>Rated by: </strong>"
-msgstr "<strong>평가자:</strong>"
+msgstr "<strong>평가자 :</strong>"
 
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.portal_my_task
@@ -317,7 +382,7 @@ msgstr "<strong>보고자</strong>"
 msgid ""
 "A Python dictionary that will be evaluated to provide default values when "
 "creating new records for this alias."
-msgstr "이 별칭에 대한 새 레코드를 만들 때 기본값을 제공하도록 평가되는 Phyton dictionary입니다."
+msgstr "이 별칭에 대한 새 레코드를 만들 때 기본값을 제공하도록 평가되는 Python 사전입니다."
 
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.edit_project
@@ -334,7 +399,7 @@ msgstr "접근 경고"
 #: model:ir.model.fields,field_description:project.field_project_project__message_needaction
 #: model:ir.model.fields,field_description:project.field_project_task__message_needaction
 msgid "Action Needed"
-msgstr "조치가 필요함"
+msgstr "작업이 필요함"
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_project__active
@@ -371,7 +436,7 @@ msgstr "설명 추가..."
 msgid ""
 "Add columns to configure <b>stages for your tasks</b>.<br/><i>e.g. New - In "
 "Progress - Done</i>"
-msgstr ""
+msgstr "열을 추가하여 <b>업무의 단계</b>를 설정하십시오.<br/><i>예. 신규-진행중-완료</i>"
 
 #. module: project
 #: model:project.task.type,name:project.project_stage_data_2
@@ -968,7 +1033,7 @@ msgstr "작성취소"
 #: model:ir.model.fields,field_description:project.field_project_task_type__display_name
 #: model:ir.model.fields,field_description:project.field_report_project_task_user__display_name
 msgid "Display Name"
-msgstr "표시할 이름"
+msgstr "제목"
 
 #. module: project
 #: code:addons/project/models/digest.py:16
@@ -1234,7 +1299,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:project.portal_project_rating_partner_stat
 #: model_terms:ir.ui.view,arch_db:project.view_task_kanban
 msgid "Happy face"
-msgstr ""
+msgstr "행복한 표정"
 
 #. module: project
 #: selection:report.project.task.user,priority:0
@@ -1613,7 +1678,7 @@ msgstr "관리자"
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_project__favorite_user_ids
 msgid "Members"
-msgstr ""
+msgstr "회원 관리"
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_project__message_has_error
@@ -1679,7 +1744,7 @@ msgstr "기능적 또는 기술적 도움이 필요함"
 #: model_terms:ir.ui.view,arch_db:project.portal_project_rating_partner_stat
 #: model_terms:ir.ui.view,arch_db:project.view_task_kanban
 msgid "Neutral face"
-msgstr ""
+msgstr "중립적인 얼굴"
 
 #. module: project
 #. openerp-web
@@ -1688,7 +1753,7 @@ msgstr ""
 #: model:project.task.type,name:project.project_stage_data_0
 #, python-format
 msgid "New"
-msgstr "새로운"
+msgstr "신규"
 
 #. module: project
 #. openerp-web
@@ -1819,7 +1884,7 @@ msgstr "오류 횟수"
 #: model:ir.model.fields,help:project.field_project_project__message_needaction_counter
 #: model:ir.model.fields,help:project.field_project_task__message_needaction_counter
 msgid "Number of messages which requires an action"
-msgstr "조치가 필요한 메시지 수"
+msgstr "작업이 필요한 메시지 수"
 
 #. module: project
 #: model:ir.model.fields,help:project.field_project_project__message_has_error_counter
@@ -1983,7 +2048,7 @@ msgstr "주기적인 평가"
 #: model_terms:ir.ui.view,arch_db:project.portal_project_rating_partner_stat
 #: model_terms:ir.ui.view,arch_db:project.portal_project_rating_popover
 msgid "Placeholder"
-msgstr ""
+msgstr "자리 표시"
 
 #. module: project
 #: selection:project.task,activity_state:0

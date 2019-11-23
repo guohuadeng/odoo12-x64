@@ -6,7 +6,7 @@ from collections import defaultdict
 from odoo import api, fields, models, _
 from odoo.addons import decimal_precision as dp
 from odoo.exceptions import AccessError, UserError
-from odoo.tools import float_compare, float_round
+from odoo.tools import float_compare, float_round, float_is_zero
 
 class MrpProduction(models.Model):
     """ Manufacturing Orders """
@@ -179,7 +179,7 @@ class MrpProduction(models.Model):
     def _compute_picking_ids(self):
         for order in self:
             order.picking_ids = self.env['stock.picking'].search([
-                ('group_id', '=', order.procurement_group_id.id),
+                ('group_id', '=', order.procurement_group_id.id), ('group_id', '!=', False),
             ])
             order.delivery_count = len(order.picking_ids)
 
@@ -194,7 +194,11 @@ class MrpProduction(models.Model):
         if len(pickings) > 1:
             action['domain'] = [('id', 'in', pickings.ids)]
         elif pickings:
-            action['views'] = [(self.env.ref('stock.view_picking_form').id, 'form')]
+            form_view = [(self.env.ref('stock.view_picking_form').id, 'form')]
+            if 'views' in action:
+                action['views'] = form_view + [(state,view) for state,view in action['views'] if view != 'form']
+            else:
+                action['views'] = form_view
             action['res_id'] = pickings.id
         return action
 
@@ -277,6 +281,7 @@ class MrpProduction(models.Model):
                 order.post_visible = order.is_locked and any((x.quantity_done > 0 and x.state not in ['done', 'cancel']) for x in order.move_raw_ids | order.move_finished_ids)
             else:
                 order.post_visible = order.is_locked and any((x.quantity_done > 0 and x.state not in ['done', 'cancel']) for x in order.move_finished_ids)
+            order.post_visible &= all(wo.state in ['done', 'cancel'] for wo in order.workorder_ids) or all(m.product_id.tracking == 'none' for m in order.move_raw_ids)
 
     @api.multi
     @api.depends('move_raw_ids.quantity_done', 'move_raw_ids.product_uom_qty')
@@ -340,15 +345,16 @@ class MrpProduction(models.Model):
     def _onchange_bom_id(self):
         self.product_qty = self.bom_id.product_qty
         self.product_uom_id = self.bom_id.product_uom_id.id
+        self.picking_type_id = self.bom_id.picking_type_id or self.picking_type_id
 
-    @api.onchange('picking_type_id')
+    @api.onchange('picking_type_id', 'routing_id')
     def onchange_picking_type(self):
         location = self.env.ref('stock.stock_location_stock')
         try:
             location.check_access_rule('read')
         except (AttributeError, AccessError):
             location = self.env['stock.warehouse'].search([('company_id', '=', self.env.user.company_id.id)], limit=1).lot_stock_id
-        self.location_src_id = self.picking_type_id.default_location_src_id.id or location.id
+        self.location_src_id = self.routing_id.location_id.id or self.picking_type_id.default_location_src_id.id or location.id
         self.location_dest_id = self.picking_type_id.default_location_dest_id.id or location.id
 
     @api.multi
@@ -504,17 +510,20 @@ class MrpProduction(models.Model):
         if move:
             old_qty = move[0].product_uom_qty
             if quantity > 0:
+                production = move[0].raw_material_production_id
+                production_qty = production.product_qty - production.qty_produced
                 move[0]._decrease_reserved_quanity(quantity)
                 move[0].with_context(do_not_unreserve=True).write({'product_uom_qty': quantity})
                 move[0]._recompute_state()
                 move[0]._action_assign()
-                move[0].unit_factor = quantity / move[0].raw_material_production_id.product_qty
-            elif quantity < 0:  # Do not remove 0 lines
+                move[0].unit_factor = production_qty and (quantity - move[0].quantity_done) / production_qty or 1.0
+                return move[0], old_qty, quantity
+            else:
                 if move[0].quantity_done > 0:
                     raise UserError(_('Lines need to be deleted, but can not as you still have some quantities to consume in them. '))
                 move[0]._action_cancel()
                 move[0].unlink()
-            return move[0], old_qty, quantity
+                return self.env['stock.move'], old_qty, quantity
         else:
             move = self._generate_raw_move(bom_line, line_data)
             return move, 0, quantity
@@ -528,6 +537,8 @@ class MrpProduction(models.Model):
     @api.multi
     def open_produce_product(self):
         self.ensure_one()
+        if self.bom_id.type == 'phantom':
+            raise UserError(_('You cannot produce a MO with a bom kit product.'))
         action = self.env.ref('mrp.act_mrp_product_produce').read()[0]
         return action
 
@@ -693,11 +704,16 @@ class MrpProduction(models.Model):
             if wo.time_ids.filtered(lambda x: (not x.date_end) and (x.loss_type in ('productive', 'performance'))):
                 raise UserError(_('Work order %s is still running') % wo.name)
         self._check_lots()
+
         self.post_inventory()
-        moves_to_cancel = (self.move_raw_ids | self.move_finished_ids).filtered(lambda x: x.state not in ('done', 'cancel'))
-        moves_to_cancel._action_cancel()
-        self.write({'state': 'done', 'date_finished': fields.Datetime.now()})
-        return self.write({'state': 'done'})
+        # Moves without quantity done are not posted => set them as done instead of canceling. In
+        # case the user edits the MO later on and sets some consumed quantity on those, we do not
+        # want the move lines to be canceled.
+        (self.move_raw_ids | self.move_finished_ids).filtered(lambda x: x.state not in ('done', 'cancel')).write({
+            'state': 'done',
+            'product_uom_qty': 0.0,
+        })
+        return self.write({'state': 'done', 'date_finished': fields.Datetime.now()})
 
     @api.multi
     def do_unreserve(self):

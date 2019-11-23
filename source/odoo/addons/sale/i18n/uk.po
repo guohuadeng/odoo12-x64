@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-29 10:09+0000\n"
+"POT-Creation-Date: 2019-11-14 07:34+0000\n"
 "PO-Revision-Date: 2018-08-24 09:24+0000\n"
 "Last-Translator: Alina Lisnenko <alinasemeniuk1@gmail.com>, 2019\n"
 "Language-Team: Ukrainian (https://www.transifex.com/odoo/teams/41243/uk/)\n"
@@ -633,7 +633,6 @@ msgstr "Дозволяє вам відправляти рахунки."
 
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.report_saleorder_document
-#: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_content
 msgid "Amount"
 msgstr "Сума"
 
@@ -641,6 +640,12 @@ msgstr "Сума"
 #: model:ir.model.fields,field_description:sale.field_sale_order__amount_undiscounted
 msgid "Amount Before Discount"
 msgstr "Сума до знижки"
+
+#. module: sale
+#: code:addons/sale/models/payment.py:90
+#, python-format
+msgid "Amount Mismatch (%s)"
+msgstr "Невідповідність кількості (%s)"
 
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_crm_team__quotations_amount
@@ -686,8 +691,8 @@ msgid ""
 "from pricelists (option to activate in the pricelist configuration)."
 msgstr ""
 "Застосовуйте знижки вручну на рядках замовлень на купівлю або покажіть "
-"знижки, розраховані з прайслистів (можливість активувати в налаштуваннях "
-"прайслиста)."
+"знижки, розраховані з прайс-листів (можливість активувати в налаштуваннях "
+"прайс-листа)."
 
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.view_order_form
@@ -1864,7 +1869,7 @@ msgstr "Термін дії"
 msgid ""
 "Is true if the sales order line comes from an expense or a vendor bills"
 msgstr ""
-"Правда, якщо рядок замовлення на продаж надходить з витрат або рахунків "
+"Правильно, якщо рядок замовлення на продаж надходить з витрат або рахунків "
 "постачальників"
 
 #. module: sale
@@ -3291,14 +3296,6 @@ msgid "Sell and purchase products in different units of measure"
 msgstr "Продаж та купівля товарів у різних одиницях вимірювання"
 
 #. module: sale
-#: model:ir.model.fields,field_description:sale.field_res_config_settings__module_website_sale_digital
-msgid ""
-"Sell digital products - provide downloadable content on your customer portal"
-msgstr ""
-"Продаж цифрових товарів - забезпечте завантаження вмісту на вашому порталі "
-"клієнтів"
-
-#. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.res_config_settings_view_form
 msgid "Sell products by multiple of unit # per package"
 msgstr "Продаж товарів по кілька одиниць # на пакет"
@@ -3310,8 +3307,10 @@ msgstr "Відправити про-форму рахунка-фактури"
 
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.res_config_settings_view_form
-msgid "Send a product-specific email once the invoice is paid"
-msgstr "Надішліть електронний лист із товаром після сплати рахунка-фактури"
+msgid "Send a product-specific email once the invoice is validated"
+msgstr ""
+"Надішліть електронну пошту, що відповідає конкретному товару, після "
+"підтвердження рахунку"
 
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.sale_onboarding_sample_quotation_step
@@ -3692,7 +3691,7 @@ msgid ""
 "This mode is advised if you issue the final invoice at the order and not after the delivery."
 msgstr ""
 "Рахунок-фактура створюється автоматично і доступний на порталі клієнтів, коли операція підтверджена еквайєром платежу.\n"
-"Рахунок-фактура позначено як платний, а платіж зареєстрований у платіжному журналі, визначеному в налаштуваннях одержувача платежу.\n"
+"Рахунок-фактуру позначено як оплачено, а платіж зареєстрований у платіжному журналі, визначеному в налаштуваннях одержувача платежу.\n"
 "Цей режим рекомендується, якщо ви видаєте виставляєте рахунок-фактуру в замовленні, а не після доставки."
 
 #. module: sale
@@ -3703,6 +3702,16 @@ msgid ""
 msgstr ""
 "Маржа розраховується як сума цін реалізації продукції за вирахуванням "
 "вартості, встановленої у їхній детальній формі."
+
+#. module: sale
+#: code:addons/sale/models/payment.py:97
+#, python-format
+msgid ""
+"The order was not confirmed despite response from the acquirer (%s): order "
+"total is %r but acquirer replied with %r."
+msgstr ""
+"Замовлення не підтверджено, незважаючи на відповідь еквайєра (%s): сума "
+"замовлення %r але еквайєр відповів з %r."
 
 #. module: sale
 #: model:ir.model.fields,help:sale.field_sale_order__reference
@@ -3948,7 +3957,6 @@ msgstr "Разом"
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.report_all_channels_sales_view_pivot
 #: model_terms:ir.ui.view,arch_db:sale.report_saleorder_document
-#: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_content
 msgid "Total Price"
 msgstr "Сума"
 
@@ -4261,6 +4269,16 @@ msgid ""
 msgstr ""
 "Тут можна встановити тип зв'язку, який буде відображатися в замовленнях на "
 "продаж. Зв'язок буде наданий клієнту, коли він вибере спосіб оплати."
+
+#. module: sale
+#: code:addons/sale/models/sale.py:1115
+#, python-format
+msgid ""
+"You cannot change the type of a sale order line. Instead you should delete "
+"the current line and create a new line of the proper type."
+msgstr ""
+"Ви не можете змінити тип рядка замовлення на продаж. Натомість вам необхідно"
+" видалити поточний рядок та створити новий належного типу."
 
 #. module: sale
 #: model_terms:ir.actions.act_window,help:sale.product_template_action

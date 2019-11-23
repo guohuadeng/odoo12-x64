@@ -236,10 +236,10 @@ class PosOrder(models.Model):
         # We convert a new id object back to a dictionary to write to
         # bridge between old and new api
         inv_line = invoice_line._convert_to_write({name: invoice_line[name] for name in invoice_line._cache})
-        inv_line.update(price_unit=line.price_unit, discount=line.discount, name=inv_name)
+        inv_line.update(price_unit=line.price_unit, discount=line.discount)
         return InvoiceLine.sudo().create(inv_line)
 
-    def _create_account_move_line(self, session=None, move=None):
+    def _prepare_account_move_and_lines(self, session=None, move=None):
         def _flatten_tax_and_children(taxes, group_done=None):
             children = self.env['account.tax']
             if group_done is None:
@@ -460,6 +460,17 @@ class PosOrder(models.Model):
 
         if self and order.company_id.anglo_saxon_accounting:
             add_anglosaxon_lines(grouped_data)
+
+        return {
+            'grouped_data': grouped_data,
+            'move': move,
+        }
+
+    def _create_account_move_line(self, session=None, move=None):
+        vals = self._prepare_account_move_and_lines(session, move)
+
+        grouped_data = vals['grouped_data']
+        move = vals['move']
 
         all_lines = []
         for group_key, group_data in grouped_data.items():
@@ -683,7 +694,7 @@ class PosOrder(models.Model):
             Invoice += new_invoice
 
             for line in order.lines:
-                self.with_context(local_context)._action_create_invoice_line(line, new_invoice.id)
+                order.with_context(local_context)._action_create_invoice_line(line, new_invoice.id)
 
             new_invoice.with_context(local_context).sudo().compute_taxes()
             order.sudo().write({'state': 'invoiced'})
@@ -724,7 +735,7 @@ class PosOrder(models.Model):
         order_ids = []
 
         for tmp_order in orders_to_save:
-            to_invoice = tmp_order['to_invoice']
+            to_invoice = tmp_order['to_invoice'] or tmp_order['data'].get('to_invoice')
             order = tmp_order['data']
             if to_invoice:
                 self._match_payment_to_invoice(order)
@@ -737,7 +748,7 @@ class PosOrder(models.Model):
                 # do not hide transactional errors, the order(s) won't be saved!
                 raise
             except Exception as e:
-                _logger.error('Could not fully process the POS Order: %s', tools.ustr(e))
+                _logger.error('Could not fully process the POS Order: %s', tools.ustr(e), exc_info=True)
 
             if to_invoice:
                 pos_order.action_pos_order_invoice()
@@ -752,13 +763,18 @@ class PosOrder(models.Model):
         for order in self:
             if order.lines and not order.amount_total:
                 continue
-            if (not order.lines) or (not order.statement_ids) or (abs(order.amount_total - order.amount_paid) > 0.00001):
+            if (not order.lines) or (not order.statement_ids) or (not float_is_zero((order.amount_total - order.amount_paid), precision_rounding=order.pricelist_id.currency_id.rounding)):
                 return False
         return True
 
     def create_picking(self):
         """Create a picking for each order and validate it."""
         Picking = self.env['stock.picking']
+        # If no email is set on the user, the picking creation and validation will fail be cause of
+        # the 'Unable to log message, please configure the sender's email address.' error.
+        # We disable the tracking in this case.
+        if not self.env.user.partner_id.email:
+            Picking = Picking.with_context(tracking_disable=True)
         Move = self.env['stock.move']
         StockWarehouse = self.env['stock.warehouse']
         for order in self:
@@ -796,7 +812,10 @@ class PosOrder(models.Model):
                 pos_qty = any([x.qty > 0 for x in order.lines if x.product_id.type in ['product', 'consu']])
                 if pos_qty:
                     order_picking = Picking.create(picking_vals.copy())
-                    order_picking.message_post(body=message)
+                    if self.env.user.partner_id.email:
+                        order_picking.message_post(body=message)
+                    else:
+                        order_picking.sudo().message_post(body=message)
                 neg_qty = any([x.qty < 0 for x in order.lines if x.product_id.type in ['product', 'consu']])
                 if neg_qty:
                     return_vals = picking_vals.copy()
@@ -806,7 +825,10 @@ class PosOrder(models.Model):
                         'picking_type_id': return_pick_type.id
                     })
                     return_picking = Picking.create(return_vals)
-                    return_picking.message_post(body=message)
+                    if self.env.user.partner_id.email:
+                        return_picking.message_post(body=message)
+                    else:
+                        return_picking.message_post(body=message)
 
             for line in order.lines.filtered(lambda l: l.product_id.type in ['product', 'consu'] and not float_is_zero(l.qty, precision_rounding=l.product_id.uom_id.rounding)):
                 moves |= Move.create({
@@ -867,7 +889,7 @@ class PosOrder(models.Model):
                             # a serialnumber always has a quantity of 1 product, a lot number takes the full quantity of the order line
                             qty = 1.0
                             if stock_production_lot.product_id.tracking == 'lot':
-                                qty = pos_pack_lot.pos_order_line_id.qty
+                                qty = abs(pos_pack_lot.pos_order_line_id.qty)
                             qty_done += qty
                             pack_lots.append({'lot_id': stock_production_lot.id, 'qty': qty})
                         else:
@@ -1110,6 +1132,7 @@ class PosOrderLine(models.Model):
 class PosOrderLineLot(models.Model):
     _name = "pos.pack.operation.lot"
     _description = "Specify product lot/serial number in pos order line"
+    _rec_name = "lot_name"
 
     pos_order_line_id = fields.Many2one('pos.order.line')
     order_id = fields.Many2one('pos.order', related="pos_order_line_id.order_id", readonly=False)

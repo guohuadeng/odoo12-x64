@@ -454,7 +454,7 @@ msgstr "Kleurindex"
 #. module: product
 #: model_terms:ir.ui.view,arch_db:product.res_config_settings_view_form
 msgid "Common Product Catalog"
-msgstr "Vaak voorkomende producten catalogus"
+msgstr "Deel producten tussen bedrijven"
 
 #. module: product
 #: model:ir.model,name:product.model_res_company
@@ -469,7 +469,7 @@ msgstr "Bedrijven"
 #: model:ir.model.fields,field_description:product.field_product_supplierinfo__company_id
 #: model:ir.model.fields,field_description:product.field_product_template__company_id
 msgid "Company"
-msgstr "Bedijf"
+msgstr "Bedrijf"
 
 #. module: product
 #: model:ir.model.fields,field_description:product.field_product_category__complete_name

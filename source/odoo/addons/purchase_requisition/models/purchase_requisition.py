@@ -224,7 +224,9 @@ class PurchaseRequisitionLine(models.Model):
     def write(self, vals):
         res = super(PurchaseRequisitionLine, self).write(vals)
         if 'price_unit' in vals:
-            if vals['price_unit'] <= 0.0:
+            if vals['price_unit'] <= 0.0 and any(
+                    requisition.state not in ['draft', 'cancel', 'done'] and
+                    requisition.is_quantity_copy == 'none' for requisition in self.mapped('requisition_id')):
                 raise UserError(_('You cannot confirm the blanket order without price.'))
             # If the price is updated, we have to update the related SupplierInfo
             self.supplier_info_ids.write({'price': vals['price_unit']})
@@ -406,14 +408,13 @@ class PurchaseOrderLine(models.Model):
     def _onchange_quantity(self):
         res = super(PurchaseOrderLine, self)._onchange_quantity()
         if self.order_id.requisition_id:
-            for line in self.order_id.requisition_id.line_ids:
-                if line.product_id == self.product_id:
-                    if line.product_uom_id != self.product_uom:
-                        self.price_unit = line.product_uom_id._compute_price(
-                            line.price_unit, self.product_uom)
-                    else:
-                        self.price_unit = line.price_unit
-                    break
+            for line in self.order_id.requisition_id.line_ids.filtered(lambda l: l.product_id == self.product_id):
+                if line.product_uom_id != self.product_uom:
+                    self.price_unit = line.product_uom_id._compute_price(
+                        line.price_unit, self.product_uom)
+                else:
+                    self.price_unit = line.price_unit
+                break
         return res
 
 

@@ -444,6 +444,13 @@ class Import(models.TransientModel):
         # Or a date/datetime if it matches the pattern
         date_patterns = [options['date_format']] if options.get(
             'date_format') else []
+        user_date_format = self.env['res.lang']._lang_get(self.env.user.lang).date_format
+        if user_date_format:
+            try:
+                to_re(user_date_format)
+                date_patterns.append(user_date_format)
+            except KeyError:
+                pass
         date_patterns.extend(DATE_PATTERNS)
         match = check_patterns(date_patterns, preview_values)
         if match:
@@ -762,7 +769,8 @@ class Import(models.TransientModel):
                 # We should be able to manage both case
                 index = import_fields.index(name)
                 self._parse_float_from_data(data, index, name, options)
-            elif field['type'] == 'binary' and field.get('attachment') and any(f in name for f in IMAGE_FIELDS) and name in import_fields:
+            # DON'T Forward port in >= saas-12.2
+            elif field['type'] == 'binary' and (field.get('attachment') or field.get('manual')) and any(f in name for f in IMAGE_FIELDS) and name in import_fields:
                 index = import_fields.index(name)
 
                 with requests.Session() as session:
@@ -900,6 +908,7 @@ class Import(models.TransientModel):
             if dryrun:
                 self._cr.execute('ROLLBACK TO SAVEPOINT import')
                 # cancel all changes done to the registry/ormcache
+                self.pool.clear_caches()
                 self.pool.reset_changes()
             else:
                 self._cr.execute('RELEASE SAVEPOINT import')

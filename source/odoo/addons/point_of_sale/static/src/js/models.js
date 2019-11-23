@@ -1473,7 +1473,7 @@ exports.Orderline = Backbone.Model.extend({
         var lots_required = 1;
 
         if (this.product.tracking == 'serial') {
-            lots_required = this.quantity;
+            lots_required = Math.abs(this.quantity);
         }
 
         return lots_required;
@@ -1709,8 +1709,11 @@ exports.Orderline = Backbone.Model.extend({
     },
     _compute_all: function(tax, base_amount, quantity) {
         if (tax.amount_type === 'fixed') {
-            var sign_base_amount = base_amount >= 0 ? 1 : -1;
-            return (Math.abs(tax.amount) * sign_base_amount) * quantity;
+            var sign_base_amount = Math.sign(base_amount) || 1;
+            // Since base amount has been computed with quantity
+            // we take the abs of quantity
+            // Same logic as bb72dea98de4dae8f59e397f232a0636411d37ce
+            return tax.amount * sign_base_amount * Math.abs(quantity);
         }
         if ((tax.amount_type === 'percent' && !tax.price_include) || (tax.amount_type === 'division' && tax.price_include)){
             return base_amount * tax.amount / 100;
@@ -1878,8 +1881,11 @@ var PacklotlineCollection = Backbone.Collection.extend({
 
     set_quantity_by_lot: function() {
         if (this.order_line.product.tracking == 'serial') {
-            var valid_lots = this.get_valid_lots();
-            this.order_line.set_quantity(valid_lots.length);
+            var valid_lots_quantity = this.get_valid_lots().length;
+            if (this.order_line.quantity < 0){
+                valid_lots_quantity = -valid_lots_quantity;
+            }
+            this.order_line.set_quantity(valid_lots_quantity);
         }
     }
 });
@@ -2102,7 +2108,8 @@ exports.Order = Backbone.Model.extend({
             uid: this.uid,
             sequence_number: this.sequence_number,
             creation_date: this.validation_date || this.creation_date, // todo: rename creation_date in master
-            fiscal_position_id: this.fiscal_position ? this.fiscal_position.id : false
+            fiscal_position_id: this.fiscal_position ? this.fiscal_position.id : false,
+            to_invoice: this.to_invoice ? this.to_invoice : false,
         };
     },
     export_for_printing: function(){
@@ -2482,9 +2489,36 @@ exports.Order = Backbone.Model.extend({
         }), 0), this.pos.currency.rounding);
     },
     get_total_tax: function() {
-        return round_pr(this.orderlines.reduce((function(sum, orderLine) {
-            return sum + orderLine.get_tax();
-        }), 0), this.pos.currency.rounding);
+        if (this.pos.company.tax_calculation_rounding_method === "round_globally") {
+            // As always, we need:
+            // 1. For each tax, sum their amount across all order lines
+            // 2. Round that result
+            // 3. Sum all those rounded amounts
+            var groupTaxes = {};
+            this.orderlines.each(function (line) {
+                var taxDetails = line.get_tax_details();
+                var taxIds = Object.keys(taxDetails);
+                for (var t = 0; t<taxIds.length; t++) {
+                    var taxId = taxIds[t];
+                    if (!(taxId in groupTaxes)) {
+                        groupTaxes[taxId] = 0;
+                    }
+                    groupTaxes[taxId] += taxDetails[taxId];
+                }
+            });
+
+            var sum = 0;
+            var taxIds = Object.keys(groupTaxes);
+            for (var j = 0; j<taxIds.length; j++) {
+                var taxAmount = groupTaxes[taxIds[j]];
+                sum += round_pr(taxAmount, this.pos.currency.rounding);
+            }
+            return sum;
+        } else {
+            return round_pr(this.orderlines.reduce((function(sum, orderLine) {
+                return sum + orderLine.get_tax();
+            }), 0), this.pos.currency.rounding);
+        }
     },
     get_total_paid: function() {
         return round_pr(this.paymentlines.reduce((function(sum, paymentLine) {

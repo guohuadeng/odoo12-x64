@@ -5,6 +5,7 @@ from itertools import chain
 
 from odoo import api, fields, models, tools, _
 from odoo.exceptions import UserError, ValidationError
+from odoo.tools import float_repr
 
 from odoo.addons import decimal_precision as dp
 
@@ -100,7 +101,7 @@ class Pricelist(models.Model):
         """ Low-level method - Mono pricelist, multi products
         Returns: dict{product_id: (price, suitable_rule) for the given pricelist}
 
-        If date in context: Date of the pricelist (%Y-%m-%d)
+        Date in context can be a date, datetime, ...
 
             :param products_qty_partner: list of typles products, quantity, partner
             :param datetime date: validity date
@@ -108,7 +109,8 @@ class Pricelist(models.Model):
         """
         self.ensure_one()
         if not date:
-            date = self._context.get('date') or fields.Date.context_today(self)
+            date = self._context.get('date') or fields.Date.today()
+        date = fields.Date.to_date(date)  # boundary conditions differ if we have a datetime
         if not uom_id and self._context.get('uom'):
             uom_id = self._context['uom']
         if uom_id:
@@ -486,7 +488,13 @@ class PricelistItem(models.Model):
             self.name = _("All Products")
 
         if self.compute_price == 'fixed':
-            self.price = ("%s %s") % (self.fixed_price, self.pricelist_id.currency_id.name)
+            self.price = ("%s %s") % (
+                float_repr(
+                    self.fixed_price,
+                    self.pricelist_id.currency_id.decimal_places,
+                ),
+                self.pricelist_id.currency_id.name
+            )
         elif self.compute_price == 'percentage':
             self.price = _("%s %% discount") % (self.percent_price)
         else:

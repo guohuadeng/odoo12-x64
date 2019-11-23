@@ -25,9 +25,25 @@ if os.name == 'posix':
     # Unix only for workers
     import fcntl
     import resource
+    try:
+        import inotify
+        from inotify.adapters import InotifyTrees
+        from inotify.constants import IN_MODIFY, IN_CREATE, IN_MOVED_TO
+        INOTIFY_LISTEN_EVENTS = IN_MODIFY | IN_CREATE | IN_MOVED_TO
+    except ImportError:
+        inotify = None
 else:
     # Windows shim
     signal.SIGHUP = -1
+    inotify = None
+
+if not inotify:
+    try:
+        import watchdog
+        from watchdog.observers import Observer
+        from watchdog.events import FileCreatedEvent, FileModifiedEvent, FileMovedEvent
+    except ImportError:
+        watchdog = None
 
 # Optional process names for workers
 try:
@@ -44,13 +60,6 @@ from odoo.tools import config
 from odoo.tools import stripped_sys_argv, dumpstacks, log_ormcache_stats
 
 _logger = logging.getLogger(__name__)
-
-try:
-    import watchdog
-    from watchdog.observers import Observer
-    from watchdog.events import FileCreatedEvent, FileModifiedEvent, FileMovedEvent
-except ImportError:
-    watchdog = None
 
 SLEEP_INTERVAL = 60     # 1 min
 
@@ -176,7 +185,24 @@ class ThreadedWSGIServerReloadable(LoggingBaseWSGIServerMixIn, werkzeug.serving.
 #----------------------------------------------------------
 # FileSystem Watcher for autoreload and cache invalidation
 #----------------------------------------------------------
-class FSWatcher(object):
+class FSWatcherBase(object):
+    def handle_file(self, path):
+        if path.endswith('.py') and not os.path.basename(path).startswith('.~'):
+            try:
+                source = open(path, 'rb').read() + b'\n'
+                compile(source, path, 'exec')
+            except IOError:
+                _logger.error('autoreload: python code change detected, IOError for %s', path)
+            except SyntaxError:
+                _logger.error('autoreload: python code change detected, SyntaxError in %s', path)
+            else:
+                if not getattr(odoo, 'phoenix', False):
+                    _logger.info('autoreload: python code updated, autoreload activated')
+                    restart()
+                    return True
+
+
+class FSWatcherWatchdog(FSWatcherBase):
     def __init__(self):
         self.observer = Observer()
         for path in odoo.modules.module.ad_paths:
@@ -187,26 +213,59 @@ class FSWatcher(object):
         if isinstance(event, (FileCreatedEvent, FileModifiedEvent, FileMovedEvent)):
             if not event.is_directory:
                 path = getattr(event, 'dest_path', event.src_path)
-                if path.endswith('.py') and not os.path.basename(path).startswith('.~'):
-                    try:
-                        source = open(path, 'rb').read() + b'\n'
-                        compile(source, path, 'exec')
-                    except FileNotFoundError:
-                        _logger.error('autoreload: python code change detected, FileNotFound for %s', path)
-                    except SyntaxError:
-                        _logger.error('autoreload: python code change detected, SyntaxError in %s', path)
-                    else:
-                        if not getattr(odoo, 'phoenix', False):
-                            _logger.info('autoreload: python code updated, autoreload activated')
-                            restart()
+                self.handle_file(path)
 
     def start(self):
         self.observer.start()
-        _logger.info('AutoReload watcher running')
+        _logger.info('AutoReload watcher running with watchdog')
 
     def stop(self):
         self.observer.stop()
         self.observer.join()
+
+
+class FSWatcherInotify(FSWatcherBase):
+    def __init__(self):
+        self.started = False
+        # ignore warnings from inotify in case we have duplicate addons paths.
+        inotify.adapters._LOGGER.setLevel(logging.ERROR)
+        # recreate a list as InotifyTrees' __init__ deletes the list's items
+        paths_to_watch = []
+        for path in odoo.modules.module.ad_paths:
+            paths_to_watch.append(path)
+            _logger.info('Watching addons folder %s', path)
+        self.watcher = InotifyTrees(paths_to_watch, mask=INOTIFY_LISTEN_EVENTS, block_duration_s=.5)
+
+    def run(self):
+        _logger.info('AutoReload watcher running with inotify')
+        dir_creation_events = set(('IN_MOVED_TO', 'IN_CREATE'))
+        while self.started:
+            for event in self.watcher.event_gen(timeout_s=0, yield_nones=False):
+                (_, type_names, path, filename) = event
+                if 'IN_ISDIR' not in type_names:
+                    # despite not having IN_DELETE in the watcher's mask, the
+                    # watcher sends these events when a directory is deleted.
+                    if 'IN_DELETE' not in type_names:
+                        full_path = os.path.join(path, filename)
+                        if self.handle_file(full_path):
+                            return
+                elif dir_creation_events.intersection(type_names):
+                    full_path = os.path.join(path, filename)
+                    for root, _, files in os.walk(full_path):
+                        for file in files:
+                            if self.handle_file(os.path.join(root, file)):
+                                return
+
+    def start(self):
+        self.started = True
+        self.thread = threading.Thread(target=self.run, name="odoo.service.autoreload.watcher")
+        self.thread.setDaemon(True)
+        self.thread.start()
+
+    def stop(self):
+        self.started = False
+        self.thread.join()
+
 
 #----------------------------------------------------------
 # Servers: Threaded, Gevented and Prefork
@@ -265,7 +324,7 @@ class ThreadedServer(CommonServer):
                 os._exit(0)
             # interrupt run() to start shutdown
             raise KeyboardInterrupt()
-        elif sig == signal.SIGXCPU:
+        elif hasattr(signal, 'SIGXCPU') and sig == signal.SIGXCPU:
             sys.stderr.write("CPU time limit exceeded! Shutting down immediately\n")
             sys.stderr.flush()
             os._exit(0)
@@ -408,7 +467,6 @@ class ThreadedServer(CommonServer):
                     time.sleep(0.05)
 
         _logger.debug('--')
-        odoo.modules.registry.Registry.delete_all()
         logging.shutdown()
 
     def run(self, preload=None, stop=False):
@@ -443,6 +501,8 @@ class ThreadedServer(CommonServer):
                         # We wait there is no processing requests
                         # other than the ones exceeding the limits, up to 1 min,
                         # before asking for a reload.
+                        _logger.info('Dumping stacktrace of limit exceeding threads before reloading')
+                        dumpstacks(thread_idents=[thread.ident for thread in self.limits_reached_threads])
                         self.reload()
                         # `reload` increments `self.quit_signals_received`
                         # and the loop will end after this iteration,
@@ -621,7 +681,7 @@ class PreforkServer(CommonServer):
                 raise KeyboardInterrupt
             elif sig == signal.SIGQUIT:
                 # dump stacks on kill -3
-                self.dumpstacks()
+                dumpstacks()
             elif sig == signal.SIGUSR1:
                 # log ormcache stats on kill -SIGUSR1
                 log_ormcache_stats()
@@ -793,6 +853,13 @@ class Worker(object):
     def signal_handler(self, sig, frame):
         self.alive = False
 
+    def signal_time_expired_handler(self, n, stack):
+        # TODO: print actual RUSAGE_SELF (since last check_limits) instead of
+        #       just repeating the config setting
+        _logger.info('Worker (%d) CPU time limit (%s) reached.', self.pid, config['limit_time_cpu'])
+        # We dont suicide in such case
+        raise Exception('CPU time limit exceeded.')
+
     def sleep(self):
         try:
             select.select([self.multi.socket, self.wakeup_fd_r], [], [], self.multi.beat)
@@ -819,15 +886,9 @@ class Worker(object):
 
         set_limit_memory_hard()
 
-    def set_limits(self):
-        # SIGXCPU (exceeded CPU time) signal handler will raise an exception.
+        # update RLIMIT_CPU so limit_time_cpu applies per unit of work
         r = resource.getrusage(resource.RUSAGE_SELF)
         cpu_time = r.ru_utime + r.ru_stime
-        def time_expired(n, stack):
-            _logger.info('Worker (%d) CPU time limit (%s) reached.', self.pid, config['limit_time_cpu'])
-            # We dont suicide in such case
-            raise Exception('CPU time limit exceeded.')
-        signal.signal(signal.SIGXCPU, time_expired)
         soft, hard = resource.getrlimit(resource.RLIMIT_CPU)
         resource.setrlimit(resource.RLIMIT_CPU, (cpu_time + config['limit_time_cpu'], hard))
 
@@ -848,11 +909,15 @@ class Worker(object):
             self.multi.socket.setblocking(0)
 
         signal.signal(signal.SIGINT, self.signal_handler)
-        signal.signal(signal.SIGTERM, signal.SIG_DFL)
-        signal.signal(signal.SIGCHLD, signal.SIG_DFL)
-        signal.set_wakeup_fd(self.wakeup_fd_w)
+        signal.signal(signal.SIGXCPU, self.signal_time_expired_handler)
 
-        self.set_limits()
+        signal.signal(signal.SIGTERM, signal.SIG_DFL)
+        signal.signal(signal.SIGHUP, signal.SIG_DFL)
+        signal.signal(signal.SIGCHLD, signal.SIG_DFL)
+        signal.signal(signal.SIGTTIN, signal.SIG_DFL)
+        signal.signal(signal.SIGTTOU, signal.SIG_DFL)
+
+        signal.set_wakeup_fd(self.wakeup_fd_w)
 
     def stop(self):
         pass
@@ -874,12 +939,18 @@ class Worker(object):
             sys.exit(1)
 
     def _runloop(self):
+        signal.pthread_sigmask(signal.SIG_BLOCK, {
+            signal.SIGXCPU,
+            signal.SIGINT, signal.SIGQUIT, signal.SIGUSR1,
+        })
         try:
             while self.alive:
+                self.check_limits()
                 self.multi.pipe_ping(self.watchdog_pipe)
                 self.sleep()
+                if not self.alive:
+                    break
                 self.process_work()
-                self.check_limits()
         except:
             _logger.exception("Worker %s (%s) Exception occured, exiting...", self.__class__.__name__, self.pid)
             sys.exit(1)
@@ -1108,21 +1179,28 @@ def start(preload=None, stop=False):
         server = ThreadedServer(odoo.service.wsgi_server.application)
 
     watcher = None
-    if 'reload' in config['dev_mode']:
-        if watchdog:
-            watcher = FSWatcher()
+    if 'reload' in config['dev_mode'] and not odoo.evented:
+        if inotify:
+            watcher = FSWatcherInotify()
+            watcher.start()
+        elif watchdog:
+            watcher = FSWatcherWatchdog()
             watcher.start()
         else:
-            _logger.warning("'watchdog' module not installed. Code autoreload feature is disabled")
+            if os.name == 'posix' and platform.system() != 'Darwin':
+                module = 'inotify'
+            else:
+                module = 'watchdog'
+            _logger.warning("'%s' module not installed. Code autoreload feature is disabled", module)
     if 'werkzeug' in config['dev_mode']:
         server.app = DebuggedApplication(server.app, evalex=True)
 
     rc = server.run(preload, stop)
 
+    if watcher:
+        watcher.stop()
     # like the legend of the phoenix, all ends with beginnings
     if getattr(odoo, 'phoenix', False):
-        if watcher:
-            watcher.stop()
         _reexec()
 
     return rc if rc else 0

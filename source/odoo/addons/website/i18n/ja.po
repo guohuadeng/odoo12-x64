@@ -3,19 +3,19 @@
 # * website
 # 
 # Translators:
-# Tim Siu Lai <tl@roomsfor.hk>, 2018
 # 高木正勝 <masakatsu.takagi@pro-spire.co.jp>, 2018
 # Martin Trigaux, 2018
 # Manami Hashi <manami@roomsfor.hk>, 2018
 # NOKA Shigekazu <shigekazu.noka@gmail.com>, 2018
 # Norimichi Sugimoto <norimichi.sugimoto@tls-ltd.co.jp>, 2018
+# Tim Siu Lai <tl@roomsfor.hk>, 2019
 # Yoshi Tashiro <tashiro@roomsfor.hk>, 2019
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-29 10:08+0000\n"
+"POT-Creation-Date: 2019-11-14 07:33+0000\n"
 "PO-Revision-Date: 2018-08-24 09:33+0000\n"
 "Last-Translator: Yoshi Tashiro <tashiro@roomsfor.hk>, 2019\n"
 "Language-Team: Japanese (https://www.transifex.com/odoo/teams/41243/ja/)\n"
@@ -627,7 +627,7 @@ msgstr ""
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_comparisons
 msgid "<small>/ month</small>"
-msgstr ""
+msgstr "<small>/ 月</small>"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_carousel
@@ -732,6 +732,9 @@ msgid ""
 "                            <span class=\"css_publish\">Unpublished</span>\n"
 "                            <span class=\"css_unpublish\">Published</span>"
 msgstr ""
+"<span/>\n"
+"                            <span class=\"css_publish\">未公開</span>\n"
+"                            <span class=\"css_unpublish\">公開済</span>"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_call_to_action
@@ -739,6 +742,8 @@ msgid ""
 "<span>Contact us</span>\n"
 "                        <i class=\"fa fa-1x fa-fw fa-arrow-circle-right ml-1\"/>"
 msgstr ""
+"<span>お問い合わせ</span>\n"
+"                        <i class=\"fa fa-1x fa-fw fa-arrow-circle-right ml-1\"/>"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.layout_footer_copyright
@@ -881,12 +886,12 @@ msgstr ""
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.res_config_settings_view_form
 msgid "Add features"
-msgstr ""
+msgstr "機能を追加"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.res_config_settings_view_form
 msgid "Add links to social media on your website"
-msgstr ""
+msgstr "ウェブサイトにソーシャルメディアへのリンクを追加"
 
 #. module: website
 #. openerp-web
@@ -1100,13 +1105,19 @@ msgstr "CDN フィルタ"
 
 #. module: website
 #. openerp-web
-#: code:addons/website/static/src/js/backend/dashboard.js:103
-#: code:addons/website/static/src/js/menu/new_content.js:271
+#: code:addons/website/static/src/js/backend/dashboard.js:106
+#: code:addons/website/static/src/js/menu/new_content.js:286
 #: code:addons/website/static/src/xml/website.xml:27
 #: model_terms:ir.ui.view,arch_db:website.500
 #, python-format
 msgid "Cancel"
 msgstr "取消"
+
+#. module: website
+#: code:addons/website/models/res_lang.py:15
+#, python-format
+msgid "Cannot deactivate a language that is currently used on a website."
+msgstr ""
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.bs_debug_page_ir_ui_view
@@ -1248,7 +1259,7 @@ msgstr "閉じる"
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.theme_customize
 msgid "Colors"
-msgstr ""
+msgstr "色"
 
 #. module: website
 #: model:ir.model,name:website.model_res_company
@@ -1340,6 +1351,8 @@ msgid ""
 "Contact us about anything related to our company or services.<br/>\n"
 "                                                                We'll do our best to get back to you as soon as possible."
 msgstr ""
+"会社またはサービスに関するお問い合わせはこちらからどうぞ。\n"
+"なるべく早く返信させていただきます。"
 
 #. module: website
 #: model:ir.model.fields,field_description:website.field_res_config_settings__cdn_activated
@@ -1381,7 +1394,7 @@ msgstr ""
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.res_config_settings_view_form
 msgid "Create a New Website"
-msgstr ""
+msgstr "ウェブサイトを新規作成"
 
 #. module: website
 #: model:ir.model.fields,field_description:website.field_website__create_uid
@@ -1487,7 +1500,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:website.field_website__social_default_image
 #: model_terms:ir.ui.view,arch_db:website.res_config_settings_view_form
 msgid "Default Social Share Image"
-msgstr ""
+msgstr "デフォルトソーシャルシェア画像"
 
 #. module: website
 #: model:ir.model.fields,field_description:website.field_res_config_settings__website_default_lang_id
@@ -1619,7 +1632,7 @@ msgstr ""
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.res_config_settings_view_form
 msgid "Display this website when users visit this domain"
-msgstr ""
+msgstr "ユーザがこのドメインを訪問する際にこのウェブサイトを表示"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_banner
@@ -1954,7 +1967,7 @@ msgstr "フォント"
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.res_config_settings_view_form
 msgid "Force your user to create an account per website"
-msgstr ""
+msgstr "ウェブサイトに基づいてアカウントを作成させる"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.bs_debug_page_ir_ui_view
@@ -2314,7 +2327,7 @@ msgstr ""
 #: model:ir.model.fields,help:website.field_website__social_default_image
 #: model_terms:ir.ui.view,arch_db:website.res_config_settings_view_form
 msgid "If set, replaces the company logo as the default social share image."
-msgstr ""
+msgstr "設定した場合、デフォルトソーシャルシェア画像を会社ロゴから置き換え。"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.500
@@ -2512,6 +2525,7 @@ msgid "Keywords"
 msgstr ""
 
 #. module: website
+#: model:ir.model,name:website.model_res_lang
 #: model:ir.model.fields,field_description:website.field_res_config_settings__language_ids
 #: model:ir.model.fields,field_description:website.field_website__language_ids
 msgid "Languages"
@@ -2587,7 +2601,7 @@ msgstr "レイアウト"
 #: model_terms:ir.ui.view,arch_db:website.s_text_image
 #: model_terms:ir.ui.view,arch_db:website.s_three_columns
 msgid "Learn more"
-msgstr ""
+msgstr "もっと知る"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.snippet_options
@@ -2908,7 +2922,7 @@ msgstr "新しいイベント"
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.user_navbar
 msgid "New Forum"
-msgstr ""
+msgstr "新しいフォーラム"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.user_navbar
@@ -3076,7 +3090,7 @@ msgstr "招待が必要"
 msgid ""
 "Once the selection of available websites by domain is done, you can filter "
 "by country group."
-msgstr ""
+msgstr "ドメインでのウェブサイト選択後、国グループでのフィルタを適用。"
 
 #. module: website
 #: model:ir.model.fields,help:website.field_website_page__mode
@@ -3590,7 +3604,7 @@ msgstr "一部の機能を削除するには、ブロックを選択して削除
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.res_config_settings_view_form
 msgid "Select the Website to Configure"
-msgstr ""
+msgstr "設定更新するウェブサイトを選択"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.contactus
@@ -3625,7 +3639,7 @@ msgstr "管理設定"
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.res_config_settings_view_form
 msgid "Settings on this page will apply to this website"
-msgstr ""
+msgstr "このページの設定はこのウェブサイトに適用"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.snippet_options
@@ -3743,7 +3757,7 @@ msgstr "URLでソート"
 #: model:ir.model.fields,field_description:website.field_res_config_settings__specific_user_account
 #: model:ir.model.fields,field_description:website.field_website__specific_user_account
 msgid "Specific User Account"
-msgstr ""
+msgstr "独立ポータルアカウント"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.snippet_options
@@ -3866,7 +3880,7 @@ msgstr ""
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.res_config_settings_view_form
 msgid "The company this website belongs to"
-msgstr ""
+msgstr "このウェブサイトの会社"
 
 #. module: website
 #. openerp-web

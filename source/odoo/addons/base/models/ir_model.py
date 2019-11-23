@@ -751,7 +751,7 @@ class IrModelFields(models.Model):
                     else:
                         if column_rename:
                             raise UserError(_('Can only rename one field at a time!'))
-                        column_rename = (obj._table, item.name, vals['name'], item.index)
+                        column_rename = (obj._table, item.name, vals['name'], item.index, item.store)
 
                 # We don't check the 'state', because it might come from the context
                 # (thus be set for multiple fields) and will be ignored anyway.
@@ -769,10 +769,11 @@ class IrModelFields(models.Model):
 
         if column_rename:
             # rename column in database, and its corresponding index if present
-            table, oldname, newname, index = column_rename
-            self._cr.execute('ALTER TABLE "%s" RENAME COLUMN "%s" TO "%s"' % (table, oldname, newname))
-            if index:
-                self._cr.execute('ALTER INDEX "%s_%s_index" RENAME TO "%s_%s_index"' % (table, oldname, table, newname))
+            table, oldname, newname, index, stored = column_rename
+            if stored:
+                self._cr.execute('ALTER TABLE "%s" RENAME COLUMN "%s" TO "%s"' % (table, oldname, newname))
+                if index:
+                    self._cr.execute('ALTER INDEX "%s_%s_index" RENAME TO "%s_%s_index"' % (table, oldname, table, newname))
 
         if column_rename or patched_models:
             # setup models, this will reload all manual fields in registry
@@ -855,7 +856,12 @@ class IrModelFields(models.Model):
                 self.pool.post_init(record.modified, keys)
                 old_vals.update(new_vals)
             if module and (module == model._original_module or module in field._modules):
-                to_xmlids.append(name)
+                # remove this and only keep the else clause if version >= saas-12.4
+                if field.manual:
+                    self.pool.loaded_xmlids.add(
+                        '%s.field_%s__%s' % (module, model._name.replace('.', '_'), name))
+                else:
+                    to_xmlids.append(name)
 
         if to_insert:
             # insert missing fields
@@ -1266,6 +1272,7 @@ class IrModelAccess(models.Model):
             else:
                 msg_tail = _("Please contact your system administrator if you think this is an error.") + "\n\n(" + _("Document model") + ": %s)"
                 msg_params = (model,)
+            msg_tail += u' - ({} {}, {} {})'.format(_('Operation:'), mode, _('User:'), self._uid)
             _logger.info('Access Denied by ACLs for operation: %s, uid: %s, model: %s', mode, self._uid, model)
             msg = '%s %s' % (msg_heads[mode], msg_tail)
             raise AccessError(msg % msg_params)

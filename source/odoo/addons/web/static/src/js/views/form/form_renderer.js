@@ -176,8 +176,11 @@ var FormRenderer = BasicRenderer.extend({
      * field.
      */
     focusLastActivatedWidget: function () {
-        this._activateNextFieldWidget(this.state, this.lastActivatedFieldIndex - 1,
-            { noAutomaticCreate: true });
+        if (this.lastActivatedFieldIndex !== -1) {
+            return this._activateNextFieldWidget(this.state, this.lastActivatedFieldIndex - 1,
+                { noAutomaticCreate: true });
+        }
+        return false;
     },
     /**
      * returns the active tab pages for each notebook
@@ -429,7 +432,7 @@ var FormRenderer = BasicRenderer.extend({
     * @returns {integer}
     */
     _renderButtonBoxNbButtons: function () {
-        return [2, 2, 4, 6][config.device.size_class] || 7;
+        return [2, 2, 2, 4][config.device.size_class] || 7;
     },
     /**
      * @private

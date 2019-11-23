@@ -4,9 +4,9 @@
 # 
 # Translators:
 # Martin Trigaux, 2018
-# Jeffery CHEN Fan <jeffery9@gmail.com>, 2018
 # niulin lnc. <admin@niulin.net>, 2018
 # inspur qiuguodong <qiuguodong@inspur.com>, 2018
+# Jeffery CHEN <jeffery9@gmail.com>, 2019
 # liAnGjiA <liangjia@qq.com>, 2019
 # 
 msgid ""
@@ -617,7 +617,7 @@ msgstr "选择员工"
 #. module: hr_attendance
 #: model_terms:ir.ui.view,arch_db:hr_attendance.res_config_settings_view_form
 msgid "Set PIN codes in the employee detail form (in HR Settings tab)."
-msgstr "在员工详细信息表单（HR设置选项卡）中设置PIN码。"
+msgstr "在员工详细信息表单（HR设置页卡）中设置PIN码。"
 
 #. module: hr_attendance
 #: model:ir.actions.act_window,name:hr_attendance.action_hr_attendance_settings
@@ -650,6 +650,12 @@ msgstr "签入"
 #: model_terms:ir.ui.view,arch_db:hr_attendance.view_employee_filter_inherit_hr_attendance
 msgid "Signed Out"
 msgstr "签出"
+
+#. module: hr_attendance
+#: code:addons/hr_attendance/models/hr_employee.py:155
+#, python-format
+msgid "Such grouping is not allowed."
+msgstr "不允许这样分组。"
 
 #. module: hr_attendance
 #: sql_constraint:hr.employee:0

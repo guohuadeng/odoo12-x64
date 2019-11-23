@@ -347,7 +347,7 @@ msgstr "Výdaje za smlouvu za měsíc"
 #. module: fleet
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle__contract_count
 msgid "Contract Count"
-msgstr ""
+msgstr "Počet smluv"
 
 #. module: fleet
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_log_contract__expiration_date
@@ -1113,7 +1113,7 @@ msgstr "Km"
 #. module: fleet
 #: selection:fleet.vehicle,fuel_type:0
 msgid "LPG"
-msgstr ""
+msgstr "LPG"
 
 #. module: fleet
 #: model:ir.model.fields,field_description:fleet.field_fleet_service_type____last_update
@@ -1580,7 +1580,7 @@ msgstr "Možnosti"
 #. module: fleet
 #: model:fleet.vehicle.state,name:fleet.fleet_vehicle_state_ordered
 msgid "Ordered"
-msgstr ""
+msgstr "Objednáno"
 
 #. module: fleet
 #: selection:fleet.vehicle.cost,cost_type:0
@@ -1930,6 +1930,10 @@ msgid ""
 "Today: Activity date is today\n"
 "Planned: Future activities."
 msgstr ""
+"Stav na základě aktivit\n"
+"Vypršeno: Datum již uplynulo\n"
+"Dnes: Datum aktivity je dnes\n"
+"Plánováno: Budoucí aktivity."
 
 #. module: fleet
 #: model:fleet.service.type,name:fleet.type_service_service_5
@@ -1940,7 +1944,7 @@ msgstr "Letní pneumatiky"
 #. module: fleet
 #: sql_constraint:fleet.vehicle.tag:0
 msgid "Tag name already exists !"
-msgstr ""
+msgstr "Název značky již existuje!"
 
 #. module: fleet
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle__tag_ids

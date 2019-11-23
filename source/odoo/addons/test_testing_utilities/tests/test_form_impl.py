@@ -53,6 +53,16 @@ class TestBasic(TransactionCase):
             ('1', 0, 0, 0)
         )
 
+    def test_required_bool(self):
+        f = Form(self.env['test_testing_utilities.req_bool'])
+        f.f_bool = False
+        r = f.save()
+        self.assertEqual(r.f_bool, 0)
+
+        f2 = Form(self.env['test_testing_utilities.req_bool'])
+        r2 = f2.save()
+        self.assertEqual(r2.f_bool, 0)
+
     def test_readonly(self):
         """
         Checks that fields with readonly modifiers (marked as readonly or
@@ -251,6 +261,17 @@ class TestM2M(TransactionCase):
         f.save()
         self.assertEqual(r.m2m, a)
 
+    def test_attr(self):
+        f = Form(self.env['test_testing_utilities.e'], view='test_testing_utilities.attrs_using_m2m')
+        with self.assertRaises(AssertionError):
+            f.count = 5
+        f.m2m.add(self.env['test_testing_utilities.sub2'].create({'name': 'ok'}))
+        f.count = 5
+        r = f.save()
+        self.assertEqual(
+            r.m2m.mapped('name'),
+            ['ok', '1', '2', '3', '4']
+        )
 
 get = itemgetter('name', 'value', 'v')
 class TestO2M(TransactionCase):
@@ -486,6 +507,32 @@ class TestO2M(TransactionCase):
 
     def test_o2m_self_recursive(self):
         Form(self.env['test_testing_utilities.recursive'], view='test_testing_utilities.o2m_recursive_relation_view')
+
+    def test_o2m_attrs(self):
+        Model = self.env['test_testing_utilities.parent'].with_context(
+            default_subs=[{
+                'value': 5,
+            }, {
+                'value': 7,
+            }]
+        )
+        f = Form(Model, view='test_testing_utilities.o2m_modifier')
+        f.save()
+
+    def test_o2m_widget(self):
+        create = self.env['test_testing_utilities.sub'].create
+        a, b, c = create({'v': 1}), create({'v': 2}), create({'v': 3})
+
+        f = Form(self.env['test_testing_utilities.parent'], view='test_testing_utilities.o2m_widget_m2m')
+        f.subs.add(a)
+        f.subs.add(b)
+        f.subs.add(c)
+        r = f.save()
+
+        self.assertEqual(
+            r.subs,
+            a | b | c
+        )
 
 class TestEdition(TransactionCase):
     """ These use the context manager form as we don't need the record

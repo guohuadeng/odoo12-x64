@@ -3,8 +3,8 @@
 # * sale_stock
 # 
 # Translators:
-# Martin Trigaux, 2018
 # Bojan Borovnjak <bojan.borovnjak@modoolar.com>, 2018
+# Martin Trigaux, 2019
 # Slobodan Simić <slsimic@gmail.com>, 2019
 # 
 msgid ""
@@ -184,6 +184,13 @@ msgstr ""
 #. module: sale_stock
 #: model_terms:ir.ui.view,arch_db:sale_stock.res_config_settings_view_form_sale
 msgid "Display incoterms on orders &amp; invoices"
+msgstr ""
+
+#. module: sale_stock
+#: code:addons/sale_stock/models/sale_order.py:101
+#, python-format
+msgid ""
+"Do not forget to change the partner on the following delivery orders: %s"
 msgstr ""
 
 #. module: sale_stock
@@ -484,7 +491,7 @@ msgstr "Premeštanje zaliha"
 #. module: sale_stock
 #: model:ir.model,name:sale_stock.model_stock_rule
 msgid "Stock Rule"
-msgstr ""
+msgstr "Правило залихе"
 
 #. module: sale_stock
 #: model:ir.model,name:sale_stock.model_stock_rules_report
@@ -519,7 +526,7 @@ msgstr ""
 #. module: sale_stock
 #: model:ir.model,name:sale_stock.model_stock_picking
 msgid "Transfer"
-msgstr ""
+msgstr "Пренос"
 
 #. module: sale_stock
 #: model:ir.model.fields,field_description:sale_stock.field_sale_order__warehouse_id
@@ -532,6 +539,12 @@ msgstr "Skladište"
 #, python-format
 msgid "Warning"
 msgstr "Upozorenje"
+
+#. module: sale_stock
+#: code:addons/sale_stock/models/sale_order.py:100
+#, python-format
+msgid "Warning!"
+msgstr "Upozorenje!"
 
 #. module: sale_stock
 #: model_terms:ir.ui.view,arch_db:sale_stock.res_config_settings_view_form_stock

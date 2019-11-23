@@ -534,7 +534,7 @@ var LineRenderer = Widget.extend(FieldManagerMixin, {
             relation: 'account.account',
             type: 'many2one',
             name: 'account_id',
-            domain: [['company_id', '=', state.st_line.company_id]],
+            domain: [['company_id', '=', state.st_line.company_id], ['deprecated', '=', false]],
         }, {
             relation: 'account.journal',
             type: 'many2one',
@@ -568,7 +568,6 @@ var LineRenderer = Widget.extend(FieldManagerMixin, {
         }], {
             account_id: {
                 string: _t("Account"),
-                domain: [['deprecated', '=', false]],
             },
             label: {string: _t("Label")},
             amount: {string: _t("Account")},
@@ -744,6 +743,7 @@ var LineRenderer = Widget.extend(FieldManagerMixin, {
      */
     _onSelectMoveLine: function (event) {
         var $el = $(event.target);
+        $el.prop('disabled', true);
         this._destroyPopover($el);
         var moveLineId = $el.closest('.mv_line').data('line-id');
         this.trigger_up('add_proposition', {'data': moveLineId});

@@ -17,14 +17,16 @@
 # Eloïse Stilmant <est@odoo.com>, 2018
 # Martin Trigaux, 2018
 # Marie Willemyns <mwi@odoo.com>, 2018
+# Rémi CAZENAVE <remi@le-filament.com>, 2019
+# thomas quertinmont <tqu@odoo.com>, 2019
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-29 10:09+0000\n"
+"POT-Creation-Date: 2019-11-14 07:33+0000\n"
 "PO-Revision-Date: 2018-08-24 09:25+0000\n"
-"Last-Translator: Marie Willemyns <mwi@odoo.com>, 2018\n"
+"Last-Translator: thomas quertinmont <tqu@odoo.com>, 2019\n"
 "Language-Team: French (https://www.transifex.com/odoo/teams/41243/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -42,12 +44,17 @@ msgstr "%s a changé le coût de %s à %s - %s"
 #. module: stock_account
 #: model:ir.model,name:stock_account.model_account_chart_template
 msgid "Account Chart Template"
-msgstr ""
+msgstr "Modèle de plan comptable"
 
 #. module: stock_account
 #: model:ir.model.fields,field_description:stock_account.field_stock_move__account_move_ids
 msgid "Account Move"
 msgstr "Écriture comptable"
+
+#. module: stock_account
+#: model:ir.model,name:stock_account.model_account_reconciliation_widget
+msgid "Account Reconciliation widget"
+msgstr "outil de réconciliation de compte"
 
 #. module: stock_account
 #: model_terms:ir.ui.view,arch_db:stock_account.view_category_property_form
@@ -76,6 +83,8 @@ msgid ""
 "Affect landed costs on reception operations and split them among products to"
 " update their cost price."
 msgstr ""
+"Affecte les prix de revient effectifs pour les transactions reçues et les "
+"répartit en fonction des produits pour mettre à jour leur prix coûtant."
 
 #. module: stock_account
 #: model_terms:ir.ui.view,arch_db:stock_account.view_inventory_valuation_search
@@ -224,6 +233,9 @@ msgid ""
 "Date at which the accounting entries will be created in case of automated "
 "inventory valuation. If empty, the inventory date will be used."
 msgstr ""
+"Date à laquelle les écritures comptables seront créées en cas d'évaluation "
+"de stock automatisée. Si la date n'est pas renseignée, la date d'inventaire "
+"sera utilisée."
 
 #. module: stock_account
 #: model:ir.model.fields,field_description:stock_account.field_stock_change_standard_price__display_name
@@ -271,7 +283,6 @@ msgid "Inventory Locations"
 msgstr "Emplacements de stock"
 
 #. module: stock_account
-#: code:addons/stock_account/wizard/stock_quantity_history.py:25
 #: model:ir.actions.act_window,name:stock_account.action_stock_inventory_valuation
 #: model:ir.actions.act_window,name:stock_account.product_valuation_action
 #: model:ir.model.fields,field_description:stock_account.field_product_category__property_valuation
@@ -280,7 +291,6 @@ msgstr "Emplacements de stock"
 #: model:ir.ui.menu,name:stock_account.menu_valuation
 #: model_terms:ir.ui.view,arch_db:stock_account.view_category_property_form
 #: model_terms:ir.ui.view,arch_db:stock_account.view_inventory_valuation_search
-#, python-format
 msgid "Inventory Valuation"
 msgstr "Valorisation de l'inventaire"
 
@@ -345,17 +355,19 @@ msgstr ""
 " Automatisé : une écriture comptable est automatiquement créée pour valoriser l'inventaire lorsqu'un produit entre ou sort de l'entreprise.\n"
 
 #. module: stock_account
-#: code:addons/stock_account/models/product.py:129
+#: code:addons/stock_account/models/product.py:139
 #, python-format
 msgid "No difference between the standard price and the new price."
 msgstr "Pas de différence entre le prix standard et le nouveau prix."
 
 #. module: stock_account
+#: model_terms:ir.ui.view,arch_db:stock_account.view_inventory_valuation_search
 #: selection:product.template,property_valuation:0
 msgid "Periodic (manual)"
 msgstr "Périodique (manuel)"
 
 #. module: stock_account
+#: model_terms:ir.ui.view,arch_db:stock_account.view_inventory_valuation_search
 #: selection:product.template,property_valuation:0
 msgid "Perpetual (automated)"
 msgstr "Perpétuel (automatisé)"
@@ -425,7 +437,7 @@ msgstr "Retour de marchandise"
 #. module: stock_account
 #: model:ir.model,name:stock_account.model_stock_return_picking_line
 msgid "Return Picking Line"
-msgstr ""
+msgstr "Ligne de Bon de Retour"
 
 #. module: stock_account
 #: selection:product.category,property_cost_method:0
@@ -526,7 +538,7 @@ msgstr "Compte de valorisation des stocks (sortant)"
 #. module: stock_account
 #: model:ir.model.fields,field_description:stock_account.field_product_product__stock_value_currency_id
 msgid "Stock Value Currency"
-msgstr ""
+msgstr "Devise de valeur du stock"
 
 #. module: stock_account
 #: code:addons/stock_account/models/stock.py:540
