@@ -9,12 +9,14 @@
 # Joan Ignasi Florit <jfloritmir@gmail.com>, 2018
 # Sandra Franch <sandra.franch@upc.edu>, 2018
 # Martin Trigaux, 2018
-# Manel Fernandez <manelfera@outlook.com>, 2018
+# Manel Fernandez Ramirez <manelfera@outlook.com>, 2018
 # M Palau <mpalau@tda.ad>, 2019
 # Carlos Mun Mas <cmun@tda.ad>, 2019
 # RGB Consulting <odoo@rgbconsulting.com>, 2019
 # Quim - eccit <quim@eccit.com>, 2019
 # Arnau Ros, 2019
+# Carles Antoli <carlesantoli@hotmail.com>, 2020
+# jabelchi, 2021
 # 
 msgid ""
 msgstr ""
@@ -22,7 +24,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-14 07:34+0000\n"
 "PO-Revision-Date: 2018-08-24 09:21+0000\n"
-"Last-Translator: Arnau Ros, 2019\n"
+"Last-Translator: jabelchi, 2021\n"
 "Language-Team: Catalan (https://www.transifex.com/odoo/teams/41243/ca/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -159,7 +161,7 @@ msgstr ""
 #. module: payment
 #: model_terms:ir.ui.view,arch_db:payment.view_partners_form_payment_defaultcreditcard
 msgid "<span class=\"o_stat_text\">Credit card(s)</span>"
-msgstr ""
+msgstr "<span class=\"o_stat_text\">Targetes de crèdit(s)</span>"
 
 #. module: payment
 #: model_terms:ir.ui.view,arch_db:payment.acquirer_form
@@ -263,13 +265,13 @@ msgstr ""
 #: code:addons/payment/models/account_invoice.py:72
 #, python-format
 msgid "A journal must be specified of the acquirer %s."
-msgstr ""
+msgstr "Cal especificar un diari del connector %s."
 
 #. module: payment
 #: code:addons/payment/models/account_invoice.py:65
 #, python-format
 msgid "A payment acquirer is required to create a transaction."
-msgstr ""
+msgstr "Per a crear una transacció res requereix un connector de pagament."
 
 #. module: payment
 #: code:addons/payment/models/account_payment.py:55
@@ -332,7 +334,7 @@ msgstr "Entitat"
 #. module: payment
 #: model:ir.model.fields,field_description:payment.field_payment_token__acquirer_id
 msgid "Acquirer Account"
-msgstr "Compte del comprador"
+msgstr "Compte del mètode de pagament"
 
 #. module: payment
 #: model:ir.model.fields,field_description:payment.field_payment_token__acquirer_ref
@@ -347,12 +349,12 @@ msgstr "referència del comprador"
 #. module: payment
 #: model:ir.model.fields,field_description:payment.field_payment_icon__acquirer_ids
 msgid "Acquirers"
-msgstr ""
+msgstr "Mètodes de pagament"
 
 #. module: payment
 #: model_terms:ir.ui.view,arch_db:payment.payment_icon_form_view
 msgid "Acquirers list"
-msgstr ""
+msgstr "Llista de mètodes de pagament"
 
 #. module: payment
 #: model_terms:ir.ui.view,arch_db:payment.acquirer_kanban
@@ -411,6 +413,8 @@ msgid ""
 "Are you sure you want to void the authorized transaction? This action can't "
 "be undone."
 msgstr ""
+"Esteu segur que voleu anul·lar la transacció autoritzada? Aquesta acció no "
+"es pot desfer."
 
 #. module: payment
 #: model:ir.model.fields,field_description:payment.field_payment_acquirer__authorize_implemented
@@ -431,7 +435,7 @@ msgstr "Autoritzat"
 #. module: payment
 #: model:ir.model.fields,field_description:payment.field_account_invoice__authorized_transaction_ids
 msgid "Authorized Transactions"
-msgstr ""
+msgstr "Transaccions autoritzades"
 
 #. module: payment
 #: code:addons/payment/wizards/payment_acquirer_onboarding_wizard.py:34
@@ -539,7 +543,7 @@ msgstr ""
 #: model:ir.actions.act_window,name:payment.action_open_payment_onboarding_payment_acquirer_wizard
 #: model_terms:ir.ui.view,arch_db:payment.payment_acquirer_onboarding_wizard_form
 msgid "Choose a payment method"
-msgstr ""
+msgstr "Trieu un mètode de pagament"
 
 #. module: payment
 #: model:ir.model.fields,field_description:payment.field_payment_transaction__partner_city
@@ -627,7 +631,7 @@ msgstr "País"
 #. module: payment
 #: model_terms:ir.actions.act_window,help:payment.action_payment_acquirer
 msgid "Create a new payment acquirer"
-msgstr ""
+msgstr "Crear un nou mètode de pagament"
 
 #. module: payment
 #: model_terms:ir.actions.act_window,help:payment.action_payment_transaction
@@ -680,7 +684,7 @@ msgstr "Personalitzat"
 #. module: payment
 #: selection:payment.acquirer.onboarding.wizard,payment_method:0
 msgid "Custom payment instructions"
-msgstr ""
+msgstr "Instruccions de pagament personalitzades"
 
 #. module: payment
 #: model:ir.model.fields,field_description:payment.field_payment_transaction__partner_id
@@ -908,13 +912,13 @@ msgstr ""
 #: code:addons/payment/models/account_invoice.py:55
 #, python-format
 msgid "Invalid token found! Token acquirer %s != %s"
-msgstr ""
+msgstr "S'ha trobat un token no vàlid. Token del connector %s != %s"
 
 #. module: payment
 #: code:addons/payment/models/account_invoice.py:58
 #, python-format
 msgid "Invalid token found! Token partner %s != %s"
-msgstr ""
+msgstr "S'ha trobat un token no vàlid. Token del partner %s != %s"
 
 #. module: payment
 #: model:ir.model,name:payment.model_account_invoice
@@ -924,7 +928,7 @@ msgstr "Factura"
 #. module: payment
 #: model_terms:ir.ui.view,arch_db:payment.transaction_form
 msgid "Invoice(s)"
-msgstr ""
+msgstr "Factura(es)"
 
 #. module: payment
 #: code:addons/payment/models/payment_acquirer.py:851
@@ -993,7 +997,7 @@ msgstr ""
 #. module: payment
 #: model_terms:ir.ui.view,arch_db:payment.pay_meth_link
 msgid "Manage your payment methods"
-msgstr ""
+msgstr "Gestioneu formes de pagament"
 
 #. module: payment
 #: selection:res.company,payment_onboarding_payment_method:0
@@ -1118,11 +1122,13 @@ msgid ""
 "No manual payment method could be found for this company. Please create one "
 "from the Payment Acquirer menu."
 msgstr ""
+"No s'ha trobat mètode de pagament manual per aquesta companyia. Si us plau, "
+"creeu-ne un des del menú de mètodes de pagament."
 
 #. module: payment
 #: model_terms:ir.ui.view,arch_db:payment.pay
 msgid "No payment acquirer found."
-msgstr ""
+msgstr "No s'ha trobat mètode de pagament"
 
 #. module: payment
 #. openerp-web
@@ -1137,7 +1143,7 @@ msgstr ""
 #: code:addons/payment/static/src/js/payment_form.js:310
 #, python-format
 msgid "No payment method selected"
-msgstr ""
+msgstr "No s'ha sel·leccionat forma de pagament"
 
 #. module: payment
 #: selection:res.company,payment_acquirer_onboarding_state:0
@@ -1220,7 +1226,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:payment.confirm
 #: model_terms:ir.ui.view,arch_db:payment.payment_confirmation_status
 msgid "Or scan me with your banking app."
-msgstr ""
+msgstr "O escanegeu-me amb la vostra aplicació bancària."
 
 #. module: payment
 #: selection:res.company,payment_onboarding_payment_method:0
@@ -1240,27 +1246,27 @@ msgstr "Nom de l'empresa"
 #. module: payment
 #: selection:payment.acquirer.onboarding.wizard,payment_method:0
 msgid "Pay with PayPal"
-msgstr ""
+msgstr "Paga amb PayPal"
 
 #. module: payment
 #: selection:payment.acquirer.onboarding.wizard,payment_method:0
 msgid "Pay with another payment acquirer"
-msgstr ""
+msgstr "Pagar amb un altre métode de pagament"
 
 #. module: payment
 #: selection:payment.acquirer.onboarding.wizard,payment_method:0
 msgid "Pay with credit card (via Stripe)"
-msgstr ""
+msgstr "Pagament amb targeta de crèdit (via Stripe)"
 
 #. module: payment
 #: selection:res.company,payment_onboarding_payment_method:0
 msgid "PayPal"
-msgstr ""
+msgstr "PayPal"
 
 #. module: payment
 #: model:ir.model.fields,field_description:payment.field_payment_acquirer_onboarding_wizard__paypal_email_account
 msgid "PayPal Email ID"
-msgstr ""
+msgstr "Identificador de correu electrònic de PayPal"
 
 #. module: payment
 #: model:payment.acquirer,name:payment.payment_acquirer_payu
@@ -1279,14 +1285,14 @@ msgstr "Pagament"
 #: model:ir.model,name:payment.model_payment_acquirer
 #: model_terms:ir.ui.view,arch_db:payment.acquirer_form
 msgid "Payment Acquirer"
-msgstr "Pagament de compradors"
+msgstr "Mètode de pagament"
 
 #. module: payment
 #: model:ir.actions.act_window,name:payment.action_payment_acquirer
 #: model:ir.ui.menu,name:payment.payment_acquirer_menu
 #: model_terms:ir.ui.view,arch_db:payment.acquirer_list
 msgid "Payment Acquirers"
-msgstr "Pagament de compradors"
+msgstr "Mètodes de pagament"
 
 #. module: payment
 #: model:ir.model.fields,field_description:payment.field_payment_acquirer__payment_flow
@@ -1308,7 +1314,7 @@ msgstr "Icones de pagament"
 #. module: payment
 #: model:ir.model.fields,field_description:payment.field_payment_acquirer_onboarding_wizard__manual_post_msg
 msgid "Payment Instructions"
-msgstr ""
+msgstr "Instruccions de pagament"
 
 #. module: payment
 #: model:ir.model.fields,field_description:payment.field_payment_acquirer__journal_id
@@ -1541,7 +1547,7 @@ msgstr "Referència"
 #. module: payment
 #: sql_constraint:payment.transaction:0
 msgid "Reference must be unique!"
-msgstr ""
+msgstr "La referencia ha d'ésser única."
 
 #. module: payment
 #: model:ir.model.fields,help:payment.field_payment_transaction__acquirer_reference
@@ -1635,7 +1641,7 @@ msgstr ""
 #. module: payment
 #: model_terms:ir.ui.view,arch_db:payment.onboarding_payment_acquirer_step
 msgid "Set payments"
-msgstr ""
+msgstr "Estableix pagaments"
 
 #. module: payment
 #: model:ir.model.fields,field_description:payment.field_payment_token__short_name
@@ -1954,7 +1960,7 @@ msgstr ""
 #: code:addons/payment/static/src/xml/payment_processing.xml:99
 #, python-format
 msgid "We are waiting for the payment acquirer to confirm the payment."
-msgstr ""
+msgstr "Esperem que la entitat del mètode de pagament confirmi el pagament. "
 
 #. module: payment
 #. openerp-web
@@ -1980,7 +1986,7 @@ msgstr ""
 #: code:addons/payment/wizards/payment_acquirer_onboarding_wizard.py:135
 #, python-format
 msgid "You have to set a journal for your payment acquirer %s."
-msgstr ""
+msgstr "Cal que definiu un diari pel mètode de pagament %s."
 
 #. module: payment
 #. openerp-web

@@ -5,7 +5,7 @@ import random
 import re
 from datetime import datetime, timedelta
 
-from odoo import api, fields, models, modules, tools
+from odoo import api, fields, models, modules, tools, _
 
 class ImLivechatChannel(models.Model):
     """ Livechat Channel
@@ -193,6 +193,8 @@ class ImLivechatChannel(models.Model):
 
     @api.model
     def get_livechat_info(self, channel_id, username='Visitor'):
+        if username == 'Visitor':
+            username = _('Visitor')
         info = {}
         info['available'] = len(self.browse(channel_id).get_available_users()) > 0
         info['server_url'] = self.env['ir.config_parameter'].sudo().get_param('web.base.url')
@@ -239,7 +241,9 @@ class ImLivechatChannelRule(models.Model):
         """
         def _match(rules):
             for rule in rules:
-                if re.search(rule.regex_url or '', url):
+                # url might not be set because it comes from referer, in that
+                # case match the first rule with no regex_url
+                if re.search(rule.regex_url or '', url or ''):
                     return rule
             return False
         # first, search the country specific rules (the first match is returned)

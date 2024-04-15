@@ -9,8 +9,6 @@ import pytz
 import threading
 import re
 
-from email.utils import formataddr
-
 import requests
 from lxml import etree
 from werkzeug import urls
@@ -163,7 +161,7 @@ class Partner(models.Model):
     tz_offset = fields.Char(compute='_compute_tz_offset', string='Timezone offset', invisible=True)
     user_id = fields.Many2one('res.users', string='Salesperson',
       help='The internal user in charge of this contact.')
-    vat = fields.Char(string='Tax ID', help="The Tax Identification Number. Complete it if the contact is subjected to government taxes. Used in some legal statements.")
+    vat = fields.Char(string='Tax ID', index=True, help="The Tax Identification Number. Complete it if the contact is subjected to government taxes. Used in some legal statements.")
     bank_ids = fields.One2many('res.partner.bank', 'partner_id', string='Banks')
     website = fields.Char()
     comment = fields.Text(string='Notes')
@@ -240,12 +238,6 @@ class Partner(models.Model):
     _sql_constraints = [
         ('check_name', "CHECK( (type='contact' AND name IS NOT NULL) or (type!='contact') )", 'Contacts require a name.'),
     ]
-
-    @api.model_cr
-    def init(self):
-        self._cr.execute("""SELECT indexname FROM pg_indexes WHERE indexname = 'res_partner_vat_index'""")
-        if not self._cr.fetchone():
-            self._cr.execute("""CREATE INDEX res_partner_vat_index ON res_partner (regexp_replace(upper(vat), '[^A-Z0-9]+', '', 'g'))""")
 
     @api.depends('is_company', 'name', 'parent_id.name', 'type', 'company_name')
     def _compute_display_name(self):
@@ -406,7 +398,7 @@ class Partner(models.Model):
     def _compute_email_formatted(self):
         for partner in self:
             if partner.email:
-                partner.email_formatted = formataddr((partner.name or u"False", partner.email or u"False"))
+                partner.email_formatted = tools.formataddr((partner.name or u"False", partner.email or u"False"))
             else:
                 partner.email_formatted = ''
 
@@ -481,8 +473,9 @@ class Partner(models.Model):
         sync_children = self.child_ids.filtered(lambda c: not c.is_company)
         for child in sync_children:
             child._commercial_sync_to_children()
+        res = sync_children.write(sync_vals)
         sync_children._compute_commercial_partner()
-        return sync_children.write(sync_vals)
+        return res
 
     @api.multi
     def _fields_sync(self, values):
@@ -543,7 +536,7 @@ class Partner(models.Model):
         if vals.get('active') is False:
             for partner in self:
                 if partner.active and partner.user_ids:
-                    raise ValidationError(_('You cannot archive a contact linked to an internal user.'))
+                    raise ValidationError(_('You cannot archive a contact linked to a portal or internal user.'))
         # res.partner must only allow to set the company_id of a partner if it
         # is the same as the company of all users that inherit from this partner
         # (this is to allow the code from res_users to write to the partner!) or
@@ -733,6 +726,11 @@ class Partner(models.Model):
             If only an email address is received and that the regex cannot find
             a name, the name will have the email value.
             If 'force_email' key in context: must find the email address. """
+        default_type = self._context.get('default_type')
+        if default_type and default_type not in self._fields['type'].get_values(self.env):
+            context = dict(self._context)
+            context.pop('default_type')
+            self = self.with_context(context)
         name, email = self._parse_partner_name(name)
         if self._context.get('force_email') and not email:
             raise UserError(_("Couldn't create contact without email address!"))
@@ -802,7 +800,7 @@ class Partner(models.Model):
             partner_ids = [row[0] for row in self.env.cr.fetchall()]
 
             if partner_ids:
-                return self.browse(partner_ids).name_get()
+                return models.lazy_name_get(self.browse(partner_ids))
             else:
                 return []
         return super(Partner, self)._name_search(name, args, operator=operator, limit=limit, name_get_uid=name_get_uid)

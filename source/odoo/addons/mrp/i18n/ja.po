@@ -9,14 +9,17 @@
 # 城谷 龍弥 <tatsuya.shirotani@pro-spire.co.jp>, 2018
 # SHIMIZU Taku <shimizu.taku@gmail.com>, 2018
 # Manami Hashi <manami@roomsfor.hk>, 2018
-# NOKA Shigekazu <shigekazu.noka@gmail.com>, 2018
 # Masako Ogawa <masako.ogawa@pro-spire.co.jp>, 2018
 # 高木正勝 <masakatsu.takagi@pro-spire.co.jp>, 2018
-# Tim Siu Lai <tl@roomsfor.hk>, 2018
 # Martin Trigaux, 2018
 # Norimichi Sugimoto <norimichi.sugimoto@tls-ltd.co.jp>, 2018
 # 森岡広道 <hiromichi.morioka@pro-spire.co.jp>, 2018
-# Yoshi Tashiro <tashiro@roomsfor.hk>, 2019
+# Tim Siu Lai <tl@roomsfor.hk>, 2019
+# Hau Dao <hau@quartile.co>, 2020
+# Yoshi Tashiro (Quartile) <tashiro@roomsfor.hk>, 2020
+# Noma Yuki, 2020
+# Shigekazu N. <shigekazu.noka@gmail.com>, 2020
+# Abe Tomohiro <tomohiro@quartile.co>, 2021
 # 
 msgid ""
 msgstr ""
@@ -24,7 +27,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-14 07:33+0000\n"
 "PO-Revision-Date: 2018-08-24 09:21+0000\n"
-"Last-Translator: Yoshi Tashiro <tashiro@roomsfor.hk>, 2019\n"
+"Last-Translator: Abe Tomohiro <tomohiro@quartile.co>, 2021\n"
 "Language-Team: Japanese (https://www.transifex.com/odoo/teams/41243/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -41,7 +44,7 @@ msgstr ""
 #. module: mrp
 #: selection:mrp.bom,ready_to_produce:0
 msgid " When all components are available"
-msgstr ""
+msgstr "全ての構成品が利用可能なとき"
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_product_product__bom_count
@@ -95,7 +98,7 @@ msgstr "18″ x 2½″ 角柱"
 #: model_terms:ir.ui.view,arch_db:mrp.mrp_workcenter_kanban
 #: model_terms:ir.ui.view,arch_db:mrp.stock_production_type_kanban
 msgid "<i class=\"fa fa-ellipsis-v\" role=\"img\" aria-label=\"Manage\" title=\"Manage\"/>"
-msgstr ""
+msgstr "<i class=\"fa fa-ellipsis-v\" role=\"img\" aria-label=\"Manage\" title=\"Manage\"/>"
 
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.workcenter_line_kanban
@@ -145,6 +148,9 @@ msgid ""
 "specific.\" role=\"img\" aria-label=\"Values set here are company-"
 "specific.\" groups=\"base.group_multi_company\"/>"
 msgstr ""
+"<span class=\"fa fa-lg fa-building-o\" title=\"ここで設定する値は会社固有です。\" "
+"role=\"img\" aria-label=\"ここで設定する値は会社固有です。\" "
+"groups=\"base.group_multi_company\"/>"
 
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.mrp_workcenter_view
@@ -196,7 +202,7 @@ msgstr ""
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.report_mrp_bom
 msgid "<span><strong>Unit Cost</strong></span>"
-msgstr ""
+msgstr "<span><strong>単位原価</strong></span>"
 
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.mrp_workcenter_kanban
@@ -310,6 +316,13 @@ msgstr "<strong>作業区</strong>"
 #: code:addons/mrp/models/mrp_workorder.py:502
 #, python-format
 msgid "A Manufacturing Order is already done or cancelled."
+msgstr ""
+
+#. module: mrp
+#: code:addons/mrp/models/stock_warehouse.py:288
+#, python-format
+msgid ""
+"A product with a kit-type bill of materials can not have a reordering rule."
 msgstr ""
 
 #. module: mrp
@@ -799,7 +812,7 @@ msgstr "実時間で計算"
 #. module: mrp
 #: model:ir.model,name:mrp.model_res_config_settings
 msgid "Config Settings"
-msgstr ""
+msgstr "コンフィグ設定"
 
 #. module: mrp
 #: model:ir.ui.menu,name:mrp.menu_mrp_configuration
@@ -872,7 +885,7 @@ msgstr "作業オーダ作成"
 #. module: mrp
 #: model_terms:ir.actions.act_window,help:mrp.mrp_bom_form_action
 msgid "Create a bill of materials"
-msgstr ""
+msgstr "部品表を作成しましょう"
 
 #. module: mrp
 #: model_terms:ir.actions.act_window,help:mrp.mrp_production_action
@@ -1172,7 +1185,7 @@ msgstr "終了日"
 #: model:ir.model.fields,help:mrp.field_mrp_product_produce_line__product_tracking
 #: model:ir.model.fields,help:mrp.field_mrp_unbuild__has_tracking
 msgid "Ensure the traceability of a storable product in your warehouse."
-msgstr ""
+msgstr "倉庫に置いておける商品を追跡できるようにする"
 
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.exception_on_mo
@@ -1233,7 +1246,7 @@ msgstr "完了"
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_stock_move_line__lot_produced_id
 msgid "Finished Lot/Serial Number"
-msgstr ""
+msgstr "完成品ロット/シリアル番号"
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_stock_move__finished_lots_exist
@@ -1425,7 +1438,7 @@ msgstr "チェックされている場合は、新しいメッセージに注意
 #: model:ir.model.fields,help:mrp.field_mrp_unbuild__message_has_error
 #: model:ir.model.fields,help:mrp.field_mrp_workorder__message_has_error
 msgid "If checked, some messages have a delivery error."
-msgstr ""
+msgstr "チェックした場合、一部のメッセージが配信エラーが発生しています。"
 
 #. module: mrp
 #: model:ir.model.fields,help:mrp.field_mrp_production__propagate
@@ -2572,7 +2585,7 @@ msgstr "プロダクト"
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.report_mrp_bom
 msgid "Product Cost"
-msgstr ""
+msgstr "プロダクト原価"
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_res_config_settings__module_mrp_plm
@@ -2588,7 +2601,7 @@ msgstr "プロダクト移動"
 #. module: mrp
 #: model:ir.model,name:mrp.model_stock_move_line
 msgid "Product Moves (Stock Move Line)"
-msgstr ""
+msgstr "製品の移動(在庫移動ライン)"
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_product_produce_line__product_produce_id
@@ -2729,17 +2742,17 @@ msgstr "取消/分割を展開"
 #. module: mrp
 #: selection:stock.rule,action:0
 msgid "Pull & Push"
-msgstr ""
+msgstr "プル＆プッシュ"
 
 #. module: mrp
 #: selection:stock.rule,action:0
 msgid "Pull From"
-msgstr ""
+msgstr "からプル"
 
 #. module: mrp
 #: selection:stock.rule,action:0
 msgid "Push To"
-msgstr ""
+msgstr "プッシュ先"
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_res_config_settings__module_quality_control
@@ -2755,7 +2768,7 @@ msgstr "品質ロス"
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_stock_warn_insufficient_qty_unbuild__quant_ids
 msgid "Quant"
-msgstr ""
+msgstr "Quant"
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_bom__product_qty
@@ -3247,6 +3260,10 @@ msgid ""
 "Today: Activity date is today\n"
 "Planned: Future activities."
 msgstr ""
+"活動に基づく状態\n"
+"延滞：期限は既に過ぎました\n"
+"当日：活動日は本日です\n"
+"予定：将来の活動。"
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_stock_warehouse__sam_type_id
@@ -3476,7 +3493,7 @@ msgstr ""
 #: code:addons/mrp/wizard/mrp_product_produce.py:56
 #, python-format
 msgid "The production order for '%s' has no quantity specified."
-msgstr ""
+msgstr "%s の製造オーダにて数量が指定されていません。"
 
 #. module: mrp
 #: sql_constraint:mrp.production:0
@@ -3507,14 +3524,14 @@ msgstr ""
 #. module: mrp
 #: model_terms:ir.actions.act_window,help:mrp.action_mrp_unbuild_move_line
 msgid "There's no product move yet"
-msgstr ""
+msgstr "製品の動きはまだありません"
 
 #. module: mrp
 #: model:ir.model.fields,help:mrp.field_mrp_workcenter__tz
 msgid ""
 "This field is used in order to define in which timezone the resources will "
 "work."
-msgstr ""
+msgstr "このフィールドは、その人材が勤務するタイムゾーンを定義するために、用いられます。"
 
 #. module: mrp
 #: model:ir.model.fields,help:mrp.field_mrp_workcenter__time_efficiency
@@ -4008,7 +4025,7 @@ msgstr ""
 #. module: mrp
 #: selection:mrp.bom,ready_to_produce:0
 msgid "When components for 1st operation are available"
-msgstr ""
+msgstr "１つ目の工程用の構成品が利用可能なとき"
 
 #. module: mrp
 #: model:ir.model.fields,help:mrp.field_stock_warehouse__manufacture_to_resupply
@@ -4084,7 +4101,7 @@ msgstr "作業区"
 #. module: mrp
 #: model:ir.actions.act_window,name:mrp.mrp_workcenter_kanban_action
 msgid "Work Centers Overview"
-msgstr ""
+msgstr "作業区概要"
 
 #. module: mrp
 #: model_terms:ir.actions.act_window,help:mrp.action_work_orders
@@ -4168,7 +4185,7 @@ msgid ""
 "Work Orders are operations to be processed at a Work Center to realize a\n"
 "            Manufacturing Order. Work Orders are trigerred by Manufacturing Orders,\n"
 "            they are based on the Routing defined on these ones"
-msgstr ""
+msgstr "作業オーダは、製造オーダを完遂するために作業区で処理されるオペレーションです。作業オーダは製造オーダに設定された工順に基づき開始されます。"
 
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.mrp_routing_workcenter_form_view
@@ -4235,7 +4252,7 @@ msgstr "労働時間"
 #. module: mrp
 #: model:ir.ui.menu,name:mrp.menu_view_resource_calendar_search_mrp
 msgid "Working Times"
-msgstr ""
+msgstr "労働時間"
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_workorder__working_user_ids
@@ -4274,6 +4291,14 @@ msgid "You can not consume without telling for which lot you consumed it"
 msgstr ""
 
 #. module: mrp
+#: code:addons/mrp/models/mrp_bom.py:122
+#, python-format
+msgid ""
+"You can not create a kit-type bill of materials for products that have at "
+"least one reordering rule."
+msgstr ""
+
+#. module: mrp
 #: code:addons/mrp/models/mrp_bom.py:117
 #, python-format
 msgid ""
@@ -4287,7 +4312,7 @@ msgstr ""
 #: code:addons/mrp/wizard/mrp_product_produce.py:201
 #, python-format
 msgid "You can only process 1.0 %s of products with unique serial number."
-msgstr ""
+msgstr "一意のシリアル番号を持つ製品の1.0%sのみを処理できます。"
 
 #. module: mrp
 #: code:addons/mrp/models/stock_move.py:143
@@ -4344,7 +4369,7 @@ msgstr "製造指示を元に戻して作成することはできません"
 #: code:addons/mrp/wizard/change_production_qty.py:48
 #, python-format
 msgid "You have already processed %s. Please input a quantity higher than %s "
-msgstr ""
+msgstr "既に数量 %s が処理済です。%s より大きい数量を入力してください。"
 
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.mrp_production_form_view
@@ -4472,7 +4497,7 @@ msgstr "ラスト"
 #: code:addons/mrp/models/mrp_production.py:717
 #, python-format
 msgid "manufacturing order"
-msgstr ""
+msgstr "製造オーダ"
 
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.mrp_workcenter_view
@@ -4497,7 +4522,7 @@ msgstr "の"
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.exception_on_mo
 msgid "ordered instead of"
-msgstr ""
+msgstr "が次の数量の代わりにオーダされました:"
 
 #. module: mrp
 #. openerp-web

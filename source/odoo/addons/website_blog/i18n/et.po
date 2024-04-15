@@ -11,6 +11,10 @@
 # Martin Aavastik <martin@avalah.ee>, 2018
 # Helen Sulaoja <helen@avalah.ee>, 2018
 # Maidu Targama <m.targama@gmail.com>, 2019
+# Piia Paurson <piia@avalah.ee>, 2020
+# Algo Kärp <algokarp@gmail.com>, 2021
+# Martin Talts <martin.t@avalah.ee>, 2021
+# Triine Aavik <triine@avalah.ee>, 2021
 # 
 msgid ""
 msgstr ""
@@ -18,7 +22,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-09 10:32+0000\n"
 "PO-Revision-Date: 2018-08-24 09:33+0000\n"
-"Last-Translator: Maidu Targama <m.targama@gmail.com>, 2019\n"
+"Last-Translator: Triine Aavik <triine@avalah.ee>, 2021\n"
 "Language-Team: Estonian (https://www.transifex.com/odoo/teams/41243/et/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -82,7 +86,7 @@ msgstr "&amp;korda;"
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.blog_feed
 msgid "&lt;?xml version=\"1.0\" encoding=\"utf-8\"?&gt;"
-msgstr ""
+msgstr "&lt;?xml version=\"1.0\" encoding=\"utf-8\"?&gt;"
 
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.view_blog_blog_form
@@ -146,7 +150,7 @@ msgstr ""
 #: code:addons/website_blog/static/src/js/website.tour.blog.js:53
 #, python-format
 msgid "<b>Click on Save</b> to record your changes."
-msgstr ""
+msgstr "<b>Vajutage Salvesta nuppu</b> oma muudatuste salvestamiseks."
 
 #. module: website_blog
 #. openerp-web
@@ -154,6 +158,8 @@ msgstr ""
 #, python-format
 msgid "<b>Publish your blog post</b> to make it visible to your visitors."
 msgstr ""
+"<b>Avaldage oma blogipostitus</b>, et see teie külastajatele nähtavaks "
+"muutuks."
 
 #. module: website_blog
 #. openerp-web
@@ -163,6 +169,8 @@ msgid ""
 "<b>That's it, your blog post is published!</b> Discover more features "
 "through the <i>Customize</i> menu."
 msgstr ""
+"<b>See on kõik, teie blogipostitus on avaldatud!</b> Avasta rohkem võimalusi"
+" <i>Kohanda</i> menüüst."
 
 #. module: website_blog
 #. openerp-web
@@ -173,11 +181,17 @@ msgid ""
 " image or table, set bold or italic, etc. Drag and drop building blocks for "
 "more graphical blogs."
 msgstr ""
+"<b>Kirjutage oma lugu siia.</b> Kasutage ülemist tööriistariba oma teksti "
+"stiliseerimiseks: lisage pilt või tabel, paksus kirjas või kaldkirjas jne. "
+"Lohistage ja liigutage ehitusblokke graafilisema blogi kujunduse "
+"saavutamiseks."
 
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.blog_post_view_kanban
 msgid "<i class=\"fa fa-clock-o\" role=\"img\" aria-label=\"Post date\" title=\"Post date\"/>"
 msgstr ""
+"<i class=\"fa fa-clock-o\" role=\"img\" aria-label=\"Post date\" "
+"title=\"Post date\"/>"
 
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.tag_category
@@ -222,7 +236,7 @@ msgstr ""
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.blog_post_template_new_post
 msgid "A new post"
-msgstr ""
+msgstr "Uus postitus"
 
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.opt_blog_rc_about_us
@@ -232,7 +246,7 @@ msgstr "Meist"
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.blog_post_template_new_post
 msgid "Access post"
-msgstr ""
+msgstr "Pääse postitusele ligi"
 
 #. module: website_blog
 #: model:ir.model.fields,field_description:website_blog.field_blog_blog__message_needaction
@@ -254,6 +268,13 @@ msgstr ""
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.s_latest_posts_options
 msgid "All blogs"
+msgstr "Kõik blogid"
+
+#. module: website_blog
+#. openerp-web
+#: code:addons/website_blog/static/src/js/website_blog.js:32
+#, python-format
+msgid "Amazing blog article : %s! Check it live: %s"
 msgstr ""
 
 #. module: website_blog
@@ -264,6 +285,8 @@ msgid ""
 "An error occured with this latest posts block. If the problem persists, "
 "please consider deleting it and adding a new one"
 msgstr ""
+"Selle hiljutise postituse blokiga ilmnes viga. Kui probleem on korduv, palun"
+" kaaluge selle kustutamist ja uuega asendamist"
 
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.blog_blog_view_search
@@ -298,13 +321,13 @@ msgstr ""
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.blog_post_short
 msgid "Atom Feed"
-msgstr ""
+msgstr "Atom Feed"
 
 #. module: website_blog
 #: model:ir.model.fields,field_description:website_blog.field_blog_blog__message_attachment_count
 #: model:ir.model.fields,field_description:website_blog.field_blog_post__message_attachment_count
 msgid "Attachment Count"
-msgstr ""
+msgstr "Manuste arv"
 
 #. module: website_blog
 #: model:ir.model.fields,field_description:website_blog.field_blog_post__author_id
@@ -329,12 +352,12 @@ msgstr "Must"
 #: model_terms:ir.ui.view,arch_db:website_blog.view_blog_post_search
 #: model:website.menu,name:website_blog.menu_news
 msgid "Blog"
-msgstr ""
+msgstr "Blogi"
 
 #. module: website_blog
 #: model:ir.model.fields,field_description:website_blog.field_blog_blog__name
 msgid "Blog Name"
-msgstr ""
+msgstr "Blogi nimi"
 
 #. module: website_blog
 #: code:addons/website_blog/models/website.py:22
@@ -344,26 +367,26 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:website_blog.view_blog_post_search
 #, python-format
 msgid "Blog Post"
-msgstr ""
+msgstr "Blogipostitus"
 
 #. module: website_blog
 #: code:addons/website_blog/models/website.py:53
 #, python-format
 msgid "Blog Post <b>%s</b> seems to be calling this file !"
-msgstr ""
+msgstr "Blogipostitus <b>%s</b> tundub seda faili kutsuvat!"
 
 #. module: website_blog
 #: code:addons/website_blog/models/website.py:28
 #, python-format
 msgid "Blog Post <b>%s</b> seems to have a link to this page !"
-msgstr ""
+msgstr "Blogipostitusel <b>%s</b> tundub olevat sellele lehele link!"
 
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.blog_post_complete
 #: model_terms:ir.ui.view,arch_db:website_blog.opt_blog_post_complete_read_next
 #: model_terms:ir.ui.view,arch_db:website_blog.view_blog_post_form
 msgid "Blog Post Title"
-msgstr ""
+msgstr "Blogipostituse pealkiri"
 
 #. module: website_blog
 #: code:addons/website_blog/models/website.py:24
@@ -372,28 +395,28 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:website_blog.view_blog_post_list
 #, python-format
 msgid "Blog Posts"
-msgstr ""
+msgstr "Blogipostitused"
 
 #. module: website_blog
 #: model:ir.model.fields,field_description:website_blog.field_blog_blog__subtitle
 #: model_terms:ir.ui.view,arch_db:website_blog.view_blog_post_form
 msgid "Blog Subtitle"
-msgstr ""
+msgstr "Blogi alampealkirjad"
 
 #. module: website_blog
 #: model:ir.model,name:website_blog.model_blog_tag
 msgid "Blog Tag"
-msgstr ""
+msgstr "Blogi sildid"
 
 #. module: website_blog
 #: model:ir.model,name:website_blog.model_blog_tag_category
 msgid "Blog Tag Category"
-msgstr ""
+msgstr "Blogisiltide kategooria"
 
 #. module: website_blog
 #: model:ir.actions.act_window,name:website_blog.action_tags
 msgid "Blog Tags"
-msgstr ""
+msgstr "Blogisildid"
 
 #. module: website_blog
 #: model:ir.actions.act_window,name:website_blog.action_blog_blog
@@ -431,14 +454,14 @@ msgstr ""
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.s_latest_posts_options
 msgid "Choose a blog"
-msgstr ""
+msgstr "Vali blogi"
 
 #. module: website_blog
 #. openerp-web
 #: code:addons/website_blog/static/src/js/website.tour.blog.js:35
 #, python-format
 msgid "Choose an image from the library."
-msgstr ""
+msgstr "Vali teegist pilt"
 
 #. module: website_blog
 #. openerp-web
@@ -474,12 +497,12 @@ msgstr "Sisu"
 #. module: website_blog
 #: model:ir.model.fields,field_description:website_blog.field_blog_post__cover_properties
 msgid "Cover Properties"
-msgstr ""
+msgstr "Kaane seaded"
 
 #. module: website_blog
 #: model_terms:ir.actions.act_window,help:website_blog.action_blog_post
 msgid "Create a new blog post"
-msgstr ""
+msgstr "Loo uus blogipostitus"
 
 #. module: website_blog
 #: model:ir.model.fields,field_description:website_blog.field_blog_blog__create_uid
@@ -539,7 +562,7 @@ msgstr ""
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.website_blog
 msgid "Filter Intensity"
-msgstr ""
+msgstr "Filtri intensiivsus"
 
 #. module: website_blog
 #: model_terms:blog.post,content:website_blog.blog_post_1
@@ -672,7 +695,7 @@ msgstr "Kui kontrollitud, siis uued sõnumid nõuavad Su tähelepanu."
 #: model:ir.model.fields,help:website_blog.field_blog_blog__message_has_error
 #: model:ir.model.fields,help:website_blog.field_blog_post__message_has_error
 msgid "If checked, some messages have a delivery error."
-msgstr ""
+msgstr "Kui valitud, on mõningate sõnumitel saatmiserror."
 
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.opt_blog_rc_follow_us
@@ -753,7 +776,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:website_blog.blog_post_short
 #: model_terms:ir.ui.view,arch_db:website_blog.opt_blog_rc_follow_us
 msgid "LinkedIn"
-msgstr ""
+msgstr "LinkedIn"
 
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.website_blog
@@ -764,7 +787,7 @@ msgstr "Madal"
 #: model:ir.model.fields,field_description:website_blog.field_blog_blog__message_main_attachment_id
 #: model:ir.model.fields,field_description:website_blog.field_blog_post__message_main_attachment_id
 msgid "Main Attachment"
-msgstr ""
+msgstr "Peamine manus"
 
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.website_blog
@@ -775,7 +798,7 @@ msgstr "Keskmine"
 #: model:ir.model.fields,field_description:website_blog.field_blog_blog__message_has_error
 #: model:ir.model.fields,field_description:website_blog.field_blog_post__message_has_error
 msgid "Message Delivery error"
-msgstr ""
+msgstr "Sõnumi edastamise viga"
 
 #. module: website_blog
 #: model:ir.model.fields,field_description:website_blog.field_blog_blog__message_ids
@@ -818,14 +841,14 @@ msgstr "Nimi"
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.website_blog
 msgid "Narrow"
-msgstr ""
+msgstr "Kitsas"
 
 #. module: website_blog
 #. openerp-web
 #: code:addons/website_blog/static/src/js/website_blog.editor.js:37
 #, python-format
 msgid "New Blog Post"
-msgstr ""
+msgstr "Uus blogipostitus"
 
 #. module: website_blog
 #: model_terms:blog.post,content:website_blog.blog_post_2
@@ -847,17 +870,17 @@ msgstr ""
 #: code:addons/website_blog/static/src/js/s_latest_posts_frontend.js:44
 #, python-format
 msgid "No blog post was found. Make sure your posts are published."
-msgstr ""
+msgstr "Blogipostitusi ei leitud. Veenduge, et teie postitused on avaldatud."
 
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.blog_post_short
 msgid "No blog post yet."
-msgstr ""
+msgstr "Blogipostitusi pole."
 
 #. module: website_blog
 #: model:ir.model.fields,field_description:website_blog.field_blog_post__visits
 msgid "No of Views"
-msgstr ""
+msgstr "Vaadete arv"
 
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.latest_blogs
@@ -879,7 +902,7 @@ msgstr "Toimingute arv"
 #: model:ir.model.fields,field_description:website_blog.field_blog_blog__message_has_error_counter
 #: model:ir.model.fields,field_description:website_blog.field_blog_post__message_has_error_counter
 msgid "Number of error"
-msgstr ""
+msgstr "Vigade arv"
 
 #. module: website_blog
 #: model:ir.model.fields,help:website_blog.field_blog_blog__message_needaction_counter
@@ -891,7 +914,7 @@ msgstr "Tegutsemist nõudvate sõnumite arv"
 #: model:ir.model.fields,help:website_blog.field_blog_blog__message_has_error_counter
 #: model:ir.model.fields,help:website_blog.field_blog_post__message_has_error_counter
 msgid "Number of messages with delivery error"
-msgstr ""
+msgstr "Kohaletoimetamise veateatega sõnumite arv"
 
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.s_latest_posts_options
@@ -922,12 +945,12 @@ msgstr ""
 #: code:addons/website_blog/static/src/js/website.tour.blog.js:63
 #, python-format
 msgid "Once you have reviewed the content on mobile, close the preview."
-msgstr ""
+msgstr "Kui te olete sisu mobiiliivaates üle vaadanud, sulgege eelvaade."
 
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.opt_blog_rc_tags
 msgid "Others"
-msgstr ""
+msgstr "Muud"
 
 #. module: website_blog
 #: model:blog.blog,name:website_blog.blog_blog_1
@@ -947,7 +970,7 @@ msgstr ""
 #. module: website_blog
 #: model:ir.model.fields,field_description:website_blog.field_blog_tag__post_ids
 msgid "Posts"
-msgstr ""
+msgstr "Psostitused"
 
 #. module: website_blog
 #: model_terms:blog.post,content:website_blog.blog_post_1
@@ -966,23 +989,23 @@ msgstr "Avaldatud"
 #. module: website_blog
 #: model:ir.model.fields,field_description:website_blog.field_blog_post__published_date
 msgid "Published Date"
-msgstr ""
+msgstr "Avaldamise kuupäev"
 
 #. module: website_blog
 #: model:mail.message.subtype,description:website_blog.mt_blog_blog_published
 #: model:mail.message.subtype,name:website_blog.mt_blog_blog_published
 msgid "Published Post"
-msgstr ""
+msgstr "Avaldatud postitus"
 
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.view_blog_post_form
 msgid "Publishing Options"
-msgstr ""
+msgstr "Avaldamise valikud"
 
 #. module: website_blog
 #: model:ir.model.fields,field_description:website_blog.field_blog_post__post_date
 msgid "Publishing date"
-msgstr ""
+msgstr "Avaldamise kuupäev"
 
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.website_blog
@@ -1032,35 +1055,35 @@ msgstr "Punane"
 #: model:ir.model.fields,help:website_blog.field_blog_blog__website_id
 #: model:ir.model.fields,help:website_blog.field_blog_post__website_id
 msgid "Restrict publishing to this website."
-msgstr ""
+msgstr "Avaldage ainult see veebileht"
 
 #. module: website_blog
 #: model:ir.model.fields,field_description:website_blog.field_blog_blog__is_seo_optimized
 #: model:ir.model.fields,field_description:website_blog.field_blog_post__is_seo_optimized
 #: model:ir.model.fields,field_description:website_blog.field_blog_tag__is_seo_optimized
 msgid "SEO optimized"
-msgstr ""
+msgstr "SEO optimized"
 
 #. module: website_blog
 #. openerp-web
 #: code:addons/website_blog/static/src/js/website_blog.editor.js:38
 #, python-format
 msgid "Select Blog"
-msgstr ""
+msgstr "Vali blogi"
 
 #. module: website_blog
 #. openerp-web
 #: code:addons/website_blog/static/src/js/website.tour.blog.js:15
 #, python-format
 msgid "Select this menu item to create a new blog post."
-msgstr ""
+msgstr "Valige see menüükirje uue postituse loomiseks."
 
 #. module: website_blog
 #. openerp-web
 #: code:addons/website_blog/static/src/js/website.tour.blog.js:26
 #, python-format
 msgid "Set a blog post <b>cover</b>."
-msgstr ""
+msgstr "Valige blogipostituse <b>kaas</b>-"
 
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.website_blog
@@ -1096,44 +1119,44 @@ msgstr ""
 #. module: website_blog
 #: model:ir.model.fields,field_description:website_blog.field_blog_post__subtitle
 msgid "Sub Title"
-msgstr ""
+msgstr "Alampeaktiri"
 
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.blog_post_complete
 #: model_terms:ir.ui.view,arch_db:website_blog.opt_blog_post_complete_read_next
 msgid "Subtitle"
-msgstr ""
+msgstr "Alampealkiri"
 
 #. module: website_blog
 #: model:ir.ui.menu,name:website_blog.menu_website_blog_tag_category_global
 #: model_terms:ir.ui.view,arch_db:website_blog.blog_tag_category_tree
 msgid "Tag Categories"
-msgstr ""
+msgstr "Siltide kategooriad"
 
 #. module: website_blog
 #: model:ir.actions.act_window,name:website_blog.action_tag_category
 msgid "Tag Category"
-msgstr ""
+msgstr "Sildi kategooria"
 
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.blog_tag_category_form
 msgid "Tag Category Form"
-msgstr ""
+msgstr "Sildi kategooria vorm"
 
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.blog_tag_form
 msgid "Tag Form"
-msgstr ""
+msgstr "Sildi vorm"
 
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.blog_tag_tree
 msgid "Tag List"
-msgstr ""
+msgstr "Sildi nimekiri"
 
 #. module: website_blog
 #: sql_constraint:blog.tag.category:0
 msgid "Tag category already exists !"
-msgstr ""
+msgstr "Sildi kategooria juba eksisteerib!"
 
 #. module: website_blog
 #: sql_constraint:blog.tag:0
@@ -1152,12 +1175,12 @@ msgstr "Sildid"
 #. module: website_blog
 #: model:ir.model.fields,field_description:website_blog.field_blog_post__teaser
 msgid "Teaser"
-msgstr ""
+msgstr "Teaser"
 
 #. module: website_blog
 #: model:ir.model.fields,field_description:website_blog.field_blog_post__teaser_manual
 msgid "Teaser Content"
-msgstr ""
+msgstr "Teaser sisu"
 
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.view_blog_post_form
@@ -1180,6 +1203,8 @@ msgid ""
 "The blog post will be visible for your visitors as of this date on the "
 "website if it is set as published."
 msgstr ""
+"The blog post will be visible for your visitors as of this date on the "
+"website if it is set as published."
 
 #. module: website_blog
 #: model:ir.model.fields,help:website_blog.field_blog_post__website_url
@@ -1253,7 +1278,7 @@ msgstr "Lugemata sõnumite loendur"
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.blog_post_short
 msgid "Untitled Post"
-msgstr ""
+msgstr "Pealkirjata postitus"
 
 #. module: website_blog
 #. openerp-web
@@ -1261,16 +1286,18 @@ msgstr ""
 #, python-format
 msgid "Use this icon to preview your blog post on <b>mobile devices</b>."
 msgstr ""
+"Kasutage seda ikooni, et näha oma blogipostituse eelvaadet "
+"<b>mobiiliseadmetes</b>."
 
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.blog_tag_form
 msgid "Used in:"
-msgstr ""
+msgstr "Kasutatud:"
 
 #. module: website_blog
 #: model:ir.model.fields,field_description:website_blog.field_blog_post__website_published
 msgid "Visible on current website"
-msgstr ""
+msgstr "Nähtav praegusel veebilehel"
 
 #. module: website_blog
 #: model:ir.model,name:website_blog.model_website
@@ -1282,7 +1309,7 @@ msgstr "Veebileht"
 #. module: website_blog
 #: model:ir.actions.act_url,name:website_blog.action_open_website
 msgid "Website Blogs"
-msgstr ""
+msgstr "Veebilehe blogid"
 
 #. module: website_blog
 #: model:ir.model.fields,field_description:website_blog.field_blog_blog__website_message_ids
@@ -1306,28 +1333,28 @@ msgstr "Veebilehe suhtluse ajalugu"
 #: model:ir.model.fields,field_description:website_blog.field_blog_post__website_meta_description
 #: model:ir.model.fields,field_description:website_blog.field_blog_tag__website_meta_description
 msgid "Website meta description"
-msgstr ""
+msgstr "Veebilehe metakirjeldus"
 
 #. module: website_blog
 #: model:ir.model.fields,field_description:website_blog.field_blog_blog__website_meta_keywords
 #: model:ir.model.fields,field_description:website_blog.field_blog_post__website_meta_keywords
 #: model:ir.model.fields,field_description:website_blog.field_blog_tag__website_meta_keywords
 msgid "Website meta keywords"
-msgstr ""
+msgstr "Veebilehe meta võtmesõnad"
 
 #. module: website_blog
 #: model:ir.model.fields,field_description:website_blog.field_blog_blog__website_meta_title
 #: model:ir.model.fields,field_description:website_blog.field_blog_post__website_meta_title
 #: model:ir.model.fields,field_description:website_blog.field_blog_tag__website_meta_title
 msgid "Website meta title"
-msgstr ""
+msgstr "Veebilehe metapealkiri"
 
 #. module: website_blog
 #: model:ir.model.fields,field_description:website_blog.field_blog_blog__website_meta_og_img
 #: model:ir.model.fields,field_description:website_blog.field_blog_post__website_meta_og_img
 #: model:ir.model.fields,field_description:website_blog.field_blog_tag__website_meta_og_img
 msgid "Website opengraph image"
-msgstr ""
+msgstr "Veebilehe opengraph pilt"
 
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.website_blog
@@ -1346,7 +1373,7 @@ msgstr ""
 #: code:addons/website_blog/static/src/js/website.tour.blog.js:20
 #, python-format
 msgid "Write a title, the subtitle is optional."
-msgstr ""
+msgstr "Kirjutage pealkiri, alampealkiri on valikuline."
 
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.website_blog
@@ -1368,7 +1395,7 @@ msgstr "Youtube"
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.blog_post_template_new_post
 msgid "blog. Click here to access the blog :"
-msgstr ""
+msgstr "blogi. Klõpsake siia, et blogisse ligi pääseda :"
 
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.blog_post_short
@@ -1396,7 +1423,7 @@ msgstr ""
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.blog_post_template_new_post
 msgid "has been published on the"
-msgstr ""
+msgstr "on avaldatud"
 
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.blog_post_short
@@ -1416,4 +1443,4 @@ msgstr ""
 #. module: website_blog
 #: model:blog.tag,name:website_blog.blog_tag_2
 msgid "website"
-msgstr ""
+msgstr "veebileht"

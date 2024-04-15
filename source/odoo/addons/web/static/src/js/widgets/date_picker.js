@@ -40,7 +40,7 @@ var DateWidget = Widget.extend({
                 previous: 'fa fa-chevron-left',
                 next: 'fa fa-chevron-right',
                 today: 'fa fa-calendar-check-o',
-                clear: 'fa fa-delete',
+                clear: 'fa fa-trash',
                 close: 'fa fa-times'
             },
             calendarWeeks: true,
@@ -176,9 +176,7 @@ var DateWidget = Widget.extend({
         this.set({'value': value});
         var formatted_value = value ? this._formatClient(value) : null;
         this.$input.val(formatted_value);
-        this.__libInput++;
-        this.$el.datetimepicker('date', value || null);
-        this.__libInput--;
+        this._setLibInputValue(value);
     },
 
     //--------------------------------------------------------------------------
@@ -200,7 +198,8 @@ var DateWidget = Widget.extend({
             this.$warning.attr('title', title);
             this.$input.after(this.$warning);
         }
-        if (currentDate && currentDate.isAfter(moment())) {
+        // Get rid of time and TZ crap for comparison
+        if (currentDate && currentDate.format('YYYY-MM-DD') > moment().format('YYYY-MM-DD')) {
             this.$warning.show();
         } else {
             this.$warning.hide();
@@ -222,6 +221,15 @@ var DateWidget = Widget.extend({
      */
     _parseClient: function (v) {
         return field_utils.parse[this.type_of_date](v, null, {timezone: false});
+    },
+    /**
+     * @private
+     * @param {Moment|false} value
+     */
+    _setLibInputValue: function (value) {
+        this.__libInput++;
+        this.$el.datetimepicker('date', value || null);
+        this.__libInput--;
     },
     /**
      * @private

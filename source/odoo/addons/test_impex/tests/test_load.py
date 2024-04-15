@@ -398,6 +398,20 @@ class test_required_string_field(ImporterCase):
             u"Missing required value for the field 'Value' (value)")])
         self.assertIs(result['ids'], False)
 
+    @mute_logger('odoo.sql_db', 'odoo.models')
+    def test_ignore_excess_messages(self):
+        result = self.import_(['const'], [[str(n)] for n in range(100)])
+        self.assertIs(result['ids'], False)
+        self.assertEqual(len(result['messages']), 11)
+        for m in result['messages'][:-1]:
+            self.assertEqual(m['type'], 'error')
+            self.assertEqual(m['message'], u"Missing required value for the field 'Value' (value)")
+        last = result['messages'][-1]
+        self.assertEqual(last['type'], 'warning')
+        self.assertEqual(
+            last['message'],
+            u"Found more than 10 errors and more than one error per 10 records, interrupted to avoid showing too many errors."
+        )
 
 class test_text(ImporterCase):
     model_name = 'export.text'
@@ -689,6 +703,20 @@ class test_m2o(ImporterCase):
         self.assertFalse(result['messages'])
         self.assertEqual(len(result['ids']), 1)
 
+class TestInvalidStrings(ImporterCase):
+    model_name = 'export.m2o.str'
+
+    @mute_logger('odoo.sql_db')
+    def test_fail_unpaired_surrogate(self):
+        result = self.import_(['child_id'], [['\uddff']])
+        self.assertTrue(result['messages'])
+        self.assertIn('surrogates', result['messages'][0]['message'])
+
+    @mute_logger('odoo.sql_db')
+    def test_fail_nul(self):
+        result = self.import_(['child_id'], [['\x00']])
+        self.assertTrue(result['messages'])
+        self.assertIn('NUL', result['messages'][0]['message'])
 
 class test_m2m(ImporterCase):
     model_name = 'export.many2many'

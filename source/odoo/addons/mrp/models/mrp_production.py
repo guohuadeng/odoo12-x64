@@ -171,7 +171,7 @@ class MrpProduction(models.Model):
                                 readonly=True, states={'confirmed': [('readonly', False)]}, default='1')
     is_locked = fields.Boolean('Is Locked', default=True, copy=False)
     show_final_lots = fields.Boolean('Show Final Lots', compute='_compute_show_lots')
-    production_location_id = fields.Many2one('stock.location', "Production Location", related='product_id.property_stock_production', readonly=False)
+    production_location_id = fields.Many2one('stock.location', "Production Location", related='product_id.property_stock_production', readonly=False, related_sudo=False)
     picking_ids = fields.Many2many('stock.picking', compute='_compute_picking_ids', string='Picking associated to this manufacturing order')
     delivery_count = fields.Integer(string='Delivery Orders', compute='_compute_picking_ids')
 
@@ -281,7 +281,6 @@ class MrpProduction(models.Model):
                 order.post_visible = order.is_locked and any((x.quantity_done > 0 and x.state not in ['done', 'cancel']) for x in order.move_raw_ids | order.move_finished_ids)
             else:
                 order.post_visible = order.is_locked and any((x.quantity_done > 0 and x.state not in ['done', 'cancel']) for x in order.move_finished_ids)
-            order.post_visible &= all(wo.state in ['done', 'cancel'] for wo in order.workorder_ids) or all(m.product_id.tracking == 'none' for m in order.move_raw_ids)
 
     @api.multi
     @api.depends('move_raw_ids.quantity_done', 'move_raw_ids.product_uom_qty')
@@ -302,7 +301,16 @@ class MrpProduction(models.Model):
             wo_done = True
             if any([x.state not in ('done', 'cancel') for x in production.workorder_ids]):
                 wo_done = False
-            production.check_to_done = production.is_locked and done_moves and (qty_produced >= production.product_qty) and (production.state not in ('done', 'cancel')) and wo_done
+            production.check_to_done = (
+                production.is_locked
+                and done_moves
+                and float_compare(
+                    qty_produced, production.product_qty, precision_rounding=production.product_uom_id.rounding
+                )
+                != -1
+                and (production.state not in ("done", "cancel"))
+                and wo_done
+            )
             production.qty_produced = qty_produced
         return True
 
@@ -440,6 +448,7 @@ class MrpProduction(models.Model):
         v = self._get_raw_move_data(bom_line, line_data)
         if not v:
             return self.env['stock.move']
+        v['state'] = 'confirmed'
         return self.env['stock.move'].create(v)
 
     def _get_raw_move_data(self, bom_line, line_data):
@@ -512,8 +521,7 @@ class MrpProduction(models.Model):
             if quantity > 0:
                 production = move[0].raw_material_production_id
                 production_qty = production.product_qty - production.qty_produced
-                move[0]._decrease_reserved_quanity(quantity)
-                move[0].with_context(do_not_unreserve=True).write({'product_uom_qty': quantity})
+                move[0].write({'product_uom_qty': quantity})
                 move[0]._recompute_state()
                 move[0]._action_assign()
                 move[0].unit_factor = production_qty and (quantity - move[0].quantity_done) / production_qty or 1.0
@@ -678,6 +686,8 @@ class MrpProduction(models.Model):
             moves_to_do = order.move_raw_ids.filtered(lambda x: x.state not in ('done', 'cancel'))
             for move in moves_to_do.filtered(lambda m: m.product_qty == 0.0 and m.quantity_done > 0):
                 move.product_uom_qty = move.quantity_done
+            for line in moves_to_do.mapped('move_line_ids').filtered(lambda l: l.product_id.tracking != 'none' and not l.lot_id):
+                line.qty_done = 0
             moves_to_do._action_done()
             moves_to_do = order.move_raw_ids.filtered(lambda x: x.state == 'done') - moves_not_to_do
             order._cal_price(moves_to_do)

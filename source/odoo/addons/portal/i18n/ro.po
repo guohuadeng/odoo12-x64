@@ -5,15 +5,16 @@
 # Translators:
 # Martin Trigaux, 2018
 # sharkutz <sharkutz4life@yahoo.com>, 2019
-# Dorin Hongu <dhongu@gmail.com>, 2019
+# Dorin Hongu <dhongu@gmail.com>, 2020
+# Foldi Robert <foldirobert@nexterp.ro>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-08 13:50+0000\n"
+"POT-Creation-Date: 2021-09-07 07:15+0000\n"
 "PO-Revision-Date: 2018-08-24 09:22+0000\n"
-"Last-Translator: Dorin Hongu <dhongu@gmail.com>, 2019\n"
+"Last-Translator: Foldi Robert <foldirobert@nexterp.ro>, 2020\n"
 "Language-Team: Romanian (https://www.transifex.com/odoo/teams/41243/ro/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,17 +23,25 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?2:1));\n"
 
 #. module: portal
-#. openerp-web
-#: code:addons/portal/static/src/js/portal_sidebar.js:43
+#: code:addons/portal/wizard/portal_wizard.py:117
 #, python-format
-msgid "%d days overdue"
-msgstr "%d zilele restante"
+msgid ""
+"\n"
+"- Switch the internal users to portal manually"
+msgstr ""
+
+#. module: portal
+#. openerp-web
+#: code:addons/portal/static/src/js/portal_sidebar.js:47
+#, python-format
+msgid "%1d days overdue"
+msgstr ""
 
 #. module: portal
 #: code:addons/portal/controllers/portal.py:277
 #, python-format
 msgid "%s is not the reference of a report"
-msgstr ""
+msgstr "%s nu este referința unui raport"
 
 #. module: portal
 #: model_terms:ir.ui.view,arch_db:portal.portal_show_sign_in
@@ -50,6 +59,8 @@ msgid ""
 "<i class=\"fa fa-chevron-left\" role=\"img\" aria-label=\"Previous\" "
 "title=\"Previous\"/>"
 msgstr ""
+"<i class=\"fa fa-chevron-left\" role=\"img\" aria-label=\"Anterior\" "
+"title=\"Anterior\"/>"
 
 #. module: portal
 #: model_terms:ir.ui.view,arch_db:portal.record_pager
@@ -61,7 +72,7 @@ msgstr ""
 #. module: portal
 #: model_terms:ir.ui.view,arch_db:portal.portal_layout
 msgid "<i class=\"fa fa-pencil\"/> Edit"
-msgstr ""
+msgstr "<i class=\"fa fa-pencil\"/> Edit"
 
 #. module: portal
 #: model_terms:ir.ui.view,arch_db:portal.portal_searchbar
@@ -71,7 +82,7 @@ msgstr "<span class=\"small mr-1 navbar-text\">Filtrați după:</span>"
 #. module: portal
 #: model_terms:ir.ui.view,arch_db:portal.portal_searchbar
 msgid "<span class=\"small mr-1 navbar-text\">Group By:</span>"
-msgstr ""
+msgstr "<span class=\"small mr-1 navbar-text\">Grupează după:</span>"
 
 #. module: portal
 #: model_terms:ir.ui.view,arch_db:portal.portal_searchbar
@@ -81,7 +92,7 @@ msgstr "<span class=\"small mr-1 navbar-text\">Sortați după:</span>"
 #. module: portal
 #: model_terms:ir.ui.view,arch_db:portal.portal_share_template
 msgid "<strong>Open </strong>"
-msgstr ""
+msgstr "<strong>Deschide </strong>"
 
 #. module: portal
 #: model:mail.template,body_html:portal.mail_template_data_portal_welcome
@@ -257,13 +268,13 @@ msgstr ""
 #: code:addons/portal/static/src/xml/portal_signature.xml:19
 #, python-format
 msgid "Accept & Sign"
-msgstr ""
+msgstr "Acceptați și semnați"
 
 #. module: portal
 #: model:ir.model.fields,field_description:portal.field_portal_mixin__access_warning
 #: model:ir.model.fields,field_description:portal.field_portal_share__access_warning
 msgid "Access warning"
-msgstr ""
+msgstr "Avertizare acces"
 
 #. module: portal
 #: model_terms:ir.ui.view,arch_db:portal.portal_share_wizard
@@ -273,12 +284,12 @@ msgstr "Adaugă o notă"
 #. module: portal
 #: model_terms:ir.ui.view,arch_db:portal.portal_share_wizard
 msgid "Add contacts to share the document..."
-msgstr ""
+msgstr "Adăugați contacte pentru a partaja documentul ..."
 
 #. module: portal
 #: model:ir.model.fields,help:portal.field_portal_share__note
 msgid "Add extra content to display in the email"
-msgstr ""
+msgstr "Adăugați conținut suplimentar pentru a fi afișat în e-mail"
 
 #. module: portal
 #: model_terms:ir.ui.view,arch_db:portal.wizard_view
@@ -295,7 +306,7 @@ msgstr "Arhive"
 #: code:addons/portal/static/src/xml/portal_chatter.xml:26
 #, python-format
 msgid "Avatar"
-msgstr ""
+msgstr "Avatar"
 
 #. module: portal
 #: model_terms:ir.ui.view,arch_db:portal.portal_share_wizard
@@ -305,11 +316,15 @@ msgstr "Anulează"
 
 #. module: portal
 #: code:addons/portal/controllers/portal.py:220
+#: model_terms:ir.ui.view,arch_db:portal.portal_my_details
 #, python-format
 msgid ""
 "Changing VAT number is not allowed once document(s) have been issued for "
 "your account. Please contact us directly for this operation."
 msgstr ""
+"Modificarea numărului de CUI nu este permisă odată ce au fost emise "
+"documente pentru contul dvs. Vă rugăm să ne contactați direct pentru această"
+" operațiune."
 
 #. module: portal
 #: model_terms:ir.ui.view,arch_db:portal.portal_my_details
@@ -317,11 +332,14 @@ msgid ""
 "Changing company name is not allowed once document(s) have been issued for "
 "your account. Please contact us directly for this operation."
 msgstr ""
+"Schimbarea numelui companiei nu este permisă odată ce au fost emise "
+"documente pentru contul dvs. Vă rugăm să ne contactați direct pentru această"
+" operațiune."
 
 #. module: portal
 #: model_terms:ir.ui.view,arch_db:portal.portal_my_details
 msgid "City"
-msgstr "Oraș"
+msgstr "Localitate"
 
 #. module: portal
 #. openerp-web
@@ -332,7 +350,7 @@ msgstr "Golește"
 
 #. module: portal
 #. openerp-web
-#: code:addons/portal/static/src/xml/portal_signature.xml:27
+#: code:addons/portal/static/src/xml/portal_signature.xml:28
 #, python-format
 msgid "Click here to see your document."
 msgstr "Clic aici pentru a vedea documentul."
@@ -395,7 +413,7 @@ msgstr "Creat în"
 #. module: portal
 #: model:ir.model.fields,help:portal.field_portal_mixin__access_url
 msgid "Customer Portal URL"
-msgstr ""
+msgstr "URL Portal Clienți"
 
 #. module: portal
 #: model_terms:ir.ui.view,arch_db:portal.portal_share_template
@@ -419,14 +437,14 @@ msgstr "Desenați o semnatură"
 
 #. module: portal
 #. openerp-web
-#: code:addons/portal/static/src/js/portal_sidebar.js:41
+#: code:addons/portal/static/src/js/portal_sidebar.js:45
 #, python-format
-msgid "Due in %d days"
-msgstr "Scadent în %dzile"
+msgid "Due in %1d days"
+msgstr ""
 
 #. module: portal
 #. openerp-web
-#: code:addons/portal/static/src/js/portal_sidebar.js:39
+#: code:addons/portal/static/src/js/portal_sidebar.js:41
 #, python-format
 msgid "Due today"
 msgstr "Scadentă astăzi"
@@ -447,7 +465,7 @@ msgstr "Fir E-mail"
 #: model:ir.model,name:portal.model_portal_wizard
 #: model_terms:ir.ui.view,arch_db:portal.wizard_view
 msgid "Grant Portal Access"
-msgstr ""
+msgstr "Permite Acces Portal"
 
 #. module: portal
 #: model:ir.model,name:portal.model_ir_http
@@ -482,7 +500,7 @@ msgstr "E-mail invalid! Te rog introdu o adresă de email validă."
 #: code:addons/portal/controllers/portal.py:272
 #, python-format
 msgid "Invalid report type: %s"
-msgstr ""
+msgstr "Tip de raport nevalid: %s"
 
 #. module: portal
 #: model:ir.model.fields,field_description:portal.field_portal_wizard__welcome_message
@@ -526,7 +544,7 @@ msgstr "Link"
 #. module: portal
 #: model:ir.model.fields,field_description:portal.field_portal_wizard_user__user_id
 msgid "Login User"
-msgstr ""
+msgstr "Login User"
 
 #. module: portal
 #: model_terms:ir.ui.view,arch_db:portal.frontend_layout
@@ -582,17 +600,17 @@ msgstr "Telefon"
 #. module: portal
 #: model:ir.model.fields,field_description:portal.field_portal_mixin__access_url
 msgid "Portal Access URL"
-msgstr ""
+msgstr "Adresă URL Portal"
 
 #. module: portal
 #: model:ir.model,name:portal.model_portal_mixin
 msgid "Portal Mixin"
-msgstr ""
+msgstr "Portal Mixin"
 
 #. module: portal
 #: model:ir.model,name:portal.model_portal_share
 msgid "Portal Sharing"
-msgstr ""
+msgstr "Distribuire Portal"
 
 #. module: portal
 #: model:ir.model,name:portal.model_portal_wizard_user
@@ -619,7 +637,7 @@ msgstr "Anterior"
 
 #. module: portal
 #. openerp-web
-#: code:addons/portal/static/src/js/portal_chatter.js:109
+#: code:addons/portal/static/src/js/portal_chatter.js:116
 #, python-format
 msgid "Published on %s"
 msgstr "Publicat în %s"
@@ -656,9 +674,9 @@ msgid ""
 "                        The email address of each selected contact must be valid and unique.\n"
 "                        If necessary, you can fix any contact's email address directly in the list."
 msgstr ""
-"Selectati contactele care ar trebui sa apartina portalului din lista de mai jos.\n"
-"                        Adresa de email a fiecarui contact selectat trebuie sa fie valabila si unica.\n"
-"                        Daca este necesar, puteti repara adresa de email a oricarui contact direct in lista."
+"Selectați contactele care ar trebui să aparțină portalului din lista de mai jos.\n"
+"                        Adresa de email a fiecărui contact selectat trebuie să fie valabilă și unică.\n"
+"                        Dacă este necesar, puteți repara adresa de email a oricărui contact direct în listă."
 
 #. module: portal
 #. openerp-web
@@ -669,7 +687,7 @@ msgid "Send"
 msgstr "Trimite"
 
 #. module: portal
-#: code:addons/portal/wizard/portal_wizard.py:100
+#: code:addons/portal/wizard/portal_wizard.py:105
 #, python-format
 msgid "Several contacts have the same email: "
 msgstr "Mai multe contacte au același email: "
@@ -678,16 +696,22 @@ msgstr "Mai multe contacte au același email: "
 #: model:ir.actions.act_window,name:portal.portal_share_action
 #: model_terms:ir.ui.view,arch_db:portal.portal_share_wizard
 msgid "Share Document"
+msgstr "Documente partajate"
+
+#. module: portal
+#: code:addons/portal/wizard/portal_wizard.py:111
+#, python-format
+msgid "Some contacts are already internal users:"
 msgstr ""
 
 #. module: portal
-#: code:addons/portal/wizard/portal_wizard.py:97
+#: code:addons/portal/wizard/portal_wizard.py:102
 #, python-format
 msgid "Some contacts don't have a valid email: "
 msgstr "Mai multe contacte nu au adresă de email validă: "
 
 #. module: portal
-#: code:addons/portal/wizard/portal_wizard.py:103
+#: code:addons/portal/wizard/portal_wizard.py:108
 #, python-format
 msgid "Some contacts have the same email as an existing portal user:"
 msgstr ""
@@ -712,7 +736,7 @@ msgstr "Stradă"
 
 #. module: portal
 #. openerp-web
-#: code:addons/portal/static/src/xml/portal_signature.xml:25
+#: code:addons/portal/static/src/xml/portal_signature.xml:26
 #, python-format
 msgid "Thank You !"
 msgstr "Vă mulțumim!"
@@ -728,7 +752,7 @@ msgstr "Nu există comentarii pentru acum."
 #: code:addons/portal/controllers/portal.py:237
 #, python-format
 msgid "This document does not exist."
-msgstr ""
+msgstr "Acest document nu există."
 
 #. module: portal
 #: model_terms:ir.ui.view,arch_db:portal.portal_back_in_edit_mode
@@ -748,18 +772,21 @@ msgstr ""
 "Textul este inclus in email-ul trimis noilor utilizatori ai portalului."
 
 #. module: portal
-#: code:addons/portal/wizard/portal_wizard.py:106
+#: code:addons/portal/wizard/portal_wizard.py:114
 #, python-format
 msgid ""
 "To resolve this error, you can: \n"
 "- Correct the emails of the relevant contacts\n"
 "- Grant access only to contacts with unique emails"
 msgstr ""
+"Pentru a rezolva această eroare, puteți:\n"
+"- Corectează e-mailurile contactelor relevante\n"
+"- Acordă acces doar la contacte cu e-mailuri unice"
 
 #. module: portal
 #: model_terms:ir.ui.view,arch_db:portal.portal_searchbar
 msgid "Toggle filters"
-msgstr ""
+msgstr "Comutați filtrele"
 
 #. module: portal
 #: model:ir.model.fields,field_description:portal.field_portal_wizard__user_ids
@@ -772,7 +799,7 @@ msgid "VAT Number"
 msgstr "CUI"
 
 #. module: portal
-#: code:addons/portal/models/portal_mixin.py:83
+#: code:addons/portal/models/portal_mixin.py:93
 #, python-format
 msgid "View %s"
 msgstr "Vizualizare:%s"
@@ -838,16 +865,16 @@ msgid "Write a message..."
 msgstr "Scrie un mesaj..."
 
 #. module: portal
-#: code:addons/portal/wizard/portal_share.py:59
-#: code:addons/portal/wizard/portal_share.py:71
+#: code:addons/portal/wizard/portal_share.py:61
+#: code:addons/portal/wizard/portal_share.py:77
 #, python-format
 msgid "You are invited to access %s"
-msgstr ""
+msgstr "Sunteți invitat să accesați %s"
 
 #. module: portal
 #: model_terms:ir.ui.view,arch_db:portal.portal_share_template
 msgid "You have been invited to access the following document:"
-msgstr ""
+msgstr "Ați fost invitat să accesați următorul document:"
 
 #. module: portal
 #. openerp-web
@@ -857,7 +884,7 @@ msgid "You must be"
 msgstr "Trebuie să fii"
 
 #. module: portal
-#: code:addons/portal/wizard/portal_wizard.py:175
+#: code:addons/portal/wizard/portal_wizard.py:184
 #, python-format
 msgid ""
 "You must have an email address in your User Preferences to send emails."
@@ -893,7 +920,7 @@ msgstr "Nume dvs."
 #. module: portal
 #: model:mail.template,subject:portal.mail_template_data_portal_welcome
 msgid "Your Odoo account at ${object.user_id.company_id.name}"
-msgstr ""
+msgstr "Contul tău Odoo la ${object.user_id.company_id.name}"
 
 #. module: portal
 #: model_terms:ir.ui.view,arch_db:portal.portal_contact
@@ -910,7 +937,7 @@ msgstr "Cod poștal"
 #: code:addons/portal/static/src/xml/portal_chatter.xml:56
 #, python-format
 msgid "avatar"
-msgstr ""
+msgstr "avatar"
 
 #. module: portal
 #. openerp-web
@@ -931,12 +958,12 @@ msgstr "comentarii"
 #: code:addons/portal/static/src/xml/portal_chatter.xml:22
 #, python-format
 msgid "logged in"
-msgstr ""
+msgstr "conectat"
 
 #. module: portal
 #: model_terms:ir.ui.view,arch_db:portal.portal_record_sidebar
 msgid "odoo"
-msgstr ""
+msgstr "odoo"
 
 #. module: portal
 #: model_terms:ir.ui.view,arch_db:portal.portal_my_details

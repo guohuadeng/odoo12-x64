@@ -7,20 +7,25 @@
 # e2f <projects@e2f.com>, 2019
 # Martin Trigaux, 2019
 # Wolfgang Taferner, 2019
-# darenkster <inactive+darenkster@transifex.com>, 2019
+# f91684c3ff9ec3e650d5c8461e534581_686eae3 <449b96d9f63071f94d89e129677b83de_366193>, 2019
 # Katharina Moritz <kmo@e2f.com>, 2019
 # Jan Meyer, 2019
 # Marco Tarsia <marco.y.tarsia@gmail.com>, 2019
-# Chris Egal <sodaswed@web.de>, 2019
 # Felix Schubert <felix.schubert@go-erp.com>, 2019
+# Ermin Trevisan <trevi@twanda.com>, 2020
+# Kevin Harrings <kha@odoo.com>, 2020
+# Max-Milan Stoyanov, 2020
+# Florian Pose <fp@igh.de>, 2020
+# Andreas Schmidt <schmigo@gmail.com>, 2021
+# Chris Egal <sodaswed@web.de>, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-01 06:19+0000\n"
+"POT-Creation-Date: 2019-11-14 07:34+0000\n"
 "PO-Revision-Date: 2019-07-01 06:20+0000\n"
-"Last-Translator: Felix Schubert <felix.schubert@go-erp.com>, 2019\n"
+"Last-Translator: Chris Egal <sodaswed@web.de>, 2021\n"
 "Language-Team: German (https://www.transifex.com/odoo/teams/41243/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -377,7 +382,7 @@ msgstr ""
 #. module: crm_reveal
 #: model:crm.reveal.industry,name:crm_reveal.crm_reveal_industry_150
 msgid "Consumer Services"
-msgstr ""
+msgstr "Verbraucherdienste"
 
 #. module: crm_reveal
 #: model:crm.reveal.industry,name:crm_reveal.crm_reveal_industry_33
@@ -451,7 +456,7 @@ msgstr ""
 #. module: crm_reveal
 #: model:ir.model.fields,field_description:crm_reveal.field_crm_reveal_rule__lead_for
 msgid "Data Tracking"
-msgstr ""
+msgstr "Datenverfolgung"
 
 #. module: crm_reveal
 #: model:crm.reveal.industry,name:crm_reveal.crm_reveal_industry_36
@@ -566,7 +571,7 @@ msgstr ""
 #: code:addons/crm_reveal/models/crm_reveal_rule.py:73
 #, python-format
 msgid "Enter Valid Regex."
-msgstr ""
+msgstr "Enter Valid Regex."
 
 #. module: crm_reveal
 #: model:crm.reveal.industry,name:crm_reveal.crm_reveal_industry_233
@@ -586,22 +591,22 @@ msgstr "Events"
 #. module: crm_reveal
 #: model:ir.model.fields,field_description:crm_reveal.field_crm_reveal_rule__extra_contacts
 msgid "Extra Contacts"
-msgstr ""
+msgstr "Zusätzliche Kontakte"
 
 #. module: crm_reveal
 #: model:crm.reveal.industry,name:crm_reveal.crm_reveal_industry_45
 msgid "Eyewear"
-msgstr ""
+msgstr "Brillen"
 
 #. module: crm_reveal
 #: model:crm.reveal.industry,name:crm_reveal.crm_reveal_industry_46
 msgid "Facilities"
-msgstr ""
+msgstr "Einrichtungen"
 
 #. module: crm_reveal
 #: model:crm.reveal.industry,name:crm_reveal.crm_reveal_industry_47
 msgid "Family Services"
-msgstr ""
+msgstr "Familienservice"
 
 #. module: crm_reveal
 #: model:crm.reveal.industry,name:crm_reveal.crm_reveal_industry_48
@@ -611,12 +616,12 @@ msgstr "Finanzen"
 #. module: crm_reveal
 #: model:crm.reveal.industry,name:crm_reveal.crm_reveal_industry_49
 msgid "Financial Services"
-msgstr ""
+msgstr "Finanzdienstleistungen"
 
 #. module: crm_reveal
 #: model:crm.reveal.industry,name:crm_reveal.crm_reveal_industry_145
 msgid "Financials"
-msgstr ""
+msgstr "Finanzen"
 
 #. module: crm_reveal
 #: model:crm.reveal.industry,name:crm_reveal.crm_reveal_industry_50
@@ -661,7 +666,7 @@ msgstr ""
 #. module: crm_reveal
 #: model:crm.reveal.industry,name:crm_reveal.crm_reveal_industry_154
 msgid "Food, Beverage & Tobacco"
-msgstr ""
+msgstr "Lebensmittel, Getränke und Tabak"
 
 #. module: crm_reveal
 #: model:crm.reveal.industry,name:crm_reveal.crm_reveal_industry_55
@@ -998,13 +1003,13 @@ msgstr ""
 #: model:ir.model.fields,field_description:crm_reveal.field_crm_lead__reveal_rule_id
 #: model:ir.model.fields,field_description:crm_reveal.field_crm_reveal_view__reveal_rule_id
 msgid "Lead Generation Rule"
-msgstr ""
+msgstr "Lead-Generierungs-Regel"
 
 #. module: crm_reveal
 #: model:ir.actions.act_window,name:crm_reveal.crm_reveal_rule_action
 #: model:ir.ui.menu,name:crm_reveal.crm_reveal_rule_menu_action
 msgid "Lead Generation Rules"
-msgstr ""
+msgstr "Regeln für die Lead-Generierung"
 
 #. module: crm_reveal
 #: model:ir.actions.act_window,name:crm_reveal.crm_reveal_view_action
@@ -1013,11 +1018,19 @@ msgid "Lead Generation Views"
 msgstr ""
 
 #. module: crm_reveal
+#: code:addons/crm_reveal/models/crm_reveal_rule.py:79
+#, python-format
+msgid ""
+"Lead Generation requires a GeoIP resolver which could not be found on your "
+"system. Please consult https://pypi.org/project/GeoIP/."
+msgstr ""
+
+#. module: crm_reveal
 #: model:ir.actions.server,name:crm_reveal.ir_cron_crm_reveal_lead_ir_actions_server
 #: model:ir.cron,cron_name:crm_reveal.ir_cron_crm_reveal_lead
 #: model:ir.cron,name:crm_reveal.ir_cron_crm_reveal_lead
 msgid "Lead Generation: Leads/Opportunities Generation"
-msgstr ""
+msgstr "Interessentengenerierung: Erzeugung von Interessenten/Chancen"
 
 #. module: crm_reveal
 #: model:ir.model,name:crm_reveal.model_crm_lead
@@ -1043,7 +1056,7 @@ msgstr ""
 #. module: crm_reveal
 #: model:crm.reveal.industry,name:crm_reveal.crm_reveal_industry_204
 msgid "Leisure Facilities"
-msgstr ""
+msgstr "Freizeiteinrichtungen"
 
 #. module: crm_reveal
 #: model:crm.reveal.industry,name:crm_reveal.crm_reveal_industry_80
@@ -1088,7 +1101,7 @@ msgstr "Marketing & Werbung"
 #. module: crm_reveal
 #: model:crm.reveal.industry,name:crm_reveal.crm_reveal_industry_235
 msgid "Marketplace"
-msgstr ""
+msgstr "Marktplatz"
 
 #. module: crm_reveal
 #: model:crm.reveal.industry,name:crm_reveal.crm_reveal_industry_148
@@ -1098,7 +1111,7 @@ msgstr "Materialien"
 #. module: crm_reveal
 #: model:ir.model.fields,field_description:crm_reveal.field_crm_reveal_rule__company_size_max
 msgid "Max Company Size"
-msgstr ""
+msgstr "Maximale Firmengröße"
 
 #. module: crm_reveal
 #: sql_constraint:crm.reveal.rule:0
@@ -1144,6 +1157,12 @@ msgstr ""
 #: model:crm.reveal.industry,name:crm_reveal.crm_reveal_industry_89
 msgid "Mining & Metals"
 msgstr "Bergbau & Metalle"
+
+#. module: crm_reveal
+#: code:addons/crm_reveal/models/crm_reveal_rule.py:82
+#, python-format
+msgid "Missing Library"
+msgstr "Fehlende Bibliothek"
 
 #. module: crm_reveal
 #: model:crm.reveal.industry,name:crm_reveal.crm_reveal_industry_236
@@ -1283,12 +1302,12 @@ msgstr ""
 #. module: crm_reveal
 #: model:crm.reveal.industry,name:crm_reveal.crm_reveal_industry_99
 msgid "Paper Goods"
-msgstr ""
+msgstr "Papierwaren"
 
 #. module: crm_reveal
 #: model:crm.reveal.industry,name:crm_reveal.crm_reveal_industry_227
 msgid "Paper Products"
-msgstr ""
+msgstr "Papierprodukte"
 
 #. module: crm_reveal
 #: model:crm.reveal.industry,name:crm_reveal.crm_reveal_industry_100
@@ -1308,17 +1327,17 @@ msgstr ""
 #. module: crm_reveal
 #: model:crm.reveal.industry,name:crm_reveal.crm_reveal_industry_101
 msgid "Performing Arts"
-msgstr ""
+msgstr "Darstellende Kunst"
 
 #. module: crm_reveal
 #: model:crm.reveal.industry,name:crm_reveal.crm_reveal_industry_175
 msgid "Personal Products"
-msgstr ""
+msgstr "Persönliche Produkte"
 
 #. module: crm_reveal
 #: model:crm.reveal.industry,name:crm_reveal.crm_reveal_industry_102
 msgid "Pharmaceuticals"
-msgstr ""
+msgstr "Pharmazeutische Produkte"
 
 #. module: crm_reveal
 #: model:crm.reveal.industry,name:crm_reveal.crm_reveal_industry_161
@@ -1358,12 +1377,12 @@ msgstr ""
 #. module: crm_reveal
 #: model:crm.reveal.industry,name:crm_reveal.crm_reveal_industry_108
 msgid "Pornography"
-msgstr ""
+msgstr "Pornografie"
 
 #. module: crm_reveal
 #: model:ir.model.fields,field_description:crm_reveal.field_crm_reveal_rule__preferred_role_id
 msgid "Preferred Role"
-msgstr ""
+msgstr "Bevorzugte Rolle"
 
 #. module: crm_reveal
 #: model:crm.reveal.industry,name:crm_reveal.crm_reveal_industry_109
@@ -1393,7 +1412,7 @@ msgstr ""
 #. module: crm_reveal
 #: model:crm.reveal.industry,name:crm_reveal.crm_reveal_industry_112
 msgid "Publishing"
-msgstr ""
+msgstr "Veröffentlichung"
 
 #. module: crm_reveal
 #: model:crm.reveal.industry,name:crm_reveal.crm_reveal_industry_113
@@ -1473,7 +1492,7 @@ msgstr ""
 #. module: crm_reveal
 #: model:ir.model.fields,field_description:crm_reveal.field_crm_reveal_role__name
 msgid "Role Name"
-msgstr ""
+msgstr "Name der Rolle"
 
 #. module: crm_reveal
 #: sql_constraint:crm.reveal.role:0
@@ -1528,7 +1547,7 @@ msgstr ""
 #. module: crm_reveal
 #: model:ir.model.fields,field_description:crm_reveal.field_crm_reveal_rule__seniority_id
 msgid "Seniority"
-msgstr ""
+msgstr "Dienstalter"
 
 #. module: crm_reveal
 #: model:ir.model.fields,field_description:crm_reveal.field_crm_reveal_rule__sequence
@@ -1628,7 +1647,7 @@ msgstr "Technologie"
 #. module: crm_reveal
 #: model:crm.reveal.industry,name:crm_reveal.crm_reveal_industry_166
 msgid "Technology Hardware & Equipment"
-msgstr ""
+msgstr "Technologie Hardware & Ausstattung"
 
 #. module: crm_reveal
 #: model:crm.reveal.industry,name:crm_reveal.crm_reveal_industry_195
@@ -1643,7 +1662,7 @@ msgstr "Verwendete Technologie:"
 #. module: crm_reveal
 #: model:crm.reveal.industry,name:crm_reveal.crm_reveal_industry_149
 msgid "Telecommunication Services"
-msgstr ""
+msgstr "Telekommunikationsdienste"
 
 #. module: crm_reveal
 #: model:crm.reveal.industry,name:crm_reveal.crm_reveal_industry_131
@@ -1669,6 +1688,8 @@ msgid ""
 "This will be appended in name of generated lead so you can identify "
 "lead/opportunity is generated with this rule"
 msgstr ""
+"Dies wird an den Namen des generierten Leads angehängt, damit Sie erkennen "
+"können, dass der Lead/die Opportunity mit dieser Regel generiert wurde"
 
 #. module: crm_reveal
 #: model_terms:ir.ui.view,arch_db:crm_reveal.lead_message_template
@@ -1768,7 +1789,7 @@ msgstr ""
 #. module: crm_reveal
 #: model_terms:ir.ui.view,arch_db:crm_reveal.crm_reveal_rule_form
 msgid "Website Traffic Conditions"
-msgstr ""
+msgstr "Website Traffic-Bedingungen"
 
 #. module: crm_reveal
 #: model:crm.reveal.industry,name:crm_reveal.crm_reveal_industry_144
@@ -1783,7 +1804,7 @@ msgstr ""
 #. module: crm_reveal
 #: model:crm.reveal.role,name:crm_reveal.crm_reveal_role_1
 msgid "ceo"
-msgstr ""
+msgstr "CEO"
 
 #. module: crm_reveal
 #: model:crm.reveal.role,name:crm_reveal.crm_reveal_role_2
@@ -1808,22 +1829,22 @@ msgstr ""
 #. module: crm_reveal
 #: model:crm.reveal.seniority,name:crm_reveal.crm_reveal_seniority_1
 msgid "director"
-msgstr ""
+msgstr "Direktor"
 
 #. module: crm_reveal
 #: model_terms:ir.ui.view,arch_db:crm_reveal.crm_reveal_rule_form
 msgid "e.g. US Visitors"
-msgstr ""
+msgstr "z.B. US-Besucher"
 
 #. module: crm_reveal
 #: model:crm.reveal.role,name:crm_reveal.crm_reveal_role_5
 msgid "education"
-msgstr ""
+msgstr "Ausbildung"
 
 #. module: crm_reveal
 #: model:crm.reveal.role,name:crm_reveal.crm_reveal_role_6
 msgid "engineering"
-msgstr ""
+msgstr "Technik"
 
 #. module: crm_reveal
 #: model:crm.reveal.seniority,name:crm_reveal.crm_reveal_seniority_2
@@ -1838,7 +1859,7 @@ msgstr "Finanzen"
 #. module: crm_reveal
 #: model:crm.reveal.role,name:crm_reveal.crm_reveal_role_8
 msgid "founder"
-msgstr ""
+msgstr "Gründer"
 
 #. module: crm_reveal
 #: model:crm.reveal.role,name:crm_reveal.crm_reveal_role_9
@@ -1858,7 +1879,7 @@ msgstr ""
 #. module: crm_reveal
 #: model:crm.reveal.role,name:crm_reveal.crm_reveal_role_12
 msgid "legal"
-msgstr ""
+msgstr "legal"
 
 #. module: crm_reveal
 #: model:crm.reveal.seniority,name:crm_reveal.crm_reveal_seniority_3
@@ -1883,7 +1904,7 @@ msgstr "Eigentümer "
 #. module: crm_reveal
 #: model:crm.reveal.role,name:crm_reveal.crm_reveal_role_16
 msgid "president"
-msgstr ""
+msgstr "Präsident"
 
 #. module: crm_reveal
 #: model:crm.reveal.role,name:crm_reveal.crm_reveal_role_17
@@ -1903,12 +1924,12 @@ msgstr ""
 #. module: crm_reveal
 #: model:crm.reveal.role,name:crm_reveal.crm_reveal_role_20
 msgid "recruiting"
-msgstr ""
+msgstr "Rekrutierung"
 
 #. module: crm_reveal
 #: model:crm.reveal.role,name:crm_reveal.crm_reveal_role_21
 msgid "research"
-msgstr ""
+msgstr "Forschung"
 
 #. module: crm_reveal
 #: model:crm.reveal.role,name:crm_reveal.crm_reveal_role_22

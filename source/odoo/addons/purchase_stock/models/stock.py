@@ -114,7 +114,7 @@ class StockMove(models.Model):
         """ Overridden to return the vendor bills related to this stock move.
         """
         rslt = super(StockMove, self)._get_related_invoices()
-        rslt += self.mapped('picking_id.purchase_id.invoice_ids').filtered(lambda x: x.state not in ('draft', 'cancel'))
+        rslt += self.mapped('picking_id.purchase_id.invoice_ids').filtered(lambda x: x.sudo().state not in ('draft', 'cancel'))
         return rslt
 
 
@@ -177,8 +177,15 @@ class Orderpoint(models.Model):
 
     def _quantity_in_progress(self):
         res = super(Orderpoint, self)._quantity_in_progress()
-        for poline in self.env['purchase.order.line'].search([('state','in',('draft','sent','to approve')),('orderpoint_id','in',self.ids)]):
-            res[poline.orderpoint_id.id] += poline.product_uom._compute_quantity(poline.product_qty, poline.orderpoint_id.product_uom, round=False)
+        groups = self.env['purchase.order.line'].read_group(
+            [('state', 'in', ('draft', 'sent', 'to approve')), ('orderpoint_id', 'in', self.ids), ('product_id', 'in', self.mapped('product_id').ids)],
+            ['product_id', 'product_qty', 'product_uom', 'orderpoint_id'],
+            ['orderpoint_id', 'product_id', 'product_uom'], lazy=False,
+        )
+        for group in groups:
+            orderpoint = self.browse(group['orderpoint_id'][0])
+            uom = self.env['uom.uom'].browse(group['product_uom'][0])
+            res[orderpoint.id] += uom._compute_quantity(group['product_qty'], orderpoint.product_uom, round=False) if orderpoint.product_id.id == group['product_id'][0] else 0.0
         return res
 
     def action_view_purchase(self):

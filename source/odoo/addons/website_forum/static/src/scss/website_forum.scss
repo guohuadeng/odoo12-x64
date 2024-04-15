@@ -63,6 +63,14 @@
     }
 }
 
+.question, .forum_answer {
+    .oe_no_empty::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
 img.o_forum_avatar {
     max-height: 40px;
     margin-right: 10px;
@@ -90,10 +98,10 @@ img.o_forum_avatar_big {
 }
 
 .oe_answer_true {
-    color: #3c763d;
+    color: #3c763d !important;
 
     &:hover {
-        color: #4D964E;
+        color: #4D964E !important;
     }
 }
 

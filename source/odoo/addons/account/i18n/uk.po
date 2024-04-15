@@ -8,9 +8,9 @@
 # Sergey Doroshenko <sdoroshenko@artwebny.com>, 2018
 # Oleksandr Paziuk <o.paziuk@mobilunity.com>, 2018
 # Артём Инжиянц <artem.inzhyyants@gmail.com>, 2018
-# Bohdan Lisnenko, 2018
 # Martin Trigaux, 2019
-# Alina Lisnenko <alinasemeniuk1@gmail.com>, 2019
+# Bohdan Lisnenko, 2019
+# Alina Lisnenko <alinasemeniuk1@gmail.com>, 2021
 # 
 msgid ""
 msgstr ""
@@ -18,7 +18,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-14 07:33+0000\n"
 "PO-Revision-Date: 2018-08-24 09:14+0000\n"
-"Last-Translator: Alina Lisnenko <alinasemeniuk1@gmail.com>, 2019\n"
+"Last-Translator: Alina Lisnenko <alinasemeniuk1@gmail.com>, 2021\n"
 "Language-Team: Ukrainian (https://www.transifex.com/odoo/teams/41243/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -576,6 +576,11 @@ msgstr "<span>Оригінальна сума</span>"
 #: model_terms:ir.ui.view,arch_db:account.report_invoice_document
 msgid "<span>Quantity</span>"
 msgstr "<span>Кількість</span>"
+
+#. module: account
+#: model_terms:ir.ui.view,arch_db:account.report_payment_receipt_document
+msgid "<span>Reference</span>"
+msgstr "<span>Референс</span>"
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.account_journal_dashboard_kanban_view
@@ -1438,12 +1443,12 @@ msgstr "Додаткові примітки..."
 #: selection:account.tax,type_tax_use:0
 #: selection:account.tax.template,type_tax_use:0
 msgid "Adjustment"
-msgstr "Налаштування"
+msgstr "Корегування"
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_tax_adjustments_wizard__tax_id
 msgid "Adjustment Tax"
-msgstr "Накопичувальний податок"
+msgstr "Податок корегування"
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_tax_adjustments_wizard__adjustment_type
@@ -3835,27 +3840,27 @@ msgstr "Налаштуйте вигляд ваших рахунків."
 #. module: account
 #: model:account.incoterms,name:account.incoterm_DAF
 msgid "DELIVERED AT FRONTIER"
-msgstr "ПОСТАВКА НА КОРДОН"
+msgstr "ПОСТАЧАННЯ ДО КОРДОНУ"
 
 #. module: account
 #: model:account.incoterms,name:account.incoterm_DAP
 msgid "DELIVERED AT PLACE"
-msgstr "ПОСТАВКА НА МІСЦЕ"
+msgstr "ПОСТАЧАННЯ В МІСЦІ ПРИЗНАЧЕННЯ"
 
 #. module: account
 #: model:account.incoterms,name:account.incoterm_DAT
 msgid "DELIVERED AT TERMINAL"
-msgstr "ПОСТАВКА НА ТЕРМІНАЛ"
+msgstr "ПОСТАЧАННЯ НА ТЕРМІНАЛІ"
 
 #. module: account
 #: model:account.incoterms,name:account.incoterm_DDP
 msgid "DELIVERED DUTY PAID"
-msgstr "ПОСТАВКА ЗІ СПЛАТОЮ МИТА"
+msgstr "ПОСТАЧАННЯ ЗІ СПЛАТОЮ МИТА"
 
 #. module: account
 #: model:account.incoterms,name:account.incoterm_DDU
 msgid "DELIVERED DUTY UNPAID"
-msgstr "ПОСТАВКА БЕЗ СПЛАТИ МИТА"
+msgstr "ПОСТАЧАННЯ БЕЗ СПЛАТИ МИТА"
 
 #. module: account
 #: model:account.incoterms,name:account.incoterm_DEQ
@@ -4354,7 +4359,7 @@ msgstr ""
 #: selection:res.company,account_setup_coa_state:0
 #: selection:res.company,account_setup_fy_data_state:0
 msgid "Done"
-msgstr "Готово"
+msgstr "Виконано"
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.portal_invoice_page
@@ -4465,7 +4470,7 @@ msgstr "ПДВ цифрових товарів ЄС"
 #. module: account
 #: model:account.incoterms,name:account.incoterm_EXW
 msgid "EX WORKS"
-msgstr "КОЛИШНЯ РОБОТА"
+msgstr "ПОСТАЧАННЯ ЗІ СКЛАДУ ПРОДАВЦЯ"
 
 #. module: account
 #: code:addons/account/models/chart_template.py:387
@@ -4650,17 +4655,17 @@ msgstr "Зовнішнє посилання"
 #. module: account
 #: model:account.incoterms,name:account.incoterm_FAS
 msgid "FREE ALONGSIDE SHIP"
-msgstr "ВЗДОВЖ БОРТА СУДНА"
+msgstr "ДОСТАВКА ДО СУДНА ЗАМОВНИКА"
 
 #. module: account
 #: model:account.incoterms,name:account.incoterm_FCA
 msgid "FREE CARRIER"
-msgstr "ПЕРЕВІЗНИК"
+msgstr "ДОСТАВКА ПЕРЕВІЗНИКУ ЗАМОВНИКА"
 
 #. module: account
 #: model:account.incoterms,name:account.incoterm_FOB
 msgid "FREE ON BOARD"
-msgstr "БОРТ"
+msgstr "ЗАВАНТАЖЕННЯ НА СУДНО ЗАМОВНИКА"
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_invoice_send__starred_partner_ids
@@ -4737,6 +4742,7 @@ msgstr "Фінансові періоди"
 #: model:ir.model.fields,field_description:account.field_account_invoice_report__fiscal_position_id
 #: model:ir.model.fields,field_description:account.field_res_partner__property_account_position_id
 #: model:ir.model.fields,field_description:account.field_res_users__property_account_position_id
+#: model_terms:ir.ui.view,arch_db:account.view_account_position_filter
 #: model_terms:ir.ui.view,arch_db:account.view_account_position_form
 #: model_terms:ir.ui.view,arch_db:account.view_account_position_template_search
 #: model_terms:ir.ui.view,arch_db:account.view_account_position_template_tree
@@ -6547,7 +6553,7 @@ msgid ""
 msgstr ""
 "Востаннє для цього партнера виконано звірку рахунків-фактур та платежів. "
 "Вона виконується, якщо у вас немає принаймні неузгодженого дебету та "
-"кредиту, або якщо ви натискаєте кнопку \"Готово\"."
+"кредиту, або якщо ви натискаєте кнопку \"Виконано\"."
 
 #. module: account
 #: model:ir.model.fields,help:account.field_account_account__last_time_entries_checked
@@ -6558,7 +6564,7 @@ msgid ""
 msgstr ""
 "Востаннє звірку рахунків-фактури та платежів було виконано на цьому рахунку."
 " Він виконується, якщо не існує неузгодженого дебету та кредиту, або якщо ви"
-" натискаєте кнопку \"Готово\"."
+" натискаєте кнопку \"Виконано\"."
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.view_account_invoice_filter
@@ -8158,6 +8164,12 @@ msgid ""
 "proceeding."
 msgstr ""
 "Перш ніж продовжувати, встановіть план рахунків або створіть інший журнал."
+
+#. module: account
+#: code:addons/account/models/account_cash_rounding.py:33
+#, python-format
+msgid "Please set a strictly positive rounding value."
+msgstr "Створіть значення округлення виключно більше нуля."
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.report_invoice_document
@@ -10061,11 +10073,11 @@ msgstr ""
 #: model:ir.model.fields,help:account.field_account_payment__multi
 #: model:ir.model.fields,help:account.field_account_register_payments__multi
 msgid ""
-"Technical field indicating if the user selected invoices from multiple "
-"partners or from different types."
+"Technical field indicating if the registering payment will generate multiple"
+" payments or not."
 msgstr ""
-"Технічне поле, яке показує, чи користувач вибрав рахунки від декількох "
-"партнерів або з різних типів."
+"Технічне поле, яке вказує, чи буде зареєстрований платіж генерувати кілька "
+"платежів чи ні."
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_invoice_refund__refund_only
@@ -10534,8 +10546,14 @@ msgstr ""
 #. module: account
 #: code:addons/account/models/account.py:564
 #, python-format
-msgid "The holder of a journal's bank account must be the company (%s)."
-msgstr "В журналі власником банківського рахунку має бути компанія (%s)."
+msgid ""
+"The holder of the bank account of a \"Bank\" type journal must be the company (%s).\n"
+"However, the holder of \"%s\" is \"%s\".\n"
+"Please select another bank account or change the holder of \"%s\"."
+msgstr ""
+"Власником журналу банківського рахунку типу \"Банк\" повинна бути компанія (%s).\n"
+"Однак власником \"%s\" є \"%s\".\n"
+"Виберіть інший банківський рахунок або змініть власника \"%s\"."
 
 #. module: account
 #: model:ir.model.fields,help:account.field_account_invoice_line__account_id
@@ -12034,6 +12052,14 @@ msgid ""
 msgstr ""
 "Не можна перекривати два звітні періоди, виправте початкову та/або кінцеву "
 "дату звітного періоду."
+
+#. module: account
+#: code:addons/account/models/partner.py:441
+#, python-format
+msgid ""
+"You can't change the company of a partner if the latter already has some "
+"invoices."
+msgstr ""
 
 #. module: account
 #: code:addons/account/models/account_invoice.py:1784

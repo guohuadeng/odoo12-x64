@@ -78,7 +78,7 @@ class PaymentTransaction(models.Model):
     def _check_amount_and_confirm_order(self):
         self.ensure_one()
         for order in self.sale_order_ids.filtered(lambda so: so.state in ('draft', 'sent')):
-            if float_compare(self.amount, order.amount_total, 2) == 0:
+            if order.currency_id.compare_amounts(self.amount, order.amount_total) == 0:
                 order.with_context(send_email=True).action_confirm()
             else:
                 _logger.warning(
@@ -169,8 +169,8 @@ class PaymentTransaction(models.Model):
 
     def render_sale_button(self, order, submit_txt=None, render_values=None):
         values = {
-            'partner_id': order.partner_shipping_id.id or order.partner_invoice_id.id,
-            'billing_partner_id': order.partner_invoice_id.id,
+            'partner_id': order.partner_id.id,
+            'type': self.type,
         }
         if render_values:
             values.update(render_values)

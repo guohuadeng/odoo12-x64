@@ -5,18 +5,19 @@
 # Translators:
 # Malik K, 2018
 # Nemanja Dragovic <nemanjadragovic94@gmail.com>, 2018
-# Igor Krizanovic <krizanovic.igor@gmail.com>, 2019
-# Martin Trigaux, 2019
 # Boško Stojaković <bluesoft83@gmail.com>, 2019
 # Bole <bole@dajmi5.com>, 2019
+# Igor Krizanovic <krizanovic.igor@gmail.com>, 2019
+# Martin Trigaux, 2019
+# Ervin Cerović, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-14 08:02+0000\n"
+"POT-Creation-Date: 2019-12-10 14:44+0000\n"
 "PO-Revision-Date: 2018-08-24 09:14+0000\n"
-"Last-Translator: Bole <bole@dajmi5.com>, 2019\n"
+"Last-Translator: Ervin Cerović, 2021\n"
 "Language-Team: Bosnian (https://www.transifex.com/odoo/teams/41243/bs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -86,6 +87,93 @@ msgid ""
 " - Hungarian taxes\n"
 " - Hungarian Bank information\n"
 " "
+msgstr ""
+
+#. module: base
+#: model:ir.module.module,description:base.module_l10n_dk
+msgid ""
+"\n"
+"\n"
+"Localization Module for Denmark\n"
+"===============================\n"
+"\n"
+"This is the module to manage the **accounting chart for Denmark**. Cover both one-man business as well as I/S, IVS, ApS and A/S\n"
+"\n"
+"**Modulet opsætter:**\n"
+"\n"
+"- **Dansk kontoplan**\n"
+"\n"
+"- Dansk moms\n"
+"        - 25% moms\n"
+"        - Resturationsmoms 6,25%\n"
+"        - Omvendt betalingspligt\n"
+"        \n"
+"- Konteringsgrupper\n"
+"        - EU (Virksomhed)\n"
+"        - EU (Privat)\n"
+"        - 3.lande\n"
+"\n"
+"- Finans raporter\n"
+"        - Resulttopgørelse\n"
+"        - Balance\n"
+"        - Momsafregning\n"
+"            - Afregning\n"
+"            - Rubrik A, B og C\n"
+"\n"
+"- **Anglo-Saxon regnskabsmetode**\n"
+"\n"
+".\n"
+"\n"
+"Produkt setup:\n"
+"==============\n"
+"\n"
+"**Vare**\n"
+"\n"
+"**Salgsmoms:**      Salgmoms 25%\n"
+"\n"
+"**Salgskonto:**     1010 Salg af vare, m/moms\n"
+"\n"
+"**Købsmoms:**       Købsmoms 25%\n"
+"\n"
+"**Købskonto:**      2010 Direkte omkostninger vare, m/moms\n"
+"\n"
+".\n"
+"\n"
+"**Ydelse**\n"
+"\n"
+"**Salgsmoms:**      Salgmoms 25%, ydelser\n"
+"\n"
+"**Salgskonto:**     1011 Salg af ydelser, m/moms\n"
+"\n"
+"**Købsmoms:**       Købsmoms 25%, ydelser\n"
+"\n"
+"**Købskonto:**      2011 Direkte omkostninger ydelser, m/moms\n"
+"\n"
+".\n"
+"\n"
+"**Vare med omvendt betalingspligt**\n"
+"\n"
+"**Salgsmoms:**      Salg omvendt betalingspligt\n"
+"\n"
+"**Salgskonto:**     1012 Salg af vare, u/moms\n"
+"\n"
+"**Købsmoms:**       Køb omvendt betalingspligt\n"
+"\n"
+"**Købskonto:**      2012 Direkte omkostninger vare, u/moms\n"
+"\n"
+"\n"
+".\n"
+"\n"
+"**Restauration**\n"
+"\n"
+"**Købsmoms:**       Restaurationsmoms 6,25%, købsmoms\n"
+"\n"
+"**Købskonto:**      4010 Restaurationsbesøg\n"
+"\n"
+".\n"
+"\n"
+"Copyright 2018 Odoo House ApS\n"
+"    "
 msgstr ""
 
 #. module: base
@@ -504,6 +592,15 @@ msgstr ""
 msgid ""
 "\n"
 "        Correct address formating when both modules are installed"
+msgstr ""
+
+#. module: base
+#: model:ir.module.module,description:base.module_product_unspsc
+msgid ""
+"\n"
+"        Countries like Colombia, Peru and Mexico need to be able to use the \n"
+"        UNSPSC code for their products and uoms.  \n"
+"    "
 msgstr ""
 
 #. module: base
@@ -1078,6 +1175,15 @@ msgid ""
 "\n"
 "Accounting reports for Croatia\n"
 "================================\n"
+"    "
+msgstr ""
+
+#. module: base
+#: model:ir.module.module,description:base.module_l10n_dk_reports
+msgid ""
+"\n"
+"Accounting reports for Denmark\n"
+"=================================\n"
 "    "
 msgstr ""
 
@@ -3976,6 +4082,16 @@ msgid ""
 msgstr ""
 
 #. module: base
+#: model:ir.module.module,description:base.module_l10n_id
+msgid ""
+"\n"
+"This is the latest Indonesian Odoo localisation necessary to run Odoo accounting for SMEs with:\n"
+"=================================================================================================\n"
+"    - generic Indonesian chart of accounts\n"
+"    - tax structure"
+msgstr ""
+
+#. module: base
 #: model:ir.module.module,description:base.module_l10n_uk
 msgid ""
 "\n"
@@ -6037,7 +6153,7 @@ msgstr "Pristupni token"
 #. module: base
 #: model:res.groups,name:base.group_private_addresses
 msgid "Access to Private Addresses"
-msgstr ""
+msgstr "Pristup privatnim adresama"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_account_analytic_default
@@ -6062,7 +6178,7 @@ msgstr "Nosioc računa"
 #. module: base
 #: model:ir.model.fields,field_description:base.field_res_partner_bank__acc_holder_name
 msgid "Account Holder Name"
-msgstr ""
+msgstr "Ime vlasnika računa"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_account_invoice_extract
@@ -6087,7 +6203,7 @@ msgstr "Broj računa mora biti jedinstven"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_account_taxcloud
 msgid "Account TaxCloud"
-msgstr ""
+msgstr "Račun poreznog oblaka"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_website_sale_account_taxcloud
@@ -6109,7 +6225,7 @@ msgstr ""
 msgid ""
 "Account holder name, in case it is different than the name of the Account "
 "Holder"
-msgstr ""
+msgstr "Ime vlasnika računa, u slučaju da se ono razlike od računa vlasnika"
 
 #. module: base
 #: model:ir.module.category,name:base.module_category_accounting
@@ -6771,7 +6887,7 @@ msgstr "Aplikacija"
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.user_groups_view
 msgid "Application Accesses"
-msgstr ""
+msgstr "Pristup aplikaciji"
 
 #. module: base
 #: model:ir.ui.menu,name:base.menu_translation_app
@@ -8251,6 +8367,11 @@ msgid "Colombian Localization for EDI documents"
 msgstr ""
 
 #. module: base
+#: model:ir.module.module,summary:base.module_l10n_co_edi_ubl_2_1
+msgid "Colombian Localization for EDI documents UBL 2.1"
+msgstr ""
+
+#. module: base
 #: model:ir.model.fields,field_description:base.field_res_groups__color
 #: model:ir.model.fields,field_description:base.field_res_partner__color
 #: model:ir.model.fields,field_description:base.field_res_partner_category__color
@@ -8378,7 +8499,7 @@ msgstr "Naziv firme"
 #: model:ir.model.fields,field_description:base.field_res_partner__commercial_company_name
 #: model:ir.model.fields,field_description:base.field_res_users__commercial_company_name
 msgid "Company Name Entity"
-msgstr ""
+msgstr "Entitetski naziv kompanije"
 
 #. module: base
 #: model:ir.actions.act_window,name:base.ir_property_form
@@ -9665,6 +9786,16 @@ msgid "Denmark"
 msgstr ""
 
 #. module: base
+#: model:ir.module.module,shortdesc:base.module_l10n_dk
+msgid "Denmark - Accounting"
+msgstr ""
+
+#. module: base
+#: model:ir.module.module,shortdesc:base.module_l10n_dk_reports
+msgid "Denmark - Accounting Reports"
+msgstr ""
+
+#. module: base
 #: model:ir.model.fields,field_description:base.field_ir_model_fields__depends
 #: model:ir.model.fields,field_description:base.field_ir_module_module__dependencies_id
 #: model_terms:ir.ui.view,arch_db:base.module_form
@@ -10493,8 +10624,13 @@ msgid "Electronic invoicing for Colombia with Carvajal"
 msgstr ""
 
 #. module: base
-#: code:addons/base/models/ir_ui_view.py:619
-#: code:addons/base/models/ir_ui_view.py:700
+#: model:ir.module.module,shortdesc:base.module_l10n_co_edi_ubl_2_1
+msgid "Electronic invoicing for Colombia with Carvajal UBL 2.1"
+msgstr ""
+
+#. module: base
+#: code:addons/base/models/ir_ui_view.py:629
+#: code:addons/base/models/ir_ui_view.py:720
 #, python-format
 msgid "Element '%s' cannot be located in parent view"
 msgstr "Element '%s' ne može biti pronađen u nadređenom pogledu"
@@ -11354,7 +11490,19 @@ msgid "File Size"
 msgstr "Veličine datoteke"
 
 #. module: base
-#: code:addons/base/wizard/base_import_language.py:44
+#: code:addons/base/wizard/base_import_language.py:45
+#, python-format
+msgid ""
+"File not imported due to a malformed file.\n"
+"\n"
+"This issue can be caused by duplicates entries who are referring to the same field. Please check the content of the file you are trying to import.\n"
+"\n"
+"Technical Details:\n"
+"%s"
+msgstr ""
+
+#. module: base
+#: code:addons/base/wizard/base_import_language.py:51
 #, python-format
 msgid ""
 "File not imported due to format mismatch or a malformed file. (Valid formats are .csv, .po, .pot)\n"
@@ -11421,7 +11569,7 @@ msgstr ""
 #. module: base
 #: model:ir.module.module,summary:base.module_web_unsplash
 msgid "Find free high-resolution images from Unsplash"
-msgstr ""
+msgstr "Pronađite besplatne slike visoke rezolucije iz programa Unsplash"
 
 #. module: base
 #: selection:base.partner.merge.automatic.wizard,state:0
@@ -12029,7 +12177,7 @@ msgstr "Google Mape"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_google_spreadsheet
 msgid "Google Spreadsheet"
-msgstr "Google Spreadsheet"
+msgstr "Google proračunska tablica"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_google_account
@@ -13112,6 +13260,11 @@ msgstr ""
 #. module: base
 #: model:res.country,name:base.id
 msgid "Indonesia"
+msgstr ""
+
+#. module: base
+#: model:ir.module.module,shortdesc:base.module_l10n_id
+msgid "Indonesian - Accounting"
 msgstr ""
 
 #. module: base
@@ -14926,7 +15079,7 @@ msgstr "Poruka"
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.view_users_form
 msgid "Messaging and Social"
-msgstr ""
+msgstr "Poruke i društvene mreže"
 
 #. module: base
 #: code:addons/base/models/res_config.py:548
@@ -17622,7 +17775,7 @@ msgstr "Titule partnera"
 #. module: base
 #: model:ir.model.fields,field_description:base.field_res_users__active_partner
 msgid "Partner is Active"
-msgstr ""
+msgstr "Partner je aktivan"
 
 #. module: base
 #: model:ir.module.module,summary:base.module_website_partner
@@ -19473,7 +19626,7 @@ msgstr ""
 #: model:ir.module.module,description:base.module_calendar_sms
 #: model:ir.module.module,summary:base.module_calendar_sms
 msgid "Send text messages as event reminders"
-msgstr ""
+msgstr "Pošaljite tekstualne poruke kao podsjetnik događaja"
 
 #. module: base
 #: model:ir.module.module,description:base.module_delivery_easypost
@@ -20050,7 +20203,7 @@ msgstr ""
 #. module: base
 #: model:ir.model.fields,field_description:base.field_res_company__base_onboarding_company_state
 msgid "State of the onboarding company step"
-msgstr ""
+msgstr "Stanje kompanije"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_res_country__state_ids
@@ -20084,6 +20237,11 @@ msgstr "Korak ne može biti 0."
 #: model:ir.module.module,summary:base.module_note_pad
 msgid "Sticky memos, Collaborative"
 msgstr "Ljepljivi podsjetnici, Kolaborativni"
+
+#. module: base
+#: model:ir.module.category,name:base.module_category_stock
+msgid "Stock"
+msgstr "Zaliha"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_stock_barcode_mobile
@@ -20178,6 +20336,11 @@ msgstr "Strukturno polje modela"
 #: model:ir.module.module,shortdesc:base.module_web_studio
 msgid "Studio"
 msgstr "Studio"
+
+#. module: base
+#: model:ir.module.module,shortdesc:base.module_studio_customization
+msgid "Studio customizations"
+msgstr ""
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.edit_menu_access
@@ -21337,9 +21500,23 @@ msgid "The internal user in charge of this contact."
 msgstr "Interni korisnik je zadužen za ovaj kontakt."
 
 #. module: base
+#: code:addons/base/models/res_country.py:106
+#, python-format
+msgid "The layout contains an invalid format key"
+msgstr ""
+
+#. module: base
 #: model:ir.model.fields,help:base.field_ir_model__inherited_model_ids
 msgid "The list of models that extends the current model."
 msgstr "Lista modela koji proširuju trenutni model."
+
+#. module: base
+#: code:addons/base/models/ir_model.py:522
+#, python-format
+msgid ""
+"The m2o field %s is required but declares its ondelete policy as being 'set "
+"null'. Only 'restrict' and 'cascade' make sense."
+msgstr ""
 
 #. module: base
 #: model:ir.model.fields,help:base.field_ir_filters__action_id
@@ -21755,6 +21932,13 @@ msgstr ""
 msgid ""
 "This module ensures that when delivery price is computed online, and taxes are computed with TaxCloud, the tax computation is done correctly on both the order and delivery.\n"
 "    "
+msgstr ""
+
+#. module: base
+#: model:ir.module.module,description:base.module_studio_customization
+msgid ""
+"This module has been generated by Odoo Studio.\n"
+"It contains the apps created with Studio and the customizations of existing apps."
 msgstr ""
 
 #. module: base
@@ -22245,6 +22429,12 @@ msgid "UK - Accounting Reports to HMRC"
 msgstr ""
 
 #. module: base
+#: model:ir.module.module,shortdesc:base.module_product_unspsc
+#: model:ir.module.module,summary:base.module_product_unspsc
+msgid "UNSPSC product codes"
+msgstr ""
+
+#. module: base
 #: model:ir.module.module,shortdesc:base.module_delivery_ups
 msgid "UPS Shipping"
 msgstr ""
@@ -22409,14 +22599,22 @@ msgid "Units of measure"
 msgstr "Jedinice mjera"
 
 #. module: base
+#: code:addons/model.py:143 code:addons/model.py:152 code:addons/model.py:153
 #: model:ir.model,name:base.model__unknown
 #: selection:ir.module.module.dependency,state:0
 #: selection:ir.module.module.exclusion,state:0
+#, python-format
 msgid "Unknown"
 msgstr "Nepoznat"
 
 #. module: base
-#: code:addons/models.py:1058
+#: code:addons/models.py:873
+#, python-format
+msgid "Unknown database error: '%s'"
+msgstr ""
+
+#. module: base
+#: code:addons/models.py:1067
 #, python-format
 msgid "Unknown database identifier '%s'"
 msgstr "Nepoznat identifikator baze podataka '%s'"
@@ -22463,7 +22661,7 @@ msgstr "Nepoznato proširenje: mora biti .csv, .po, ili .tgz (primljeno .%s)."
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_web_unsplash
 msgid "Unsplash Image Library"
-msgstr ""
+msgstr "Unsplash biblioteka slika"
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.view_translation_search
@@ -23496,8 +23694,8 @@ msgstr "Ne možete aktivirati super korisnika."
 #. module: base
 #: code:addons/base/models/res_partner.py:509
 #, python-format
-msgid "You cannot archive a contact linked to an internal user."
-msgstr "Ne možete arhivirati kontakta koji je povezan sa internim korisnikom."
+msgid "You cannot archive a contact linked to a portal or internal user."
+msgstr ""
 
 #. module: base
 #: code:addons/base/models/res_partner.py:330
@@ -23982,6 +24180,11 @@ msgid "selection"
 msgstr "odabir"
 
 #. module: base
+#: selection:ir.model.fields,ttype:0
+msgid "serialized"
+msgstr ""
+
+#. module: base
 #: model:ir.module.module,shortdesc:base.module_snailmail_account
 msgid "snailmail_account"
 msgstr ""
@@ -23989,11 +24192,6 @@ msgstr ""
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_social_media
 msgid "social_media"
-msgstr ""
-
-#. module: base
-#: model:ir.module.category,name:base.module_category_stock
-msgid "stock"
 msgstr ""
 
 #. module: base
@@ -24052,8 +24250,18 @@ msgid "test-inherits"
 msgstr ""
 
 #. module: base
+#: model:ir.module.module,shortdesc:base.module_test_inherits_depends
+msgid "test-inherits-depends"
+msgstr ""
+
+#. module: base
 #: model:ir.module.module,shortdesc:base.module_test_limits
 msgid "test-limits"
+msgstr ""
+
+#. module: base
+#: model:ir.module.module,shortdesc:base.module_test_lint
+msgid "test-lint"
 msgstr ""
 
 #. module: base

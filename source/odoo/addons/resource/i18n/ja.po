@@ -4,16 +4,21 @@
 # 
 # Translators:
 # Martin Trigaux, 2018
-# Yoshi Tashiro <tashiro@roomsfor.hk>, 2018
 # Manami Hashi <manami@roomsfor.hk>, 2018
 # Norimichi Sugimoto <norimichi.sugimoto@tls-ltd.co.jp>, 2018
+# Yoshi Tashiro (Quartile) <tashiro@roomsfor.hk>, 2020
+# Noma Yuki, 2020
+# Shigekazu N. <shigekazu.noka@gmail.com>, 2020
+# Abe Tomohiro <tomohiro@quartile.co>, 2021
+# Ryoko Tsuda <ryoko@quartile.co>, 2021
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server saas~11.5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-09-21 13:17+0000\n"
-"PO-Revision-Date: 2018-09-21 13:17+0000\n"
-"Last-Translator: Norimichi Sugimoto <norimichi.sugimoto@tls-ltd.co.jp>, 2018\n"
+"PO-Revision-Date: 2018-08-24 09:24+0000\n"
+"Last-Translator: Ryoko Tsuda <ryoko@quartile.co>, 2021\n"
 "Language-Team: Japanese (https://www.transifex.com/odoo/teams/41243/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -35,7 +40,7 @@ msgstr "有効"
 #. module: resource
 #: selection:resource.calendar.attendance,day_period:0
 msgid "Afternoon"
-msgstr ""
+msgstr "午後"
 
 #. module: resource
 #: model:ir.model.fields,field_description:resource.field_resource_calendar__hours_per_day
@@ -101,7 +106,7 @@ msgstr "曜日"
 #: model:ir.model.fields,field_description:resource.field_res_company__resource_calendar_id
 #: model:ir.model.fields,field_description:resource.field_res_users__resource_calendar_id
 msgid "Default Working Hours"
-msgstr ""
+msgstr "労働時間のデフォルト値"
 
 #. module: resource
 #: model:ir.model.fields,help:resource.field_res_users__resource_calendar_id
@@ -154,7 +159,7 @@ msgstr ""
 #: code:addons/resource/models/resource.py:165
 #, python-format
 msgid "Friday Morning"
-msgstr ""
+msgstr "金曜 午前"
 
 #. module: resource
 #: model:ir.model.fields,field_description:resource.field_resource_calendar__global_leave_ids
@@ -277,12 +282,12 @@ msgstr ""
 #: code:addons/resource/models/resource.py:157
 #, python-format
 msgid "Monday Morning"
-msgstr ""
+msgstr "月曜 午前"
 
 #. module: resource
 #: selection:resource.calendar.attendance,day_period:0
 msgid "Morning"
-msgstr ""
+msgstr "午前"
 
 #. module: resource
 #: model:ir.model.fields,field_description:resource.field_resource_calendar__name
@@ -456,7 +461,7 @@ msgstr ""
 msgid ""
 "This field is used in order to define in which timezone the resources will "
 "work."
-msgstr ""
+msgstr "このフィールドは、その人材が勤務するタイムゾーンを定義するために、用いられます。"
 
 #. module: resource
 #: model:ir.model.fields,help:resource.field_resource_resource__time_efficiency
@@ -483,7 +488,7 @@ msgstr ""
 #: code:addons/resource/models/resource.py:163
 #, python-format
 msgid "Thursday Morning"
-msgstr ""
+msgstr "木曜 午前"
 
 #. module: resource
 #: model:ir.model.fields,field_description:resource.field_resource_calendar_leaves__time_type
@@ -518,7 +523,7 @@ msgstr ""
 #: code:addons/resource/models/resource.py:159
 #, python-format
 msgid "Tuesday Morning"
-msgstr ""
+msgstr "火曜 午前"
 
 #. module: resource
 #: model_terms:ir.ui.view,arch_db:resource.view_resource_resource_search
@@ -551,13 +556,13 @@ msgstr ""
 #: code:addons/resource/models/resource.py:161
 #, python-format
 msgid "Wednesday Morning"
-msgstr ""
+msgstr "水曜 午前"
 
 #. module: resource
 #: model:ir.model.fields,help:resource.field_resource_calendar_leaves__time_type
 msgid ""
 "Whether this should be computed as a holiday or as work time (eg: formation)"
-msgstr ""
+msgstr "これを休日として計算するか、勤務時間として計算するか(例:フォーメーション)"
 
 #. module: resource
 #: model:ir.model,name:resource.model_resource_calendar_attendance
@@ -614,4 +619,4 @@ msgstr "作業時間"
 #: model:ir.actions.act_window,name:resource.action_resource_calendar_form
 #: model:ir.ui.menu,name:resource.menu_resource_calendar
 msgid "Working Times"
-msgstr ""
+msgstr "労働時間"

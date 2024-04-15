@@ -9,8 +9,10 @@
 # Marko Carević <marko.carevic@live.com>, 2019
 # Mario Jureša <mario.juresa@uvid.hr>, 2019
 # Tina Milas, 2019
-# Bole <bole@dajmi5.com>, 2019
 # Vladimir Olujić <olujic.vladimir@storm.hr>, 2019
+# Miro Sertić, 2020
+# Bole <bole@dajmi5.com>, 2021
+# Hrvoje Sić <hrvoje.sic@gmail.com>, 2021
 # 
 msgid ""
 msgstr ""
@@ -18,7 +20,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-09 10:32+0000\n"
 "PO-Revision-Date: 2018-08-24 09:25+0000\n"
-"Last-Translator: Vladimir Olujić <olujic.vladimir@storm.hr>, 2019\n"
+"Last-Translator: Hrvoje Sić <hrvoje.sic@gmail.com>, 2021\n"
 "Language-Team: Croatian (https://www.transifex.com/odoo/teams/41243/hr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -48,6 +50,8 @@ msgid ""
 "<span class=\"badge badge-danger label-text-align\"><i class=\"fa fa-fw fa-"
 "times\"/> Cancelled</span>"
 msgstr ""
+"<span class=\"badge badge-danger label-text-align\"><i class=\"fa fa-fw fa-"
+"times\"/> Otkazano</span>"
 
 #. module: sale_stock
 #: model_terms:ir.ui.view,arch_db:sale_stock.sale_order_portal_content_inherit_sale_stock
@@ -92,7 +96,7 @@ msgstr ""
 #. module: sale_stock
 #: model_terms:ir.ui.view,arch_db:sale_stock.stock_production_lot_view_form
 msgid "<span class=\"o_stat_text\">Sale Orders</span>"
-msgstr ""
+msgstr "<span class=\"o_stat_text\">Ponude</span>"
 
 #. module: sale_stock
 #: model_terms:ir.ui.view,arch_db:sale_stock.product_template_view_form_inherit_stock
@@ -124,6 +128,11 @@ msgid ""
 "  - Timesheet: the quantity is the sum of hours recorded on tasks linked to this sale line\n"
 "  - Stock Moves: the quantity comes from confirmed pickings\n"
 msgstr ""
+"Prema konfiguraciji proizvoda, isporučena količina može se automatski izračunati mehanizmom:\n"
+"- Ručno: količina se postavlja ručno na liniji\n"
+"- Analitički iz troškova: količina je količinski zbroj knjiženih troškova\n"
+"- Vremenski list: količina je zbroj sati zabilježenih na zadacima povezanim s ovom prodajnom  stavkom\n"
+"- Premještanje zaliha: količina dolazi iz potvrđenih izbora\n"
 
 #. module: sale_stock
 #: model:ir.ui.menu,name:sale_stock.menu_aftersale
@@ -133,7 +142,7 @@ msgstr "Post-prodaja"
 #. module: sale_stock
 #: selection:sale.order.line,qty_delivered_method:0
 msgid "Analytic From Expenses"
-msgstr ""
+msgstr "Analitika iz troškova"
 
 #. module: sale_stock
 #: model_terms:ir.ui.view,arch_db:sale_stock.res_config_settings_view_form_sale
@@ -143,7 +152,7 @@ msgstr ""
 #. module: sale_stock
 #: model:ir.model.fields,field_description:sale_stock.field_stock_rules_report__so_route_ids
 msgid "Apply specific rotues"
-msgstr ""
+msgstr "Primjeni odabrane rute"
 
 #. module: sale_stock
 #: model:ir.model.fields,help:sale_stock.field_stock_rules_report__so_route_ids
@@ -305,7 +314,7 @@ msgstr "Ručno"
 #. module: sale_stock
 #: model_terms:ir.ui.view,arch_db:sale_stock.exception_on_so
 msgid "Manual actions may be needed."
-msgstr ""
+msgstr "Moglo bi biti potrebno manualno dopuniti."
 
 #. module: sale_stock
 #: model:ir.model.fields,help:sale_stock.field_res_config_settings__use_security_lead
@@ -328,7 +337,7 @@ msgstr ""
 #. module: sale_stock
 #: model:ir.model.fields,field_description:sale_stock.field_sale_order_line__qty_delivered_method
 msgid "Method to update delivered qty"
-msgstr ""
+msgstr "Način ažuriranja isporučene količine"
 
 #. module: sale_stock
 #: model_terms:ir.ui.view,arch_db:sale_stock.res_config_settings_view_form_stock
@@ -400,7 +409,7 @@ msgstr ""
 #. module: sale_stock
 #: model:ir.model.fields,field_description:sale_stock.field_stock_move__sale_line_id
 msgid "Sale Line"
-msgstr ""
+msgstr "Stavka prodaje"
 
 #. module: sale_stock
 #: model:ir.model,name:sale_stock.model_sale_order
@@ -416,12 +425,12 @@ msgstr "Prodajni nalozi"
 #. module: sale_stock
 #: model:ir.model.fields,field_description:sale_stock.field_stock_production_lot__sale_order_count
 msgid "Sale order count"
-msgstr ""
+msgstr "Broj prodajnih naloga"
 
 #. module: sale_stock
 #: model:ir.model,name:sale_stock.model_sale_report
 msgid "Sales Analysis Report"
-msgstr ""
+msgstr "Izvještaj analize prodaje"
 
 #. module: sale_stock
 #: model:ir.model.fields,field_description:sale_stock.field_stock_picking__sale_id
@@ -471,7 +480,7 @@ msgstr "Mogućnost odabira u retku prodajnog naloga"
 #. module: sale_stock
 #: selection:res.config.settings,default_picking_policy:0
 msgid "Ship all products at once"
-msgstr ""
+msgstr "Isporuči sve proizvode odjednom"
 
 #. module: sale_stock
 #: selection:res.config.settings,default_picking_policy:0
@@ -486,7 +495,7 @@ msgstr "Pravila otpreme"
 #. module: sale_stock
 #: model_terms:ir.ui.view,arch_db:sale_stock.product_template_view_form_inherit_stock
 msgid "Sold in the last 365 days"
-msgstr ""
+msgstr "Prodano u zadnjih 365 dana"
 
 #. module: sale_stock
 #: model:ir.model,name:sale_stock.model_stock_move
@@ -507,7 +516,7 @@ msgstr "Skladišno pravilo"
 #. module: sale_stock
 #: model:ir.model,name:sale_stock.model_stock_rules_report
 msgid "Stock Rules report"
-msgstr ""
+msgstr "Izvještaj skladišnih pravila"
 
 #. module: sale_stock
 #: model:ir.model,name:sale_stock.model_report_stock_report_stock_rule
@@ -560,12 +569,12 @@ msgstr "Upozorenje!"
 #. module: sale_stock
 #: model_terms:ir.ui.view,arch_db:sale_stock.res_config_settings_view_form_stock
 msgid "When to reserve sold products"
-msgstr ""
+msgstr "Kada rezerviram prodane proizvode"
 
 #. module: sale_stock
 #: model_terms:ir.ui.view,arch_db:sale_stock.res_config_settings_view_form_stock
 msgid "When to start shipping"
-msgstr ""
+msgstr "Kada kreće isporuka"
 
 #. module: sale_stock
 #: code:addons/sale_stock/models/sale_order.py:295
@@ -592,11 +601,12 @@ msgid ""
 "You plan to sell %s %s of %s but you only have %s %s available in %s "
 "warehouse."
 msgstr ""
+"Namjeravate prodati %s%s od %s ali imate samo %s%s dostupno u %s skladištu."
 
 #. module: sale_stock
 #: model_terms:ir.ui.view,arch_db:sale_stock.exception_on_so
 msgid "cancelled"
-msgstr ""
+msgstr "otkazano"
 
 #. module: sale_stock
 #: model_terms:ir.ui.view,arch_db:sale_stock.res_config_settings_view_form_stock
@@ -612,7 +622,7 @@ msgstr "od"
 #. module: sale_stock
 #: model_terms:ir.ui.view,arch_db:sale_stock.exception_on_so
 msgid "ordered instead of"
-msgstr ""
+msgstr "naručeno umjesto"
 
 #. module: sale_stock
 #: model_terms:ir.ui.view,arch_db:sale_stock.exception_on_picking

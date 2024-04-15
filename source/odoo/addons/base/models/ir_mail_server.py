@@ -7,7 +7,7 @@ from email.header import Header
 from email.mime.base import MIMEBase
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
-from email.utils import COMMASPACE, formataddr, formatdate, getaddresses, make_msgid
+from email.utils import COMMASPACE, formatdate, getaddresses, make_msgid
 import logging
 import re
 import smtplib
@@ -17,7 +17,7 @@ import html2text
 
 from odoo import api, fields, models, tools, _
 from odoo.exceptions import except_orm, UserError
-from odoo.tools import ustr, pycompat
+from odoo.tools import ustr, pycompat, formataddr, encapsulate_email, email_domain_extract
 
 _logger = logging.getLogger(__name__)
 _test_logger = logging.getLogger('odoo.tests')
@@ -108,22 +108,8 @@ def encode_rfc2822_address_header(header_text):
     """
     def encode_addr(addr):
         name, email = addr
-        # If s is a <text string>, then charset is a hint specifying the
-        # character set of the characters in the string. The Unicode string
-        # will be encoded using the following charsets in order: us-ascii,
-        # the charset hint, utf-8. The first character set to not provoke a
-        # UnicodeError is used.
-        # -> always pass a text string to Header
-
-        # also Header.__str__ in Python 3 "Returns an approximation of the
-        # Header as a string, using an unlimited line length.", the old one
-        # was "A synonym for Header.encode()." so call encode() directly?
-        name = Header(pycompat.to_text(name)).encode()
-        # if the from does not follow the (name <addr>),* convention, we might
-        # try to encode meaningless strings as address, as getaddresses is naive
-        # note it would also fail on real addresses with non-ascii characters
         try:
-            return formataddr((name, email))
+            return formataddr((name, email), 'ascii')
         except UnicodeEncodeError:
             _logger.warning(_('Failed to encode the address %s\n'
                               'from mail header:\n%s') % (addr, header_text))
@@ -342,8 +328,14 @@ class IrMailServer(models.Model):
         msg['Message-Id'] = encode_header(message_id)
         if references:
             msg['references'] = encode_header(references)
+
+        email_from = encode_rfc2822_address_header(email_from)
+        email_from, return_path = self._get_email_from(email_from)
+        msg['From'] = email_from
+        if return_path:
+            headers.setdefault('Return-Path', return_path)
+
         msg['Subject'] = encode_header(subject)
-        msg['From'] = encode_rfc2822_address_header(email_from)
         del msg['Reply-To']
         if reply_to:
             msg['Reply-To'] = encode_rfc2822_address_header(reply_to)
@@ -395,6 +387,35 @@ class IrMailServer(models.Model):
                 encoders.encode_base64(part)
                 msg.attach(part)
         return msg
+
+    def _get_email_from(self, email_from):
+        """Logic which determines which email to use when sending the email.
+
+        - If the system parameter `mail.force.smtp.from` is set we encapsulate all
+          outgoing email from
+        - If the previous system parameter is not set and if both `mail.dynamic.smtp.from`
+          and `mail.catchall.domain` are set, we encapsulate the FROM only if the domain
+          of the email is not the same as the domain of the catchall parameter
+        - Otherwise we do not encapsulate the email and given email_from is used as is
+
+        :param email_from: The initial FROM headers
+        :return: The FROM to used in the headers and optionally the Return-Path
+        """
+        force_smtp_from = self.env['ir.config_parameter'].sudo().get_param('mail.force.smtp.from')
+        dynamic_smtp_from = self.env['ir.config_parameter'].sudo().get_param('mail.dynamic.smtp.from')
+        catchall_domain = self.env['ir.config_parameter'].sudo().get_param('mail.catchall.domain')
+
+        if force_smtp_from:
+            rfc2822_force_smtp_from = extract_rfc2822_addresses(force_smtp_from)
+            rfc2822_force_smtp_from = rfc2822_force_smtp_from[0] if rfc2822_force_smtp_from else None
+            return encapsulate_email(email_from, force_smtp_from), rfc2822_force_smtp_from
+
+        elif dynamic_smtp_from and catchall_domain and email_domain_extract(email_from) != catchall_domain:
+            rfc2822_dynamic_smtp_from = extract_rfc2822_addresses(dynamic_smtp_from)
+            rfc2822_dynamic_smtp_from = rfc2822_dynamic_smtp_from[0] if rfc2822_dynamic_smtp_from else None
+            return encapsulate_email(email_from, dynamic_smtp_from), rfc2822_dynamic_smtp_from
+
+        return email_from, None
 
     @api.model
     def _get_default_bounce_address(self):

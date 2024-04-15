@@ -3,7 +3,7 @@
 # * purchase_requisition
 # 
 # Translators:
-# zbik2607 <darek@krokus.com.pl>, 2018
+# Dariusz Żbikowski <darek@krokus.com.pl>, 2018
 # Grzegorz Grzelak <grzegorz.grzelak@openglobe.pl>, 2018
 # Judyta Kaźmierczak <judyta.kazmierczak@openglobe.pl>, 2018
 # Mikołaj Dziurzyński <mikolaj.dziurzynski@openglobe.pl>, 2018
@@ -17,6 +17,8 @@
 # Maja Stawicka <mjstwck@wp.pl>, 2018
 # Martin Trigaux, 2018
 # Piotr Cierkosz <piotr.w.cierkosz@gmail.com>, 2019
+# Maksym <ms@myodoo.pl>, 2020
+# Piotr Strębski <strebski@gmail.com>, 2021
 # 
 msgid ""
 msgstr ""
@@ -24,7 +26,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-12-19 08:21+0000\n"
 "PO-Revision-Date: 2018-08-24 09:24+0000\n"
-"Last-Translator: Piotr Cierkosz <piotr.w.cierkosz@gmail.com>, 2019\n"
+"Last-Translator: Piotr Strębski <strebski@gmail.com>, 2021\n"
 "Language-Team: Polish (https://www.transifex.com/odoo/teams/41243/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -243,7 +245,7 @@ msgstr "Waluta"
 #. module: purchase_requisition
 #: model_terms:ir.ui.view,arch_db:purchase_requisition.view_purchase_requisition_type_form
 msgid "Data for new quotations"
-msgstr ""
+msgstr "Dane do nowego zapytania ofertowego"
 
 #. module: purchase_requisition
 #: model:ir.model.fields,field_description:purchase_requisition.field_purchase_requisition__schedule_date
@@ -625,7 +627,7 @@ msgstr "Zapytanie ofertowe"
 #. module: purchase_requisition
 #: model:ir.actions.act_window,name:purchase_requisition.action_purchase_requisition_list
 msgid "Request for Quotations"
-msgstr ""
+msgstr "Dokonaj zapytania ofertowego"
 
 #. module: purchase_requisition
 #: model_terms:ir.ui.view,arch_db:purchase_requisition.report_purchaserequisitions
@@ -724,7 +726,7 @@ msgstr "Przemieszczenie magazynowe"
 #. module: purchase_requisition
 #: model:ir.model,name:purchase_requisition.model_stock_rule
 msgid "Stock Rule"
-msgstr ""
+msgstr "Reguła zasobów"
 
 #. module: purchase_requisition
 #: model:ir.model.fields,field_description:purchase_requisition.field_purchase_requisition_line__supplier_info_ids

@@ -98,7 +98,7 @@
                             </div>
                             <field name="function"/>
                             <field name="phone" widget="phone"/>
-                            <field name="mobile"/>
+                            <field name="mobile" widget="phone"/>
                         </group>
                         <group>
                             <field name="user_id" domain="[('share', '=', False)]"
@@ -159,7 +159,7 @@
                     <field name="city"/>
                     <field name="country_id"/>
                     <field name="email_from"/>
-                    <field name="phone"/>
+                    <field name="phone" class="o_force_ltr"/>
                     <field name="user_id" invisible="1"/>
                     <field name="partner_id" invisible="1"/>
                     <field name="team_id"/>
@@ -299,7 +299,7 @@
             <field name="arch" type="xml">
                 <form>
                     <group>
-                        <field name="name"/>
+                        <field name="name" string="Name"/>
                         <field name="partner_id" widget="res_partner_many2one" domain="[('customer', '=', True)]" context="{'search_default_customer': 1, 'show_vat': True}"/>
                         <field name="planned_revenue" widget="monetary" options="{'currency_field': 'company_currency'}"/>
                         <field name="company_currency" invisible="1"/>
@@ -449,7 +449,7 @@
         <record id="crm_case_form_view_oppor" model="ir.ui.view">
             <field name="name">crm.lead.form.opportunity</field>
             <field name="model">crm.lead</field>
-            <field name="priority">20</field>
+            <field name="priority">15</field>
             <field name="arch" type="xml">
                 <form string="Opportunities" class="o_opportunity_form">
                     <header>
@@ -898,6 +898,7 @@ for rec in records:
             <field name="view_mode">tree,kanban,graph,pivot,calendar,form,activity</field>
             <field name="domain">['|', ('type','=','lead'), ('type','=',False)]</field>
             <field name="search_view_id" ref="crm.view_crm_case_leads_filter"/>
+            <field name="view_id" ref="crm.crm_case_form_view_leads"/>
             <field name="context">{
                     'default_type':'lead',
                     'search_default_type': 'lead',

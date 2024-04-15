@@ -3,13 +3,15 @@
 # * hr_timesheet
 # 
 # Translators:
-# Kristoffer Grundström <hamnisdude@gmail.com>, 2019
+# Kristoffer Grundström <lovaren@gmail.com>, 2019
 # Martin Trigaux, 2019
-# Anders Wallenquist <anders.wallenquist@vertel.se>, 2019
 # Christelle Wehbe <libanon_cristelle@hotmail.com>, 2019
 # Chrille Hedberg <hedberg.chrille@gmail.com>, 2019
-# Kim Asplund <kim.asplund@gmail.com>, 2019
-# Fanny H <fah@odoo.com>, 2019
+# fah_odoo <fah@odoo.com>, 2019
+# Kim Asplund <kim.asplund@gmail.com>, 2020
+# Martin Wilderoth <martin.wilderoth@linserv.se>, 2020
+# Anders Wallenquist <anders.wallenquist@vertel.se>, 2021
+# Simon S, 2021
 # 
 msgid ""
 msgstr ""
@@ -17,7 +19,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-09 10:31+0000\n"
 "PO-Revision-Date: 2018-08-24 09:19+0000\n"
-"Last-Translator: Fanny H <fah@odoo.com>, 2019\n"
+"Last-Translator: Simon S, 2021\n"
 "Language-Team: Swedish (https://www.transifex.com/odoo/teams/41243/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -36,11 +38,13 @@ msgid ""
 "<span class=\"fa fa-lg fa-building-o\" title=\"Values set here are company-"
 "specific.\" groups=\"base.group_multi_company\"/>"
 msgstr ""
+"<span class=\"fa fa-lg fa-building-o\" title=\"Values set here are company-"
+"specific.\" groups=\"base.group_multi_company\"/>"
 
 #. module: hr_timesheet
 #: model_terms:ir.ui.view,arch_db:hr_timesheet.view_project_kanban_inherited
 msgid "<span class=\"o_label\">Timesheets</span>"
-msgstr ""
+msgstr "Tidrapporter"
 
 #. module: hr_timesheet
 #: model_terms:ir.ui.view,arch_db:hr_timesheet.hr_employee_view_form_inherit_timesheet
@@ -75,12 +79,12 @@ msgstr ""
 #. module: hr_timesheet
 #: model_terms:ir.ui.view,arch_db:hr_timesheet.report_timesheet
 msgid "<span>Timesheet Entries</span>"
-msgstr ""
+msgstr "<span>Tidrapport detaljer</span>"
 
 #. module: hr_timesheet
 #: model_terms:ir.ui.view,arch_db:hr_timesheet.view_kanban_account_analytic_line
 msgid "<strong>Duration: </strong>"
-msgstr ""
+msgstr "<strong>Varaktighet: </strong>"
 
 #. module: hr_timesheet
 #: model_terms:ir.ui.view,arch_db:hr_timesheet.report_timesheet
@@ -96,14 +100,14 @@ msgstr "Aktiviteter"
 #: model:ir.actions.act_window,name:hr_timesheet.timesheet_action_all
 #: model:ir.ui.menu,name:hr_timesheet.timesheet_menu_activity_all
 msgid "All Timesheets"
-msgstr ""
+msgstr "Alla tidrapportrader"
 
 #. module: hr_timesheet
 #: model:ir.model.fields,field_description:hr_timesheet.field_project_project__allow_timesheets
 #: model:ir.model.fields,field_description:hr_timesheet.field_project_task__allow_timesheets
 #: model_terms:ir.ui.view,arch_db:hr_timesheet.project_invoice_form
 msgid "Allow timesheets"
-msgstr ""
+msgstr "Tillåt tidrapporter"
 
 #. module: hr_timesheet
 #: model:ir.model,name:hr_timesheet.model_account_analytic_account
@@ -125,7 +129,7 @@ msgstr "Objektrad"
 #. module: hr_timesheet
 #: model_terms:ir.ui.view,arch_db:hr_timesheet.res_config_settings_view_form
 msgid "Apple App Store"
-msgstr ""
+msgstr "Apple App Store"
 
 #. module: hr_timesheet
 #: model:ir.model.fields,field_description:hr_timesheet.field_res_config_settings__module_project_timesheet_synchro
@@ -142,13 +146,13 @@ msgstr "Per anställd"
 #: model:ir.actions.act_window,name:hr_timesheet.timesheet_action_report_by_project
 #: model:ir.ui.menu,name:hr_timesheet.timesheet_menu_report_timesheet_by_project
 msgid "By Project"
-msgstr ""
+msgstr "Per projekt"
 
 #. module: hr_timesheet
 #: model:ir.actions.act_window,name:hr_timesheet.timesheet_action_report_by_task
 #: model:ir.ui.menu,name:hr_timesheet.timesheet_menu_report_timesheet_by_task
 msgid "By Task"
-msgstr ""
+msgstr "Per aktivitet"
 
 #. module: hr_timesheet
 #: model:ir.model,name:hr_timesheet.model_res_company
@@ -215,7 +219,7 @@ msgstr "Varaktighet"
 #: code:addons/hr_timesheet/models/hr_timesheet.py:95
 #, python-format
 msgid "Duration (%s)"
-msgstr ""
+msgstr "Varaktighet (%s)"
 
 #. module: hr_timesheet
 #: model:ir.model.fields,field_description:hr_timesheet.field_report_project_task_user__hours_effective
@@ -242,7 +246,7 @@ msgstr ""
 #. module: hr_timesheet
 #: model_terms:ir.ui.view,arch_db:hr_timesheet.res_config_settings_view_form
 msgid "Google Play Store"
-msgstr ""
+msgstr "Google Play Store"
 
 #. module: hr_timesheet
 #: model_terms:ir.ui.view,arch_db:hr_timesheet.hr_timesheet_line_search
@@ -252,7 +256,7 @@ msgstr "Gruppera efter"
 #. module: hr_timesheet
 #: model:ir.model,name:hr_timesheet.model_ir_http
 msgid "HTTP Routing"
-msgstr ""
+msgstr "HTTP Routing"
 
 #. module: hr_timesheet
 #: model:ir.model.fields,field_description:hr_timesheet.field_project_task__effective_hours
@@ -298,7 +302,7 @@ msgstr "Chef"
 #: model:ir.ui.menu,name:hr_timesheet.timesheet_menu_activity_mine
 #: model_terms:ir.ui.view,arch_db:hr_timesheet.hr_timesheet_line_search
 msgid "My Timesheets"
-msgstr ""
+msgstr "Mina tidrapportrader"
 
 #. module: hr_timesheet
 #: model:ir.model.fields,field_description:hr_timesheet.field_report_project_task_user__hours_planned
@@ -334,7 +338,7 @@ msgstr "Projekt"
 #. module: hr_timesheet
 #: model_terms:ir.ui.view,arch_db:hr_timesheet.report_timesheet
 msgid "Project -"
-msgstr ""
+msgstr "Projekt -"
 
 #. module: hr_timesheet
 #: model:ir.model.fields,field_description:hr_timesheet.field_account_analytic_account__project_count
@@ -372,7 +376,7 @@ msgstr "Återstående timmar"
 #. module: hr_timesheet
 #: model_terms:ir.ui.view,arch_db:hr_timesheet.view_task_kanban_inherited_progress
 msgid "Remaining hours"
-msgstr ""
+msgstr "Återstående timmar"
 
 #. module: hr_timesheet
 #: model:ir.ui.menu,name:hr_timesheet.menu_timesheets_reports
@@ -483,7 +487,7 @@ msgstr "Tidrapporteringsrader"
 #. module: hr_timesheet
 #: model:ir.model.fields,field_description:hr_timesheet.field_hr_employee__timesheet_cost
 msgid "Timesheet Cost"
-msgstr ""
+msgstr "Tidrapporteringskostnad"
 
 #. module: hr_timesheet
 #: model_terms:ir.ui.view,arch_db:hr_timesheet.hr_timesheet_line_search
@@ -499,7 +503,7 @@ msgstr ""
 #: model:ir.actions.act_window,name:hr_timesheet.project_task_action_view_timesheet
 #: model:ir.actions.report,name:hr_timesheet.timesheet_report
 msgid "Timesheet Entries"
-msgstr ""
+msgstr "Tidrapports detaljer"
 
 #. module: hr_timesheet
 #: model_terms:ir.ui.view,arch_db:hr_timesheet.hr_timesheet_line_search
@@ -596,6 +600,14 @@ msgid ""
 "You can register and track your workings hours by project every\n"
 "                day. Every time spent on a project will become a cost and can be re-invoiced to\n"
 "                customers if required."
+msgstr ""
+
+#. module: hr_timesheet
+#: code:addons/hr_timesheet/models/analytic_account.py:53
+#, python-format
+msgid ""
+"You cannot change the company of an analytical account if it is related to a"
+" project."
 msgstr ""
 
 #. module: hr_timesheet

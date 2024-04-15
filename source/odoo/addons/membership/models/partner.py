@@ -57,13 +57,7 @@ class Partner(models.Model):
         if parent_members:
             parent_members._recompute_todo(self._fields['membership_state'])
 
-    @api.depends('member_lines.account_invoice_line.invoice_id.state',
-                 'member_lines.account_invoice_line.invoice_id.invoice_line_ids',
-                 'member_lines.account_invoice_line.invoice_id.payment_ids',
-                 'free_member',
-                 'member_lines.date_to', 'member_lines.date_from', 'member_lines.date_cancel',
-                 'membership_state',
-                 'associate_member.membership_state')
+    @api.depends('associate_member', 'member_lines.date_from', 'member_lines.date_cancel')
     def _compute_membership_start(self):
         """Return  date of membership"""
         for partner in self:
@@ -71,13 +65,7 @@ class Partner(models.Model):
                 ('partner', '=', partner.associate_member.id or partner.id), ('date_cancel','=',False)
             ], limit=1, order='date_from').date_from
 
-    @api.depends('member_lines.account_invoice_line.invoice_id.state',
-                 'member_lines.account_invoice_line.invoice_id.invoice_line_ids',
-                 'member_lines.account_invoice_line.invoice_id.payment_ids',
-                 'free_member',
-                 'member_lines.date_to', 'member_lines.date_from', 'member_lines.date_cancel',
-                 'membership_state',
-                 'associate_member.membership_state')
+    @api.depends('associate_member', 'member_lines.date_to', 'member_lines.date_cancel')
     def _compute_membership_stop(self):
         MemberLine = self.env['membership.membership_line']
         for partner in self:
@@ -85,13 +73,7 @@ class Partner(models.Model):
                 ('partner', '=', partner.associate_member.id or partner.id),('date_cancel','=',False)
             ], limit=1, order='date_to desc').date_to
 
-    @api.depends('member_lines.account_invoice_line.invoice_id.state',
-                 'member_lines.account_invoice_line.invoice_id.invoice_line_ids',
-                 'member_lines.account_invoice_line.invoice_id.payment_ids',
-                 'free_member',
-                 'member_lines.date_to', 'member_lines.date_from', 'member_lines.date_cancel',
-                 'membership_state',
-                 'associate_member.membership_state')
+    @api.depends('member_lines.date_cancel')
     def _compute_membership_cancel(self):
         for partner in self:
             partner.membership_cancel = self.env['membership.membership_line'].search([
@@ -109,8 +91,9 @@ class Partner(models.Model):
                 res[partner.id] = 'free' if partner.free_member else 'canceled'
                 continue
             if partner.membership_stop and today > partner.membership_stop:
-                res[partner.id] = 'free' if partner.free_member else 'old'
-                continue
+                if partner.free_member:
+                    res[partner.id] = 'free' 
+                    continue
             if partner.associate_member:
                 res_state = partner.associate_member._membership_state()
                 res[partner.id] = res_state[partner.associate_member.id]
@@ -118,7 +101,7 @@ class Partner(models.Model):
 
             s = 4
             if partner.member_lines:
-                for mline in partner.member_lines:
+                for mline in partner.member_lines.sorted(key=lambda r: r.id):
                     if (mline.date_to or date.min) >= today and (mline.date_from or date.min) <= today:
                         if mline.account_invoice_line.invoice_id.partner_id == partner:
                             mstate = mline.account_invoice_line.invoice_id.state
@@ -141,6 +124,13 @@ class Partner(models.Model):
                         """
                         if s == 0:
                             break
+                    else:
+                        if mline.account_invoice_line.invoice_id.partner_id == partner:
+                            mstate = mline.account_invoice_line.invoice_id.state
+                            if mstate == 'paid':
+                                s = 5
+                            else:
+                                s = 6
                 if s == 4:
                     for mline in partner.member_lines:
                         if (mline.date_from or date.min) < today and (mline.date_to or date.min) < today and (mline.date_from or date.min) <= (mline.date_to or date.min) and mline.account_invoice_line and mline.account_invoice_line.invoice_id.state == 'paid':

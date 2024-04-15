@@ -18,9 +18,8 @@
 # Pekko Tuomisto <pekko.tuomisto@web-veistamo.fi>, 2018
 # Melina Mäntylä <melina.mantyla@web-veistamo.fi>, 2018
 # Miku Laitinen <miku.laitinen@gmail.com>, 2018
-# Jarmo Kortetjärvi <jarmo.kortetjarvi@gmail.com>, 2018
 # Jenni Heikkilä <jenni.heikkila@sv-oy.fi>, 2019
-# Johanna Valkonen <johanna.valkonen@sv-oy.fi>, 2019
+# Johanna Valkonen <johanna@vividi.fi>, 2019
 # Henri Komulainen <henri.komulainen@web-veistamo.fi>, 2019
 # Sari Mäyrä <sari.mayra@sv-oy.fi>, 2019
 # Janne Rättyä <janne.rattya@web-veistamo.fi>, 2019
@@ -28,6 +27,8 @@
 # Tuomo Aura <tuomo.aura@web-veistamo.fi>, 2019
 # Kari Lindgren <kari.lindgren@emsystems.fi>, 2019
 # Tuomas Lyyra <tuomas.lyyra@legenda.fi>, 2019
+# Jarmo Kortetjärvi <jarmo.kortetjarvi@gmail.com>, 2020
+# Miika Nissi <miika.nissi@tawasta.fi>, 2021
 # 
 msgid ""
 msgstr ""
@@ -35,7 +36,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-09 10:31+0000\n"
 "PO-Revision-Date: 2018-08-24 09:23+0000\n"
-"Last-Translator: Tuomas Lyyra <tuomas.lyyra@legenda.fi>, 2019\n"
+"Last-Translator: Miika Nissi <miika.nissi@tawasta.fi>, 2021\n"
 "Language-Team: Finnish (https://www.transifex.com/odoo/teams/41243/fi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1480,7 +1481,7 @@ msgstr "Kanban tila"
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_task__kanban_state_label
 msgid "Kanban State Label"
-msgstr ""
+msgstr "Kanban -tilan otsikko"
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_task__legend_done
@@ -1919,7 +1920,7 @@ msgstr ""
 #: code:addons/project/controllers/portal.py:129
 #, python-format
 msgid "Others"
-msgstr ""
+msgstr "Muut"
 
 #. module: project
 #: selection:project.task,activity_state:0
@@ -1981,7 +1982,7 @@ msgstr "Ylätason malli"
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_project__alias_parent_thread_id
 msgid "Parent Record Thread ID"
-msgstr ""
+msgstr "Ylätason keskustelun ID"
 
 #. module: project
 #: code:addons/project/models/project.py:919
@@ -2178,17 +2179,17 @@ msgstr "Arvostelujen toistuvuus"
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_task__rating_last_feedback
 msgid "Rating Last Feedback"
-msgstr ""
+msgstr "Arvio viimeisin palaute"
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_task__rating_last_image
 msgid "Rating Last Image"
-msgstr ""
+msgstr "Arvio viimeinen kuva"
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_task__rating_last_value
 msgid "Rating Last Value"
-msgstr ""
+msgstr "Arvio viimeisin arvo"
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_project__rating_request_deadline
@@ -2198,7 +2199,7 @@ msgstr ""
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_task__rating_count
 msgid "Rating count"
-msgstr ""
+msgstr "Arvioiden määrä"
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_project__portal_show_rating
@@ -2267,7 +2268,7 @@ msgstr "Valmiina uudelleenavattavaksi"
 #. module: project
 #: model:ir.model.fields,help:project.field_project_task__rating_last_feedback
 msgid "Reason of the rating"
-msgstr ""
+msgstr "Syy arvostelulle"
 
 #. module: project
 #: model:mail.template,subject:project.mail_template_data_project_task
@@ -2318,7 +2319,7 @@ msgstr "Raportointi"
 #: code:addons/project/static/src/js/project_task_kanban_examples.js:61
 #, python-format
 msgid "Research"
-msgstr ""
+msgstr "Tutkimus"
 
 #. module: project
 #. openerp-web
@@ -2500,7 +2501,7 @@ msgstr "Vaihe muutettu"
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.task_type_edit
 msgid "Stage Description and Tooltips"
-msgstr ""
+msgstr "Vaiheen kuvaus ja työkaluvihjeet"
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_task_type__name
@@ -3137,6 +3138,8 @@ msgid ""
 "You can also add a description to help your coworkers understand the meaning"
 " and purpose of the stage."
 msgstr ""
+"Voit myös lisätä kuvauksen, joka auttaa työtovereitasi ymmärtämään vaiheen "
+"merkityksen ja tarkoituksen."
 
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.task_type_edit
@@ -3151,6 +3154,12 @@ msgstr ""
 msgid ""
 "You cannot delete a project containing tasks. You can either archive it or "
 "first delete all of its tasks."
+msgstr ""
+
+#. module: project
+#: code:addons/project/models/project.py:628
+#, python-format
+msgid "Your task must be in the same company as its project."
 msgstr ""
 
 #. module: project

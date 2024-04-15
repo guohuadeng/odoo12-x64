@@ -5,20 +5,22 @@
 # Translators:
 # Bill Hsu <hcm86@icloud.com>, 2018
 # amos lin <seeing@edirect168.com>, 2018
+# sejun huang <sejun.huang@gmail.com>, 2019
 # Jason Au Yeung <auyeung112002@gmail.com>, 2019
 # Martin Trigaux, 2019
 # Andy Cheng <andy.cheng@richsoda.com>, 2019
-# sejun huang <sejun.huang@gmail.com>, 2019
-# 敬雲 林 <chingyun@yuanchih-consult.com>, 2019
 # Jeanphy <hzh0292@qq.com>, 2019
+# 敬雲 林 <chingyun@yuanchih-consult.com>, 2020
+# Benson White <Benson.Dr@Gmail.com>, 2021
+# Tom Liang <tom.liang@omniwaresoft.com.tw>, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-14 08:02+0000\n"
+"POT-Creation-Date: 2019-12-10 14:44+0000\n"
 "PO-Revision-Date: 2018-08-24 09:14+0000\n"
-"Last-Translator: Jeanphy <hzh0292@qq.com>, 2019\n"
+"Last-Translator: Tom Liang <tom.liang@omniwaresoft.com.tw>, 2021\n"
 "Language-Team: Chinese (Taiwan) (https://www.transifex.com/odoo/teams/41243/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -107,6 +109,93 @@ msgstr ""
 " - 匈牙利稅\n"
 " - 匈牙利銀行帳戶\n"
 " "
+
+#. module: base
+#: model:ir.module.module,description:base.module_l10n_dk
+msgid ""
+"\n"
+"\n"
+"Localization Module for Denmark\n"
+"===============================\n"
+"\n"
+"This is the module to manage the **accounting chart for Denmark**. Cover both one-man business as well as I/S, IVS, ApS and A/S\n"
+"\n"
+"**Modulet opsætter:**\n"
+"\n"
+"- **Dansk kontoplan**\n"
+"\n"
+"- Dansk moms\n"
+"        - 25% moms\n"
+"        - Resturationsmoms 6,25%\n"
+"        - Omvendt betalingspligt\n"
+"        \n"
+"- Konteringsgrupper\n"
+"        - EU (Virksomhed)\n"
+"        - EU (Privat)\n"
+"        - 3.lande\n"
+"\n"
+"- Finans raporter\n"
+"        - Resulttopgørelse\n"
+"        - Balance\n"
+"        - Momsafregning\n"
+"            - Afregning\n"
+"            - Rubrik A, B og C\n"
+"\n"
+"- **Anglo-Saxon regnskabsmetode**\n"
+"\n"
+".\n"
+"\n"
+"Produkt setup:\n"
+"==============\n"
+"\n"
+"**Vare**\n"
+"\n"
+"**Salgsmoms:**      Salgmoms 25%\n"
+"\n"
+"**Salgskonto:**     1010 Salg af vare, m/moms\n"
+"\n"
+"**Købsmoms:**       Købsmoms 25%\n"
+"\n"
+"**Købskonto:**      2010 Direkte omkostninger vare, m/moms\n"
+"\n"
+".\n"
+"\n"
+"**Ydelse**\n"
+"\n"
+"**Salgsmoms:**      Salgmoms 25%, ydelser\n"
+"\n"
+"**Salgskonto:**     1011 Salg af ydelser, m/moms\n"
+"\n"
+"**Købsmoms:**       Købsmoms 25%, ydelser\n"
+"\n"
+"**Købskonto:**      2011 Direkte omkostninger ydelser, m/moms\n"
+"\n"
+".\n"
+"\n"
+"**Vare med omvendt betalingspligt**\n"
+"\n"
+"**Salgsmoms:**      Salg omvendt betalingspligt\n"
+"\n"
+"**Salgskonto:**     1012 Salg af vare, u/moms\n"
+"\n"
+"**Købsmoms:**       Køb omvendt betalingspligt\n"
+"\n"
+"**Købskonto:**      2012 Direkte omkostninger vare, u/moms\n"
+"\n"
+"\n"
+".\n"
+"\n"
+"**Restauration**\n"
+"\n"
+"**Købsmoms:**       Restaurationsmoms 6,25%, købsmoms\n"
+"\n"
+"**Købskonto:**      4010 Restaurationsbesøg\n"
+"\n"
+".\n"
+"\n"
+"Copyright 2018 Odoo House ApS\n"
+"    "
+msgstr ""
 
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_do
@@ -465,6 +554,10 @@ msgid ""
 "        Contains Balance Sheet, Profit/Loss reports\n"
 "    "
 msgstr ""
+"\n"
+"立陶宛的會計報告\n"
+"\n"
+"         包含資產負債表、損益報告 "
 
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_nl_reports
@@ -683,6 +776,15 @@ msgid ""
 msgstr ""
 "\n"
 "       安裝兩個模組時更正地址格式"
+
+#. module: base
+#: model:ir.module.module,description:base.module_product_unspsc
+msgid ""
+"\n"
+"        Countries like Colombia, Peru and Mexico need to be able to use the \n"
+"        UNSPSC code for their products and uoms.  \n"
+"    "
+msgstr ""
 
 #. module: base
 #: model:ir.module.module,summary:base.module_l10n_mx_reports
@@ -1536,6 +1638,15 @@ msgstr ""
 "\n"
 "克羅地亞會計報告\n"
 "================================"
+
+#. module: base
+#: model:ir.module.module,description:base.module_l10n_dk_reports
+msgid ""
+"\n"
+"Accounting reports for Denmark\n"
+"=================================\n"
+"    "
+msgstr ""
 
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_et_reports
@@ -2431,6 +2542,8 @@ msgid ""
 "Bridge module for project and enterprise\n"
 "    "
 msgstr ""
+"\n"
+"專案和企業的橋接模組 "
 
 #. module: base
 #: model:ir.module.module,description:base.module_website_rating
@@ -6072,6 +6185,21 @@ msgstr ""
 " 安裝一些通用科目表。"
 
 #. module: base
+#: model:ir.module.module,description:base.module_l10n_id
+msgid ""
+"\n"
+"This is the latest Indonesian Odoo localisation necessary to run Odoo accounting for SMEs with:\n"
+"=================================================================================================\n"
+"    - generic Indonesian chart of accounts\n"
+"    - tax structure"
+msgstr ""
+"\n"
+"這是為中小企業執行 Odoo 會計所需的最新印度尼西亞 Odoo 本地化：\n"
+"================================================== ================================================\n"
+"     - 通用印尼會計科目表\n"
+"     - 稅收結構"
+
+#. module: base
 #: model:ir.module.module,description:base.module_l10n_uk
 msgid ""
 "\n"
@@ -7523,7 +7651,7 @@ msgstr "這是管理香港會計和在地化圖表的基礎模組"
 msgid ""
 " another model requires the record being deleted. If possible, archive it "
 "instead."
-msgstr ""
+msgstr " 另一種模型需要刪除記錄. 如果可能，請改為封存."
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.res_lang_form
@@ -7661,6 +7789,8 @@ msgid ""
 "- Create/update: a mandatory field is not set.\n"
 "- Delete: another model requires the record being deleted. If possible, archive it instead."
 msgstr ""
+"- 建立/更新: 未設定必填欄位.\n"
+"- 刪除: 另一個模型需要刪除記錄. 如果可能，請改為封存."
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.report_irmodeloverview
@@ -7944,11 +8074,13 @@ msgid ""
 "<span class=\"searchIcon\"><i class=\"fa fa-search\" role=\"img\" aria-"
 "label=\"Search\" title=\"Search\"/></span>"
 msgstr ""
+"<span class=\"searchIcon\"><i class=\"fa fa-search\" role=\"img\" aria-"
+"label=\"搜尋\" title=\"搜尋\"/></span>"
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.demo_force_install_form
 msgid "<span class=\"text-white text-uppercase\">Danger Zone</span>"
-msgstr ""
+msgstr "<span class=\"text-white text-uppercase\">危險區域</span>"
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.sequence_view
@@ -8744,7 +8876,7 @@ msgstr "生成異常的模組"
 #. module: base
 #: model:ir.module.module,description:base.module_test_lint
 msgid "A module to test Odoo code with various linters."
-msgstr ""
+msgstr "使用各種 linter 測試 Odoo 程式碼的模組."
 
 #. module: base
 #: model:ir.module.module,description:base.module_test_impex
@@ -8759,7 +8891,7 @@ msgstr "測試 API 的模組"
 #. module: base
 #: model:ir.module.module,description:base.module_test_rpc
 msgid "A module to test the RPC requests."
-msgstr ""
+msgstr "用於測試 RPC 請求的模組."
 
 #. module: base
 #: model:ir.module.module,description:base.module_test_uninstall
@@ -8780,7 +8912,7 @@ msgstr "驗證資產打包機制的模組"
 #: model:ir.module.module,description:base.module_test_inherits_depends
 msgid ""
 "A module to verify the inheritance using _inherits in non-original modules."
-msgstr ""
+msgstr "在非原始模組中使用 _inherits 驗證繼承的模組."
 
 #. module: base
 #: model:ir.module.module,description:base.module_test_inherits
@@ -9899,7 +10031,7 @@ msgstr "至少要啟動一種語言."
 #. module: base
 #: model_terms:ir.actions.act_window,help:base.action_attachment
 msgid "Attach a new document"
-msgstr ""
+msgstr "附加新的文件"
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.view_attachment_search
@@ -11192,6 +11324,11 @@ msgstr "哥倫比亞-會計和稅預配置"
 #: model:ir.module.module,summary:base.module_l10n_co_edi
 msgid "Colombian Localization for EDI documents"
 msgstr "哥倫比亞的EDI文件在地化"
+
+#. module: base
+#: model:ir.module.module,summary:base.module_l10n_co_edi_ubl_2_1
+msgid "Colombian Localization for EDI documents UBL 2.1"
+msgstr ""
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_res_groups__color
@@ -12599,6 +12736,16 @@ msgid "Denmark"
 msgstr "丹麥"
 
 #. module: base
+#: model:ir.module.module,shortdesc:base.module_l10n_dk
+msgid "Denmark - Accounting"
+msgstr ""
+
+#. module: base
+#: model:ir.module.module,shortdesc:base.module_l10n_dk_reports
+msgid "Denmark - Accounting Reports"
+msgstr ""
+
+#. module: base
 #: model:ir.model.fields,field_description:base.field_ir_model_fields__depends
 #: model:ir.model.fields,field_description:base.field_ir_module_module__dependencies_id
 #: model_terms:ir.ui.view,arch_db:base.module_form
@@ -13462,8 +13609,13 @@ msgid "Electronic invoicing for Colombia with Carvajal"
 msgstr "Carvajal為哥倫比亞電子憑單"
 
 #. module: base
-#: code:addons/base/models/ir_ui_view.py:619
-#: code:addons/base/models/ir_ui_view.py:700
+#: model:ir.module.module,shortdesc:base.module_l10n_co_edi_ubl_2_1
+msgid "Electronic invoicing for Colombia with Carvajal UBL 2.1"
+msgstr ""
+
+#. module: base
+#: code:addons/base/models/ir_ui_view.py:629
+#: code:addons/base/models/ir_ui_view.py:720
 #, python-format
 msgid "Element '%s' cannot be located in parent view"
 msgstr "元素 '%s' 在父視圖中沒有找到"
@@ -14366,7 +14518,19 @@ msgid "File Size"
 msgstr "文件大小"
 
 #. module: base
-#: code:addons/base/wizard/base_import_language.py:44
+#: code:addons/base/wizard/base_import_language.py:45
+#, python-format
+msgid ""
+"File not imported due to a malformed file.\n"
+"\n"
+"This issue can be caused by duplicates entries who are referring to the same field. Please check the content of the file you are trying to import.\n"
+"\n"
+"Technical Details:\n"
+"%s"
+msgstr ""
+
+#. module: base
+#: code:addons/base/wizard/base_import_language.py:51
 #, python-format
 msgid ""
 "File not imported due to format mismatch or a malformed file. (Valid formats are .csv, .po, .pot)\n"
@@ -16160,6 +16324,11 @@ msgstr "個人"
 #: model:res.country,name:base.id
 msgid "Indonesia"
 msgstr "印度尼西亞"
+
+#. module: base
+#: model:ir.module.module,shortdesc:base.module_l10n_id
+msgid "Indonesian - Accounting"
+msgstr ""
 
 #. module: base
 #: model:ir.actions.act_window,name:base.res_partner_industry_action
@@ -24336,6 +24505,11 @@ msgid "Sticky memos, Collaborative"
 msgstr "即時貼，協同"
 
 #. module: base
+#: model:ir.module.category,name:base.module_category_stock
+msgid "Stock"
+msgstr "庫存"
+
+#. module: base
 #: model:ir.module.module,shortdesc:base.module_stock_barcode_mobile
 msgid "Stock Barcode in Mobile"
 msgstr "移動設備中的庫存條碼"
@@ -24428,6 +24602,11 @@ msgstr "結構化模型字段"
 #: model:ir.module.module,shortdesc:base.module_web_studio
 msgid "Studio"
 msgstr "Studio"
+
+#. module: base
+#: model:ir.module.module,shortdesc:base.module_studio_customization
+msgid "Studio customizations"
+msgstr ""
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.edit_menu_access
@@ -25605,9 +25784,23 @@ msgid "The internal user in charge of this contact."
 msgstr "負責此聯繫人的內部使用者。"
 
 #. module: base
+#: code:addons/base/models/res_country.py:106
+#, python-format
+msgid "The layout contains an invalid format key"
+msgstr ""
+
+#. module: base
 #: model:ir.model.fields,help:base.field_ir_model__inherited_model_ids
 msgid "The list of models that extends the current model."
 msgstr "擴展目前模型的模型清單。"
+
+#. module: base
+#: code:addons/base/models/ir_model.py:522
+#, python-format
+msgid ""
+"The m2o field %s is required but declares its ondelete policy as being 'set "
+"null'. Only 'restrict' and 'cascade' make sense."
+msgstr ""
 
 #. module: base
 #: model:ir.model.fields,help:base.field_ir_filters__action_id
@@ -25681,7 +25874,7 @@ msgstr "唯一預設的變量是"
 #: code:addons/model.py:121
 #, python-format
 msgid "The operation cannot be completed:"
-msgstr ""
+msgstr "操作無法完成："
 
 #. module: base
 #: model:ir.model.fields,help:base.field_ir_model_fields__domain
@@ -25776,7 +25969,7 @@ msgstr "捨入因子必須大於0！"
 msgid ""
 "The server is busy right now, module operations are not possible at this "
 "time, please try again later."
-msgstr ""
+msgstr "伺服器忙碌中，目前無法進行模組操作，請稍後再試。"
 
 #. module: base
 #: code:addons/base/models/ir_mail_server.py:178
@@ -26006,6 +26199,13 @@ msgid ""
 "This module ensures that when delivery price is computed online, and taxes are computed with TaxCloud, the tax computation is done correctly on both the order and delivery.\n"
 "    "
 msgstr "此模組可確保線上計算交貨價格，並使用TaxCloud計算稅額時，稅務計算在訂單和交貨時都能正確完成。"
+
+#. module: base
+#: model:ir.module.module,description:base.module_studio_customization
+msgid ""
+"This module has been generated by Odoo Studio.\n"
+"It contains the apps created with Studio and the customizations of existing apps."
+msgstr ""
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.view_base_module_upgrade
@@ -26417,7 +26617,7 @@ msgid ""
 "Two sequence object implementations are offered: Standard and 'No gap'. The "
 "later is slower than the former but forbids any gap in the sequence (while "
 "they are possible in the former)."
-msgstr "提供了兩種序列對象的實現方案：標準的和「無間斷」。後者比前者慢，但是後者禁止序列號間斷（這可能在後者發生）。"
+msgstr "提供了兩種序列對象的實現方案：標準的和「無間斷」。後者比前者慢，但是後者禁止序列號間斷（這可能在前者發生）。"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_attachment__type
@@ -26495,6 +26695,12 @@ msgstr "英國 - 會計報告"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_uk_reports_hmrc
 msgid "UK - Accounting Reports to HMRC"
+msgstr ""
+
+#. module: base
+#: model:ir.module.module,shortdesc:base.module_product_unspsc
+#: model:ir.module.module,summary:base.module_product_unspsc
+msgid "UNSPSC product codes"
 msgstr ""
 
 #. module: base
@@ -26654,14 +26860,22 @@ msgid "Units of measure"
 msgstr "度量單位"
 
 #. module: base
+#: code:addons/model.py:143 code:addons/model.py:152 code:addons/model.py:153
 #: model:ir.model,name:base.model__unknown
 #: selection:ir.module.module.dependency,state:0
 #: selection:ir.module.module.exclusion,state:0
+#, python-format
 msgid "Unknown"
 msgstr "未知"
 
 #. module: base
-#: code:addons/models.py:1058
+#: code:addons/models.py:873
+#, python-format
+msgid "Unknown database error: '%s'"
+msgstr ""
+
+#. module: base
+#: code:addons/models.py:1067
 #, python-format
 msgid "Unknown database identifier '%s'"
 msgstr "未知資料庫標識符 '%s'"
@@ -27719,8 +27933,8 @@ msgstr "您不能啟動超級使用者。"
 #. module: base
 #: code:addons/base/models/res_partner.py:509
 #, python-format
-msgid "You cannot archive a contact linked to an internal user."
-msgstr "無法歸檔鏈接到內部使用者的聯繫人。"
+msgid "You cannot archive a contact linked to a portal or internal user."
+msgstr "您無法封存連結到門戶或內部使用者的聯繫人."
 
 #. module: base
 #: code:addons/base/models/res_partner.py:330
@@ -28195,6 +28409,11 @@ msgid "selection"
 msgstr "選擇項"
 
 #. module: base
+#: selection:ir.model.fields,ttype:0
+msgid "serialized"
+msgstr "序列化"
+
+#. module: base
 #: model:ir.module.module,shortdesc:base.module_snailmail_account
 msgid "snailmail_account"
 msgstr "snailmail_account"
@@ -28203,11 +28422,6 @@ msgstr "snailmail_account"
 #: model:ir.module.module,shortdesc:base.module_social_media
 msgid "social_media"
 msgstr "social_media"
-
-#. module: base
-#: model:ir.module.category,name:base.module_category_stock
-msgid "stock"
-msgstr "庫存"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_stock_zebra
@@ -28265,9 +28479,19 @@ msgid "test-inherits"
 msgstr "test-inherits"
 
 #. module: base
+#: model:ir.module.module,shortdesc:base.module_test_inherits_depends
+msgid "test-inherits-depends"
+msgstr "test-inherits-depends"
+
+#. module: base
 #: model:ir.module.module,shortdesc:base.module_test_limits
 msgid "test-limits"
 msgstr "test-limits"
+
+#. module: base
+#: model:ir.module.module,shortdesc:base.module_test_lint
+msgid "test-lint"
+msgstr "test-lint"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_test_translation_import

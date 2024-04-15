@@ -10,8 +10,11 @@
 # Ivica Dimjašević <ivica.dimjasevic@storm.hr>, 2019
 # Karolina Tonković <karolina.tonkovic@storm.hr>, 2019
 # Tina Milas, 2019
-# Bole <bole@dajmi5.com>, 2019
 # Martin Trigaux, 2019
+# Vojislav Opačić <vojislav.opacic@gmail.com>, 2019
+# Igor Krizanovic <krizanovic.igor@gmail.com>, 2019
+# Bole <bole@dajmi5.com>, 2021
+# Hrvoje Sić <hrvoje.sic@gmail.com>, 2021
 # 
 msgid ""
 msgstr ""
@@ -19,7 +22,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-14 07:34+0000\n"
 "PO-Revision-Date: 2018-08-24 09:21+0000\n"
-"Last-Translator: Martin Trigaux, 2019\n"
+"Last-Translator: Hrvoje Sić <hrvoje.sic@gmail.com>, 2021\n"
 "Language-Team: Croatian (https://www.transifex.com/odoo/teams/41243/hr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -45,7 +48,7 @@ msgstr "3D Secure HTML"
 #. module: payment
 #: model_terms:ir.ui.view,arch_db:payment.pay
 msgid "<b>Amount:</b>"
-msgstr ""
+msgstr "<b>Iznos:</b>"
 
 #. module: payment
 #: model_terms:ir.ui.view,arch_db:payment.payment_confirmation_status
@@ -55,7 +58,7 @@ msgstr "<b>Komunikacija: </b>"
 #. module: payment
 #: model_terms:ir.ui.view,arch_db:payment.pay
 msgid "<b>Reference:</b>"
-msgstr ""
+msgstr "<b>Referenca:</b>"
 
 #. module: payment
 #: model_terms:ir.ui.view,arch_db:payment.confirm
@@ -68,6 +71,8 @@ msgid ""
 "<i class=\"fa fa-check text-success\" title=\"This payment method is "
 "verified by our system.\" role=\"img\" aria-label=\"Ok\"/>"
 msgstr ""
+"<i class=\"fa fa-check text-success\" title=\"This payment method is "
+"verified by our system.\" role=\"img\" aria-label=\"Ok\"/>"
 
 #. module: payment
 #: model_terms:ir.ui.view,arch_db:payment.payment_tokens_list
@@ -75,26 +80,28 @@ msgid ""
 "<i class=\"fa fa-close text-danger\" title=\"This payment method has not "
 "been verified by our system.\" role=\"img\" aria-label=\"Not verified\"/>"
 msgstr ""
+"<i class=\"fa fa-close text-danger\" title=\"This payment method has not "
+"been verified by our system.\" role=\"img\" aria-label=\"Not verified\"/>"
 
 #. module: payment
 #: model_terms:ir.ui.view,arch_db:payment.pay_methods
 msgid "<i class=\"fa fa-home\" role=\"img\" aria-label=\"Home\" title=\"Home\"/>"
-msgstr ""
+msgstr "<i class=\"fa fa-home\" role=\"img\" aria-label=\"Home\" title=\"Home\"/>"
 
 #. module: payment
 #: model_terms:ir.ui.view,arch_db:payment.payment_tokens_list
 msgid "<i class=\"fa fa-lock\"> Pay</i>"
-msgstr ""
+msgstr "<i class=\"fa fa-lock\"> Plati</i>"
 
 #. module: payment
 #: model_terms:ir.ui.view,arch_db:payment.payment_tokens_list
 msgid "<i class=\"fa fa-plus-circle\"> Add new card</i>"
-msgstr ""
+msgstr "<i class=\"fa fa-plus-circle\"> Dodaj novu karticu</i>"
 
 #. module: payment
 #: model_terms:ir.ui.view,arch_db:payment.payment_tokens_list
 msgid "<i class=\"fa fa-trash\"/> Delete"
-msgstr ""
+msgstr "<i class=\"fa fa-trash\"/> Briši"
 
 #. module: payment
 #: code:addons/payment/models/payment_acquirer.py:124
@@ -147,7 +154,7 @@ msgstr ""
 #. module: payment
 #: model_terms:ir.ui.view,arch_db:payment.view_partners_form_payment_defaultcreditcard
 msgid "<span class=\"o_stat_text\">Credit card(s)</span>"
-msgstr ""
+msgstr "<span class=\"o_stat_text\">Kreditne kartica(e)</span>"
 
 #. module: payment
 #: model_terms:ir.ui.view,arch_db:payment.acquirer_form
@@ -254,19 +261,19 @@ msgstr ""
 #: code:addons/payment/models/account_invoice.py:65
 #, python-format
 msgid "A payment acquirer is required to create a transaction."
-msgstr ""
+msgstr "Primatelj plaćanja dužan je stvoriti transakciju."
 
 #. module: payment
 #: code:addons/payment/models/account_payment.py:55
 #, python-format
 msgid "A payment transaction already exists."
-msgstr ""
+msgstr "Transakcija plaćanja već postoji."
 
 #. module: payment
 #: code:addons/payment/models/account_payment.py:57
 #, python-format
 msgid "A token is required to create a new payment transaction."
-msgstr ""
+msgstr "Token je potreban za kreiranje nove transakcije."
 
 #. module: payment
 #: code:addons/payment/models/payment_acquirer.py:657
@@ -396,6 +403,8 @@ msgid ""
 "Are you sure you want to void the authorized transaction? This action can't "
 "be undone."
 msgstr ""
+"Jeste li sigurni da želite poništiti autoriziranu transakciju? Ova radnja ne"
+" može se poništiti."
 
 #. module: payment
 #: model:ir.model.fields,field_description:payment.field_payment_acquirer__authorize_implemented
@@ -416,7 +425,7 @@ msgstr "Autorizirano"
 #. module: payment
 #: model:ir.model.fields,field_description:payment.field_account_invoice__authorized_transaction_ids
 msgid "Authorized Transactions"
-msgstr ""
+msgstr "Autorizirane transkacije"
 
 #. module: payment
 #: code:addons/payment/wizards/payment_acquirer_onboarding_wizard.py:34
@@ -484,7 +493,7 @@ msgstr "Otkazano"
 #: code:addons/payment/static/src/xml/payment_processing.xml:109
 #, python-format
 msgid "Cancelled payments"
-msgstr ""
+msgstr "Otkazana plaćanja"
 
 #. module: payment
 #. openerp-web
@@ -518,7 +527,7 @@ msgstr ""
 #. module: payment
 #: model_terms:ir.ui.view,arch_db:payment.payment_acquirer_onboarding_wizard_form
 msgid "Check here"
-msgstr ""
+msgstr "Kliknite ovdje"
 
 #. module: payment
 #: model:ir.actions.act_window,name:payment.action_open_payment_onboarding_payment_acquirer_wizard
@@ -580,7 +589,7 @@ msgstr ""
 #: code:addons/payment/static/src/js/payment_form.js:359
 #, python-format
 msgid "Confirm Deletion"
-msgstr ""
+msgstr "Potvrdi brisanje"
 
 #. module: payment
 #: model:ir.model,name:payment.model_res_partner
@@ -622,7 +631,7 @@ msgstr ""
 #. module: payment
 #: model_terms:ir.actions.act_window,help:payment.action_payment_icon
 msgid "Create a payment icon"
-msgstr ""
+msgstr "Kreiraj ikonu plaćanja"
 
 #. module: payment
 #: model_terms:ir.actions.act_window,help:payment.payment_token_action
@@ -665,7 +674,7 @@ msgstr "Prilagođen"
 #. module: payment
 #: selection:payment.acquirer.onboarding.wizard,payment_method:0
 msgid "Custom payment instructions"
-msgstr ""
+msgstr "Prilagođene upute za plaćanje"
 
 #. module: payment
 #: model:ir.model.fields,field_description:payment.field_payment_transaction__partner_id
@@ -685,7 +694,7 @@ msgstr "Odredite redoslijed prikaza"
 #. module: payment
 #: model_terms:ir.ui.view,arch_db:payment.payment_confirmation_status
 msgid "Dismiss"
-msgstr ""
+msgstr "Odbaciti"
 
 #. module: payment
 #: model:ir.model.fields,field_description:payment.field_payment_acquirer__display_name
@@ -748,7 +757,7 @@ msgstr "Poruka greške:"
 #: code:addons/payment/static/src/js/payment_form.js:430
 #, python-format
 msgid "Error: "
-msgstr ""
+msgstr "Greška :"
 
 #. module: payment
 #: model:ir.model.fields,field_description:payment.field_payment_transaction__fees
@@ -758,7 +767,7 @@ msgstr "Naknade"
 #. module: payment
 #: model:ir.model.fields,field_description:payment.field_payment_acquirer__fees_implemented
 msgid "Fees Computation Supported"
-msgstr ""
+msgstr "Podržan izračun naknada"
 
 #. module: payment
 #: model:ir.model.fields,help:payment.field_payment_transaction__fees
@@ -814,7 +823,7 @@ msgstr "Grupiraj po"
 #. module: payment
 #: model:ir.model,name:payment.model_ir_http
 msgid "HTTP Routing"
-msgstr ""
+msgstr "HTTP usmjeravanje"
 
 #. module: payment
 #: model:ir.model.fields,field_description:payment.field_payment_transaction__is_processed
@@ -886,19 +895,19 @@ msgstr "Interna oznaka transakcije"
 #: code:addons/payment/static/src/xml/payment_processing.xml:145
 #, python-format
 msgid "Internal server error"
-msgstr ""
+msgstr "Interna pogreška poslužitelja"
 
 #. module: payment
 #: code:addons/payment/models/account_invoice.py:55
 #, python-format
 msgid "Invalid token found! Token acquirer %s != %s"
-msgstr ""
+msgstr "Pronađen je nevažeći token! Stjecatelj tokena %s != %s"
 
 #. module: payment
 #: code:addons/payment/models/account_invoice.py:58
 #, python-format
 msgid "Invalid token found! Token partner %s != %s"
-msgstr ""
+msgstr "Pronađen je nevažeći token! Partnerov token %s != %s"
 
 #. module: payment
 #: model:ir.model,name:payment.model_account_invoice
@@ -908,7 +917,7 @@ msgstr "Račun"
 #. module: payment
 #: model_terms:ir.ui.view,arch_db:payment.transaction_form
 msgid "Invoice(s)"
-msgstr ""
+msgstr "Račun(i)"
 
 #. module: payment
 #: code:addons/payment/models/payment_acquirer.py:851
@@ -972,7 +981,7 @@ msgstr ""
 #. module: payment
 #: model_terms:ir.ui.view,arch_db:payment.pay_methods
 msgid "Manage your Payment Methods"
-msgstr ""
+msgstr "Upravljaj svojim načinima plaćanja"
 
 #. module: payment
 #: model_terms:ir.ui.view,arch_db:payment.pay_meth_link
@@ -1110,7 +1119,7 @@ msgstr ""
 #: code:addons/payment/static/src/xml/payment_processing.xml:118
 #, python-format
 msgid "No payment has been processed."
-msgstr ""
+msgstr "Nijedno plaćanje nije obrađeno."
 
 #. module: payment
 #. openerp-web
@@ -1218,12 +1227,12 @@ msgstr "Ime partnera"
 #. module: payment
 #: selection:payment.acquirer.onboarding.wizard,payment_method:0
 msgid "Pay with PayPal"
-msgstr ""
+msgstr "Plati putem PayPal"
 
 #. module: payment
 #: selection:payment.acquirer.onboarding.wizard,payment_method:0
 msgid "Pay with another payment acquirer"
-msgstr ""
+msgstr "Platite sa drugim stjecateljem plaćanja"
 
 #. module: payment
 #: selection:payment.acquirer.onboarding.wizard,payment_method:0
@@ -1233,7 +1242,7 @@ msgstr ""
 #. module: payment
 #: selection:res.company,payment_onboarding_payment_method:0
 msgid "PayPal"
-msgstr ""
+msgstr "PayPal"
 
 #. module: payment
 #: model:ir.model.fields,field_description:payment.field_payment_acquirer_onboarding_wizard__paypal_email_account
@@ -1244,7 +1253,7 @@ msgstr ""
 #: model:payment.acquirer,name:payment.payment_acquirer_payu
 #: selection:payment.acquirer,provider:0
 msgid "PayUmoney"
-msgstr ""
+msgstr "PayUmoney"
 
 #. module: payment
 #: model:ir.model.fields,field_description:payment.field_payment_transaction__payment_id
@@ -1269,24 +1278,24 @@ msgstr "Stjecatelj plaćanja"
 #. module: payment
 #: model:ir.model.fields,field_description:payment.field_payment_acquirer__payment_flow
 msgid "Payment Flow"
-msgstr ""
+msgstr "Payment Flow"
 
 #. module: payment
 #: model:ir.model,name:payment.model_payment_icon
 #: model_terms:ir.ui.view,arch_db:payment.payment_icon_form_view
 msgid "Payment Icon"
-msgstr ""
+msgstr "Ikona plaćanja"
 
 #. module: payment
 #: model:ir.actions.act_window,name:payment.action_payment_icon
 #: model:ir.ui.menu,name:payment.payment_icon_menu
 msgid "Payment Icons"
-msgstr ""
+msgstr "Ikone plaćanja"
 
 #. module: payment
 #: model:ir.model.fields,field_description:payment.field_payment_acquirer_onboarding_wizard__manual_post_msg
 msgid "Payment Instructions"
-msgstr ""
+msgstr "Upute za plaćanje"
 
 #. module: payment
 #: model:ir.model.fields,field_description:payment.field_payment_acquirer__journal_id
@@ -1458,7 +1467,7 @@ msgstr ""
 #: code:addons/payment/static/src/xml/payment_processing.xml:139
 #, python-format
 msgid "Please wait ..."
-msgstr ""
+msgstr "Molimo pričekajte ..."
 
 #. module: payment
 #: model:ir.actions.server,name:payment.cron_post_process_payment_tx_ir_actions_server
@@ -1470,7 +1479,7 @@ msgstr ""
 #. module: payment
 #: model_terms:ir.ui.view,arch_db:payment.confirm
 msgid "Processed by"
-msgstr ""
+msgstr "Obradio"
 
 #. module: payment
 #: selection:payment.acquirer,environment:0
@@ -1544,7 +1553,7 @@ msgstr "Predložak obrasca S2S"
 #. module: payment
 #: model:ir.model.fields,field_description:payment.field_payment_acquirer__save_token
 msgid "Save Cards"
-msgstr ""
+msgstr "Spremi kartice"
 
 #. module: payment
 #: model_terms:ir.ui.view,arch_db:payment.payment_tokens_list
@@ -1600,19 +1609,19 @@ msgstr "Poslužitelj do poslužitelja"
 #: code:addons/payment/static/src/js/payment_form.js:302
 #, python-format
 msgid "Server error"
-msgstr ""
+msgstr "Greška poslužitelja"
 
 #. module: payment
 #. openerp-web
 #: code:addons/payment/static/src/xml/payment_processing.xml:138
 #, python-format
 msgid "Server error:"
-msgstr ""
+msgstr "Greška poslužitelja:"
 
 #. module: payment
 #: model_terms:ir.ui.view,arch_db:payment.onboarding_payment_acquirer_step
 msgid "Set payments"
-msgstr ""
+msgstr "Postavite isplate"
 
 #. module: payment
 #: model:ir.model.fields,field_description:payment.field_payment_token__short_name

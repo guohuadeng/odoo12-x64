@@ -16,9 +16,12 @@
 # Murat Kaplan <muratk@projetgrup.com>, 2018
 # Umur Akın <umura@projetgrup.com>, 2018
 # Buket Şeker <buket_skr@hotmail.com>, 2018
-# Ediz Duman <neps1192@gmail.com>, 2019
 # ANIL TAN SAĞIR <anils@projetgrup.com>, 2019
 # Abdullah Onur Uğur <aonurugur@outlook.com>, 2019
+# Yedigen, 2019
+# Ediz Duman <neps1192@gmail.com>, 2020
+# abc Def <hdogan1974@gmail.com>, 2020
+# Murat Durmuş <muratd@projetgrup.com>, 2020
 # 
 msgid ""
 msgstr ""
@@ -26,7 +29,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-09 10:32+0000\n"
 "PO-Revision-Date: 2018-08-24 09:35+0000\n"
-"Last-Translator: Abdullah Onur Uğur <aonurugur@outlook.com>, 2019\n"
+"Last-Translator: Murat Durmuş <muratd@projetgrup.com>, 2020\n"
 "Language-Team: Turkish (https://www.transifex.com/odoo/teams/41243/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -184,7 +187,7 @@ msgstr ""
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.slide_social_email
 msgid "<i class=\"fa fa-envelope-o\"/> Send Email"
-msgstr ""
+msgstr "<i class=\"fa fa-envelope-o\"/> Eposta Gönder"
 
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.embed_slide
@@ -235,6 +238,8 @@ msgid ""
 "<i class=\"fa fa-thumbs-down fa-1x\" role=\"img\" aria-label=\"Dislikes\" "
 "title=\"Dislikes\"/>"
 msgstr ""
+"<i class=\"fa fa-thumbs-down fa-1x\" role=\"img\" aria-label=\"Dislikes\" "
+"title=\"Dislikes\"/>"
 
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.slide_detail_view
@@ -245,6 +250,8 @@ msgstr "<i class=\"fa fa-thumbs-down\"/> Beğenmeme"
 #: model_terms:ir.ui.view,arch_db:website_slides.slide_detail_view
 msgid "<i class=\"fa fa-thumbs-up fa-1x\" role=\"img\" aria-label=\"Likes\" title=\"Likes\"/>"
 msgstr ""
+"<i class=\"fa fa-thumbs-up fa-1x\" role=\"img\" aria-label=\"Likes\" "
+"title=\"Likes\"/>"
 
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.slide_detail_view
@@ -301,6 +308,8 @@ msgid ""
 "<span class=\"fa fa-arrow-right\"/>\n"
 "                                    Create a Google Project and Get a Key"
 msgstr ""
+"<span class=\"fa fa-arrow-right\"/>\n"
+"                                    Google Projesi oluşturun ve Anahtar Alın"
 
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.slide_social_email
@@ -319,6 +328,8 @@ msgid ""
 "<span class=\"o_form_label\">Slides</span>\n"
 "                        <span class=\"fa fa-lg fa-globe\" title=\"Values set here are website-specific.\" groups=\"website.group_multi_website\"/>"
 msgstr ""
+"<span class=\"o_form_label\">Slaytlar</span>\n"
+"                        <span class=\"fa fa-lg fa-globe\" title=\"Values set here are website-specific.\" groups=\"website.group_multi_website\"/>"
 
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.slide_detail_view
@@ -941,7 +952,7 @@ msgstr "Son Güncelleme"
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.embed_slide
 msgid "Last slide"
-msgstr ""
+msgstr "Son slayt"
 
 #. module: website_slides
 #: selection:slide.channel,promote_strategy:0
@@ -1041,7 +1052,7 @@ msgstr "En yeni"
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.embed_slide
 msgid "Next slide"
-msgstr ""
+msgstr "Sonraki slayt"
 
 #. module: website_slides
 #: selection:slide.channel,promote_strategy:0
@@ -1238,7 +1249,7 @@ msgstr "Sunumlar"
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.embed_slide
 msgid "Previous slide"
-msgstr ""
+msgstr "Bir onceki slayt"
 
 #. module: website_slides
 #: selection:slide.channel,visibility:0
@@ -1315,7 +1326,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:website_slides.field_slide_channel__is_seo_optimized
 #: model:ir.model.fields,field_description:website_slides.field_slide_slide__is_seo_optimized
 msgid "SEO optimized"
-msgstr ""
+msgstr "SEO en iyileştirildi."
 
 #. module: website_slides
 #. openerp-web
@@ -1387,7 +1398,7 @@ msgstr "Paylaşım sayısı"
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.slides_share
 msgid "Share on Facebook"
-msgstr ""
+msgstr "Facebook'ta Paylaş"
 
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.slides_share
@@ -1397,7 +1408,7 @@ msgstr ""
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.slides_share
 msgid "Share on LinkedIn"
-msgstr ""
+msgstr "LinkedIn'de paylaş"
 
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.slide_social_media
@@ -1407,7 +1418,7 @@ msgstr "Sosyal Ağlarda Paylaş"
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.slides_share
 msgid "Share on Twitter"
-msgstr ""
+msgstr "Twitter'da paylaş"
 
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.slide_social_email
@@ -1432,7 +1443,7 @@ msgstr "Slayt"
 #. module: website_slides
 #: model:ir.model,name:website_slides.model_slide_channel
 msgid "Slide Channel"
-msgstr ""
+msgstr "Slayt Kanalı"
 
 #. module: website_slides
 #: model:ir.model,name:website_slides.model_slide_tag
@@ -1443,7 +1454,7 @@ msgstr "Slayt Etiketi"
 #: model_terms:ir.ui.view,arch_db:website_slides.embed_slide
 #: model_terms:ir.ui.view,arch_db:website_slides.slide_detail_view
 msgid "Slide image"
-msgstr ""
+msgstr "Slayt görseli"
 
 #. module: website_slides
 #: model:ir.model.fields,field_description:website_slides.field_slide_channel__custom_slide_id
@@ -1755,7 +1766,7 @@ msgstr "Web sitesi meta başlık"
 #: model:ir.model.fields,field_description:website_slides.field_slide_channel__website_meta_og_img
 #: model:ir.model.fields,field_description:website_slides.field_slide_slide__website_meta_og_img
 msgid "Website opengraph image"
-msgstr ""
+msgstr "Web sitesi açılış grafik görüntüsü "
 
 #. module: website_slides
 #. openerp-web

@@ -9,16 +9,17 @@
 # Esther Martín Menéndez <esthermartin001@gmail.com>, 2019
 # Gorka Toledo <gorka.toledo@gmail.com>, 2019
 # Mikel Lizarralde <mikellizarralde@gmail.com>, 2019
-# Naomi Hidalgo <naomihid96@gmail.com>, 2019
+# 61590936fa9bf290362ee306eeabf363_944dd10 <a8bfd5a0b49b9c8455f33fc521764cc3_680674>, 2019
 # Victor Laskurain <blaskurain@binovo.es>, 2019
+# Maialen Rodriguez <maialenrodriguez98@gmail.com>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-01 06:19+0000\n"
+"POT-Creation-Date: 2019-11-14 07:34+0000\n"
 "PO-Revision-Date: 2019-07-01 06:20+0000\n"
-"Last-Translator: Victor Laskurain <blaskurain@binovo.es>, 2019\n"
+"Last-Translator: Maialen Rodriguez <maialenrodriguez98@gmail.com>, 2020\n"
 "Language-Team: Basque (https://www.transifex.com/odoo/teams/41243/eu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -249,7 +250,7 @@ msgstr ""
 #. module: crm_reveal
 #: model:crm.reveal.industry,name:crm_reveal.crm_reveal_industry_22
 msgid "Chemicals"
-msgstr ""
+msgstr "Kimikoak"
 
 #. module: crm_reveal
 #: model:crm.reveal.industry,name:crm_reveal.crm_reveal_industry_23
@@ -259,7 +260,7 @@ msgstr ""
 #. module: crm_reveal
 #: model:crm.reveal.industry,name:crm_reveal.crm_reveal_industry_24
 msgid "Cloud Services"
-msgstr ""
+msgstr "Hodeiko zerbitzuak"
 
 #. module: crm_reveal
 #: model:ir.model.fields,field_description:crm_reveal.field_crm_reveal_industry__color
@@ -280,7 +281,7 @@ msgstr ""
 #. module: crm_reveal
 #: model:crm.reveal.industry,name:crm_reveal.crm_reveal_industry_181
 msgid "Commercial Services & Supplies"
-msgstr ""
+msgstr "Merkataritza-zerbitzuak eta hornidura"
 
 #. module: crm_reveal
 #: model:crm.reveal.industry,name:crm_reveal.crm_reveal_industry_225
@@ -574,7 +575,7 @@ msgstr "Gertakizunak"
 #. module: crm_reveal
 #: model:ir.model.fields,field_description:crm_reveal.field_crm_reveal_rule__extra_contacts
 msgid "Extra Contacts"
-msgstr ""
+msgstr "Kontaktu gehigarriak"
 
 #. module: crm_reveal
 #: model:crm.reveal.industry,name:crm_reveal.crm_reveal_industry_45
@@ -699,7 +700,7 @@ msgstr ""
 #. module: crm_reveal
 #: model:ir.model,name:crm_reveal.model_ir_http
 msgid "HTTP Routing"
-msgstr ""
+msgstr "HTTP bideratzea"
 
 #. module: crm_reveal
 #: model:crm.reveal.industry,name:crm_reveal.crm_reveal_industry_60
@@ -827,7 +828,7 @@ msgstr ""
 #. module: crm_reveal
 #: model:crm.reveal.industry,name:crm_reveal.crm_reveal_industry_66
 msgid "Import & Export"
-msgstr ""
+msgstr "Inportatu eta exportatu"
 
 #. module: crm_reveal
 #: model:crm.reveal.industry,name:crm_reveal.crm_reveal_industry_168
@@ -857,7 +858,7 @@ msgstr ""
 #. module: crm_reveal
 #: model:ir.model,name:crm_reveal.model_crm_reveal_industry
 msgid "Industry Tag"
-msgstr ""
+msgstr "Industriaren etiketa"
 
 #. module: crm_reveal
 #: model:ir.model.fields,field_description:crm_reveal.field_crm_reveal_rule__industry_tag_ids
@@ -872,7 +873,7 @@ msgstr ""
 #. module: crm_reveal
 #: model:crm.reveal.industry,name:crm_reveal.crm_reveal_industry_68
 msgid "Information Technology & Services"
-msgstr ""
+msgstr "Informazio teknologia eta zerbitzuak"
 
 #. module: crm_reveal
 #: model:crm.reveal.industry,name:crm_reveal.crm_reveal_industry_69
@@ -998,6 +999,14 @@ msgstr ""
 #: model:ir.actions.act_window,name:crm_reveal.crm_reveal_view_action
 #: model:ir.ui.menu,name:crm_reveal.crm_reveal_view_menu_action
 msgid "Lead Generation Views"
+msgstr ""
+
+#. module: crm_reveal
+#: code:addons/crm_reveal/models/crm_reveal_rule.py:79
+#, python-format
+msgid ""
+"Lead Generation requires a GeoIP resolver which could not be found on your "
+"system. Please consult https://pypi.org/project/GeoIP/."
 msgstr ""
 
 #. module: crm_reveal
@@ -1131,6 +1140,12 @@ msgstr ""
 #. module: crm_reveal
 #: model:crm.reveal.industry,name:crm_reveal.crm_reveal_industry_89
 msgid "Mining & Metals"
+msgstr ""
+
+#. module: crm_reveal
+#: code:addons/crm_reveal/models/crm_reveal_rule.py:82
+#, python-format
+msgid "Missing Library"
 msgstr ""
 
 #. module: crm_reveal
@@ -1336,7 +1351,7 @@ msgstr ""
 #. module: crm_reveal
 #: model:crm.reveal.industry,name:crm_reveal.crm_reveal_industry_106
 msgid "Plumbing"
-msgstr ""
+msgstr "Iturgintza"
 
 #. module: crm_reveal
 #: model:crm.reveal.industry,name:crm_reveal.crm_reveal_industry_107
@@ -1551,7 +1566,7 @@ msgstr "Software"
 #. module: crm_reveal
 #: model:crm.reveal.industry,name:crm_reveal.crm_reveal_industry_165
 msgid "Software & Services"
-msgstr ""
+msgstr "Softwarea eta zerbitzuak"
 
 #. module: crm_reveal
 #: model:crm.reveal.industry,name:crm_reveal.crm_reveal_industry_171
@@ -1586,12 +1601,12 @@ msgstr ""
 #. module: crm_reveal
 #: model:ir.model.fields,field_description:crm_reveal.field_crm_reveal_rule__suffix
 msgid "Suffix"
-msgstr ""
+msgstr "Atzizkia"
 
 #. module: crm_reveal
 #: model:ir.model.fields,field_description:crm_reveal.field_crm_reveal_industry__name
 msgid "Tag Name"
-msgstr ""
+msgstr "Etiketaren izena"
 
 #. module: crm_reveal
 #: sql_constraint:crm.reveal.industry:0
@@ -1636,7 +1651,7 @@ msgstr ""
 #. module: crm_reveal
 #: model:crm.reveal.industry,name:crm_reveal.crm_reveal_industry_131
 msgid "Telecommunications"
-msgstr ""
+msgstr "telekomunikazioak"
 
 #. module: crm_reveal
 #: model:crm.reveal.industry,name:crm_reveal.crm_reveal_industry_132
@@ -1666,7 +1681,7 @@ msgstr "Titulua"
 #. module: crm_reveal
 #: selection:crm.reveal.view,reveal_state:0
 msgid "To Process"
-msgstr ""
+msgstr "Prozesatu"
 
 #. module: crm_reveal
 #: model:crm.reveal.industry,name:crm_reveal.crm_reveal_industry_133
@@ -1686,7 +1701,7 @@ msgstr ""
 #. module: crm_reveal
 #: model:crm.reveal.industry,name:crm_reveal.crm_reveal_industry_135
 msgid "Translation"
-msgstr ""
+msgstr "Itzulpena"
 
 #. module: crm_reveal
 #: model:crm.reveal.industry,name:crm_reveal.crm_reveal_industry_136
@@ -1773,17 +1788,17 @@ msgstr ""
 #. module: crm_reveal
 #: model:crm.reveal.role,name:crm_reveal.crm_reveal_role_2
 msgid "communications"
-msgstr ""
+msgstr "komunikazioak"
 
 #. module: crm_reveal
 #: model:crm.reveal.role,name:crm_reveal.crm_reveal_role_3
 msgid "consulting"
-msgstr ""
+msgstr "kontsultatzen"
 
 #. module: crm_reveal
 #: model_terms:ir.ui.view,arch_db:crm_reveal.crm_reveal_rule_form
 msgid "credits are consumed if the company matches the rule."
-msgstr ""
+msgstr "enpresak araua betetzen badu, kredituak kontsumitzen dira."
 
 #. module: crm_reveal
 #: model:crm.reveal.role,name:crm_reveal.crm_reveal_role_4
@@ -1843,7 +1858,7 @@ msgstr ""
 #. module: crm_reveal
 #: model:crm.reveal.role,name:crm_reveal.crm_reveal_role_12
 msgid "legal"
-msgstr ""
+msgstr "legala"
 
 #. module: crm_reveal
 #: model:crm.reveal.seniority,name:crm_reveal.crm_reveal_seniority_3
@@ -1893,7 +1908,7 @@ msgstr ""
 #. module: crm_reveal
 #: model:crm.reveal.role,name:crm_reveal.crm_reveal_role_21
 msgid "research"
-msgstr ""
+msgstr "ikerketa"
 
 #. module: crm_reveal
 #: model:crm.reveal.role,name:crm_reveal.crm_reveal_role_22

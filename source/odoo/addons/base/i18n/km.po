@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-14 08:02+0000\n"
+"POT-Creation-Date: 2019-12-10 14:44+0000\n"
 "PO-Revision-Date: 2018-08-24 09:14+0000\n"
 "Last-Translator: Lux Sok <sok.lux@gmail.com>, 2019\n"
 "Language-Team: Khmer (https://www.transifex.com/odoo/teams/41243/km/)\n"
@@ -122,6 +122,93 @@ msgstr ""
 " - ពន្ធនៃHungarian\n"
 " - ពត៌មានធនាគារនៃHungarian \n"
 " "
+
+#. module: base
+#: model:ir.module.module,description:base.module_l10n_dk
+msgid ""
+"\n"
+"\n"
+"Localization Module for Denmark\n"
+"===============================\n"
+"\n"
+"This is the module to manage the **accounting chart for Denmark**. Cover both one-man business as well as I/S, IVS, ApS and A/S\n"
+"\n"
+"**Modulet opsætter:**\n"
+"\n"
+"- **Dansk kontoplan**\n"
+"\n"
+"- Dansk moms\n"
+"        - 25% moms\n"
+"        - Resturationsmoms 6,25%\n"
+"        - Omvendt betalingspligt\n"
+"        \n"
+"- Konteringsgrupper\n"
+"        - EU (Virksomhed)\n"
+"        - EU (Privat)\n"
+"        - 3.lande\n"
+"\n"
+"- Finans raporter\n"
+"        - Resulttopgørelse\n"
+"        - Balance\n"
+"        - Momsafregning\n"
+"            - Afregning\n"
+"            - Rubrik A, B og C\n"
+"\n"
+"- **Anglo-Saxon regnskabsmetode**\n"
+"\n"
+".\n"
+"\n"
+"Produkt setup:\n"
+"==============\n"
+"\n"
+"**Vare**\n"
+"\n"
+"**Salgsmoms:**      Salgmoms 25%\n"
+"\n"
+"**Salgskonto:**     1010 Salg af vare, m/moms\n"
+"\n"
+"**Købsmoms:**       Købsmoms 25%\n"
+"\n"
+"**Købskonto:**      2010 Direkte omkostninger vare, m/moms\n"
+"\n"
+".\n"
+"\n"
+"**Ydelse**\n"
+"\n"
+"**Salgsmoms:**      Salgmoms 25%, ydelser\n"
+"\n"
+"**Salgskonto:**     1011 Salg af ydelser, m/moms\n"
+"\n"
+"**Købsmoms:**       Købsmoms 25%, ydelser\n"
+"\n"
+"**Købskonto:**      2011 Direkte omkostninger ydelser, m/moms\n"
+"\n"
+".\n"
+"\n"
+"**Vare med omvendt betalingspligt**\n"
+"\n"
+"**Salgsmoms:**      Salg omvendt betalingspligt\n"
+"\n"
+"**Salgskonto:**     1012 Salg af vare, u/moms\n"
+"\n"
+"**Købsmoms:**       Køb omvendt betalingspligt\n"
+"\n"
+"**Købskonto:**      2012 Direkte omkostninger vare, u/moms\n"
+"\n"
+"\n"
+".\n"
+"\n"
+"**Restauration**\n"
+"\n"
+"**Købsmoms:**       Restaurationsmoms 6,25%, købsmoms\n"
+"\n"
+"**Købskonto:**      4010 Restaurationsbesøg\n"
+"\n"
+".\n"
+"\n"
+"Copyright 2018 Odoo House ApS\n"
+"    "
+msgstr ""
 
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_do
@@ -486,6 +573,11 @@ msgid ""
 "        Contains Balance Sheet, Profit/Loss reports\n"
 "    "
 msgstr ""
+"\n"
+"        របាយការណ៍គណនេយ្យសម្រាប់ Lithuania\n"
+"\n"
+"        ការកត់ត្រាទុកតារាងតុល្យភាព, របាយការណ៍ចំណេញឬខាត\n"
+"    "
 
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_nl_reports
@@ -525,6 +617,9 @@ msgid ""
 "        Accounting reports for South Africa\n"
 "    "
 msgstr ""
+"\n"
+"        របាយការណ៍គណនេយ្យសម្រាប់អាហ្វ្រិចខាងត្បូង\n"
+"    "
 
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_es_reports
@@ -574,6 +669,9 @@ msgid ""
 "        Accounting reports for United Arab Emirates\n"
 "    "
 msgstr ""
+"\n"
+"        របាយការណ៍គណនេយ្យសម្រាប់ United Arab Emirates\n"
+"    "
 
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_uy_reports
@@ -593,6 +691,9 @@ msgid ""
 "        Accounting reports send to HMRC\n"
 "    "
 msgstr ""
+"\n"
+"       ការផ្ញើររបាយការណ៍គណនេយ្យទៅ HMRC\n"
+"    "
 
 #. module: base
 #: model:ir.module.module,summary:base.module_l10n_mx_reports_closing
@@ -603,6 +704,11 @@ msgid ""
 "        Colloquially known as \"Month 13\"\n"
 "    "
 msgstr ""
+"\n"
+"        អនុញ្ញាតឱ្យបង្កើតតុល្យភាពនៃការសាកល្បងសម្រាប់ការបិទ។\n"
+"\n"
+"        ដែលគេស្គាល់ជាផ្លូវការ \"ខែទី13\"\n"
+"    "
 
 #. module: base
 #: model:ir.module.module,description:base.module_voip
@@ -709,6 +815,15 @@ msgid ""
 msgstr ""
 "\n"
 "ទំរង់ការកែលម្អរទំម្រង់ក្នុងពេលជាមួយគ្នាសំរាប់ការតឡើង"
+
+#. module: base
+#: model:ir.module.module,description:base.module_product_unspsc
+msgid ""
+"\n"
+"        Countries like Colombia, Peru and Mexico need to be able to use the \n"
+"        UNSPSC code for their products and uoms.  \n"
+"    "
+msgstr ""
 
 #. module: base
 #: model:ir.module.module,summary:base.module_l10n_mx_reports
@@ -1570,6 +1685,15 @@ msgstr ""
 "របាយការណ៍គណនេយ្យសម្រាប់ក្រូអាត។\n"
 "================================\n"
 "    "
+
+#. module: base
+#: model:ir.module.module,description:base.module_l10n_dk_reports
+msgid ""
+"\n"
+"Accounting reports for Denmark\n"
+"=================================\n"
+"    "
+msgstr ""
 
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_et_reports
@@ -4510,6 +4634,16 @@ msgid ""
 "\n"
 "Install some generic chart of accounts.\n"
 "    "
+msgstr ""
+
+#. module: base
+#: model:ir.module.module,description:base.module_l10n_id
+msgid ""
+"\n"
+"This is the latest Indonesian Odoo localisation necessary to run Odoo accounting for SMEs with:\n"
+"=================================================================================================\n"
+"    - generic Indonesian chart of accounts\n"
+"    - tax structure"
 msgstr ""
 
 #. module: base
@@ -8771,6 +8905,11 @@ msgid "Colombian Localization for EDI documents"
 msgstr ""
 
 #. module: base
+#: model:ir.module.module,summary:base.module_l10n_co_edi_ubl_2_1
+msgid "Colombian Localization for EDI documents UBL 2.1"
+msgstr ""
+
+#. module: base
 #: model:ir.model.fields,field_description:base.field_res_groups__color
 #: model:ir.model.fields,field_description:base.field_res_partner__color
 #: model:ir.model.fields,field_description:base.field_res_partner_category__color
@@ -10189,6 +10328,16 @@ msgid "Denmark"
 msgstr "ដាណឺម៉ាក"
 
 #. module: base
+#: model:ir.module.module,shortdesc:base.module_l10n_dk
+msgid "Denmark - Accounting"
+msgstr ""
+
+#. module: base
+#: model:ir.module.module,shortdesc:base.module_l10n_dk_reports
+msgid "Denmark - Accounting Reports"
+msgstr ""
+
+#. module: base
 #: model:ir.model.fields,field_description:base.field_ir_model_fields__depends
 #: model:ir.model.fields,field_description:base.field_ir_module_module__dependencies_id
 #: model_terms:ir.ui.view,arch_db:base.module_form
@@ -11007,8 +11156,13 @@ msgid "Electronic invoicing for Colombia with Carvajal"
 msgstr "ការទូទាត់អេឡិចត្រូនិកសម្រាប់ប្រទេសកូឡុំប៊ីជាមួយ Carvajal"
 
 #. module: base
-#: code:addons/base/models/ir_ui_view.py:619
-#: code:addons/base/models/ir_ui_view.py:700
+#: model:ir.module.module,shortdesc:base.module_l10n_co_edi_ubl_2_1
+msgid "Electronic invoicing for Colombia with Carvajal UBL 2.1"
+msgstr ""
+
+#. module: base
+#: code:addons/base/models/ir_ui_view.py:629
+#: code:addons/base/models/ir_ui_view.py:720
 #, python-format
 msgid "Element '%s' cannot be located in parent view"
 msgstr "ធាតុ '%s' មិនអាចស្ថិតនៅក្នុងទិដ្ឋភាពមេ"
@@ -11877,7 +12031,19 @@ msgid "File Size"
 msgstr "ទំហំឯកសារ"
 
 #. module: base
-#: code:addons/base/wizard/base_import_language.py:44
+#: code:addons/base/wizard/base_import_language.py:45
+#, python-format
+msgid ""
+"File not imported due to a malformed file.\n"
+"\n"
+"This issue can be caused by duplicates entries who are referring to the same field. Please check the content of the file you are trying to import.\n"
+"\n"
+"Technical Details:\n"
+"%s"
+msgstr ""
+
+#. module: base
+#: code:addons/base/wizard/base_import_language.py:51
 #, python-format
 msgid ""
 "File not imported due to format mismatch or a malformed file. (Valid formats are .csv, .po, .pot)\n"
@@ -13626,6 +13792,11 @@ msgstr ""
 #: model:res.country,name:base.id
 msgid "Indonesia"
 msgstr "ឥណ្តូនេស៊ី"
+
+#. module: base
+#: model:ir.module.module,shortdesc:base.module_l10n_id
+msgid "Indonesian - Accounting"
+msgstr ""
 
 #. module: base
 #: model:ir.actions.act_window,name:base.res_partner_industry_action
@@ -20574,6 +20745,11 @@ msgid "Sticky memos, Collaborative"
 msgstr ""
 
 #. module: base
+#: model:ir.module.category,name:base.module_category_stock
+msgid "Stock"
+msgstr "ស្តុក"
+
+#. module: base
 #: model:ir.module.module,shortdesc:base.module_stock_barcode_mobile
 msgid "Stock Barcode in Mobile"
 msgstr "ស្តុកលេខកូដប័ណ្ណក្នុងទូរស័ព្ទ"
@@ -20666,6 +20842,11 @@ msgstr "កន្លែងគំរូរចនាសម្ព័ន្ធ"
 #: model:ir.module.module,shortdesc:base.module_web_studio
 msgid "Studio"
 msgstr "ស្ទូឌីយោ"
+
+#. module: base
+#: model:ir.module.module,shortdesc:base.module_studio_customization
+msgid "Studio customizations"
+msgstr ""
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.edit_menu_access
@@ -21823,8 +22004,22 @@ msgid "The internal user in charge of this contact."
 msgstr ""
 
 #. module: base
+#: code:addons/base/models/res_country.py:106
+#, python-format
+msgid "The layout contains an invalid format key"
+msgstr ""
+
+#. module: base
 #: model:ir.model.fields,help:base.field_ir_model__inherited_model_ids
 msgid "The list of models that extends the current model."
+msgstr ""
+
+#. module: base
+#: code:addons/base/models/ir_model.py:522
+#, python-format
+msgid ""
+"The m2o field %s is required but declares its ondelete policy as being 'set "
+"null'. Only 'restrict' and 'cascade' make sense."
 msgstr ""
 
 #. module: base
@@ -22216,6 +22411,13 @@ msgstr ""
 msgid ""
 "This module ensures that when delivery price is computed online, and taxes are computed with TaxCloud, the tax computation is done correctly on both the order and delivery.\n"
 "    "
+msgstr ""
+
+#. module: base
+#: model:ir.module.module,description:base.module_studio_customization
+msgid ""
+"This module has been generated by Odoo Studio.\n"
+"It contains the apps created with Studio and the customizations of existing apps."
 msgstr ""
 
 #. module: base
@@ -22703,6 +22905,12 @@ msgid "UK - Accounting Reports to HMRC"
 msgstr ""
 
 #. module: base
+#: model:ir.module.module,shortdesc:base.module_product_unspsc
+#: model:ir.module.module,summary:base.module_product_unspsc
+msgid "UNSPSC product codes"
+msgstr ""
+
+#. module: base
 #: model:ir.module.module,shortdesc:base.module_delivery_ups
 msgid "UPS Shipping"
 msgstr " ការដឹកជញ្ជូនUPS"
@@ -22860,14 +23068,22 @@ msgid "Units of measure"
 msgstr "ឯកតារង្វាស់"
 
 #. module: base
+#: code:addons/model.py:143 code:addons/model.py:152 code:addons/model.py:153
 #: model:ir.model,name:base.model__unknown
 #: selection:ir.module.module.dependency,state:0
 #: selection:ir.module.module.exclusion,state:0
+#, python-format
 msgid "Unknown"
 msgstr "មិនស្គាល់"
 
 #. module: base
-#: code:addons/models.py:1058
+#: code:addons/models.py:873
+#, python-format
+msgid "Unknown database error: '%s'"
+msgstr ""
+
+#. module: base
+#: code:addons/models.py:1067
 #, python-format
 msgid "Unknown database identifier '%s'"
 msgstr "គ្រឿងសម្គាល់មូលដ្ឋានទិន្នន័យមិនស្គាល់ '%s'"
@@ -23944,8 +24160,8 @@ msgstr ""
 #. module: base
 #: code:addons/base/models/res_partner.py:509
 #, python-format
-msgid "You cannot archive a contact linked to an internal user."
-msgstr "អ្នកមិនអាចផ្ទុកទំនាក់ទំនងដែលភ្ជាប់ជាមួយអ្នកប្រើខាងក្នុងបានទេ។"
+msgid "You cannot archive a contact linked to a portal or internal user."
+msgstr ""
 
 #. module: base
 #: code:addons/base/models/res_partner.py:330
@@ -24428,6 +24644,11 @@ msgid "selection"
 msgstr "ការជ្រើសរើស"
 
 #. module: base
+#: selection:ir.model.fields,ttype:0
+msgid "serialized"
+msgstr "សេរី"
+
+#. module: base
 #: model:ir.module.module,shortdesc:base.module_snailmail_account
 msgid "snailmail_account"
 msgstr ""
@@ -24436,11 +24657,6 @@ msgstr ""
 #: model:ir.module.module,shortdesc:base.module_social_media
 msgid "social_media"
 msgstr "ប្រព័ន្ធ​ផ្សព្វផ្សាយ​សង្គម"
-
-#. module: base
-#: model:ir.module.category,name:base.module_category_stock
-msgid "stock"
-msgstr ""
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_stock_zebra
@@ -24498,9 +24714,19 @@ msgid "test-inherits"
 msgstr "សាកល្បងជំនួស"
 
 #. module: base
+#: model:ir.module.module,shortdesc:base.module_test_inherits_depends
+msgid "test-inherits-depends"
+msgstr ""
+
+#. module: base
 #: model:ir.module.module,shortdesc:base.module_test_limits
 msgid "test-limits"
 msgstr "សាកល្បងកំណត់"
+
+#. module: base
+#: model:ir.module.module,shortdesc:base.module_test_lint
+msgid "test-lint"
+msgstr ""
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_test_translation_import

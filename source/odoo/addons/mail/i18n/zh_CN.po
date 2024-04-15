@@ -15,7 +15,7 @@
 # Youfu Sheng <wdmsyf@sina.com>, 2018
 # diaojiaolou <124412206@qq.com>, 2018
 # snow wang <147156565@qq.com>, 2018
-# 演奏王 <wangwhai@qq.com>, 2018
+# 稀饭~~ <wangwhai@qq.com>, 2018
 # 湘子 南 <1360857908@qq.com>, 2018
 # Gary Wei <Gary.wei@elico-corp.com>, 2018
 # bf2549c5415a9287249cba2b8a5823c7, 2018
@@ -23,14 +23,15 @@
 # keecome <7017511@qq.com>, 2018
 # inspur qiuguodong <qiuguodong@inspur.com>, 2018
 # Cécile Collart <cco@odoo.com>, 2018
-# liAnGjiA <liangjia@qq.com>, 2019
-# Jeffery CHEN <jeffery9@gmail.com>, 2019
+# Jeffery CHEN Fan <jeffery9@gmail.com>, 2019
 # F4NNIU <sparkamax@gmail.com>, 2019
 # Martin Trigaux, 2019
 # John An <johnxan@163.com>, 2019
 # Jerry Pan <panjianyu@inspur.com>, 2019
 # Felix Yuen <fyu@odoo.com>, 2019
 # Mandy Choy <mnc@odoo.com>, 2019
+# liAnGjiA <liangjia@qq.com>, 2020
+# as co02 <asco02@163.com>, 2021
 # 
 msgid ""
 msgstr ""
@@ -38,7 +39,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-14 07:34+0000\n"
 "PO-Revision-Date: 2018-08-24 09:20+0000\n"
-"Last-Translator: Mandy Choy <mnc@odoo.com>, 2019\n"
+"Last-Translator: as co02 <asco02@163.com>, 2021\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/odoo/teams/41243/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1072,6 +1073,12 @@ msgid "Call"
 msgstr "电话"
 
 #. module: mail
+#: code:addons/mail/models/mail_notification.py:57
+#, python-format
+msgid "Can not update the message or recipient of a notification."
+msgstr ""
+
+#. module: mail
 #. openerp-web
 #: code:addons/mail/static/src/js/followers.js:365
 #: code:addons/mail/static/src/xml/activity.xml:86
@@ -1800,6 +1807,13 @@ msgstr "文档名称"
 
 #. module: mail
 #. openerp-web
+#: code:addons/mail/static/src/xml/thread.xml:524
+#, python-format
+msgid "Document not downloadable"
+msgstr ""
+
+#. module: mail
+#. openerp-web
 #: code:addons/mail/static/src/xml/activity.xml:101
 #, python-format
 msgid "Done"
@@ -2281,6 +2295,12 @@ msgstr "仅关注者"
 #, python-format
 msgid "Following"
 msgstr "正在关注中"
+
+#. module: mail
+#: code:addons/mail/models/mail_channel.py:778
+#, python-format
+msgid "Following invites are invalid as user groups do not match: %s"
+msgstr ""
 
 #. module: mail
 #: model:ir.model.fields,help:mail.field_mail_activity__icon
@@ -3199,6 +3219,13 @@ msgid "Mark as done"
 msgstr "标记为完成"
 
 #. module: mail
+#. openerp-web
+#: code:addons/mail/static/src/xml/thread.xml:300
+#, python-format
+msgid "Mark as todo"
+msgstr ""
+
+#. module: mail
 #: model:ir.ui.menu,name:mail.mail_blacklist_menu
 msgid "Mass Mail Blacklist"
 msgstr "群发邮件黑名单"
@@ -3957,6 +3984,18 @@ msgstr "关注者"
 #, python-format
 msgid "Online"
 msgstr "在线"
+
+#. module: mail
+#: code:addons/mail/models/mail_message.py:1052
+#, python-format
+msgid "Only administrators are allowed to export mail message"
+msgstr ""
+
+#. module: mail
+#: code:addons/mail/models/mail_message.py:1043
+#, python-format
+msgid "Only administrators are allowed to use grouped read on message model"
+msgstr ""
 
 #. module: mail
 #: code:addons/mail/models/mail_channel.py:436
@@ -4863,6 +4902,13 @@ msgstr "发送消息"
 
 #. module: mail
 #. openerp-web
+#: code:addons/mail/static/src/xml/discuss.xml:141
+#, python-format
+msgid "Send by mail"
+msgstr ""
+
+#. module: mail
+#. openerp-web
 #: code:addons/mail/static/src/js/discuss.js:145
 #, python-format
 msgid "Send explanation to author"
@@ -5234,6 +5280,12 @@ msgstr ""
 "基于此别名接收到的邮件，创建记录的所有人。若此字段没有设置，系统将试图根据发送者(From)地址来查找正确的所有者，如果对于那个地址没有系统用户被发现，将使用系统管理员账户。"
 
 #. module: mail
+#: code:addons/mail/models/mail_channel.py:0
+#, python-format
+msgid "The partner can not join this channel"
+msgstr ""
+
+#. module: mail
 #: code:addons/mail/models/mail_activity.py:243
 #: code:addons/mail/models/mail_message.py:704
 #: code:addons/mail/models/mail_message.py:874
@@ -5437,6 +5489,14 @@ msgid ""
 "- 'Add Followers': add followers to a record (Discuss)\n"
 "- 'Create Next Activity': create an activity (Discuss)"
 msgstr ""
+"服务器操作的类型。 提供以下值：\n"
+"-“执行Python代码”：将要执行的python代码块\n"
+"-'创建'：使用新值创建新记录\n"
+"-“更新记录”：更新记录的值\n"
+"-“执行多个动作”：定义一个触发其他几个服务器动作的动作\n"
+"-“发送电子邮件”：自动发送电子邮件（讨论）\n"
+"-“添加关注者”：将关注者添加到记录中（讨论）\n"
+"-“创建下一个活动”：创建活动（讨论）"
 
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_mail_channel__uuid
@@ -5652,6 +5712,29 @@ msgstr "用户"
 #: model:ir.model.fields,field_description:mail.field_ir_actions_server__activity_user_field_name
 msgid "User field name"
 msgstr "用户字段名字"
+
+#. module: mail
+#. openerp-web
+#: code:addons/mail/static/src/xml/discuss.xml:157
+#: code:addons/mail/static/src/xml/discuss.xml:278
+#, python-format
+msgid "User is idle"
+msgstr ""
+
+#. module: mail
+#. openerp-web
+#: code:addons/mail/static/src/xml/discuss.xml:158
+#, python-format
+msgid "User is offline"
+msgstr ""
+
+#. module: mail
+#. openerp-web
+#: code:addons/mail/static/src/xml/discuss.xml:156
+#: code:addons/mail/static/src/xml/discuss.xml:277
+#, python-format
+msgid "User is online"
+msgstr ""
 
 #. module: mail
 #. openerp-web
@@ -5892,6 +5975,13 @@ msgstr "您在频道 <b>#%s</b>"
 
 #. module: mail
 #. openerp-web
+#: code:addons/mail/static/src/js/attachment_box.js:132
+#, python-format
+msgid "You are not allowed to upload an attachment here."
+msgstr "您无权在此处上传附件。"
+
+#. module: mail
+#. openerp-web
 #: code:addons/mail/static/src/js/discuss.js:338
 #, python-format
 msgid ""
@@ -5906,6 +5996,24 @@ msgstr "您是频道管理员。确定要取消订阅吗？"
 msgid ""
 "You can mark any message as 'starred', and it shows up in this mailbox."
 msgstr "您可以给任何消息加星号，然后它会出现在邮箱里。"
+
+#. module: mail
+#: cod:addons/mail/models/mail_channel.py:0
+#, python-format
+msgid "You can not remove this partner from this channel"
+msgstr ""
+
+#. module: mail
+#: code:addons/mail/models/mail_channel.py:0
+#, python-format
+msgid "You can not write on the record of other users"
+msgstr ""
+
+#. module: mail
+#: code:addons/mail/models/mail_channel.py:0
+#, python-format
+msgid "You can not write on this field"
+msgstr ""
 
 #. module: mail
 #: code:addons/mail/models/res_users.py:87
@@ -5924,6 +6032,14 @@ msgid ""
 "You cannot delete those groups, as the Whole Company group is required by "
 "other modules."
 msgstr "您不能删除这些群组，因为整个公司群组被其它模块引用。"
+
+#. module: mail
+#: code:addons/mail/models/mail_alias.py:89
+#, python-format
+msgid ""
+"You cannot use anything else than unaccented latin characters in the alias "
+"address."
+msgstr ""
 
 #. module: mail
 #: code:addons/mail/models/mail_channel.py:257
@@ -5948,8 +6064,8 @@ msgstr "您被指派到"
 #. openerp-web
 #: code:addons/mail/static/src/js/services/mail_notification_manager.js:198
 #, python-format
-msgid "You have been invited to: "
-msgstr "您已被邀请："
+msgid "You have been invited to: %s"
+msgstr ""
 
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.mail_channel_notify_moderation
@@ -6348,7 +6464,7 @@ msgstr "位置目标模型 %s"
 #: code:addons/mail/static/src/js/models/messages/abstract_message.js:52
 #, python-format
 msgid "unnamed"
-msgstr ""
+msgstr "未命名"
 
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.message_notification_email

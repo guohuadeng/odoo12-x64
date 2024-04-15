@@ -4,15 +4,17 @@
 # 
 # Translators:
 # e2f <projects@e2f.com>, 2018
-# Ermin Trevisan <trevi@twanda.com>, 2018
 # Thomas Lengyel <lexustec_fn@yahoo.de>, 2018
-# darenkster <inactive+darenkster@transifex.com>, 2018
+# f91684c3ff9ec3e650d5c8461e534581_686eae3 <449b96d9f63071f94d89e129677b83de_366193>, 2018
 # Katharina Moritz <kmo@e2f.com>, 2018
 # Martin Trigaux, 2018
 # Johannes Croe <jcr@odoo.com>, 2018
 # Marco Tarsia <marco.y.tarsia@gmail.com>, 2018
 # Rudolf Schnapka <rs@techno-flex.de>, 2019
 # Chris Egal <sodaswed@web.de>, 2019
+# Ermin Trevisan <trevi@twanda.com>, 2020
+# Max-Milan Stoyanov, 2020
+# Andreas Schmidt <schmigo@gmail.com>, 2021
 # 
 msgid ""
 msgstr ""
@@ -20,7 +22,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-12-19 08:21+0000\n"
 "PO-Revision-Date: 2018-08-24 09:35+0000\n"
-"Last-Translator: Chris Egal <sodaswed@web.de>, 2019\n"
+"Last-Translator: Andreas Schmidt <schmigo@gmail.com>, 2021\n"
 "Language-Team: German (https://www.transifex.com/odoo/teams/41243/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -36,12 +38,12 @@ msgstr "Aktiv"
 #. module: website_theme_install
 #: model:ir.model.fields,field_description:website_theme_install.field_theme_ir_ui_view__arch
 msgid "Arch"
-msgstr ""
+msgstr "Architektur"
 
 #. module: website_theme_install
 #: model:ir.model.fields,field_description:website_theme_install.field_theme_ir_ui_view__arch_fs
 msgid "Arch Fs"
-msgstr ""
+msgstr "Bogen Fs"
 
 #. module: website_theme_install
 #: model:ir.model,name:website_theme_install.model_ir_attachment
@@ -77,7 +79,7 @@ msgstr "Kategorie"
 #: model_terms:ir.ui.view,arch_db:website_theme_install.res_config_settings_view_form
 #: model_terms:ir.ui.view,arch_db:website_theme_install.view_website_form_view_themes_modal
 msgid "Choose a theme"
-msgstr "Wählen Sie ein Design"
+msgstr "Wählen Sie eine Designvorlage"
 
 #. module: website_theme_install
 #: model:ir.actions.act_window,name:website_theme_install.theme_install_kanban_action
@@ -198,7 +200,7 @@ msgstr "Live-Vorschau"
 #. module: website_theme_install
 #: model:ir.model.fields,field_description:website_theme_install.field_theme_website_menu__copy_ids
 msgid "Menu using a copy of me"
-msgstr ""
+msgstr "Menü mit einer Kopie von mir"
 
 #. module: website_theme_install
 #: model:ir.model.fields,field_description:website_theme_install.field_theme_ir_ui_view__mode
@@ -225,7 +227,7 @@ msgstr "Neues Fenster"
 #. module: website_theme_install
 #: model:ir.model.fields,field_description:website_theme_install.field_res_company__website_theme_onboarding_done
 msgid "Onboarding website theme step done"
-msgstr ""
+msgstr "Onboarding-Website-Theme-Schritt erledigt"
 
 #. module: website_theme_install
 #: model:ir.model,name:website_theme_install.model_website_page
@@ -241,7 +243,7 @@ msgstr "Seite indiziert"
 #. module: website_theme_install
 #: model:ir.model.fields,field_description:website_theme_install.field_theme_website_page__copy_ids
 msgid "Page using a copy of me"
-msgstr ""
+msgstr "Seite mit einer Kopie von mir"
 
 #. module: website_theme_install
 #: model:ir.model.fields,field_description:website_theme_install.field_theme_website_menu__parent_id
@@ -261,7 +263,7 @@ msgstr "Priorität"
 #. module: website_theme_install
 #: model_terms:ir.ui.view,arch_db:website_theme_install.theme_view_kanban
 msgid "Remove theme"
-msgstr "Design entfernen"
+msgstr "Designvorlage entfernen"
 
 #. module: website_theme_install
 #: model:ir.model.fields,field_description:website_theme_install.field_ir_module_module__image_ids
@@ -271,7 +273,7 @@ msgstr "Screenshots"
 #. module: website_theme_install
 #: model_terms:ir.ui.view,arch_db:website_theme_install.onboarding_website_theme_step
 msgid "Select a theme for your website."
-msgstr "Wählen Sie ein Design für Ihre Website."
+msgstr "Wählen Sie eine Designvorlage für Ihre Website."
 
 #. module: website_theme_install
 #: model:ir.model.fields,field_description:website_theme_install.field_theme_website_menu__sequence
@@ -284,16 +286,18 @@ msgid ""
 "Technical field used to resolve multiple attachments in a multi-website "
 "environment."
 msgstr ""
+"Technisches Feld, das zur Auflösung mehrerer Anhänge in einer Umgebung mit "
+"mehreren Websites verwendet wird."
 
 #. module: website_theme_install
 #: model_terms:ir.ui.view,arch_db:website_theme_install.theme_view_search
 msgid "Theme"
-msgstr "Design"
+msgstr "Designvorlage"
 
 #. module: website_theme_install
 #: model:ir.model,name:website_theme_install.model_theme_ir_attachment
 msgid "Theme Attachments"
-msgstr ""
+msgstr "Designanhänge"
 
 #. module: website_theme_install
 #: model:ir.model.fields,field_description:website_theme_install.field_ir_attachment__theme_template_id
@@ -301,12 +305,12 @@ msgstr ""
 #: model:ir.model.fields,field_description:website_theme_install.field_website_menu__theme_template_id
 #: model:ir.model.fields,field_description:website_theme_install.field_website_page__theme_template_id
 msgid "Theme Template"
-msgstr ""
+msgstr "Designvorlage"
 
 #. module: website_theme_install
 #: model:ir.model,name:website_theme_install.model_theme_ir_ui_view
 msgid "Theme UI View"
-msgstr ""
+msgstr "Thema UI-Ansicht"
 
 #. module: website_theme_install
 #: model:ir.model,name:website_theme_install.model_theme_utils
@@ -316,7 +320,7 @@ msgstr "Werkzeuge"
 #. module: website_theme_install
 #: model_terms:ir.ui.view,arch_db:website_theme_install.theme_view_kanban
 msgid "Theme preview"
-msgstr ""
+msgstr "Voransicht Designvorlage"
 
 #. module: website_theme_install
 #: model:ir.model.fields,field_description:website_theme_install.field_theme_ir_ui_view__type
@@ -326,7 +330,7 @@ msgstr "Typ"
 #. module: website_theme_install
 #: model_terms:ir.ui.view,arch_db:website_theme_install.theme_view_kanban
 msgid "Update theme"
-msgstr ""
+msgstr "Designvorlage updaten"
 
 #. module: website_theme_install
 #: model:ir.model.fields,field_description:website_theme_install.field_theme_ir_attachment__url
@@ -338,7 +342,7 @@ msgstr "URL"
 #. module: website_theme_install
 #: model_terms:ir.ui.view,arch_db:website_theme_install.theme_view_kanban
 msgid "Use this theme"
-msgstr "Use this Design"
+msgstr "Diese Designvorlage verwenden"
 
 #. module: website_theme_install
 #: model:ir.model,name:website_theme_install.model_ir_ui_view
@@ -349,7 +353,7 @@ msgstr "Ansicht"
 #. module: website_theme_install
 #: model:ir.model.fields,field_description:website_theme_install.field_theme_ir_ui_view__copy_ids
 msgid "Views using a copy of me"
-msgstr ""
+msgstr "Ansichten mit einer Kopie von mir"
 
 #. module: website_theme_install
 #: model:ir.model,name:website_theme_install.model_website
@@ -364,22 +368,22 @@ msgstr "Website Menü"
 #. module: website_theme_install
 #: model_terms:ir.ui.view,arch_db:website_theme_install.onboarding_website_theme_step
 msgid "Website Theme"
-msgstr "Website Design"
+msgstr "Website Designvorlage"
 
 #. module: website_theme_install
 #: model:ir.model,name:website_theme_install.model_theme_website_menu
 msgid "Website Theme Menu"
-msgstr ""
+msgstr "Website-Themenmenü"
 
 #. module: website_theme_install
 #: model:ir.model,name:website_theme_install.model_theme_website_page
 msgid "Website Theme Page"
-msgstr ""
+msgstr "Website-Themenseite"
 
 #. module: website_theme_install
 #: model_terms:ir.ui.view,arch_db:website_theme_install.customize_modal
 msgid "install a theme"
-msgstr "Installieren Sie ein Design"
+msgstr "Installieren Sie eine Designvorlage"
 
 #. module: website_theme_install
 #: selection:theme.ir.ui.view,inherit_id:0
@@ -389,9 +393,9 @@ msgstr "ir.ui.view"
 #. module: website_theme_install
 #: selection:theme.ir.ui.view,inherit_id:0
 msgid "theme.ir.ui.view"
-msgstr ""
+msgstr "theme.ir.ui.view"
 
 #. module: website_theme_install
 #: model_terms:ir.ui.view,arch_db:website_theme_install.customize_modal
 msgid "to customize your website."
-msgstr ""
+msgstr ", um Ihre Webseite anzupassen."

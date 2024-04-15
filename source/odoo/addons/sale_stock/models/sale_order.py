@@ -4,7 +4,7 @@
 from datetime import datetime, timedelta
 
 from odoo import api, fields, models, _
-from odoo.tools import DEFAULT_SERVER_DATETIME_FORMAT, float_compare
+from odoo.tools import DEFAULT_SERVER_DATETIME_FORMAT, float_compare, float_round
 from odoo.exceptions import UserError
 
 
@@ -41,7 +41,7 @@ class SaleOrder(models.Model):
         for order in self:
             pickings = order.picking_ids.filtered(lambda x: x.state == 'done' and x.location_dest_id.usage == 'customer')
             dates_list = [date for date in pickings.mapped('date_done') if date]
-            order.effective_date = dates_list and min(dates_list).date()
+            order.effective_date = dates_list and fields.Date.context_today(order, min(dates_list))
 
     @api.depends('picking_policy')
     def _compute_expected_date(self):
@@ -235,6 +235,14 @@ class SaleOrderLine(models.Model):
 
     @api.depends('order_id.state')
     def _compute_invoice_status(self):
+        def check_moves_state(moves):
+            # All moves states are either 'done' or 'cancel', and there is at least one 'done'
+            at_least_one_done = False
+            for move in moves:
+                if move.state not in ['done', 'cancel']:
+                    return False
+                at_least_one_done = at_least_one_done or move.state == 'done'
+            return at_least_one_done
         super(SaleOrderLine, self)._compute_invoice_status()
         for line in self:
             # We handle the following specific situation: a physical product is partially delivered,
@@ -246,7 +254,7 @@ class SaleOrderLine(models.Model):
                     and line.product_id.type in ['consu', 'product']\
                     and line.product_id.invoice_policy == 'delivery'\
                     and line.move_ids \
-                    and all(move.state in ['done', 'cancel'] for move in line.move_ids):
+                    and check_moves_state(line.move_ids):
                 line.invoice_status = 'invoiced'
 
     @api.depends('move_ids')
@@ -420,7 +428,18 @@ class SaleOrderLine(models.Model):
         pack = self.product_packaging
         qty = self.product_uom_qty
         q = default_uom._compute_quantity(pack.qty, self.product_uom)
-        if qty and q and (qty % q):
+        # We do not use the modulo operator to check if qty is a mltiple of q. Indeed the quantity
+        # per package might be a float, leading to incorrect results. For example:
+        # 8 % 1.6 = 1.5999999999999996
+        # 5.4 % 1.8 = 2.220446049250313e-16
+        if (
+            qty
+            and q
+            and float_compare(
+                qty / q, float_round(qty / q, precision_rounding=1.0), precision_rounding=0.001
+            )
+            != 0
+        ):
             newqty = qty - (qty % q) + q
             return {
                 'warning': {

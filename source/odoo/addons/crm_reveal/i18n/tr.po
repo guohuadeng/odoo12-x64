@@ -11,14 +11,17 @@
 # Saban Yildiz <sabany@projetgrup.com>, 2019
 # ANIL TAN SAĞIR <anils@projetgrup.com>, 2019
 # Umur Akın <umura@projetgrup.com>, 2019
+# abc Def <hdogan1974@gmail.com>, 2020
+# Murat Durmuş <muratd@projetgrup.com>, 2020
+# Nadir Gazioglu <nadirgazioglu@gmail.com>, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-01 06:19+0000\n"
+"POT-Creation-Date: 2019-11-14 07:34+0000\n"
 "PO-Revision-Date: 2019-07-01 06:20+0000\n"
-"Last-Translator: Umur Akın <umura@projetgrup.com>, 2019\n"
+"Last-Translator: Nadir Gazioglu <nadirgazioglu@gmail.com>, 2021\n"
 "Language-Team: Turkish (https://www.transifex.com/odoo/teams/41243/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -238,12 +241,12 @@ msgstr "CRM Aday Oluşturma Kuralı"
 #. module: crm_reveal
 #: model:ir.model,name:crm_reveal.model_crm_reveal_view
 msgid "CRM Reveal View"
-msgstr ""
+msgstr "CRM Reveal View"
 
 #. module: crm_reveal
 #: model:crm.reveal.industry,name:crm_reveal.crm_reveal_industry_162
 msgid "Capital Goods"
-msgstr ""
+msgstr "Sermaye Malları"
 
 #. module: crm_reveal
 #: model:crm.reveal.industry,name:crm_reveal.crm_reveal_industry_177
@@ -359,7 +362,7 @@ msgstr "Danışmanlık & Profesyonel Hizmetler"
 #. module: crm_reveal
 #: model:crm.reveal.industry,name:crm_reveal.crm_reveal_industry_30
 msgid "Consumer Discretionary"
-msgstr ""
+msgstr "Consumer Discretionary"
 
 #. module: crm_reveal
 #: model:crm.reveal.industry,name:crm_reveal.crm_reveal_industry_31
@@ -384,7 +387,7 @@ msgstr "Temel Tüketici Ürünleri"
 #. module: crm_reveal
 #: model_terms:ir.ui.view,arch_db:crm_reveal.crm_reveal_rule_form
 msgid "Contact Filter"
-msgstr ""
+msgstr "Contact Filter"
 
 #. module: crm_reveal
 #: model:crm.reveal.industry,name:crm_reveal.crm_reveal_industry_196
@@ -565,7 +568,7 @@ msgstr "Enerji Ekipmanlar & Hizmetler"
 #: code:addons/crm_reveal/models/crm_reveal_rule.py:73
 #, python-format
 msgid "Enter Valid Regex."
-msgstr ""
+msgstr "Enter Valid Regex."
 
 #. module: crm_reveal
 #: model:crm.reveal.industry,name:crm_reveal.crm_reveal_industry_233
@@ -795,12 +798,12 @@ msgstr "İnsan Kaynakları"
 #. module: crm_reveal
 #: model:ir.model.fields,field_description:crm_reveal.field_crm_lead__reveal_iap_credits
 msgid "IAP Credits"
-msgstr ""
+msgstr "IAP Credits"
 
 #. module: crm_reveal
 #: model:mail.template,subject:crm_reveal.reveal_no_credits
 msgid "IAP Lead Generation Notification"
-msgstr ""
+msgstr "IAP Lead Generation Notification"
 
 #. module: crm_reveal
 #: model:ir.model.fields,field_description:crm_reveal.field_crm_reveal_industry__id
@@ -1012,7 +1015,17 @@ msgstr "Aday Oluşturma Kuralları"
 #: model:ir.actions.act_window,name:crm_reveal.crm_reveal_view_action
 #: model:ir.ui.menu,name:crm_reveal.crm_reveal_view_menu_action
 msgid "Lead Generation Views"
+msgstr "Lead Generation Views"
+
+#. module: crm_reveal
+#: code:addons/crm_reveal/models/crm_reveal_rule.py:79
+#, python-format
+msgid ""
+"Lead Generation requires a GeoIP resolver which could not be found on your "
+"system. Please consult https://pypi.org/project/GeoIP/."
 msgstr ""
+"Lead Generation requires a GeoIP resolver which could not be found on your "
+"system. Please consult https://pypi.org/project/GeoIP/."
 
 #. module: crm_reveal
 #: model:ir.actions.server,name:crm_reveal.ir_cron_crm_reveal_lead_ir_actions_server
@@ -1047,7 +1060,7 @@ msgstr "Legal Hizmetler"
 #. module: crm_reveal
 #: model:crm.reveal.industry,name:crm_reveal.crm_reveal_industry_204
 msgid "Leisure Facilities"
-msgstr ""
+msgstr "Eğlence tesisleri"
 
 #. module: crm_reveal
 #: model:crm.reveal.industry,name:crm_reveal.crm_reveal_industry_80
@@ -1148,6 +1161,12 @@ msgstr "Minimum Firma Büyüklüğü"
 #: model:crm.reveal.industry,name:crm_reveal.crm_reveal_industry_89
 msgid "Mining & Metals"
 msgstr "Madencilik & Metal"
+
+#. module: crm_reveal
+#: code:addons/crm_reveal/models/crm_reveal_rule.py:82
+#, python-format
+msgid "Missing Library"
+msgstr "Missing Library"
 
 #. module: crm_reveal
 #: model:crm.reveal.industry,name:crm_reveal.crm_reveal_industry_236
@@ -1311,7 +1330,7 @@ msgstr "İnsan Rolü"
 #. module: crm_reveal
 #: model:ir.model,name:crm_reveal.model_crm_reveal_seniority
 msgid "People Seniority"
-msgstr ""
+msgstr "People Seniority"
 
 #. module: crm_reveal
 #: model:crm.reveal.industry,name:crm_reveal.crm_reveal_industry_101
@@ -1420,6 +1439,9 @@ msgid ""
 "to target the homepage. Example: /page* to track all the pages which begin "
 "with /page"
 msgstr ""
+"Regex to track website pages. Leave empty to track the entire website, or / "
+"to target the homepage. Example: /page* to track all the pages which begin "
+"with /page"
 
 #. module: crm_reveal
 #: model:crm.reveal.industry,name:crm_reveal.crm_reveal_industry_115
@@ -1780,7 +1802,7 @@ msgstr "Web Servisleri & Uygulamalar"
 #. module: crm_reveal
 #: model_terms:ir.ui.view,arch_db:crm_reveal.crm_reveal_rule_form
 msgid "Website Traffic Conditions"
-msgstr ""
+msgstr "Website Traffic Conditions"
 
 #. module: crm_reveal
 #: model:crm.reveal.industry,name:crm_reveal.crm_reveal_industry_144

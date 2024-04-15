@@ -8,15 +8,19 @@
 # Haojun Zou <apollo_zhj@msn.com>, 2019
 # Robert Frykelius <robert.frykelius@linserv.se>, 2019
 # Moa Nicklasson <Moa.nicklasson@hotmail.se>, 2019
-# Kristoffer Grundström <hamnisdude@gmail.com>, 2019
+# Kristoffer Grundström <lovaren@gmail.com>, 2019
 # Martin Trigaux, 2019
 # Martin Wilderoth <martin.wilderoth@linserv.se>, 2019
 # Patrik Lermon <patrik.lermon@gmail.com>, 2019
 # lynnliuying <lynn.liu1971@gmail.com>, 2019
-# Kim Asplund <kim.asplund@gmail.com>, 2019
-# Chrille Hedberg <hedberg.chrille@gmail.com>, 2019
 # Daniel Osser <danielosser@gmail.com>, 2019
-# Anders Wallenquist <anders.wallenquist@vertel.se>, 2019
+# Tim Forsström <tim.forsstrom@arbetsformedlingen.se>, 2020
+# Anders Wallenquist <anders.wallenquist@vertel.se>, 2021
+# Jakob Krabbe <jakob.krabbe@vertel.se>, 2021
+# STefan Rundgren <stefanrundgren@cellglas.com>, 2021
+# Chrille Hedberg <hedberg.chrille@gmail.com>, 2021
+# Kim Asplund <kim.asplund@gmail.com>, 2021
+# Simon S, 2021
 # 
 msgid ""
 msgstr ""
@@ -24,7 +28,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-02-13 07:03+0000\n"
 "PO-Revision-Date: 2018-08-24 09:33+0000\n"
-"Last-Translator: Anders Wallenquist <anders.wallenquist@vertel.se>, 2019\n"
+"Last-Translator: Simon S, 2021\n"
 "Language-Team: Swedish (https://www.transifex.com/odoo/teams/41243/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -512,7 +516,7 @@ msgstr ""
 #: code:addons/web/static/src/xml/base.xml:149
 #, python-format
 msgid "An error occurred"
-msgstr ""
+msgstr "Ett fel uppstod"
 
 #. module: web
 #. openerp-web
@@ -951,7 +955,7 @@ msgstr "Kunde inte serialisera XML"
 #: code:addons/web/static/src/xml/base.xml:540
 #, python-format
 msgid "Count"
-msgstr ""
+msgstr "Räkna"
 
 #. module: web
 #. openerp-web
@@ -992,7 +996,7 @@ msgstr "Skapa en %s"
 #: code:addons/web/static/src/xml/menu.xml:159
 #, python-format
 msgid "Create a new record"
-msgstr ""
+msgstr "Skapa ny post"
 
 #. module: web
 #. openerp-web
@@ -1172,14 +1176,14 @@ msgstr "Beskrivning"
 #: code:addons/web/static/src/xml/report.xml:18
 #, python-format
 msgid "Discard"
-msgstr "Ignorera"
+msgstr "Avbryt"
 
 #. module: web
 #. openerp-web
 #: code:addons/web/static/src/xml/menu.xml:150
 #, python-format
 msgid "Discard a record modification"
-msgstr ""
+msgstr "Avbryt ändring"
 
 #. module: web
 #: model:ir.model.fields,field_description:web.field_report_layout__display_name
@@ -1254,7 +1258,7 @@ msgstr ""
 #: code:addons/web/static/src/xml/base.xml:1556
 #, python-format
 msgid "Dropdown menu"
-msgstr ""
+msgstr "Dropdown meny"
 
 #. module: web
 #. openerp-web
@@ -1308,7 +1312,7 @@ msgstr "Ändra sökvy"
 #: code:addons/web/static/src/xml/kanban.xml:23
 #, python-format
 msgid "Edit Stage"
-msgstr ""
+msgstr "Redigera etapp"
 
 #. module: web
 #. openerp-web
@@ -1322,7 +1326,7 @@ msgstr ""
 #: code:addons/web/static/src/xml/menu.xml:141
 #, python-format
 msgid "Edit a record"
-msgstr ""
+msgstr "Ändra post"
 
 #. module: web
 #: model_terms:ir.ui.view,arch_db:web.login
@@ -1554,7 +1558,7 @@ msgstr "Vik ihop"
 #: code:addons/web/static/src/xml/base.xml:756
 #, python-format
 msgid "Followed by"
-msgstr ""
+msgstr "Följd av"
 
 #. module: web
 #. openerp-web
@@ -1652,7 +1656,7 @@ msgstr "Grupperad"
 #. module: web
 #: model:ir.model,name:web.model_ir_http
 msgid "HTTP Routing"
-msgstr ""
+msgstr "HTTP Routing"
 
 #. module: web
 #. openerp-web
@@ -1815,7 +1819,7 @@ msgstr "Språk"
 #: code:addons/web/static/src/js/views/search/time_range_menu_options.js:9
 #, python-format
 msgid "Last 30 Days"
-msgstr ""
+msgstr "Senaste 30 Dagar"
 
 #. module: web
 #. openerp-web
@@ -1829,7 +1833,7 @@ msgstr ""
 #: code:addons/web/static/src/js/views/search/time_range_menu_options.js:8
 #, python-format
 msgid "Last 7 Days"
-msgstr ""
+msgstr "Senaste 7 Dagar"
 
 #. module: web
 #: model:ir.model.fields,field_description:web.field_report_layout____last_update
@@ -1848,7 +1852,7 @@ msgstr "Sista månaden"
 #: code:addons/web/static/src/js/views/search/time_range_menu_options.js:19
 #, python-format
 msgid "Last Quarter"
-msgstr ""
+msgstr "Förra kvartalet"
 
 #. module: web
 #: model:ir.model.fields,field_description:web.field_report_layout__write_uid
@@ -2042,14 +2046,14 @@ msgstr ""
 #: code:addons/web/static/src/xml/base.xml:646
 #, python-format
 msgid "Match records with"
-msgstr ""
+msgstr "Sök efter poster med"
 
 #. module: web
 #. openerp-web
 #: code:addons/web/static/src/xml/base.xml:644
 #, python-format
 msgid "Match records with the following rule:"
-msgstr ""
+msgstr "Sök efter poster med detta urval:"
 
 #. module: web
 #. openerp-web
@@ -2441,28 +2445,28 @@ msgstr ""
 #: code:addons/web/static/src/xml/menu.xml:195
 #, python-format
 msgid "Open the next record"
-msgstr ""
+msgstr "Öppna nästa post"
 
 #. module: web
 #. openerp-web
 #: code:addons/web/static/src/xml/menu.xml:186
 #, python-format
 msgid "Open the previous record"
-msgstr ""
+msgstr "Öppna föregående post"
 
 #. module: web
 #. openerp-web
 #: code:addons/web/static/src/xml/menu.xml:177
 #, python-format
 msgid "Open to kanban view"
-msgstr ""
+msgstr "Öppna kanbanvy"
 
 #. module: web
 #. openerp-web
 #: code:addons/web/static/src/xml/menu.xml:168
 #, python-format
 msgid "Open to list view"
-msgstr ""
+msgstr "Öppna listvy"
 
 #. module: web
 #. openerp-web
@@ -2748,7 +2752,7 @@ msgstr "Ta bort alla"
 #: code:addons/web/static/src/js/fields/basic_fields.js:1966
 #, python-format
 msgid "Remove from Favorites"
-msgstr ""
+msgstr "Ta bort från favoriter"
 
 #. module: web
 #. openerp-web
@@ -2788,7 +2792,7 @@ msgstr ""
 #: code:addons/web/static/src/js/fields/basic_fields.js:2048
 #, python-format
 msgid "Restore"
-msgstr ""
+msgstr "Återskapa"
 
 #. module: web
 #. openerp-web
@@ -2872,7 +2876,7 @@ msgstr "Spara som…"
 #: code:addons/web/static/src/xml/menu.xml:132
 #, python-format
 msgid "Save a record"
-msgstr ""
+msgstr "Spara post"
 
 #. module: web
 #. openerp-web
@@ -3234,7 +3238,15 @@ msgstr ""
 "'ir.attachment' modellen."
 
 #. module: web
-#: code:addons/web/controllers/main.py:1513
+#: code:addons/web/controllers/main.py:1452
+#, python-format
+msgid ""
+"There are too many records (%s records, limit: %s) to export as this format."
+" Consider splitting the export."
+msgstr ""
+
+#. module: web
+#: code:addons/web/controllers/main.py:1522
 #, python-format
 msgid ""
 "There are too many rows (%s rows, limit: 65535) to export as Excel 97-2003 "
@@ -3370,7 +3382,7 @@ msgstr ""
 #: code:addons/web/static/src/js/fields/field_utils.js:62
 #, python-format
 msgid "True"
-msgstr ""
+msgstr "Sant"
 
 #. module: web
 #. openerp-web
@@ -3516,7 +3528,7 @@ msgstr "Uppgradera till senare version"
 #: code:addons/web/static/src/xml/base.xml:1005
 #, python-format
 msgid "Upload your file"
-msgstr ""
+msgstr "Ladda upp din fil"
 
 #. module: web
 #. openerp-web
@@ -4075,7 +4087,7 @@ msgstr ""
 #: code:addons/web/static/src/xml/base.xml:648
 #, python-format
 msgid "of the following rules:"
-msgstr ""
+msgstr "av dessa sökord:"
 
 #. module: web
 #. openerp-web

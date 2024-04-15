@@ -1538,14 +1538,16 @@ var ClientListScreenWidget = ScreenWidget.extend({
             });
 
             contents.find('.image-uploader').on('change',function(event){
-                self.load_image_file(event.target.files[0],function(res){
-                    if (res) {
-                        contents.find('.client-picture img, .client-picture .fa').remove();
-                        contents.find('.client-picture').append("<img src='"+res+"'>");
-                        contents.find('.detail.picture').remove();
-                        self.uploaded_picture = res;
-                    }
-                });
+                if (event.target.files.length) {
+                    self.load_image_file(event.target.files[0],function(res){
+                        if (res) {
+                            contents.find('.client-picture img, .client-picture .fa').remove();
+                            contents.find('.client-picture').append("<img src='"+res+"'>");
+                            contents.find('.detail.picture').remove();
+                            self.uploaded_picture = res;
+                        }
+                    });
+                }
             });
         } else if (visibility === 'hide') {
             contents.empty();
@@ -1711,19 +1713,6 @@ var ReceiptScreenWidget = ScreenWidget.extend({
                 self.print();
             }
         });
-        var button_print_invoice = this.$('.button.print_invoice');
-        button_print_invoice.click(function () {
-            var order = self.pos.get_order();
-            var invoiced = self.pos.push_and_invoice_order(order);
-            self.invoicing = true;
-
-            invoiced.fail(self._handleFailedPushForInvoice.bind(self, order, true)); // refresh
-
-            invoiced.done(function(){
-                self.invoicing = false;
-                self.gui.show_screen('receipt', {button_print_invoice: false}, true); // refresh
-            });
-        });
 
     },
     render_change: function() {
@@ -1731,7 +1720,7 @@ var ReceiptScreenWidget = ScreenWidget.extend({
         this.$('.change-value').html(this.format_currency(this.pos.get_order().get_change()));
         var order = this.pos.get_order();
         var order_screen_params = order.get_screen_data('params');
-        var button_print_invoice = this.$('.button.print_invoice');
+        var button_print_invoice = this.$('h2.print_invoice');
         if (order_screen_params && order_screen_params.button_print_invoice) {
             button_print_invoice.show();
         } else {
@@ -1803,7 +1792,7 @@ var PaymentScreenWidget = ScreenWidget.extend({
                     self.validate_order();
                 } else if ( event.keyCode === 190 || // Dot
                             event.keyCode === 110 ||  // Decimal point (numpad)
-                            event.keyCode === 188 ||  // Comma
+                            event.keyCode === 44 ||  // Comma
                             event.keyCode === 46 ) {  // Numpad dot
                     key = self.decimal_point;
                 } else if (event.keyCode >= 48 && event.keyCode <= 57) { // Numbers
@@ -2149,7 +2138,7 @@ var PaymentScreenWidget = ScreenWidget.extend({
         var self = this;
         var order = this.pos.get_order();
 
-        if (order.is_paid_with_cash() && this.pos.config.iface_cashdrawer) { 
+        if ((order.is_paid_with_cash() || order.get_change()) && this.pos.config.iface_cashdrawer) { 
 
                 this.pos.proxy.open_cashbox();
         }

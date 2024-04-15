@@ -128,6 +128,8 @@ var FormRenderer = BasicRenderer.extend({
                 }));
             if (this.$('.o_form_statusbar').length) {
                 this.$('.o_form_statusbar').after($notification);
+            } else if (this.$('.o_form_sheet_bg').length) {
+                this.$('.o_form_sheet_bg').prepend($notification);
             } else {
                 this.$el.prepend($notification);
             }
@@ -323,6 +325,11 @@ var FormRenderer = BasicRenderer.extend({
      */
     _enableSwipe: function () {
         var self = this;
+
+        if (!$.fn.swipe) {
+            return;
+        }
+
         this.$('.o_form_sheet').swipe({
             swipeLeft: function () {
                 this.css({
@@ -858,12 +865,20 @@ var FormRenderer = BasicRenderer.extend({
                 callback: function (element, modifiers) {
                     // if the active tab is invisible, activate the first visible tab instead
                     var $link = element.$el.find('.nav-link');
+                    var $firstVisibleTab = $headers.find('li:not(.o_invisible_modifier):first() > a');
                     if (modifiers.invisible && $link.hasClass('active')) {
                         $link.removeClass('active');
                         tab.$page.removeClass('active');
-                        var $firstVisibleTab = $headers.find('li:not(.o_invisible_modifier):first() > a');
                         $firstVisibleTab.addClass('active');
                         $pages.find($firstVisibleTab.attr('href')).addClass('active');
+                    }
+                    if (!modifiers.invisible) {
+                        // make first page active if there is only one page to display
+                        var $visibleTabs = $headers.find('li:not(.o_invisible_modifier)');
+                        if ($visibleTabs.length === 1) {
+                            $firstVisibleTab.addClass('active');
+                            $pages.find($firstVisibleTab.attr('href')).addClass('active');
+                        }
                     }
                 },
             });

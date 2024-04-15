@@ -10,9 +10,10 @@
 # matjaz k <matjaz@mentis.si>, 2019
 # jl2035 <jaka.luthar@gmail.com>, 2019
 # Boris Kodelja <boris@hbs.si>, 2019
-# Tadej Lupšina <tadej@hbs.si>, 2019
-# Matjaz Mozetic <m.mozetic@matmoz.si>, 2019
-# Jasmina Macur <jasmina@hbs.si>, 2019
+# Matjaz Mozetic <m.mozetic@matmoz.si>, 2020
+# Tadej Lupšina <tadej@hbs.si>, 2021
+# Jasmina Macur <jasmina@hbs.si>, 2021
+# Nejc G <nejc@luxim.si>, 2021
 # 
 msgid ""
 msgstr ""
@@ -20,7 +21,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-12-19 08:20+0000\n"
 "PO-Revision-Date: 2018-08-24 09:18+0000\n"
-"Last-Translator: Jasmina Macur <jasmina@hbs.si>, 2019\n"
+"Last-Translator: Nejc G <nejc@luxim.si>, 2021\n"
 "Language-Team: Slovenian (https://www.transifex.com/odoo/teams/41243/sl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -34,6 +35,8 @@ msgid ""
 "<i class=\"text-muted oe_edit_only\">Use [Reference] as a subject prefix for"
 " incoming receipts</i>"
 msgstr ""
+"<i class=\"text-muted oe_edit_only\">Uporabite [Sklic] kot predmetno "
+"predpono za dohodne prejemke</i>"
 
 #. module: hr_expense
 #. openerp-web
@@ -65,14 +68,14 @@ msgstr ""
 #: code:addons/hr_expense/static/src/js/tour.js:23
 #, python-format
 msgid "<p>Once your <b> Expense </b> is ready, you can save it.</p>"
-msgstr ""
+msgstr "<p>Ko je vaš <b> strošek </b> pripravljen, ga lahko shranite.</p>"
 
 #. module: hr_expense
 #. openerp-web
 #: code:addons/hr_expense/static/src/js/tour.js:36
 #, python-format
 msgid "<p>Select expenses to submit them to your manager</p>"
-msgstr ""
+msgstr "<p>Izberite stroške, da jih predložite svojemu upravitelju</p>"
 
 #. module: hr_expense
 #. openerp-web
@@ -96,12 +99,12 @@ msgstr "<strong>Opis:</strong>"
 #. module: hr_expense
 #: model_terms:ir.ui.view,arch_db:hr_expense.report_expense_sheet
 msgid "<strong>Employee:</strong>"
-msgstr ""
+msgstr "<strong>Zaposleni:</strong>"
 
 #. module: hr_expense
 #: model_terms:ir.ui.view,arch_db:hr_expense.report_expense_sheet
 msgid "<strong>Payment By:</strong>"
-msgstr ""
+msgstr "<strong>Plačilo:</strong>"
 
 #. module: hr_expense
 #: model_terms:ir.ui.view,arch_db:hr_expense.report_expense_sheet
@@ -111,7 +114,7 @@ msgstr "<strong>Skupaj</strong>"
 #. module: hr_expense
 #: model_terms:ir.ui.view,arch_db:hr_expense.report_expense_sheet
 msgid "<strong>Validated By:</strong>"
-msgstr ""
+msgstr "<strong>Potrdil:</strong>"
 
 #. module: hr_expense
 #: code:addons/hr_expense/wizard/hr_expense_sheet_register_payment.py:104
@@ -120,6 +123,8 @@ msgid ""
 "A payment of %s %s with the reference <a href='/mail/view?%s'>%s</a> related"
 " to your expense %s has been made."
 msgstr ""
+"Plačilo %s %s z referenco <a href='/mail/view?%s'>%s</a> povezano z vašimi "
+"stroški %s je bilo ustvarjeno."
 
 #. module: hr_expense
 #: model:ir.model.fields,field_description:hr_expense.field_hr_expense__account_id
@@ -164,13 +169,13 @@ msgstr ""
 #: code:addons/hr_expense/models/hr_expense.py:158
 #, python-format
 msgid "Add a new expense,"
-msgstr ""
+msgstr "Dodajte nov strošek,"
 
 #. module: hr_expense
 #: model:product.product,name:hr_expense.air_ticket
 #: model:product.template,name:hr_expense.air_ticket_product_template
 msgid "Air Flight"
-msgstr ""
+msgstr "Zračni let"
 
 #. module: hr_expense
 #: model:ir.actions.act_window,name:hr_expense.action_hr_expense_sheet_all_all
@@ -180,7 +185,7 @@ msgstr "Vsa poročila o stroških"
 #. module: hr_expense
 #: model:ir.actions.act_window,name:hr_expense.hr_expense_actions_all
 msgid "All Expenses"
-msgstr ""
+msgstr "Vsi stroški"
 
 #. module: hr_expense
 #: model:ir.model.fields,help:hr_expense.field_hr_expense__account_id
@@ -225,7 +230,7 @@ msgstr "Priložite dokument"
 #: code:addons/hr_expense/static/src/js/tour.js:27
 #, python-format
 msgid "Attach your receipt here."
-msgstr ""
+msgstr "Tukaj priložite potrdilo."
 
 #. module: hr_expense
 #: model:ir.model.fields,field_description:hr_expense.field_hr_expense__message_attachment_count
@@ -241,7 +246,7 @@ msgstr "Bančni dnevnik"
 #. module: hr_expense
 #: model:ir.model.fields,field_description:hr_expense.field_hr_expense__reference
 msgid "Bill Reference"
-msgstr ""
+msgstr "Referenca računa"
 
 #. module: hr_expense
 #: model:ir.model.fields,field_description:hr_expense.field_hr_expense_sheet__can_reset
@@ -251,7 +256,7 @@ msgstr ""
 #. module: hr_expense
 #: model:ir.model.fields,field_description:hr_expense.field_product_template__can_be_expensed
 msgid "Can be Expensed"
-msgstr "Se lahko potroši"
+msgstr "Se lahko poračuna"
 
 #. module: hr_expense
 #: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_refuse_wizard_view_form
@@ -304,7 +309,7 @@ msgstr "Potrjeni stroški"
 #. module: hr_expense
 #: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_view_form
 msgid "Create Report"
-msgstr ""
+msgstr "Ustvari poročilo"
 
 #. module: hr_expense
 #: model_terms:ir.actions.act_window,help:hr_expense.action_request_approve_expense_sheet
@@ -318,7 +323,7 @@ msgstr "Ustvari nov strošek"
 #. module: hr_expense
 #: model_terms:ir.actions.act_window,help:hr_expense.hr_expense_product
 msgid "Create a new expense category"
-msgstr "Ustvari novo kategorijo stroškov"
+msgstr "Ustvari novo kategorijo stroška"
 
 #. module: hr_expense
 #: model_terms:ir.actions.act_window,help:hr_expense.action_hr_expense_sheet_all_all
@@ -382,7 +387,7 @@ msgstr "Opis"
 #: model:ir.model.fields,field_description:hr_expense.field_hr_expense_sheet__display_name
 #: model:ir.model.fields,field_description:hr_expense.field_hr_expense_sheet_register_payment_wizard__display_name
 msgid "Display Name"
-msgstr "Prikazni naziv"
+msgstr "Prikazani naziv"
 
 #. module: hr_expense
 #: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_view_form
@@ -399,7 +404,7 @@ msgstr "Osnutek"
 #. module: hr_expense
 #: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_sheet_register_payment_view_form
 msgid "Draft Payment"
-msgstr ""
+msgstr "Osnutek plačila"
 
 #. module: hr_expense
 #: model_terms:ir.ui.view,arch_db:hr_expense.res_config_settings_view_form
@@ -428,12 +433,12 @@ msgstr "Zaposlen (za povračilo)"
 #. module: hr_expense
 #: model:ir.actions.act_window,name:hr_expense.action_approved_expense
 msgid "Employee Expenses"
-msgstr ""
+msgstr "Stroški zaposlenih"
 
 #. module: hr_expense
 #: model:ir.model.fields,field_description:hr_expense.field_hr_expense_sheet__address_id
 msgid "Employee Home Address"
-msgstr ""
+msgstr "Domači naslov zaposlenega"
 
 #. module: hr_expense
 #: model:ir.model,name:hr_expense.model_hr_expense
@@ -442,7 +447,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_sheet_filter
 #: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_sheet_form
 msgid "Expense"
-msgstr "Izdatek"
+msgstr "Strošek"
 
 #. module: hr_expense
 #: model:mail.activity.type,name:hr_expense.mail_act_expense_approval
@@ -452,7 +457,7 @@ msgstr ""
 #. module: hr_expense
 #: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_filter
 msgid "Expense Date"
-msgstr "Datum stroškov"
+msgstr "Datum stroška"
 
 #. module: hr_expense
 #: model:ir.model.fields,field_description:hr_expense.field_hr_expense_sheet__journal_id
@@ -469,7 +474,7 @@ msgstr "Vrstice stroškov"
 #: model:ir.ui.menu,name:hr_expense.menu_hr_product
 #: model_terms:ir.ui.view,arch_db:hr_expense.product_product_expense_form_view
 msgid "Expense Products"
-msgstr ""
+msgstr "Izdelki stroškov"
 
 #. module: hr_expense
 #: model:ir.model,name:hr_expense.model_hr_expense_refuse_wizard
@@ -486,7 +491,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_expense.field_hr_expense__sheet_id
 #: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_sheet_tree
 msgid "Expense Report"
-msgstr "Poročilo o izdatkih"
+msgstr "Poročilo o stroških"
 
 #. module: hr_expense
 #: model:ir.model.fields,help:hr_expense.field_hr_expense_sheet__state
@@ -509,28 +514,28 @@ msgstr "Poročila o stroških"
 #. module: hr_expense
 #: model:ir.actions.act_window,name:hr_expense.action_hr_expense_sheet_department_filtered
 msgid "Expense Reports Analysis"
-msgstr ""
+msgstr "Analiza poročil o stroških"
 
 #. module: hr_expense
 #: model:ir.actions.act_window,name:hr_expense.action_hr_expense_sheet_all_to_pay
 msgid "Expense Reports To Pay"
-msgstr ""
+msgstr "Poročila o stroških za plačilo"
 
 #. module: hr_expense
 #: model:ir.actions.act_window,name:hr_expense.action_hr_expense_sheet_all_to_post
 msgid "Expense Reports To Post"
-msgstr ""
+msgstr "Poročila o stroških za objaviti"
 
 #. module: hr_expense
 #: model:ir.actions.act_window,name:hr_expense.action_hr_expense_sheet_all_to_approve
 #: model:ir.actions.act_window,name:hr_expense.action_hr_expense_sheet_department_to_approve
 msgid "Expense Reports to Approve"
-msgstr ""
+msgstr "Poročila o stroških za odobritev"
 
 #. module: hr_expense
 #: model:ir.model.fields,field_description:hr_expense.field_hr_employee__expense_manager_id
 msgid "Expense Responsible"
-msgstr "Odgovorni za odhodke"
+msgstr "Odgovorni za strošek"
 
 #. module: hr_expense
 #: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_refuse_wizard_view_form
@@ -540,17 +545,17 @@ msgstr ""
 #. module: hr_expense
 #: model:mail.message.subtype,description:hr_expense.mt_expense_approved
 msgid "Expense report approved"
-msgstr ""
+msgstr "Poročilo o stroških odobreno"
 
 #. module: hr_expense
 #: model:mail.message.subtype,description:hr_expense.mt_expense_paid
 msgid "Expense report paid"
-msgstr ""
+msgstr "Poročilo o stroških plačano"
 
 #. module: hr_expense
 #: model:mail.message.subtype,description:hr_expense.mt_expense_refused
 msgid "Expense report refused"
-msgstr ""
+msgstr "Poročilo o stroških zavrnjeno"
 
 #. module: hr_expense
 #: model:ir.model.fields,help:hr_expense.field_account_move_line__expense_id
@@ -584,12 +589,12 @@ msgstr "Analiza stroškov"
 #: model:ir.actions.report,name:hr_expense.action_report_hr_expense_sheet
 #: model_terms:ir.ui.view,arch_db:hr_expense.report_expense_sheet
 msgid "Expenses Report"
-msgstr ""
+msgstr "Poročilo o stroških"
 
 #. module: hr_expense
 #: model:ir.model.fields,field_description:hr_expense.field_hr_department__expense_sheets_to_approve_count
 msgid "Expenses Reports to Approve"
-msgstr ""
+msgstr "Poročila o stroških za odobriti"
 
 #. module: hr_expense
 #: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_sheet_filter
@@ -624,12 +629,12 @@ msgstr ""
 #. module: hr_expense
 #: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_sheet_filter
 msgid "Expenses to Invoice"
-msgstr "Stroški za fakturiranje"
+msgstr "Stroški za poračun"
 
 #. module: hr_expense
 #: model_terms:ir.ui.view,arch_db:hr_expense.account_journal_dashboard_kanban_view_inherit_hr_expense
 msgid "Expenses to Process"
-msgstr ""
+msgstr "Stroški za obdelavo"
 
 #. module: hr_expense
 #: model:ir.model.fields,field_description:hr_expense.field_hr_expense__is_refused
@@ -658,7 +663,7 @@ msgstr "Sledilci (partnerji)"
 #: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_filter
 #: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_sheet_filter
 msgid "Former Employees"
-msgstr ""
+msgstr "Nekdanji zaposleni"
 
 #. module: hr_expense
 #: model_terms:ir.actions.act_window,help:hr_expense.action_approved_expense
@@ -791,7 +796,7 @@ msgstr "Aktivnosti z zamudo"
 #: model:ir.model.fields,field_description:hr_expense.field_res_config_settings__use_mailgateway
 #: model_terms:ir.ui.view,arch_db:hr_expense.res_config_settings_view_form
 msgid "Let your employees record expenses by email"
-msgstr "Naj zaposleni beležijo stroške po e-pošti"
+msgstr "Omogoči zaposlenim beleženje stroškov preko e-pošte"
 
 #. module: hr_expense
 #: model:ir.model.fields,field_description:hr_expense.field_hr_expense__message_main_attachment_id
@@ -846,7 +851,7 @@ msgstr "Moji stroški"
 #. module: hr_expense
 #: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_sheet_filter
 msgid "My Reports"
-msgstr ""
+msgstr "Moja poročila"
 
 #. module: hr_expense
 #: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_filter
@@ -916,7 +921,7 @@ msgstr ""
 #. module: hr_expense
 #: model_terms:ir.actions.act_window,help:hr_expense.action_hr_expense_sheet_all_to_approve
 msgid "No expense reports to approve"
-msgstr ""
+msgstr "Nobenih poročil o stroških za odobriti "
 
 #. module: hr_expense
 #: model_terms:ir.actions.act_window,help:hr_expense.action_unsubmitted_expense
@@ -1051,7 +1056,7 @@ msgstr "Način plačila"
 #. module: hr_expense
 #: model:ir.model.fields,field_description:hr_expense.field_hr_expense_sheet_register_payment_wizard__payment_method_id
 msgid "Payment Type"
-msgstr ""
+msgstr "Način plačila"
 
 #. module: hr_expense
 #: selection:hr.expense,activity_state:0
@@ -1101,7 +1106,7 @@ msgstr "Ime Izdelka"
 #. module: hr_expense
 #: model:ir.model,name:hr_expense.model_product_template
 msgid "Product Template"
-msgstr "Predloga proizvoda"
+msgstr "Predloga izdelka"
 
 #. module: hr_expense
 #: model_terms:ir.ui.view,arch_db:hr_expense.product_product_expense_tree_view
@@ -1126,7 +1131,7 @@ msgstr "Razlog"
 #. module: hr_expense
 #: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_template_refuse_reason
 msgid "Reason :"
-msgstr ""
+msgstr "Razlog :"
 
 #. module: hr_expense
 #: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_refuse_wizard_view_form
@@ -1136,7 +1141,7 @@ msgstr ""
 #. module: hr_expense
 #: model:ir.model.fields,field_description:hr_expense.field_hr_expense_sheet_register_payment_wizard__partner_bank_account_id
 msgid "Recipient Bank Account"
-msgstr ""
+msgstr "Bančni račun prejemnika"
 
 #. module: hr_expense
 #: model_terms:ir.ui.view,arch_db:hr_expense.res_config_settings_view_form
@@ -1283,7 +1288,7 @@ msgid ""
 "Today: Activity date is today\n"
 "Planned: Future activities."
 msgstr ""
-"Status na podlagi aktivnosti\n"
+"Status na osnovi aktivnosti\n"
 "Zapadel: Rok je že prekoračen\n"
 "Danes: Datum aktivnosti je danes\n"
 "Planirano: Bodoče aktivnosti."
@@ -1405,7 +1410,7 @@ msgstr "Skupaj"
 #. module: hr_expense
 #: model:ir.model.fields,field_description:hr_expense.field_hr_expense__total_amount_company
 msgid "Total (Company Currency)"
-msgstr ""
+msgstr "Skupaj (valuta podjetja)"
 
 #. module: hr_expense
 #: model:ir.model.fields,field_description:hr_expense.field_hr_expense_sheet__total_amount
@@ -1448,7 +1453,7 @@ msgstr "Števec neprebranih sporočil"
 #. module: hr_expense
 #: model:ir.actions.act_window,name:hr_expense.action_unsubmitted_expense
 msgid "Unreported Expenses"
-msgstr ""
+msgstr "Neprijavljeni stroški"
 
 #. module: hr_expense
 #: model:ir.model.fields,help:hr_expense.field_hr_employee__expense_manager_id
@@ -1471,7 +1476,7 @@ msgstr "Ogled priloženih dokumentov"
 #. module: hr_expense
 #: model_terms:ir.ui.view,arch_db:hr_expense.view_hr_expense_sheet_form
 msgid "View Attachments"
-msgstr ""
+msgstr "Ogled priponk"
 
 #. module: hr_expense
 #: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_view_form
@@ -1613,4 +1618,4 @@ msgstr "km"
 #: code:addons/hr_expense/models/hr_expense.py:159
 #, python-format
 msgid "or send receipts by email to %s."
-msgstr ""
+msgstr "ali pošlji potrdila po e-pošti na %s."

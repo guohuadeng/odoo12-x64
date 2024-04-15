@@ -14,6 +14,9 @@
 # oon arfiandwi <oon.arfiandwi@gmail.com>, 2019
 # Ryanto The <ry.the77@gmail.com>, 2019
 # Wahyu Setiawan <wahyusetiaaa@gmail.com>, 2019
+# PAS IRVANUS <ipankbiz@gmail.com>, 2019
+# Gradien Foundation <gradien.co@gmail.com>, 2020
+# Mardi Siaw <mardi@tronso.com>, 2020
 # 
 msgid ""
 msgstr ""
@@ -21,7 +24,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-09 10:31+0000\n"
 "PO-Revision-Date: 2018-08-24 09:19+0000\n"
-"Last-Translator: Wahyu Setiawan <wahyusetiaaa@gmail.com>, 2019\n"
+"Last-Translator: Mardi Siaw <mardi@tronso.com>, 2020\n"
 "Language-Team: Indonesian (https://www.transifex.com/odoo/teams/41243/id/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -103,6 +106,18 @@ msgstr "%s pada %s : %.2f hari"
 #: code:addons/hr_holidays/models/hr_leave.py:481
 #, python-format
 msgid "%s on %s : %.2f hour(s)"
+msgstr ""
+
+#. module: hr_holidays
+#: code:addons/hr_holidays/models/hr_holidays.py:643
+#, python-format
+msgid "%s on Time Off : %.2f day(s)"
+msgstr ""
+
+#. module: hr_holidays
+#: code:addons/hr_holidays/models/hr_leave.py:643
+#, python-format
+msgid "%s on Time Off : %.2f hour(s)"
 msgstr ""
 
 #. module: hr_holidays
@@ -419,6 +434,21 @@ msgstr ""
 #. module: hr_holidays
 #: model_terms:ir.ui.view,arch_db:hr_holidays.hr_leave_view_form
 msgid ""
+"<span attrs=\"{'invisible': [('holiday_type', '!=', 'employee')]}\">\n"
+"                        The employee has a different timezone than yours! Here dates and times are displayed in the employee's timezone\n"
+"                    </span>\n"
+"                    <span attrs=\"{'invisible': [('holiday_type', '!=', 'department')]}\">\n"
+"                        The department's company has a different timezone than yours! Here dates and times are displayed in the company's timezone\n"
+"                    </span>\n"
+"                    <span attrs=\"{'invisible': [('holiday_type', '!=', 'company')]}\">\n"
+"                        The company has a different timezone than yours! Here dates and times are displayed in the company's timezone\n"
+"                    </span>\n"
+"                    ("
+msgstr ""
+
+#. module: hr_holidays
+#: model_terms:ir.ui.view,arch_db:hr_holidays.hr_leave_view_form
+msgid ""
 "<span class=\"oe_inline\" attrs=\"{'invisible': ['|', ('request_unit_half', '=', True), ('request_unit_hours', '=', True)]}\">\n"
 "                                    To\n"
 "                                </span>"
@@ -650,7 +680,7 @@ msgstr "Alokasi"
 #. module: hr_holidays
 #: model:ir.ui.menu,name:hr_holidays.menu_open_allocation
 msgid "Allocations Requests"
-msgstr ""
+msgstr "Permohonan Alokasi"
 
 #. module: hr_holidays
 #: model:ir.model.fields,help:hr_holidays.field_hr_leave_allocation__holiday_type
@@ -720,7 +750,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_holidays.field_hr_leave__message_attachment_count
 #: model:ir.model.fields,field_description:hr_holidays.field_hr_leave_allocation__message_attachment_count
 msgid "Attachment Count"
-msgstr ""
+msgstr "Attachment Count"
 
 #. module: hr_holidays
 #: model:ir.model.fields,field_description:hr_holidays.field_hr_leave_allocation__accrual_limit
@@ -1017,7 +1047,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:hr_holidays.hr_leave_allocation_view_kanban
 #: model_terms:ir.ui.view,arch_db:hr_holidays.hr_leave_view_kanban
 msgid "Dropdown menu"
-msgstr ""
+msgstr "Menu dropdown"
 
 #. module: hr_holidays
 #: model_terms:ir.ui.view,arch_db:hr_holidays.hr_leave_allocation_view_form
@@ -1294,7 +1324,7 @@ msgstr "Jika dicentang pesan-pesan baru membutuhkan penanganan lebih lanjut."
 #: model:ir.model.fields,help:hr_holidays.field_hr_leave__message_has_error
 #: model:ir.model.fields,help:hr_holidays.field_hr_leave_allocation__message_has_error
 msgid "If checked, some messages have a delivery error."
-msgstr ""
+msgstr "If checked, some messages have a delivery error."
 
 #. module: hr_holidays
 #: model_terms:ir.ui.view,arch_db:hr_holidays.hr_leave_allocation_view_form_manager
@@ -1537,7 +1567,7 @@ msgstr ""
 #: model:ir.actions.act_window,name:hr_holidays.hr_leave_action_payroll
 #: model:ir.ui.menu,name:hr_holidays.hr_leave_menu_my
 msgid "Leaves Requests"
-msgstr ""
+msgstr "Permohonan Cuti"
 
 #. module: hr_holidays
 #: model:mail.activity.type,name:hr_holidays.mail_act_leave_second_approval
@@ -1639,7 +1669,7 @@ msgstr "Magenta"
 #: model:ir.model.fields,field_description:hr_holidays.field_hr_leave__message_main_attachment_id
 #: model:ir.model.fields,field_description:hr_holidays.field_hr_leave_allocation__message_main_attachment_id
 msgid "Main Attachment"
-msgstr ""
+msgstr "Main Attachment"
 
 #. module: hr_holidays
 #: model:ir.model.fields,field_description:hr_holidays.field_hr_leave__manager_id
@@ -1695,7 +1725,7 @@ msgstr "Jenis Rapat"
 #: model:ir.model.fields,field_description:hr_holidays.field_hr_leave__message_has_error
 #: model:ir.model.fields,field_description:hr_holidays.field_hr_leave_allocation__message_has_error
 msgid "Message Delivery error"
-msgstr ""
+msgstr "Message Delivery error"
 
 #. module: hr_holidays
 #: model:ir.model.fields,field_description:hr_holidays.field_hr_leave__message_ids
@@ -1761,6 +1791,12 @@ msgstr "Cuti Tim Saya"
 #: selection:hr.employee,current_leave_state:0
 msgid "New"
 msgstr "Baru"
+
+#. module: hr_holidays
+#: code:addons/hr_holidays/models/hr_leave.py:0
+#, python-format
+msgid "New %s Request created by %s from %s to %s"
+msgstr ""
 
 #. module: hr_holidays
 #: model:ir.actions.act_window,name:hr_holidays.hr_leave_action_new_request
@@ -1844,7 +1880,7 @@ msgstr "Jumlah pesan yang butuh tindakan"
 #: model:ir.model.fields,help:hr_holidays.field_hr_leave__message_has_error_counter
 #: model:ir.model.fields,help:hr_holidays.field_hr_leave_allocation__message_has_error_counter
 msgid "Number of messages with delivery error"
-msgstr ""
+msgstr "Number of messages with delivery error"
 
 #. module: hr_holidays
 #: model:ir.model.fields,field_description:hr_holidays.field_hr_leave_allocation__interval_number
@@ -1943,7 +1979,7 @@ msgstr ""
 #. module: hr_holidays
 #: model:ir.ui.menu,name:hr_holidays.menu_hr_holidays_dashboard
 msgid "Overview"
-msgstr ""
+msgstr "Overview"
 
 #. module: hr_holidays
 #: model:hr.leave.type,name:hr_holidays.holiday_status_cla
@@ -2579,6 +2615,7 @@ msgstr ""
 
 #. module: hr_holidays
 #: code:addons/hr_holidays/models/hr_leave_allocation.py:222
+#: code:addons/hr_holidays/models/hr_leave_allocation.py:330
 #: model_terms:ir.ui.view,arch_db:hr_holidays.hr_leave_allocation_view_kanban
 #: model_terms:ir.ui.view,arch_db:hr_holidays.hr_leave_report_kanban
 #: model_terms:ir.ui.view,arch_db:hr_holidays.hr_leave_view_kanban
@@ -2600,6 +2637,7 @@ msgstr "jam"
 
 #. module: hr_holidays
 #: code:addons/hr_holidays/models/hr_leave_allocation.py:222
+#: code:addons/hr_holidays/models/hr_leave_allocation.py:330
 #, python-format
 msgid "hours"
 msgstr "jam"

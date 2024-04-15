@@ -15,6 +15,9 @@
 # Wahyu Setiawan <wahyusetiaaa@gmail.com>, 2019
 # Bonny Useful <bonny.useful@gmail.com>, 2019
 # Ryanto The <ry.the77@gmail.com>, 2019
+# PAS IRVANUS <ipankbiz@gmail.com>, 2019
+# Gradien Foundation <gradien.co@gmail.com>, 2020
+# Muftiara Syuhada <muftiara.syuhada@falinwa.com>, 2021
 # 
 msgid ""
 msgstr ""
@@ -22,7 +25,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-09 10:31+0000\n"
 "PO-Revision-Date: 2018-08-24 09:17+0000\n"
-"Last-Translator: Ryanto The <ry.the77@gmail.com>, 2019\n"
+"Last-Translator: Muftiara Syuhada <muftiara.syuhada@falinwa.com>, 2021\n"
 "Language-Team: Indonesian (https://www.transifex.com/odoo/teams/41243/id/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -152,6 +155,14 @@ msgstr ""
 "<p><b>Kirim pesan</b> kepada prospek Anda dan dapatkan jawaban otomatis "
 "terlampir pada peluang ini.</p><p class=\"mb0\">Ketik <i>'@'</i> untuk "
 "menyebut orang, seperti memasukkan cc pada email.</p>"
+
+#. module: crm
+#: code:addons/crm/models/crm_team.py:152
+#, python-format
+msgid ""
+"<p>As you don't belong to any Sales Team, Odoo opens the first one by "
+"default.</p>"
+msgstr ""
 
 #. module: crm
 #. openerp-web
@@ -293,7 +304,7 @@ msgstr "Tanggal penyerahan"
 #. module: crm
 #: model:ir.model.fields,field_description:crm.field_crm_lead__message_attachment_count
 msgid "Attachment Count"
-msgstr ""
+msgstr "Attachment Count"
 
 #. module: crm
 #: model_terms:ir.ui.view,arch_db:crm.crm_case_tree_view_oppor
@@ -467,7 +478,7 @@ msgstr "Nama Perusahaan"
 #. module: crm
 #: model:ir.model,name:crm.model_res_config_settings
 msgid "Config Settings"
-msgstr ""
+msgstr "Config Settings"
 
 #. module: crm
 #: model:ir.ui.menu,name:crm.crm_menu_config
@@ -621,7 +632,7 @@ msgstr "Buat pelanggan baru"
 #: model_terms:ir.actions.act_window,help:crm.crm_case_form_view_salesteams_lead
 #: model_terms:ir.actions.act_window,help:crm.crm_case_form_view_salesteams_opportunity
 msgid "Create a new lead"
-msgstr ""
+msgstr "Buat lead baru"
 
 #. module: crm
 #: model_terms:ir.actions.act_window,help:crm.crm_lead_tag_action
@@ -783,7 +794,7 @@ msgstr "Desain"
 #. module: crm
 #: model:ir.model,name:crm.model_digest_digest
 msgid "Digest"
-msgstr ""
+msgstr "Digest"
 
 #. module: crm
 #: model_terms:ir.ui.view,arch_db:crm.view_create_opportunity_simplified
@@ -808,7 +819,7 @@ msgstr "Nama Tampilan"
 #: code:addons/crm/models/digest.py:18 code:addons/crm/models/digest.py:29
 #, python-format
 msgid "Do not have access, skip this data for user's digest email"
-msgstr ""
+msgstr "Do not have access, skip this data for user's digest email"
 
 #. module: crm
 #: selection:crm.lead2opportunity.partner,action:0
@@ -820,7 +831,7 @@ msgstr "Tidak hubungkan ke pelanggan"
 #. module: crm
 #: model_terms:ir.ui.view,arch_db:crm.crm_case_kanban_view_leads
 msgid "Dropdown menu"
-msgstr ""
+msgstr "Menu dropdown"
 
 #. module: crm
 #: model_terms:ir.ui.view,arch_db:crm.crm_case_kanban_view_leads
@@ -1088,7 +1099,7 @@ msgstr "Jika dicentang pesan-pesan baru membutuhkan penanganan lebih lanjut."
 #. module: crm
 #: model:ir.model.fields,help:crm.field_crm_lead__message_has_error
 msgid "If checked, some messages have a delivery error."
-msgstr ""
+msgstr "If checked, some messages have a delivery error."
 
 #. module: crm
 #: model:ir.model.fields,help:crm.field_res_partner__team_id
@@ -1382,7 +1393,7 @@ msgstr "Rendah"
 #. module: crm
 #: model:ir.model.fields,field_description:crm.field_crm_lead__message_main_attachment_id
 msgid "Main Attachment"
-msgstr ""
+msgstr "Main Attachment"
 
 #. module: crm
 #: model:mail.activity.type,name:crm.mail_activity_demo_make_quote
@@ -1516,7 +1527,7 @@ msgstr "Peluang digabung"
 #. module: crm
 #: model:ir.model.fields,field_description:crm.field_crm_lead__message_has_error
 msgid "Message Delivery error"
-msgstr ""
+msgstr "Message Delivery error"
 
 #. module: crm
 #: model:ir.model.fields,field_description:crm.field_crm_lead__message_ids
@@ -1557,6 +1568,7 @@ msgstr "Saluranku"
 #. module: crm
 #: model:ir.model.fields,field_description:crm.field_crm_lead_tag__name
 #: model:ir.model.fields,field_description:crm.field_crm_lost_reason__name
+#: model_terms:ir.ui.view,arch_db:crm.quick_create_opportunity_form
 msgid "Name"
 msgstr "Nama"
 
@@ -1655,7 +1667,7 @@ msgstr "Jumlah pesan yang butuh tindakan"
 #. module: crm
 #: model:ir.model.fields,help:crm.field_crm_lead__message_has_error_counter
 msgid "Number of messages with delivery error"
-msgstr ""
+msgstr "Number of messages with delivery error"
 
 #. module: crm
 #: model:ir.model.fields,field_description:crm.field_crm_team__opportunities_count
@@ -2448,7 +2460,7 @@ msgstr "Pelatihan"
 #. module: crm
 #: model_terms:digest.tip,tip_description:crm.digest_tip_crm_0
 msgid "Try Now"
-msgstr ""
+msgstr "Coba Sekarang"
 
 #. module: crm
 #: model:ir.model.fields,field_description:crm.field_crm_activity_report__lead_type
@@ -2729,7 +2741,7 @@ msgstr ""
 #: code:addons/crm/models/crm_lead.py:946
 #, python-format
 msgid "or send an email to %s"
-msgstr ""
+msgstr "atau kirim email ke %s"
 
 #. module: crm
 #: model:ir.model.fields,field_description:crm.field_crm_stage__team_count

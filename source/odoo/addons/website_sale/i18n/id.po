@@ -16,14 +16,17 @@
 # Hendra So <mask783@gmail.com>, 2019
 # Ryanto The <ry.the77@gmail.com>, 2019
 # Muhammad Syarif <mhdsyarif.ms@gmail.com>, 2019
+# PAS IRVANUS <ipankbiz@gmail.com>, 2019
+# Altela Eleviansyah Pramardhika <altela_pramardhika@yahoo.com>, 2021
+# Abdul Munif Hanafi <amunifhanafi@gmail.com>, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-14 07:33+0000\n"
+"POT-Creation-Date: 2019-11-04 14:42+0000\n"
 "PO-Revision-Date: 2018-08-24 09:35+0000\n"
-"Last-Translator: Muhammad Syarif <mhdsyarif.ms@gmail.com>, 2019\n"
+"Last-Translator: Abdul Munif Hanafi <amunifhanafi@gmail.com>, 2021\n"
 "Language-Team: Indonesian (https://www.transifex.com/odoo/teams/41243/id/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -818,7 +821,7 @@ msgstr "Hitung ongkos pengiriman pada order"
 #. module: website_sale
 #: model:ir.model,name:website_sale.model_res_config_settings
 msgid "Config Settings"
-msgstr ""
+msgstr "Config Settings"
 
 #. module: website_sale
 #: model_terms:ir.ui.view,arch_db:website_sale.wizard_checkout
@@ -943,7 +946,7 @@ msgstr "Daftar Harga Standar"
 #. module: website_sale
 #: model_terms:ir.actions.act_window,help:website_sale.product_public_category_action
 msgid "Define a new category"
-msgstr ""
+msgstr "Tentukan kategori baru"
 
 #. module: website_sale
 #: selection:res.config.settings,sale_delivery_settings:0
@@ -979,7 +982,7 @@ msgstr "Menentukan urutan tampilan di website E-commerce"
 #. module: website_sale
 #: model:ir.model,name:website_sale.model_digest_digest
 msgid "Digest"
-msgstr ""
+msgstr "Digest"
 
 #. module: website_sale
 #: model:ir.model.fields,field_description:website_sale.field_res_config_settings__module_website_sale_digital
@@ -998,7 +1001,7 @@ msgstr "Nama Tampilan"
 #: code:addons/website_sale/models/digest.py:16
 #, python-format
 msgid "Do not have access, skip this data for user's digest email"
-msgstr ""
+msgstr "Do not have access, skip this data for user's digest email"
 
 #. module: website_sale
 #: selection:res.company,website_sale_onboarding_payment_acquirer_state:0
@@ -1145,7 +1148,7 @@ msgstr "Kelas HTML"
 #. module: website_sale
 #: model:ir.model,name:website_sale.model_ir_http
 msgid "HTTP Routing"
-msgstr ""
+msgstr "HTTP routing"
 
 #. module: website_sale
 #: model_terms:ir.ui.view,arch_db:website_sale.payment_sale_note
@@ -1244,7 +1247,7 @@ msgstr ""
 #. module: website_sale
 #: selection:res.company,website_sale_onboarding_payment_acquirer_state:0
 msgid "Just done"
-msgstr ""
+msgstr "Just done"
 
 #. module: website_sale
 #: model:ir.model.fields,field_description:website_sale.field_digest_digest__kpi_website_sale_total_value
@@ -1427,7 +1430,7 @@ msgstr ""
 #. module: website_sale
 #: selection:res.company,website_sale_onboarding_payment_acquirer_state:0
 msgid "Not done"
-msgstr ""
+msgstr "Not done"
 
 #. module: website_sale
 #: model:ir.model.fields,field_description:website_sale.field_crm_team__abandoned_carts_count
@@ -1688,7 +1691,7 @@ msgstr ""
 #: code:addons/website_sale/controllers/backend.py:115
 #, python-format
 msgid "Previous Year"
-msgstr ""
+msgstr "Tahun sebelumnya"
 
 #. module: website_sale
 #: model_terms:ir.ui.view,arch_db:website_sale.cart_lines
@@ -2348,7 +2351,7 @@ msgstr ""
 #. module: website_sale
 #: model_terms:ir.ui.view,arch_db:website_sale.res_config_settings_view_form
 msgid "This adds the choice of a currency on pricelists."
-msgstr ""
+msgstr "Ini menambahkan pilihan mata uang pada daftar harga."
 
 #. module: website_sale
 #: model_terms:ir.ui.view,arch_db:website_sale.product
@@ -2468,6 +2471,13 @@ msgstr ""
 "Garansi, dikeluarkan kepada pembeli sebuah artikel oleh pabriknya, "
 "menjanjikan untuk memperbaiki atau mengganti jika diperlukan dalam periode "
 "waktu tertentu."
+
+#. module: website_sale
+#. openerp-web
+#: code:addons/website_sale/static/src/js/website_sale_validate.js:49
+#, python-format
+msgid "We are waiting the confirmation of the bank or payment provider"
+msgstr ""
 
 #. module: website_sale
 #: model:ir.model,name:website_sale.model_website
@@ -2734,4 +2744,18 @@ msgstr ""
 #. module: website_sale
 #: model:ir.model,name:website_sale.model_website_sale_payment_acquirer_onboarding_wizard
 msgid "website.sale.payment.acquirer.onboarding.wizard"
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.address_b2b
+msgid ""
+"Changing company name is not allowed once document(s) have been issued for "
+"your account. Please contact us directly for this operation."
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.address_b2b
+msgid ""
+"Changing VAT number is not allowed once document(s) have been issued for "
+"your account. Please contact us directly for this operation."
 msgstr ""

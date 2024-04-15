@@ -19,6 +19,9 @@
 # Piotr Cierkosz <piotr.w.cierkosz@gmail.com>, 2019
 # Martin Trigaux, 2019
 # Karol Rybak <karolrybak85@gmail.com>, 2019
+# Piotr Strębski <strebski@gmail.com>, 2021
+# Daniel Demedziuk <daniel.demedziuk@gmail.com>, 2021
+# Wojciech Warczakowski <w.warczakowski@gmail.com>, 2021
 # 
 msgid ""
 msgstr ""
@@ -26,7 +29,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-14 07:35+0000\n"
 "PO-Revision-Date: 2018-08-24 09:20+0000\n"
-"Last-Translator: Karol Rybak <karolrybak85@gmail.com>, 2019\n"
+"Last-Translator: Wojciech Warczakowski <w.warczakowski@gmail.com>, 2021\n"
 "Language-Team: Polish (https://www.transifex.com/odoo/teams/41243/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -106,7 +109,7 @@ msgstr ""
 #. module: mass_mailing
 #: model_terms:ir.ui.view,arch_db:mass_mailing.s_mail_block_event
 msgid "21 Jul"
-msgstr ""
+msgstr "21 Lip"
 
 #. module: mass_mailing
 #: model_terms:mail.mass_mailing.list,popup_content:mass_mailing.mass_mail_list_1
@@ -152,6 +155,8 @@ msgid ""
 "<i class=\"fa fa-exclamation-triangle\" role=\"img\" aria-label=\"Warning\" "
 "title=\"Warning\"/>"
 msgstr ""
+"<i class=\"fa fa-exclamation-triangle\" role=\"img\" aria-"
+"label=\"Ostrzeżenie\" title=\"Ostrzeżenie\"/>"
 
 #. module: mass_mailing
 #: model_terms:ir.ui.view,arch_db:mass_mailing.snippet_options
@@ -180,17 +185,17 @@ msgstr ""
 #. module: mass_mailing
 #: model_terms:ir.ui.view,arch_db:mass_mailing.s_mail_block_steps
 msgid "<small>Step 1:</small>"
-msgstr ""
+msgstr "<small>Krok 1:</small>"
 
 #. module: mass_mailing
 #: model_terms:ir.ui.view,arch_db:mass_mailing.s_mail_block_steps
 msgid "<small>Step 2:</small>"
-msgstr ""
+msgstr "<small>Krok 2:</small>"
 
 #. module: mass_mailing
 #: model_terms:ir.ui.view,arch_db:mass_mailing.s_mail_block_steps
 msgid "<small>Step 3:</small>"
-msgstr ""
+msgstr "<small>Krok 3:</small>"
 
 #. module: mass_mailing
 #: model_terms:ir.ui.view,arch_db:mass_mailing.s_mail_block_comparison_table
@@ -355,6 +360,14 @@ msgid "Archived"
 msgstr "Archiwalne"
 
 #. module: mass_mailing
+#: code:addons/mass_mailing/models/mass_mailing.py:146
+#, python-format
+msgid ""
+"At least one of the mailing list you are trying to archive is used in an "
+"ongoing mailing campaign."
+msgstr ""
+
+#. module: mass_mailing
 #: model_terms:ir.ui.view,arch_db:mass_mailing.view_mail_mass_mailing_form
 msgid "Attach a file"
 msgstr "Załącz plik"
@@ -469,7 +482,7 @@ msgstr ""
 #. module: mass_mailing
 #: model_terms:ir.ui.view,arch_db:mass_mailing.s_mail_block_steps
 msgid "Choose"
-msgstr ""
+msgstr "Wybierz"
 
 #. module: mass_mailing
 #: model_terms:ir.ui.view,arch_db:mass_mailing.unsubscribe
@@ -596,7 +609,7 @@ msgstr ""
 #. module: mass_mailing
 #: model_terms:ir.actions.act_window,help:mass_mailing.action_view_mass_mailing_contacts
 msgid "Create a contact in your address book"
-msgstr ""
+msgstr "Utwórz kontakt w swojej książce adresowej"
 
 #. module: mass_mailing
 #: model_terms:ir.actions.act_window,help:mass_mailing.action_create_ab_mass_mailings_from_campaign
@@ -614,7 +627,7 @@ msgstr ""
 #. module: mass_mailing
 #: model_terms:ir.actions.act_window,help:mass_mailing.action_view_mass_mailing_lists
 msgid "Create a new mailing list"
-msgstr ""
+msgstr "Utwórz nową listę mailingową"
 
 #. module: mass_mailing
 #: model_terms:ir.actions.act_window,help:mass_mailing.action_view_mass_mailing_stages
@@ -677,7 +690,7 @@ msgstr ""
 #. module: mass_mailing
 #: model_terms:ir.ui.view,arch_db:mass_mailing.s_mail_block_event
 msgid "Cybersecurity"
-msgstr ""
+msgstr "Cyberbezpieczeństwo"
 
 #. module: mass_mailing
 #: model_terms:ir.ui.view,arch_db:mass_mailing.s_mail_block_comparison_table
@@ -687,7 +700,7 @@ msgstr ""
 #. module: mass_mailing
 #: model:ir.model.fields,help:mass_mailing.field_mail_mail_statistics__exception
 msgid "Date of technical error leading to the email not being sent"
-msgstr ""
+msgstr "Data błędu technicznego powodującego niewysłanie wiadomości e-mail"
 
 #. module: mass_mailing
 #: model:ir.model.fields,help:mass_mailing.field_mail_mail_statistics__clicked
@@ -863,7 +876,7 @@ msgstr ""
 #. module: mass_mailing
 #: model_terms:ir.ui.view,arch_db:mass_mailing.s_mail_block_steps
 msgid "Enjoy!"
-msgstr ""
+msgstr "Ciesz się!"
 
 #. module: mass_mailing
 #: model_terms:ir.ui.view,arch_db:mass_mailing.s_mail_block_title_text
@@ -912,7 +925,7 @@ msgstr "Rozszerzone filtry..."
 #. module: mass_mailing
 #: model_terms:ir.ui.view,arch_db:mass_mailing.s_mail_block_discount1
 msgid "FROM YOUR NEXT ORDER!"
-msgstr ""
+msgstr "OD NASTĘPNEGO ZAMÓWIENIA!"
 
 #. module: mass_mailing
 #: model:ir.model.fields,field_description:mass_mailing.field_mail_mass_mailing__failed
@@ -1171,7 +1184,7 @@ msgstr "Mail ID (tech)"
 #: model:ir.model.fields,field_description:mass_mailing.field_mail_mass_mailing__mail_server_id
 #: model:ir.model.fields,field_description:mass_mailing.field_res_config_settings__mass_mailing_mail_server_id
 msgid "Mail Server"
-msgstr ""
+msgstr "Serwer poczty"
 
 #. module: mass_mailing
 #: model:ir.actions.act_window,name:mass_mailing.action_view_mail_mail_statistics
@@ -1493,7 +1506,7 @@ msgstr "Moja firma"
 #. module: mass_mailing
 #: model_terms:ir.ui.view,arch_db:mass_mailing.view_mail_mass_mailing_search
 msgid "My Mailings"
-msgstr ""
+msgstr "Moje wiadomości"
 
 #. module: mass_mailing
 #: model:ir.model.fields,field_description:mass_mailing.field_mail_mass_mailing_contact__name
@@ -1615,6 +1628,7 @@ msgstr ""
 #: model_terms:ir.actions.act_window,help:mass_mailing.action_view_mass_mailing_contacts
 msgid "Odoo helps you to easily track all activities related to a customer."
 msgstr ""
+"Odoo pomaga w łatwym śledzeniu wszystkich działań związanych z klientem."
 
 #. module: mass_mailing
 #: model_terms:ir.ui.view,arch_db:mass_mailing.s_mail_block_image_text
@@ -1629,7 +1643,7 @@ msgstr ""
 #. module: mass_mailing
 #: model_terms:ir.ui.view,arch_db:mass_mailing.view_mail_mail_statistics_search
 msgid "Open Date"
-msgstr ""
+msgstr "Data otwarcia"
 
 #. module: mass_mailing
 #: model:ir.model.fields,field_description:mass_mailing.field_mail_mail_statistics__opened
@@ -1712,7 +1726,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:mass_mailing.s_mail_block_three_cols
 #: model_terms:ir.ui.view,arch_db:mass_mailing.s_mail_block_two_cols
 msgid "Read More..."
-msgstr ""
+msgstr "Czytaj Więcej..."
 
 #. module: mass_mailing
 #: model_terms:ir.ui.view,arch_db:mass_mailing.view_mail_mail_statistics_search
@@ -2294,7 +2308,7 @@ msgstr ""
 #. module: mass_mailing
 #: model_terms:ir.ui.view,arch_db:mass_mailing.s_mail_block_discount2
 msgid "Use This Promo Code BEFORE 1st of August"
-msgstr ""
+msgstr "Użyj tego kodu promocyjnego PRZED 1 sierpnia."
 
 #. module: mass_mailing
 #: model_terms:ir.ui.view,arch_db:mass_mailing.res_config_settings_view_form
@@ -2314,7 +2328,7 @@ msgstr ""
 #. module: mass_mailing
 #: model_terms:ir.ui.view,arch_db:mass_mailing.s_mail_block_discount2
 msgid "Use now"
-msgstr ""
+msgstr "Użyj teraz"
 
 #. module: mass_mailing
 #: model:res.groups,name:mass_mailing.group_mass_mailing_user
@@ -2395,7 +2409,7 @@ msgstr ""
 #: code:addons/mass_mailing/static/src/js/unsubscribe.js:165
 #, python-format
 msgid "You are not authorized to do this!"
-msgstr ""
+msgstr "Nie masz autoryzacji do wykonania tego!"
 
 #. module: mass_mailing
 #: model_terms:ir.ui.view,arch_db:mass_mailing.unsubscribe
@@ -2449,7 +2463,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:mass_mailing.s_mail_block_header_social
 #: model_terms:ir.ui.view,arch_db:mass_mailing.theme_default_template
 msgid "Your Logo"
-msgstr ""
+msgstr "Twoje logo"
 
 #. module: mass_mailing
 #: model_terms:ir.ui.view,arch_db:mass_mailing.s_mail_block_event
@@ -2478,7 +2492,7 @@ msgstr ""
 #. module: mass_mailing
 #: model_terms:ir.ui.view,arch_db:mass_mailing.s_mail_block_discount2
 msgid "and save $20 on your next order!"
-msgstr ""
+msgstr "i zaoszczędź 20$ na następnym zamówieniu!"
 
 #. module: mass_mailing
 #: model:ir.model.fields,field_description:mass_mailing.field_mail_mass_mailing_campaign__campaign_id

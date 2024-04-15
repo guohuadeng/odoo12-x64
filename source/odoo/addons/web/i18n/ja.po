@@ -7,12 +7,14 @@
 # 城谷 龍弥 <tatsuya.shirotani@pro-spire.co.jp>, 2018
 # Manami Hashi <manami@roomsfor.hk>, 2018
 # SHIMIZU Taku <shimizu.taku@gmail.com>, 2018
-# NOKA Shigekazu <shigekazu.noka@gmail.com>, 2018
+# Shigekazu N. <shigekazu.noka@gmail.com>, 2018
 # 高木正勝 <masakatsu.takagi@pro-spire.co.jp>, 2018
 # Norimichi Sugimoto <norimichi.sugimoto@tls-ltd.co.jp>, 2018
 # 森岡広道 <hiromichi.morioka@pro-spire.co.jp>, 2018
 # Martin Trigaux, 2019
-# Yoshi Tashiro <tashiro@roomsfor.hk>, 2019
+# Noma Yuki, 2020
+# Abe Tomohiro <tomohiro@quartile.co>, 2021
+# Yoshi Tashiro (Quartile) <tashiro@roomsfor.hk>, 2021
 # 
 msgid ""
 msgstr ""
@@ -20,7 +22,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-02-13 07:03+0000\n"
 "PO-Revision-Date: 2018-08-24 09:33+0000\n"
-"Last-Translator: Yoshi Tashiro <tashiro@roomsfor.hk>, 2019\n"
+"Last-Translator: Yoshi Tashiro (Quartile) <tashiro@roomsfor.hk>, 2021\n"
 "Language-Team: Japanese (https://www.transifex.com/odoo/teams/41243/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3077,7 +3079,7 @@ msgstr "特別："
 #: code:addons/web/static/src/js/views/graph/graph_renderer.js:215
 #, python-format
 msgid "Stacked"
-msgstr ""
+msgstr "積み上げ棒グラフ"
 
 #. module: web
 #. openerp-web
@@ -3235,7 +3237,15 @@ msgid ""
 msgstr "フィールド '%s' のタイプは、 'ir.attachment'モデルとの関係を持つmany2manyフィールドでなければなりません。"
 
 #. module: web
-#: code:addons/web/controllers/main.py:1513
+#: code:addons/web/controllers/main.py:1452
+#, python-format
+msgid ""
+"There are too many records (%s records, limit: %s) to export as this format."
+" Consider splitting the export."
+msgstr ""
+
+#. module: web
+#: code:addons/web/controllers/main.py:1522
 #, python-format
 msgid ""
 "There are too many rows (%s rows, limit: 65535) to export as Excel 97-2003 "
@@ -3570,7 +3580,7 @@ msgstr "検証エラー"
 #: code:addons/web/static/src/js/views/pivot/pivot_renderer.js:174
 #, python-format
 msgid "Variation"
-msgstr ""
+msgstr "変化"
 
 #. module: web
 #. openerp-web
@@ -3578,7 +3588,7 @@ msgstr ""
 #: code:addons/web/static/src/xml/base.xml:258
 #, python-format
 msgid "View Fields"
-msgstr "項目のビュー"
+msgstr "項目を参照"
 
 #. module: web
 #. openerp-web
@@ -3886,7 +3896,7 @@ msgstr "が次以上"
 #: code:addons/web/static/src/js/widgets/domain_selector.js:25
 #, python-format
 msgid "in"
-msgstr ""
+msgstr "に"
 
 #. module: web
 #. openerp-web
@@ -3903,28 +3913,28 @@ msgstr "が次である"
 #: code:addons/web/static/src/js/views/search/search_filters.js:188
 #, python-format
 msgid "is after"
-msgstr "が次以降である"
+msgstr "が次より後である"
 
 #. module: web
 #. openerp-web
 #: code:addons/web/static/src/js/views/search/search_filters.js:190
 #, python-format
 msgid "is after or equal to"
-msgstr ""
+msgstr "が次以降である"
 
 #. module: web
 #. openerp-web
 #: code:addons/web/static/src/js/views/search/search_filters.js:189
 #, python-format
 msgid "is before"
-msgstr "が次以前である"
+msgstr "が次より前である"
 
 #. module: web
 #. openerp-web
 #: code:addons/web/static/src/js/views/search/search_filters.js:191
 #, python-format
 msgid "is before or equal to"
-msgstr ""
+msgstr "が次以前である"
 
 #. module: web
 #. openerp-web

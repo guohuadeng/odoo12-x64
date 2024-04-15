@@ -13,15 +13,19 @@
 # Ainara Galdona Usatorre <ainaragaldona@avanzosc.es>, 2019
 # ibinka lete <ilete@fpbidasoa.net>, 2019
 # Mikel Lizarralde <mikellizarralde@gmail.com>, 2019
-# Naomi Hidalgo <naomihid96@gmail.com>, 2019
+# 61590936fa9bf290362ee306eeabf363_944dd10 <a8bfd5a0b49b9c8455f33fc521764cc3_680674>, 2019
+# Maialen Rodriguez <maialenrodriguez98@gmail.com>, 2020
+# Miren Maiz <mirenmaizz@gmail.com>, 2020
+# Unai Muñoz <unaimunoz9@gmail.com>, 2020
+# BereziAmubieta <bereziamubieta@avanzosc.es>, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-14 07:33+0000\n"
+"POT-Creation-Date: 2019-11-04 14:42+0000\n"
 "PO-Revision-Date: 2018-08-24 09:35+0000\n"
-"Last-Translator: Naomi Hidalgo <naomihid96@gmail.com>, 2019\n"
+"Last-Translator: BereziAmubieta <bereziamubieta@avanzosc.es>, 2021\n"
 "Language-Team: Basque (https://www.transifex.com/odoo/teams/41243/eu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -167,7 +171,7 @@ msgstr ""
 #. module: website_sale
 #: model_terms:ir.ui.view,arch_db:website_sale.payment_confirmation_status
 msgid "<b>Communication: </b>"
-msgstr ""
+msgstr "<b>Komunikazioa: </b>"
 
 #. module: website_sale
 #: model_terms:ir.ui.view,arch_db:website_sale.confirmation
@@ -219,7 +223,7 @@ msgstr ""
 #. module: website_sale
 #: model_terms:ir.ui.view,arch_db:website_sale.confirmation
 msgid "<i class=\"fa fa-print\"/> Print"
-msgstr ""
+msgstr "<i class=\"fa fa-print\"/>Inprimatu"
 
 #. module: website_sale
 #: model_terms:ir.ui.view,arch_db:website_sale.header
@@ -328,7 +332,7 @@ msgstr ""
 #. module: website_sale
 #: model_terms:ir.ui.view,arch_db:website_sale.confirmation
 msgid "<span>Confirmed</span>"
-msgstr ""
+msgstr "<span>Egiaztatuta</span>"
 
 #. module: website_sale
 #: model_terms:ir.ui.view,arch_db:website_sale.address
@@ -556,6 +560,9 @@ msgid ""
 "Apply manual discounts on sales order lines or display discounts computed "
 "from pricelists (option to activate in the pricelist configuration)."
 msgstr ""
+"Salmenta-eskaeren lerroetan eskuzko deskontuak aplikatzea edo prezioen "
+"zerrendetan oinarrituta kalkulatutako deskontuak erakustea (prezioen "
+"zerrenden konfigurazioan aktibatzeko aukera)."
 
 #. module: website_sale
 #: model_terms:ir.ui.view,arch_db:website_sale.res_config_settings_view_form
@@ -810,12 +817,12 @@ msgstr "Bpost-eko garraio eta bidaltze kostualk kalkulatu"
 #. module: website_sale
 #: model_terms:ir.ui.view,arch_db:website_sale.res_config_settings_view_form
 msgid "Compute shipping costs on orders"
-msgstr ""
+msgstr "Eskaeren bidalketa gastuak kalkulatu"
 
 #. module: website_sale
 #: model:ir.model,name:website_sale.model_res_config_settings
 msgid "Config Settings"
-msgstr ""
+msgstr "Konfigurazio ezarpenak"
 
 #. module: website_sale
 #: model_terms:ir.ui.view,arch_db:website_sale.wizard_checkout
@@ -980,7 +987,7 @@ msgstr ""
 #. module: website_sale
 #: model:ir.model,name:website_sale.model_digest_digest
 msgid "Digest"
-msgstr ""
+msgstr "Laburpen"
 
 #. module: website_sale
 #: model:ir.model.fields,field_description:website_sale.field_res_config_settings__module_website_sale_digital
@@ -1147,7 +1154,7 @@ msgstr "HTML klaseak"
 #. module: website_sale
 #: model:ir.model,name:website_sale.model_ir_http
 msgid "HTTP Routing"
-msgstr ""
+msgstr "HTTP bideratzea"
 
 #. module: website_sale
 #: model_terms:ir.ui.view,arch_db:website_sale.payment_sale_note
@@ -1246,7 +1253,7 @@ msgstr ""
 #. module: website_sale
 #: selection:res.company,website_sale_onboarding_payment_acquirer_state:0
 msgid "Just done"
-msgstr ""
+msgstr "Egin berri dut"
 
 #. module: website_sale
 #: model:ir.model.fields,field_description:website_sale.field_digest_digest__kpi_website_sale_total_value
@@ -1426,7 +1433,7 @@ msgstr ""
 #. module: website_sale
 #: selection:res.company,website_sale_onboarding_payment_acquirer_state:0
 msgid "Not done"
-msgstr ""
+msgstr "Egin gabea"
 
 #. module: website_sale
 #: model:ir.model.fields,field_description:website_sale.field_crm_team__abandoned_carts_count
@@ -1497,7 +1504,7 @@ msgstr ""
 #. module: website_sale
 #: model_terms:ir.ui.view,arch_db:website_sale.product_price
 msgid "Option not available"
-msgstr ""
+msgstr "Aukera ez dago eskuragarri"
 
 #. module: website_sale
 #: code:addons/website_sale/models/sale_order.py:238
@@ -1564,7 +1571,7 @@ msgstr ""
 #: code:addons/website_sale/static/src/xml/website_sale_dashboard.xml:11
 #, python-format
 msgid "Orders to Invoice"
-msgstr ""
+msgstr "Fakturatzeko eskaerak"
 
 #. module: website_sale
 #. openerp-web
@@ -1910,7 +1917,7 @@ msgstr ""
 #. module: website_sale
 #: model_terms:ir.ui.view,arch_db:website_sale.payment
 msgid "Return to Cart"
-msgstr ""
+msgstr "Itzuli saskira"
 
 #. module: website_sale
 #: model_terms:ir.ui.view,arch_db:website_sale.404
@@ -2461,6 +2468,13 @@ msgid ""
 msgstr ""
 
 #. module: website_sale
+#. openerp-web
+#: code:addons/website_sale/static/src/js/website_sale_validate.js:49
+#, python-format
+msgid "We are waiting the confirmation of the bank or payment provider"
+msgstr ""
+
+#. module: website_sale
 #: model:ir.model,name:website_sale.model_website
 #: model:ir.model.fields,field_description:website_sale.field_account_invoice__website_id
 #: model:ir.model.fields,field_description:website_sale.field_product_pricelist__website_id
@@ -2671,7 +2685,7 @@ msgstr "aurkitu)"
 #. module: website_sale
 #: model_terms:ir.ui.view,arch_db:website_sale.res_config_settings_view_form
 msgid "hour(s)."
-msgstr ""
+msgstr "ordu(ak)."
 
 #. module: website_sale
 #: model_terms:ir.ui.view,arch_db:website_sale.cart
@@ -2725,4 +2739,18 @@ msgstr ""
 #. module: website_sale
 #: model:ir.model,name:website_sale.model_website_sale_payment_acquirer_onboarding_wizard
 msgid "website.sale.payment.acquirer.onboarding.wizard"
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.address_b2b
+msgid ""
+"Changing company name is not allowed once document(s) have been issued for "
+"your account. Please contact us directly for this operation."
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.address_b2b
+msgid ""
+"Changing VAT number is not allowed once document(s) have been issued for "
+"your account. Please contact us directly for this operation."
 msgstr ""

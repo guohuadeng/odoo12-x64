@@ -780,6 +780,42 @@ QUnit.module('basic_fields', {
         form.destroy();
     });
 
+    QUnit.test('float field with type number option and comma decimal separator', function (assert) {
+        assert.expect(4);
+
+        var form = createView({
+            View: FormView,
+            model: 'partner',
+            data: this.data,
+            arch: '<form string="Partners">' +
+                '<field name="qux" options="{\'type\': \'number\'}"/>' +
+            '</form>',
+            res_id: 4,
+            translateParameters: {
+                thousands_sep: ".",
+                decimal_point: ",",
+                grouping: [3, 0],
+            },
+        });
+
+        form.$buttons.find('.o_form_button_edit').click();
+        assert.ok(form.$('.o_field_widget')[0].hasAttribute('type'),
+            'Float field with option type must have a type attribute.');
+        assert.strictEqual(form.$('.o_field_widget').attr('type'), 'number',
+            'Float field with option type must have a type attribute equals to "number".');
+        form.$('input').val('123456.789').trigger('input');
+        form.$buttons.find('.o_form_button_save').click();
+        form.$buttons.find('.o_form_button_edit').click();
+        assert.strictEqual(form.$('.o_field_widget').val(), '123456.789',
+            'Float value must be not formatted if input type is number.');
+        form.$buttons.find('.o_form_button_save').click();
+        assert.strictEqual(form.$('.o_field_widget').text(), '123.456,8',
+            'Float value must be formatted in readonly view even if the input type is number.');
+
+        form.destroy();
+    });
+
+
     QUnit.test('float field without type number option', function (assert) {
         assert.expect(2);
 
@@ -1874,7 +1910,7 @@ QUnit.module('basic_fields', {
     });
 
     QUnit.test('binary fields that are readonly in create mode do not download', function (assert) {
-        assert.expect(2);
+        assert.expect(3);
 
         // save the session function
         var oldGetFile = session.get_file;
@@ -1908,10 +1944,13 @@ QUnit.module('basic_fields', {
         form.$('.o_field_many2one input').click();
         $dropdown.find('li:not(.o_m2o_dropdown_option):contains(xphone)').click();
 
-        assert.strictEqual(form.$('a.o_field_widget[name="document"] > .fa-download').length, 1,
+        var $field = form.$('a.o_field_widget[name="document"]');
+        assert.strictEqual($field.length, 1,
             'The link to download the binary should be present');
+        assert.strictEqual($field.find('.fa-download').length, 0,
+                           'the download icon should not be present');
 
-        form.$('a.o_field_widget[name="document"]').click();
+        $field.click();
 
         assert.verifySteps([]); // We shoudln't have passed through steps
 
@@ -3194,6 +3233,66 @@ QUnit.module('basic_fields', {
 
         moment.locale(originalLocale);
         moment.updateLocale('norvegianForTest', null);
+        core._t.database.parameters = originalParameters;
+
+        form.destroy();
+    });
+
+    QUnit.test('date field suports ISO 8601', function (assert) {
+        assert.expect(5);
+
+        var originalLocale = moment.locale();
+        var originalParameters = _.clone(core._t.database.parameters);
+
+        _.extend(core._t.database.parameters, { week_start: 1, date_format: '%m/%d/%Y' });
+        var dow = 1 % 7;
+        moment.defineLocale('norvegianForTest2', {
+            monthsShort: 'jan._feb._mars_april_mai_juni_juli_aug._sep._okt._nov._des.'.split('_'),
+            monthsParseExact: true,
+            dayOfMonthOrdinalParse: /\d{1,2}\./,
+            ordinal: '%d.',
+            week: {
+                dow: dow,
+                doy: 7 + dow - 4 // Note: ISO 8601 week date: https://momentjscom.readthedocs.io/en/latest/moment/07-customization/16-dow-doy/
+            },
+        });
+
+        var form = createView({
+            View: FormView,
+            model: 'partner',
+            data: this.data,
+            arch: '<form><field name="foo"/><field name="date"/></form>',
+        });
+
+        form.$('input[name="date"]').val('01/01/2017')
+            .trigger('input').trigger('change').trigger('focusout');
+        testUtils.openDatepicker(form.$('.o_datepicker'));
+        assert.strictEqual($('.bootstrap-datetimepicker-widget:visible').length, 1,
+            "datepicker should be opened");
+
+        var week52 = $('.bootstrap-datetimepicker-widget .cw:contains(52) ~ [data-day="01/01/2017"]');
+        assert.ok(week52, 1, "1st january should lie in last week of previous year");
+
+        form.$('input[name="date"]').val('01/01/2018')
+            .trigger('input').trigger('change').trigger('focusout');
+        testUtils.openDatepicker(form.$('.o_datepicker'));
+        var week1 = $('.bootstrap-datetimepicker-widget .cw:contains(1) ~ [data-day="01/01/2018"]');
+        assert.ok(week1, 1, "1st january should lie in first week of current year");
+
+        form.$('input[name="date"]').val('01/01/2016')
+            .trigger('input').trigger('change').trigger('focusout');
+        testUtils.openDatepicker(form.$('.o_datepicker'));
+        var week53 = $('.bootstrap-datetimepicker-widget .cw:contains(53) ~ [data-day="01/01/2016"]');
+        assert.ok(week53, 1, "1st january should lie in week 53 of previous year");
+
+        form.$('input[name="date"]').val('01/01/2022')
+            .trigger('input').trigger('change').trigger('focusout');
+        testUtils.openDatepicker(form.$('.o_datepicker'));
+        week52 = $('.bootstrap-datetimepicker-widget .cw:contains(52) ~ [data-day="01/01/2022"]');
+        assert.ok(week52, 1, "1st january should lie in week 52 of previous year");
+
+        moment.locale(originalLocale);
+        moment.updateLocale('norvegianForTest2', null);
         core._t.database.parameters = originalParameters;
 
         form.destroy();

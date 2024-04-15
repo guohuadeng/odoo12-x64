@@ -112,7 +112,7 @@ class HrExpense(models.Model):
                 date_expense = expense.date
                 amount = expense.currency_id._convert(
                     expense.total_amount, expense.company_currency_id,
-                    expense.company_id, date_expense or fields.Date.today())
+                    expense.company_id or expense.sheet_id.company_id, date_expense or fields.Date.today())
             expense.total_amount_company = amount
 
     @api.multi
@@ -338,6 +338,8 @@ class HrExpense(models.Model):
                     'expense_id': expense.id,
                     'partner_id': partner_id,
                     'currency_id': expense.currency_id.id if different_currency else False,
+                    'analytic_account_id': expense.analytic_account_id.id if tax['analytic'] else False,
+                    'analytic_tag_ids': [(6, 0, expense.analytic_tag_ids.ids)] if tax['analytic'] else False,
                 }
                 total_amount -= amount
                 total_amount_currency -= move_line_tax_values['amount_currency'] or amount
@@ -442,6 +444,9 @@ class HrExpense(models.Model):
             ('work_email', 'ilike', email_address),
             ('user_id.email', 'ilike', email_address)
         ], limit=1)
+        # The expenses alias is the same for all companies, we need to set the proper context
+        company = employee.company_id or self.env.user.company_id
+        self = self.with_context(force_company=company.id)
 
         expense_description = msg_dict.get('subject', '')
 
@@ -481,10 +486,11 @@ class HrExpense(models.Model):
             'employee_id': employee.id,
             'product_id': product.id,
             'product_uom_id': product.uom_id.id,
-            'tax_ids': [(4, tax.id, False) for tax in product.supplier_taxes_id],
+            'tax_ids': [(4, tax.id, False) for tax in product.supplier_taxes_id.filtered(lambda r: r.company_id == company)],
             'quantity': 1,
             'unit_amount': price,
-            'company_id': employee.company_id.id,
+            'company_id': company.id,
+            'currency_id': employee.company_id.currency_id.id,
         })
         if account:
             custom_values['account_id'] = account.id

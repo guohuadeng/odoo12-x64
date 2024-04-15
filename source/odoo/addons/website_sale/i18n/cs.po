@@ -8,15 +8,16 @@
 # Jan Horzinka <jan.horzinka@centrum.cz>, 2018
 # Martin Trigaux, 2018
 # Michal Veselý <michal@veselyberanek.net>, 2018
-# trendspotter <j.podhorecky@volny.cz>, 2019
+# Rastislav Brencic <rastislav.brencic@azet.sk>, 2020
+# trendspotter, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-14 07:33+0000\n"
+"POT-Creation-Date: 2019-11-04 14:42+0000\n"
 "PO-Revision-Date: 2018-08-24 09:35+0000\n"
-"Last-Translator: trendspotter <j.podhorecky@volny.cz>, 2019\n"
+"Last-Translator: trendspotter, 2021\n"
 "Language-Team: Czech (https://www.transifex.com/odoo/teams/41243/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -279,6 +280,8 @@ msgid ""
 "<span class=\"fa fa-chevron-down fa-border float-right\" role=\"img\" aria-"
 "label=\"Details\" title=\"Details\"/>"
 msgstr ""
+"<span class=\"fa fa-chevron-down fa-border float-right\" role=\"img\" aria-"
+"label=\"Details\" title=\"Details\"/>"
 
 #. module: website_sale
 #: model_terms:ir.ui.view,arch_db:website_sale.product
@@ -1238,6 +1241,17 @@ msgid ""
 "will respond to any DMCA take down notices received and you will take down "
 "the content."
 msgstr ""
+"Pokud váš web nebo mobilní aplikace umožňují uživatelům vytvářet obsah a "
+"zveřejňovat tento obsah ostatním uživatelům, v části <b>Obsah</b> budou "
+"uživatelé informováni o tom, že vlastní práva na obsah, který vytvořili. "
+"<br/>Klauzule „Obsah“ obvykle uvádí, že vám uživatelé musí dát (vývojář webu"
+" nebo mobilní aplikace) licenci, abyste mohli tento obsah sdílet na svém "
+"webu / mobilní aplikaci a zpřístupnit jej ostatním uživatelům. <br/>Protože "
+"obsah vytvořený uživateli je veřejný ostatním uživatelům, doložka o oznámení"
+" DMCA (nebo Sekce Porušení autorských práv) je užitečná pro informování "
+"uživatelů a autorů autorských práv, že pokud se zjistí, že jakýkoli obsah "
+"porušuje autorská práva, odpovíte na všechna obdržená oznámení o odebrání "
+"podle zákona DMCA a obsah odstraníte."
 
 #. module: website_sale
 #: model:ir.model.fields,field_description:website_sale.field_product_image__image
@@ -1308,7 +1322,7 @@ msgstr "Právě dokončeno"
 #. module: website_sale
 #: model:ir.model.fields,field_description:website_sale.field_digest_digest__kpi_website_sale_total_value
 msgid "Kpi Website Sale Total Value"
-msgstr ""
+msgstr "Kpi Celková hodnota prodeje z webových stránek "
 
 #. module: website_sale
 #: model:product.public.category,name:website_sale.public_category_lamps
@@ -1478,7 +1492,7 @@ msgstr "Nebyl definován žádný produkt."
 #. module: website_sale
 #: model_terms:ir.ui.view,arch_db:website_sale.products
 msgid "No results found for \""
-msgstr ""
+msgstr "Nebyly nalezeny žádné výsledky pro „"
 
 #. module: website_sale
 #: selection:res.config.settings,sale_delivery_settings:0
@@ -1529,7 +1543,7 @@ msgstr "Online prodeje"
 #. module: website_sale
 #: model:ir.actions.act_window,name:website_sale.sale_report_action_dashboard
 msgid "Online Sales Analysis"
-msgstr ""
+msgstr "Analýza online prodeje"
 
 #. module: website_sale
 #: model:ir.model.fields,field_description:website_sale.field_sale_order__only_services
@@ -1592,6 +1606,8 @@ msgid ""
 "Order Lines to be displayed on the website. They should not be used for "
 "computation purpose."
 msgstr ""
+"Řádky, které se mají zobrazit na webu. Neměly by být použity pro účely "
+"výpočtu."
 
 #. module: website_sale
 #: model_terms:ir.ui.view,arch_db:website_sale.short_cart_summary
@@ -1704,7 +1720,7 @@ msgstr "Platební transakce"
 #: code:addons/website_sale/static/src/xml/website_sale_dashboard.xml:15
 #, python-format
 msgid "Payments to Capture"
-msgstr ""
+msgstr "Platby k zachycení"
 
 #. module: website_sale
 #: model:ir.model.fields,field_description:website_sale.field_website_sale_payment_acquirer_onboarding_wizard__paypal_seller_account
@@ -1787,7 +1803,7 @@ msgstr "Tisk"
 #: code:addons/website_sale/static/src/js/website_sale_options.js:86
 #, python-format
 msgid "Proceed to Checkout"
-msgstr ""
+msgstr "Pokračujte k pokladně"
 
 #. module: website_sale
 #: model_terms:ir.actions.act_window,help:website_sale.action_unpaid_orders_ecommerce
@@ -2076,6 +2092,8 @@ msgid ""
 "Select <b>New Product</b> to create it and manage its properties to boost "
 "your sales."
 msgstr ""
+"Vyberte <b>Nový produkt</b> a vytvořte jej a spravujte jeho vlastnosti, "
+"abyste zvýšili svůj prodej."
 
 #. module: website_sale
 #: model_terms:ir.ui.view,arch_db:website_sale.address_kanban
@@ -2143,6 +2161,8 @@ msgid ""
 "Ship to the same address\n"
 "                                                    <span class=\"ship_to_other text-muted\" style=\"display: none\">&amp;nbsp;(<i>Your shipping address will be requested later) </i></span>"
 msgstr ""
+"Doručte na stejnou adresu\n"
+"<span class=\"ship_to_other text-muted\" style=\"display: none\">&amp;nbsp; (<i>Vaše dodací adresa bude požadována později)</i></span>"
 
 #. module: website_sale
 #: model_terms:ir.ui.view,arch_db:website_sale.res_config_settings_view_form
@@ -2287,12 +2307,12 @@ msgstr "Ulice <span class=\"d-none d-md-inline\"> a číslo </span>"
 #. module: website_sale
 #: model:ir.model.fields,field_description:website_sale.field_website_sale_payment_acquirer_onboarding_wizard__stripe_publishable_key
 msgid "Stripe Publishable Key"
-msgstr ""
+msgstr "Publikovatelný klíč Stripe"
 
 #. module: website_sale
 #: model:ir.model.fields,field_description:website_sale.field_website_sale_payment_acquirer_onboarding_wizard__stripe_secret_key
 msgid "Stripe Secret Key"
-msgstr ""
+msgstr "Stripe Secret Key"
 
 #. module: website_sale
 #: model:ir.model.fields,field_description:website_sale.field_product_style__name
@@ -2545,6 +2565,13 @@ msgstr ""
 "nahradit, je-li to nutné, ve stanovené lhůtě."
 
 #. module: website_sale
+#. openerp-web
+#: code:addons/website_sale/static/src/js/website_sale_validate.js:49
+#, python-format
+msgid "We are waiting the confirmation of the bank or payment provider"
+msgstr ""
+
+#. module: website_sale
 #: model:ir.model,name:website_sale.model_website
 #: model:ir.model.fields,field_description:website_sale.field_account_invoice__website_id
 #: model:ir.model.fields,field_description:website_sale.field_product_pricelist__website_id
@@ -2566,13 +2593,13 @@ msgstr "Produktová kategorie webu"
 #. module: website_sale
 #: model_terms:ir.ui.view,arch_db:website_sale.product_public_category_form_view
 msgid "Website Public Categories"
-msgstr ""
+msgstr "Veřejné kategorie webu"
 
 #. module: website_sale
 #: model:ir.model.fields,field_description:website_sale.field_product_product__website_sequence
 #: model:ir.model.fields,field_description:website_sale.field_product_template__website_sequence
 msgid "Website Sequence"
-msgstr ""
+msgstr "Pořadí webových stránek"
 
 #. module: website_sale
 #: model:ir.actions.act_url,name:website_sale.action_open_website
@@ -2659,6 +2686,8 @@ msgid ""
 "You are editing your <b>billing and shipping</b> addresses at the same time!<br/>\n"
 "                                            If you want to modify your shipping address, create a"
 msgstr ""
+"Upravujete současně svou <b>fakturační a dodací</b> adresu!<br/>\n"
+"Chcete-li upravit dodací adresu, vytvořte"
 
 #. module: website_sale
 #: model_terms:ir.actions.act_window,help:website_sale.sale_report_action_carts
@@ -2813,9 +2842,27 @@ msgstr "zásady a podmínky"
 #. module: website_sale
 #: model_terms:ir.ui.view,arch_db:website_sale.confirmation
 msgid "to follow your order."
-msgstr ""
+msgstr "sledovat vaši objednávku."
 
 #. module: website_sale
 #: model:ir.model,name:website_sale.model_website_sale_payment_acquirer_onboarding_wizard
 msgid "website.sale.payment.acquirer.onboarding.wizard"
 msgstr "website.sale.payment.acquirer.onboarding.wizard"
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.address_b2b
+msgid ""
+"Changing company name is not allowed once document(s) have been issued for "
+"your account. Please contact us directly for this operation."
+msgstr ""
+"Po vydání dokumentu(ů) pro váš účet není změna názvu společnosti povolena. "
+"Kontaktujte nás přímo pro tuto operaci."
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.address_b2b
+msgid ""
+"Changing VAT number is not allowed once document(s) have been issued for "
+"your account. Please contact us directly for this operation."
+msgstr ""
+"Změna DIČ není povolena, pokud byly pro váš účet vydány dokument(y). Prosím "
+"kontaktujte nás přímo pro tuto operaci."

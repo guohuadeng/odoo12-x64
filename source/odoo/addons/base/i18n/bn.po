@@ -4,15 +4,16 @@
 # 
 # Translators:
 # Martin Trigaux, 2019
-# Abu Zafar <azmikbal@gmail.com>, 2019
+# Abu Zafar <azmikbal@gmail.com>, 2021
+# Khanstore <dmashraf@gmail.com>, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-14 08:02+0000\n"
+"POT-Creation-Date: 2019-12-10 14:44+0000\n"
 "PO-Revision-Date: 2018-08-24 09:14+0000\n"
-"Last-Translator: Abu Zafar <azmikbal@gmail.com>, 2019\n"
+"Last-Translator: Khanstore <dmashraf@gmail.com>, 2021\n"
 "Language-Team: Bengali (https://www.transifex.com/odoo/teams/41243/bn/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -114,6 +115,93 @@ msgstr ""
 " - অ্যাকাউন্টগুলির জেনেরিক হাঙ্গেরীয় চার্ট\n"
 " - হাঙ্গেরিয়ান কর\n"
 " - হাঙ্গেরিয়ান ব্যাংকের তথ্য"
+
+#. module: base
+#: model:ir.module.module,description:base.module_l10n_dk
+msgid ""
+"\n"
+"\n"
+"Localization Module for Denmark\n"
+"===============================\n"
+"\n"
+"This is the module to manage the **accounting chart for Denmark**. Cover both one-man business as well as I/S, IVS, ApS and A/S\n"
+"\n"
+"**Modulet opsætter:**\n"
+"\n"
+"- **Dansk kontoplan**\n"
+"\n"
+"- Dansk moms\n"
+"        - 25% moms\n"
+"        - Resturationsmoms 6,25%\n"
+"        - Omvendt betalingspligt\n"
+"        \n"
+"- Konteringsgrupper\n"
+"        - EU (Virksomhed)\n"
+"        - EU (Privat)\n"
+"        - 3.lande\n"
+"\n"
+"- Finans raporter\n"
+"        - Resulttopgørelse\n"
+"        - Balance\n"
+"        - Momsafregning\n"
+"            - Afregning\n"
+"            - Rubrik A, B og C\n"
+"\n"
+"- **Anglo-Saxon regnskabsmetode**\n"
+"\n"
+".\n"
+"\n"
+"Produkt setup:\n"
+"==============\n"
+"\n"
+"**Vare**\n"
+"\n"
+"**Salgsmoms:**      Salgmoms 25%\n"
+"\n"
+"**Salgskonto:**     1010 Salg af vare, m/moms\n"
+"\n"
+"**Købsmoms:**       Købsmoms 25%\n"
+"\n"
+"**Købskonto:**      2010 Direkte omkostninger vare, m/moms\n"
+"\n"
+".\n"
+"\n"
+"**Ydelse**\n"
+"\n"
+"**Salgsmoms:**      Salgmoms 25%, ydelser\n"
+"\n"
+"**Salgskonto:**     1011 Salg af ydelser, m/moms\n"
+"\n"
+"**Købsmoms:**       Købsmoms 25%, ydelser\n"
+"\n"
+"**Købskonto:**      2011 Direkte omkostninger ydelser, m/moms\n"
+"\n"
+".\n"
+"\n"
+"**Vare med omvendt betalingspligt**\n"
+"\n"
+"**Salgsmoms:**      Salg omvendt betalingspligt\n"
+"\n"
+"**Salgskonto:**     1012 Salg af vare, u/moms\n"
+"\n"
+"**Købsmoms:**       Køb omvendt betalingspligt\n"
+"\n"
+"**Købskonto:**      2012 Direkte omkostninger vare, u/moms\n"
+"\n"
+"\n"
+".\n"
+"\n"
+"**Restauration**\n"
+"\n"
+"**Købsmoms:**       Restaurationsmoms 6,25%, købsmoms\n"
+"\n"
+"**Købskonto:**      4010 Restaurationsbesøg\n"
+"\n"
+".\n"
+"\n"
+"Copyright 2018 Odoo House ApS\n"
+"    "
+msgstr ""
 
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_do
@@ -589,6 +677,16 @@ msgid ""
 "        * Account Tags.\n"
 "    "
 msgstr ""
+"\n"
+"লিথুয়ানিয়ার অ্যাকাউন্টিংয়ের জন্য চার্ট অফ অ্যাকাউন্টস (সিওএ) টেমপ্লেট।\n"
+"\n"
+"এই মডিউল এছাড়াও অন্তর্ভুক্ত:\n"
+"\n"
+"* লিথুয়ানিয়ায় উপলব্ধ ব্যাংকগুলির তালিকা \n"
+"* ট্যাক্স গ্রুপ\n"
+"* সর্বাধিক সাধারণ লিথুয়ানিয়ান ট্যাক্স।\n"
+"* আর্থিক পদসমূহ।\n"
+"* অ্যাকাউন্ট ট্যাগ"
 
 #. module: base
 #: model:ir.module.module,description:base.module_account_taxcloud
@@ -608,6 +706,15 @@ msgid ""
 msgstr ""
 "\n"
 "উভয় মডিউল ইনস্টল করা হলে ঠিকানার বিন্যাস সঠিক করুন"
+
+#. module: base
+#: model:ir.module.module,description:base.module_product_unspsc
+msgid ""
+"\n"
+"        Countries like Colombia, Peru and Mexico need to be able to use the \n"
+"        UNSPSC code for their products and uoms.  \n"
+"    "
+msgstr ""
 
 #. module: base
 #: model:ir.module.module,summary:base.module_l10n_mx_reports
@@ -781,6 +888,12 @@ msgid ""
 "        but aims to connect with all European banks later on\n"
 "    "
 msgstr ""
+"\n"
+"ব্যাঙ্কের বিবৃতি পুনরুদ্ধার করতে এই মডিউলটি আমার myponto.com এর সাথে সংযুক্ত।\n"
+"\n"
+"বর্তমানে, এই পরিষেবাটি কেবল বেলজিয়ামের ব্যাঙ্কগুলিতে সংযোগ করার অনুমতি দেয়\n"
+"(বিএনপি পরিবহনের ফোর্টিস, কেবিসি, সিবিসি, কেবিসি ব্রাসেলস, ফিন্ট্রো, হ্যালো ব্যাংক, আইএনজি বেলজিয়াম, এক্সএ বেলজিয়াম)\n"
+"তবে পরবর্তীতে সমস্ত ইউরোপীয় ব্যাংকের সাথে সংযোগ স্থাপনের লক্ষ্য"
 
 #. module: base
 #: model:ir.module.module,description:base.module_account_sepa_direct_debit
@@ -817,6 +930,36 @@ msgid ""
 "        try to use this method on an invoice for whose payment no mandate can be used.\n"
 "    "
 msgstr ""
+"\n"
+"এই মডিউলটি এসইপিএ ডাইরেক্ট ডেবিট (এসডিডি) - অনুবর্তী এক্সএমএল ফাইল (ধারাবাহিকভাবে) সক্ষম করে\n"
+"আপনার ব্যাঙ্কে প্রেরণ করতে ব্যথা সহ.008.001.02 স্পেসিফিকেশন)\n"
+"পেমেন্টের একটি সেট সংগ্রহ করুন।\n"
+"\n"
+"এই অর্থ প্রদানের পদ্ধতির জন্য যোগ্য হতে, একজন গ্রাহকের অবশ্যই প্রথমে থাকা উচিত\n"
+"সরাসরি ডেবিট ব্যবহারের জন্য তাঁর সম্মতি দিয়ে কোম্পানিকে একটি আদেশ জারি করে।\n"
+"এই সম্মতিটি অবশ্যই ওডুতে একটি 'গ্রাহক আদেশ' হিসাবে এনকোড করা উচিত।\n"
+"\n"
+"সঠিকভাবে করার জন্য আপনাকেও নিম্নলিখিত প্রয়োজনীয়তাগুলি পূরণ করতে হবে\n"
+"একটি এসডিডি ফাইল তৈরি করুন:\n"
+"- আপনার কোম্পানির অ্যাকাউন্টটি অবশ্যই একটি বৈধ IBAN নম্বর সেট করা উচিত\n"
+"- আপনার কোম্পানির অ্যাকাউন্টটি অবশ্যই একটি বৈধ বিআইসিসহ ব্যাঙ্কের সাথে সম্পর্কিত হতে হবে\n"
+"- আপনার কোম্পানিকে অবশ্যই কোনও পাওনাদার শনাক্তকারী দেওয়া হয়েছে (এটি অ্যাকাউন্টিং মডিউলের 'সেটিংস' মেনুতে করা যেতে পারে)\n"
+"- আপনার সংস্থা অবশ্যই এসডিডি অর্থ প্রদানের জন্য একটি জার্নাল সংজ্ঞায়িত করেছে (আবার, অ্যাকাউন্টিং মডিউলের 'সেটিংসে')\n"
+"- প্রতিটি গ্রাহক যার জন্য আপনি অর্থ প্রদান করেন তার অবশ্যই একটি সঠিক বিআইসির সাথে যুক্ত ব্যাঙ্কে একটি বৈধ আইবিএন অ্যাকাউন্ট নম্বর থাকতে হবে।\n"
+"\n"
+"ওডু আপনাকে এই প্রয়োজনীয়তাগুলির কোনওটি সন্তুষ্ট না হলে আপনাকে জানাতে দেবে।\n"
+"\n"
+"কোনও আদেশের সাথে গ্রাহকের জন্য বৈধ হওয়া যে কোনও চালানই হবে\n"
+"স্বয়ংক্রিয়ভাবে 'প্রদত্ত' স্থিতিতে সেট হয়ে যাবে এবং একটি অর্থ প্রদানের ব্যবস্থা করা হবে। একটি\n"
+"ড্যাশবোর্ডে বিকল্পটি আপনাকে উত্পন্ন সমস্ত অর্থ প্রদানের অনুমতি দেবে\n"
+"এসডিডি এর মাধ্যমে এবং তাদের জন্য একটি গ্রুপ তৈরি করে একটি এক্সএমএল সংগ্রহ ফাইল তৈরি করতে\n"
+"আপনি দেখতে ফিট.\n"
+"\n"
+"একটি উত্সর্গীকৃত 'এসইপিএ ডাইরেক্ট ডেবিট' প্রদানের পদ্ধতিটিও উপলভ্য\n"
+"চালানগুলি খুলুন, যখন 'নিবন্ধকের অর্থ প্রদান' উইজার্ডে কোনও ব্যাংক অ্যাকাউন্ট নির্বাচন করুন।\n"
+"চালানের জন্য এসডিডি অর্থ প্রদানের জন্য এটি ব্যবহার করুন যদি আপনি কোনও ম্যান্ডেট যোগ করেন\n"
+"এটির বৈধতার পরে তার মালিকের জন্য। আপনি যদি একটি ত্রুটি বার্তা দেখতে পাবেন\n"
+"এই চালানটিতে এই পদ্ধতিটি ব্যবহার করার চেষ্টা করুন যার অর্থ প্রদানের কোনও আদেশের ব্যবহার করা যাবে না।"
 
 #. module: base
 #: model:ir.module.module,summary:base.module_account_online_sync
@@ -1240,6 +1383,15 @@ msgid ""
 msgstr ""
 
 #. module: base
+#: model:ir.module.module,description:base.module_l10n_dk_reports
+msgid ""
+"\n"
+"Accounting reports for Denmark\n"
+"=================================\n"
+"    "
+msgstr ""
+
+#. module: base
 #: model:ir.module.module,description:base.module_l10n_et_reports
 msgid ""
 "\n"
@@ -1648,6 +1800,11 @@ msgid ""
 "* Show attachment on the top of the forms\n"
 "* Document Indexation: odt\n"
 msgstr ""
+"\n"
+"সংযুক্তি তালিকা এবং নথি সূচীকরণ\n"
+"========================================\n"
+"* ফর্মগুলির শীর্ষে সংযুক্তি প্রদর্শন করুন\n"
+"ডকুমেন্ট ইনডেক্সেশন: বিজোড়\n"
 
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_au
@@ -1663,6 +1820,15 @@ msgid ""
 "    - sets up Australian taxes.\n"
 "    "
 msgstr ""
+"\n"
+"অস্ট্রেলিয়ান অ্যাকাউন্টিং মডিউল\n"
+"============================\n"
+"\n"
+"অস্ট্রেলিয়ান অ্যাকাউন্টিং বেসিক চার্ট এবং স্থানীয়করণ।\n"
+"\n"
+"এছাড়াও:\n"
+"- বেশ কয়েকটি আঞ্চলিক মুদ্রা সক্রিয় করে।\n"
+"- অস্ট্রেলিয়ান কর নির্ধারণ করুন।"
 
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_au_reports
@@ -1690,6 +1856,16 @@ msgid ""
 "This wizard will activate the CRON job and the Scheduler and will start the automatic translation via Gengo Services for all the terms where you requested it.\n"
 "    "
 msgstr ""
+"\n"
+"জেনগো এপিআইয়ের মাধ্যমে স্বয়ংক্রিয় অনুবাদসমূহ\n"
+"========================================\n"
+"\n"
+"এই মডিউলটি স্বয়ংক্রিয় অনুবাদগুলির জন্য প্যাসিভ শিডিয়ুলার কাজ ইনস্টল করবে\n"
+"জেনগো এপিআই ব্যবহার করে। এটি সক্রিয় করতে, আপনার অবশ্যই আবশ্যক\n"
+"1) Gen সেটিংস> সংস্থাগুলি> জেনগো প্যারামিটারের অধীনে আপনার জেনগো প্রমাণীকরণের পরামিতিগুলি কনফিগার করুন `\n"
+"2) `সেটিংস> অ্যাপ্লিকেশন শর্তাদি> জেনগো: অনুবাদের ম্যানুয়াল অনুরোধ under এর অধীনে উইজার্ডটি চালু করুন এবং উইজার্ডটি অনুসরণ করুন।\n"
+"\n"
+"এই উইজার্ডটি CRON কাজ এবং সময়সূচী সক্রিয় করবে এবং আপনি যেখানে অনুরোধ করেছেন সেই সমস্ত শর্তের জন্য জেনগো পরিষেবাদির মাধ্যমে স্বয়ংক্রিয় অনুবাদ শুরু করবে।"
 
 #. module: base
 #: model:ir.module.module,description:base.module_hw_scanner
@@ -2156,6 +2332,8 @@ msgid ""
 "Design gorgeous mails\n"
 "    "
 msgstr ""
+"\n"
+"চমত্কার মেল ডিজাইন করুন"
 
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_de
@@ -2168,6 +2346,12 @@ msgid ""
 "German accounting chart and localization.\n"
 "    "
 msgstr ""
+"\n"
+"ডায়েস মডুল বেনহালতেট আইনেন ডয়েসচেন কনটেনহেন বেসিনেড আউফ ডেম এসকেআর03।\n"
+"==============================================================================\n"
+"\n"
+"\n"
+"জার্মান অ্যাকাউন্টিং চার্ট এবং স্থানীয়করণ।"
 
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_de_skr04
@@ -2179,6 +2363,12 @@ msgid ""
 "German accounting chart and localization.\n"
 "    "
 msgstr ""
+"\n"
+"ডায়েস মডুল বেনহালটেট আইনেন ডয়েসচেন কনটেনহেন বেসিনেড আউফ ডেম এসকেআর04।\n"
+"==============================================================================\n"
+"\n"
+"\n"
+"জার্মান অ্যাকাউন্টিং চার্ট এবং স্থানীয়করণ।"
 
 #. module: base
 #: model:ir.module.module,description:base.module_website_sale_management
@@ -4134,6 +4324,16 @@ msgid ""
 msgstr ""
 
 #. module: base
+#: model:ir.module.module,description:base.module_l10n_id
+msgid ""
+"\n"
+"This is the latest Indonesian Odoo localisation necessary to run Odoo accounting for SMEs with:\n"
+"=================================================================================================\n"
+"    - generic Indonesian chart of accounts\n"
+"    - tax structure"
+msgstr ""
+
+#. module: base
 #: model:ir.module.module,description:base.module_l10n_uk
 msgid ""
 "\n"
@@ -5173,7 +5373,7 @@ msgstr ""
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.module_view_kanban
 msgid "&amp;nbsp;"
-msgstr ""
+msgstr "&amp;nbsp;"
 
 #. module: base
 #: code:addons/base/models/ir_fields.py:188
@@ -6165,7 +6365,7 @@ msgstr ""
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_attachment__access_token
 msgid "Access Token"
-msgstr ""
+msgstr "অ্যাক্সেস টোকন"
 
 #. module: base
 #: model:res.groups,name:base.group_private_addresses
@@ -6190,7 +6390,7 @@ msgstr ""
 #. module: base
 #: model:ir.model.fields,field_description:base.field_res_partner_bank__partner_id
 msgid "Account Holder"
-msgstr ""
+msgstr "হিসাব ধারী"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_res_partner_bank__acc_holder_name
@@ -6248,7 +6448,7 @@ msgstr ""
 #: model:ir.module.category,name:base.module_category_accounting
 #: model:ir.module.module,shortdesc:base.module_account_accountant
 msgid "Accounting"
-msgstr ""
+msgstr "অ্যাকাউন্টিং"
 
 #. module: base
 #: model:ir.module.category,name:base.module_category_accounting_and_finance
@@ -6472,22 +6672,22 @@ msgstr ""
 #. module: base
 #: model:ir.module.module,summary:base.module_website_sale_delivery
 msgid "Add delivery costs to online sales"
-msgstr ""
+msgstr "অনলাইন বিক্রয় ডেলিভারি ব্যয় যোগ করুন"
 
 #. module: base
 #: model:ir.module.module,summary:base.module_base_address_extended
 msgid "Add extra fields on addresses"
-msgstr ""
+msgstr "ঠিকানাগুলিতে অতিরিক্ত ক্ষেত্র যুক্ত করুন"
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.act_report_xml_view
 msgid "Add in the 'Print' menu"
-msgstr ""
+msgstr "'মুদ্রণ' মেনুতে যুক্ত করুন"
 
 #. module: base
 #: model:ir.module.module,summary:base.module_mass_mailing_crm
 msgid "Add lead / opportunities UTM info on mass mailing"
-msgstr ""
+msgstr "ভর মেলিংয়ে নেতৃত্ব / সুযোগগুলি ইউটিএম তথ্য যুক্ত করুন"
 
 #. module: base
 #: model:ir.module.module,summary:base.module_im_livechat_mail_bot
@@ -6774,17 +6974,17 @@ msgstr ""
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.view_users_form
 msgid "Allowed Companies"
-msgstr ""
+msgstr "অনুমোদিত সংস্থা"
 
 #. module: base
 #: model:ir.module.module,summary:base.module_stock_barcode_quality_control
 msgid "Allows the usage of quality checks within the barcode views"
-msgstr ""
+msgstr "বারকোড দর্শনগুলির মধ্যে মানের চেকগুলির ব্যবহারের অনুমতি দেয়"
 
 #. module: base
 #: model:ir.module.module,summary:base.module_sale_coupon_delivery
 msgid "Allows to offer free shippings in coupon reward"
-msgstr ""
+msgstr "কুপন পুরষ্কারে বিনামূল্যে শিপিং অফার করার অনুমতি দেয়"
 
 #. module: base
 #: model:ir.module.module,summary:base.module_hw_posbox_upgrade
@@ -6810,11 +7010,13 @@ msgid ""
 "Ambiguous specification for field '%(field)s', only provide one of name, "
 "external id or database id"
 msgstr ""
+"ক্ষেত্রের জন্য অস্পষ্ট স্পেসিফিকেশন '%(field)s'কেবলমাত্র নামের একটি, বাহ্যিক"
+" আইডি বা ডাটাবেস আইডি সরবরাহ করুন"
 
 #. module: base
 #: model:res.country,name:base.as
 msgid "American Samoa"
-msgstr ""
+msgstr "আমেরিকান সামোয়া"
 
 #. module: base
 #: model:ir.model.fields,help:base.field_ir_actions_client__tag
@@ -6822,6 +7024,8 @@ msgid ""
 "An arbitrary string, interpreted by the client according to its own needs "
 "and wishes. There is no central tag repository across clients."
 msgstr ""
+"একটি নির্বিচারে স্ট্রিং, ক্লায়েন্ট তার নিজস্ব চাহিদা এবং ইচ্ছা অনুযায়ী "
+"ব্যাখ্যা করা হয়। ক্লায়েন্ট জুড়ে কোনও কেন্দ্রীয় ট্যাগ সংগ্রহস্থল নেই।"
 
 #. module: base
 #: model:ir.model.fields,help:base.field_ir_module_module__auto_install
@@ -6830,36 +7034,39 @@ msgid ""
 " its dependencies are satisfied. If the module has no dependency, it is "
 "always installed."
 msgstr ""
+"একটি স্বয়ংক্রিয়-ইনস্টলযোগ্য মডিউল স্বয়ংক্রিয়ভাবে সিস্টেমের দ্বারা ইনস্টল"
+" করা হয় যখন এর সমস্ত নির্ভরতা সন্তুষ্ট হয়। মডিউলটির যদি কোনও নির্ভরতা না "
+"থাকে তবে এটি সর্বদা ইনস্টল করা থাকে।"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_analytic
 msgid "Analytic Accounting"
-msgstr ""
+msgstr "বিশ্লেষণী হিসাবরক্ষণ"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_analytic_enterprise
 msgid "Analytic Accounting Enterprise"
-msgstr ""
+msgstr "অ্যানালিটিক অ্যাকাউন্টিং এন্টারপ্রাইজ"
 
 #. module: base
 #: model:ir.module.module,summary:base.module_mrp_account
 msgid "Analytic accounting in Manufacturing"
-msgstr ""
+msgstr "উত্পাদন বিশ্লেষণী অ্যাকাউন্টিং"
 
 #. module: base
 #: model:res.country,name:base.ad
 msgid "Andorra"
-msgstr ""
+msgstr "এ্যান্ডোরা"
 
 #. module: base
 #: model:res.country,name:base.ao
 msgid "Angola"
-msgstr ""
+msgstr "অ্যাঙ্গোলা"
 
 #. module: base
 #: model:res.country,name:base.ai
 msgid "Anguilla"
-msgstr ""
+msgstr "এ্যাঙ্গুইলা"
 
 #. module: base
 #: model:res.country,name:base.aq
@@ -6987,7 +7194,7 @@ msgstr "আর্চ ব্লব"
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_ui_view__arch_fs
 msgid "Arch Filename"
-msgstr ""
+msgstr "আর্চ ফাইলের নাম"
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.view_view_form
@@ -6997,7 +7204,7 @@ msgstr ""
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.view_res_partner_filter
 msgid "Archived"
-msgstr ""
+msgstr "আর্কাইভ করা"
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.base_partner_merge_automatic_wizard_form
@@ -7317,14 +7524,14 @@ msgstr ""
 #. module: base
 #: model:res.country,name:base.bd
 msgid "Bangladesh"
-msgstr ""
+msgstr "বাংলাদেশ"
 
 #. module: base
 #: model:ir.model,name:base.model_res_bank
 #: model:ir.model.fields,field_description:base.field_res_partner_bank__bank_id
 #: model_terms:ir.ui.view,arch_db:base.view_res_bank_form
 msgid "Bank"
-msgstr ""
+msgstr "ব্যাংক"
 
 #. module: base
 #: model:ir.actions.act_window,name:base.action_res_partner_bank_account_form
@@ -7340,12 +7547,12 @@ msgstr "ব্যাংক হিসাব"
 #: model:ir.model.fields,field_description:base.field_res_bank__bic
 #: model:ir.model.fields,field_description:base.field_res_partner_bank__bank_bic
 msgid "Bank Identifier Code"
-msgstr ""
+msgstr "ব্যাংক শনাক্তকরণ কোড"
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.view_partner_bank_search
 msgid "Bank Name"
-msgstr ""
+msgstr "ব্যাংকের নাম"
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.view_partner_bank_form
@@ -7392,7 +7599,7 @@ msgstr ""
 #: model:ir.module.module,shortdesc:base.module_barcodes
 #: model:ir.module.module,shortdesc:base.module_stock_barcode
 msgid "Barcode"
-msgstr ""
+msgstr "বারকোড"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_stock_barcode_quality_control
@@ -7658,7 +7865,7 @@ msgstr ""
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_website_blog
 msgid "Blogs"
-msgstr ""
+msgstr "ব্লগ"
 
 #. module: base
 #: model:res.country,name:base.bo
@@ -7930,7 +8137,7 @@ msgstr "বাতিল"
 #: model_terms:ir.ui.view,arch_db:base.module_form
 #: model_terms:ir.ui.view,arch_db:base.module_view_kanban
 msgid "Cancel Install"
-msgstr ""
+msgstr "ইনস্টল বাতিল করুন"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_account_cancel
@@ -7941,18 +8148,18 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:base.module_form
 #: model_terms:ir.ui.view,arch_db:base.module_view_kanban
 msgid "Cancel Uninstall"
-msgstr ""
+msgstr "আনইনস্টল বাতিল করুন"
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.module_form
 msgid "Cancel Upgrade"
-msgstr ""
+msgstr "আপগ্রেড বাতিল করুন"
 
 #. module: base
 #: code:addons/models.py:2118
 #, python-format
 msgid "Cannot aggregate field %r."
-msgstr ""
+msgstr "সমষ্টি ক্ষেত্র হতে পারে না%r."
 
 #. module: base
 #: code:addons/base/models/ir_translation.py:256
@@ -8291,7 +8498,7 @@ msgstr ""
 #: selection:ir.translation,type:0
 #: model_terms:ir.ui.view,arch_db:base.view_base_import_language
 msgid "Code"
-msgstr ""
+msgstr "কোড"
 
 #. module: base
 #: model:ir.model.fields,help:base.field_ir_model_fields__compute
@@ -8349,7 +8556,12 @@ msgstr ""
 #. module: base
 #: model:ir.module.module,summary:base.module_l10n_co_edi
 msgid "Colombian Localization for EDI documents"
-msgstr ""
+msgstr "ইডিআই নথির জন্য কলম্বিয়ান স্থানীয়করণ"
+
+#. module: base
+#: model:ir.module.module,summary:base.module_l10n_co_edi_ubl_2_1
+msgid "Colombian Localization for EDI documents UBL 2.1"
+msgstr "ইডিআই নথির জন্য কলম্বিয়ার স্থানীয়করণ ইউবিএল ২.১"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_res_groups__color
@@ -8357,32 +8569,32 @@ msgstr ""
 #: model:ir.model.fields,field_description:base.field_res_partner_category__color
 #: model:ir.model.fields,field_description:base.field_res_users__color
 msgid "Color Index"
-msgstr ""
+msgstr "রঙ সূচক"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_model_fields__column1
 msgid "Column 1"
-msgstr ""
+msgstr "কলাম ঘ"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_model_fields__column2
 msgid "Column 2"
-msgstr ""
+msgstr "কলাম 2"
 
 #. module: base
 #: model:ir.model.fields,help:base.field_ir_model_fields__column2
 msgid "Column referring to the record in the comodel table"
-msgstr ""
+msgstr "কমোডেল সারণীতে রেকর্ডকে উল্লেখ করে কলাম"
 
 #. module: base
 #: model:ir.model.fields,help:base.field_ir_model_fields__column1
 msgid "Column referring to the record in the model table"
-msgstr ""
+msgstr "মডেল সারণীতে রেকর্ডকে উল্লেখ করে কলাম"
 
 #. module: base
 #: selection:report.paperformat,format:0
 msgid "Comm10E 25  105 x 241 mm, U.S. Common 10 Envelope"
-msgstr ""
+msgstr "Comm10E 25 105 x 241 মিমি, মার্কিন যুক্তরাষ্ট্রের সাধারণ 10 খাম"
 
 #. module: base
 #: model:ir.model.fields,help:base.field_ir_actions_act_window__view_mode
@@ -8390,6 +8602,8 @@ msgid ""
 "Comma-separated list of allowed view modes, such as 'form', 'tree', "
 "'calendar', etc. (Default: tree,form)"
 msgstr ""
+"'ফর্ম', 'ট্রি', 'ক্যালেন্ডার' ইত্যাদি ইত্যাদির মতো অনুমোদিত ভিউ মোডের "
+"কমা-বিচ্ছিন্ন তালিকার তালিকা (ডিফল্ট: ট্রি, ফর্ম)"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_res_groups__comment
@@ -8405,7 +8619,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:base.field_res_partner__commercial_partner_id
 #: model:ir.model.fields,field_description:base.field_res_users__commercial_partner_id
 msgid "Commercial Entity"
-msgstr ""
+msgstr "বাণিজ্যিক সত্তা"
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.view_res_bank_form
@@ -8854,7 +9068,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:base.view_res_bank_form
 #: model_terms:ir.ui.view,arch_db:base.view_res_partner_filter
 msgid "Country"
-msgstr ""
+msgstr "দেশ"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_res_country__phone_code
@@ -8872,7 +9086,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:base.view_country_group_form
 #: model_terms:ir.ui.view,arch_db:base.view_country_group_tree
 msgid "Country Group"
-msgstr ""
+msgstr "কান্ট্রি গ্রুপ"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_res_country__country_group_ids
@@ -8953,7 +9167,7 @@ msgstr ""
 #. module: base
 #: model_terms:ir.actions.act_window,help:base.action_res_partner_bank_account_form
 msgid "Create a bank account"
-msgstr ""
+msgstr "একটি ব্যাংক অ্যাকাউন্ট তৈরি করুন"
 
 #. module: base
 #: model_terms:ir.actions.act_window,help:base.action_ui_view_custom
@@ -8984,7 +9198,7 @@ msgstr "একটি নতুন পরিচিতি ট্যাগ তৈ�
 #: model_terms:ir.actions.act_window,help:base.action_partner_customer_form
 #: model_terms:ir.actions.act_window,help:base.action_partner_form
 msgid "Create a new customer in your address book"
-msgstr ""
+msgstr "আপনার ঠিকানা পুস্তকে একটি নতুন গ্রাহক তৈরি করুন"
 
 #. module: base
 #: model_terms:ir.actions.act_window,help:base.res_partner_industry_action
@@ -9354,46 +9568,46 @@ msgstr ""
 #. module: base
 #: model:ir.ui.menu,name:base.menu_administration_shortcut
 msgid "Custom Shortcuts"
-msgstr ""
+msgstr "কাস্টম শর্টকাটগুলি"
 
 #. module: base
 #: model:ir.model,name:base.model_ir_ui_view_custom
 msgid "Custom View"
-msgstr ""
+msgstr "কাস্টম ভিউ"
 
 #. module: base
 #: code:addons/base/models/ir_model.py:406
 #, python-format
 msgid "Custom fields must have a name that starts with 'x_' !"
-msgstr ""
+msgstr "কাস্টম ক্ষেত্রগুলির অবশ্যই একটি নাম থাকতে হবে যা 'x_' দিয়ে শুরু হবে!"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_res_country__name_position
 msgid "Customer Name Position"
-msgstr ""
+msgstr "গ্রাহকের নাম অবস্থান"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_portal
 #: model:ir.module.module,summary:base.module_portal
 msgid "Customer Portal"
-msgstr ""
+msgstr "গ্রাহক পোর্টাল"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_rating
 msgid "Customer Rating"
-msgstr ""
+msgstr "গ্রাহক রেটিং"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_website_customer
 msgid "Customer References"
-msgstr ""
+msgstr "গ্রাহক রেফারেন্স"
 
 #. module: base
 #: model:ir.actions.act_window,name:base.action_partner_customer_form
 #: model:ir.actions.act_window,name:base.action_partner_form
 #: model_terms:ir.ui.view,arch_db:base.view_res_partner_filter
 msgid "Customers"
-msgstr ""
+msgstr "গ্রাহকরা"
 
 #. module: base
 #: model:ir.actions.act_window,name:base.action_ui_view_custom
@@ -9402,7 +9616,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:base.view_view_custom_search
 #: model_terms:ir.ui.view,arch_db:base.view_view_custom_tree
 msgid "Customized Views"
-msgstr ""
+msgstr "কাস্টমাইজড দর্শন"
 
 #. module: base
 #: model_terms:ir.actions.act_window,help:base.action_ui_view_custom
@@ -9410,11 +9624,13 @@ msgid ""
 "Customized views are used when users reorganize the content of their "
 "dashboard views (via web client)"
 msgstr ""
+"ব্যবহারকারীরা যখন তাদের ড্যাশবোর্ড দর্শনের বিষয়বস্তু পুনরায় সংগঠিত করে "
+"(ওয়েব ক্লায়েন্টের মাধ্যমে) তখন কাস্টমাইজড ভিউগুলি ব্যবহৃত হয়"
 
 #. module: base
 #: model:res.country,name:base.cy
 msgid "Cyprus"
-msgstr ""
+msgstr "সাইপ্রাসদ্বিপ"
 
 #. module: base
 #: model:res.country,name:base.cz
@@ -9597,7 +9813,7 @@ msgstr ""
 #. module: base
 #: model:ir.model.fields,field_description:base.field_res_lang__decimal_point
 msgid "Decimal Separator"
-msgstr ""
+msgstr "দশমিক বিভাজক"
 
 #. module: base
 #: model:ir.actions.act_window,name:base.action_partner_deduplicate
@@ -9740,6 +9956,16 @@ msgstr ""
 #. module: base
 #: model:res.country,name:base.dk
 msgid "Denmark"
+msgstr ""
+
+#. module: base
+#: model:ir.module.module,shortdesc:base.module_l10n_dk
+msgid "Denmark - Accounting"
+msgstr ""
+
+#. module: base
+#: model:ir.module.module,shortdesc:base.module_l10n_dk_reports
+msgid "Denmark - Accounting Reports"
 msgstr ""
 
 #. module: base
@@ -10198,7 +10424,7 @@ msgstr ""
 #: selection:ir.actions.todo,state:0
 #: selection:res.company,base_onboarding_company_state:0
 msgid "Done"
-msgstr ""
+msgstr "সম্পন্ন"
 
 #. module: base
 #: model:res.partner.title,shortcut:base.res_partner_title_doctor
@@ -10549,8 +10775,13 @@ msgid "Electronic invoicing for Colombia with Carvajal"
 msgstr ""
 
 #. module: base
-#: code:addons/base/models/ir_ui_view.py:619
-#: code:addons/base/models/ir_ui_view.py:700
+#: model:ir.module.module,shortdesc:base.module_l10n_co_edi_ubl_2_1
+msgid "Electronic invoicing for Colombia with Carvajal UBL 2.1"
+msgstr ""
+
+#. module: base
+#: code:addons/base/models/ir_ui_view.py:629
+#: code:addons/base/models/ir_ui_view.py:720
 #, python-format
 msgid "Element '%s' cannot be located in parent view"
 msgstr ""
@@ -10859,17 +11090,17 @@ msgstr "বহিরায়ন করুন"
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.wizard_lang_export
 msgid "Export Complete"
-msgstr ""
+msgstr "বহিরায়ন সম্পন্ন"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_exports__export_fields
 msgid "Export ID"
-msgstr ""
+msgstr "এক্সপোর্ট আইডি"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_exports__name
 msgid "Export Name"
-msgstr ""
+msgstr "বহিরায়ন নাম"
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.wizard_lang_export
@@ -10880,12 +11111,12 @@ msgstr ""
 #: model:ir.actions.act_window,name:base.action_wizard_lang_export
 #: model:ir.ui.menu,name:base.menu_wizard_lang_export
 msgid "Export Translation"
-msgstr ""
+msgstr "অনুবাদ এক্সপোর্ট করুন"
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.wizard_lang_export
 msgid "Export Translations"
-msgstr ""
+msgstr "অনুবাদ এক্সপোর্ট করুন"
 
 #. module: base
 #: model:ir.module.module,summary:base.module_l10n_au_aba
@@ -11183,7 +11414,7 @@ msgstr ""
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.contact
 msgid "Fax"
-msgstr ""
+msgstr "ফ্যাক্স"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_res_bank__state
@@ -11401,7 +11632,19 @@ msgid "File Size"
 msgstr ""
 
 #. module: base
-#: code:addons/base/wizard/base_import_language.py:44
+#: code:addons/base/wizard/base_import_language.py:45
+#, python-format
+msgid ""
+"File not imported due to a malformed file.\n"
+"\n"
+"This issue can be caused by duplicates entries who are referring to the same field. Please check the content of the file you are trying to import.\n"
+"\n"
+"Technical Details:\n"
+"%s"
+msgstr ""
+
+#. module: base
+#: code:addons/base/wizard/base_import_language.py:51
 #, python-format
 msgid ""
 "File not imported due to format mismatch or a malformed file. (Valid formats are .csv, .po, .pot)\n"
@@ -11511,7 +11754,7 @@ msgstr ""
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_fleet
 msgid "Fleet"
-msgstr ""
+msgstr "বহর"
 
 #. module: base
 #: selection:ir.property,type:0
@@ -12397,7 +12640,7 @@ msgstr ""
 #. module: base
 #: model:ir.module.category,description:base.module_category_hr_timesheet
 msgid "Helps you manage the timesheets."
-msgstr ""
+msgstr "আপনাকে টাইমশিট পরিচালনা করতে সহায়তা করে।"
 
 #. module: base
 #: model:ir.module.category,description:base.module_category_user_type
@@ -12494,7 +12737,7 @@ msgstr ""
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.wizard_lang_export
 msgid "Here is the exported translation file:"
-msgstr ""
+msgstr "রফতানি করার জন্যে অনুবাদ ফাইলটি এখানে:"
 
 #. module: base
 #: code:addons/base/models/ir_qweb_fields.py:631
@@ -13129,6 +13372,11 @@ msgid "Indonesia"
 msgstr ""
 
 #. module: base
+#: model:ir.module.module,shortdesc:base.module_l10n_id
+msgid "Indonesian - Accounting"
+msgstr ""
+
+#. module: base
 #: model:ir.actions.act_window,name:base.res_partner_industry_action
 #: model:ir.model,name:base.model_res_partner_industry
 #: model:ir.model.fields,field_description:base.field_res_partner__industry_id
@@ -13299,7 +13547,7 @@ msgstr ""
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.view_partner_form
 msgid "Internal Notes"
-msgstr ""
+msgstr "অভ্যন্তরীণ মন্তব্য"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_res_partner__ref
@@ -18115,7 +18363,7 @@ msgstr ""
 #: model:ir.module.category,name:base.module_category_project_management
 #: model:ir.module.module,shortdesc:base.module_project
 msgid "Project"
-msgstr ""
+msgstr "প্রকল্প"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_project_enterprise
@@ -20078,6 +20326,11 @@ msgid "Sticky memos, Collaborative"
 msgstr ""
 
 #. module: base
+#: model:ir.module.category,name:base.module_category_stock
+msgid "Stock"
+msgstr ""
+
+#. module: base
 #: model:ir.module.module,shortdesc:base.module_stock_barcode_mobile
 msgid "Stock Barcode in Mobile"
 msgstr ""
@@ -20169,6 +20422,11 @@ msgstr ""
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_web_studio
 msgid "Studio"
+msgstr ""
+
+#. module: base
+#: model:ir.module.module,shortdesc:base.module_studio_customization
+msgid "Studio customizations"
 msgstr ""
 
 #. module: base
@@ -21327,8 +21585,22 @@ msgid "The internal user in charge of this contact."
 msgstr ""
 
 #. module: base
+#: code:addons/base/models/res_country.py:106
+#, python-format
+msgid "The layout contains an invalid format key"
+msgstr ""
+
+#. module: base
 #: model:ir.model.fields,help:base.field_ir_model__inherited_model_ids
 msgid "The list of models that extends the current model."
+msgstr ""
+
+#. module: base
+#: code:addons/base/models/ir_model.py:522
+#, python-format
+msgid ""
+"The m2o field %s is required but declares its ondelete policy as being 'set "
+"null'. Only 'restrict' and 'cascade' make sense."
 msgstr ""
 
 #. module: base
@@ -21337,6 +21609,8 @@ msgid ""
 "The menu action this filter applies to. When left empty the filter applies "
 "to all menus for this model."
 msgstr ""
+"এই ফিল্টারটি প্রয়োগ করে মেনু ক্রিয়া। খালি রেখে গেলে ফিল্টারটি এই মডেলের "
+"জন্য সমস্ত মেনুতে প্রযোজ্য।"
 
 #. module: base
 #: code:addons/base/models/ir_model.py:150
@@ -21707,6 +21981,13 @@ msgstr ""
 msgid ""
 "This module ensures that when delivery price is computed online, and taxes are computed with TaxCloud, the tax computation is done correctly on both the order and delivery.\n"
 "    "
+msgstr ""
+
+#. module: base
+#: model:ir.module.module,description:base.module_studio_customization
+msgid ""
+"This module has been generated by Odoo Studio.\n"
+"It contains the apps created with Studio and the customizations of existing apps."
 msgstr ""
 
 #. module: base
@@ -22190,6 +22471,12 @@ msgid "UK - Accounting Reports to HMRC"
 msgstr ""
 
 #. module: base
+#: model:ir.module.module,shortdesc:base.module_product_unspsc
+#: model:ir.module.module,summary:base.module_product_unspsc
+msgid "UNSPSC product codes"
+msgstr ""
+
+#. module: base
 #: model:ir.module.module,shortdesc:base.module_delivery_ups
 msgid "UPS Shipping"
 msgstr ""
@@ -22346,14 +22633,22 @@ msgid "Units of measure"
 msgstr ""
 
 #. module: base
+#: code:addons/model.py:143 code:addons/model.py:152 code:addons/model.py:153
 #: model:ir.model,name:base.model__unknown
 #: selection:ir.module.module.dependency,state:0
 #: selection:ir.module.module.exclusion,state:0
+#, python-format
 msgid "Unknown"
 msgstr ""
 
 #. module: base
-#: code:addons/models.py:1058
+#: code:addons/models.py:873
+#, python-format
+msgid "Unknown database error: '%s'"
+msgstr ""
+
+#. module: base
+#: code:addons/models.py:1067
 #, python-format
 msgid "Unknown database identifier '%s'"
 msgstr ""
@@ -22783,7 +23078,7 @@ msgstr ""
 #: selection:ir.server.object.lines,type:0
 #: model_terms:ir.ui.view,arch_db:base.ir_property_view
 msgid "Value"
-msgstr ""
+msgstr "মান"
 
 #. module: base
 #: code:addons/base/models/ir_fields.py:278
@@ -22899,7 +23194,7 @@ msgstr "দৃশ্য"
 #: model_terms:ir.ui.view,arch_db:base.view_view_form
 #: model_terms:ir.ui.view,arch_db:base.view_view_search
 msgid "View Architecture"
-msgstr ""
+msgstr "আর্কিটেকচার দেখুন"
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.view_translation_search
@@ -22914,7 +23209,7 @@ msgstr ""
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_ui_view__name
 msgid "View Name"
-msgstr ""
+msgstr "নাম দেখুন"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_actions_act_window__view_id
@@ -22927,7 +23222,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:base.field_ir_ui_view__type
 #: model_terms:ir.ui.view,arch_db:base.view_window_action_search
 msgid "View Type"
-msgstr ""
+msgstr "প্রকার দেখুন"
 
 #. module: base
 #: model:ir.module.module,summary:base.module_account_reports
@@ -22937,7 +23232,7 @@ msgstr ""
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_ui_view__mode
 msgid "View inheritance mode"
-msgstr ""
+msgstr "উত্তরাধিকারের মোড দেখুন"
 
 #. module: base
 #: model:ir.model.fields,help:base.field_ir_actions_act_window__view_type
@@ -22995,7 +23290,7 @@ msgstr ""
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_module_category__visible
 msgid "Visible"
-msgstr ""
+msgstr "দৃশ্যমান"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_stock_account
@@ -23408,7 +23703,7 @@ msgstr ""
 #. module: base
 #: code:addons/base/models/res_partner.py:509
 #, python-format
-msgid "You cannot archive a contact linked to an internal user."
+msgid "You cannot archive a contact linked to a portal or internal user."
 msgstr ""
 
 #. module: base
@@ -23879,18 +24174,18 @@ msgid "selection"
 msgstr ""
 
 #. module: base
+#: selection:ir.model.fields,ttype:0
+msgid "serialized"
+msgstr ""
+
+#. module: base
 #: model:ir.module.module,shortdesc:base.module_snailmail_account
 msgid "snailmail_account"
-msgstr ""
+msgstr "স্নাইলমাইল_একাউন্ট"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_social_media
 msgid "social_media"
-msgstr ""
-
-#. module: base
-#: model:ir.module.category,name:base.module_category_stock
-msgid "stock"
 msgstr ""
 
 #. module: base
@@ -23949,8 +24244,18 @@ msgid "test-inherits"
 msgstr ""
 
 #. module: base
+#: model:ir.module.module,shortdesc:base.module_test_inherits_depends
+msgid "test-inherits-depends"
+msgstr ""
+
+#. module: base
 #: model:ir.module.module,shortdesc:base.module_test_limits
 msgid "test-limits"
+msgstr ""
+
+#. module: base
+#: model:ir.module.module,shortdesc:base.module_test_lint
+msgid "test-lint"
 msgstr ""
 
 #. module: base

@@ -11,6 +11,8 @@
 # Eneli Õigus <enelioigus@gmail.com>, 2018
 # Martin Aavastik <martin@avalah.ee>, 2018
 # Helen Sulaoja <helen@avalah.ee>, 2018
+# Algo Kärp <algokarp@gmail.com>, 2020
+# Triine Aavik <triine@avalah.ee>, 2021
 # 
 msgid ""
 msgstr ""
@@ -18,7 +20,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-09-21 13:17+0000\n"
 "PO-Revision-Date: 2018-08-24 09:24+0000\n"
-"Last-Translator: Helen Sulaoja <helen@avalah.ee>, 2018\n"
+"Last-Translator: Triine Aavik <triine@avalah.ee>, 2021\n"
 "Language-Team: Estonian (https://www.transifex.com/odoo/teams/41243/et/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -40,7 +42,7 @@ msgstr "Aktiivne"
 #. module: resource
 #: selection:resource.calendar.attendance,day_period:0
 msgid "Afternoon"
-msgstr ""
+msgstr "Pärastlõuna"
 
 #. module: resource
 #: model:ir.model.fields,field_description:resource.field_resource_calendar__hours_per_day
@@ -291,7 +293,7 @@ msgstr "Monday Morning"
 #. module: resource
 #: selection:resource.calendar.attendance,day_period:0
 msgid "Morning"
-msgstr ""
+msgstr "Hommik"
 
 #. module: resource
 #: model:ir.model.fields,field_description:resource.field_resource_calendar__name
@@ -468,6 +470,7 @@ msgid ""
 "This field is used in order to define in which timezone the resources will "
 "work."
 msgstr ""
+"Seda välja kasutatakse määramaks ajavööndit, millal ressursid teevad tööd."
 
 #. module: resource
 #: model:ir.model.fields,help:resource.field_resource_resource__time_efficiency
@@ -630,4 +633,4 @@ msgstr "Tööaeg"
 #: model:ir.actions.act_window,name:resource.action_resource_calendar_form
 #: model:ir.ui.menu,name:resource.menu_resource_calendar
 msgid "Working Times"
-msgstr ""
+msgstr "Tööajad"

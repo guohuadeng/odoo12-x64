@@ -296,7 +296,7 @@ class Picking(models.Model):
                                'initial demand. When the picking is done this allows '
                                'changing the done quantities.')
     # Used to search on pickings
-    product_id = fields.Many2one('product.product', 'Product', related='move_lines.product_id', readonly=False)
+    product_id = fields.Many2one('product.product', 'Product', related='move_lines.product_id', readonly=True)
     show_operations = fields.Boolean(compute='_compute_show_operations')
     show_lots_text = fields.Boolean(compute='_compute_show_lots_text')
     has_tracking = fields.Boolean(compute='_compute_has_tracking')
@@ -440,6 +440,15 @@ class Picking(models.Model):
             else:
                 picking.show_validate = True
 
+    @api.onchange('partner_id')
+    def onchange_partner_id(self):
+        if self.partner_id:
+            picking_id = isinstance(self.id, int) and self.id or getattr(self, '_origin', False) and self._origin.id
+            if picking_id:
+                moves = self.env['stock.move'].search([('picking_id', '=', picking_id)])
+                for move in moves:
+                    move.write({'partner_id': self.partner_id.id})
+
     @api.onchange('picking_type_id', 'partner_id')
     def onchange_picking_type(self):
         if self.picking_type_id:
@@ -524,7 +533,7 @@ class Picking(models.Model):
     @api.multi
     def unlink(self):
         self.mapped('move_lines')._action_cancel()
-        self.mapped('move_lines').unlink() # Checks if moves are not done
+        self.with_context(prefetch_fields=False).mapped('move_lines').unlink()  # Checks if moves are not done
         return super(Picking, self).unlink()
 
     # Actions
@@ -625,7 +634,7 @@ class Picking(models.Model):
                                                     'picking_type_id': pick.picking_type_id.id,
                                                    })
                     ops.move_id = new_move.id
-                    new_move._action_confirm()
+                    new_move = new_move._action_confirm()
                     todo_moves |= new_move
                     #'qty_done': ops.qty_done})
         todo_moves._action_done()
@@ -651,6 +660,12 @@ class Picking(models.Model):
             all_in = False
         return all_in
 
+    def _get_entire_pack_location_dest(self, move_line_ids):
+        location_dest_ids = move_line_ids.mapped('location_dest_id')
+        if len(location_dest_ids) > 1:
+            return False
+        return location_dest_ids.id
+
     @api.multi
     def _check_entire_pack(self):
         """ This function check if entire packs are moved in the picking"""
@@ -659,13 +674,13 @@ class Picking(models.Model):
             for pack in origin_packages:
                 if picking._check_move_lines_map_quant_package(pack):
                     package_level_ids = picking.package_level_ids.filtered(lambda pl: pl.package_id == pack)
-                    move_lines_to_pack = picking.move_line_ids.filtered(lambda ml: ml.package_id == pack)
+                    move_lines_to_pack = picking.move_line_ids.filtered(lambda ml: ml.package_id == pack and not ml.result_package_id)
                     if not package_level_ids:
                         self.env['stock.package_level'].create({
                             'picking_id': picking.id,
                             'package_id': pack.id,
                             'location_id': pack.location_id.id,
-                            'location_dest_id': picking.move_line_ids.filtered(lambda ml: ml.package_id == pack).mapped('location_dest_id')[:1].id,
+                            'location_dest_id': self._get_entire_pack_location_dest(move_lines_to_pack) or picking.location_dest_id.id,
                             'move_line_ids': [(6, 0, move_lines_to_pack.ids)]
                         })
                         move_lines_to_pack.write({
@@ -683,6 +698,8 @@ class Picking(models.Model):
                             'result_package_id': pack.id,
                             'package_level_id': package_level_ids[0].id,
                         })
+                        for pl in package_level_ids:
+                            pl.location_dest_id = self._get_entire_pack_location_dest(pl.move_line_ids) or picking.location_dest_id.id
 
     @api.multi
     def do_unreserve(self):
@@ -1041,7 +1058,14 @@ class Picking(models.Model):
                         done_to_keep = ml.qty_done
                         new_move_line = ml.copy(
                             default={'product_uom_qty': 0, 'qty_done': ml.qty_done})
-                        ml.write({'product_uom_qty': quantity_left_todo, 'qty_done': 0.0})
+                        vals = {'product_uom_qty': quantity_left_todo, 'qty_done': 0.0}
+                        if pick.picking_type_id.code == 'incoming':
+                            if ml.lot_id:
+                                vals['lot_id'] = False
+                            if ml.lot_name:
+                                vals['lot_name'] = False
+
+                        ml.write(vals)
                         new_move_line.write({'product_uom_qty': done_to_keep})
                         move_lines_to_pack |= new_move_line
 

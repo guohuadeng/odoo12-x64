@@ -8,9 +8,9 @@
 # matjaz k <matjaz@mentis.si>, 2019
 # Boris Kodelja <boris@hbs.si>, 2019
 # Grega Vavtar <grega@hbs.si>, 2019
-# Matjaz Mozetic <m.mozetic@matmoz.si>, 2019
-# Tadej Lupšina <tadej@hbs.si>, 2019
 # Jasmina Macur <jasmina@hbs.si>, 2019
+# Tadej Lupšina <tadej@hbs.si>, 2019
+# Matjaz Mozetic <m.mozetic@matmoz.si>, 2020
 # 
 msgid ""
 msgstr ""
@@ -18,7 +18,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-03-29 10:10+0000\n"
 "PO-Revision-Date: 2018-08-24 09:34+0000\n"
-"Last-Translator: Jasmina Macur <jasmina@hbs.si>, 2019\n"
+"Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>, 2020\n"
 "Language-Team: Slovenian (https://www.transifex.com/odoo/teams/41243/sl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -103,13 +103,13 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:website_forum.display_post_question_block
 #: model_terms:ir.ui.view,arch_db:website_forum.post_description_full
 msgid "<b> [Closed]</b>"
-msgstr ""
+msgstr "<b> [Zaprto]</b>"
 
 #. module: website_forum
 #: model_terms:ir.ui.view,arch_db:website_forum.display_post_question_block
 #: model_terms:ir.ui.view,arch_db:website_forum.post_description_full
 msgid "<b> [Deleted]</b>"
-msgstr ""
+msgstr "<b> [Izbrisano]</b>"
 
 #. module: website_forum
 #: model_terms:ir.ui.view,arch_db:website_forum.display_post_question_block
@@ -379,6 +379,7 @@ msgstr ""
 msgid ""
 "<span class=\"text-muted\">(only one answer per question is allowed)</span>"
 msgstr ""
+"<span class=\"text-muted\">(dovoljen je samo en odgovor na vprašanje)</span>"
 
 #. module: website_forum
 #: model_terms:ir.ui.view,arch_db:website_forum.user_detail_full
@@ -538,7 +539,7 @@ msgstr ""
 #. module: website_forum
 #: model_terms:ir.ui.view,arch_db:website_forum.post_description_full
 msgid "Accept <i class=\"fa fa-check\"/>"
-msgstr ""
+msgstr "Sprejmi <i class=\"fa fa-check\"/>"
 
 #. module: website_forum
 #: model:ir.model.fields,field_description:website_forum.field_forum_forum__karma_answer_accept_own
@@ -1316,7 +1317,7 @@ msgstr "Razprave"
 #: model:ir.model.fields,field_description:website_forum.field_forum_post_vote__display_name
 #: model:ir.model.fields,field_description:website_forum.field_forum_tag__display_name
 msgid "Display Name"
-msgstr "Prikazni naziv"
+msgstr "Prikazani naziv"
 
 #. module: website_forum
 #: model:ir.model.fields,field_description:website_forum.field_forum_forum__karma_user_bio
@@ -1407,7 +1408,7 @@ msgstr ""
 #. module: website_forum
 #: model_terms:ir.ui.view,arch_db:website_forum.display_post_question_block
 msgid "External link"
-msgstr ""
+msgstr "Zunanja povezava"
 
 #. module: website_forum
 #: model:gamification.badge,name:website_forum.badge_q_3
@@ -2521,7 +2522,7 @@ msgstr ""
 #. module: website_forum
 #: model_terms:ir.ui.view,arch_db:website_forum.display_post_question_block
 msgid "Redirect to external link"
-msgstr ""
+msgstr "Preusmeritev na zunanjo povezavo"
 
 #. module: website_forum
 #: model_terms:ir.ui.view,arch_db:website_forum.moderation_queue
@@ -2536,7 +2537,7 @@ msgstr "Prijava"
 #. module: website_forum
 #: model_terms:ir.ui.view,arch_db:website_forum.post_description_full
 msgid "Reject <i class=\"fa fa-times\"/>"
-msgstr ""
+msgstr "Zavrni <i class=\"fa fa-times\"/>"
 
 #. module: website_forum
 #: selection:forum.forum,default_order:0
@@ -3320,7 +3321,7 @@ msgstr ""
 #. module: website_forum
 #: model_terms:ir.ui.view,arch_db:website_forum.faq
 msgid "accept any answer"
-msgstr ""
+msgstr "sprejmite kakršen koli odgovor"
 
 #. module: website_forum
 #: model_terms:ir.ui.view,arch_db:website_forum.new_question

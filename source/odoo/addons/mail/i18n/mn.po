@@ -7,7 +7,13 @@
 # Otgonbayar.A <gobi.mn@gmail.com>, 2019
 # Martin Trigaux, 2019
 # Baasansuren Sharavsuren <baasansuren@bumanit.mn>, 2019
-# Baskhuu Lodoikhuu <baskhuujacara@gmail.com>, 2019
+# Minj P <pminj322@gmail.com>, 2019
+# baaska sh <sh.baaskash@gmail.com>, 2020
+# tserendavaa tsogtoo <tseegii011929@gmail.com>, 2020
+# Батболд <batbold.ts@gmail.com>, 2020
+# Uuganbayar Batbaatar <uuganaaub33@gmail.com>, 2020
+# Baskhuu Lodoikhuu <baskhuujacara@gmail.com>, 2021
+# Bayarkhuu Bataa, 2021
 # 
 msgid ""
 msgstr ""
@@ -15,7 +21,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-14 07:34+0000\n"
 "PO-Revision-Date: 2018-08-24 09:20+0000\n"
-"Last-Translator: Baskhuu Lodoikhuu <baskhuujacara@gmail.com>, 2019\n"
+"Last-Translator: Bayarkhuu Bataa, 2021\n"
 "Language-Team: Mongolian (https://www.transifex.com/odoo/teams/41243/mn/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -453,7 +459,7 @@ msgstr "Хийх Ажил"
 #. module: mail
 #: model:ir.model,name:mail.model_ir_actions_act_window_view
 msgid "Action Window View"
-msgstr ""
+msgstr "Үйлдлийн цонх харах"
 
 #. module: mail
 #: model:ir.model.fields,help:mail.field_mail_message_subtype__default
@@ -532,7 +538,7 @@ msgstr "Ажилбарын төрөл"
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_ir_actions_server__activity_user_type
 msgid "Activity User Type"
-msgstr ""
+msgstr "Ажилбарын хэрэглэгчийн төрөл"
 
 #. module: mail
 #. openerp-web
@@ -742,7 +748,7 @@ msgstr "Бүгд"
 #: code:addons/mail/static/src/xml/thread.xml:46
 #, python-format
 msgid "All pages:&nbsp;"
-msgstr ""
+msgstr "Бүх хуудсууд:&nbsp;"
 
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.mail_moderation_view_search
@@ -961,7 +967,7 @@ msgstr ""
 #. module: mail
 #: model:ir.model,name:mail.model_ir_autovacuum
 msgid "Automatic Vacuum"
-msgstr ""
+msgstr "Автомат вакум"
 
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_mail_channel__moderation_notify
@@ -1019,7 +1025,7 @@ msgstr "Хүндэтгэсэн,"
 #: model:ir.model.fields,field_description:mail.field_res_partner__is_blacklisted
 #: model:ir.model.fields,field_description:mail.field_res_users__is_blacklisted
 msgid "Blacklist"
-msgstr ""
+msgstr "Хар жагсаалт"
 
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.mail_blacklist_view_tree
@@ -1058,6 +1064,12 @@ msgstr "Цаглабар"
 #: model:mail.activity.type,name:mail.mail_activity_data_call
 msgid "Call"
 msgstr "Залгах"
+
+#. module: mail
+#: code:addons/mail/models/mail_notification.py:57
+#, python-format
+msgid "Can not update the message or recipient of a notification."
+msgstr ""
 
 #. module: mail
 #. openerp-web
@@ -1597,12 +1609,12 @@ msgstr ""
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_mail_activity_type__delay_from
 msgid "Delay Type"
-msgstr ""
+msgstr "Саатлын төрөл"
 
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_mail_activity_type__delay_unit
 msgid "Delay units"
-msgstr ""
+msgstr "Хоцролтын нэгж"
 
 #. module: mail
 #. openerp-web
@@ -1799,6 +1811,13 @@ msgstr ""
 
 #. module: mail
 #. openerp-web
+#: code:addons/mail/static/src/xml/thread.xml:524
+#, python-format
+msgid "Document not downloadable"
+msgstr ""
+
+#. module: mail
+#. openerp-web
 #: code:addons/mail/static/src/xml/activity.xml:101
 #, python-format
 msgid "Done"
@@ -1818,7 +1837,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:mail.mail_activity_view_form_popup
 #, python-format
 msgid "Done & Schedule Next"
-msgstr ""
+msgstr "Дууссан ба дараагынхыг товлох"
 
 #. module: mail
 #. openerp-web
@@ -1843,7 +1862,7 @@ msgstr "Эцсийн огноо"
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_ir_actions_server__activity_date_deadline_range
 msgid "Due Date In"
-msgstr ""
+msgstr "Хугацаа дуусах огноо"
 
 #. module: mail
 #. openerp-web
@@ -1855,7 +1874,7 @@ msgstr "%d хоногийн дотор дуусна"
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_ir_actions_server__activity_date_deadline_range_type
 msgid "Due type"
-msgstr ""
+msgstr "Төлбөрийн төрөл"
 
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.email_template_form
@@ -2294,10 +2313,16 @@ msgid "Following"
 msgstr "Дагаж байгаа"
 
 #. module: mail
+#: code:addons/mail/models/mail_channel.py:778
+#, python-format
+msgid "Following invites are invalid as user groups do not match: %s"
+msgstr ""
+
+#. module: mail
 #: model:ir.model.fields,help:mail.field_mail_activity__icon
 #: model:ir.model.fields,help:mail.field_mail_activity_type__icon
 msgid "Font awesome icon e.g. fa-tasks"
-msgstr ""
+msgstr "Font awesome icon e.g. fa-tasks"
 
 #. module: mail
 #: selection:ir.actions.act_window.view,view_mode:0
@@ -2408,7 +2433,7 @@ msgstr ""
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.view_message_search
 msgid "Has Mentions"
-msgstr ""
+msgstr "Нэр дурдагдсан"
 
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.view_message_search
@@ -2436,7 +2461,7 @@ msgstr "Толгой хэсэг"
 #: model_terms:ir.ui.view,arch_db:mail.mail_channel_notify_moderation
 #: model_terms:ir.ui.view,arch_db:mail.mail_channel_send_guidelines
 msgid "Hello"
-msgstr ""
+msgstr "Сайн байна уу?"
 
 #. module: mail
 #: code:addons/mail/wizard/invite.py:35
@@ -2598,6 +2623,8 @@ msgid ""
 "If the email address is on the blacklist, the contact won't receive mass "
 "mailing anymore, from any list"
 msgstr ""
+"Хэрэв имэйл хаяг нь хар жагсаалтанд байгаа бол тухайн харилцагч ямар ч "
+"мэйлийн жагсаалтаас масс мэйлийг хүлээн авахгүй."
 
 #. module: mail
 #: model:ir.model.fields,help:mail.field_res_config_settings__alias_domain
@@ -2673,7 +2700,7 @@ msgstr "Мөчирийн эхлэлийн зурвас."
 #: model:ir.ui.menu,name:mail.mail_channel_integrations_menu
 #: model_terms:ir.ui.view,arch_db:mail.mail_channel_view_form
 msgid "Integrations"
-msgstr ""
+msgstr "Уялдаа"
 
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_mail_message_subtype__internal
@@ -3067,7 +3094,7 @@ msgstr "Дотоод тэмдэглэл хөтлөх"
 #: code:addons/mail/static/src/xml/chatter.xml:89
 #, python-format
 msgid "Log note"
-msgstr ""
+msgstr "Тэмдэглэл хөтлөх"
 
 #. module: mail
 #. openerp-web
@@ -3227,6 +3254,13 @@ msgstr "Хийхээр тэмдэглэх"
 #, python-format
 msgid "Mark as done"
 msgstr "Дууссанд тооцох"
+
+#. module: mail
+#. openerp-web
+#: code:addons/mail/static/src/xml/thread.xml:300
+#, python-format
+msgid "Mark as todo"
+msgstr ""
 
 #. module: mail
 #: model:ir.ui.menu,name:mail.mail_blacklist_menu
@@ -3514,7 +3548,7 @@ msgstr ""
 #: model:ir.actions.act_window,name:mail.mail_moderation_action
 #: model_terms:ir.ui.view,arch_db:mail.mail_channel_view_form
 msgid "Moderation"
-msgstr ""
+msgstr "Зохицуулалт"
 
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.mail_moderation_view_tree
@@ -3640,7 +3674,7 @@ msgstr "Үйлдэл шаардлагатай хүлээн авалт"
 #: code:addons/mail/static/src/xml/discuss.xml:182
 #, python-format
 msgid "New Channel"
-msgstr ""
+msgstr "Шинэ суваг"
 
 #. module: mail
 #. openerp-web
@@ -4005,6 +4039,18 @@ msgstr "Нэг дагагч"
 #, python-format
 msgid "Online"
 msgstr "Онлайн"
+
+#. module: mail
+#: code:addons/mail/models/mail_message.py:1052
+#, python-format
+msgid "Only administrators are allowed to export mail message"
+msgstr ""
+
+#. module: mail
+#: code:addons/mail/models/mail_message.py:1043
+#, python-format
+msgid "Only administrators are allowed to use grouped read on message model"
+msgstr ""
 
 #. module: mail
 #: code:addons/mail/models/mail_channel.py:436
@@ -4552,7 +4598,7 @@ msgstr "Бичлэгийн Мөчирийн ID"
 #: code:addons/mail/models/mail_message.py:899
 #, python-format
 msgid "Records:"
-msgstr ""
+msgstr "Бичлэгүүд:"
 
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_mail_mail__references
@@ -4792,7 +4838,7 @@ msgstr "Тов"
 #: code:addons/mail/static/src/xml/chatter.xml:93
 #, python-format
 msgid "Schedule activity"
-msgstr ""
+msgstr "Ажилбар товлох"
 
 #. module: mail
 #: code:addons/mail/models/mail_activity.py:395
@@ -4805,7 +4851,7 @@ msgstr "Ажилбар Товлох"
 #: code:addons/mail/static/src/xml/web_kanban_activity.xml:82
 #, python-format
 msgid "Schedule an activity"
-msgstr ""
+msgstr "Ажилбар товлох"
 
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_email_template_preview__scheduled_date
@@ -4844,7 +4890,7 @@ msgstr ""
 #: code:addons/mail/static/src/xml/discuss.xml:183
 #, python-format
 msgid "Select All"
-msgstr ""
+msgstr "Бүгдийг сонгох"
 
 #. module: mail
 #. openerp-web
@@ -4919,6 +4965,13 @@ msgstr "Одоо илгээх"
 #, python-format
 msgid "Send a message"
 msgstr "Зурвас илгээх"
+
+#. module: mail
+#. openerp-web
+#: code:addons/mail/static/src/xml/discuss.xml:141
+#, python-format
+msgid "Send by mail"
+msgstr ""
 
 #. module: mail
 #. openerp-web
@@ -5222,7 +5275,7 @@ msgstr ""
 #. module: mail
 #: model:ir.model.fields,help:mail.field_ir_actions_server__activity_user_field_name
 msgid "Technical name of the user on the record"
-msgstr ""
+msgstr "Бичлэг дээрх хэрэглэгчийн техникийн нэр"
 
 #. module: mail
 #: model:ir.actions.act_window,name:mail.wizard_email_template_preview
@@ -5307,6 +5360,12 @@ msgstr ""
 "Хэрэв энэ талбар тохируулагдаагүй байвал илгээгчийн (Хэнээс) хаягаас зөв "
 "эзэмшигчийг автоматаар тогтоох гэж систем оролдоно. Эсвэл энэ хаяг дээр "
 "систем хэрэглэгч олдохгүй бол Administrator-ийг онооно."
+
+#. module: mail
+#: code:addons/mail/models/mail_channel.py:0
+#, python-format
+msgid "The partner can not join this channel"
+msgstr ""
 
 #. module: mail
 #: code:addons/mail/models/mail_activity.py:243
@@ -5516,6 +5575,14 @@ msgid ""
 "- 'Add Followers': add followers to a record (Discuss)\n"
 "- 'Create Next Activity': create an activity (Discuss)"
 msgstr ""
+"Серверийн үйлдлийн төрөл. Дараах утгуудыг сонгох боломжтой:\n"
+"- \"Python кодыг ажиллуулах\": python кодын блок ажиллана.\n"
+"- \"Үүсгэх\": шинэ утга бүхий шинэ бичлэгийг үүсгэнэ.\n"
+"- \"Бичлэгийг шинэчлэх\": бичлэгийн утгыг шинэчилнэ.\n"
+"- \"Олон үйлдэл ачааллах\": хэд хэдэн өөр серверийн үйлдлийг ачааллахыг өдөөдөг үйлдлийг тодорхойлно.\n"
+"- \"Имэйл илгээх\": автоматаар имэйлийг илгээнэ (Хөөрөлдөх)\n"
+"- \"Дагагч нэмэх\": Бичлэг дээр дагагч нэмэх (Хөөрөлдөх)\n"
+"- \"Дараагийн ажилбар үүсгэх\": Ажилбар үүсгэх (Хөөрөлдөх)"
 
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_mail_channel__uuid
@@ -5668,7 +5735,7 @@ msgstr ""
 #. module: mail
 #: selection:ir.actions.server,state:0
 msgid "Update the Record"
-msgstr ""
+msgstr "Мэдээллийг шинэчлэх"
 
 #. module: mail
 #. openerp-web
@@ -5698,6 +5765,9 @@ msgid ""
 " 'Generic User From Record' to specify the field name of the user to choose "
 "on the record."
 msgstr ""
+"Нэг хэрэглэгчийн дараагийн ажилбарт хариуцагчаар байнга тохируулах бол "
+"\"Тусгай хэрэглэгч\" -ийг ашиглана. Бичлэг дээрх хэрэглэгчийн талбарын "
+"нэрийг тодорхойлох бол \"Бичлэг дээрх ерөнхий хэрэглэгч\"-ийг ашиглана."
 
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_mail_compose_message__use_active_domain
@@ -5732,6 +5802,29 @@ msgstr "Хэрэглэгч"
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_ir_actions_server__activity_user_field_name
 msgid "User field name"
+msgstr "Хэрэглэгчийн талбарын нэр"
+
+#. module: mail
+#. openerp-web
+#: code:addons/mail/static/src/xml/discuss.xml:157
+#: code:addons/mail/static/src/xml/discuss.xml:278
+#, python-format
+msgid "User is idle"
+msgstr ""
+
+#. module: mail
+#. openerp-web
+#: code:addons/mail/static/src/xml/discuss.xml:158
+#, python-format
+msgid "User is offline"
+msgstr ""
+
+#. module: mail
+#. openerp-web
+#: code:addons/mail/static/src/xml/discuss.xml:156
+#: code:addons/mail/static/src/xml/discuss.xml:277
+#, python-format
+msgid "User is online"
 msgstr ""
 
 #. module: mail
@@ -5818,7 +5911,7 @@ msgstr ""
 #: code:addons/mail/static/src/xml/thread.xml:58
 #, python-format
 msgid "Viewer"
-msgstr ""
+msgstr "Харагч"
 
 #. module: mail
 #. openerp-web
@@ -5974,6 +6067,13 @@ msgstr "Та <b>#%s</b> сувагт байна."
 
 #. module: mail
 #. openerp-web
+#: code:addons/mail/static/src/js/attachment_box.js:132
+#, python-format
+msgid "You are not allowed to upload an attachment here."
+msgstr ""
+
+#. module: mail
+#. openerp-web
 #: code:addons/mail/static/src/js/discuss.js:338
 #, python-format
 msgid ""
@@ -5987,6 +6087,24 @@ msgstr ""
 #, python-format
 msgid ""
 "You can mark any message as 'starred', and it shows up in this mailbox."
+msgstr ""
+
+#. module: mail
+#: cod:addons/mail/models/mail_channel.py:0
+#, python-format
+msgid "You can not remove this partner from this channel"
+msgstr ""
+
+#. module: mail
+#: code:addons/mail/models/mail_channel.py:0
+#, python-format
+msgid "You can not write on the record of other users"
+msgstr ""
+
+#. module: mail
+#: code:addons/mail/models/mail_channel.py:0
+#, python-format
+msgid "You can not write on this field"
 msgstr ""
 
 #. module: mail
@@ -6008,6 +6126,14 @@ msgid ""
 msgstr ""
 "Эдгээр бүлгэмийг та устгаж чадахгүй, Компани бүхэлдээ бүлгэм бусад "
 "модулиудад шаардлагатай."
+
+#. module: mail
+#: code:addons/mail/models/mail_alias.py:89
+#, python-format
+msgid ""
+"You cannot use anything else than unaccented latin characters in the alias "
+"address."
+msgstr ""
 
 #. module: mail
 #: code:addons/mail/models/mail_channel.py:257
@@ -6032,8 +6158,8 @@ msgstr "Таны оноогдсон"
 #. openerp-web
 #: code:addons/mail/static/src/js/services/mail_notification_manager.js:198
 #, python-format
-msgid "You have been invited to: "
-msgstr "Таны уригдсан зүйл: "
+msgid "You have been invited to: %s"
+msgstr ""
 
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.mail_channel_notify_moderation

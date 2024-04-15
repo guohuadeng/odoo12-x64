@@ -448,6 +448,11 @@ var BasicModel = AbstractModel.extend({
                     if (parent && parent.type === 'list') {
                         parent.data = _.without(parent.data, record.id);
                         delete self.localData[record.id];
+                        // Check if we are on last page and all records are deleted from current
+                        // page i.e. if there is no state.data.length then go to previous page
+                        if (!parent.data.length && parent.offset > 0) {
+                            parent.offset = Math.max(parent.offset - parent.limit, 0);
+                        }
                     } else {
                         record.res_ids.splice(record.offset, 1);
                         record.offset = Math.min(record.offset, record.res_ids.length - 1);
@@ -1290,6 +1295,15 @@ var BasicModel = AbstractModel.extend({
                 // optionally clear the DataManager's cache
                 self._invalidateCache(parent);
                 return self.reload(parentID);
+            }).then(function (datapoint) {
+                // if there are no records to display and we are not on first page(we check it
+                // by checking offset is greater than limit i.e. we are not on first page)
+                // reason for adding logic after reload to make sure there is no records after operation
+                if (parent && parent.type === 'list' && !parent.data.length && parent.offset > 0) {
+                    parent.offset = Math.max(parent.offset - parent.limit, 0);
+                    return self.reload(parentID);
+                }
+                return datapoint;
             });
     },
     /**
@@ -1428,6 +1442,8 @@ var BasicModel = AbstractModel.extend({
      * @param {boolean} [options.doNotSetDirty=false] if this flag is set to
      *   true, then we will not tag the record as dirty.  This should be avoided
      *   for most situations.
+     * @param {boolean} [options.forceFail=false] if this flag is set to true, then
+     *   promise will fail when onchange fails (added as local patch only in stable)
      * @param {boolean} [options.notifyChange=true] if this flag is set to
      *   false, then we will not notify and not trigger the onchange, even though
      *   it was changed.
@@ -1490,7 +1506,12 @@ var BasicModel = AbstractModel.extend({
                         self._visitChildren(record, function (elem) {
                             _.extend(elem, initialData[elem.id]);
                         });
-                        onchangeDef.resolve({});
+                        // safe fix for stable version, for opw-2267444
+                        if (!options.force_fail) {
+                            onchangeDef.resolve({});
+                        } else {
+                            onchangeDef.reject({});
+                        }
                     });
             } else {
                 onchangeDef = $.Deferred().resolve(_.keys(changes));
@@ -3851,8 +3872,12 @@ var BasicModel = AbstractModel.extend({
         var fields = view ? view.fields : fieldInfo.relatedFields;
         var viewType = view ? view.type : fieldInfo.viewType;
 
+        // remove default_* keys from parent context to avoid issue of same field name in x2m
+        var parentContext = _.omit(record.context, function (val, key) {
+            return _.str.startsWith(key, 'default_');
+        });
         var x2manyList = self._makeDataPoint({
-            context: record.context,
+            context: parentContext,
             fieldsInfo: fieldsInfo,
             fields: fields,
             limit: fieldInfo.limit,
@@ -4331,6 +4356,7 @@ var BasicModel = AbstractModel.extend({
                     fieldsInfo: element.fieldsInfo,
                     fields: element.fields,
                     viewType: element.viewType,
+                    allowWarning: true,
                 };
                 return this._makeDefaultRecord(element.model, params);
             }

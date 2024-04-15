@@ -4,7 +4,6 @@
 # 
 # Translators:
 # Luigi Di Naro <gigidn@gmail.com>, 2018
-# Giacomo Grasso <giacomo.grasso.82@gmail.com>, 2018
 # SebastianoPistore <SebastianoPistore.info@protonmail.ch>, 2018
 # ginfriz <ginfriz84@hotmail.it>, 2018
 # Christian <chris@effeci.info>, 2018
@@ -17,7 +16,7 @@
 # Francesco Garganese <francesco.garganese@aeromnia.aero>, 2018
 # nle_odoo, 2018
 # Léonie Bouchat <lbo@odoo.com>, 2019
-# Sergio Zanchetta <primes2h@gmail.com>, 2019
+# Sergio Zanchetta <primes2h@gmail.com>, 2021
 # 
 msgid ""
 msgstr ""
@@ -25,7 +24,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-10-08 06:49+0000\n"
 "PO-Revision-Date: 2018-08-24 09:34+0000\n"
-"Last-Translator: Sergio Zanchetta <primes2h@gmail.com>, 2019\n"
+"Last-Translator: Sergio Zanchetta <primes2h@gmail.com>, 2021\n"
 "Language-Team: Italian (https://www.transifex.com/odoo/teams/41243/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -459,19 +458,19 @@ msgstr "Sessione evento"
 #. module: website_event_track
 #: model:ir.model,name:website_event_track.model_event_track_location
 msgid "Event Track Location"
-msgstr ""
+msgstr "Ubicazione sessione evento"
 
 #. module: website_event_track
 #: model:ir.model,name:website_event_track.model_event_track_stage
 msgid "Event Track Stage"
-msgstr ""
+msgstr "Fase percorso evento"
 
 #. module: website_event_track
 #: model:ir.model,name:website_event_track.model_event_track_tag
 #: model_terms:ir.ui.view,arch_db:website_event_track.view_event_track_tag_form
 #: model_terms:ir.ui.view,arch_db:website_event_track.view_event_track_tag_tree
 msgid "Event Track Tag"
-msgstr "Etichetta sessione evento"
+msgstr "Etichetta per sessione evento"
 
 #. module: website_event_track
 #: model:ir.actions.act_window,name:website_event_track.action_event_sponsor_from_event
@@ -521,12 +520,12 @@ msgstr "Chi segue"
 #. module: website_event_track
 #: model:ir.model.fields,field_description:website_event_track.field_event_track__message_channel_ids
 msgid "Followers (Channels)"
-msgstr "Chi segue (canali)"
+msgstr "Chi sta seguendo (canali)"
 
 #. module: website_event_track
 #: model:ir.model.fields,field_description:website_event_track.field_event_track__message_partner_ids
 msgid "Followers (Partners)"
-msgstr "Chi segue (partner)"
+msgstr "Chi sta seguendo (partner)"
 
 #. module: website_event_track
 #: model_terms:ir.ui.view,arch_db:website_event_track.view_event_track_search
@@ -571,23 +570,22 @@ msgstr "Casa delle culture del mondo"
 #. module: website_event_track
 #: model:event.track,name:website_event_track.event_track18
 msgid "How to build your marketing strategy within a competitive environment"
-msgstr ""
-"Come costruire la tua strategia di marketing in un ambiente competitivo"
+msgstr "Costruire una strategia di marketing in un ambiente competitivo"
 
 #. module: website_event_track
 #: model:event.track,name:website_event_track.event_track15
 msgid "How to communicate with your community"
-msgstr "Come comunicare con la tua comunità"
+msgstr "Relazionarsi con la comunità"
 
 #. module: website_event_track
 #: model:event.track,name:website_event_track.event_track1
 msgid "How to design a new piece of furniture"
-msgstr "Come progettare un nuovo mobile"
+msgstr "Progettare un nuovo mobile"
 
 #. module: website_event_track
 #: model:event.track,name:website_event_track.event_track4
 msgid "How to develop automated processes"
-msgstr "Come sviluppare processi automatizzati"
+msgstr "Sviluppare processi automatizzati"
 
 #. module: website_event_track
 #: model:event.track,name:website_event_track.event_track16
@@ -597,17 +595,17 @@ msgstr "Come seguirci sui social media"
 #. module: website_event_track
 #: model:event.track,name:website_event_track.event_track9
 msgid "How to improve your quality processes"
-msgstr "Come migliorare i processi per la qualità"
+msgstr "Migliorare i processi per la qualità"
 
 #. module: website_event_track
 #: model:event.track,name:website_event_track.event_track2
 msgid "How to integrate hardware materials in your pieces of furniture"
-msgstr "Come integrare i materiali metallici nei mobili"
+msgstr "Integrare le parti metalliche nei mobili"
 
 #. module: website_event_track
 #: model:event.track,name:website_event_track.event_track8
 msgid "How to optimize your sales, from leads to sales orders"
-msgstr "Come ottimizzare le vendite, dai contatti agli ordini di vendita"
+msgstr "Ottimizzare le vendite, dai contatti agli ordini di vendita"
 
 #. module: website_event_track
 #: model:ir.model.fields,field_description:website_event_track.field_event_sponsor__id
@@ -657,7 +655,7 @@ msgstr "Introduzione"
 #. module: website_event_track
 #: model:ir.model.fields,field_description:website_event_track.field_event_track__message_is_follower
 msgid "Is Follower"
-msgstr "È Follower"
+msgstr "Sta seguendo"
 
 #. module: website_event_track
 #: model:ir.model.fields,field_description:website_event_track.field_event_track__is_published
@@ -672,7 +670,7 @@ msgstr "Stato kanban"
 #. module: website_event_track
 #: model:event.track,name:website_event_track.event_track23
 msgid "Key Success factors selling our furniture"
-msgstr ""
+msgstr "Fattori chiave di successo nella vendita dei nostri arredi"
 
 #. module: website_event_track
 #: model:ir.model.fields,field_description:website_event_track.field_event_sponsor____last_update
@@ -832,7 +830,7 @@ msgstr "Riepilogo prossima attività"
 #. module: website_event_track
 #: model:ir.model.fields,field_description:website_event_track.field_event_track__activity_type_id
 msgid "Next Activity Type"
-msgstr "Tipo Prossima Attività"
+msgstr "Tipologia prossima attività"
 
 #. module: website_event_track
 #: model_terms:ir.ui.view,arch_db:website_event_track.tracks
@@ -872,7 +870,7 @@ msgstr "I nostri sponsor"
 #. module: website_event_track
 #: selection:event.track,activity_state:0
 msgid "Overdue"
-msgstr "Scaduto"
+msgstr "In ritardo"
 
 #. module: website_event_track
 #: model:event.track,name:website_event_track.event_track14
@@ -882,7 +880,7 @@ msgstr "Programmi partnership"
 #. module: website_event_track
 #: selection:event.track,activity_state:0
 msgid "Planned"
-msgstr "Pianificato"
+msgstr "Pianificata"
 
 #. module: website_event_track
 #: model:event.track,name:website_event_track.event_track3
@@ -1097,7 +1095,7 @@ msgstr ""
 #. module: website_event_track
 #: model_terms:ir.ui.view,arch_db:website_event_track.event_track_proposal
 msgid "Submission Agreement"
-msgstr ""
+msgstr "Accordo di pubblicazione"
 
 #. module: website_event_track
 #: model_terms:ir.ui.view,arch_db:website_event_track.event_track_proposal
@@ -1219,7 +1217,7 @@ msgstr "Presentazione bloccata"
 #. module: website_event_track
 #: model:ir.model.fields,field_description:website_event_track.field_event_event__track_count
 msgid "Track Count"
-msgstr ""
+msgstr "Numero percorsi"
 
 #. module: website_event_track
 #: model:ir.model.fields,field_description:website_event_track.field_event_track__date
@@ -1311,7 +1309,7 @@ msgstr "Messaggi non letti"
 #. module: website_event_track
 #: model:ir.model.fields,field_description:website_event_track.field_event_track__message_unread_counter
 msgid "Unread Messages Counter"
-msgstr "Contatore messaggi non letti"
+msgstr "Numero messaggi non letti"
 
 #. module: website_event_track
 #: model_terms:ir.ui.view,arch_db:website_event_track.event_track_social
@@ -1360,7 +1358,7 @@ msgstr "Valuteremo la tua proposta e ti risponderemo al più presto"
 #. module: website_event_track
 #: model:ir.model,name:website_event_track.model_website_event_menu
 msgid "Website Event Menu"
-msgstr "Menù evento sito web"
+msgstr "Menù eventi sito web"
 
 #. module: website_event_track
 #: model:ir.model.fields,field_description:website_event_track.field_event_track__website_message_ids

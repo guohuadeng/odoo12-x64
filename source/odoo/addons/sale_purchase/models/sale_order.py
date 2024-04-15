@@ -186,7 +186,7 @@ class SaleOrderLine(models.Model):
         """
         self.ensure_one()
         partner_supplier = supplierinfo.name
-        fiscal_position_id = self.env['account.fiscal.position'].sudo().with_context(company_id=self.company_id.id).get_fiscal_position(partner_supplier.id)
+        fiscal_position_id = self.env['account.fiscal.position'].sudo().with_context(force_company=self.company_id.id).get_fiscal_position(partner_supplier.id)
         date_order = self._purchase_get_date_order(supplierinfo)
         return {
             'partner_id': partner_supplier.id,
@@ -268,7 +268,8 @@ class SaleOrderLine(models.Model):
         sale_line_purchase_map = {}
         for line in self:
             # determine vendor of the order (take the first matching company and product)
-            suppliers = line.product_id.seller_ids.filtered(lambda vendor: (not vendor.company_id or vendor.company_id == line.company_id) and (not vendor.product_id or vendor.product_id == line.product_id))
+            suppliers = line.product_id.with_context(force_company=line.company_id.id)._select_seller(
+                quantity=line.product_uom_qty, uom_id=line.product_uom)
             if not suppliers:
                 raise UserError(_("There is no vendor associated to the product %s. Please define a vendor for this product.") % (line.product_id.display_name,))
             supplierinfo = suppliers[0]

@@ -13,6 +13,7 @@ from odoo import api, fields, models, tools
 from odoo.addons.http_routing.models.ir_http import slugify, _guess_mimetype
 from odoo.addons.website.models.ir_http import sitemap_qs2dom
 from odoo.addons.portal.controllers.portal import pager
+from odoo.exceptions import UserError
 from odoo.tools import pycompat
 from odoo.http import request
 from odoo.osv import expression
@@ -146,7 +147,7 @@ class Website(models.Model):
             public_user_to_change_websites = self.filtered(lambda w: w.sudo().user_id.company_id.id != values['company_id'])
             if public_user_to_change_websites:
                 company = self.env['res.company'].browse(values['company_id'])
-                super(Website, public_user_to_change_websites).write(dict(values, user_id=company._get_public_user().id))
+                super(Website, public_user_to_change_websites).write(dict(values, user_id=company and company._get_public_user().id))
 
         result = super(Website, self - public_user_to_change_websites).write(values)
         if 'cdn_activated' in values or 'cdn_url' in values or 'cdn_filters' in values:
@@ -156,6 +157,9 @@ class Website(models.Model):
 
     @api.multi
     def unlink(self):
+        website = self.search([('id', 'not in', self.ids)], limit=1)
+        if not website:
+            raise UserError(_('You must keep at least one website.'))
         # Do not delete invoices, delete what's strictly necessary
         attachments_to_unlink = self.env['ir.attachment'].search([
             ('website_id', 'in', self.ids),
@@ -187,7 +191,7 @@ class Website(models.Model):
         homepage_page = Page.search([
             ('website_id', '=', self.id),
             ('key', '=', standard_homepage.key),
-        ])
+        ], limit=1)
         if not homepage_page:
             homepage_page = Page.create({
                 'website_published': True,
@@ -478,7 +482,12 @@ class Website(models.Model):
     @api.model
     def get_current_website(self, fallback=True):
         if request and request.session.get('force_website_id'):
-            return self.browse(request.session['force_website_id'])
+            website_id = self.browse(request.session['force_website_id']).exists()
+            if not website_id:
+                # Don't crash is session website got deleted
+                request.session.pop('force_website_id')
+            else:
+                return website_id
 
         website_id = self.env.context.get('website_id')
         if website_id:
@@ -707,7 +716,7 @@ class Website(models.Model):
                 continue
 
             converters = rule._converters or {}
-            if query_string and not converters and (query_string not in rule.build([{}], append_unknown=False)[1]):
+            if query_string and not converters and (query_string not in rule.build({}, append_unknown=False)[1]):
                 continue
             values = [{}]
             # converters with a domain are processed after the other ones
@@ -825,6 +834,9 @@ class Website(models.Model):
         res = urls.url_parse(self.domain)
         return 'http://' + self.domain if not res.scheme else self.domain
 
+    def _get_relative_url(self, url):
+        return urls.url_parse(url).replace(scheme='', netloc='').to_url()
+
 
 class SeoMetadata(models.AbstractModel):
 
@@ -909,7 +921,6 @@ class SeoMetadata(models.AbstractModel):
             'opengraph_meta': opengraph_meta,
             'twitter_meta': twitter_meta
         }
-
 
 class WebsiteMultiMixin(models.AbstractModel):
 
@@ -1027,7 +1038,7 @@ class Page(models.Model):
     header_color = fields.Char()
 
     # don't use mixin website_id but use website_id on ir.ui.view instead
-    website_id = fields.Many2one(related='view_id.website_id', store=True, readonly=False)
+    website_id = fields.Many2one(related='view_id.website_id', store=True, readonly=False, ondelete='cascade')
 
     @api.one
     def _compute_homepage(self):

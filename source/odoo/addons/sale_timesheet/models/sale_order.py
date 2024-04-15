@@ -6,6 +6,7 @@ from odoo import api, fields, models, _
 from odoo.exceptions import ValidationError
 from odoo.osv import expression
 from odoo.tools.safe_eval import safe_eval
+from odoo.tools.sql import column_exists, create_column
 
 
 class SaleOrder(models.Model):
@@ -51,10 +52,11 @@ class SaleOrder(models.Model):
     def _action_confirm(self):
         """ On SO confirmation, some lines should generate a task or a project. """
         result = super(SaleOrder, self)._action_confirm()
-        self.mapped('order_line').sudo().with_context(
-            default_company_id=self.company_id.id,
-            force_company=self.company_id.id,
-        )._timesheet_service_generation()
+        for order in self:
+            order.mapped('order_line').sudo().with_context(
+                default_company_id=order.company_id.id,
+                force_company=order.company_id.id,
+            )._timesheet_service_generation()
         return result
 
     @api.multi
@@ -111,9 +113,7 @@ class SaleOrder(models.Model):
     def action_view_timesheet(self):
         self.ensure_one()
         action = self.env.ref('hr_timesheet.timesheet_action_all').read()[0]
-        ctx = dict(self.env.context or {})
-        ctx.pop('group_by', None)
-        action['context'] = ctx  # erase default filters
+        action['context'] = {}  # erase default filters
 
         if self.timesheet_count > 0:
             action['domain'] = [('so_line', 'in', self.order_line.ids)]
@@ -169,6 +169,21 @@ class SaleOrderLine(models.Model):
                 line.product_updatable = False
             else:
                 super(SaleOrderLine, line)._compute_product_updatable()
+
+    def _auto_init(self):
+        """
+        Create column to stop ORM from computing it himself (too slow)
+        """
+        if not column_exists(self.env.cr, 'sale_order_line', 'is_service'):
+            create_column(self.env.cr, 'sale_order_line', 'is_service', 'bool')
+            self.env.cr.execute("""
+                UPDATE sale_order_line line
+                SET is_service = (pt.type = 'service')
+                FROM product_product pp
+                LEFT JOIN product_template pt ON pt.id = pp.product_tmpl_id
+                WHERE pp.id = line.product_id
+            """)
+        return super()._auto_init()
 
     @api.model_create_multi
     def create(self, vals_list):

@@ -429,13 +429,25 @@ def get_test_modules(module):
     """ Return a list of module for the addons potentially containing tests to
     feed unittest.TestLoader.loadTestsFromModule() """
     # Try to import the module
-    modpath = 'odoo.addons.' + module
+    results = _get_tests_modules('odoo.addons', module)
+
+    try:
+        importlib.import_module('odoo.addons.base.maintenance.migrations.%s' % module)
+    except ImportError:
+        pass
+    else:
+        results += _get_tests_modules('odoo.addons.base.maintenance.migrations', module)
+
+    return results
+
+def _get_tests_modules(path, module):
+    modpath = '%s.%s' % (path, module)
     try:
         mod = importlib.import_module('.tests', modpath)
     except ImportError as e:  # will also catch subclass ModuleNotFoundError of P3.6
         # Hide ImportErrors on `tests` sub-module, but display other exceptions
         if pycompat.PY2:
-            if e.message.startswith('No module named') and e.message.endswith("tests"):
+            if e.message.startswith('No module named') and e.message.endswith("tests"): # pylint: disable=exception-message-attribute
                 return []
         else:
             if e.name == modpath + '.tests' and e.msg.startswith('No module named'):
@@ -482,7 +494,8 @@ def run_unit_tests(module_name, dbname, position='at_install'):
     :rtype: bool
     """
     global current_test
-    from odoo.tests.common import TagsSelector # Avoid import loop
+    # avoid dependency hell
+    from odoo.tests.common import TagsSelector, OdooSuite
     current_test = module_name
     mods = get_test_modules(module_name)
     threading.currentThread().testing = True
@@ -491,7 +504,7 @@ def run_unit_tests(module_name, dbname, position='at_install'):
     r = True
     for m in mods:
         tests = unwrap_suite(unittest.TestLoader().loadTestsFromModule(m))
-        suite = unittest.TestSuite(t for t in tests if position_tag.check(t) and config_tags.check(t))
+        suite = OdooSuite(t for t in tests if position_tag.check(t) and config_tags.check(t))
 
         if suite.countTestCases():
             t0 = time.time()

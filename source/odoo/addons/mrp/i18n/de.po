@@ -5,13 +5,15 @@
 # Translators:
 # DE T2 <e2f48d4s5vd1s2@outlook.com>, 2018
 # Johannes Croe <jcr@odoo.com>, 2018
-# darenkster <inactive+darenkster@transifex.com>, 2018
+# f91684c3ff9ec3e650d5c8461e534581_686eae3 <449b96d9f63071f94d89e129677b83de_366193>, 2018
 # Constantin Ehrenstein <transifex@skiller.eu>, 2018
 # Katharina Moritz <kmo@e2f.com>, 2018
 # Martin Trigaux, 2018
 # Wolfgang Taferner, 2019
 # Leon Grill <leg@odoo.com>, 2019
 # Chris Egal <sodaswed@web.de>, 2019
+# Tobias Arndt, 2020
+# Andreas Schmidt <schmigo@gmail.com>, 2021
 # 
 msgid ""
 msgstr ""
@@ -19,7 +21,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-14 07:33+0000\n"
 "PO-Revision-Date: 2018-08-24 09:21+0000\n"
-"Last-Translator: Chris Egal <sodaswed@web.de>, 2019\n"
+"Last-Translator: Andreas Schmidt <schmigo@gmail.com>, 2021\n"
 "Language-Team: German (https://www.transifex.com/odoo/teams/41243/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -321,6 +323,13 @@ msgstr "Arbeitsplatz"
 #, python-format
 msgid "A Manufacturing Order is already done or cancelled."
 msgstr "Ein Fertigungsauftrag wurde bereits ausgeführt oder storniert."
+
+#. module: mrp
+#: code:addons/mrp/models/stock_warehouse.py:288
+#, python-format
+msgid ""
+"A product with a kit-type bill of materials can not have a reordering rule."
+msgstr ""
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_document__access_token
@@ -3246,6 +3255,8 @@ msgid ""
 "Some of your components are tracked, you have to specify a manufacturing "
 "order in order to retrieve the correct components."
 msgstr ""
+"Einige der Komponenten werden verfolgt. Um die korrekten Komponenten zu "
+"erhalten, müssen Sie einen Fertigungsauftrag spezifizieren."
 
 #. module: mrp
 #: code:addons/mrp/models/mrp_production.py:590
@@ -3333,7 +3344,7 @@ msgstr ""
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_stock_warehouse__sam_rule_id
 msgid "Stock After Manufacturing Rule"
-msgstr ""
+msgstr "Bestand nach Fertigungsregel"
 
 #. module: mrp
 #: model:ir.model,name:mrp.model_stock_move
@@ -3363,7 +3374,7 @@ msgstr "Bestand nach Fertigungsstandort"
 #. module: mrp
 #: model:ir.model,name:mrp.model_report_stock_report_stock_rule
 msgid "Stock rule report"
-msgstr ""
+msgstr "Lagerregelbericht"
 
 #. module: mrp
 #: code:addons/mrp/models/stock_warehouse.py:200
@@ -3464,6 +3475,8 @@ msgid ""
 "Technical field used to resolve multiple attachments in a multi-website "
 "environment."
 msgstr ""
+"Technisches Feld, das zur Auflösung mehrerer Anhänge in einer Umgebung mit "
+"mehreren Websites verwendet wird."
 
 #. module: mrp
 #: model:ir.model.fields,help:mrp.field_mrp_production__consumed_less_than_planned
@@ -3643,6 +3656,9 @@ msgid ""
 "This is the cost based on the BoM of the product. It is computed by summing "
 "the costs of the components and operations needed to build the product."
 msgstr ""
+"Das sind die auf die Stückliste basierenden Kosten für dieses Produkt. Es "
+"wird durch das Addieren der Komponenten- und Vorgangskosten, die für die "
+"Fertigung benötigt werden, berechnet."
 
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.report_mrp_bom
@@ -4417,6 +4433,14 @@ msgstr ""
 "erforderlich ist."
 
 #. module: mrp
+#: code:addons/mrp/models/mrp_bom.py:122
+#, python-format
+msgid ""
+"You can not create a kit-type bill of materials for products that have at "
+"least one reordering rule."
+msgstr ""
+
+#. module: mrp
 #: code:addons/mrp/models/mrp_bom.py:117
 #, python-format
 msgid ""
@@ -4464,7 +4488,7 @@ msgstr ""
 #: code:addons/mrp/models/mrp_unbuild.py:88
 #, python-format
 msgid "You cannot delete an unbuild order if the state is 'Done'."
-msgstr ""
+msgstr "Sie können keinen Demontageauftrag mit dem Status 'Erledigt' löschen."
 
 #. module: mrp
 #: code:addons/mrp/models/mrp_production.py:533

@@ -18,4 +18,6 @@
     'data': [
         'views/account_tax_views.xml',
     ],
+    'uninstall_hook': "uninstall_hook",
+    'license': 'LGPL-3',
 }

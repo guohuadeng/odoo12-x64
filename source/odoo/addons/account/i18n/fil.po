@@ -469,6 +469,11 @@ msgid "<span>Quantity</span>"
 msgstr ""
 
 #. module: account
+#: model_terms:ir.ui.view,arch_db:account.report_payment_receipt_document
+msgid "<span>Reference</span>"
+msgstr ""
+
+#. module: account
 #: model_terms:ir.ui.view,arch_db:account.account_journal_dashboard_kanban_view
 msgid "<span>Reporting</span>"
 msgstr ""
@@ -4459,6 +4464,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:account.field_account_invoice_report__fiscal_position_id
 #: model:ir.model.fields,field_description:account.field_res_partner__property_account_position_id
 #: model:ir.model.fields,field_description:account.field_res_users__property_account_position_id
+#: model_terms:ir.ui.view,arch_db:account.view_account_position_filter
 #: model_terms:ir.ui.view,arch_db:account.view_account_position_form
 #: model_terms:ir.ui.view,arch_db:account.view_account_position_template_search
 #: model_terms:ir.ui.view,arch_db:account.view_account_position_template_tree
@@ -7720,6 +7726,12 @@ msgid ""
 msgstr ""
 
 #. module: account
+#: code:addons/account/models/account_cash_rounding.py:33
+#, python-format
+msgid "Please set a strictly positive rounding value."
+msgstr ""
+
+#. module: account
 #: model_terms:ir.ui.view,arch_db:account.report_invoice_document
 msgid "Please use the following communication for your payment :"
 msgstr ""
@@ -9560,8 +9572,8 @@ msgstr ""
 #: model:ir.model.fields,help:account.field_account_payment__multi
 #: model:ir.model.fields,help:account.field_account_register_payments__multi
 msgid ""
-"Technical field indicating if the user selected invoices from multiple "
-"partners or from different types."
+"Technical field indicating if the registering payment will generate multiple"
+" payments or not."
 msgstr ""
 
 #. module: account
@@ -9949,7 +9961,10 @@ msgstr ""
 #. module: account
 #: code:addons/account/models/account.py:564
 #, python-format
-msgid "The holder of a journal's bank account must be the company (%s)."
+msgid ""
+"The holder of the bank account of a \"Bank\" type journal must be the company (%s).\n"
+"However, the holder of \"%s\" is \"%s\".\n"
+"Please select another bank account or change the holder of \"%s\"."
 msgstr ""
 
 #. module: account

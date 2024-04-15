@@ -221,6 +221,21 @@ class TestViewSaving(common.TransactionCase):
             'text node characters wrongly unescaped when rendering'
         )
 
+    def test_save_oe_structure_with_attr(self):
+        """ Test saving oe_structure with attributes """
+        view = self.env['ir.ui.view'].create({
+            'arch': u'<t t-name="dummy"><div class="oe_structure" t-att-test="1" data-test="1" id="oe_structure_test"/></t>',
+            'type': 'qweb'
+        }).with_context(website_id=1, load_all_views=True)
+        replacement = u'<div class="oe_structure" data-test="1" id="oe_structure_test" data-oe-id="55" test="2">hello</div>'
+        view.save(replacement, xpath='/t/div')
+        # branding data-oe-* should be stripped
+        self.assertIn(
+            '<div class="oe_structure" data-test="1" id="oe_structure_test" test="2">hello</div>',
+            view.read_combined(['arch'])['arch'],
+            'saved element attributes are saved excluding branding ones'
+        )
+
     def test_save_only_embedded(self):
         Company = self.env['res.company']
         company_id = 1
@@ -757,7 +772,11 @@ class TestCowViewSaving(common.TransactionCase):
             'key': '_website_sale_comparison.product_add_to_compare',
         })])
 
+        # Simulate end of installation/update
+        View._create_all_specific_views(['_website_sale_comparison'])
+
         specific_view = Website.with_context(load_all_views=True, website_id=1).viewref('_website_sale.product')
+        self.assertEqual(self.base_view.key, specific_view.key, "Ensure it is equal as it should be for the rest of the test so we test the expected behaviors")
         specific_view_arch = specific_view.read_combined(['arch'])['arch']
         self.assertEqual(specific_view.website_id.id, 1, "Ensure we got specific view to perform the checks against")
         self.assertEqual(specific_view_arch, '<p>COMPARE</p>', "When a module creates an inherited view (on a generic tree), it should also create that view in the specific COW'd tree.")
@@ -771,20 +790,33 @@ class TestCowViewSaving(common.TransactionCase):
         self.assertEqual(specific_view_arch, '<p>COMPARE EDITED</p>', "When a module updates an inherited view (on a generic tree), it should also update the copies of that view (COW).")
 
         # Test fields that should not be COW'd
-        random_view_id = View.search([], limit=1).id
+        random_views = View.search([('key', '!=', None)], limit=2)
         View._load_records([dict(xml_id='_website_sale_comparison.product_add_to_compare', values={
             'website_id': None,
-            'inherit_id': random_view_id,
+            'inherit_id': random_views[0].id,
         })])
 
         w1_specific_child_view = Website.with_context(load_all_views=True, website_id=1).viewref('_website_sale_comparison.product_add_to_compare')
         generic_child_view = Website.with_context(load_all_views=True).viewref('_website_sale_comparison.product_add_to_compare')
         self.assertEqual(w1_specific_child_view.website_id.id, 1, "website_id is a prohibited field when COWing views during _load_records")
-        self.assertEqual(w1_specific_child_view.inherit_id.id != random_view_id, True, "inherit_id is a prohibited field when COWing views during _load_records")
-        self.assertEqual(generic_child_view.inherit_id.id, random_view_id, "prohibited fields only concerned write on COW'd view. Generic should still considere these fields")
+        self.assertEqual(generic_child_view.inherit_id, random_views[0], "prohibited fields only concerned write on COW'd view. Generic should still considere these fields")
+        self.assertEqual(w1_specific_child_view.inherit_id, random_views[0], "inherit_id update should be repliacated on cow views during _load_records")
 
         # Set back the generic view as parent for the rest of the test
         generic_child_view.inherit_id = self.base_view
+        w1_specific_child_view.inherit_id = specific_view
+
+        # Don't update inherit_id if it was anually updated
+        w1_specific_child_view.inherit_id = random_views[1].id
+        View._load_records([dict(xml_id='_website_sale_comparison.product_add_to_compare', values={
+            'inherit_id': random_views[0].id,
+        })])
+        self.assertEqual(w1_specific_child_view.inherit_id, random_views[1],
+                         "inherit_id update should not be repliacated on cow views during _load_records if it was manually updated before")
+
+        # Set back the generic view as parent for the rest of the test
+        generic_child_view.inherit_id = self.base_view
+        w1_specific_child_view.inherit_id = specific_view
 
         # Don't update fields from COW'd view if these fields have been modified from original view
         new_website = Website.create({'name': 'New Website'})
@@ -895,6 +927,142 @@ class TestCowViewSaving(common.TransactionCase):
         # 4  | Base        |  modified content     |     1      |     /    |  website.base_view
         # 5  | Extension   |  , extended content   |     1      |     4    |  website.extension_view
         # 3  | Extension 2 |  , extended content 2 |     1      |     5    |  website.extension_view_2
+
+    def test_cow_extension_with_install(self):
+        View = self.env['ir.ui.view']
+        # Base
+        v1 = View.create({
+            'name': 'Base',
+            'type': 'qweb',
+            'arch': '<div>base content</div>',
+            'key': 'website.base_view_v1',
+        }).with_context(load_all_views=True)
+        self.env['ir.model.data'].create({
+            'module': 'website',
+            'name': 'base_view_v1',
+            'model': v1._name,
+            'res_id': v1.id,
+        })
+
+        # Extension
+        v2 = View.create({
+            'name': 'Extension',
+            'mode': 'extension',
+            'inherit_id': v1.id,
+            'arch': '<div position="inside"><ooo>extended content</ooo></div>',
+            'key': 'website.extension_view_v2',
+        })
+        self.env['ir.model.data'].create({
+            'module': 'website',
+            'name': 'extension_view_v2',
+            'model': v2._name,
+            'res_id': v2.id,
+        })
+
+        # multiwebsite specific
+        v1.with_context(website_id=1).write({'name': 'Extension Specific'})
+
+        original_pool_init = View.pool._init
+        View.pool._init = True
+
+        try:
+            # Simulate module install
+            View._load_records([dict(xml_id='website.extension2_view', values={
+                'name': ' ---',
+                'mode': 'extension',
+                'inherit_id': v1.id,
+                'arch': '<ooo position="replace"><p>EXTENSION</p></ooo>',
+                'key': 'website.extension2_view',
+            })])
+        finally:
+            View.pool._init = original_pool_init
+
+    def test_specific_view_translation(self):
+        Translation = self.env['ir.translation']
+
+        Translation.insert_missing(self.base_view._fields['arch_db'],  self.base_view)
+        translation = Translation.search([
+            ('res_id', '=', self.base_view.id), ('name', '=', 'ir.ui.view,arch_db')
+        ])
+        translation.value = 'hello'
+        translation.module = 'website'
+
+        self.base_view.with_context(website_id=1).write({'active': True})
+        specific_view = self.base_view._get_specific_views() - self.base_view
+
+        self.assertEquals(specific_view.with_context(lang='en_US').arch, '<div>hello</div>',
+            "copy on write (COW) also copy existing translations")
+
+        translation.value = 'hi'
+        self.assertEquals(specific_view.with_context(lang='en_US').arch, '<div>hello</div>',
+            "updating translation of base view doesn't update specific view")
+
+        Translation.with_context(overwrite=True).load_module_terms(['website'], ['en_US'])
+
+        specific_view.invalidate_cache(['arch_db', 'arch'])
+        self.assertEquals(specific_view.with_context(lang='en_US').arch, '<div>hi</div>',
+            "loading module translation copy translation from base to specific view")
+
+    def test_specific_view_module_update_inherit_change(self):
+        """ During a module update, if inherit_id is changed, we need to
+        replicate the change for cow views. """
+        # If D.inherit_id becomes B instead of A, after module update, we expect:
+        # CASE 1
+        #   A    A'   B                      A    A'   B
+        #   |    |                 =>                 / \
+        #   D    D'                                  D   D'
+        #
+        # CASE 2
+        #   A    A'   B    B'               A    A'   B   B'
+        #   |    |                 =>                 |   |
+        #   D    D'                                   D   D'
+        #
+        # CASE 3
+        #     A    B                        A    B
+        #    / \                   =>           / \
+        #   D   D'                             D   D'
+        #
+        # CASE 4
+        #     A    B    B'                  A    B   B'
+        #    / \                   =>            |   |
+        #   D   D'                               D   D'
+
+        # 1. Setup following view trees
+        #   A    A'   B
+        #   |    |
+        #   D    D'
+        View = self.env['ir.ui.view']
+        Website = self.env['website']
+        self.env['ir.model.data'].create({
+            'module': 'website',
+            'name': self.inherit_view.key.replace('website.', ''),
+            'model': self.inherit_view._name,
+            'res_id': self.inherit_view.id,
+        })
+        base_view_2 = self.base_view.copy({'key': 'website.base_view2', 'arch': '<div>base2 content</div>'})
+        self.base_view.with_context(website_id=1).write({'arch': '<div>website 1 content</div>'})
+        specific_view = Website.with_context(load_all_views=True, website_id=1).viewref(self.base_view.key)
+        specific_view.inherit_children_ids.with_context(website_id=1).write({'arch': '<div position="inside">, extended content website 1</div>'})
+        specific_child_view = Website.with_context(load_all_views=True, website_id=1).viewref(self.inherit_view.key)
+        # 2. Ensure view trees are as expected
+        self.assertEqual(self.base_view.inherit_children_ids, self.inherit_view, "D should be under A")
+        self.assertEqual(specific_view.inherit_children_ids, specific_child_view, "D' should be under A'")
+        self.assertFalse(base_view_2.inherit_children_ids, "B should have no child")
+
+        # 3. Simulate module update, D.inherit_id is now B instead of A
+        View._load_records([dict(xml_id=self.inherit_view.key, values={
+            'inherit_id': base_view_2.id,
+        })])
+
+        # 4. Ensure view trees is now
+        #   A    A'   B
+        #            / \
+        #           D   D'
+        self.assertTrue(len(self.base_view.inherit_children_ids) == len(specific_view.inherit_children_ids) == 0,
+                        "Child views should now be under view B")
+        self.assertEqual(len(base_view_2.inherit_children_ids), 2, "D and D' should be under B")
+        self.assertTrue(self.inherit_view in base_view_2.inherit_children_ids, "D should be under B")
+        self.assertTrue(specific_child_view in base_view_2.inherit_children_ids, "D' should be under B")
 
 
 class Crawler(HttpCase):

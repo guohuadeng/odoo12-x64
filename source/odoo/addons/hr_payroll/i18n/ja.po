@@ -9,7 +9,9 @@
 # Takahiro MURAKAMI <murakami@date-yakkyoku.com>, 2018
 # Norimichi Sugimoto <norimichi.sugimoto@tls-ltd.co.jp>, 2018
 # 森岡広道 <hiromichi.morioka@pro-spire.co.jp>, 2018
-# Yoshi Tashiro <tashiro@roomsfor.hk>, 2019
+# Yoshi Tashiro (Quartile) <tashiro@roomsfor.hk>, 2019
+# Noma Yuki, 2020
+# Ryoko Tsuda <ryoko@quartile.co>, 2021
 # 
 msgid ""
 msgstr ""
@@ -17,7 +19,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-14 07:33+0000\n"
 "PO-Revision-Date: 2018-08-24 09:19+0000\n"
-"Last-Translator: Yoshi Tashiro <tashiro@roomsfor.hk>, 2019\n"
+"Last-Translator: Ryoko Tsuda <ryoko@quartile.co>, 2021\n"
 "Language-Team: Japanese (https://www.transifex.com/odoo/teams/41243/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -53,7 +55,7 @@ msgstr ""
 #. module: hr_payroll
 #: model_terms:ir.ui.view,arch_db:hr_payroll.res_config_settings_view_form
 msgid "<span class=\"o_form_label\">Payroll Rules</span>"
-msgstr ""
+msgstr "<span class=\"o_form_label\">給与規則</span>"
 
 #. module: hr_payroll
 #: model_terms:ir.ui.view,arch_db:hr_payroll.view_hr_payslip_by_employees
@@ -196,7 +198,7 @@ msgstr "全ての子供クラスのルール"
 #. module: hr_payroll
 #: model:hr.salary.rule.category,name:hr_payroll.ALW
 msgid "Allowance"
-msgstr ""
+msgstr "手当"
 
 #. module: hr_payroll
 #: selection:hr.payslip.line,condition_select:0
@@ -247,7 +249,7 @@ msgstr "初期"
 #. module: hr_payroll
 #: model:hr.salary.rule,name:hr_payroll.hr_rule_basic
 msgid "Basic Salary"
-msgstr ""
+msgstr "基本給"
 
 #. module: hr_payroll
 #: model:ir.model.fields,field_description:hr_payroll.field_res_config_settings__module_l10n_be_hr_payroll
@@ -317,7 +319,7 @@ msgstr "子供の定義"
 #. module: hr_payroll
 #: model_terms:ir.ui.view,arch_db:hr_payroll.res_config_settings_view_form
 msgid "Choose a Payroll Localization"
-msgstr ""
+msgstr "給与計算のローカリゼーションを選択"
 
 #. module: hr_payroll
 #: selection:hr.payslip.run,state:0
@@ -343,7 +345,7 @@ msgstr "コード"
 #: model_terms:ir.ui.view,arch_db:hr_payroll.hr_payroll_structure_view_kanban
 #: model_terms:ir.ui.view,arch_db:hr_payroll.hr_salary_rule_view_kanban
 msgid "Code:"
-msgstr ""
+msgstr "コード:"
 
 #. module: hr_payroll
 #: model_terms:ir.ui.view,arch_db:hr_payroll.view_hr_payslip_filter
@@ -390,7 +392,7 @@ msgstr "条件"
 #. module: hr_payroll
 #: model:ir.model,name:hr_payroll.model_res_config_settings
 msgid "Config Settings"
-msgstr ""
+msgstr "コンフィグ設定"
 
 #. module: hr_payroll
 #: model:ir.ui.menu,name:hr_payroll.menu_hr_payroll_configuration
@@ -445,7 +447,7 @@ msgstr "寄与登録"
 #. module: hr_payroll
 #: model:hr.salary.rule,name:hr_payroll.hr_salary_rule_convanceallowance1
 msgid "Conveyance Allowance"
-msgstr ""
+msgstr "通勤手当"
 
 #. module: hr_payroll
 #: model:hr.salary.rule,name:hr_payroll.hr_salary_rule_ca_gravie
@@ -509,7 +511,7 @@ msgstr "終了日"
 #. module: hr_payroll
 #: model:hr.salary.rule.category,name:hr_payroll.DED
 msgid "Deduction"
-msgstr ""
+msgstr "控除"
 
 #. module: hr_payroll
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_contract_advantage_template__default_value
@@ -688,7 +690,7 @@ msgstr "例えば、50%を適用するには50.0と入れてください。"
 #: code:addons/hr_payroll/report/report_contribution_register.py:35
 #, python-format
 msgid "Form content is missing, this report cannot be printed."
-msgstr ""
+msgstr "送信元の内容が欠けています、このレポートは印刷できません。"
 
 #. module: hr_payroll
 #: model:ir.model.fields,field_description:hr_payroll.field_res_config_settings__module_l10n_fr_hr_payroll
@@ -731,7 +733,7 @@ msgstr ""
 #: model:hr.salary.rule,name:hr_payroll.hr_rule_taxable
 #: model:hr.salary.rule.category,name:hr_payroll.GROSS
 msgid "Gross"
-msgstr ""
+msgstr "総額"
 
 #. module: hr_payroll
 #: model_terms:ir.ui.view,arch_db:hr_payroll.view_hr_payslip_filter
@@ -921,7 +923,7 @@ msgstr "最大範囲"
 #. module: hr_payroll
 #: model:hr.salary.rule,name:hr_payroll.hr_salary_rule_meal_voucher
 msgid "Meal Voucher"
-msgstr ""
+msgstr "食券"
 
 #. module: hr_payroll
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_payslip_line__condition_range_min
@@ -1066,7 +1068,7 @@ msgstr ""
 #. module: hr_payroll
 #: model_terms:ir.ui.view,arch_db:hr_payroll.res_config_settings_view_form
 msgid "Payroll Entries"
-msgstr ""
+msgstr "給与計算のエントリ"
 
 #. module: hr_payroll
 #: model_terms:ir.ui.view,arch_db:hr_payroll.view_hr_payroll_structure_filter
@@ -1076,7 +1078,7 @@ msgstr "給与体系"
 #. module: hr_payroll
 #: model_terms:ir.ui.view,arch_db:hr_payroll.res_config_settings_view_form
 msgid "Payroll rules that apply to your country"
-msgstr ""
+msgstr "自国に適用される給与ルール"
 
 #. module: hr_payroll
 #: model:ir.actions.report,name:hr_payroll.action_report_payslip
@@ -1207,7 +1209,7 @@ msgstr "期間"
 #. module: hr_payroll
 #: model_terms:ir.ui.view,arch_db:hr_payroll.res_config_settings_view_form
 msgid "Post payroll slips in accounting"
-msgstr ""
+msgstr "給与明細書を会計に転記"
 
 #. module: hr_payroll
 #: model_terms:ir.ui.view,arch_db:hr_payroll.view_payslip_lines_contribution_register
@@ -1600,6 +1602,12 @@ msgstr "給与ルール%s (%s)に間違った範囲条件が定義されてい�
 #: code:addons/hr_payroll/models/hr_salary_rule.py:36
 #, python-format
 msgid "You cannot create a recursive salary structure."
+msgstr ""
+
+#. module: hr_payroll
+#: code:addons/hr_payroll/models/hr_payslip.py:608
+#, python-format
+msgid "You cannot delete a payslip batch which is not draft!"
 msgstr ""
 
 #. module: hr_payroll

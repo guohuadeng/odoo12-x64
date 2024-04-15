@@ -9,10 +9,10 @@
 # Martin Trigaux, 2019
 # Vida Potočnik <vida.potocnik@mentis.si>, 2019
 # matjaz k <matjaz@mentis.si>, 2019
-# Matjaz Mozetic <m.mozetic@matmoz.si>, 2019
 # Boris Kodelja <boris@hbs.si>, 2019
 # Grega Vavtar <grega@hbs.si>, 2019
-# Jasmina Macur <jasmina@hbs.si>, 2019
+# Matjaz Mozetic <m.mozetic@matmoz.si>, 2020
+# Jasmina Macur <jasmina@hbs.si>, 2021
 # 
 msgid ""
 msgstr ""
@@ -20,7 +20,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-09 10:32+0000\n"
 "PO-Revision-Date: 2018-08-24 09:35+0000\n"
-"Last-Translator: Jasmina Macur <jasmina@hbs.si>, 2019\n"
+"Last-Translator: Jasmina Macur <jasmina@hbs.si>, 2021\n"
 "Language-Team: Slovenian (https://www.transifex.com/odoo/teams/41243/sl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -31,7 +31,7 @@ msgstr ""
 #. module: website_slides
 #: model:ir.model.fields,field_description:website_slides.field_slide_embed__count_views
 msgid "# Views"
-msgstr ""
+msgstr "# Ogledov"
 
 #. module: website_slides
 #: model:ir.model.fields,field_description:website_slides.field_slide_slide__embed_views
@@ -46,7 +46,7 @@ msgstr "število ogledov spletne strani"
 #. module: website_slides
 #: model:mail.template,subject:website_slides.slide_template_shared
 msgid "${user.name} shared a ${object.slide_type} with you!"
-msgstr ""
+msgstr "${user.name} je delil/-a ${object.slide_type} s teboj!"
 
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.view_slide_channel_form
@@ -139,7 +139,7 @@ msgstr ""
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.slide_detail_view
 msgid "<i class=\"fa fa-bar-chart\"/> Statistics"
-msgstr ""
+msgstr "<i class=\"fa fa-bar-chart\"/> Statistika"
 
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.slide_detail_view
@@ -170,7 +170,7 @@ msgstr ""
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.slide_social_email
 msgid "<i class=\"fa fa-envelope-o\"/> Send Email"
-msgstr ""
+msgstr "<i class=\"fa fa-envelope-o\"/> Pošlji e-pošto"
 
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.embed_slide
@@ -208,7 +208,7 @@ msgstr ""
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.slide_detail_view
 msgid "<i class=\"fa fa-share-alt\"/> Share"
-msgstr ""
+msgstr "<i class=\"fa fa-share-alt\"/> Deli"
 
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.embed_slide
@@ -256,6 +256,8 @@ msgid ""
 "<span class=\"badge badge-pill\" id=\"facebook-badge\">0</span>\n"
 "                                                    <i class=\"fa fa-facebook-square\"/> Facebook"
 msgstr ""
+"<span class=\"badge badge-pill\" id=\"facebook-badge\">0</span>\n"
+"                                                    <i class=\"fa fa-facebook-square\"/> Facebook"
 
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.slide_detail_view
@@ -263,6 +265,8 @@ msgid ""
 "<span class=\"badge badge-pill\" id=\"google-badge\">0</span>\n"
 "                                                    <i class=\"fa fa-google-plus-square\"/> Google+"
 msgstr ""
+"<span class=\"badge badge-pill\" id=\"google-badge\">0</span>\n"
+"                                                    <i class=\"fa fa-google-plus-square\"/> Google+"
 
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.slide_detail_view
@@ -270,6 +274,8 @@ msgid ""
 "<span class=\"badge badge-pill\" id=\"linkedin-badge\">0</span>\n"
 "                                                    <i class=\"fa fa-linkedin-square\"/> LinkedIn"
 msgstr ""
+"<span class=\"badge badge-pill\" id=\"linkedin-badge\">0</span>\n"
+"                                                    <i class=\"fa fa-linkedin-square\"/> LinkedIn"
 
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.slide_detail_view
@@ -286,6 +292,8 @@ msgid ""
 "<span class=\"badge badge-pill\" id=\"twitter-badge\">0</span>\n"
 "                                                    <i class=\"fa fa-twitter-square\"/> Twitter"
 msgstr ""
+"<span class=\"badge badge-pill\" id=\"twitter-badge\">0</span>\n"
+"                                                    <i class=\"fa fa-twitter-square\"/> Twitter"
 
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.res_config_settings_view_form
@@ -633,7 +641,7 @@ msgstr "Ne maram"
 #: model:ir.model.fields,field_description:website_slides.field_slide_slide__display_name
 #: model:ir.model.fields,field_description:website_slides.field_slide_tag__display_name
 msgid "Display Name"
-msgstr "Prikazni naziv"
+msgstr "Prikazani naziv"
 
 #. module: website_slides
 #: model:ir.model.fields,help:website_slides.field_slide_category__sequence
@@ -1358,7 +1366,7 @@ msgstr "Zaporedje"
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.slide_social_media
 msgid "Share Link"
-msgstr ""
+msgstr "Deli povezavo"
 
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.slide_detail_view
@@ -1528,6 +1536,8 @@ msgid ""
 "This video already exists in this channel <a target=\"_blank\" "
 "href=\"/slides/slide/%s\">click here to view it </a>"
 msgstr ""
+"Ta video že obstaja v tem kanalu <a target=\"_blank\" "
+"href=\"/slides/slide/%s\">kliknite tukaj, da si ga ogledate </a>"
 
 #. module: website_slides
 #: model:ir.model.fields,field_description:website_slides.field_slide_slide__image_thumb
@@ -1783,13 +1793,13 @@ msgstr "je prazno."
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.slide_detail_view
 msgid "is private"
-msgstr ""
+msgstr "je zaseben"
 
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.embed_slide
 #: model_terms:ir.ui.view,arch_db:website_slides.embed_slide_forbidden
 msgid "is private."
-msgstr ""
+msgstr "je zaseben."
 
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.slide_social_email

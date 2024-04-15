@@ -139,7 +139,7 @@ class SaleOrder(models.Model):
                 if order_line:
                     pu = self.env['account.tax']._fix_tax_included_price_company(pu, product.taxes_id, order_line[0].tax_id, self.company_id)
 
-        return {
+        res = {
             'product_id': product_id,
             'product_uom_qty': qty,
             'order_id': order_id,
@@ -147,6 +147,10 @@ class SaleOrder(models.Model):
             'price_unit': pu,
             'discount': discount,
         }
+        if hasattr(self.env['sale.order.line'], '_compute_margin'):
+            # In case sale_margin is installed:
+            res['purchase_price'] = self.env['sale.order.line']._compute_margin(order, product, product.uom_id)
+        return res
 
     @api.multi
     def _get_line_description(self, order_id, product_id, no_variant_attribute_values=None, custom_values=None):
@@ -180,12 +184,12 @@ class SaleOrder(models.Model):
 
         try:
             if add_qty:
-                add_qty = float(add_qty)
+                add_qty = int(add_qty)
         except ValueError:
             add_qty = 1
         try:
             if set_qty:
-                set_qty = float(set_qty)
+                set_qty = int(set_qty)
         except ValueError:
             set_qty = 0
         quantity = 0
@@ -290,14 +294,15 @@ class SaleOrder(models.Model):
                     'quantity': quantity,
                     'date': order.date_order,
                     'pricelist': order.pricelist_id.id,
+                    'force_company': order.company_id.id,
                 })
-                product = self.env['product.product'].with_context(product_context).browse(product_id)
-                values['price_unit'] = self.env['account.tax']._fix_tax_included_price_company(
-                    order_line._get_display_price(product),
-                    order_line.product_id.taxes_id,
-                    order_line.tax_id,
-                    self.company_id
-                )
+            product = self.env['product.product'].with_context(product_context).browse(product_id)
+            values['price_unit'] = self.env['account.tax']._fix_tax_included_price_company(
+                order_line._get_display_price(product),
+                order_line.product_id.taxes_id,
+                order_line.tax_id,
+                self.company_id
+            )
 
             order_line.write(values)
 

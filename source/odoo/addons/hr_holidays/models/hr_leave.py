@@ -12,6 +12,7 @@ from datetime import datetime, time
 from pytz import timezone, UTC
 
 from odoo import api, fields, models
+from odoo.addons.base.models.res_partner import _tz_get
 from odoo.addons.resource.models.resource import float_to_time, HOURS_PER_DAY
 from odoo.exceptions import AccessError, UserError, ValidationError
 from odoo.tools import float_compare
@@ -125,6 +126,8 @@ class HolidaysRequest(models.Model):
     employee_id = fields.Many2one(
         'hr.employee', string='Employee', index=True, readonly=True,
         states={'draft': [('readonly', False)], 'confirm': [('readonly', False)]}, default=_default_employee, track_visibility='onchange')
+    tz_mismatch = fields.Boolean(compute='_compute_tz_mismatch')
+    tz = fields.Selection(_tz_get, compute='_compute_tz')
     manager_id = fields.Many2one('hr.employee', string='Manager', readonly=True)
     department_id = fields.Many2one(
         'hr.department', string='Department', readonly=True,
@@ -190,7 +193,7 @@ class HolidaysRequest(models.Model):
     # change the column type in stable and it was defined as an int4 column
     #
     request_hour_from = fields.Selection([
-        (0, '12:00 PM'), (-1, '0:30 AM'),
+        (0, '12:00 AM'), (-1, '0:30 AM'),
         (1, '1:00 AM'), (-2, '1:30 AM'),
         (2, '2:00 AM'), (-3, '2:30 AM'),
         (3, '3:00 AM'), (-4, '3:30 AM'),
@@ -202,7 +205,7 @@ class HolidaysRequest(models.Model):
         (9, '9:00 AM'), (-10, '9:30 AM'),
         (10, '10:00 AM'), (-11, '10:30 AM'),
         (11, '11:00 AM'), (-12, '11:30 AM'),
-        (12, '12:00 AM'), (-13, '0:30 PM'),
+        (12, '12:00 PM'), (-13, '0:30 PM'),
         (13, '1:00 PM'), (-14, '1:30 PM'),
         (14, '2:00 PM'), (-15, '2:30 PM'),
         (15, '3:00 PM'), (-16, '3:30 PM'),
@@ -215,7 +218,7 @@ class HolidaysRequest(models.Model):
         (22, '10:00 PM'), (-23, '10:30 PM'),
         (23, '11:00 PM'), (-24, '11:30 PM')], string='Hour from')
     request_hour_to = fields.Selection([
-        (0, '12:00 PM'), (-1, '0:30 AM'),
+        (0, '12:00 AM'), (-1, '0:30 AM'),
         (1, '1:00 AM'), (-2, '1:30 AM'),
         (2, '2:00 AM'), (-3, '2:30 AM'),
         (3, '3:00 AM'), (-4, '3:30 AM'),
@@ -227,7 +230,7 @@ class HolidaysRequest(models.Model):
         (9, '9:00 AM'), (-10, '9:30 AM'),
         (10, '10:00 AM'), (-11, '10:30 AM'),
         (11, '11:00 AM'), (-12, '11:30 AM'),
-        (12, '12:00 AM'), (-13, '0:30 PM'),
+        (12, '12:00 PM'), (-13, '0:30 PM'),
         (13, '1:00 PM'), (-14, '1:30 PM'),
         (14, '2:00 PM'), (-15, '2:30 PM'),
         (15, '3:00 PM'), (-16, '3:30 PM'),
@@ -311,10 +314,8 @@ class HolidaysRequest(models.Model):
         else:
             hour_from = float_to_time(attendance_from.hour_from)
             hour_to = float_to_time(attendance_to.hour_to)
-
-        tz = self.env.user.tz if self.env.user.tz and not self.request_unit_custom else 'UTC'  # custom -> already in UTC
-        self.date_from = timezone(tz).localize(datetime.combine(self.request_date_from, hour_from)).astimezone(UTC).replace(tzinfo=None)
-        self.date_to = timezone(tz).localize(datetime.combine(self.request_date_to, hour_to)).astimezone(UTC).replace(tzinfo=None)
+        self.date_from = timezone(self.tz).localize(datetime.combine(self.request_date_from, hour_from)).astimezone(UTC).replace(tzinfo=None)
+        self.date_to = timezone(self.tz).localize(datetime.combine(self.request_date_to, hour_to)).astimezone(UTC).replace(tzinfo=None)
         self._onchange_leave_dates()
 
     @api.onchange('request_unit_half')
@@ -380,6 +381,26 @@ class HolidaysRequest(models.Model):
         else:
             self.number_of_days = 0
 
+    @api.depends('tz')
+    def _compute_tz_mismatch(self):
+        for leave in self:
+            leave.tz_mismatch = leave.tz != self.env.user.tz
+
+    @api.depends('request_unit_custom', 'employee_id', 'holiday_type', 'department_id.company_id.resource_calendar_id.tz', 'mode_company_id.resource_calendar_id.tz')
+    def _compute_tz(self):
+        for leave in self:
+            tz = None
+            if leave.request_unit_custom:
+                tz = 'UTC'  # custom -> already in UTC
+            elif leave.holiday_type == 'employee':
+                tz = leave.employee_id.tz
+            elif leave.holiday_type == 'department':
+                tz = leave.department_id.company_id.resource_calendar_id.tz
+            elif leave.holiday_type == 'company':
+                tz = leave.mode_company_id.resource_calendar_id.tz
+            tz = tz or self.env.user.company_id.resource_calendar_id.tz or self.env.user.tz or 'UTC'
+            leave.tz = tz
+
     @api.multi
     @api.depends('number_of_days')
     def _compute_number_of_days_display(self):
@@ -390,7 +411,7 @@ class HolidaysRequest(models.Model):
     @api.depends('number_of_days')
     def _compute_number_of_hours_display(self):
         for holiday in self:
-            calendar = holiday.employee_id.resource_calendar_id or self.env.user.company_id.resource_calendar_id
+            calendar = holiday.employee_id.sudo().resource_calendar_id or self.env.user.company_id.resource_calendar_id
             if holiday.date_from and holiday.date_to:
                 number_of_hours = calendar.get_work_hours_count(holiday.date_from, holiday.date_to)
                 holiday.number_of_hours_display = number_of_hours or (holiday.number_of_days * HOURS_PER_DAY)
@@ -431,9 +452,9 @@ class HolidaysRequest(models.Model):
             else:
                 holiday.can_approve = True
 
-    @api.constrains('date_from', 'date_to')
+    @api.constrains('date_from', 'date_to', 'state', 'employee_id')
     def _check_date(self):
-        for holiday in self:
+        for holiday in self.filtered('employee_id'):
             domain = [
                 ('date_from', '<', holiday.date_to),
                 ('date_to', '>', holiday.date_from),
@@ -490,7 +511,7 @@ class HolidaysRequest(models.Model):
                 elif leave.holiday_type == 'category':
                     target = leave.category_id.name
                 else:
-                    target = leave.employee_id.name
+                    target = leave.employee_id.sudo().name
                 if leave.leave_type_request_unit == 'hour':
                     res.append(
                         (leave.id,
@@ -639,8 +660,13 @@ class HolidaysRequest(models.Model):
     def _prepare_holidays_meeting_values(self):
         self.ensure_one()
         calendar = self.employee_id.resource_calendar_id or self.env.user.company_id.resource_calendar_id
+        if self.leave_type_request_unit == 'hour':
+            meeting_name = _("%s on Time Off : %.2f hour(s)") % (self.employee_id.name or self.category_id.name, self.number_of_hours_display)
+        else:
+            meeting_name = _("%s on Time Off : %.2f day(s)") % (self.employee_id.name or self.category_id.name, self.number_of_days)
+
         meeting_values = {
-            'name': self.display_name,
+            'name': meeting_name,
             'categ_ids': [(6, 0, [
                 self.holiday_status_id.categ_id.id])] if self.holiday_status_id.categ_id else [],
             'duration': self.number_of_days * (calendar.hours_per_day or HOURS_PER_DAY),
@@ -667,8 +693,8 @@ class HolidaysRequest(models.Model):
             'holiday_status_id': self.holiday_status_id.id,
             'date_from': self.date_from,
             'date_to': self.date_to,
-            'request_date_from': self.date_from,
-            'request_date_to': self.date_to,
+            'request_date_from': self.request_date_from,
+            'request_date_to': self.request_date_to,
             'notes': self.notes,
             'number_of_days': employee.get_work_days_data(self.date_from, self.date_to)['days'],
             'parent_id': self.id,
@@ -823,16 +849,21 @@ class HolidaysRequest(models.Model):
     def activity_update(self):
         to_clean, to_do = self.env['hr.leave'], self.env['hr.leave']
         for holiday in self:
+            start = UTC.localize(holiday.date_from).astimezone(timezone(holiday.employee_id.tz or 'UTC'))
+            end = UTC.localize(holiday.date_to).astimezone(timezone(holiday.employee_id.tz or 'UTC'))
+            note = _('New %s Request created by %s from %s to %s') % (holiday.holiday_status_id.name, holiday.create_uid.name, start, end)
             if holiday.state == 'draft':
                 to_clean |= holiday
             elif holiday.state == 'confirm':
                 holiday.activity_schedule(
                     'hr_holidays.mail_act_leave_approval',
+                    note=note,
                     user_id=holiday.sudo()._get_responsible_for_approval().id or self.env.user.id)
             elif holiday.state == 'validate1':
                 holiday.activity_feedback(['hr_holidays.mail_act_leave_approval'])
                 holiday.activity_schedule(
                     'hr_holidays.mail_act_leave_second_approval',
+                    note=note,
                     user_id=holiday.sudo()._get_responsible_for_approval().id or self.env.user.id)
             elif holiday.state == 'validate':
                 to_do |= holiday

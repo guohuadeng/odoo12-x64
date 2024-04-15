@@ -6,7 +6,7 @@
 # Martin Trigaux, 2018
 # Bole <bole@dajmi5.com>, 2018
 # Boško Stojaković <bluesoft83@gmail.com>, 2019
-# Ervin Cerović, 2019
+# Ervin Cerović, 2021
 # 
 msgid ""
 msgstr ""
@@ -14,7 +14,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-14 07:34+0000\n"
 "PO-Revision-Date: 2018-08-24 09:17+0000\n"
-"Last-Translator: Ervin Cerović, 2019\n"
+"Last-Translator: Ervin Cerović, 2021\n"
 "Language-Team: Bosnian (https://www.transifex.com/odoo/teams/41243/bs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -45,7 +45,14 @@ msgid ""
 "            Your tracking reference is\n"
 "            <strong>\n"
 "            %if object.carrier_tracking_url:\n"
-"                <a href=\"${object.carrier_tracking_url}\" target=\"_blank\">${object.carrier_tracking_ref}</a>.\n"
+"                % set multiple_carrier_tracking = object.get_multiple_carrier_tracking()\n"
+"                %if multiple_carrier_tracking:\n"
+"                    % for line in multiple_carrier_tracking:\n"
+"                        <br/><a href=\"${line[1]}\" target=\"_blank\">${line[0]}</a>\n"
+"                    % endfor\n"
+"                %else:\n"
+"                    <a href=\"${object.carrier_tracking_url}\" target=\"_blank\">${object.carrier_tracking_ref}</a>.\n"
+"                %endif\n"
 "            %else:\n"
 "                ${object.carrier_tracking_ref}.\n"
 "            %endif\n"
@@ -218,7 +225,7 @@ msgstr "Zapisnik programskih grešaka"
 #: code:addons/delivery/static/src/js/delivery_translations.js:13
 #, python-format
 msgid "Debug requests"
-msgstr ""
+msgstr "Zahtjevi za traženje grešaka"
 
 #. module: delivery
 #: model_terms:ir.actions.act_window,help:delivery.action_delivery_carrier_form
@@ -320,7 +327,7 @@ msgstr "Odredi redosljed prikaza"
 #: code:addons/delivery/static/src/js/delivery_translations.js:14
 #, python-format
 msgid "Disable debug"
-msgstr ""
+msgstr "Onemogući traženje grešaka"
 
 #. module: delivery
 #: model_terms:ir.ui.view,arch_db:delivery.choose_delivery_package_view_form
@@ -355,7 +362,7 @@ msgstr ""
 #: code:addons/delivery/static/src/js/delivery_translations.js:16
 #, python-format
 msgid "Enable debug"
-msgstr ""
+msgstr "Omogući traženje grešaka"
 
 #. module: delivery
 #: model:ir.model.fields,field_description:delivery.field_delivery_carrier__prod_environment
@@ -574,7 +581,7 @@ msgstr "Prevoznik nije postavljen za ovaj prodajni nalog."
 #: code:addons/delivery/static/src/js/delivery_translations.js:15
 #, python-format
 msgid "No debug"
-msgstr ""
+msgstr "Bez traženja grešaka"
 
 #. module: delivery
 #: code:addons/delivery/models/delivery_grid.py:102
@@ -612,14 +619,14 @@ msgid "Package Code"
 msgstr "Šifra paketa"
 
 #. module: delivery
-#: code:addons/delivery/models/stock_picking.py:35
-#: code:addons/delivery/models/stock_picking.py:122
+#: code:addons/delivery/models/stock_picking.py:40
+#: code:addons/delivery/models/stock_picking.py:134
 #, python-format
 msgid "Package Details"
 msgstr "Detalji paketa"
 
 #. module: delivery
-#: code:addons/delivery/wizard/choose_delivery_package.py:52
+#: code:addons/delivery/wizard/choose_delivery_package.py:60
 #, python-format
 msgid "Package too heavy!"
 msgstr ""
@@ -682,7 +689,7 @@ msgstr ""
 #: code:addons/delivery/static/src/js/delivery_translations.js:9
 #, python-format
 msgid "Production Environment"
-msgstr ""
+msgstr "Proizvodno okruženje"
 
 #. module: delivery
 #: model:ir.model.fields,field_description:delivery.field_delivery_carrier__delivery_type
@@ -751,7 +758,7 @@ msgstr ""
 "Postavi na Tačno ako su vaši kredencijali certificirani za proizvodnju."
 
 #. module: delivery
-#: code:addons/delivery/models/stock_picking.py:171
+#: code:addons/delivery/models/stock_picking.py:184
 #, python-format
 msgid ""
 "Shipment sent to carrier %s for shipping with tracking number %s<br/>Cost: "
@@ -792,21 +799,21 @@ msgstr "Kretanje zalihe"
 #: code:addons/delivery/static/src/js/delivery_translations.js:12
 #, python-format
 msgid "Switch to production environment"
-msgstr ""
+msgstr "Prebaci na proizvodno okruženje"
 
 #. module: delivery
 #. openerp-web
 #: code:addons/delivery/static/src/js/delivery_translations.js:10
 #, python-format
 msgid "Switch to test environment"
-msgstr ""
+msgstr "Prebaci na testno okruženje"
 
 #. module: delivery
 #. openerp-web
 #: code:addons/delivery/static/src/js/delivery_translations.js:11
 #, python-format
 msgid "Test Environment"
-msgstr ""
+msgstr "Testno okruženje"
 
 #. module: delivery
 #: model:delivery.carrier,name:delivery.delivery_carrier
@@ -816,7 +823,7 @@ msgid "The Poste"
 msgstr "Brza pošta"
 
 #. module: delivery
-#: code:addons/delivery/wizard/choose_delivery_package.py:53
+#: code:addons/delivery/wizard/choose_delivery_package.py:61
 #, python-format
 msgid ""
 "The weight of your package is higher than the maximum weight authorized for "
@@ -967,7 +974,7 @@ msgid "Width must be positive"
 msgstr "Širina mora biti pozitivna"
 
 #. module: delivery
-#: code:addons/delivery/models/stock_picking.py:222
+#: code:addons/delivery/models/stock_picking.py:236
 #, python-format
 msgid ""
 "You are shipping different packaging types in the same shipment.\n"
@@ -988,7 +995,7 @@ msgid "You have multiple tracker links, they are available in the chatter."
 msgstr ""
 
 #. module: delivery
-#: code:addons/delivery/models/stock_picking.py:185
+#: code:addons/delivery/models/stock_picking.py:199
 #, python-format
 msgid ""
 "Your delivery method has no redirect on courier provider's website to track "

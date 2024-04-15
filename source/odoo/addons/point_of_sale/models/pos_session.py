@@ -34,7 +34,7 @@ class PosSession(models.Model):
                         _("You cannot confirm all orders of this session, because they have not the 'paid' status.\n"
                           "{reference} is in state {state}, total amount: {total}, paid: {paid}").format(
                             reference=order.pos_reference or order.name,
-                            state=order.state,
+                            state=dict(order._fields['state']._description_selection(self.env)).get(order.state),
                             total=order.amount_total,
                             paid=order.amount_paid,
                         ))
@@ -259,6 +259,7 @@ class PosSession(models.Model):
             session.write({'state': 'closing_control', 'stop_at': fields.Datetime.now()})
             if not session.config_id.cash_control:
                 session.action_pos_session_close()
+        return True
 
     @api.multi
     def _check_pos_session_balance(self):
@@ -271,6 +272,7 @@ class PosSession(models.Model):
     def action_pos_session_validate(self):
         self._check_pos_session_balance()
         self.action_pos_session_close()
+        return True
 
     @api.multi
     def action_pos_session_close(self):

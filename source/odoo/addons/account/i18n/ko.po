@@ -12,7 +12,7 @@
 # Martin Trigaux, 2018
 # Link Up링크업 <linkup.way@gmail.com>, 2018
 # Linkup <link-up@naver.com>, 2019
-# JH CHOI <hwangtog@gmail.com>, 2019
+# JH CHOI <hwangtog@gmail.com>, 2021
 # 
 msgid ""
 msgstr ""
@@ -20,7 +20,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-14 07:33+0000\n"
 "PO-Revision-Date: 2018-08-24 09:14+0000\n"
-"Last-Translator: JH CHOI <hwangtog@gmail.com>, 2019\n"
+"Last-Translator: JH CHOI <hwangtog@gmail.com>, 2021\n"
 "Language-Team: Korean (https://www.transifex.com/odoo/teams/41243/ko/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -432,6 +432,8 @@ msgid ""
 "<span class=\"o_form_label\">Rounding Method</span>\n"
 "                                    <span class=\"fa fa-lg fa-building-o\" title=\"Values set here are company-specific.\" aria-label=\"Values set here are company-specific.\" groups=\"base.group_multi_company\" role=\"img\"/>"
 msgstr ""
+"<span class=\"o_form_label\">반올림 방법</span>\n"
+"                                    <span class=\"fa fa-lg fa-building-o\" title=\"Values set here are company-specific.\" aria-label=\"Values set here are company-specific.\" groups=\"base.group_multi_company\" role=\"img\"/>"
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.view_payment_term_line_form
@@ -456,6 +458,8 @@ msgid ""
 "<span groups=\"account.group_show_line_subtotals_tax_excluded\">Amount</span>\n"
 "                                    <span groups=\"account.group_show_line_subtotals_tax_included\">Total Price</span>"
 msgstr ""
+"<span groups=\"account.group_show_line_subtotals_tax_excluded\">수량</span>\n"
+"                                    <span groups=\"account.group_show_line_subtotals_tax_included\">총 금액</span>"
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.account_journal_dashboard_kanban_view
@@ -566,6 +570,11 @@ msgstr "<span>원금</span>"
 #: model_terms:ir.ui.view,arch_db:account.report_invoice_document
 msgid "<span>Quantity</span>"
 msgstr "<span>수량</span>"
+
+#. module: account
+#: model_terms:ir.ui.view,arch_db:account.report_payment_receipt_document
+msgid "<span>Reference</span>"
+msgstr "<span>참조</span>"
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.account_journal_dashboard_kanban_view
@@ -836,6 +845,10 @@ msgid ""
 "either in 'Tax-Included' or in 'Tax-Excluded' mode\n"
 "(or switch twice the mode if you are already in the desired one)."
 msgstr ""
+"사용자는 B2B 세금과 B2C 세금을 동시에 가질 수 없습니다.\n"
+"일반 설정으로 이동하여 제품 가격을 '세금 포함' 또는 '세금 제외' 상태로 \n"
+"표시하도록 선택해야 합니다.\n"
+"(또는 이미 원하는 상태에 있는 경우 상태를 두 번 전환하십시오)."
 
 #. module: account
 #: model:res.groups,name:account.group_warning_account
@@ -3444,7 +3457,7 @@ msgstr "작성자"
 #: code:addons/account/models/account_invoice.py:419
 #, python-format
 msgid "Created by: %s"
-msgstr ""
+msgstr "작성자 : %s"
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_account__create_date
@@ -4611,6 +4624,7 @@ msgstr "재무 기간"
 #: model:ir.model.fields,field_description:account.field_account_invoice_report__fiscal_position_id
 #: model:ir.model.fields,field_description:account.field_res_partner__property_account_position_id
 #: model:ir.model.fields,field_description:account.field_res_users__property_account_position_id
+#: model_terms:ir.ui.view,arch_db:account.view_account_position_filter
 #: model_terms:ir.ui.view,arch_db:account.view_account_position_form
 #: model_terms:ir.ui.view,arch_db:account.view_account_position_template_search
 #: model_terms:ir.ui.view,arch_db:account.view_account_position_template_tree
@@ -4970,34 +4984,34 @@ msgstr "하프-업"
 #. module: account
 #: model:ir.model.fields,field_description:account.field_res_config_settings__has_accounting_entries
 msgid "Has Accounting Entries"
-msgstr "계좌 항목이 있음"
+msgstr "계좌 항목 여부"
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_payment__has_invoices
 msgid "Has Invoices"
-msgstr "청구서가 있음"
+msgstr "송장 여부"
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_invoice__has_outstanding
 msgid "Has Outstanding"
-msgstr "미불금이 있음"
+msgstr "미처리 여부"
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_res_partner__has_unreconciled_entries
 #: model:ir.model.fields,field_description:account.field_res_users__has_unreconciled_entries
 msgid "Has Unreconciled Entries"
-msgstr "비조정 항목이 있음"
+msgstr "비조정 항목 여부"
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_setup_bank_manual_config__qr_code_valid
 msgid "Has all required arguments"
-msgstr "필요한 모든 인수가 있음"
+msgstr "필요한 모든 인수가 있는지 여부"
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_invoice_send__has_error
 #: model:ir.model.fields,help:account.field_account_invoice_send__has_error
 msgid "Has error"
-msgstr "오류가 있음"
+msgstr "오류 여부"
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_abstract_payment__hide_payment_method
@@ -5438,7 +5452,7 @@ msgstr "인코텀은 구매자와 판매자 간에 거래 비용과 책임을 �
 #. module: account
 #: model:ir.model.fields,help:account.field_account_move_line__tax_line_id
 msgid "Indicates that this journal item is a tax line"
-msgstr ""
+msgstr "이 분개 항목이 세금 내역임을 나타냅니다."
 
 #. module: account
 #. openerp-web
@@ -7380,7 +7394,7 @@ msgstr "자산보유자 지불"
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_move_line__tax_line_id
 msgid "Originator tax"
-msgstr "자산보유자 세금"
+msgstr "원산지 세금"
 
 #. module: account
 #: model:account.account.type,name:account.data_account_type_other_income
@@ -7929,6 +7943,12 @@ msgid ""
 "Please install a chart of accounts or create a miscellaneous journal before "
 "proceeding."
 msgstr "계정과목 일람표를 설치하거나 처리 전에 기타 분개장을 생성해 주십시오."
+
+#. module: account
+#: code:addons/account/models/account_cash_rounding.py:33
+#, python-format
+msgid "Please set a strictly positive rounding value."
+msgstr "엄격히 양의 반올림 값을 설정하십시오."
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.report_invoice_document
@@ -8679,7 +8699,7 @@ msgstr "SEPA 신용 이전(SCT)"
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.res_config_settings_view_form
 msgid "SEPA Direct Debit (SDD)"
-msgstr "SEPA 자동 이체(SDD)"
+msgstr "SEPA 출금 이체 (SDD)"
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.res_config_settings_view_form
@@ -9681,12 +9701,12 @@ msgstr "적용할 세금"
 #. module: account
 #: selection:res.config.settings,show_line_subtotals_tax_selection:0
 msgid "Tax-Excluded"
-msgstr "반출-세금"
+msgstr "세금-제외"
 
 #. module: account
 #: selection:res.config.settings,show_line_subtotals_tax_selection:0
 msgid "Tax-Included"
-msgstr "반입-세금"
+msgstr "세금-포함"
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.res_config_settings_view_form
@@ -9721,7 +9741,7 @@ msgstr "세금 일치 작업"
 #. module: account
 #: model:ir.model.fields,help:account.field_account_move_line__tax_ids
 msgid "Taxes that apply on the base amount"
-msgstr ""
+msgstr "기본 금액에 적용되는 세금"
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.view_account_tax_template_search
@@ -9797,9 +9817,9 @@ msgstr ""
 #: model:ir.model.fields,help:account.field_account_payment__multi
 #: model:ir.model.fields,help:account.field_account_register_payments__multi
 msgid ""
-"Technical field indicating if the user selected invoices from multiple "
-"partners or from different types."
-msgstr "사용자가 선택한 청구서가 여러 협력사의 것인지, 여러 유형으로 분리되어 있는지 나타내는 기술 필드입니다."
+"Technical field indicating if the registering payment will generate multiple"
+" payments or not."
+msgstr ""
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_invoice_refund__refund_only
@@ -10205,13 +10225,19 @@ msgstr "재정 상태는 이 연락처에 사용되는 세금/계정을 결정�
 msgid ""
 "The following invoice(s) will not be sent by email, because the customers "
 "don't have email address."
-msgstr ""
+msgstr "고객에게 이메일 주소가 없으므로 다음 송장을 이메일로 보내지 않습니다."
 
 #. module: account
 #: code:addons/account/models/account.py:564
 #, python-format
-msgid "The holder of a journal's bank account must be the company (%s)."
-msgstr "분개장의 은행 계정를 보유한 대상은 회사여야 합니다(%s)."
+msgid ""
+"The holder of the bank account of a \"Bank\" type journal must be the company (%s).\n"
+"However, the holder of \"%s\" is \"%s\".\n"
+"Please select another bank account or change the holder of \"%s\"."
+msgstr ""
+"\"은행\" 유형 분개장의 은행 계좌 보유자는 회사(%s)여야 합니다.\n"
+"그러나 \"%s\"의 보유자는 \"%s\"입니다.\n"
+"다른 은행 계좌를 선택하거나 \"%s\"의 소유자를 변경하십시오."
 
 #. module: account
 #: model:ir.model.fields,help:account.field_account_invoice_line__account_id
@@ -11158,7 +11184,7 @@ msgstr "현금주의 사용"
 #. module: account
 #: model:ir.model.fields,field_description:account.field_res_config_settings__module_account_sepa_direct_debit
 msgid "Use SEPA Direct Debit"
-msgstr "SEPA 자동 이체 사용"
+msgstr "SEPA 출금 이체 사용"
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_move_reversal__journal_id
@@ -11612,6 +11638,14 @@ msgid ""
 msgstr "두 회계 연도는 겹칠 수 없습니다. 회계 연도의 시작 및 종료 날짜를 수정하십시오."
 
 #. module: account
+#: code:addons/account/models/partner.py:441
+#, python-format
+msgid ""
+"You can't change the company of a partner if the latter already has some "
+"invoices."
+msgstr ""
+
+#. module: account
 #: code:addons/account/models/account_invoice.py:1784
 #, python-format
 msgid "You can only delete an invoice line if the invoice is in draft state."
@@ -12043,7 +12077,7 @@ msgstr "자동으로 조정되었습니다."
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_invoice_send__invoice_without_email
 msgid "invoice(s) that will not be sent"
-msgstr ""
+msgstr "발송되지 않을 송장"
 
 #. module: account
 #. openerp-web

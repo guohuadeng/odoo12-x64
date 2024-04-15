@@ -5,13 +5,15 @@
 # Translators:
 # Martin Trigaux, 2018
 # Dorin Hongu <dhongu@gmail.com>, 2018
+# Foldi Robert <foldirobert@nexterp.ro>, 2021
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server saas~11.5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-09-21 13:17+0000\n"
-"PO-Revision-Date: 2018-09-21 13:17+0000\n"
-"Last-Translator: Dorin Hongu <dhongu@gmail.com>, 2018\n"
+"PO-Revision-Date: 2018-08-24 09:20+0000\n"
+"Last-Translator: Foldi Robert <foldirobert@nexterp.ro>, 2021\n"
 "Language-Team: Romanian (https://www.transifex.com/odoo/teams/41243/ro/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -33,7 +35,7 @@ msgstr "Clicuri"
 #. module: link_tracker
 #: sql_constraint:link.tracker.code:0
 msgid "Code must be unique."
-msgstr ""
+msgstr "Codul trebuie să fie unic"
 
 #. module: link_tracker
 #: model:ir.model.fields,field_description:link_tracker.field_link_tracker__link_code_ids
@@ -89,7 +91,7 @@ msgstr ""
 #. module: link_tracker
 #: model:ir.model.fields,field_description:link_tracker.field_link_tracker__short_url_host
 msgid "Host of the short URL"
-msgstr ""
+msgstr "Gazda URL-ului scurt"
 
 #. module: link_tracker
 #: model:ir.model.fields,field_description:link_tracker.field_link_tracker__id
@@ -101,7 +103,7 @@ msgstr "ID"
 #. module: link_tracker
 #: model:ir.model.fields,field_description:link_tracker.field_link_tracker_click__ip
 msgid "Internet Protocol"
-msgstr ""
+msgstr "Protocol Internet"
 
 #. module: link_tracker
 #: model:ir.model.fields,field_description:link_tracker.field_link_tracker____last_update
@@ -135,17 +137,17 @@ msgstr "Link"
 #: model:ir.model,name:link_tracker.model_link_tracker
 #: model:ir.ui.menu,name:link_tracker.menu_url_shortener_main
 msgid "Link Tracker"
-msgstr ""
+msgstr "Urmărire Link"
 
 #. module: link_tracker
 #: model:ir.model,name:link_tracker.model_link_tracker_click
 msgid "Link Tracker Click"
-msgstr ""
+msgstr "Faceți clic pe Link Tracker"
 
 #. module: link_tracker
 #: model:ir.model,name:link_tracker.model_link_tracker_code
 msgid "Link Tracker Code"
-msgstr ""
+msgstr "Cod de urmărire a linkurilor"
 
 #. module: link_tracker
 #: model:ir.model.fields,field_description:link_tracker.field_link_tracker__medium_id
@@ -155,7 +157,7 @@ msgstr "Mediu"
 #. module: link_tracker
 #: model:ir.model.fields,field_description:link_tracker.field_link_tracker__count
 msgid "Number of Clicks"
-msgstr ""
+msgstr "Nr. Click-uri"
 
 #. module: link_tracker
 #: model:ir.model.fields,field_description:link_tracker.field_link_tracker__title
@@ -165,17 +167,17 @@ msgstr "Titlul pagină"
 #. module: link_tracker
 #: model:ir.model.fields,field_description:link_tracker.field_link_tracker__redirected_url
 msgid "Redirected URL"
-msgstr ""
+msgstr "Adresă URL redirecționată"
 
 #. module: link_tracker
 #: model:ir.model.fields,field_description:link_tracker.field_link_tracker_code__code
 msgid "Short URL Code"
-msgstr ""
+msgstr "Cod URL scurt"
 
 #. module: link_tracker
 #: model:ir.model.fields,field_description:link_tracker.field_link_tracker__code
 msgid "Short URL code"
-msgstr ""
+msgstr "Cod URL scurt"
 
 #. module: link_tracker
 #: model:ir.model.fields,field_description:link_tracker.field_link_tracker__source_id
@@ -185,12 +187,12 @@ msgstr "Sursa"
 #. module: link_tracker
 #: model:ir.actions.act_window,name:link_tracker.action_view_click_statistics
 msgid "Statistics of Clicks"
-msgstr ""
+msgstr "Statistici ale clicurilor"
 
 #. module: link_tracker
 #: model:ir.model.fields,field_description:link_tracker.field_link_tracker__url
 msgid "Target URL"
-msgstr ""
+msgstr "Adresa URL vizată"
 
 #. module: link_tracker
 #: model:ir.model.fields,help:link_tracker.field_link_tracker__campaign_id
@@ -198,11 +200,14 @@ msgid ""
 "This is a name that helps you keep track of your different campaign efforts,"
 " e.g. Fall_Drive, Christmas_Special"
 msgstr ""
+"Acesta este un nume care vă ajută să țineți evidența diferitelor eforturi de"
+" campanie, e.g. Fall_Drive, Christmas_Special"
 
 #. module: link_tracker
 #: model:ir.model.fields,help:link_tracker.field_link_tracker__medium_id
 msgid "This is the method of delivery, e.g. Postcard, Email, or Banner Ad"
 msgstr ""
+"Aceasta este metoda de livrare, de ex. Carte poștală, e-mail sau Banner"
 
 #. module: link_tracker
 #: model:ir.model.fields,help:link_tracker.field_link_tracker__source_id
@@ -210,11 +215,13 @@ msgid ""
 "This is the source of the link, e.g. Search Engine, another domain, or name "
 "of email list"
 msgstr ""
+"Aceasta este sursa link-ului, de ex. Motor de căutare, un alt domeniu sau "
+"numele listei de e-mailuri"
 
 #. module: link_tracker
 #: model_terms:ir.ui.view,arch_db:link_tracker.view_link_tracker_filter
 msgid "Title and URL"
-msgstr ""
+msgstr "Titlu și adresă URL"
 
 #. module: link_tracker
 #: model_terms:ir.ui.view,arch_db:link_tracker.view_link_tracker_filter
@@ -224,23 +231,23 @@ msgstr ""
 #. module: link_tracker
 #: model:ir.model.fields,field_description:link_tracker.field_link_tracker__short_url
 msgid "Tracked URL"
-msgstr ""
+msgstr "Adresa URL urmărită"
 
 #. module: link_tracker
 #: model_terms:ir.ui.view,arch_db:link_tracker.view_link_tracker_form
 msgid "Visit Page"
-msgstr ""
+msgstr "Vizitați pagina"
 
 #. module: link_tracker
 #: code:addons/link_tracker/models/link_tracker.py:142
 #, python-format
 msgid "Visit Webpage"
-msgstr ""
+msgstr "Accesați pagina web"
 
 #. module: link_tracker
 #: model_terms:ir.ui.view,arch_db:link_tracker.view_link_tracker_form
 msgid "Website Link"
-msgstr ""
+msgstr "Website Link"
 
 #. module: link_tracker
 #: model_terms:ir.ui.view,arch_db:link_tracker.view_link_tracker_click_form

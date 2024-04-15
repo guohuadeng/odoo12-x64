@@ -124,7 +124,8 @@ class Company(models.Model):
 
     @api.onchange('state_id')
     def _onchange_state(self):
-        self.country_id = self.state_id.country_id
+        if self.state_id.country_id:
+            self.country_id = self.state_id.country_id
 
     @api.multi
     def on_change_country(self, country_id):
@@ -211,6 +212,7 @@ class Company(models.Model):
             'phone': vals.get('phone'),
             'website': vals.get('website'),
             'vat': vals.get('vat'),
+            'country_id': vals.get('country_id'),
         })
         vals['partner_id'] = partner.id
         self.clear_caches()

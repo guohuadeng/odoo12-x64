@@ -441,13 +441,27 @@ actual arch.
             custom_view.unlink()
 
         self.clear_caches()
-        return super(View, self).write(self._compute_defaults(vals))
+
+        res = super(View, self).write(self._compute_defaults(vals))
+
+        # Check the xml of the view if it gets re-activated.
+        # Ideally, `active` shoud have been added to the `api.constrains` of `_check_xml`,
+        # but the ORM writes and validates regular field (such as `active`) before inverse fields (such as `arch`),
+        # and therefore when writing `active` and `arch` at the same time, `_check_xml` is called twice,
+        # and the first time it tries to validate the view without the modification to the arch,
+        # which is problematic if the user corrects the view at the same time he re-enables it.
+        if vals.get('active'):
+            # Call `_validate_fields` instead of `_check_xml` to have the regular constrains error dialog
+            # instead of the traceback dialog.
+            self._validate_fields(['arch_db'])
+
+        return res
 
     def unlink(self):
         # if in uninstall mode and has children views, emulate an ondelete cascade
         if self.env.context.get('_force_unlink', False) and self.mapped('inherit_children_ids'):
             self.mapped('inherit_children_ids').unlink()
-        super(View, self).unlink()
+        return super(View, self).unlink()
 
     @api.multi
     @api.returns('self', lambda value: value.id)
@@ -483,6 +497,26 @@ actual arch.
     # Inheritance mecanism
     #------------------------------------------------------
     @api.model
+    def _get_inheriting_views(self, view_id, model):
+        conditions = self._get_inheriting_views_arch_domain(view_id, model)
+
+        if self.pool._init and not self._context.get('load_all_views'):
+            # Module init currently in progress, only consider views from
+            # modules whose code is already loaded
+
+            # Search terms inside an OR branch in a domain
+            # cannot currently use relationships that are
+            # not required. The root cause is the INNER JOIN
+            # used to implement it.
+            modules = tuple(self.pool._init_modules) + (self._context.get('install_module'),)
+            views = self.search(conditions + [('model_ids.module', 'in', modules)])
+            views_cond = [('id', 'in', list(self._context.get('check_view_ids') or (0,)) + views.ids)]
+            views = self.search(conditions + views_cond, order=INHERIT_ORDER)
+        else:
+            views = self.search(conditions, order=INHERIT_ORDER)
+        return views
+
+    @api.model
     def _get_inheriting_views_arch_domain(self, view_id, model):
         return [
             ['inherit_id', '=', view_id],
@@ -505,23 +539,9 @@ actual arch.
            :rtype: list of tuples
            :return: [(view_arch,view_id), ...]
         """
+
         user_groups = self.env.user.groups_id
-        conditions = self._get_inheriting_views_arch_domain(view_id, model)
-
-        if self.pool._init and not self._context.get('load_all_views'):
-            # Module init currently in progress, only consider views from
-            # modules whose code is already loaded
-
-            # Search terms inside an OR branch in a domain
-            # cannot currently use relationships that are
-            # not required. The root cause is the INNER JOIN
-            # used to implement it.
-            modules = tuple(self.pool._init_modules) + (self._context.get('install_module'),)
-            views = self.search(conditions + [('model_ids.module', 'in', modules)])
-            views_cond = [('id', 'in', list(self._context.get('check_view_ids') or (0,)) + views.ids)]
-            views = self.search(conditions + views_cond, order=INHERIT_ORDER)
-        else:
-            views = self.search(conditions, order=INHERIT_ORDER)
+        views = self._get_inheriting_views(view_id, model)
 
         return [(view.arch, view.id)
                 for view in views.sudo()
@@ -586,7 +606,14 @@ actual arch.
     def inherit_branding(self, specs_tree, view_id, root_id):
         for node in specs_tree.iterchildren(tag=etree.Element):
             xpath = node.getroottree().getpath(node)
-            if node.tag == 'data' or node.tag == 'xpath' or node.get('position') or node.get('t-field'):
+            if node.tag == 'data' or node.tag == 'xpath' or node.get('position'):
+                self.inherit_branding(node, view_id, root_id)
+            elif node.get('t-field'):
+                # Note: 'data-oe-field-xpath' and not 'data-oe-xpath' as this
+                # was introduced as a fix. To avoid breaking customizations and
+                # to make a minimal diff fix, a separated attribute was used.
+                # TODO Try to use a common attribute in master (14.1).
+                node.set('data-oe-field-xpath', xpath)
                 self.inherit_branding(node, view_id, root_id)
             else:
                 node.set('data-oe-id', str(view_id))
@@ -1237,9 +1264,16 @@ actual arch.
         node_path = e.get('data-oe-xpath')
         if node_path is None:
             node_path = "%s/%s[%d]" % (parent_xpath, e.tag, index_map[e.tag])
-        if branding and not (e.get('data-oe-model') or e.get('t-field')):
-            e.attrib.update(branding)
-            e.set('data-oe-xpath', node_path)
+        if branding:
+            if e.get('t-field'):
+                # Note: 'data-oe-field-xpath' and not 'data-oe-xpath' as this
+                # was introduced as a fix. To avoid breaking customizations and
+                # to make a minimal diff fix, a separated attribute was used.
+                # TODO Try to use a common attribute in master (14.1).
+                e.set('data-oe-field-xpath', node_path)
+            elif not e.get('data-oe-model'):
+                e.attrib.update(branding)
+                e.set('data-oe-xpath', node_path)
         if not e.get('data-oe-model'):
             return
 
@@ -1258,7 +1292,7 @@ actual arch.
                 # running index by tag type, for XPath query generation
                 indexes = collections.defaultdict(lambda: 0)
                 for child in e.iterchildren(tag=etree.Element):
-                    if child.get('data-oe-xpath'):
+                    if child.get('data-oe-xpath') or child.get('data-oe-field-xpath'):
                         # injected by view inheritance, skip otherwise
                         # generated xpath is incorrect
                         # Also, if a node is known to have been replaced during applying xpath
@@ -1283,7 +1317,7 @@ actual arch.
         :rtype: boolean
         """
         return any(
-            (attr in ('data-oe-model', 'group') or (attr.startswith('t-')))
+            (attr in ('data-oe-model', 'groups') or (attr.startswith('t-')))
             for attr in node.attrib
         )
 
@@ -1469,3 +1503,51 @@ actual arch.
                 view._check_xml()
             except Exception as e:
                 self.raise_view_error("Can't validate view:\n%s" % e, view.id)
+
+    def _create_all_specific_views(self, processed_modules):
+        """To be overriden and have specific view behaviour on create"""
+        pass
+
+    def _get_specific_views(self):
+        """ Given a view, return a record set containing all the specific views
+            for that view's key.
+        """
+        self.ensure_one()
+        # Only qweb views have a specific conterpart
+        if self.type != 'qweb':
+            return self.env['ir.ui.view']
+        # A specific view can have a xml_id if exported/imported but it will not be equals to it's key (only generic view will).
+        return self.with_context(active_test=False).search([('key', '=', self.key)]).filtered(lambda r: not r.xml_id == r.key)
+
+    def _load_records_write(self, values):
+        """ During module update, when updating a generic view, we should also
+            update its specific views (COW'd).
+            Note that we will only update unmodified fields. That will mimic the
+            noupdate behavior on views having an ir.model.data.
+        """
+        if self.type == 'qweb':
+            for cow_view in self._get_specific_views():
+                authorized_vals = {}
+                for key in values:
+                    if key != 'inherit_id' and cow_view[key] == self[key]:
+                        authorized_vals[key] = values[key]
+                # if inherit_id update, replicate change on cow view but
+                # only if that cow view inherit_id wasn't manually changed
+                inherit_id = values.get('inherit_id')
+                if inherit_id and self.inherit_id.id != inherit_id and \
+                   cow_view.inherit_id.key == self.inherit_id.key:
+                    self._load_records_write_on_cow(cow_view, inherit_id, authorized_vals)
+                else:
+                    cow_view.with_context(no_cow=True).write(authorized_vals)
+        super(View, self)._load_records_write(values)
+
+    def _load_records_write_on_cow(self, cow_view, inherit_id, values):
+        # for modules updated before `website`, we need to
+        # store the change to replay later on cow views
+        if not hasattr(self.pool, 'website_views_to_adapt'):
+            self.pool.website_views_to_adapt = []
+        self.pool.website_views_to_adapt.append((
+            cow_view.id,
+            inherit_id,
+            values,
+        ))

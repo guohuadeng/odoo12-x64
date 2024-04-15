@@ -170,7 +170,12 @@ class IrHttp(models.AbstractModel):
                 return serve
 
         # Don't handle exception but use werkzeug debugger if server in --dev mode
-        if 'werkzeug' in tools.config['dev_mode'] and not isinstance(exception, werkzeug.exceptions.NotFound):
+        # Don't intercept JSON request to respect the JSON Spec and return exception as JSON
+        # "The Response is expressed as a single JSON Object, with the following members:
+        #   jsonrpc, result, error, id"
+        if ('werkzeug' in tools.config['dev_mode']
+                and not isinstance(exception, werkzeug.exceptions.NotFound)
+                and request._request_type != 'json'):
             raise exception
 
         try:
@@ -344,12 +349,14 @@ class IrHttp(models.AbstractModel):
             content = obj[field] or ''
 
         # filename
+        default_filename = False
         if not filename:
             if filename_field in obj:
                 filename = obj[filename_field]
             if not filename and module_resource_path:
                 filename = os.path.basename(module_resource_path)
             if not filename:
+                default_filename = True
                 filename = "%s-%s-%s" % (obj._name, obj.id, field)
 
         # mimetype
@@ -370,7 +377,7 @@ class IrHttp(models.AbstractModel):
 
         # extension
         _, existing_extension = os.path.splitext(filename)
-        if not existing_extension:
+        if not existing_extension or default_filename:
             extension = mimetypes.guess_extension(mimetype)
             if extension:
                 filename = "%s%s" % (filename, extension)

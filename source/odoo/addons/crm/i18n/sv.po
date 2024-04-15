@@ -5,15 +5,20 @@
 # Translators:
 # Haojun Zou <apollo_zhj@msn.com>, 2019
 # Zou Haojun <haojunzou84@gmail.com>, 2019
-# Kristoffer Grundström <hamnisdude@gmail.com>, 2019
+# Kristoffer Grundström <lovaren@gmail.com>, 2019
 # Christelle Wehbe <libanon_cristelle@hotmail.com>, 2019
 # Martin Wilderoth <martin.wilderoth@linserv.se>, 2019
 # Stephen Schmidt <stephen.schmidt@linserv.se>, 2019
 # Robert Frykelius <robert.frykelius@linserv.se>, 2019
 # Martin Trigaux, 2019
-# Kim Asplund <kim.asplund@gmail.com>, 2019
 # Chrille Hedberg <hedberg.chrille@gmail.com>, 2019
-# Anders Wallenquist <anders.wallenquist@vertel.se>, 2019
+# Kim Asplund <kim.asplund@gmail.com>, 2020
+# Lisa <lisa.oskoma@vertel.se>, 2020
+# Mikael Holm <mikael.holm@vertel.se>, 2020
+# Anders Wallenquist <anders.wallenquist@vertel.se>, 2021
+# Jakob Krabbe <jakob.krabbe@vertel.se>, 2021
+# STefan Rundgren <stefanrundgren@cellglas.com>, 2021
+# Simon Strömberg <simon.stromberg@vertel.se>, 2021
 # 
 msgid ""
 msgstr ""
@@ -21,7 +26,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-09 10:31+0000\n"
 "PO-Revision-Date: 2018-08-24 09:17+0000\n"
-"Last-Translator: Anders Wallenquist <anders.wallenquist@vertel.se>, 2019\n"
+"Last-Translator: Simon Strömberg <simon.stromberg@vertel.se>, 2021\n"
 "Language-Team: Swedish (https://www.transifex.com/odoo/teams/41243/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -38,7 +43,7 @@ msgstr "# Möten"
 #. module: crm
 #: model_terms:digest.tip,tip_description:crm.digest_tip_crm_0
 msgid "% endif"
-msgstr ""
+msgstr "% endif"
 
 #. module: crm
 #: model_terms:digest.tip,tip_description:crm.digest_tip_crm_0
@@ -121,6 +126,8 @@ msgid ""
 "<i class=\"fa fa-fw fa-calendar\" aria-label=\"Meetings\" role=\"img\" "
 "title=\"Meetings\"/>"
 msgstr ""
+"<i class=\"fa fa-fw fa-calendar\" aria-label=\"Meetings\" role=\"img\" "
+"title=\"Meetings\"/>"
 
 #. module: crm
 #: model_terms:ir.ui.view,arch_db:crm.crm_lead_partner_kanban_view
@@ -128,6 +135,8 @@ msgid ""
 "<i class=\"fa fa-fw fa-star\" aria-label=\"Favorites\" role=\"img\" "
 "title=\"Favorites\"/>"
 msgstr ""
+"<i class=\"fa fa-fw fa-star\" aria-label=\"Favorites\" role=\"img\" "
+"title=\"Favorites\"/>"
 
 #. module: crm
 #: code:addons/crm/models/crm_team.py:139
@@ -155,6 +164,14 @@ msgstr ""
 "automatiskt knutna till dina affärsmöjligheter och få svar "
 "automatiskt.</p><p class=\"mb0\">Skriv <i>'@'</i> för att nämna personer - "
 "fungerar som cc när du skickar e-post.</p>"
+
+#. module: crm
+#: code:addons/crm/models/crm_team.py:152
+#, python-format
+msgid ""
+"<p>As you don't belong to any Sales Team, Odoo opens the first one by "
+"default.</p>"
+msgstr ""
 
 #. module: crm
 #. openerp-web
@@ -228,12 +245,12 @@ msgstr "Aktiviteter att göra"
 #. module: crm
 #: model:ir.model.fields,field_description:crm.field_crm_lead__activity_state
 msgid "Activity State"
-msgstr ""
+msgstr "Aktivitetsstatus"
 
 #. module: crm
 #: model:ir.model.fields,field_description:crm.field_crm_activity_report__mail_activity_type_id
 msgid "Activity Type"
-msgstr ""
+msgstr "Aktivitetstyp"
 
 #. module: crm
 #: model:ir.ui.menu,name:crm.crm_team_menu_config_activity_types
@@ -369,7 +386,7 @@ msgstr "Ändra sannolikhet automatiskt"
 #. module: crm
 #: model_terms:ir.ui.view,arch_db:crm.crm_lost_reason_view_form
 msgid "Channel"
-msgstr "Kanal"
+msgstr "Säljkanal"
 
 #. module: crm
 #: model:ir.model.fields,help:crm.field_crm_team__use_leads
@@ -783,12 +800,12 @@ msgstr "Konstruktion"
 #. module: crm
 #: model:ir.model,name:crm.model_digest_digest
 msgid "Digest"
-msgstr ""
+msgstr "Klassificera"
 
 #. module: crm
 #: model_terms:ir.ui.view,arch_db:crm.view_create_opportunity_simplified
 msgid "Discard"
-msgstr "Kasta"
+msgstr "Avbryt"
 
 #. module: crm
 #: model:ir.model.fields,field_description:crm.field_crm_activity_report__display_name
@@ -809,6 +826,7 @@ msgstr "Visningsnamn"
 #, python-format
 msgid "Do not have access, skip this data for user's digest email"
 msgstr ""
+"Har inte åtkomsträttighet, skippa det här för kundens sammanställnings epost"
 
 #. module: crm
 #: selection:crm.lead2opportunity.partner,action:0
@@ -820,7 +838,7 @@ msgstr "Länka inte till en kund"
 #. module: crm
 #: model_terms:ir.ui.view,arch_db:crm.crm_case_kanban_view_leads
 msgid "Dropdown menu"
-msgstr ""
+msgstr "Dropdown meny"
 
 #. module: crm
 #: model_terms:ir.ui.view,arch_db:crm.crm_case_kanban_view_leads
@@ -1083,7 +1101,7 @@ msgstr ""
 #. module: crm
 #: model:ir.model.fields,help:crm.field_crm_lead__message_has_error
 msgid "If checked, some messages have a delivery error."
-msgstr ""
+msgstr "Om markerad så har det blivit ett leveransfel för några  meddelanden."
 
 #. module: crm
 #: model:ir.model.fields,help:crm.field_res_partner__team_id
@@ -1373,7 +1391,7 @@ msgstr "Låg"
 #. module: crm
 #: model:ir.model.fields,field_description:crm.field_crm_lead__message_main_attachment_id
 msgid "Main Attachment"
-msgstr ""
+msgstr "Huvudbilaga"
 
 #. module: crm
 #: model:mail.activity.type,name:crm.mail_activity_demo_make_quote
@@ -1507,7 +1525,7 @@ msgstr "Sammanslagna affärsmöjligheter"
 #. module: crm
 #: model:ir.model.fields,field_description:crm.field_crm_lead__message_has_error
 msgid "Message Delivery error"
-msgstr ""
+msgstr "Fel vid meddelandeleverans"
 
 #. module: crm
 #: model:ir.model.fields,field_description:crm.field_crm_lead__message_ids
@@ -1548,6 +1566,7 @@ msgstr "Min kanal"
 #. module: crm
 #: model:ir.model.fields,field_description:crm.field_crm_lead_tag__name
 #: model:ir.model.fields,field_description:crm.field_crm_lost_reason__name
+#: model_terms:ir.ui.view,arch_db:crm.quick_create_opportunity_form
 msgid "Name"
 msgstr "Namn"
 
@@ -1575,17 +1594,17 @@ msgstr "Nästa aktivitet"
 #. module: crm
 #: model:ir.model.fields,field_description:crm.field_crm_lead__activity_date_deadline
 msgid "Next Activity Deadline"
-msgstr ""
+msgstr "Nästa slutdatum för aktivitet"
 
 #. module: crm
 #: model:ir.model.fields,field_description:crm.field_crm_lead__activity_summary
 msgid "Next Activity Summary"
-msgstr ""
+msgstr "Nästa aktivitetssummering"
 
 #. module: crm
 #: model:ir.model.fields,field_description:crm.field_crm_lead__activity_type_id
 msgid "Next Activity Type"
-msgstr ""
+msgstr "Nästa aktivitetstyp"
 
 #. module: crm
 #: selection:crm.lead,kanban_state:0
@@ -1636,7 +1655,7 @@ msgstr "Antal åtgärder"
 #. module: crm
 #: model:ir.model.fields,field_description:crm.field_crm_lead__message_has_error_counter
 msgid "Number of error"
-msgstr ""
+msgstr "Antal fel"
 
 #. module: crm
 #: model:ir.model.fields,help:crm.field_crm_lead__message_needaction_counter
@@ -1646,7 +1665,7 @@ msgstr "Antal meddelanden som kräver en åtgärd"
 #. module: crm
 #: model:ir.model.fields,help:crm.field_crm_lead__message_has_error_counter
 msgid "Number of messages with delivery error"
-msgstr ""
+msgstr "Antal meddelanden med leveransfel"
 
 #. module: crm
 #: model:ir.model.fields,field_description:crm.field_crm_team__opportunities_count
@@ -1898,7 +1917,7 @@ msgstr ""
 #. module: crm
 #: selection:crm.lead,activity_state:0
 msgid "Planned"
-msgstr ""
+msgstr "Plannerad"
 
 #. module: crm
 #: code:addons/crm/models/crm_lead.py:660
@@ -1991,7 +2010,7 @@ msgstr "Ansvarig användare"
 #: model_terms:ir.ui.view,arch_db:crm.crm_case_form_view_leads
 #: model_terms:ir.ui.view,arch_db:crm.crm_case_form_view_oppor
 msgid "Restore"
-msgstr ""
+msgstr "Återskapa"
 
 #. module: crm
 #: selection:crm.team,dashboard_graph_model:0
@@ -2007,7 +2026,7 @@ msgstr "Säljkanal"
 #. module: crm
 #: model:ir.model,name:crm.model_crm_team
 msgid "Sales Channels"
-msgstr "Försäljnings Kanal"
+msgstr "Säljkanaler"
 
 #. module: crm
 #: model:ir.model.fields,field_description:crm.field_crm_activity_report__team_id
@@ -2213,6 +2232,10 @@ msgid ""
 "Today: Activity date is today\n"
 "Planned: Future activities."
 msgstr ""
+"Status baserad på aktiviteter\n"
+"Försenade: Förfallodagen har passerat\n"
+"Idag: Aktivitetsdatum är idag\n"
+"Kommande: Framtida aktiviteter."
 
 #. module: crm
 #: model:ir.model.fields,field_description:crm.field_crm_lead__street

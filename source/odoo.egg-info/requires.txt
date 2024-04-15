@@ -2,7 +2,6 @@ Jinja2
 babel >= 1.0
 decorator
 docutils
-feedparser
 gevent
 html2text
 libsass

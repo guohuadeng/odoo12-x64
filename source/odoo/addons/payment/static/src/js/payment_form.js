@@ -24,11 +24,11 @@ odoo.define('payment.payment_form', function (require) {
             this._super.apply(this, arguments);
             this.options = _.extend(options || {}, {
             });
-
-            // TODO simplify this using the 'async' keyword in the events
-            // property definition as soon as this widget is converted in
-            // frontend widget.
-            this.payEvent = dom.makeButtonHandler(this.payEvent);
+            window.addEventListener('pageshow', function (event) {
+                if (event.persisted) {
+                    window.location.reload();
+                }
+            });
         },
 
         start: function () {
@@ -151,6 +151,7 @@ odoo.define('payment.payment_form', function (require) {
                 }
                 // if the user is going to pay with a form payment, then
                 else if (this.isFormPaymentRadio(checked_radio)) {
+                    this.disableButton(button);
                     var $tx_url = this.$el.find('input[name="prepare_tx_url"]');
                     // if there's a prepare tx url set
                     if ($tx_url.length === 1) {
@@ -169,7 +170,7 @@ odoo.define('payment.payment_form', function (require) {
                             if (result) {
                                 // if the server sent us the html form, we create a form element
                                 var newForm = document.createElement('form');
-                                newForm.setAttribute("method", "post"); // set it to post
+                                newForm.setAttribute("method", self._get_redirect_form_method());
                                 newForm.setAttribute("provider", checked_radio.dataset.provider);
                                 newForm.hidden = true; // hide it
                                 newForm.innerHTML = result; // put the html sent by the server inside the form
@@ -187,6 +188,7 @@ odoo.define('payment.payment_form', function (require) {
                                     _t('Server Error'),
                                     _t("We are not able to redirect you to the payment form.")
                                 );
+                                self.enableButton(button);
                             }
                         }).fail(function (error, event) {
                             self.displayError(
@@ -194,6 +196,7 @@ odoo.define('payment.payment_form', function (require) {
                                 _t("We are not able to redirect you to the payment form. ") +
                                    error.data.message
                             );
+                            self.enableButton(button);
                         });
                     }
                     else {
@@ -215,7 +218,17 @@ odoo.define('payment.payment_form', function (require) {
                     _t('No payment method selected'),
                     _t('Please select a payment method.')
                 );
+                this.enableButton(button);
             }
+        },
+        /**
+         * Return the HTTP method to be used by the redirect form.
+         *
+         * @private
+         * @return {string} The HTTP method, "post" by default
+         */
+        _get_redirect_form_method: function(){
+            return "post";
         },
         // event handler when clicking on the button to add a new payment method
         addPmEvent: function (ev) {

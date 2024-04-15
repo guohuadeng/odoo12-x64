@@ -33,17 +33,10 @@ class PurchaseOrder(models.Model):
     group_id = fields.Many2one('procurement.group', string="Procurement Group", copy=False)
     is_shipped = fields.Boolean(compute="_compute_is_shipped")
 
-    @api.depends('order_line.move_ids.returned_move_ids',
-                 'order_line.move_ids.state',
-                 'order_line.move_ids.picking_id')
+    @api.depends('order_line.move_ids.picking_id')
     def _compute_picking(self):
         for order in self:
-            pickings = self.env['stock.picking']
-            for line in order.order_line:
-                # We keep a limited scope on purpose. Ideally, we should also use move_orig_ids and
-                # do some recursive search, but that could be prohibitive if not done correctly.
-                moves = line.move_ids | line.move_ids.mapped('returned_move_ids')
-                pickings |= moves.mapped('picking_id')
+            pickings = order.order_line.mapped('move_ids.picking_id')
             order.picking_ids = pickings
             order.picking_count = len(pickings)
 
@@ -238,6 +231,8 @@ class PurchaseOrderLine(models.Model):
 
     @api.multi
     def write(self, values):
+        lines = self.filtered(lambda l: l.order_id.state == 'purchase')
+        previous_product_qty = {line.id: line.product_uom_qty for line in lines}
         result = super(PurchaseOrderLine, self).write(values)
         # Update expected date of corresponding moves
         if 'date_planned' in values:
@@ -245,7 +240,7 @@ class PurchaseOrderLine(models.Model):
                 ('purchase_line_id', 'in', self.ids), ('state', '!=', 'done')
             ]).write({'date_expected': values['date_planned']})
         if 'product_qty' in values:
-            self.filtered(lambda l: l.order_id.state == 'purchase')._create_or_update_picking()
+            lines.with_context(previous_product_qty=previous_product_qty)._create_or_update_picking()
         return result
 
     # --------------------------------------------------
@@ -273,7 +268,7 @@ class PurchaseOrderLine(models.Model):
                     activity._onchange_activity_type_id()
 
                 # If the user increased quantity of existing line or created a new line
-                pickings = line.order_id.picking_ids.filtered(lambda x: x.state not in ('done', 'cancel') and x.location_dest_id.usage in ('internal', 'transit'))
+                pickings = line.order_id.picking_ids.filtered(lambda x: x.state not in ('done', 'cancel') and x.location_dest_id.usage in ('internal', 'transit', 'customer'))
                 picking = pickings and pickings[0] or False
                 if not picking:
                     res = line.order_id._prepare_picking()
@@ -311,10 +306,9 @@ class PurchaseOrderLine(models.Model):
         res = []
         if self.product_id.type not in ['product', 'consu']:
             return res
-        qty = 0.0
         price_unit = self._get_stock_move_price_unit()
-        for move in self.move_ids.filtered(lambda x: x.state != 'cancel' and not x.location_dest_id.usage == "supplier"):
-            qty += move.product_uom._compute_quantity(move.product_uom_qty, self.product_uom, rounding_method='HALF-UP')
+        qty = self._get_qty_procurement()
+
         template = {
             # truncate to 2000 to avoid triggering index limit error
             # TODO: remove index in master?
@@ -353,6 +347,13 @@ class PurchaseOrderLine(models.Model):
             res.append(template)
         return res
 
+    def _get_qty_procurement(self):
+        self.ensure_one()
+        qty = 0.0
+        for move in self.move_ids.filtered(lambda x: x.state != 'cancel' and not x.location_dest_id.usage == "supplier"):
+            qty += move.product_uom._compute_quantity(move.product_uom_qty, self.product_uom, rounding_method='HALF-UP')
+        return qty
+    
     @api.multi
     def _create_stock_moves(self, picking):
         values = []
@@ -364,7 +365,9 @@ class PurchaseOrderLine(models.Model):
     def _update_received_qty(self):
         for line in self:
             total = 0.0
-            for move in line.move_ids:
+            # In case of a BOM in kit, the products delivered do not correspond to the products in
+            # the PO. Therefore, we can skip them since they will be handled later on.
+            for move in line.move_ids.filtered(lambda m: m.product_id == line.product_id):
                 if move.state == 'done':
                     if move.location_dest_id.usage == "supplier":
                         if move.to_refund:

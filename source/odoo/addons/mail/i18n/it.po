@@ -22,7 +22,8 @@
 # Martin Trigaux, 2019
 # efraimbiffi <eab@odoo.com>, 2019
 # Luigia Cimmino Caserta <lcc@odoo.com>, 2019
-# Sergio Zanchetta <primes2h@gmail.com>, 2019
+# Alex Comba <alex.comba@agilebg.com>, 2021
+# Sergio Zanchetta <primes2h@gmail.com>, 2021
 # 
 msgid ""
 msgstr ""
@@ -30,7 +31,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-14 07:34+0000\n"
 "PO-Revision-Date: 2018-08-24 09:20+0000\n"
-"Last-Translator: Sergio Zanchetta <primes2h@gmail.com>, 2019\n"
+"Last-Translator: Sergio Zanchetta <primes2h@gmail.com>, 2021\n"
 "Language-Team: Italian (https://www.transifex.com/odoo/teams/41243/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -308,7 +309,7 @@ msgstr ""
 "                                <span attrs=\"{'invisible': [('use_active_domain', '=', True)]}\">i record selezionati</span>\n"
 "                                <span attrs=\"{'invisible': [('use_active_domain', '=', False)]}\">l'attuale filtro di ricerca</span>.\n"
 "                            </span>\n"
-"                            <span name=\"document_followers_text\" attrs=\"{'invisible':['|', ('model', '=', False), ('composition_mode', '=', 'mass_mail')]}\">Chi segue il documento e</span>"
+"                            <span name=\"document_followers_text\" attrs=\"{'invisible':['|', ('model', '=', False), ('composition_mode', '=', 'mass_mail')]}\">Chi sta seguendo il documento e</span>"
 
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.email_compose_message_wizard_form
@@ -333,8 +334,8 @@ msgid ""
 "<span class=\"fa fa-info-circle\"/> Caution: It won't be possible to send "
 "this mail again to the recipients you did not select."
 msgstr ""
-"Attenzione: non sarà più possibile inviare questa e-mail ai destinatari non "
-"selezionati."
+"<span class=\"fa fa-info-circle\"/> Attenzione: impossibile inviare "
+"nuovamente questa e-mail ai destinatari non selezionati."
 
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.res_config_settings_view_form
@@ -481,12 +482,12 @@ msgstr "Azione da eseguire"
 #. module: mail
 #: model:ir.model,name:mail.model_ir_actions_act_window_view
 msgid "Action Window View"
-msgstr "Vista finestra azione"
+msgstr "Azione visualizzazione finestra"
 
 #. module: mail
 #: model:ir.model.fields,help:mail.field_mail_message_subtype__default
 msgid "Activated by default when subscribing."
-msgstr "Attivati di default dopo l'iscrizione."
+msgstr "Attivato in modo predefinito all'iscrizione."
 
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_mail_activity_type__active
@@ -535,7 +536,7 @@ msgstr "Attività"
 #. module: mail
 #: model:ir.model,name:mail.model_mail_activity_mixin
 msgid "Activity Mixin"
-msgstr "Combinazione attività"
+msgstr "Mixin attività"
 
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_mail_activity_mixin__activity_state
@@ -624,7 +625,7 @@ msgstr "Aggiungi firma"
 #: model:ir.model.fields,field_description:mail.field_email_template_preview__user_signature
 #: model:ir.model.fields,field_description:mail.field_mail_template__user_signature
 msgid "Add Signature"
-msgstr "Aggiunge Firma"
+msgstr "Aggiungi firma"
 
 #. module: mail
 #. openerp-web
@@ -632,7 +633,7 @@ msgstr "Aggiunge Firma"
 #: code:addons/mail/static/src/xml/discuss.xml:242
 #, python-format
 msgid "Add a channel"
-msgstr "Aggiungere un canale"
+msgstr "Aggiungi un canale"
 
 #. module: mail
 #: code:addons/mail/models/mail_thread.py:383
@@ -645,7 +646,7 @@ msgstr "Aggiungere un nuovo %(document)s o inviare una email a %(email_link)s"
 #: code:addons/mail/static/src/xml/discuss.xml:71
 #, python-format
 msgid "Add a private channel"
-msgstr "Aggiungere un canale privato"
+msgstr "Aggiungi un canale privato"
 
 #. module: mail
 #: model_terms:ir.actions.act_window,help:mail.mail_blacklist_action
@@ -662,7 +663,7 @@ msgstr "Aggiungi allegato"
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.mail_wizard_invite_form
 msgid "Add channels to notify..."
-msgstr "Aggiungere canali per notificare..."
+msgstr "Aggiungi canali da notificare..."
 
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.email_compose_message_wizard_form
@@ -819,7 +820,7 @@ msgid ""
 "impact on the generated message-id."
 msgstr ""
 "Le risposte non vengono incluse nella discussione originaria del documento. "
-"Questo incide sull'ID messaggio generato. "
+"Questo incide sull'ID del messaggio generato. "
 
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_email_template_preview__model_id
@@ -969,7 +970,7 @@ msgstr "Eliminazione Automatica"
 #: model:ir.model.fields,field_description:mail.field_mail_activity__force_next
 #: model:ir.model.fields,field_description:mail.field_mail_activity_type__force_next
 msgid "Auto Schedule Next Activity"
-msgstr "Auto-pianificazione prossima attività"
+msgstr "Auto-pianificare prossima attività"
 
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.mail_channel_view_form
@@ -1093,6 +1094,13 @@ msgid "Call"
 msgstr "Chiamata"
 
 #. module: mail
+#: code:addons/mail/models/mail_notification.py:57
+#, python-format
+msgid "Can not update the message or recipient of a notification."
+msgstr ""
+"Impossibile aggiornare il messaggio o il destinatario di una notifica."
+
+#. module: mail
 #. openerp-web
 #: code:addons/mail/static/src/js/followers.js:365
 #: code:addons/mail/static/src/xml/activity.xml:86
@@ -1142,12 +1150,12 @@ msgstr "Destinatari messaggio in copia carbone"
 #: model:ir.model.fields,help:mail.field_email_template_preview__email_cc
 #: model:ir.model.fields,help:mail.field_mail_template__email_cc
 msgid "Carbon copy recipients (placeholders may be used here)"
-msgstr "Destinatari in copia carbone (ammessi segnaposto)"
+msgstr "Destinatari in copia carbone (sono ammessi segnaposto)"
 
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_res_company__catchall
 msgid "Catchall Email"
-msgstr "Email Catchall"
+msgstr "E-mail catchall"
 
 #. module: mail
 #: model:ir.model.fields,help:mail.field_mail_activity__activity_category
@@ -1363,7 +1371,7 @@ msgstr "Modalità composizione"
 #. module: mail
 #: model:ir.model,name:mail.model_res_config_settings
 msgid "Config Settings"
-msgstr "Impostazioni configurazione"
+msgstr "Impostazioni di configurazione"
 
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.res_config_settings_view_form
@@ -1405,7 +1413,7 @@ msgstr "Contenuto"
 #: model:ir.model.fields,field_description:mail.field_mail_mail__body
 #: model:ir.model.fields,field_description:mail.field_mail_message__body
 msgid "Contents"
-msgstr "Contenuti"
+msgstr "Contenuto"
 
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_mail_channel_partner__fold_state
@@ -1632,7 +1640,7 @@ msgstr "Tipo ritardo"
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_mail_activity_type__delay_unit
 msgid "Delay units"
-msgstr ""
+msgstr "Unità di ritardo"
 
 #. module: mail
 #. openerp-web
@@ -1746,7 +1754,7 @@ msgstr "Discussioni"
 #. module: mail
 #: model:ir.model,name:mail.model_mail_resend_cancel
 msgid "Dismiss notification for resend by model"
-msgstr ""
+msgstr "Ignoramento notifiche per reinvio per modello"
 
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_email_template_preview__display_name
@@ -1799,7 +1807,7 @@ msgid ""
 "mailing only)"
 msgstr ""
 "Non conserva una copia dell'e-mail nella cronologia comunicazioni del "
-"documento (solo invio massivo e-mail)"
+"documento (solo e-mail massive)"
 
 #. module: mail
 #. openerp-web
@@ -1816,7 +1824,7 @@ msgstr "Documento"
 #. module: mail
 #: model:ir.model,name:mail.model_mail_followers
 msgid "Document Followers"
-msgstr "Follower documento"
+msgstr "Chi segue il documento"
 
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_mail_activity__res_model_id
@@ -1827,6 +1835,13 @@ msgstr "Modello documento"
 #: model:ir.model.fields,field_description:mail.field_mail_activity__res_name
 msgid "Document Name"
 msgstr "Nome documento"
+
+#. module: mail
+#. openerp-web
+#: code:addons/mail/static/src/xml/thread.xml:524
+#, python-format
+msgid "Document not downloadable"
+msgstr "Documento non scaricabile"
 
 #. module: mail
 #. openerp-web
@@ -1903,7 +1918,7 @@ msgstr "Modifica"
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.mail_resend_message_view_form
 msgid "Edit Partners"
-msgstr "Modificare i partner"
+msgstr "Modifica partner"
 
 #. module: mail
 #. openerp-web
@@ -1949,7 +1964,7 @@ msgstr "Alias e-mail"
 #. module: mail
 #: model:ir.model,name:mail.model_mail_alias_mixin
 msgid "Email Aliases Mixin"
-msgstr "Combinazione alias e-mail"
+msgstr "Mixin alias e-mail"
 
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.mail_blacklist_view_tree
@@ -2097,6 +2112,8 @@ msgid ""
 "Error without exception. Probably due do concurrent access update of "
 "notification records. Please see with an administrator."
 msgstr ""
+"Errore senza eccezione. È dovuto probabilmente all'aggiornamento di accesso "
+"simultaneo ai record di notifica. Contattare un amministratore."
 
 #. module: mail
 #: code:addons/mail/models/mail_mail.py:329
@@ -2111,7 +2128,7 @@ msgstr ""
 #. module: mail
 #: sql_constraint:mail.followers:0
 msgid "Error, a channel cannot follow twice the same object."
-msgstr "Errore, un canale non può seguire due volte lo stesso argomento."
+msgstr "Errore, un canale non può seguire lo stesso oggetto due volte."
 
 #. module: mail
 #: sql_constraint:mail.followers:0
@@ -2123,7 +2140,7 @@ msgstr "Errore, un partner non può seguire lo stesso oggetto due volte."
 msgid ""
 "Error: A follower must be either a partner or a channel (but not both)."
 msgstr ""
-"Errore: un follower deve essere o un partner o un canale (ma non entrambi)."
+"Errore: può seguire solamente un partner o un canale (ma non entrambi)."
 
 #. module: mail
 #: selection:mail.alias,alias_contact:0 selection:mail.channel,public:0
@@ -2161,7 +2178,7 @@ msgstr "Estrarre le pagine:&nbsp;"
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_res_config_settings__fail_counter
 msgid "Fail Mail"
-msgstr "Invio email fallito"
+msgstr "E-mail con errore"
 
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.view_mail_search
@@ -2294,7 +2311,7 @@ msgstr "Follower"
 #: model:ir.model.fields,field_description:mail.field_res_partner__message_channel_ids
 #: model:ir.model.fields,field_description:mail.field_res_users__message_channel_ids
 msgid "Followers (Channels)"
-msgstr "Follower (canali)"
+msgstr "Chi sta seguendo (canali)"
 
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_mail_blacklist__message_partner_ids
@@ -2303,7 +2320,7 @@ msgstr "Follower (canali)"
 #: model:ir.model.fields,field_description:mail.field_res_partner__message_partner_ids
 #: model:ir.model.fields,field_description:mail.field_res_users__message_partner_ids
 msgid "Followers (Partners)"
-msgstr "Follower (partner)"
+msgstr "Chi sta seguendo (partner)"
 
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.view_mail_subscription_form
@@ -2320,7 +2337,7 @@ msgstr "Follower di"
 #. module: mail
 #: selection:mail.alias,alias_contact:0
 msgid "Followers only"
-msgstr "Solo follower"
+msgstr "Solo chi sta seguendo"
 
 #. module: mail
 #. openerp-web
@@ -2328,6 +2345,13 @@ msgstr "Solo follower"
 #, python-format
 msgid "Following"
 msgstr "Stai seguendo"
+
+#. module: mail
+#: code:addons/mail/models/mail_channel.py:778
+#, python-format
+msgid "Following invites are invalid as user groups do not match: %s"
+msgstr ""
+"I seguenti inviti non sono validi, i gruppi utente non corrispondono: %s"
 
 #. module: mail
 #: model:ir.model.fields,help:mail.field_mail_activity__icon
@@ -2362,7 +2386,7 @@ msgstr "Compositore a pieno schermo"
 #: code:addons/mail/static/src/xml/systray.xml:98
 #, python-format
 msgid "Future"
-msgstr "in futuro"
+msgstr "Future"
 
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.mail_activity_view_search
@@ -2439,7 +2463,7 @@ msgstr "Gestire tramite Odoo"
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_mail_resend_message__has_cancel
 msgid "Has Cancel"
-msgstr "Ha cancellato"
+msgstr "Ha annullato"
 
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.view_message_search
@@ -2484,7 +2508,7 @@ msgstr "Buongiorno,"
 #: model:ir.model.fields,field_description:mail.field_mail_resend_cancel__help_message
 #: model:ir.model.fields,field_description:mail.field_mail_resend_partner__message
 msgid "Help message"
-msgstr "Messaggio d'aiuto"
+msgstr "Messaggio di aiuto"
 
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_mail_message_subtype__hidden
@@ -2534,7 +2558,7 @@ msgid ""
 "ID of the parent record holding the alias (example: project holding the task"
 " creation alias)"
 msgstr ""
-"ID del record principale contenente l’alias (esempio: progetto che contiene "
+"ID del record primario contenente l’alias (esempio: progetto che contiene "
 "l’alias di creazione del lavoro)"
 
 #. module: mail
@@ -2590,8 +2614,8 @@ msgid ""
 "If checked, the partners will receive an email warning they have been added "
 "in the document's followers."
 msgstr ""
-"Se selezionato, i partner verranno notificati, con un avviso via e-mail, di "
-"essere stati aggiunti a chi segue il documento."
+"Se selezionato, i partner verranno notificati via e-mail di essere stati "
+"aggiunti a chi segue il documento."
 
 #. module: mail
 #: model:ir.model.fields,help:mail.field_email_template_preview__user_signature
@@ -2600,7 +2624,7 @@ msgid ""
 "If checked, the user's signature will be appended to the text version of the"
 " message"
 msgstr ""
-"Se selezionato, la firma dell'utente verrà appesa sulla versione testuale "
+"Se selezionato, viene aggiunta la firma dell'utente alla versione testuale "
 "del messaggio"
 
 #. module: mail
@@ -2632,7 +2656,7 @@ msgid ""
 "If the email address is on the blacklist, the contact won't receive mass "
 "mailing anymore, from any list"
 msgstr ""
-"Se l'indirizzo e-mail è nella lista nera il contatto non sarà più soggetto "
+"Se l'indirizzo e-mail è in lista nera, il contatto non sarà più soggetto "
 "all'invio massivo di e-mail, da nessuna lista."
 
 #. module: mail
@@ -2747,7 +2771,7 @@ msgstr ""
 #: code:addons/mail/models/mail_blacklist.py:129
 #, python-format
 msgid "Invalid primary email field on model %s"
-msgstr ""
+msgstr "Campo e-mail primario non valido nel modello %s"
 
 #. module: mail
 #: code:addons/mail/models/mail_thread.py:1968
@@ -2827,7 +2851,7 @@ msgstr "È consentito"
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.mail_moderation_view_search
 msgid "Is Banned"
-msgstr "È bandito"
+msgstr "È bloccato"
 
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_mail_blacklist__message_is_follower
@@ -2836,7 +2860,7 @@ msgstr "È bandito"
 #: model:ir.model.fields,field_description:mail.field_res_partner__message_is_follower
 #: model:ir.model.fields,field_description:mail.field_res_users__message_is_follower
 msgid "Is Follower"
-msgstr "È un follower"
+msgstr "Sta seguendo"
 
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_mail_mail__notification
@@ -2871,17 +2895,17 @@ msgstr "È un moderatore"
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_mail_channel_partner__is_pinned
 msgid "Is pinned on the interface"
-msgstr "È fissato sull'interfaccia"
+msgstr "È appuntato all'interfaccia"
 
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.mail_channel_view_kanban
 msgid "Join"
-msgstr "Partecipa"
+msgstr "Entra"
 
 #. module: mail
 #: model:ir.actions.act_window,name:mail.mail_channel_action_view
 msgid "Join a group"
-msgstr "Unisciti ad un gruppo"
+msgstr "Entra in un gruppo"
 
 #. module: mail
 #: selection:ir.actions.act_window.view,view_mode:0
@@ -3002,7 +3026,7 @@ msgstr "Struttura"
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.mail_channel_view_kanban
 msgid "Leave"
-msgstr "Permesso"
+msgstr "Esci"
 
 #. module: mail
 #. openerp-web
@@ -3010,7 +3034,7 @@ msgstr "Permesso"
 #: code:addons/mail/static/src/xml/discuss.xml:147
 #, python-format
 msgid "Leave this channel"
-msgstr "Abbandona questo canale"
+msgstr "Esci dal canale"
 
 #. module: mail
 #: model:ir.model.fields,help:mail.field_mail_wizard_invite__channel_ids
@@ -3024,7 +3048,8 @@ msgstr ""
 msgid ""
 "List of partners that will be added as follower of the current document."
 msgstr ""
-"Lista di partner che verranno aggiunti come followers al documento corrente."
+"Elenco di partner che verranno aggiunti a chi sta seguendo il documento "
+"corrente."
 
 #. module: mail
 #: code:addons/mail/models/mail_channel.py:946
@@ -3087,7 +3112,7 @@ msgstr "Registra"
 #: code:addons/mail/static/src/xml/chatter.xml:89
 #, python-format
 msgid "Log a note. Followers will not be notified."
-msgstr "Registra una nota. Chi segue verrà notificato."
+msgstr "Registra una nota. Chi sta seguendo verrà notificato."
 
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.mail_activity_view_form_popup
@@ -3143,7 +3168,7 @@ msgstr "Lista nera e-mail"
 #. module: mail
 #: model:ir.model,name:mail.model_mail_blacklist_mixin
 msgid "Mail Blacklist mixin"
-msgstr ""
+msgstr "Mixin lista nera e-mail"
 
 #. module: mail
 #. openerp-web
@@ -3236,19 +3261,19 @@ msgstr "Imposta a completata"
 #: code:addons/mail/static/src/xml/discuss.xml:179
 #, python-format
 msgid "Mark all as read"
-msgstr "Segna tutto come già letto"
+msgstr "Segna tutti come letti"
 
 #. module: mail
 #. openerp-web
 #: code:addons/mail/static/src/xml/discuss.xml:179
 #, python-format
 msgid "Mark all read"
-msgstr "Segna come già letto"
+msgstr "Segna tutti come letti"
 
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.mail_activity_view_form_popup
 msgid "Mark as Done"
-msgstr "Imposta a completata"
+msgstr "Segna completata"
 
 #. module: mail
 #. openerp-web
@@ -3264,14 +3289,21 @@ msgstr "Segna come letto"
 #: code:addons/mail/static/src/xml/thread.xml:340
 #, python-format
 msgid "Mark as Todo"
-msgstr "Segna come da fare"
+msgstr "Segna da fare"
 
 #. module: mail
 #. openerp-web
 #: code:addons/mail/static/src/xml/web_kanban_activity.xml:71
 #, python-format
 msgid "Mark as done"
-msgstr "Imposta a completata"
+msgstr "Segna completata"
+
+#. module: mail
+#. openerp-web
+#: code:addons/mail/static/src/xml/thread.xml:300
+#, python-format
+msgid "Mark as todo"
+msgstr "Segna da fare"
 
 #. module: mail
 #: model:ir.ui.menu,name:mail.mail_blacklist_menu
@@ -3281,7 +3313,7 @@ msgstr "Lista nera e-mail massive"
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_mail_channel__image_medium
 msgid "Medium-sized photo"
-msgstr "Foto media dimensione"
+msgstr "Foto di media dimensione"
 
 #. module: mail
 #: model:ir.model.fields,help:mail.field_mail_channel__image_medium
@@ -3290,8 +3322,9 @@ msgid ""
 "image, with aspect ratio preserved. Use this field in form views or some "
 "kanban views."
 msgstr ""
-"Foto grandezza media del gruppo. Viene automaticamente ridimensionata a "
-"128x128px, preservando le proporzioni. Usata su alcuni form e viste kanban."
+"Foto di media dimensione del gruppo. Ridimensionata automaticamente a "
+"128x128px, preservando le proporzioni. Usare questo campo nelle viste modulo"
+" o kanban."
 
 #. module: mail
 #: selection:mail.activity.type,category:0
@@ -3310,8 +3343,9 @@ msgid ""
 "Members of those groups will automatically added as followers. Note that "
 "they will be able to manage their subscription manually if necessary."
 msgstr ""
-"Gli iscritti a questi gruppi verranno automaticamente aggiunti ai follower. "
-"Se necessario, saranno in grado di gestire le loro iscrizioni manualmente."
+"Gli iscritti a questi gruppi verranno automaticamente aggiunti a chi sta "
+"seguendo. Se necessario, saranno in grado di gestire le loro iscrizioni "
+"manualmente."
 
 #. module: mail
 #: model:ir.model,name:mail.model_base_partner_merge_automatic_wizard
@@ -3346,7 +3380,7 @@ msgstr "Errore di consegna messaggio"
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_mail_tracking_value__mail_message_id
 msgid "Message ID"
-msgstr "ID Messaggio"
+msgstr "ID messaggio"
 
 #. module: mail
 #: model:ir.model,name:mail.model_mail_notification
@@ -3434,14 +3468,14 @@ msgstr ""
 #: model:ir.model.fields,help:mail.field_mail_mail__message_id
 #: model:ir.model.fields,help:mail.field_mail_message__message_id
 msgid "Message unique identifier"
-msgstr "Identificativo univoco messaggio"
+msgstr "Identificativo univoco del messaggio"
 
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_mail_compose_message__message_id
 #: model:ir.model.fields,field_description:mail.field_mail_mail__message_id
 #: model:ir.model.fields,field_description:mail.field_mail_message__message_id
 msgid "Message-Id"
-msgstr "ID Messaggio"
+msgstr "ID messaggio"
 
 #. module: mail
 #: model:ir.actions.act_window,name:mail.action_view_mail_message
@@ -3502,7 +3536,7 @@ msgstr "Il modello è cambiato"
 #. module: mail
 #: model:ir.model.fields,help:mail.field_mail_wizard_invite__res_model
 msgid "Model of the followed resource"
-msgstr "Model della risorsa seguita"
+msgstr "Modello della risorsa seguita"
 
 #. module: mail
 #: model:ir.model.fields,help:mail.field_mail_message_subtype__res_model
@@ -3602,13 +3636,13 @@ msgstr "Moderatori"
 #: code:addons/mail/models/mail_channel.py:154
 #, python-format
 msgid "Moderators must have an email address."
-msgstr "I moderatori devono avere un indirizzo email."
+msgstr "I moderatori devono avere un indirizzo e-mail."
 
 #. module: mail
 #: code:addons/mail/models/mail_channel.py:160
 #, python-format
 msgid "Moderators should be members of the channel they moderate."
-msgstr "I moderatori dovrebbero essere membri del canale che moderano."
+msgstr "I moderatori devono essere iscritti al canale che moderano."
 
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.mail_activity_type_view_form
@@ -3702,32 +3736,32 @@ msgstr "Nuovo messaggio"
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_mail_tracking_value__new_value_char
 msgid "New Value Char"
-msgstr "Nuovo Valore Carattere"
+msgstr "Carattere nuovo valore"
 
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_mail_tracking_value__new_value_datetime
 msgid "New Value Datetime"
-msgstr "Nuovo Valore Data e Ora"
+msgstr "Data e ora nuovo valore"
 
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_mail_tracking_value__new_value_float
 msgid "New Value Float"
-msgstr "Nuovo Valore con la virgola"
+msgstr "Virgola mobile nuovo valore"
 
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_mail_tracking_value__new_value_integer
 msgid "New Value Integer"
-msgstr "Nuovo Valore Intero"
+msgstr "Intero nuovo valore"
 
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_mail_tracking_value__new_value_monetary
 msgid "New Value Monetary"
-msgstr "Nuovo Valore Monetario"
+msgstr "Monetario nuovo valore"
 
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_mail_tracking_value__new_value_text
 msgid "New Value Text"
-msgstr "Nuovo Valore Testo"
+msgstr "Testo nuovo valore"
 
 #. module: mail
 #. openerp-web
@@ -3800,7 +3834,7 @@ msgstr "Riepilogo prossima attività"
 #: model:ir.model.fields,field_description:mail.field_res_partner__activity_type_id
 #: model:ir.model.fields,field_description:mail.field_res_users__activity_type_id
 msgid "Next Activity Type"
-msgstr "Tipo prossima attività"
+msgstr "Tipologia prossima attività"
 
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_mail_activity__has_recommended_activities
@@ -3840,7 +3874,7 @@ msgstr "Nessun dato da visualizzare"
 #: code:addons/mail/static/src/js/followers.js:186
 #, python-format
 msgid "No follower"
-msgstr "Nessun follower"
+msgstr "Nessuno sta seguendo"
 
 #. module: mail
 #. openerp-web
@@ -3929,7 +3963,7 @@ msgstr "Notifica followers"
 #. module: mail
 #: model:ir.model.fields,help:mail.field_mail_compose_message__notify
 msgid "Notify followers of the document (mass post only)"
-msgstr "Notifica chi segue il documento (solo posta massiva)"
+msgstr "Notifica chi sta seguendo il documento (solo posta massiva)"
 
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_mail_blacklist__message_needaction_counter
@@ -4003,32 +4037,32 @@ msgstr "Fuori linea"
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_mail_tracking_value__old_value_char
 msgid "Old Value Char"
-msgstr "Vecchio Valore Carattere"
+msgstr "Carattere precedente"
 
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_mail_tracking_value__old_value_datetime
 msgid "Old Value DateTime"
-msgstr "Vecchio Valore Data e Ora"
+msgstr "Data e ora precedente"
 
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_mail_tracking_value__old_value_float
 msgid "Old Value Float"
-msgstr "Vecchio Valore con la virgola"
+msgstr "Virgola mobile precedente"
 
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_mail_tracking_value__old_value_integer
 msgid "Old Value Integer"
-msgstr "Vecchio Valore Intero"
+msgstr "Intero precedente"
 
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_mail_tracking_value__old_value_monetary
 msgid "Old Value Monetary"
-msgstr "Vecchio Valore Monetario"
+msgstr "Monetario precedente"
 
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_mail_tracking_value__old_value_text
 msgid "Old Value Text"
-msgstr "Vecchio Valore Testo"
+msgstr "Testo precedente"
 
 #. module: mail
 #: selection:ir.model.fields,track_visibility:0
@@ -4062,6 +4096,19 @@ msgid "Online"
 msgstr "In linea"
 
 #. module: mail
+#: code:addons/mail/models/mail_message.py:1052
+#, python-format
+msgid "Only administrators are allowed to export mail message"
+msgstr ""
+"L'esportazione dei messaggi di posta è consentita solo agli amministratori"
+
+#. module: mail
+#: code:addons/mail/models/mail_message.py:1043
+#, python-format
+msgid "Only administrators are allowed to use grouped read on message model"
+msgstr ""
+
+#. module: mail
 #: code:addons/mail/models/mail_channel.py:436
 #, python-format
 msgid ""
@@ -4092,12 +4139,12 @@ msgstr "Aperto"
 #: code:addons/mail/static/src/xml/thread.xml:409
 #, python-format
 msgid "Open Channel in Discuss to moderate"
-msgstr ""
+msgstr "Per moderare aprire il canale in Comunicazioni"
 
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.view_mail_alias_form
 msgid "Open Document"
-msgstr "Apri Documento"
+msgstr "Apri documento"
 
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.view_mail_alias_form
@@ -4109,7 +4156,7 @@ msgstr "Apri documento principale"
 #: code:addons/mail/static/src/xml/discuss.xml:243
 #, python-format
 msgid "Open chat"
-msgstr "Apri Chat"
+msgstr "Apri chat"
 
 #. module: mail
 #. openerp-web
@@ -4123,7 +4170,7 @@ msgstr "Aprire il documento"
 #: code:addons/mail/static/src/js/thread_windows/thread_window.js:192
 #, python-format
 msgid "Open in Discuss"
-msgstr "Aprire in Messaggi"
+msgstr "Apri in «Comunicazioni»"
 
 #. module: mail
 #: model:ir.model.fields,help:mail.field_mail_alias__alias_force_thread_id
@@ -4249,7 +4296,7 @@ msgstr "Messaggio principale"
 #: model:ir.model.fields,field_description:mail.field_mail_alias_mixin__alias_parent_model_id
 #: model:ir.model.fields,field_description:mail.field_mail_channel__alias_parent_model_id
 msgid "Parent Model"
-msgstr "Modello principale"
+msgstr "Modello primario"
 
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_mail_alias__alias_parent_thread_id
@@ -4301,7 +4348,7 @@ msgstr "Partner in sola lettura"
 #. module: mail
 #: model:ir.model,name:mail.model_mail_resend_partner
 msgid "Partner with additionnal information for mail resend"
-msgstr "Partner con informazioni aggiuntive per il rinvio della email"
+msgstr "Partner con informazioni aggiuntive per il reinvio della e-mail"
 
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_mail_compose_message__needaction_partner_ids
@@ -4448,7 +4495,7 @@ msgstr ""
 "Politica di pubblicazione messaggi su documenti usando il gateway di posta.\n"
 "- tutti: tutti possono pubblicare\n"
 "- partner: solo partner autenticati\n"
-"- follower: solo chi segue il documento collegato o gli iscritti ai relativi canali\n"
+"- chi sta seguendo: solo chi segue il documento collegato o gli iscritti ai relativi canali\n"
 
 #. module: mail
 #. openerp-web
@@ -4472,7 +4519,7 @@ msgstr "Attività precedenti"
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.email_template_form
 msgid "Preferred reply address"
-msgstr "Indirizzo per risposta preferito"
+msgstr "Indirizzo preferito per le risposte"
 
 #. module: mail
 #: model:ir.model.fields,help:mail.field_email_template_preview__reply_to
@@ -4568,7 +4615,7 @@ msgstr "Pronto"
 #. module: mail
 #: selection:mail.notification,email_status:0
 msgid "Ready to Send"
-msgstr "Pronta all'invio"
+msgstr "Pronta per invio"
 
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.view_mail_search
@@ -4679,7 +4726,7 @@ msgstr "Modello documento collegato"
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_mail_followers__res_model
 msgid "Related Document Model Name"
-msgstr "Nome modello documento collegato"
+msgstr "Nome modello collegato al documento"
 
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.view_mail_tracking_value_form
@@ -4694,7 +4741,7 @@ msgstr "Partner collegato"
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_mail_message_subtype__relation_field
 msgid "Relation field"
-msgstr "Campo di relazione"
+msgstr "Campo relazione"
 
 #. module: mail
 #: selection:mail.activity.type,category:0
@@ -4765,12 +4812,12 @@ msgstr "Nome file resoconto"
 #. module: mail
 #: model:ir.actions.act_window,name:mail.mail_resend_message_action
 msgid "Resend mail"
-msgstr "Reinviare l'email"
+msgstr "Reinvia e-mail"
 
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.mail_resend_message_view_form
 msgid "Resend to selected"
-msgstr "Reinviare per la selezione"
+msgstr "Reinviare ai selezionati"
 
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_mail_resend_partner__resend_wizard_id
@@ -4908,7 +4955,7 @@ msgstr "Ricerca lista di moderazione"
 #: code:addons/mail/static/src/xml/discuss.xml:183
 #, python-format
 msgid "Select All"
-msgstr "Selezionare tutto"
+msgstr "Seleziona tutto"
 
 #. module: mail
 #. openerp-web
@@ -4968,7 +5015,7 @@ msgstr "Invia e-mail"
 #: code:addons/mail/models/mail_template.py:265
 #, python-format
 msgid "Send Mail (%s)"
-msgstr "Invio Email (%s)"
+msgstr "Invia e-mail (%s)"
 
 #. module: mail
 #. openerp-web
@@ -4978,7 +5025,7 @@ msgstr "Invio Email (%s)"
 #: model_terms:ir.ui.view,arch_db:mail.view_mail_tree
 #, python-format
 msgid "Send Now"
-msgstr "Invia Adesso"
+msgstr "Invia ora"
 
 #. module: mail
 #. openerp-web
@@ -4986,6 +5033,13 @@ msgstr "Invia Adesso"
 #, python-format
 msgid "Send a message"
 msgstr "Invia un messaggio"
+
+#. module: mail
+#. openerp-web
+#: code:addons/mail/static/src/xml/discuss.xml:141
+#, python-format
+msgid "Send by mail"
+msgstr ""
 
 #. module: mail
 #. openerp-web
@@ -5054,7 +5108,7 @@ msgstr "Inviata"
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_mail_notification__is_email
 msgid "Sent by Email"
-msgstr "Manda per Email"
+msgstr "Inviato tramite e-mail"
 
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_mail_activity_type__sequence
@@ -5116,14 +5170,14 @@ msgid ""
 "image, with aspect ratio preserved. Use this field anywhere a small image is"
 " required."
 msgstr ""
-"Immagine piccola di questo contatto. È automaticamente ridimensionato ad "
-"un'immagine di 64x64px, mantenendo le proporzioni. Usare questo campo "
-"ovunque sia richiesta un'immagine piccola."
+"Immagine di piccola dimensione del contatto. Ridimensionata automaticamente "
+"a 64x64px, preservando le proporzioni. Usare questo campo ovunque sia "
+"richiesta un'immagine piccola."
 
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_mail_channel__image_small
 msgid "Small-sized photo"
-msgstr "Foto piccola dimensione"
+msgstr "Foto di piccola dimensione"
 
 #. module: mail
 #: model:ir.model.fields,help:mail.field_mail_channel__image_small
@@ -5132,8 +5186,8 @@ msgid ""
 "image, with aspect ratio preserved. Use this field anywhere a small image is"
 " required."
 msgstr ""
-"Foto piccola del gruppo. Automaticamente ridimensionata a 64x64px, "
-"preservando le proporzioni. Questo campo viene utilizzato ovunque venga "
+"Foto di piccola dimensione del gruppo. Ridimensionata automaticamente a "
+"64x64px, preservando le proporzioni. Usare questo campo ovunque sia "
 "richiesta un'immagine piccola."
 
 #. module: mail
@@ -5386,6 +5440,12 @@ msgstr ""
 "quell’indirizzo."
 
 #. module: mail
+#: code:addons/mail/models/mail_channel.py:0
+#, python-format
+msgid "The partner can not join this channel"
+msgstr ""
+
+#. module: mail
 #: code:addons/mail/models/mail_activity.py:243
 #: code:addons/mail/models/mail_message.py:704
 #: code:addons/mail/models/mail_message.py:874
@@ -5413,14 +5473,14 @@ msgstr "Il tipo di documento con il quale questo modello può essere usato"
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.message_origin_link
 msgid "This"
-msgstr "Questo"
+msgstr "Questa"
 
 #. module: mail
 #. openerp-web
 #: code:addons/mail/static/src/xml/activity_view.xml:10
 #, python-format
 msgid "This action will send an email."
-msgstr "Questa azione invierà una email."
+msgstr "Questa azione invia una e-mail."
 
 #. module: mail
 #: model:ir.model.fields,help:mail.field_mail_channel__image
@@ -5428,8 +5488,8 @@ msgid ""
 "This field holds the image used as photo for the group, limited to "
 "1024x1024px."
 msgstr ""
-"Questo campo gestisce l'immagine usata come foto per il gruppo, limitata a "
-"1024x1024px."
+"Questo campo contiene l'immagine usata come foto per il gruppo, con limite a"
+" 1024x1024px."
 
 #. module: mail
 #: model:ir.model.fields,help:mail.field_mail_blacklist__email
@@ -5459,7 +5519,7 @@ msgstr "A"
 #: model:ir.model.fields,field_description:mail.field_email_template_preview__email_to
 #: model:ir.model.fields,field_description:mail.field_mail_template__email_to
 msgid "To (Emails)"
-msgstr "A (email)"
+msgstr "A (e-mail)"
 
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_email_template_preview__partner_to
@@ -5492,7 +5552,7 @@ msgstr "A:"
 #: selection:res.partner,activity_state:0
 #, python-format
 msgid "Today"
-msgstr "oggi"
+msgstr "Oggi"
 
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.mail_activity_view_search
@@ -5510,7 +5570,7 @@ msgstr "Domani"
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.mail_channel_view_form
 msgid "Topics discussed in this group..."
-msgstr "Argomenti disccussi in questo gruppo..."
+msgstr "Argomenti trattati in questo gruppo..."
 
 #. module: mail
 #: model:ir.model.fields,help:mail.field_mail_compose_message__tracking_value_ids
@@ -5528,31 +5588,31 @@ msgstr ""
 #: model:ir.model.fields,field_description:mail.field_ir_model_fields__track_visibility
 #: model_terms:ir.ui.view,arch_db:mail.view_message_form
 msgid "Tracking"
-msgstr "Traccia"
+msgstr "Monitoraggio"
 
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.view_mail_tracking_value_form
 #: model_terms:ir.ui.view,arch_db:mail.view_mail_tracking_value_tree
 msgid "Tracking Value"
-msgstr "Valore di tracciamento"
+msgstr "Valore di monitoraggio"
 
 #. module: mail
 #: model:ir.actions.act_window,name:mail.action_view_mail_tracking_value
 #: model:ir.ui.menu,name:mail.menu_mail_tracking_value
 msgid "Tracking Values"
-msgstr "Valori di tracciamento"
+msgstr "Valori di monitoraggio"
 
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_mail_tracking_value__track_sequence
 msgid "Tracking field sequence"
-msgstr ""
+msgstr "Sequenza campo di monitoraggio"
 
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_mail_compose_message__tracking_value_ids
 #: model:ir.model.fields,field_description:mail.field_mail_mail__tracking_value_ids
 #: model:ir.model.fields,field_description:mail.field_mail_message__tracking_value_ids
 msgid "Tracking values"
-msgstr "Valori di tracciamento"
+msgstr "Valori di monitoraggio"
 
 #. module: mail
 #: selection:ir.actions.act_window.view,view_mode:0
@@ -5568,8 +5628,8 @@ msgid ""
 "Try to add some activity on records, or make sure that\n"
 "                there is no active filter in the search bar."
 msgstr ""
-"Prova ad aggiungere alcune attività sui record o assicurati\n"
-"                che non ci sia un filtro attivo nella barra di ricerca. "
+"Provare ad aggiungere alcune attività sui record o controllare\n"
+"                che non ci siano filtri attivi nella barra di ricerca. "
 
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_mail_compose_message__message_type
@@ -5582,7 +5642,7 @@ msgstr "Tipologia"
 #. module: mail
 #: model:ir.model.fields,help:mail.field_mail_activity_type__delay_from
 msgid "Type of delay"
-msgstr ""
+msgstr "Tipologia ritardo"
 
 #. module: mail
 #: model:ir.model.fields,help:mail.field_ir_actions_server__state
@@ -5596,6 +5656,14 @@ msgid ""
 "- 'Add Followers': add followers to a record (Discuss)\n"
 "- 'Create Next Activity': create an activity (Discuss)"
 msgstr ""
+"Tipologia azione server. Sono disponibili i seguenti valori:\n"
+"- \"Esegui codice python\": esegue un blocco di codice python\n"
+"- \"Crea\": crea un nuovo record con nuovi valori\n"
+"- \"Aggiorna record\": aggiorna i valori di un record\n"
+"- \"Esegui alcune azioni\": definisce un'azione che attiva diverse altre azioni server\n"
+"- \"Invia e-mail\": invia una e-mail in modo automatico (Comunicazioni)\n"
+"- \"Aggiungi follower\": aggiunge follower a un record (Comunicazioni)\n"
+"- \"Crea prossima attività\": crea un'attività (Comunicazioni)"
 
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_mail_channel__uuid
@@ -5661,7 +5729,7 @@ msgstr "Unità"
 #. module: mail
 #: model:ir.model.fields,help:mail.field_mail_activity_type__delay_unit
 msgid "Unit of delay"
-msgstr ""
+msgstr "Unità di ritardo"
 
 #. module: mail
 #: code:addons/mail/models/mail_notification.py:52
@@ -5686,7 +5754,7 @@ msgstr "Messaggi non letti"
 #: model:ir.model.fields,field_description:mail.field_res_partner__message_unread_counter
 #: model:ir.model.fields,field_description:mail.field_res_users__message_unread_counter
 msgid "Unread Messages Counter"
-msgstr "Contatore messaggi non letti"
+msgstr "Numero messaggi non letti"
 
 #. module: mail
 #. openerp-web
@@ -5701,7 +5769,7 @@ msgstr "Messaggi non letti"
 #: code:addons/mail/static/src/xml/discuss.xml:184
 #, python-format
 msgid "Unselect All"
-msgstr "Deselezionare tutto"
+msgstr "Deseleziona tutto"
 
 #. module: mail
 #. openerp-web
@@ -5715,14 +5783,14 @@ msgstr "Deselezionare tutti i messaggi da moderare"
 #: code:addons/mail/static/src/xml/discuss.xml:180
 #, python-format
 msgid "Unstar all"
-msgstr "Deseleziona preferiti"
+msgstr "Rimuovi tutti i preferiti"
 
 #. module: mail
 #. openerp-web
 #: code:addons/mail/static/src/xml/discuss.xml:180
 #, python-format
 msgid "Unstar all messages"
-msgstr "Deseleziona preferito da tutti i messaggi"
+msgstr "Rimuove preferito da tutti i messaggi"
 
 #. module: mail
 #. openerp-web
@@ -5753,21 +5821,21 @@ msgstr "Filtro di ricerca non supportato per lo stato di moderazione"
 #. module: mail
 #: selection:ir.actions.server,state:0
 msgid "Update the Record"
-msgstr "Aggiorna il record"
+msgstr "Aggiorna record"
 
 #. module: mail
 #. openerp-web
 #: code:addons/mail/static/src/xml/thread.xml:531
 #, python-format
 msgid "Uploaded"
-msgstr "Caricare"
+msgstr "Caricato"
 
 #. module: mail
 #. openerp-web
 #: code:addons/mail/static/src/xml/thread.xml:523
 #, python-format
 msgid "Uploading"
-msgstr "Caricamento"
+msgstr "Caricamento in corso"
 
 #. module: mail
 #. openerp-web
@@ -5820,7 +5888,30 @@ msgstr "Utente"
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_ir_actions_server__activity_user_field_name
 msgid "User field name"
-msgstr "Nome del campo utente"
+msgstr "Nome campo utente"
+
+#. module: mail
+#. openerp-web
+#: code:addons/mail/static/src/xml/discuss.xml:157
+#: code:addons/mail/static/src/xml/discuss.xml:278
+#, python-format
+msgid "User is idle"
+msgstr "Utente inattivo"
+
+#. module: mail
+#. openerp-web
+#: code:addons/mail/static/src/xml/discuss.xml:158
+#, python-format
+msgid "User is offline"
+msgstr "Utente non in linea"
+
+#. module: mail
+#. openerp-web
+#: code:addons/mail/static/src/xml/discuss.xml:156
+#: code:addons/mail/static/src/xml/discuss.xml:277
+#, python-format
+msgid "User is online"
+msgstr "Utente in linea"
 
 #. module: mail
 #. openerp-web
@@ -5847,7 +5938,7 @@ msgstr "Utenti"
 #: code:addons/mail/models/mail_channel.py:965
 #, python-format
 msgid "Users in this channel: %s %s and you."
-msgstr "Utenti in questo canale: %s %s e tu."
+msgstr "Utenti in questo canale: tu e %s %s."
 
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.res_config_settings_view_form
@@ -5884,6 +5975,8 @@ msgid ""
 "View \"mail.mail_channel_send_guidelines\" was not found. No email has been "
 "sent. Please contact an administrator to fix this issue."
 msgstr ""
+"Vista \"mail.mail_channel_send_guidelines\" non trovata, non è stata inviata"
+" alcuna e-mail. Per risolvere il problema contattare un amministratore."
 
 #. module: mail
 #: code:addons/mail/models/mail_thread.py:752
@@ -5895,7 +5988,7 @@ msgstr "Vedi %s"
 #: model:ir.model.fields,field_description:mail.field_ir_actions_act_window_view__view_mode
 #: model:ir.model.fields,field_description:mail.field_ir_ui_view__type
 msgid "View Type"
-msgstr "Tipo Vista"
+msgstr "Tipo vista"
 
 #. module: mail
 #. openerp-web
@@ -5909,7 +6002,7 @@ msgstr "Visualizza tutti gli allegati del record corrente"
 #: code:addons/mail/static/src/xml/thread.xml:58
 #, python-format
 msgid "Viewer"
-msgstr ""
+msgstr "Visualizzatore"
 
 #. module: mail
 #. openerp-web
@@ -5954,8 +6047,9 @@ msgid ""
 "When a relationship field is selected as first field, this field lets you "
 "select the target field within the destination document model (sub-model)."
 msgstr ""
-"Quando un campo relazione è selezionato come primo. questo campo consente di"
-" selezionare un campo del model del documento destinazione (sotto-modello)."
+"Quando un campo relazione viene selezionato come primo, permette di "
+"selezionare il campo obiettivo all'interno del modello documento di "
+"destinazione (sottomodello)."
 
 #. module: mail
 #: model:ir.model.fields,help:mail.field_email_template_preview__sub_object
@@ -5964,26 +6058,26 @@ msgid ""
 "When a relationship field is selected as first field, this field shows the "
 "document model the relationship goes to."
 msgstr ""
-"Quando un campo relazionato viene selezionato come primo campo, questo campo"
-" mostra il model del documento relazionato."
+"Quando un campo relazione viene selezionato come primo, mostra il modello "
+"documento a cui si riferisce la relazione."
 
 #. module: mail
 #: model:ir.model.fields,help:mail.field_ir_model_fields__track_visibility
 msgid ""
 "When set, every modification to this field will be tracked in the chatter."
 msgstr ""
-"Quando attivato, tutte le modifiche di questo campo saranno notificate nella"
-" chat."
+"Quando impostato, tutte le modifiche al campo verranno monitorate nella "
+"chat."
 
 #. module: mail
 #: model:ir.model.fields,help:mail.field_mail_compose_message__is_log
 msgid "Whether the message is an internal note (comment mode only)"
-msgstr "Se il messaggio è una nota interna (solo modalità commento)"
+msgstr "Indica se il messaggio è una nota interna (solo modalità commento)"
 
 #. module: mail
 #: model:ir.model.fields,help:mail.field_ir_model__is_mail_thread
 msgid "Whether this model supports messages and notifications."
-msgstr "Se è selezionato, questo modello supporta i messaggi e le notifiche."
+msgstr "Indica se il modello supporta i messaggi e le notifiche."
 
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.mail_channel_view_form
@@ -5995,7 +6089,7 @@ msgstr "Chi può seguire le attività del gruppo"
 #: code:addons/mail/static/src/xml/activity.xml:96
 #, python-format
 msgid "Write Feedback"
-msgstr "Scrivi un commento"
+msgstr "Scrivi un'opinione"
 
 #. module: mail
 #. openerp-web
@@ -6030,21 +6124,21 @@ msgstr "Sei da solo in questo canale"
 #: code:addons/mail/static/src/js/discuss.js:367
 #, python-format
 msgid "You are going to ban: %s. Do you confirm the action?"
-msgstr "Stai per bandire: %s. Vuoi confermare l'azione? "
+msgstr "%s sta per essere bloccato. Confermare l'azione?"
 
 #. module: mail
 #. openerp-web
 #: code:addons/mail/static/src/js/discuss.js:390
 #, python-format
 msgid "You are going to discard %s messages. Do you confirm the action?"
-msgstr "Stai per eliminare %s messaggi. Vuoi confermare l'azione? "
+msgstr "Verranno eliminati %s messaggi. Confermare l'azione?"
 
 #. module: mail
 #. openerp-web
 #: code:addons/mail/static/src/js/discuss.js:394
 #, python-format
 msgid "You are going to discard 1 message. Do you confirm the action?"
-msgstr "Stai per eliminare 1 messaggio. Vuoi confermare l'azione?"
+msgstr "Verrà eliminato 1 messaggio. Confermare l'azione?"
 
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.mail_channel_view_form
@@ -6052,8 +6146,8 @@ msgid ""
 "You are going to send the guidelines to all the subscribers. Do you confirm "
 "the action?"
 msgstr ""
-"Stai per inviare le linee guida a tutti gli abbonati. Vuoi confermare questa"
-" azione? "
+"Le linee guida stanno per essere inviate a tutti gli iscritti. Confermare "
+"l'azione?"
 
 #. module: mail
 #: code:addons/mail/models/mail_channel.py:925
@@ -6066,6 +6160,13 @@ msgstr "Sei in una conversazione privata con  <b>@%s</b>."
 #, python-format
 msgid "You are in channel <b>#%s</b>."
 msgstr "Sei nel canale <b>#%s</b>."
+
+#. module: mail
+#. openerp-web
+#: code:addons/mail/static/src/js/attachment_box.js:132
+#, python-format
+msgid "You are not allowed to upload an attachment here."
+msgstr ""
 
 #. module: mail
 #. openerp-web
@@ -6089,6 +6190,24 @@ msgstr ""
 "casella di posta."
 
 #. module: mail
+#: cod:addons/mail/models/mail_channel.py:0
+#, python-format
+msgid "You can not remove this partner from this channel"
+msgstr ""
+
+#. module: mail
+#: code:addons/mail/models/mail_channel.py:0
+#, python-format
+msgid "You can not write on the record of other users"
+msgstr ""
+
+#. module: mail
+#: code:addons/mail/models/mail_channel.py:0
+#, python-format
+msgid "You can not write on this field"
+msgstr ""
+
+#. module: mail
 #: code:addons/mail/models/res_users.py:87
 #, python-format
 msgid ""
@@ -6107,6 +6226,14 @@ msgid ""
 msgstr ""
 "Non è possibile cancellare questi gruppi in quanto il gruppo Tutta l'Azienda"
 " è richiesto da altri moduli."
+
+#. module: mail
+#: code:addons/mail/models/mail_alias.py:89
+#, python-format
+msgid ""
+"You cannot use anything else than unaccented latin characters in the alias "
+"address."
+msgstr ""
 
 #. module: mail
 #: code:addons/mail/models/mail_channel.py:257
@@ -6133,8 +6260,8 @@ msgstr "Sei stato assegnato a "
 #. openerp-web
 #: code:addons/mail/static/src/js/services/mail_notification_manager.js:198
 #, python-format
-msgid "You have been invited to: "
-msgstr "Ricevuto un invito per:"
+msgid "You have been invited to: %s"
+msgstr "È stato ricevuto un invito per: %s"
 
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.mail_channel_notify_moderation
@@ -6250,7 +6377,7 @@ msgstr "ti ha assegnato un'attività"
 #. module: mail
 #: model:mail.channel,name:mail.channel_2
 msgid "board-meetings"
-msgstr "Riunioni del board"
+msgstr "riunioni-cda"
 
 #. module: mail
 #. openerp-web
@@ -6278,7 +6405,7 @@ msgstr "."
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.message_origin_link
 msgid "created"
-msgstr "creato"
+msgstr "creata"
 
 #. module: mail
 #: selection:mail.activity.type,delay_unit:0
@@ -6335,12 +6462,12 @@ msgstr "da:"
 #. module: mail
 #: model:mail.channel,name:mail.channel_all_employees
 msgid "general"
-msgstr "Generale"
+msgstr "generale"
 
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.message_origin_link
 msgid "has been"
-msgstr "è stato"
+msgstr "è stata"
 
 #. module: mail
 #: code:addons/mail/models/mail_alias.py:272
@@ -6421,8 +6548,8 @@ msgid ""
 "posting a message without model should be with a null res_id (private "
 "message), received %s"
 msgstr ""
-"Per pubblicare un messaggio senza modello, usi un ID res_id nullo (messaggio"
-" privato), ricevuto %s"
+"un messaggio senza modello deve essere spedito con res_id nullo (messaggio "
+"privato), ricevuto %s"
 
 #. module: mail
 #: code:addons/mail/models/mail_thread.py:1025
@@ -6430,13 +6557,13 @@ msgstr ""
 msgid ""
 "posting a message without model should be with a parent_id (private message)"
 msgstr ""
-"Per pubblicare un messaggio senza modello, usare un ID parent_id (messaggio "
+"un messaggio senza modello deve essere spedito con un parent_id (messaggio "
 "privato)"
 
 #. module: mail
 #: model:mail.channel,name:mail.channel_3
 msgid "rd"
-msgstr "R&S"
+msgstr "rs"
 
 #. module: mail
 #. openerp-web
@@ -6486,7 +6613,7 @@ msgstr "limitato agli iscritti del canale"
 #: code:addons/mail/models/mail_alias.py:277
 #, python-format
 msgid "restricted to followers"
-msgstr "limitato ai follower"
+msgstr "limitato a chi sta seguendo"
 
 #. module: mail
 #: code:addons/mail/models/mail_alias.py:281
@@ -6524,7 +6651,7 @@ msgstr "questo documento"
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.message_activity_assigned
 msgid "to close for"
-msgstr ""
+msgstr "da chiudere entro il"
 
 #. module: mail
 #: code:addons/mail/models/mail_thread.py:1081
@@ -6544,12 +6671,12 @@ msgstr "modello target sconosciuto %s"
 #: code:addons/mail/static/src/js/models/messages/abstract_message.js:52
 #, python-format
 msgid "unnamed"
-msgstr ""
+msgstr "senza nome"
 
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.message_notification_email
 msgid "using"
-msgstr ""
+msgstr "usando"
 
 #. module: mail
 #: selection:mail.activity.type,delay_unit:0

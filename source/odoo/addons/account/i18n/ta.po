@@ -7,7 +7,7 @@
 # Bagavathikumar Ramakrishnan <bagavathikumar@gmail.com>, 2019
 # Abul Hassan M I <miabulhassan@gmail.com>, 2019
 # Alagappan Karthikeyan <me@karthik.sg>, 2019
-# prassanna john paul augustin <prasaugus@gmail.com>, 2019
+# Prassanna <prasaugus@gmail.com>, 2019
 # Martin Trigaux, 2019
 # Thirunavukkarasu Deivasigamani <thiru_electrifiers@yahoo.co.in>, 2019
 # 
@@ -489,6 +489,11 @@ msgstr ""
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.report_invoice_document
 msgid "<span>Quantity</span>"
+msgstr ""
+
+#. module: account
+#: model_terms:ir.ui.view,arch_db:account.report_payment_receipt_document
+msgid "<span>Reference</span>"
 msgstr ""
 
 #. module: account
@@ -4562,6 +4567,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:account.field_account_invoice_report__fiscal_position_id
 #: model:ir.model.fields,field_description:account.field_res_partner__property_account_position_id
 #: model:ir.model.fields,field_description:account.field_res_users__property_account_position_id
+#: model_terms:ir.ui.view,arch_db:account.view_account_position_filter
 #: model_terms:ir.ui.view,arch_db:account.view_account_position_form
 #: model_terms:ir.ui.view,arch_db:account.view_account_position_template_search
 #: model_terms:ir.ui.view,arch_db:account.view_account_position_template_tree
@@ -7904,6 +7910,12 @@ msgid ""
 msgstr ""
 
 #. module: account
+#: code:addons/account/models/account_cash_rounding.py:33
+#, python-format
+msgid "Please set a strictly positive rounding value."
+msgstr ""
+
+#. module: account
 #: model_terms:ir.ui.view,arch_db:account.report_invoice_document
 msgid "Please use the following communication for your payment :"
 msgstr ""
@@ -9774,11 +9786,9 @@ msgstr ""
 #: model:ir.model.fields,help:account.field_account_payment__multi
 #: model:ir.model.fields,help:account.field_account_register_payments__multi
 msgid ""
-"Technical field indicating if the user selected invoices from multiple "
-"partners or from different types."
+"Technical field indicating if the registering payment will generate multiple"
+" payments or not."
 msgstr ""
-"பல துறைகளிடமிருந்து அல்லது பல்வேறு வகைகளிலிருந்து பயனர் தேர்ந்தெடுக்கப்பட்ட "
-"பொருள் விவரங்களைக் குறிப்பிடுகின்ற தொழில்நுட்ப துறை."
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_invoice_refund__refund_only
@@ -10227,7 +10237,10 @@ msgstr ""
 #. module: account
 #: code:addons/account/models/account.py:564
 #, python-format
-msgid "The holder of a journal's bank account must be the company (%s)."
+msgid ""
+"The holder of the bank account of a \"Bank\" type journal must be the company (%s).\n"
+"However, the holder of \"%s\" is \"%s\".\n"
+"Please select another bank account or change the holder of \"%s\"."
 msgstr ""
 
 #. module: account
@@ -11681,6 +11694,14 @@ msgid ""
 msgstr ""
 "இரண்டு நிதி ஆண்டுகளுக்கு இடையில் நீங்கள் ஒன்றிணைக்க முடியாது, உங்கள் நிதி "
 "ஆண்டுகளின் தொடக்க மற்றும் / அல்லது இறுதி தேதியை சரிசெய்யவும்."
+
+#. module: account
+#: code:addons/account/models/partner.py:441
+#, python-format
+msgid ""
+"You can't change the company of a partner if the latter already has some "
+"invoices."
+msgstr ""
 
 #. module: account
 #: code:addons/account/models/account_invoice.py:1784

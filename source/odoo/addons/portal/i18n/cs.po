@@ -8,15 +8,16 @@
 # Jaroslav Helemik Nemec <nemec@helemik.cz>, 2018
 # Jan Horzinka <jan.horzinka@centrum.cz>, 2018
 # Michal Veselý <michal@veselyberanek.net>, 2018
-# trendspotter <j.podhorecky@volny.cz>, 2019
+# trendspotter <jirka.p@volny.cz>, 2019
+# karolína schusterová <karolina.schusterova@vdp.sk>, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-08 13:50+0000\n"
+"POT-Creation-Date: 2021-09-07 07:15+0000\n"
 "PO-Revision-Date: 2018-08-24 09:22+0000\n"
-"Last-Translator: trendspotter <j.podhorecky@volny.cz>, 2019\n"
+"Last-Translator: karolína schusterová <karolina.schusterova@vdp.sk>, 2021\n"
 "Language-Team: Czech (https://www.transifex.com/odoo/teams/41243/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,17 +26,25 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
 
 #. module: portal
-#. openerp-web
-#: code:addons/portal/static/src/js/portal_sidebar.js:43
+#: code:addons/portal/wizard/portal_wizard.py:117
 #, python-format
-msgid "%d days overdue"
-msgstr "%d dnů po splatnosti"
+msgid ""
+"\n"
+"- Switch the internal users to portal manually"
+msgstr ""
+
+#. module: portal
+#. openerp-web
+#: code:addons/portal/static/src/js/portal_sidebar.js:47
+#, python-format
+msgid "%1d days overdue"
+msgstr ""
 
 #. module: portal
 #: code:addons/portal/controllers/portal.py:277
 #, python-format
 msgid "%s is not the reference of a report"
-msgstr ""
+msgstr "%snení odkaz na zprávu"
 
 #. module: portal
 #: model_terms:ir.ui.view,arch_db:portal.portal_show_sign_in
@@ -308,6 +317,7 @@ msgstr "Zrušit"
 
 #. module: portal
 #: code:addons/portal/controllers/portal.py:220
+#: model_terms:ir.ui.view,arch_db:portal.portal_my_details
 #, python-format
 msgid ""
 "Changing VAT number is not allowed once document(s) have been issued for "
@@ -339,7 +349,7 @@ msgstr "Vymazat"
 
 #. module: portal
 #. openerp-web
-#: code:addons/portal/static/src/xml/portal_signature.xml:27
+#: code:addons/portal/static/src/xml/portal_signature.xml:28
 #, python-format
 msgid "Click here to see your document."
 msgstr "Kliknutím sem zobrazíte dokument."
@@ -426,14 +436,14 @@ msgstr "Podepište se"
 
 #. module: portal
 #. openerp-web
-#: code:addons/portal/static/src/js/portal_sidebar.js:41
+#: code:addons/portal/static/src/js/portal_sidebar.js:45
 #, python-format
-msgid "Due in %d days"
-msgstr "Splnění za %d dnů"
+msgid "Due in %1d days"
+msgstr ""
 
 #. module: portal
 #. openerp-web
-#: code:addons/portal/static/src/js/portal_sidebar.js:39
+#: code:addons/portal/static/src/js/portal_sidebar.js:41
 #, python-format
 msgid "Due today"
 msgstr "Vyprší dnes"
@@ -489,7 +499,7 @@ msgstr "Neplatný e-mail! Prosím zadejte platnou emailovou adresu."
 #: code:addons/portal/controllers/portal.py:272
 #, python-format
 msgid "Invalid report type: %s"
-msgstr ""
+msgstr "Neplatný typ přehledu: %s"
 
 #. module: portal
 #: model:ir.model.fields,field_description:portal.field_portal_wizard__welcome_message
@@ -625,7 +635,7 @@ msgstr "Předchozí"
 
 #. module: portal
 #. openerp-web
-#: code:addons/portal/static/src/js/portal_chatter.js:109
+#: code:addons/portal/static/src/js/portal_chatter.js:116
 #, python-format
 msgid "Published on %s"
 msgstr "Publikováno na %s"
@@ -675,7 +685,7 @@ msgid "Send"
 msgstr "Odeslat"
 
 #. module: portal
-#: code:addons/portal/wizard/portal_wizard.py:100
+#: code:addons/portal/wizard/portal_wizard.py:105
 #, python-format
 msgid "Several contacts have the same email: "
 msgstr "Několik kontaktů má stejný e-mail:"
@@ -687,13 +697,19 @@ msgid "Share Document"
 msgstr "Sdílet dokument"
 
 #. module: portal
-#: code:addons/portal/wizard/portal_wizard.py:97
+#: code:addons/portal/wizard/portal_wizard.py:111
+#, python-format
+msgid "Some contacts are already internal users:"
+msgstr ""
+
+#. module: portal
+#: code:addons/portal/wizard/portal_wizard.py:102
 #, python-format
 msgid "Some contacts don't have a valid email: "
 msgstr "Některé kontakty nemají platný e-mail:"
 
 #. module: portal
-#: code:addons/portal/wizard/portal_wizard.py:103
+#: code:addons/portal/wizard/portal_wizard.py:108
 #, python-format
 msgid "Some contacts have the same email as an existing portal user:"
 msgstr "Některé kontakty mají stejný e-mail jako stávající uživatel portálu:"
@@ -716,7 +732,7 @@ msgstr "ulice"
 
 #. module: portal
 #. openerp-web
-#: code:addons/portal/static/src/xml/portal_signature.xml:25
+#: code:addons/portal/static/src/xml/portal_signature.xml:26
 #, python-format
 msgid "Thank You !"
 msgstr "Děkuji !"
@@ -732,7 +748,7 @@ msgstr "Momentálně nejsou žádné komentáře."
 #: code:addons/portal/controllers/portal.py:237
 #, python-format
 msgid "This document does not exist."
-msgstr ""
+msgstr "Tento dokument neexistuje."
 
 #. module: portal
 #: model_terms:ir.ui.view,arch_db:portal.portal_back_in_edit_mode
@@ -751,7 +767,7 @@ msgid "This text is included in the email sent to new users of the portal."
 msgstr "Tento text je přidán do emailu odesílaného novým uživatelům portálu."
 
 #. module: portal
-#: code:addons/portal/wizard/portal_wizard.py:106
+#: code:addons/portal/wizard/portal_wizard.py:114
 #, python-format
 msgid ""
 "To resolve this error, you can: \n"
@@ -778,7 +794,7 @@ msgid "VAT Number"
 msgstr "DIČ"
 
 #. module: portal
-#: code:addons/portal/models/portal_mixin.py:83
+#: code:addons/portal/models/portal_mixin.py:93
 #, python-format
 msgid "View %s"
 msgstr "Zobrazit %s"
@@ -844,8 +860,8 @@ msgid "Write a message..."
 msgstr "Napište zprávu..."
 
 #. module: portal
-#: code:addons/portal/wizard/portal_share.py:59
-#: code:addons/portal/wizard/portal_share.py:71
+#: code:addons/portal/wizard/portal_share.py:61
+#: code:addons/portal/wizard/portal_share.py:77
 #, python-format
 msgid "You are invited to access %s"
 msgstr "Jste zván k přístupu %s"
@@ -863,7 +879,7 @@ msgid "You must be"
 msgstr "Musíte být"
 
 #. module: portal
-#: code:addons/portal/wizard/portal_wizard.py:175
+#: code:addons/portal/wizard/portal_wizard.py:184
 #, python-format
 msgid ""
 "You must have an email address in your User Preferences to send emails."

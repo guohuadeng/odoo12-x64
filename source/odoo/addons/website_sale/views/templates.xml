@@ -59,7 +59,7 @@
             <li id="my_cart" t-attf-class="nav-item#{'' if website_sale_order and website_sale_order.cart_quantity else ' d-none'}">
                 <a href="/shop/cart" class="nav-link">
                     <i class="fa fa-shopping-cart"></i>
-                    My Cart <sup t-attf-class="my_cart_quantity badge badge-primary" t-esc="website_sale_order and website_sale_order.cart_quantity or ''" />
+                    My Cart <sup t-attf-class="my_cart_quantity badge badge-primary" t-esc="website_sale_order and website_sale_order.cart_quantity or ''" t-att-data-order-id="website_sale_order and website_sale_order.id or ''"/>
                 </a>
             </li>
         </xpath>
@@ -112,7 +112,7 @@
                 </div>
                 <div class="oe_product_image">
                     <a itemprop="url" t-att-href="product_href">
-                        <span t-field="product.image" t-options="{'widget': 'image', 'resize': None if product_image_big else '300x300'}"/>
+                        <span t-field="product.image" t-options="{'widget': 'image', 'resize': None if product_image_big else '300x300', 'itemprop': 'image'}"/>
                     </a>
                 </div>
                 <t t-if="show_publish">
@@ -722,7 +722,9 @@
                             </t>
                         </div>
                         <div class="col-12 col-xl-auto order-xl-2 d-none d-xl-block">
-                            <t t-call="website_sale.cart_summary"/>
+                            <t t-call="website_sale.cart_summary">
+                                <t t-set="redirect" t-valuef="/shop/extra_info"/>
+                            </t>
                         </div>
                         <div class="col-12 col-xl order-xl-1 oe_cart">
                             <div class="row">
@@ -856,7 +858,7 @@
                         </td>
                         <td class="text-center td-price" name="price">
                             <t t-set="combination" t-value="line.product_id.product_template_attribute_value_ids + line.product_no_variant_attribute_value_ids"/>
-                            <t t-set="combination_info" t-value="line.product_id.product_tmpl_id._get_combination_info(combination)"/>
+                            <t t-set="combination_info" t-value="line.product_id.product_tmpl_id._get_combination_info(combination, pricelist=website_sale_order.pricelist_id)"/>
 
                             <t t-set="list_price_converted" t-value="website.currency_id._convert(combination_info['list_price'], website_sale_order.currency_id, website_sale_order.company_id, date)"/>
                             <t groups="account.group_show_line_subtotals_tax_excluded" t-if="(website_sale_order.pricelist_id.discount_policy == 'without_discount' and website_sale_order.currency_id.compare_amounts(list_price_converted, line.price_reduce_taxexcl) == 1) or website_sale_order.currency_id.compare_amounts(line.price_unit, line.price_reduce) == 1" name="order_line_discount">
@@ -979,7 +981,7 @@
             <table t-if="suggested_products" id="suggested_products" class="js_cart_lines table table-striped table-sm">
                 <tbody>
                     <tr t-foreach="suggested_products" t-as="product">
-                        <t t-set="combination_info" t-value="product._get_combination_info_variant()"/>
+                        <t t-set="combination_info" t-value="product._get_combination_info_variant(pricelist=website_sale_order.pricelist_id)"/>
                         <td class='td-img'>
                             <a t-attf-href="/shop/product/#{ slug(product.product_tmpl_id) }">
                                 <span t-field="product.image_small" t-options="{'widget': 'image', 'class': 'rounded'}" />
@@ -1041,7 +1043,9 @@
                             </t>
                         </div>
                         <div class="col-12 col-xl-auto order-xl-2 d-none d-xl-block">
-                            <t t-call="website_sale.cart_summary"/>
+                            <t t-call="website_sale.cart_summary">
+                                <t t-set="redirect" t-valuef="/shop/checkout"/>
+                            </t>
                         </div>
                         <div class="col-12 col-xl order-xl-1 oe_cart">
                             <div class="row">
@@ -1149,7 +1153,10 @@
                     </div>
                     <div class="row">
                         <div class="col-12 col-xl-auto order-xl-2 d-none d-xl-block">
-                            <t t-call="website_sale.cart_summary"/>
+                            <t t-call="website_sale.cart_summary">
+                                <t t-set="hide_coupon">True</t>
+                                <t t-set="redirect" t-valuef="/shop/address"/>
+                            </t>
                         </div>
                         <div class="col-12 col-xl order-xl-1 oe_cart">
                             <div>
@@ -1289,11 +1296,13 @@
             <t t-if="mode == ('new', 'billing') or (mode == ('edit', 'billing') and (can_edit_vat or 'vat' in checkout and checkout['vat']))">
                 <div t-attf-class="form-group #{error.get('company_name') and 'o_has_error' or ''} col-lg-6">
                     <label class="col-form-label font-weight-normal label-optional" for="company_name">Company Name</label>
-                    <input type="text" name="company_name" t-attf-class="form-control #{error.get('company_name') and 'is-invalid' or ''}" t-att-value="'commercial_company_name' in checkout and checkout['commercial_company_name'] or 'company_name' in checkout and checkout['company_name']" t-att-readonly="'1' if 'vat' in checkout and checkout['vat'] and not can_edit_vat else None" t-att-title="'Changing company name is not allowed once document(s) have been issued for your account. Please contact us directly for this operation.' if 'vat' in checkout and checkout['vat'] and not can_edit_vat else None" />
+                    <t t-set="company_name_not_editable_message">Changing company name is not allowed once document(s) have been issued for your account. Please contact us directly for this operation.</t>
+                    <input type="text" name="company_name" t-attf-class="form-control #{error.get('company_name') and 'is-invalid' or ''}" t-att-value="'commercial_company_name' in checkout and checkout['commercial_company_name'] or 'company_name' in checkout and checkout['company_name']" t-att-readonly="'1' if 'vat' in checkout and checkout['vat'] and not can_edit_vat else None" t-att-title="company_name_not_editable_message if 'vat' in checkout and checkout['vat'] and not can_edit_vat else None" />
                 </div>
                 <div t-attf-class="form-group #{error.get('vat') and 'o_has_error' or ''} col-lg-6 div_vat">
                     <label class="col-form-label font-weight-normal label-optional" for="vat">TIN / VAT </label>
-                    <input type="text" name="vat" t-attf-class="form-control #{error.get('vat') and 'is-invalid' or ''}" t-att-value="'vat' in checkout and checkout['vat']" t-att-readonly="'1' if 'vat' in checkout and checkout['vat'] and not can_edit_vat else None" t-att-title="'Changing VAT number is not allowed once document(s) have been issued for your account. Please contact us directly for this operation.' if 'vat' in checkout and checkout['vat'] and not can_edit_vat else None" />
+                    <t t-set="vat_not_editable_message">Changing VAT number is not allowed once document(s) have been issued for your account. Please contact us directly for this operation.</t>
+                    <input type="text" name="vat" t-attf-class="form-control #{error.get('vat') and 'is-invalid' or ''}" t-att-value="'vat' in checkout and checkout['vat']" t-att-readonly="'1' if 'vat' in checkout and checkout['vat'] and not can_edit_vat else None" t-att-title="vat_not_editable_message if 'vat' in checkout and checkout['vat'] and not can_edit_vat else None" />
                 </div>
             </t>
         </xpath>
@@ -1407,7 +1416,7 @@
         <div class="card">
             <div class="card-body p-xl-0">
                 <div class="toggle_summary d-xl-none">
-                    <b>Your order: </b> <span t-field="website_sale_order.amount_total" t-options='{"widget": "monetary", "display_currency": website_sale_order.pricelist_id.currency_id}'/>
+                    <b>Your order: </b> <span id="amount_total_summary" t-field="website_sale_order.amount_total" t-options='{"widget": "monetary", "display_currency": website_sale_order.pricelist_id.currency_id}'/>
                     <span class='fa fa-chevron-down fa-border float-right' role="img" aria-label="Details" title="Details"></span>
                 </div>
                 <div t-if="not website_sale_order or not website_sale_order.website_order_line" class="alert alert-info">
@@ -1445,7 +1454,7 @@
                         </tbody>
                     </table>
                     <t t-call="website_sale.total">
-                        <t t-set='redirect'>/shop/payment</t>
+                        <t t-set='redirect' t-value="redirect or '/shop/payment'"></t>
                     </t>
                 </div>
             </div>
@@ -1481,7 +1490,7 @@
                                         </h2>
                                     </div>
                                 </t>
-                                <t t-if="request.env['ir.config_parameter'].sudo().get_param('auth_signup.invitation_scope', 'b2b') == 'b2c' and request.website.is_public_user()">
+                                <t t-if="request.env['res.users']._get_signup_invitation_scope() == 'b2c' and request.website.is_public_user()">
                                     <p class="alert alert-info mt-3" role="status">
                                         <a role="button" t-att-href='order.partner_id.signup_prepare() and order.partner_id.signup_url' class='btn btn-primary'>Sign Up</a>
                                          to follow your order.
@@ -1623,7 +1632,7 @@
                 <div t-if="(payment_tx_id.acquirer_id.qr_code == True) and (payment_tx_id.acquirer_id.provider == 'transfer') and (payment_tx_id.currency_id.name == 'EUR')">
                     <div class="card-body" t-if="payment_tx_id.acquirer_id.journal_id.bank_account_id.qr_code_valid">
                         <h3>Or scan me with your banking app.</h3>
-                        <img class="border border-dark rounded" t-att-src="payment_tx_id.acquirer_id.journal_id.bank_account_id.build_qr_code_url(order.amount_total,payment_tx_id.reference)"/>
+                        <img class="border border-dark rounded" t-att-src="payment_tx_id.acquirer_id.journal_id.bank_account_id.build_qr_code_base64(order.amount_total,payment_tx_id.reference)"/>
                     </div>
                     <div class="card-body" t-if="payment_tx_id.acquirer_id.journal_id.bank_account_id.qr_code_valid == False">
                         <h3>The SEPA QR Code informations are not set correctly.</h3>

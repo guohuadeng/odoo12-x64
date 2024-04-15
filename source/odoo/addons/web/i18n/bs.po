@@ -3081,7 +3081,7 @@ msgstr "Specijalno:"
 #: code:addons/web/static/src/js/views/graph/graph_renderer.js:215
 #, python-format
 msgid "Stacked"
-msgstr ""
+msgstr "Složeno"
 
 #. module: web
 #. openerp-web
@@ -3243,7 +3243,15 @@ msgstr ""
 "model."
 
 #. module: web
-#: code:addons/web/controllers/main.py:1513
+#: code:addons/web/controllers/main.py:1452
+#, python-format
+msgid ""
+"There are too many records (%s records, limit: %s) to export as this format."
+" Consider splitting the export."
+msgstr ""
+
+#. module: web
+#: code:addons/web/controllers/main.py:1522
 #, python-format
 msgid ""
 "There are too many rows (%s rows, limit: 65535) to export as Excel 97-2003 "
@@ -3919,7 +3927,7 @@ msgstr "je nakon"
 #: code:addons/web/static/src/js/views/search/search_filters.js:190
 #, python-format
 msgid "is after or equal to"
-msgstr ""
+msgstr "je nakon ili jednak"
 
 #. module: web
 #. openerp-web
@@ -3933,7 +3941,7 @@ msgstr "je prije"
 #: code:addons/web/static/src/js/views/search/search_filters.js:191
 #, python-format
 msgid "is before or equal to"
-msgstr ""
+msgstr "je prije ili jednak"
 
 #. module: web
 #. openerp-web

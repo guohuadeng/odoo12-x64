@@ -11,10 +11,11 @@
 # David Vidal <david.vidal@trespinos.es>, 2019
 # Jesús Alan Ramos Rodríguez <alan.ramos@jarsa.com.mx>, 2019
 # Mariana Santos Romo <msn@odoo.com>, 2019
-# Pedro M. Baeza <pedro.baeza@gmail.com>, 2019
-# Jon Perez <jop@odoo.com>, 2019
 # Luis Guzman <ark@switnet.org>, 2019
 # José Vicente <txusev@gmail.com>, 2019
+# Osiris Román <osiris.roman@yachaytech.edu.ec>, 2020
+# Pedro M. Baeza <pedro.baeza@tecnativa.com>, 2021
+# Jose Ramon Garcia <jrgarcia.cosin@gmail.com>, 2021
 # 
 msgid ""
 msgstr ""
@@ -22,7 +23,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-14 07:33+0000\n"
 "PO-Revision-Date: 2018-08-24 09:22+0000\n"
-"Last-Translator: José Vicente <txusev@gmail.com>, 2019\n"
+"Last-Translator: Jose Ramon Garcia <jrgarcia.cosin@gmail.com>, 2021\n"
 "Language-Team: Spanish (https://www.transifex.com/odoo/teams/41243/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -115,8 +116,8 @@ msgid ""
 "<i class=\"fa fa-fw fa-shopping-bag\" role=\"img\" aria-label=\"Shopping "
 "cart\" title=\"Shopping cart\"/>"
 msgstr ""
-"<i class=\"fa fa-fw fa-shopping-bag\" role=\"img\" aria-label=\"Shopping "
-"cart\" title=\"Shopping cart\"/>"
+"<i class=\"fa fa-fw fa-shopping-bag\" role=\"img\" aria-label=\"Cesta\" "
+"title=\"Cesta\"/>"
 
 #. module: point_of_sale
 #: model_terms:ir.ui.view,arch_db:point_of_sale.view_pos_order_kanban
@@ -771,7 +772,7 @@ msgid ""
 "Categories are used to browse your products through the\n"
 "                touchscreen interface."
 msgstr ""
-"Las categorías son usadas para buscar productos a travez \n"
+"Las categorías son usadas para buscar productos a través \n"
 "de una interfaz táctil."
 
 #. module: point_of_sale
@@ -804,7 +805,7 @@ msgstr "Sillas"
 #: code:addons/point_of_sale/static/src/xml/pos.xml:552
 #, python-format
 msgid "Change"
-msgstr "Cambiar"
+msgstr "Cambio"
 
 #. module: point_of_sale
 #. openerp-web
@@ -1372,12 +1373,12 @@ msgstr "Digerir"
 #: code:addons/point_of_sale/static/src/xml/pos.xml:168
 #, python-format
 msgid "Disc"
-msgstr "Desc."
+msgstr "Dto."
 
 #. module: point_of_sale
 #: model_terms:ir.ui.view,arch_db:point_of_sale.report_saledetails
 msgid "Disc:"
-msgstr "Desc:"
+msgstr "Dto:"
 
 #. module: point_of_sale
 #. openerp-web
@@ -1519,7 +1520,7 @@ msgstr "Error de Descarga"
 #: code:addons/point_of_sale/static/src/xml/pos.xml:550
 #, python-format
 msgid "Due"
-msgstr "Vencido"
+msgstr "A pagar"
 
 #. module: point_of_sale
 #. openerp-web
@@ -2307,6 +2308,8 @@ msgid ""
 "No payment method configured! \n"
 "Either no Chart of Account is installed or no payment method is configured for this POS."
 msgstr ""
+"¡No hay configurado un método de pago!\n"
+"O no está instalado el Plan Contable, o no hay un método de pago configurado para este PdV."
 
 #. module: point_of_sale
 #: code:addons/point_of_sale/wizard/pos_open_statement.py:24
@@ -2579,49 +2582,49 @@ msgstr "Diarios del punto de venta"
 #: code:addons/point_of_sale/models/pos_config.py:348
 #, python-format
 msgid "POS Order %s"
-msgstr "Orden PdV %s"
+msgstr "Pedido de TPV %s"
 
 #. module: point_of_sale
 #: model_terms:ir.ui.view,arch_db:point_of_sale.view_pos_order_line_form
 msgid "POS Order line"
-msgstr "Línea de venta TPV"
+msgstr "Línea de pedido de TPV"
 
 #. module: point_of_sale
 #: model_terms:ir.ui.view,arch_db:point_of_sale.view_pos_order_line
 msgid "POS Order lines"
-msgstr "Líneas de venta TPV"
+msgstr "Líneas de pedido de TPV"
 
 #. module: point_of_sale
 #: model_terms:ir.ui.view,arch_db:point_of_sale.view_pos_order_tree
 msgid "POS Orders"
-msgstr "Ventas TPV"
+msgstr "Pedidos de TPV"
 
 #. module: point_of_sale
 #: model_terms:ir.ui.view,arch_db:point_of_sale.view_pos_order_tree_all_sales_lines
 msgid "POS Orders lines"
-msgstr "TPV Líneas pedido"
+msgstr "Líneas de pedido de TPV"
 
 #. module: point_of_sale
 #: model:ir.model.fields,field_description:point_of_sale.field_res_config_settings__pos_pricelist_setting
 msgid "POS Pricelists"
-msgstr "Tarifas TPV"
+msgstr "Tarifas de TPV"
 
 #. module: point_of_sale
 #: model:ir.model.fields,field_description:point_of_sale.field_digest_digest__kpi_pos_total
 #: model_terms:ir.ui.view,arch_db:point_of_sale.view_partner_property_form
 msgid "POS Sales"
-msgstr "Ventas PdV"
+msgstr "Ventas de TPV"
 
 #. module: point_of_sale
 #: code:addons/point_of_sale/models/pos_config.py:357
 #, python-format
 msgid "POS order line %s"
-msgstr "Línea de la orden del PdV %s"
+msgstr "Línea de pedido de TPV %s"
 
 #. module: point_of_sale
 #: model:ir.model.fields,field_description:point_of_sale.field_account_bank_statement_line__pos_statement_id
 msgid "POS statement"
-msgstr "Extracto POS"
+msgstr "Extracto de TPV"
 
 #. module: point_of_sale
 #: selection:barcode.rule,type:0
@@ -2659,7 +2662,7 @@ msgstr "Logo de la empresa"
 #: code:addons/point_of_sale/static/src/js/gui.js:274
 #, python-format
 msgid "Password ?"
-msgstr "Contraseña?"
+msgstr "¿Contraseña?"
 
 #. module: point_of_sale
 #. openerp-web
@@ -2682,7 +2685,7 @@ msgstr "Pagar pedido"
 #: model_terms:ir.ui.view,arch_db:point_of_sale.view_pos_pos_form
 #, python-format
 msgid "Payment"
-msgstr "Pagos"
+msgstr "Pago"
 
 #. module: point_of_sale
 #: model:ir.model.fields,field_description:point_of_sale.field_pos_make_payment__payment_date
@@ -2809,7 +2812,7 @@ msgstr "Porfavor Confirme Cantidad Grande"
 #: code:addons/point_of_sale/static/src/js/models.js:1892
 #, python-format
 msgid "Please configure a payment method in your POS."
-msgstr "Configure un método de pago en su PdV."
+msgstr "Configure un método de pago en su TPV."
 
 #. module: point_of_sale
 #: code:addons/point_of_sale/models/pos_order.py:374
@@ -2994,12 +2997,12 @@ msgstr "Configuración del punto de venta"
 #: model:ir.model.fields,field_description:point_of_sale.field_res_partner__pos_order_count
 #: model:ir.model.fields,field_description:point_of_sale.field_res_users__pos_order_count
 msgid "Pos Order Count"
-msgstr "Recuento de los pedidos del punto de venta"
+msgstr "Nº de pedidos de TPV"
 
 #. module: point_of_sale
 #: model:ir.model.fields,field_description:point_of_sale.field_pos_pack_operation_lot__pos_order_line_id
 msgid "Pos Order Line"
-msgstr "Línea del pedido del punto de venta"
+msgstr "Línea de pedido TPV"
 
 #. module: point_of_sale
 #: model:ir.model.fields,field_description:point_of_sale.field_pos_config__pos_session_duration
@@ -3643,7 +3646,7 @@ msgstr "Sesiones"
 #. module: point_of_sale
 #: model_terms:ir.ui.view,arch_db:point_of_sale.customer_facing_display_snippets
 msgid "Set Custom Image..."
-msgstr ""
+msgstr "Imagen Personalizada..."
 
 #. module: point_of_sale
 #. openerp-web
@@ -3733,7 +3736,7 @@ msgstr "Saltar pantalla de vista previa"
 #: code:addons/point_of_sale/static/src/xml/pos.xml:212
 #, python-format
 msgid "Slash"
-msgstr ""
+msgstr "barra oblicua"
 
 #. module: point_of_sale
 #: model:product.product,name:point_of_sale.small_shelf
@@ -3766,6 +3769,9 @@ msgid ""
 "errors. You can exit the Point of Sale, but do not close the session before "
 "the issue has been resolved."
 msgstr ""
+"Algunas órdenes no se pudieron enviar al servidor debido a errores de "
+"configuración. Puede salir del punto de venta, pero no cierre la sesión "
+"antes de que se resuelva el problema."
 
 #. module: point_of_sale
 #. openerp-web
@@ -3776,11 +3782,14 @@ msgid ""
 "issues. You can exit the Point of Sale, but do not close the session before "
 "the issue has been resolved."
 msgstr ""
+"Algunos pedidos no se pudieron enviar al servidor debido a problemas de "
+"conexión a Internet. Puede salir del punto de venta, pero no cierre la "
+"sesión antes de que se resuelva el problema."
 
 #. module: point_of_sale
 #: model:ir.model,name:point_of_sale.model_pos_pack_operation_lot
 msgid "Specify product lot/serial number in pos order line"
-msgstr "Especifique el número de serie / de lote en la línea de la orden PdV"
+msgstr "Especifique el número de serie/lote en la línea del pedido TPV"
 
 #. module: point_of_sale
 #: model:ir.model.fields,field_description:point_of_sale.field_pos_details_wizard__start_date
@@ -4017,7 +4026,7 @@ msgstr "Tel.:"
 #: code:addons/point_of_sale/static/src/xml/pos.xml:551
 #, python-format
 msgid "Tendered"
-msgstr "Licitado"
+msgstr "Entregado"
 
 #. module: point_of_sale
 #: code:addons/point_of_sale/models/pos_order.py:351
@@ -4120,6 +4129,17 @@ msgid ""
 msgstr ""
 "La venta ya ha sido sincronizada antes. Por favor, haga la factura desde el "
 "backend para el pedido:"
+
+#. module: point_of_sale
+#. openerp-web
+#: code:addons/point_of_sale/static/src/xml/pos.xml:715
+#, python-format
+msgid ""
+"The order has been synchronized earlier. To print the invoice please refer "
+"to the order in the backend"
+msgstr ""
+"El pedido se ha sincronizado anteriormente. Para imprimir la factura, consulte el pedido en el backend\n"
+" "
 
 #. module: point_of_sale
 #: model:ir.model.fields,help:point_of_sale.field_pos_config__iface_precompute_cash

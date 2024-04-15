@@ -8,8 +8,9 @@
 # Kovács Tibor <kovika@gmail.com>, 2018
 # Ákos Nagy <akos.nagy@oregional.hu>, 2018
 # Tibor Kőnig <konig.tibor@evitalit.hu>, 2018
-# gezza <geza.nagy@oregional.hu>, 2019
 # krnkris, 2019
+# gezza <geza.nagy@oregional.hu>, 2020
+# Tamás Németh <ntomasz81@gmail.com>, 2021
 # 
 msgid ""
 msgstr ""
@@ -17,7 +18,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-14 07:34+0000\n"
 "PO-Revision-Date: 2018-08-24 09:17+0000\n"
-"Last-Translator: krnkris, 2019\n"
+"Last-Translator: Tamás Németh <ntomasz81@gmail.com>, 2021\n"
 "Language-Team: Hungarian (https://www.transifex.com/odoo/teams/41243/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,7 +29,7 @@ msgstr ""
 #. module: delivery
 #: model:mail.template,report_name:delivery.mail_template_data_delivery_confirmation
 msgid "${(object.name or '').replace('/','_')}"
-msgstr ""
+msgstr "${(object.name or '').replace('/','_')}"
 
 #. module: delivery
 #: model:mail.template,subject:delivery.mail_template_data_delivery_confirmation
@@ -47,7 +48,14 @@ msgid ""
 "            Your tracking reference is\n"
 "            <strong>\n"
 "            %if object.carrier_tracking_url:\n"
-"                <a href=\"${object.carrier_tracking_url}\" target=\"_blank\">${object.carrier_tracking_ref}</a>.\n"
+"                % set multiple_carrier_tracking = object.get_multiple_carrier_tracking()\n"
+"                %if multiple_carrier_tracking:\n"
+"                    % for line in multiple_carrier_tracking:\n"
+"                        <br/><a href=\"${line[1]}\" target=\"_blank\">${line[0]}</a>\n"
+"                    % endfor\n"
+"                %else:\n"
+"                    <a href=\"${object.carrier_tracking_url}\" target=\"_blank\">${object.carrier_tracking_ref}</a>.\n"
+"                %endif\n"
 "            %else:\n"
 "                ${object.carrier_tracking_ref}.\n"
 "            %endif\n"
@@ -145,7 +153,7 @@ msgstr "Archivált"
 #. module: delivery
 #: model:ir.model.fields,field_description:delivery.field_sale_order__available_carrier_ids
 msgid "Available Carriers"
-msgstr ""
+msgstr "Elérhető szállítók"
 
 #. module: delivery
 #: selection:delivery.carrier,delivery_type:0
@@ -226,7 +234,7 @@ msgstr ""
 #. module: delivery
 #: model_terms:ir.actions.act_window,help:delivery.action_delivery_carrier_form
 msgid "Define a new delivery method"
-msgstr ""
+msgstr "Új szállítási módszer megadása"
 
 #. module: delivery
 #: model:product.category,name:delivery.product_category_deliveries
@@ -285,13 +293,13 @@ msgstr ""
 #: model:ir.ui.menu,name:delivery.menu_delivery_packagings
 #: model_terms:ir.ui.view,arch_db:delivery.product_packaging_delivery_tree
 msgid "Delivery Packages"
-msgstr ""
+msgstr "Kiszállítási csomagok"
 
 #. module: delivery
 #: model:ir.model.fields,field_description:delivery.field_choose_delivery_package__delivery_packaging_id
 #: model_terms:ir.ui.view,arch_db:delivery.product_packaging_delivery_form
 msgid "Delivery Packaging"
-msgstr ""
+msgstr "Szállítási csomagolás"
 
 #. module: delivery
 #: model:ir.model,name:delivery.model_delivery_price_rule
@@ -370,7 +378,7 @@ msgstr "Környezet"
 #: code:addons/delivery/models/delivery_grid.py:50
 #, python-format
 msgid "Error: this delivery method is not available for this address."
-msgstr ""
+msgstr "Hiba: ez a szállítási mód nem elérhető ezen a címen."
 
 #. module: delivery
 #: model:ir.model.fields,field_description:delivery.field_sale_order__delivery_price
@@ -407,7 +415,7 @@ msgstr "Ingyenes szállítás"
 #. module: delivery
 #: model:ir.model.fields,field_description:delivery.field_delivery_carrier__free_over
 msgid "Free if order amount is above"
-msgstr ""
+msgstr "Ingyenes, ha a rendelés értéke nagyobb"
 
 #. module: delivery
 #: selection:delivery.carrier,integration_level:0
@@ -577,6 +585,8 @@ msgstr ""
 #, python-format
 msgid "No price rule matching this order; delivery cost cannot be computed."
 msgstr ""
+"Nem található árazási szabály a rendeléshez; a szállítási költséget nem "
+"lehet kiszámítani."
 
 #. module: delivery
 #: model:delivery.carrier,name:delivery.normal_delivery_carrier
@@ -606,17 +616,17 @@ msgid "Package Code"
 msgstr "Csomag kód"
 
 #. module: delivery
-#: code:addons/delivery/models/stock_picking.py:35
-#: code:addons/delivery/models/stock_picking.py:122
+#: code:addons/delivery/models/stock_picking.py:40
+#: code:addons/delivery/models/stock_picking.py:134
 #, python-format
 msgid "Package Details"
 msgstr "Csomag részletei"
 
 #. module: delivery
-#: code:addons/delivery/wizard/choose_delivery_package.py:52
+#: code:addons/delivery/wizard/choose_delivery_package.py:60
 #, python-format
 msgid "Package too heavy!"
-msgstr ""
+msgstr "A csomag túl nehéz!"
 
 #. module: delivery
 #: model:ir.model,name:delivery.model_stock_quant_package
@@ -662,7 +672,7 @@ msgstr "Árazási szabályok"
 #. module: delivery
 #: model:ir.model,name:delivery.model_stock_move_line
 msgid "Product Moves (Stock Move Line)"
-msgstr ""
+msgstr "Termékmozgások (Készletmozgás sor)"
 
 #. module: delivery
 #: model:ir.model,name:delivery.model_product_packaging
@@ -743,7 +753,7 @@ msgstr ""
 "Állítsa Igaz -ra, ha a megbízottak a gyártásra minősítéssel rendelkeznek."
 
 #. module: delivery
-#: code:addons/delivery/models/stock_picking.py:171
+#: code:addons/delivery/models/stock_picking.py:184
 #, python-format
 msgid ""
 "Shipment sent to carrier %s for shipping with tracking number %s<br/>Cost: "
@@ -806,7 +816,7 @@ msgid "The Poste"
 msgstr "A posta"
 
 #. module: delivery
-#: code:addons/delivery/wizard/choose_delivery_package.py:53
+#: code:addons/delivery/wizard/choose_delivery_package.py:61
 #, python-format
 msgid ""
 "The weight of your package is higher than the maximum weight authorized for "
@@ -958,7 +968,7 @@ msgid "Width must be positive"
 msgstr "Szélességnek pozitívnak kell lennie"
 
 #. module: delivery
-#: code:addons/delivery/models/stock_picking.py:222
+#: code:addons/delivery/models/stock_picking.py:236
 #, python-format
 msgid ""
 "You are shipping different packaging types in the same shipment.\n"
@@ -979,7 +989,7 @@ msgid "You have multiple tracker links, they are available in the chatter."
 msgstr ""
 
 #. module: delivery
-#: code:addons/delivery/models/stock_picking.py:185
+#: code:addons/delivery/models/stock_picking.py:199
 #, python-format
 msgid ""
 "Your delivery method has no redirect on courier provider's website to track "

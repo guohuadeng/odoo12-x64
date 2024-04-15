@@ -4,9 +4,9 @@
 # 
 # Translators:
 # ТАрас <tratatuta@i.ua>, 2018
-# Bohdan Lisnenko, 2019
 # Martin Trigaux, 2019
-# Alina Lisnenko <alinasemeniuk1@gmail.com>, 2019
+# Bohdan Lisnenko, 2019
+# Alina Lisnenko <alinasemeniuk1@gmail.com>, 2021
 # 
 msgid ""
 msgstr ""
@@ -14,7 +14,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-14 07:34+0000\n"
 "PO-Revision-Date: 2018-08-24 09:20+0000\n"
-"Last-Translator: Alina Lisnenko <alinasemeniuk1@gmail.com>, 2019\n"
+"Last-Translator: Alina Lisnenko <alinasemeniuk1@gmail.com>, 2021\n"
 "Language-Team: Ukrainian (https://www.transifex.com/odoo/teams/41243/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1077,6 +1077,12 @@ msgid "Call"
 msgstr "Дзвінок"
 
 #. module: mail
+#: code:addons/mail/models/mail_notification.py:57
+#, python-format
+msgid "Can not update the message or recipient of a notification."
+msgstr "Не можливо оновити повідомлення або отримувача сповіщення."
+
+#. module: mail
 #. openerp-web
 #: code:addons/mail/static/src/js/followers.js:365
 #: code:addons/mail/static/src/xml/activity.xml:86
@@ -1818,10 +1824,17 @@ msgstr "Назва документу"
 
 #. module: mail
 #. openerp-web
+#: code:addons/mail/static/src/xml/thread.xml:524
+#, python-format
+msgid "Document not downloadable"
+msgstr "Документ не завантажується"
+
+#. module: mail
+#. openerp-web
 #: code:addons/mail/static/src/xml/activity.xml:101
 #, python-format
 msgid "Done"
-msgstr "Готово"
+msgstr "Виконано"
 
 #. module: mail
 #. openerp-web
@@ -1829,7 +1842,7 @@ msgstr "Готово"
 #: model_terms:ir.ui.view,arch_db:mail.mail_activity_view_form_popup
 #, python-format
 msgid "Done & Launch Next"
-msgstr "Готово та Запустити наступне"
+msgstr "Виконати та запустити наступне"
 
 #. module: mail
 #. openerp-web
@@ -1837,7 +1850,7 @@ msgstr "Готово та Запустити наступне"
 #: model_terms:ir.ui.view,arch_db:mail.mail_activity_view_form_popup
 #, python-format
 msgid "Done & Schedule Next"
-msgstr "Готово та Запланувати наступне"
+msgstr "Виконано та Запланувати наступне"
 
 #. module: mail
 #. openerp-web
@@ -2316,6 +2329,14 @@ msgstr "Тільки підписники"
 #, python-format
 msgid "Following"
 msgstr "Підписка"
+
+#. module: mail
+#: code:addons/mail/models/mail_channel.py:778
+#, python-format
+msgid "Following invites are invalid as user groups do not match: %s"
+msgstr ""
+"Наступні запрошення недійсні, оскільки групи копистувачів не узгоджуються: "
+"%s"
 
 #. module: mail
 #: model:ir.model.fields,help:mail.field_mail_activity__icon
@@ -3257,6 +3278,13 @@ msgid "Mark as done"
 msgstr "Позначити як зроблено"
 
 #. module: mail
+#. openerp-web
+#: code:addons/mail/static/src/xml/thread.xml:300
+#, python-format
+msgid "Mark as todo"
+msgstr "Позначити як зробити"
+
+#. module: mail
 #: model:ir.ui.menu,name:mail.mail_blacklist_menu
 msgid "Mass Mail Blacklist"
 msgstr "Чорний список масової розсилки"
@@ -4045,6 +4073,20 @@ msgid "Online"
 msgstr "Онлайн"
 
 #. module: mail
+#: code:addons/mail/models/mail_message.py:1052
+#, python-format
+msgid "Only administrators are allowed to export mail message"
+msgstr "Лише адміністратори можуть експортувати повідомлення пошти"
+
+#. module: mail
+#: code:addons/mail/models/mail_message.py:1043
+#, python-format
+msgid "Only administrators are allowed to use grouped read on message model"
+msgstr ""
+"Лише адміністратори можуть використовувати групове читання на моделі "
+"повідомлення"
+
+#. module: mail
 #: code:addons/mail/models/mail_channel.py:436
 #, python-format
 msgid ""
@@ -4544,7 +4586,7 @@ msgstr "Відповідь:"
 #: code:addons/mail/static/src/xml/thread.xml:400
 #, python-format
 msgid "Ready"
-msgstr "Готово"
+msgstr "Підготовлено"
 
 #. module: mail
 #: selection:mail.notification,email_status:0
@@ -4970,6 +5012,13 @@ msgstr "Надіслати повідомлення"
 
 #. module: mail
 #. openerp-web
+#: code:addons/mail/static/src/xml/discuss.xml:141
+#, python-format
+msgid "Send by mail"
+msgstr "Надіслати поштою"
+
+#. module: mail
+#. openerp-web
 #: code:addons/mail/static/src/js/discuss.js:145
 #, python-format
 msgid "Send explanation to author"
@@ -5362,6 +5411,12 @@ msgstr ""
 "потрібного власника на основі адреси відправника (від) або використовувати "
 "обліковий запис адміністратора, якщо для цієї адреси не знайдено системного "
 "користувача."
+
+#. module: mail
+#: code:addons/mail/models/mail_channel.py:0
+#, python-format
+msgid "The partner can not join this channel"
+msgstr "Партнер не може приєднатися до цього каналу"
 
 #. module: mail
 #: code:addons/mail/models/mail_activity.py:243
@@ -5810,6 +5865,29 @@ msgstr "Назва поля користувача"
 
 #. module: mail
 #. openerp-web
+#: code:addons/mail/static/src/xml/discuss.xml:157
+#: code:addons/mail/static/src/xml/discuss.xml:278
+#, python-format
+msgid "User is idle"
+msgstr "Користувач незайнятий"
+
+#. module: mail
+#. openerp-web
+#: code:addons/mail/static/src/xml/discuss.xml:158
+#, python-format
+msgid "User is offline"
+msgstr "Користувач офлайн"
+
+#. module: mail
+#. openerp-web
+#: code:addons/mail/static/src/xml/discuss.xml:156
+#: code:addons/mail/static/src/xml/discuss.xml:277
+#, python-format
+msgid "User is online"
+msgstr "Користувач онлайн"
+
+#. module: mail
+#. openerp-web
 #: code:addons/mail/static/src/xml/discuss.xml:62
 #: code:addons/mail/static/src/xml/thread_window.xml:11
 #, python-format
@@ -6059,6 +6137,13 @@ msgstr "Ви у каналі <b>#%s</b>."
 
 #. module: mail
 #. openerp-web
+#: code:addons/mail/static/src/js/attachment_box.js:132
+#, python-format
+msgid "You are not allowed to upload an attachment here."
+msgstr "У вас немає дозволу завантажувати тут прикріплення."
+
+#. module: mail
+#. openerp-web
 #: code:addons/mail/static/src/js/discuss.js:338
 #, python-format
 msgid ""
@@ -6076,6 +6161,24 @@ msgid ""
 msgstr ""
 "Ви можете позначити будь-яке повідомлення \"зірочкою\", і воно "
 "відображатиметься у цій поштовій скриньці."
+
+#. module: mail
+#: cod:addons/mail/models/mail_channel.py:0
+#, python-format
+msgid "You can not remove this partner from this channel"
+msgstr "Ви не можете вилучити партнера з цього каналу"
+
+#. module: mail
+#: code:addons/mail/models/mail_channel.py:0
+#, python-format
+msgid "You can not write on the record of other users"
+msgstr "Ви не можете писати на записі інших користувачів"
+
+#. module: mail
+#: code:addons/mail/models/mail_channel.py:0
+#, python-format
+msgid "You can not write on this field"
+msgstr "Ви не можете писати на цьому полі"
 
 #. module: mail
 #: code:addons/mail/models/res_users.py:87
@@ -6096,6 +6199,16 @@ msgid ""
 msgstr ""
 "Ви не можете видалити ці групи, тому що інші групи потрібні для всієї групи "
 "компаній."
+
+#. module: mail
+#: code:addons/mail/models/mail_alias.py:89
+#, python-format
+msgid ""
+"You cannot use anything else than unaccented latin characters in the alias "
+"address."
+msgstr ""
+"Ви не можете використовувати нічого окрім приголосних латинських символів у "
+"адресі псевдоніму."
 
 #. module: mail
 #: code:addons/mail/models/mail_channel.py:257
@@ -6122,8 +6235,8 @@ msgstr "Ви були призначені для"
 #. openerp-web
 #: code:addons/mail/static/src/js/services/mail_notification_manager.js:198
 #, python-format
-msgid "You have been invited to: "
-msgstr "Вас запрошено до:"
+msgid "You have been invited to: %s"
+msgstr "Вас запросили до: %s"
 
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.mail_channel_notify_moderation

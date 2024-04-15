@@ -143,9 +143,9 @@ class AccountReconciliation(models.AbstractModel):
         reconcile_model = self.env['account.reconcile.model'].search([('rule_type', '!=', 'writeoff_button')])
 
         # Search for missing partners when opening the reconciliation widget.
-        partner_map = self._get_bank_statement_line_partners(bank_statement_lines)
-
-        matching_amls = reconcile_model._apply_rules(bank_statement_lines, excluded_ids=excluded_ids, partner_map=partner_map)
+        if bank_statement_lines:
+            partner_map = self._get_bank_statement_line_partners(bank_statement_lines)
+            matching_amls = reconcile_model._apply_rules(bank_statement_lines, excluded_ids=excluded_ids, partner_map=partner_map)
 
         results = {
             'lines': [],
@@ -484,17 +484,20 @@ class AccountReconciliation(models.AbstractModel):
         """
 
         domain_reconciliation = [
-            '&', '&',
+            '&', '&', '&',
             ('statement_line_id', '=', False),
             ('account_id', 'in', aml_accounts),
-            ('payment_id', '<>', False)
+            ('payment_id', '<>', False),
+            ('balance', '!=', 0.0),
         ]
 
         # default domain matching
-        domain_matching = expression.AND([
-            [('reconciled', '=', False)],
-            [('account_id.reconcile', '=', True)]
-        ])
+        domain_matching = [
+            '&', '&',
+            ('reconciled', '=', False),
+            ('account_id.reconcile', '=', True),
+            ('balance', '!=', 0.0),
+        ]
 
         domain = expression.OR([domain_reconciliation, domain_matching])
         if partner_id:
@@ -527,13 +530,28 @@ class AccountReconciliation(models.AbstractModel):
     @api.model
     def _domain_move_lines_for_manual_reconciliation(self, account_id, partner_id=False, excluded_ids=None, search_str=False):
         """ Create domain criteria that are relevant to manual reconciliation. """
-        domain = ['&', '&', ('reconciled', '=', False), ('account_id', '=', account_id), '|', ('move_id.state', '=', 'posted'), '&', ('move_id.state', '=', 'draft'), ('move_id.journal_id.post_at_bank_rec', '=', True)]
+        domain = [
+            '&',
+                '&',
+                    ('reconciled', '=', False),
+                    ('account_id', '=', account_id),
+                '|',
+                    ('move_id.state', '=', 'posted'),
+                    '&',
+                        ('move_id.state', '=', 'draft'),
+                        ('move_id.journal_id.post_at_bank_rec', '=', True),
+            ]
+        domain = expression.AND([domain, [('balance', '!=', 0.0)]])
         if partner_id:
             domain = expression.AND([domain, [('partner_id', '=', partner_id)]])
         if excluded_ids:
             domain = expression.AND([[('id', 'not in', excluded_ids)], domain])
         if search_str:
             str_domain = self._domain_move_lines(search_str=search_str)
+            str_domain = expression.OR([
+                str_domain,
+                [('partner_id.name', 'ilike', search_str)]
+            ])
             domain = expression.AND([domain, str_domain])
         # filter on account.move.line having the same company as the given account
         account = self.env['account.account'].browse(account_id)
@@ -714,13 +732,15 @@ class AccountReconciliation(models.AbstractModel):
             AND move_b.journal_id = journal_b.id
             AND (move_b.state = 'posted' OR (move_b.state = 'draft' AND journal_b.post_at_bank_rec))
             AND a.amount_residual = -b.amount_residual
+            AND a.balance != 0.0
+            AND b.balance != 0.0
             AND NOT a.reconciled
             AND a.account_id = %s
             AND (%s IS NULL AND b.account_id = %s)
             AND (%s IS NULL AND NOT b.reconciled OR b.id = %s)
             AND (%s is NULL OR (a.partner_id = %s AND b.partner_id = %s))
-            AND a.id IN (SELECT id FROM {0})
-            AND b.id IN (SELECT id FROM {0})
+            AND a.id IN (SELECT "account_move_line".id FROM {0})
+            AND b.id IN (SELECT "account_move_line".id FROM {0})
             ORDER BY a.date desc
             LIMIT 1
             """.format(from_clause + where_str)
