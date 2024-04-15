@@ -1,4 +1,4 @@
-#!d:\odoo12-x64\runtime\python3\python3.exe
+#!d:\odoo13-x64\runtime\python3\python.exe
 
 ##############################################################################
 #

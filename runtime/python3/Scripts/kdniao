@@ -1,0 +1,134 @@
+#!d:\odoo13-x64\runtime\python3\python.exe
+# coding=utf-8
+"""
+Command line for kdniao https://github.com/menduo/kdniao_python
+
+install
+    pip install kdniao
+
+usage:
+    $ kdniao {运单号} --s=快递公司编码 --o=订单号 --ik={APP_ID},{APP_KEY}
+
+    如：
+    $ kdniao 12345678 --s YTO
+    $ kdniao 12345678 --ik={APP_ID},{APP_KEY}
+
+"""
+import argparse
+import sys, os
+from os.path import join
+
+uppath = lambda _path, n: os.sep.join(_path.split(os.sep)[:-n])
+_p_parent_dir = uppath(os.path.abspath(__file__), 2)
+_path_of_kdniao_dir = join(uppath(os.path.abspath(__file__), 2), "kdniao")
+
+if os.path.exists(join(_path_of_kdniao_dir, "client.py")):
+    sys.path.insert(0, _p_parent_dir)
+
+from kdniao.client import KdNiaoClient
+from kdniao import __version__
+
+CLIENT = None
+
+
+def get_env_data():
+    """
+    get env data
+    :return:
+    """
+    env = os.environ
+    app_id = env.get("KDNIAO_APP_ID")
+    app_key = env.get("KDNIAO_APP_KEY")
+    env_type = env.get("KDNIAO_ENV_TYPE", "prod")
+    return app_id, app_key, env_type
+
+
+def parse_args():
+    """
+    Define and parse `optparse` options for command-line usage.
+    """
+    usage = """kdniao 运单号 [--s=快递公司编号 --ik=AppId,AppKey]"""
+    desc = "快递鸟 ～～～ %s" % __version__
+
+    parser = argparse.ArgumentParser(usage=usage, description=desc)
+    parser.add_argument("logistic_code", type=str, help="logistic code 运单号")
+    parser.add_argument("--s", dest="shipper_code", type=str, default="",
+                        help="[可选]shipper code 快递公司编码（快递鸟官方编码）")
+    parser.add_argument("--o", dest="order_code", type=str, default="",
+                        help="[可选]order code 订单号")
+
+    parser.add_argument("--ik", dest="ik", type=str, default="",
+                        help="app_id,app_key, .eg: --ik=1,2")
+
+    return parser.parse_args()
+
+
+def track(logistic_code, shipper_code="", order_code=""):
+    """
+    即时查询
+    :param str logistic_code: 运单编号
+    :param str shipper_code: 快递公司编码，快递鸟版
+    :param str order_code: 订单编号
+    :return:
+    """
+
+    if shipper_code:
+        resp = CLIENT.track(logistic_code, shipper_code, order_code)
+    else:
+        res = CLIENT.recognise(logistic_code)
+        shipper_list = res.get("data", {}).get("Shippers", [])
+        shipper_code = None
+
+        if shipper_list:
+            shipper_code = shipper_list[0]["ShipperCode"]
+        if not shipper_code:
+            return
+        resp = CLIENT.track(logistic_code, shipper_code, order_code)
+
+    return resp
+
+
+def main(logistic_code, shipper_code="", order_code=""):
+    """
+    入口
+    :param str logistic_code: 运单编号
+    :param str shipper_code: 快递公司编码，快递鸟版
+    :param str order_code: 订单编号
+    :return:
+    """
+    r = track(logistic_code, shipper_code, order_code) or {}
+
+    r_data = r.get("data", {})
+    trace_list = r_data.get("Traces", [])
+
+    if trace_list:
+        msg_temp = "%s - %s"
+        for i in trace_list:
+            accept_time = i["AcceptTime"]
+            accept_station = i["AcceptStation"]
+            print(msg_temp % (accept_time, accept_station))
+    else:
+        print("没有找到路由信息")
+
+
+if __name__ == '__main__':
+    args = parse_args()
+
+    _e = [app_id, app_key, env_type] = get_env_data()
+    if not all(_e):
+        _ik = [str(i).strip() for i in args.ik.split(",") if str(i).strip()]
+        if not _ik:
+            _ik = ["", "", ""]
+        else:
+            _ik = _ik + ["prod"]
+        _e = [app_id, app_key, env_type] = _ik
+
+    if not all(_e):
+        print("\n")
+        print("\tboth app_id and app_key are required!!!")
+        print("\n")
+        sys.exit(1)
+
+    CLIENT = KdNiaoClient(app_id, app_key, env_type)
+
+    main(args.logistic_code, args.shipper_code, args.order_code)

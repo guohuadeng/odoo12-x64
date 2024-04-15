@@ -1,4 +1,4 @@
-#!d:\odoo11-x64\runtime\python3\python3.exe
+#!d:\odoo13-x64\runtime\python3\python.exe
 
 # $Id: rst2xetex.py 7038 2011-05-19 09:12:02Z milde $
 # Author: Guenter Milde

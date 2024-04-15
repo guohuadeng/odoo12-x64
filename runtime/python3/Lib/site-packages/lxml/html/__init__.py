@@ -46,7 +46,6 @@ import re
 from functools import partial
 
 try:
-    # while unnecessary, importing from 'collections.abc' is the right way to do it
     from collections.abc import MutableMapping, MutableSet
 except ImportError:
     from collections import MutableMapping, MutableSet
@@ -1323,13 +1322,19 @@ class SelectElement(InputMixin, HtmlElement):
         """
         if self.multiple:
             return MultipleSelectOptions(self)
-        for el in _options_xpath(self):
-            if el.get('selected') is not None:
-                value = el.get('value')
-                if value is None:
-                    value = (el.text or '').strip()
-                return value
-        return None
+        options = _options_xpath(self)
+
+        try:
+            selected_option = next(el for el in reversed(options) if el.get('selected') is not None)
+        except StopIteration:
+            try:
+                selected_option = next(el for el in options if el.get('disabled') is None)
+            except StopIteration:
+                return None
+        value = selected_option.get('value')
+        if value is None:
+            value = (selected_option.text or '').strip()
+        return value
 
     @value.setter
     def value(self, value):
@@ -1782,7 +1787,7 @@ def tostring(doc, pretty_print=False, include_meta_content_type=False,
     regardless of the value of include_meta_content_type any existing
     ``<meta http-equiv="Content-Type" ...>`` tag will be removed
 
-    The ``encoding`` argument controls the output encoding (defauts to
+    The ``encoding`` argument controls the output encoding (defaults to
     ASCII, with &#...; character references for any characters outside
     of ASCII).  Note that you can pass the name ``'unicode'`` as
     ``encoding`` argument to serialise to a Unicode string.

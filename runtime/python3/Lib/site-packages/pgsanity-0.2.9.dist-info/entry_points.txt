@@ -1,0 +1,3 @@
+[console_scripts]
+pgsanity = pgsanity.pgsanity:main
+

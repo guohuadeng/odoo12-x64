@@ -1,0 +1,20 @@
+<office:document-content office:version="1.2"
+    xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0"
+    xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+    <office:body>
+        <office:text text:use-soft-page-breaks="true">
+            <text:p text:style-name="P22">
+                <text:a xlink:type="simple" xlink:href="py3o://for=&quot;item in items&quot;">
+                    <text:span text:style-name="T34">for="item in items"</text:span>
+                </text:a>
+                <text:span text:style-name="T39"><text:line-break/></text:span>
+            </text:p>
+            <text:p text:style-name="P22">
+                <text:a xlink:type="simple" xlink:href="py3o:///for">
+                    <text:span text:style-name="T63">/for</text:span>
+                </text:a>
+            </text:p>
+        </office:text>
+    </office:body>
+</office:document-content>

@@ -71,7 +71,7 @@ True
 '...'
 """
 import bisect
-import unicodedata  # Python 2.5 onward
+import unicodedata
 
 from .util import UnicodeMixin, unicod, u
 
@@ -403,6 +403,7 @@ def digit(uni_char, default_value=None):
         return unicodedata.digit(uni_char, default_value)
     else:
         return unicodedata.digit(uni_char)
+
 
 if __name__ == '__main__':  # pragma no cover
     import doctest

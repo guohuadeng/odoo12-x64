@@ -33,7 +33,7 @@ from .phonemetadata import PhoneMetadata
 from .phonenumberutil import _VALID_PUNCTUATION, REGION_CODE_FOR_NON_GEO_ENTITY
 from .phonenumberutil import _PLUS_SIGN, _PLUS_CHARS_PATTERN
 from .phonenumberutil import _extract_country_code, region_code_for_country_code
-from .phonenumberutil import country_code_for_region
+from .phonenumberutil import country_code_for_region, normalize_diallable_chars_only
 from .phonenumberutil import _formatting_rule_has_first_group_only
 
 # Character used when appropriate to separate a prefix, such as a long NDD or
@@ -42,16 +42,6 @@ _SEPARATOR_BEFORE_NATIONAL_NUMBER = U_SPACE
 _EMPTY_METADATA = PhoneMetadata(id=unicod(""),
                                 international_prefix=unicod("NA"),
                                 register=False)
-
-# A pattern that is used to match character classes in regular expressions. An
-# example of a character class is [1-4].
-_CHARACTER_CLASS_PATTERN = re.compile(unicod("\\[([^\\[\\]])*\\]"))
-# Any digit in a regular expression that actually denotes a digit. For
-# example, in the regular expression 80[0-2]\d{6,10}, the first 2 digits (8
-# and 0) are standalone digits, but the rest are not.
-# Two look-aheads are needed because the number following \\d could be a
-# two-digit number, since the phone number can be as long as 15 digits.
-_STANDALONE_DIGIT_PATTERN = re.compile(unicod("\\d(?=[^,}][^,}])"))
 
 # A set of characters that, if found in a national prefix formatting rules, are an indicator to
 # us that we should separate the national prefix from the number when formatting.
@@ -135,22 +125,35 @@ class AsYouTypeFormatter(object):
         return False
 
     def _get_available_formats(self, leading_digits):
-        if (self._is_complete_number and
+        # First decide whether we should use international or national number rules.
+        is_international_number = (self._is_complete_number and len(self._extracted_national_prefix) == 0)
+        if (is_international_number and
             len(self._current_metadata.intl_number_format) > 0):
             format_list = self._current_metadata.intl_number_format
         else:
             format_list = self._current_metadata.number_format
-        national_prefix_is_used_by_country = (self._current_metadata.national_prefix is not None)
         for this_format in format_list:
-            if (not national_prefix_is_used_by_country or self._is_complete_number or
-                this_format.national_prefix_optional_when_formatting or
-                _formatting_rule_has_first_group_only(this_format.national_prefix_formatting_rule)):
-                if self._is_format_eligible(this_format.format):
-                    self._possible_formats.append(this_format)
+            # Discard a few formats that we know are not relevant based on the presence of the national
+            # prefix.
+            if (len(self._extracted_national_prefix) > 0 and
+                _formatting_rule_has_first_group_only(this_format.national_prefix_formatting_rule) and
+                not this_format.national_prefix_optional_when_formatting and
+                not (this_format.domestic_carrier_code_formatting_rule is not None)):
+                # If it is a national number that had a national prefix, any rules that aren't valid with a
+                # national prefix should be excluded. A rule that has a carrier-code formatting rule is
+                # kept since the national prefix might actually be an extracted carrier code - we don't
+                # distinguish between these when extracting it in the AYTF.
+                continue
+            elif (len(self._extracted_national_prefix) == 0 and
+                  not self._is_complete_number and
+                  not _formatting_rule_has_first_group_only(this_format.national_prefix_formatting_rule) and
+                  not this_format.national_prefix_optional_when_formatting):
+                # This number was entered without a national prefix, and this formatting rule requires one,
+                # so we discard it.
+                continue
+            if fullmatch(_ELIGIBLE_FORMAT_PATTERN, this_format.format):
+                self._possible_formats.append(this_format)
         self._narrow_down_possible_formats(leading_digits)
-
-    def _is_format_eligible(self, format):
-        return fullmatch(_ELIGIBLE_FORMAT_PATTERN, format)
 
     def _narrow_down_possible_formats(self, leading_digits):
         index_of_leading_digits_pattern = len(leading_digits) - _MIN_LEADING_DIGITS_LENGTH
@@ -172,17 +175,6 @@ class AsYouTypeFormatter(object):
 
     def _create_formatting_template(self, num_format):
         number_pattern = num_format.pattern
-
-        # The formatter doesn't format numbers when number_pattern contains
-        # "|", e.g.  (20|3)\d{4}. In those cases we quickly return.
-        if number_pattern.find('|') != -1:
-            return False
-
-        # Replace anything in the form of [..] with \d
-        number_pattern = re.sub(_CHARACTER_CLASS_PATTERN, unicod("\\\\d"), number_pattern)
-
-        # Replace any standalone digit (not the one in d{}) with \d
-        number_pattern = re.sub(_STANDALONE_DIGIT_PATTERN, unicod("\\\\d"), number_pattern)
         self.formatting_template = U_EMPTY_STRING
         temp_template = self._get_formatting_template(number_pattern, num_format.format)
         if len(temp_template) > 0:
@@ -402,7 +394,18 @@ class AsYouTypeFormatter(object):
                 else:
                     self._should_add_space_after_national_prefix = bool(_NATIONAL_PREFIX_SEPARATORS_PATTERN.search(number_format.national_prefix_formatting_rule))
                 formatted_number = re.sub(num_re, number_format.format, self._national_number)
-                return self._append_national_number(formatted_number)
+                # Check that we did not remove nor add any extra digits when we matched
+                # this formatting pattern. This usually happens after we entered the last
+                # digit during AYTF. Eg: In case of MX, we swallow mobile token (1) when
+                # formatted but AYTF should retain all the number entered and not change
+                # in order to match a format (of same leading digits and length) display
+                # in that way.
+                full_output = self._append_national_number(formatted_number)
+                formatted_number_digits_only = normalize_diallable_chars_only(full_output)
+                if formatted_number_digits_only == self._accrued_input_without_formatting:
+                    # If it's the same (i.e entered number and format is same), then it's
+                    # safe to return this in formatted number as nothing is lost / added.
+                    return full_output
         return U_EMPTY_STRING
 
     def get_remembered_position(self):

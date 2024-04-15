@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: Genshi
+Version: 0.7.5
+Summary: A toolkit for generation of output for the web
+Home-page: https://github.com/edgewall/genshi
+Author: Edgewall Software
+Author-email: info@edgewall.org
+License: BSD
+Keywords: python.templating.engines
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Text Processing :: Markup :: HTML
+Classifier: Topic :: Text Processing :: Markup :: XML
+Requires-Dist: six
+Provides-Extra: i18n
+Requires-Dist: Babel (>=0.8) ; extra == 'i18n'
+Provides-Extra: plugin
+Requires-Dist: setuptools (>=0.6a2) ; extra == 'plugin'
+
+Genshi is a Python library that provides an integrated set of
+components for parsing, generating, and processing HTML, XML or
+other textual content for output generation on the web. The major
+feature is a template language, which is heavily inspired by Kid.
+

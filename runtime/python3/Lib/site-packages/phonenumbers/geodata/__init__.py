@@ -4,7 +4,7 @@ Auto-generated file, do not edit by hand.
 """
 from ..util import u
 
-# Copyright (C) 2011-2018 The Libphonenumber Authors
+# Copyright (C) 2011-2019 The Libphonenumber Authors
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -68,14 +68,6 @@ GEOCODE_DATA.update(data)
 from .data23 import data
 GEOCODE_DATA.update(data)
 from .data24 import data
-GEOCODE_DATA.update(data)
-from .data25 import data
-GEOCODE_DATA.update(data)
-from .data26 import data
-GEOCODE_DATA.update(data)
-from .data27 import data
-GEOCODE_DATA.update(data)
-from .data28 import data
 GEOCODE_DATA.update(data)
 del data
 GEOCODE_LONGEST_PREFIX = 9

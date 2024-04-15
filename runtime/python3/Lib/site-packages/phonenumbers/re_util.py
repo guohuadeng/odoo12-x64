@@ -9,7 +9,7 @@ with Java regular expression code.
 >>> r2 = re.compile('bc')
 >>> r3 = re.compile('abc')
 >>> fullmatch(r1, string)  # doctest: +ELLIPSIS
-<...SRE_Match object...>
+<...Match object...>
 >>> fullmatch(r2, string)
 >>> fullmatch(r3, string)
 >>> r = re.compile(r'\\d{8}|\\d{10,11}')
@@ -37,6 +37,7 @@ def fullmatch(pattern, string, flags=0):
         # end of the regexp), treat as failure.
         m = None  # pragma no cover
     return m
+
 
 if __name__ == '__main__':  # pragma no cover
     import doctest
