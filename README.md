@@ -7,7 +7,7 @@ Green Odoo 12 x64， http://www.Sunpop.cn
 因速度原因，不再支持一键更新至最新版，请手工高速下载 https://nightly.odoocdn.com/12.0/nightly/src/odoo_12.0.latest.zip
 
 ## 版本信息
-1. python 3.5,64位
+1. python 3.7.5,64位
 2. postgresql 9.6.4 ,64位
 3. Nginx 1.15.5， 64位
 4. Odoo 12社区版，20191123版本
@@ -80,6 +80,8 @@ https://www.python.org/downloads/windows/
 ```
 SET PATH=%CD%\runtime\pgsql\bin;%CD%\runtime\python3;%CD%\runtime\python3\scripts;%CD%\runtime\win32\wkhtmltopdf;%CD%\runtime\win32\nodejs;%CD%\source;%PATH%
 python3 .\extra\get-pip.py
+pip install .\source\requirements.txt --target D:\odoo12-x64\runtime\python3\Lib\site-packages
+pip install PyPDF2==1.26.0 --target D:\odoo12-x64\runtime\python3\Lib\site-packages
 ```
 ## 对某些要编译的Python包，在此找
 ```
