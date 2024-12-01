@@ -13,7 +13,7 @@ libsass==0.12.3
 lxml==3.7.1 ; sys_platform != 'win32' and python_version < '3.7'
 lxml==4.2.3 ; sys_platform != 'win32' and python_version >= '3.7'
 lxml ; sys_platform == 'win32'
-Mako==1.0.4
+Mako==1.2.2
 MarkupSafe==0.23
 mock==2.0.0
 num2words==0.5.6
